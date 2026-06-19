@@ -28,7 +28,7 @@ jobs:
 
       - name: Run scraper
         run: |
-          python oil_scraper.py --rescrape
+          python oil_scraper-5.py --rescrape
 
       - name: Commit updated data files
         run: |
