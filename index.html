@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Black Bear Bio — Oil Collection Dashboard</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      padding: 16px 32px;
+      background: #161b22;
+      border-bottom: 1px solid #30363d;
+    }
+
+    header img {
+      height: 64px;
+      margin-right: 20px;
+    }
+
+    header h1 {
+      font-size: 24px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: #8b949e;
+      margin-bottom: 3px;
+    }
+
+    .last-updated {
+      margin-left: auto;
+      font-size: 12px;
+      color: #8b949e;
+    }
+
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: #30363d;
+    }
+
+    .stat {
+      background: #161b22;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .stat-val {
+      font-size: 28px;
+      font-weight: bold;
+      color: #3fb950;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: #8b949e;
+      margin-top: 4px;
+    }
+
+    .main {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      height: calc(100vh - 142px);
+    }
+
+    .map-panel {
+      position: relative;
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+      background: #f8f8f8;
+    }
+
+    .time-controls {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      background: rgba(22, 27, 34, 0.95);
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 16px 24px;
+      width: 520px;
+      text-align: center;
+    }
+
+    .month-label {
+      color: #3fb950;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    #month-slider {
+      width: 100%;
+      accent-color: #3fb950;
+    }
+
+    .slider-controls {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    button, select {
+      background: #21262d;
+      color: #e6edf3;
+      border: 1px solid #30363d;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover, select:hover {
+      background: #30363d;
+    }
+
+    button.active {
+      background: #3fb950;
+      color: #0d1117;
+    }
+
+    .map-legend {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 1000;
+      background: rgba(22, 27, 34, 0.95);
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 12px;
+    }
+
+    .legend-title {
+      color: #8b949e;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 5px;
+    }
+
+    .legend-swatch {
+      width: 22px;
+      height: 14px;
+      border: 1px solid #555;
+    }
+
+    .right-panel {
+      background: #161b22;
+      border-left: 1px solid #30363d;
+      overflow-y: auto;
+    }
+
+    .panel-tabs {
+      display: flex;
+      border-bottom: 1px solid #30363d;
+    }
+
+    .tab {
+      flex: 1;
+      padding: 12px;
+      text-align: center;
+      color: #8b949e;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+    }
+
+    .tab.active {
+      color: #3fb950;
+      border-bottom-color: #3fb950;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 16px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .chart-title {
+      color: #8b949e;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .chart-container {
+      height: 220px;
+      margin-bottom: 24px;
+    }
+
+    .town-list {
+      list-style: none;
+    }
+
+    .town-item {
+      padding: 8px 0;
+      border-bottom: 1px solid #21262d;
+    }
+
+    .town-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+    }
+
+    .town-gal {
+      color: #3fb950;
+      font-weight: bold;
+    }
+
+    .town-bar {
+      height: 4px;
+      background: #3fb950;
+      margin-top: 4px;
+      border-radius: 2px;
+    }
+
+    .tooltip-box {
+      background: #161b22;
+      color: #e6edf3;
+      border: 1px solid #30363d;
+      padding: 8px;
+      border-radius: 6px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.png" alt="Black Bear Bio" onerror="this.style.display='none'">
+  <div>
+    <div class="subtitle">Oil Collection Dashboard</div>
+    <h1>Black Bear Bio</h1>
+  </div>
+  <div class="last-updated" id="last-updated">Loading...</div>
+</header>
+
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-val" id="stat-alltime">—</div>
+    <div class="stat-label">All-Time Gallons</div>
+  </div>
+  <div class="stat">
+    <div class="stat-val" id="stat-year">—</div>
+    <div class="stat-label">This Year</div>
+  </div>
+  <div class="stat">
+    <div class="stat-val" id="stat-month">—</div>
+    <div class="stat-label">Selected Month</div>
+  </div>
+  <div class="stat">
+    <div class="stat-val" id="stat-customers">—</div>
+    <div class="stat-label">Customers</div>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="map-panel">
+    <div id="map"></div>
+
+    <div class="map-legend">
+      <div class="legend-title">Gallons</div>
+      <div id="legend-items"></div>
+    </div>
+
+    <div class="time-controls">
+      <div class="month-label" id="month-label">—</div>
+      <input type="range" id="month-slider" min="0" value="0">
+
+      <div class="slider-controls">
+        <button id="btn-prev">◀ Prev</button>
+        <button id="btn-play">▶ Play</button>
+        <button id="btn-next">Next ▶</button>
+
+        <select id="view-mode">
+          <option value="month">Monthly</option>
+          <option value="ytd">Year to Date</option>
+          <option value="alltime">All Time</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="right-panel">
+    <div class="panel-tabs">
+      <div class="tab active" onclick="switchTab('trends')">Trends</div>
+      <div class="tab" onclick="switchTab('towns')">Towns</div>
+      <div class="tab" onclick="switchTab('counties')">Counties</div>
+    </div>
+
+    <div class="tab-content active" id="tab-trends">
+      <div class="chart-title">Monthly Gallons</div>
+      <div class="chart-container">
+        <canvas id="chart-monthly"></canvas>
+      </div>
+
+      <div class="chart-title">Yearly Totals</div>
+      <div class="chart-container">
+        <canvas id="chart-yearly"></canvas>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-towns">
+      <div class="chart-title">Top Towns</div>
+      <ul class="town-list" id="town-list"></ul>
+    </div>
+
+    <div class="tab-content" id="tab-counties">
+      <div class="chart-title">County Totals</div>
+      <div class="chart-container">
+        <canvas id="chart-counties"></canvas>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+let allData = null;
+let geoData = null;
+let months = [];
+let currentIdx = 0;
+let playInterval = null;
+let geojsonLayer = null;
+let monthlyByTown = {};
+let monthlyByCounty = {};
+let yearlyTotals = {};
+let countyChart = null;
+
+const TOWN_NAME_MAP = {
+  "St. Albans": "Saint Albans",
+  "St. Albans City": "Saint Albans",
+  "St Albans": "Saint Albans",
+  "St. Johnsbury": "Saint Johnsbury",
+  "Hinesburgh": "Hinesburg",
+  "Betlin": "Berlin",
+  "S. Barre": "Barre",
+  "Montgomery Center": "Montgomery",
+  "Craftsbury Common": "Craftsbury",
+  "Jericho Center": "Jericho",
+  "Eden Mills": "Eden",
+  "Enosburgh Falls": "Enosburg",
+  "Enosburg Falls": "Enosburg",
+  "Randolph Center": "Randolph",
+  "South Pomfret": "Pomfret",
+  "South Royalton": "Royalton",
+  "Manchester Center": "Manchester",
+  "Bolton Valley": "Bolton",
+  "West Dover": "Dover",
+  "East Barre": "Barre",
+  "Graniteville": "Barre"
+};
+
+function normalizeTown(name) {
+  if (!name) return "";
+  return TOWN_NAME_MAP[name] || name;
+}
+
+const COLOR_BREAKS = [
+  { min: 9000, color: "#1a4a1a", label: "9,000+ gal" },
+  { min: 3000, color: "#2d6e2d", label: "3,000–9,000" },
+  { min: 1500, color: "#4b7f42", label: "1,500–3,000" },
+  { min: 750,  color: "#6f8f61", label: "750–1,500" },
+  { min: 375,  color: "#9aaa91", label: "375–750" },
+  { min: 175,  color: "#c6d0c1", label: "175–375" },
+  { min: 10,   color: "#e5ebe3", label: "10–175" },
+  { min: 0,    color: "#ffffff", label: "0" }
+];
+
+function getColor(gallons) {
+  for (const b of COLOR_BREAKS) {
+    if (gallons >= b.min) return b.color;
+  }
+  return "#ffffff";
+}
+
+function formatNumber(n) {
+  return Number(n || 0).toLocaleString();
+}
+
+function getFeatureTownName(feature) {
+  return feature.properties.TOWNNAMEMC ||
+         feature.properties.TOWNNAME ||
+         feature.properties.town ||
+         feature.properties.NAME ||
+         "";
+}
+
+const map = L.map("map", {
+  center: [44.0, -72.7],
+  zoom: 8
+});
+
+L.tileLayer(
+  "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+  {
+    attribution: "© OpenStreetMap contributors"
+  }
+).addTo(map);
+
+function buildLegend() {
+  const container = document.getElementById("legend-items");
+  container.innerHTML = "";
+
+  COLOR_BREAKS.slice(0, 7).forEach(b => {
+    container.innerHTML += `
+      <div class="legend-item">
+        <div class="legend-swatch" style="background:${b.color}"></div>
+        <span>${b.label}</span>
+      </div>
+    `;
+  });
+}
+
+buildLegend();
+
+async function loadAll() {
+  const [dataResp, geoResp] = await Promise.all([
+    fetch("oil_data.json"),
+    fetch("vermont_towns.geojson")
+  ]);
+
+  allData = await dataResp.json();
+  geoData = await geoResp.json();
+
+  allData.monthly_by_town.forEach(row => {
+    const month = row.month;
+    const town = normalizeTown(row.city);
+
+    if (!monthlyByTown[month]) monthlyByTown[month] = {};
+    monthlyByTown[month][town] = (monthlyByTown[month][town] || 0) + Number(row.gallons || 0);
+  });
+
+  allData.monthly_by_county.forEach(row => {
+    const month = row.month;
+
+    if (!monthlyByCounty[month]) monthlyByCounty[month] = {};
+    monthlyByCounty[month][row.county] = (monthlyByCounty[month][row.county] || 0) + Number(row.gallons || 0);
+  });
+
+  allData.yearly_totals.forEach(row => {
+    yearlyTotals[row.year] = Number(row.gallons || 0);
+  });
+
+  months = Object.keys(monthlyByTown).sort();
+
+  const slider = document.getElementById("month-slider");
+  slider.max = Math.max(months.length - 1, 0);
+  slider.value = Math.max(months.length - 1, 0);
+  currentIdx = Math.max(months.length - 1, 0);
+
+  document.getElementById("stat-alltime").textContent = formatNumber(allData.all_time_total);
+  document.getElementById("stat-year").textContent = formatNumber(allData.current_year_total);
+  document.getElementById("stat-customers").textContent = formatNumber(allData.customer_count);
+  document.getElementById("last-updated").textContent =
+    "Updated: " + new Date(allData.last_updated).toLocaleString();
+
+  renderMap(currentIdx);
+  buildCharts();
+}
+
+function getTownGallons(idx) {
+  const mode = document.getElementById("view-mode").value;
+
+  if (!months.length) return {};
+
+  if (mode === "month") {
+    return monthlyByTown[months[idx]] || {};
+  }
+
+  if (mode === "ytd") {
+    const year = months[idx].slice(0, 4);
+    const ytdMonths = months.filter(m => m.slice(0, 4) === year && m <= months[idx]);
+    const totals = {};
+
+    ytdMonths.forEach(m => {
+      Object.entries(monthlyByTown[m] || {}).forEach(([town, gal]) => {
+        totals[town] = (totals[town] || 0) + gal;
+      });
+    });
+
+    return totals;
+  }
+
+  if (mode === "alltime") {
+    const totals = {};
+
+    Object.values(monthlyByTown).forEach(monthData => {
+      Object.entries(monthData).forEach(([town, gal]) => {
+        totals[town] = (totals[town] || 0) + gal;
+      });
+    });
+
+    return totals;
+  }
+
+  return {};
+}
+
+function renderMap(idx) {
+  if (!months.length || !geoData) return;
+
+  const townGallons = getTownGallons(idx);
+  const month = months[idx];
+
+  const [year, mo] = month.split("-");
+  const label = new Date(year, Number(mo) - 1).toLocaleString("default", {
+    month: "long",
+    year: "numeric"
+  });
+
+  document.getElementById("month-label").textContent = label;
+
+  const selectedMonthTotal = Object.values(monthlyByTown[month] || {})
+    .reduce((a, b) => a + b, 0);
+
+  document.getElementById("stat-month").textContent = formatNumber(selectedMonthTotal);
+
+  if (geojsonLayer) {
+    map.removeLayer(geojsonLayer);
+  }
+
+  geojsonLayer = L.geoJSON(geoData, {
+    style: feature => {
+      const rawName = getFeatureTownName(feature);
+      const name = normalizeTown(rawName);
+      const gallons = townGallons[name] || 0;
+
+      return {
+        fillColor: getColor(gallons),
+        fillOpacity: gallons > 0 ? 0.85 : 0.15,
+        color: "#111",
+        weight: 0.7
+      };
+    },
+
+    onEachFeature: (feature, layer) => {
+      const rawName = getFeatureTownName(feature);
+      const name = normalizeTown(rawName);
+      const gallons = townGallons[name] || 0;
+
+      layer.bindTooltip(`
+        <div class="tooltip-box">
+          <strong>${rawName}</strong><br>
+          ${formatNumber(gallons)} gal
+        </div>
+      `, { sticky: true });
+
+      layer.on("mouseover", () => {
+        layer.setStyle({
+          weight: 2,
+          color: "#ffffff"
+        });
+      });
+
+      layer.on("mouseout", () => {
+        geojsonLayer.resetStyle(layer);
+      });
+    }
+  }).addTo(map);
+
+  map.fitBounds(geojsonLayer.getBounds());
+
+  updateSidePanels(idx, townGallons);
+}
+
+function updateSidePanels(idx, townGallons) {
+  const sortedTowns = Object.entries(townGallons)
+    .filter(([, gal]) => gal > 0)
+    .sort(([, a], [, b]) => b - a)
+    .slice(0, 30);
+
+  const maxGal = sortedTowns[0]?.[1] || 1;
+
+  const list = document.getElementById("town-list");
+
+  list.innerHTML = sortedTowns.map(([town, gal]) => `
+    <li class="town-item">
+      <div class="town-row">
+        <span>${town}</span>
+        <span class="town-gal">${formatNumber(gal)}</span>
+      </div>
+      <div class="town-bar" style="width:${(gal / maxGal * 100).toFixed(1)}%"></div>
+    </li>
+  `).join("");
+
+  const month = months[idx];
+  updateCountyChart(monthlyByCounty[month] || {});
+}
+
+function buildCharts() {
+  const monthLabels = months.map(m => {
+    const [y, mo] = m.split("-");
+    return new Date(y, Number(mo) - 1).toLocaleString("default", {
+      month: "short",
+      year: "2-digit"
+    });
+  });
+
+  const monthTotals = months.map(m =>
+    Object.values(monthlyByTown[m] || {}).reduce((a, b) => a + b, 0)
+  );
+
+  new Chart(document.getElementById("chart-monthly"), {
+    type: "line",
+    data: {
+      labels: monthLabels,
+      datasets: [{
+        data: monthTotals,
+        borderColor: "#3fb950",
+        backgroundColor: "rgba(63, 185, 80, 0.15)",
+        borderWidth: 2,
+        pointRadius: 0,
+        fill: true,
+        tension: 0.25
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks: { color: "#8b949e", maxTicksLimit: 8 }, grid: { color: "#21262d" } },
+        y: { ticks: { color: "#8b949e" }, grid: { color: "#21262d" } }
+      }
+    }
+  });
+
+  const years = Object.keys(yearlyTotals).sort();
+
+  new Chart(document.getElementById("chart-yearly"), {
+    type: "bar",
+    data: {
+      labels: years,
+      datasets: [{
+        data: years.map(y => yearlyTotals[y]),
+        backgroundColor: "#3fb950"
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks: { color: "#8b949e" }, grid: { color: "#21262d" } },
+        y: { ticks: { color: "#8b949e" }, grid: { color: "#21262d" } }
+      }
+    }
+  });
+}
+
+function updateCountyChart(countyData) {
+  const sorted = Object.entries(countyData)
+    .filter(([county]) => county !== "Unknown")
+    .sort(([, a], [, b]) => b - a);
+
+  if (countyChart) {
+    countyChart.destroy();
+  }
+
+  countyChart = new Chart(document.getElementById("chart-counties"), {
+    type: "bar",
+    data: {
+      labels: sorted.map(([county]) => county),
+      datasets: [{
+        data: sorted.map(([, gal]) => gal),
+        backgroundColor: "#3fb950"
+      }]
+    },
+    options: {
+      indexAxis: "y",
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks: { color: "#8b949e" }, grid: { color: "#21262d" } },
+        y: { ticks: { color: "#8b949e" }, grid: { color: "#21262d" } }
+      }
+    }
+  });
+}
+
+document.getElementById("month-slider").addEventListener("input", function() {
+  currentIdx = parseInt(this.value);
+  renderMap(currentIdx);
+});
+
+document.getElementById("btn-prev").addEventListener("click", function() {
+  if (currentIdx > 0) {
+    currentIdx--;
+    document.getElementById("month-slider").value = currentIdx;
+    renderMap(currentIdx);
+  }
+});
+
+document.getElementById("btn-next").addEventListener("click", function() {
+  if (currentIdx < months.length - 1) {
+    currentIdx++;
+    document.getElementById("month-slider").value = currentIdx;
+    renderMap(currentIdx);
+  }
+});
+
+document.getElementById("btn-play").addEventListener("click", function() {
+  if (playInterval) {
+    clearInterval(playInterval);
+    playInterval = null;
+    this.textContent = "▶ Play";
+    this.classList.remove("active");
+  } else {
+    this.textContent = "⏸ Pause";
+    this.classList.add("active");
+
+    playInterval = setInterval(() => {
+      currentIdx = currentIdx >= months.length - 1 ? 0 : currentIdx + 1;
+      document.getElementById("month-slider").value = currentIdx;
+      renderMap(currentIdx);
+    }, 700);
+  }
+});
+
+document.getElementById("view-mode").addEventListener("change", function() {
+  renderMap(currentIdx);
+});
+
+function switchTab(name) {
+  document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active"));
+  document.querySelectorAll(".tab-content").forEach(tab => tab.classList.remove("active"));
+
+  document.querySelector(`.tab[onclick="switchTab('${name}')"]`).classList.add("active");
+  document.getElementById(`tab-${name}`).classList.add("active");
+}
+
+loadAll();
+</script>
+
+</body>
+</html>
