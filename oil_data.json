@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-23T16:16:13.460035",
+  "last_updated": "2026-06-24T03:43:29.554240",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -469,7 +469,7 @@
     {
       "month": "2015-06",
       "city": "Burlington",
-      "gallons": 1581
+      "gallons": 1606
     },
     {
       "month": "2015-06",
@@ -560,11 +560,6 @@
       "month": "2015-06",
       "city": "Woodstock",
       "gallons": 120
-    },
-    {
-      "month": "2015-06",
-      "city": "Worcester",
-      "gallons": 25
     },
     {
       "month": "2015-07",
@@ -1159,7 +1154,7 @@
     {
       "month": "2015-12",
       "city": "Burlington",
-      "gallons": 2077
+      "gallons": 2092
     },
     {
       "month": "2015-12",
@@ -1260,11 +1255,6 @@
       "month": "2015-12",
       "city": "Woodstock",
       "gallons": 60
-    },
-    {
-      "month": "2015-12",
-      "city": "Worcester",
-      "gallons": 15
     },
     {
       "month": "2016-01",
@@ -5574,7 +5564,7 @@
     {
       "month": "2018-05",
       "city": "Burlington",
-      "gallons": 3763
+      "gallons": 3788
     },
     {
       "month": "2018-05",
@@ -5750,11 +5740,6 @@
       "month": "2018-05",
       "city": "Woodstock",
       "gallons": 295
-    },
-    {
-      "month": "2018-05",
-      "city": "Worcester",
-      "gallons": 25
     },
     {
       "month": "2018-06",
@@ -9824,7 +9809,7 @@
     {
       "month": "2020-03",
       "city": "Burlington",
-      "gallons": 2510
+      "gallons": 2525
     },
     {
       "month": "2020-03",
@@ -10025,11 +10010,6 @@
       "month": "2020-03",
       "city": "Woodstock",
       "gallons": 270
-    },
-    {
-      "month": "2020-03",
-      "city": "Worcester",
-      "gallons": 15
     },
     {
       "month": "2020-04",
@@ -13379,7 +13359,7 @@
     {
       "month": "2021-10",
       "city": "Burlington",
-      "gallons": 2505
+      "gallons": 2525
     },
     {
       "month": "2021-10",
@@ -13575,11 +13555,6 @@
       "month": "2021-10",
       "city": "Woodstock",
       "gallons": 170
-    },
-    {
-      "month": "2021-10",
-      "city": "Worcester",
-      "gallons": 20
     },
     {
       "month": "2021-11",
@@ -16629,7 +16604,7 @@
     {
       "month": "2022-11",
       "city": "Burlington",
-      "gallons": 3658
+      "gallons": 3678
     },
     {
       "month": "2022-11",
@@ -16875,11 +16850,6 @@
       "month": "2022-11",
       "city": "Woodstock",
       "gallons": 185
-    },
-    {
-      "month": "2022-11",
-      "city": "Worcester",
-      "gallons": 20
     },
     {
       "month": "2022-12",
@@ -23264,7 +23234,7 @@
     {
       "month": "2024-10",
       "city": "Burlington",
-      "gallons": 5018
+      "gallons": 5028
     },
     {
       "month": "2024-10",
@@ -23550,11 +23520,6 @@
       "month": "2024-10",
       "city": "Woodstock",
       "gallons": 510
-    },
-    {
-      "month": "2024-10",
-      "city": "Worcester",
-      "gallons": 10
     },
     {
       "month": "2024-11",
@@ -29139,7 +29104,7 @@
     {
       "month": "2026-05",
       "city": "Burlington",
-      "gallons": 3655
+      "gallons": 3657
     },
     {
       "month": "2026-05",
@@ -29309,7 +29274,7 @@
     {
       "month": "2026-05",
       "city": "Plainfield",
-      "gallons": 327
+      "gallons": 325
     },
     {
       "month": "2026-05",
@@ -29429,7 +29394,7 @@
     {
       "month": "2026-06",
       "city": "Barre",
-      "gallons": 130
+      "gallons": 250
     },
     {
       "month": "2026-06",
@@ -29459,12 +29424,22 @@
     {
       "month": "2026-06",
       "city": "Burlington",
-      "gallons": 4164
+      "gallons": 4514
     },
     {
       "month": "2026-06",
       "city": "Colchester",
       "gallons": 120
+    },
+    {
+      "month": "2026-06",
+      "city": "Concord",
+      "gallons": 170
+    },
+    {
+      "month": "2026-06",
+      "city": "Danville",
+      "gallons": 150
     },
     {
       "month": "2026-06",
@@ -29479,7 +29454,7 @@
     {
       "month": "2026-06",
       "city": "Essex Junction",
-      "gallons": 170
+      "gallons": 235
     },
     {
       "month": "2026-06",
@@ -29518,6 +29493,11 @@
     },
     {
       "month": "2026-06",
+      "city": "Marshfield",
+      "gallons": 10
+    },
+    {
+      "month": "2026-06",
       "city": "Middlebury",
       "gallons": 260
     },
@@ -29529,7 +29509,7 @@
     {
       "month": "2026-06",
       "city": "Montpelier",
-      "gallons": 200
+      "gallons": 215
     },
     {
       "month": "2026-06",
@@ -29554,7 +29534,12 @@
     {
       "month": "2026-06",
       "city": "Plainfield",
-      "gallons": 280
+      "gallons": 380
+    },
+    {
+      "month": "2026-06",
+      "city": "Plattsburgh",
+      "gallons": 142
     },
     {
       "month": "2026-06",
@@ -29578,8 +29563,13 @@
     },
     {
       "month": "2026-06",
+      "city": "Shelburne",
+      "gallons": 30
+    },
+    {
+      "month": "2026-06",
       "city": "South Burlington",
-      "gallons": 310
+      "gallons": 640
     },
     {
       "month": "2026-06",
@@ -29589,7 +29579,7 @@
     {
       "month": "2026-06",
       "city": "St Albans",
-      "gallons": 20
+      "gallons": 35
     },
     {
       "month": "2026-06",
@@ -29599,12 +29589,22 @@
     {
       "month": "2026-06",
       "city": "St. Albans City",
-      "gallons": 165
+      "gallons": 495
+    },
+    {
+      "month": "2026-06",
+      "city": "St. Johnsbury",
+      "gallons": 50
     },
     {
       "month": "2026-06",
       "city": "Stowe",
-      "gallons": 795
+      "gallons": 1610
+    },
+    {
+      "month": "2026-06",
+      "city": "Swanton",
+      "gallons": 70
     },
     {
       "month": "2026-06",
@@ -29623,6 +29623,11 @@
     },
     {
       "month": "2026-06",
+      "city": "Waterbury",
+      "gallons": 745
+    },
+    {
+      "month": "2026-06",
       "city": "Wells River",
       "gallons": 200
     },
@@ -29634,7 +29639,7 @@
     {
       "month": "2026-06",
       "city": "Williston",
-      "gallons": 700
+      "gallons": 923
     },
     {
       "month": "2026-06",
@@ -29826,7 +29831,7 @@
     {
       "month": "2015-06",
       "county": "Chittenden",
-      "gallons": 1946
+      "gallons": 1971
     },
     {
       "month": "2015-06",
@@ -29841,7 +29846,7 @@
     {
       "month": "2015-06",
       "county": "Washington",
-      "gallons": 1257
+      "gallons": 1232
     },
     {
       "month": "2015-06",
@@ -30026,7 +30031,7 @@
     {
       "month": "2015-12",
       "county": "Chittenden",
-      "gallons": 2615
+      "gallons": 2630
     },
     {
       "month": "2015-12",
@@ -30041,7 +30046,7 @@
     {
       "month": "2015-12",
       "county": "Washington",
-      "gallons": 926
+      "gallons": 911
     },
     {
       "month": "2015-12",
@@ -31326,7 +31331,7 @@
     {
       "month": "2018-05",
       "county": "Chittenden",
-      "gallons": 7768
+      "gallons": 7793
     },
     {
       "month": "2018-05",
@@ -31356,7 +31361,7 @@
     {
       "month": "2018-05",
       "county": "Washington",
-      "gallons": 2517
+      "gallons": 2492
     },
     {
       "month": "2018-05",
@@ -32421,7 +32426,7 @@
     {
       "month": "2020-03",
       "county": "Chittenden",
-      "gallons": 4360
+      "gallons": 4375
     },
     {
       "month": "2020-03",
@@ -32456,7 +32461,7 @@
     {
       "month": "2020-03",
       "county": "Washington",
-      "gallons": 3350
+      "gallons": 3335
     },
     {
       "month": "2020-03",
@@ -33361,7 +33366,7 @@
     {
       "month": "2021-10",
       "county": "Chittenden",
-      "gallons": 5573
+      "gallons": 5593
     },
     {
       "month": "2021-10",
@@ -33376,7 +33381,7 @@
     {
       "month": "2021-10",
       "county": "Orleans",
-      "gallons": 1070
+      "gallons": 990
     },
     {
       "month": "2021-10",
@@ -33385,8 +33390,13 @@
     },
     {
       "month": "2021-10",
+      "county": "Out-of-State (NY)",
+      "gallons": 80
+    },
+    {
+      "month": "2021-10",
       "county": "Washington",
-      "gallons": 3777
+      "gallons": 3757
     },
     {
       "month": "2021-10",
@@ -33431,12 +33441,17 @@
     {
       "month": "2021-11",
       "county": "Orleans",
-      "gallons": 200
+      "gallons": 125
     },
     {
       "month": "2021-11",
       "county": "Out-of-State (NH)",
       "gallons": 155
+    },
+    {
+      "month": "2021-11",
+      "county": "Out-of-State (NY)",
+      "gallons": 75
     },
     {
       "month": "2021-11",
@@ -33491,12 +33506,17 @@
     {
       "month": "2021-12",
       "county": "Orleans",
-      "gallons": 991
+      "gallons": 891
     },
     {
       "month": "2021-12",
       "county": "Out-of-State (NH)",
       "gallons": 210
+    },
+    {
+      "month": "2021-12",
+      "county": "Out-of-State (NY)",
+      "gallons": 100
     },
     {
       "month": "2021-12",
@@ -33591,12 +33611,17 @@
     {
       "month": "2022-02",
       "county": "Orleans",
-      "gallons": 1425
+      "gallons": 1395
     },
     {
       "month": "2022-02",
       "county": "Out-of-State (NH)",
       "gallons": 260
+    },
+    {
+      "month": "2022-02",
+      "county": "Out-of-State (NY)",
+      "gallons": 30
     },
     {
       "month": "2022-02",
@@ -33650,13 +33675,13 @@
     },
     {
       "month": "2022-03",
-      "county": "Orleans",
-      "gallons": 25
+      "county": "Out-of-State (NH)",
+      "gallons": 405
     },
     {
       "month": "2022-03",
-      "county": "Out-of-State (NH)",
-      "gallons": 405
+      "county": "Out-of-State (NY)",
+      "gallons": 25
     },
     {
       "month": "2022-03",
@@ -33711,12 +33736,17 @@
     {
       "month": "2022-04",
       "county": "Orleans",
-      "gallons": 2100
+      "gallons": 1920
     },
     {
       "month": "2022-04",
       "county": "Out-of-State (NH)",
       "gallons": 210
+    },
+    {
+      "month": "2022-04",
+      "county": "Out-of-State (NY)",
+      "gallons": 180
     },
     {
       "month": "2022-04",
@@ -33765,13 +33795,13 @@
     },
     {
       "month": "2022-05",
-      "county": "Orleans",
-      "gallons": 55
+      "county": "Out-of-State (NH)",
+      "gallons": 205
     },
     {
       "month": "2022-05",
-      "county": "Out-of-State (NH)",
-      "gallons": 205
+      "county": "Out-of-State (NY)",
+      "gallons": 55
     },
     {
       "month": "2022-05",
@@ -33886,12 +33916,17 @@
     {
       "month": "2022-07",
       "county": "Orleans",
-      "gallons": 493
+      "gallons": 453
     },
     {
       "month": "2022-07",
       "county": "Out-of-State (NH)",
       "gallons": 415
+    },
+    {
+      "month": "2022-07",
+      "county": "Out-of-State (NY)",
+      "gallons": 40
     },
     {
       "month": "2022-07",
@@ -33951,7 +33986,12 @@
     {
       "month": "2022-08",
       "county": "Orleans",
-      "gallons": 1360
+      "gallons": 1290
+    },
+    {
+      "month": "2022-08",
+      "county": "Out-of-State (NY)",
+      "gallons": 70
     },
     {
       "month": "2022-08",
@@ -34081,7 +34121,7 @@
     {
       "month": "2022-10",
       "county": "Orleans",
-      "gallons": 160
+      "gallons": 120
     },
     {
       "month": "2022-10",
@@ -34091,7 +34131,7 @@
     {
       "month": "2022-10",
       "county": "Out-of-State (NY)",
-      "gallons": 126
+      "gallons": 166
     },
     {
       "month": "2022-10",
@@ -34131,7 +34171,7 @@
     {
       "month": "2022-11",
       "county": "Chittenden",
-      "gallons": 7375
+      "gallons": 7395
     },
     {
       "month": "2022-11",
@@ -34156,7 +34196,7 @@
     {
       "month": "2022-11",
       "county": "Washington",
-      "gallons": 4034
+      "gallons": 4014
     },
     {
       "month": "2022-11",
@@ -34265,13 +34305,13 @@
     },
     {
       "month": "2023-01",
-      "county": "Orleans",
-      "gallons": 70
+      "county": "Out-of-State (NH)",
+      "gallons": 354
     },
     {
       "month": "2023-01",
-      "county": "Out-of-State (NH)",
-      "gallons": 354
+      "county": "Out-of-State (NY)",
+      "gallons": 70
     },
     {
       "month": "2023-01",
@@ -34376,7 +34416,7 @@
     {
       "month": "2023-03",
       "county": "Orleans",
-      "gallons": 975
+      "gallons": 925
     },
     {
       "month": "2023-03",
@@ -34386,7 +34426,7 @@
     {
       "month": "2023-03",
       "county": "Out-of-State (NY)",
-      "gallons": 127
+      "gallons": 177
     },
     {
       "month": "2023-03",
@@ -34511,7 +34551,7 @@
     {
       "month": "2023-05",
       "county": "Orleans",
-      "gallons": 745
+      "gallons": 675
     },
     {
       "month": "2023-05",
@@ -34521,7 +34561,7 @@
     {
       "month": "2023-05",
       "county": "Out-of-State (NY)",
-      "gallons": 128
+      "gallons": 198
     },
     {
       "month": "2023-05",
@@ -34581,7 +34621,7 @@
     {
       "month": "2023-06",
       "county": "Orleans",
-      "gallons": 1847
+      "gallons": 1780
     },
     {
       "month": "2023-06",
@@ -34591,7 +34631,7 @@
     {
       "month": "2023-06",
       "county": "Out-of-State (NY)",
-      "gallons": 138
+      "gallons": 205
     },
     {
       "month": "2023-06",
@@ -34776,7 +34816,7 @@
     {
       "month": "2023-09",
       "county": "Orleans",
-      "gallons": 862
+      "gallons": 762
     },
     {
       "month": "2023-09",
@@ -34786,7 +34826,7 @@
     {
       "month": "2023-09",
       "county": "Out-of-State (NY)",
-      "gallons": 128
+      "gallons": 228
     },
     {
       "month": "2023-09",
@@ -34916,7 +34956,7 @@
     {
       "month": "2023-11",
       "county": "Orleans",
-      "gallons": 1015
+      "gallons": 955
     },
     {
       "month": "2023-11",
@@ -34926,7 +34966,7 @@
     {
       "month": "2023-11",
       "county": "Out-of-State (NY)",
-      "gallons": 137
+      "gallons": 197
     },
     {
       "month": "2023-11",
@@ -35121,7 +35161,7 @@
     {
       "month": "2024-02",
       "county": "Orleans",
-      "gallons": 2026
+      "gallons": 1936
     },
     {
       "month": "2024-02",
@@ -35131,7 +35171,7 @@
     {
       "month": "2024-02",
       "county": "Out-of-State (NY)",
-      "gallons": 104
+      "gallons": 194
     },
     {
       "month": "2024-02",
@@ -35411,7 +35451,7 @@
     {
       "month": "2024-06",
       "county": "Orleans",
-      "gallons": 1005
+      "gallons": 940
     },
     {
       "month": "2024-06",
@@ -35421,7 +35461,7 @@
     {
       "month": "2024-06",
       "county": "Out-of-State (NY)",
-      "gallons": 148
+      "gallons": 213
     },
     {
       "month": "2024-06",
@@ -35541,7 +35581,7 @@
     {
       "month": "2024-08",
       "county": "Orleans",
-      "gallons": 1050
+      "gallons": 910
     },
     {
       "month": "2024-08",
@@ -35551,7 +35591,7 @@
     {
       "month": "2024-08",
       "county": "Out-of-State (NY)",
-      "gallons": 131
+      "gallons": 271
     },
     {
       "month": "2024-08",
@@ -35666,7 +35706,7 @@
     {
       "month": "2024-10",
       "county": "Chittenden",
-      "gallons": 11966
+      "gallons": 11976
     },
     {
       "month": "2024-10",
@@ -35691,7 +35731,7 @@
     {
       "month": "2024-10",
       "county": "Orleans",
-      "gallons": 1449
+      "gallons": 1364
     },
     {
       "month": "2024-10",
@@ -35701,7 +35741,7 @@
     {
       "month": "2024-10",
       "county": "Out-of-State (NY)",
-      "gallons": 145
+      "gallons": 230
     },
     {
       "month": "2024-10",
@@ -35711,7 +35751,7 @@
     {
       "month": "2024-10",
       "county": "Washington",
-      "gallons": 3254
+      "gallons": 3244
     },
     {
       "month": "2024-10",
@@ -35846,7 +35886,7 @@
     {
       "month": "2024-12",
       "county": "Orleans",
-      "gallons": 1608
+      "gallons": 1518
     },
     {
       "month": "2024-12",
@@ -35856,7 +35896,7 @@
     {
       "month": "2024-12",
       "county": "Out-of-State (NY)",
-      "gallons": 146
+      "gallons": 236
     },
     {
       "month": "2024-12",
@@ -36041,12 +36081,17 @@
     {
       "month": "2025-03",
       "county": "Orleans",
-      "gallons": 2475
+      "gallons": 2385
     },
     {
       "month": "2025-03",
       "county": "Out-of-State (NH)",
       "gallons": 308
+    },
+    {
+      "month": "2025-03",
+      "county": "Out-of-State (NY)",
+      "gallons": 90
     },
     {
       "month": "2025-03",
@@ -36176,12 +36221,12 @@
     {
       "month": "2025-05",
       "county": "Orleans",
-      "gallons": 1120
+      "gallons": 1000
     },
     {
       "month": "2025-05",
       "county": "Out-of-State (NY)",
-      "gallons": 148
+      "gallons": 268
     },
     {
       "month": "2025-05",
@@ -36316,7 +36361,7 @@
     {
       "month": "2025-07",
       "county": "Orleans",
-      "gallons": 1005
+      "gallons": 870
     },
     {
       "month": "2025-07",
@@ -36326,7 +36371,7 @@
     {
       "month": "2025-07",
       "county": "Out-of-State (NY)",
-      "gallons": 129
+      "gallons": 264
     },
     {
       "month": "2025-07",
@@ -36536,7 +36581,7 @@
     {
       "month": "2025-10",
       "county": "Orleans",
-      "gallons": 1779
+      "gallons": 1624
     },
     {
       "month": "2025-10",
@@ -36546,7 +36591,7 @@
     {
       "month": "2025-10",
       "county": "Out-of-State (NY)",
-      "gallons": 149
+      "gallons": 304
     },
     {
       "month": "2025-10",
@@ -36666,7 +36711,7 @@
     {
       "month": "2025-12",
       "county": "Orleans",
-      "gallons": 1923
+      "gallons": 1803
     },
     {
       "month": "2025-12",
@@ -36676,7 +36721,7 @@
     {
       "month": "2025-12",
       "county": "Out-of-State (NY)",
-      "gallons": 108
+      "gallons": 228
     },
     {
       "month": "2025-12",
@@ -36806,7 +36851,7 @@
     {
       "month": "2026-02",
       "county": "Orleans",
-      "gallons": 1795
+      "gallons": 1710
     },
     {
       "month": "2026-02",
@@ -36816,7 +36861,7 @@
     {
       "month": "2026-02",
       "county": "Out-of-State (NY)",
-      "gallons": 133
+      "gallons": 218
     },
     {
       "month": "2026-02",
@@ -36946,7 +36991,7 @@
     {
       "month": "2026-04",
       "county": "Orleans",
-      "gallons": 3060
+      "gallons": 2965
     },
     {
       "month": "2026-04",
@@ -36956,7 +37001,7 @@
     {
       "month": "2026-04",
       "county": "Out-of-State (NY)",
-      "gallons": 159
+      "gallons": 254
     },
     {
       "month": "2026-04",
@@ -36991,7 +37036,7 @@
     {
       "month": "2026-05",
       "county": "Chittenden",
-      "gallons": 6856
+      "gallons": 6858
     },
     {
       "month": "2026-05",
@@ -37031,7 +37076,7 @@
     {
       "month": "2026-05",
       "county": "Washington",
-      "gallons": 4756
+      "gallons": 4754
     },
     {
       "month": "2026-05",
@@ -37056,17 +37101,17 @@
     {
       "month": "2026-06",
       "county": "Caledonia",
-      "gallons": 290
+      "gallons": 670
     },
     {
       "month": "2026-06",
       "county": "Chittenden",
-      "gallons": 16175
+      "gallons": 17173
     },
     {
       "month": "2026-06",
       "county": "Franklin",
-      "gallons": 339
+      "gallons": 754
     },
     {
       "month": "2026-06",
@@ -37076,7 +37121,7 @@
     {
       "month": "2026-06",
       "county": "Lamoille",
-      "gallons": 1090
+      "gallons": 1905
     },
     {
       "month": "2026-06",
@@ -37090,8 +37135,13 @@
     },
     {
       "month": "2026-06",
+      "county": "Out-of-State (NY)",
+      "gallons": 142
+    },
+    {
+      "month": "2026-06",
       "county": "Washington",
-      "gallons": 1600
+      "gallons": 2580
     },
     {
       "month": "2026-06",
@@ -37146,10 +37196,10 @@
     },
     {
       "year": 2026,
-      "gallons": 139829
+      "gallons": 143559
     }
   ],
-  "all_time_total": 2058792,
-  "current_year_total": 139829,
-  "customer_count": 811
+  "all_time_total": 2062522,
+  "current_year_total": 143559,
+  "customer_count": 812
 }

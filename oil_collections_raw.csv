@@ -1,34 +1,34 @@
 customer_id,name,city,county,date,year,month,gallons
-1498,Barre Country Club-Plainfield,Plainfield,Washington,2026-05-04,2026,2026-05,2
+1498,Barre Country Club-Plainfield,Burlington,Chittenden,2026-05-04,2026,2026-05,2
 1509,"Champlain Valley Fairgrounds, Lot P",Burlington,Chittenden,2026-06-13,2026,2026-06,2700
-551,The Genny- Albany General Store,Albany,Orleans,2026-04-15,2026,2026-04,95
-551,The Genny- Albany General Store,Albany,Orleans,2026-02-25,2026,2026-02,85
-551,The Genny- Albany General Store,Albany,Orleans,2025-12-31,2025,2025-12,120
-551,The Genny- Albany General Store,Albany,Orleans,2025-10-06,2025,2025-10,155
-551,The Genny- Albany General Store,Albany,Orleans,2025-07-15,2025,2025-07,135
-551,The Genny- Albany General Store,Albany,Orleans,2025-05-05,2025,2025-05,120
-551,The Genny- Albany General Store,Albany,Orleans,2025-03-07,2025,2025-03,90
-551,The Genny- Albany General Store,Albany,Orleans,2024-12-28,2024,2024-12,90
-551,The Genny- Albany General Store,Albany,Orleans,2024-10-08,2024,2024-10,85
-551,The Genny- Albany General Store,Albany,Orleans,2024-08-14,2024,2024-08,140
-551,The Genny- Albany General Store,Albany,Orleans,2024-06-05,2024,2024-06,65
-551,The Genny- Albany General Store,Albany,Orleans,2024-02-07,2024,2024-02,90
-551,The Genny- Albany General Store,Albany,Orleans,2023-11-28,2023,2023-11,60
-551,The Genny- Albany General Store,Albany,Orleans,2023-09-29,2023,2023-09,100
-551,The Genny- Albany General Store,Albany,Orleans,2023-06-27,2023,2023-06,67
-551,The Genny- Albany General Store,Albany,Orleans,2023-05-15,2023,2023-05,70
-551,The Genny- Albany General Store,Albany,Orleans,2023-03-21,2023,2023-03,50
-551,The Genny- Albany General Store,Albany,Orleans,2023-01-24,2023,2023-01,70
-551,The Genny- Albany General Store,Albany,Orleans,2022-10-10,2022,2022-10,40
-551,The Genny- Albany General Store,Albany,Orleans,2022-08-24,2022,2022-08,70
-551,The Genny- Albany General Store,Albany,Orleans,2022-07-01,2022,2022-07,40
-551,The Genny- Albany General Store,Albany,Orleans,2022-05-26,2022,2022-05,55
-551,The Genny- Albany General Store,Albany,Orleans,2022-04-18,2022,2022-04,180
-551,The Genny- Albany General Store,Albany,Orleans,2022-03-09,2022,2022-03,25
-551,The Genny- Albany General Store,Albany,Orleans,2022-02-02,2022,2022-02,30
-551,The Genny- Albany General Store,Albany,Orleans,2021-12-09,2021,2021-12,100
-551,The Genny- Albany General Store,Albany,Orleans,2021-11-05,2021,2021-11,75
-551,The Genny- Albany General Store,Albany,Orleans,2021-10-14,2021,2021-10,80
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2026-04-15,2026,2026-04,95
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2026-02-25,2026,2026-02,85
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2025-12-31,2025,2025-12,120
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2025-10-06,2025,2025-10,155
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2025-07-15,2025,2025-07,135
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2025-05-05,2025,2025-05,120
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2025-03-07,2025,2025-03,90
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2024-12-28,2024,2024-12,90
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2024-10-08,2024,2024-10,85
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2024-08-14,2024,2024-08,140
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2024-06-05,2024,2024-06,65
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2024-02-07,2024,2024-02,90
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2023-11-28,2023,2023-11,60
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2023-09-29,2023,2023-09,100
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2023-06-27,2023,2023-06,67
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2023-05-15,2023,2023-05,70
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2023-03-21,2023,2023-03,50
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2023-01-24,2023,2023-01,70
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2022-10-10,2022,2022-10,40
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2022-08-24,2022,2022-08,70
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2022-07-01,2022,2022-07,40
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2022-05-26,2022,2022-05,55
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2022-04-18,2022,2022-04,180
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2022-03-09,2022,2022-03,25
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2022-02-02,2022,2022-02,30
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2021-12-09,2021,2021-12,100
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2021-11-05,2021,2021-11,75
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2021-10-14,2021,2021-10,80
 1137,Arlington Dairy Bar,Arlington,Windham,2025-10-24,2025,2025-10,65
 1137,Arlington Dairy Bar,Arlington,Windham,2025-09-10,2025,2025-09,60
 1137,Arlington Dairy Bar,Arlington,Windham,2025-06-18,2025,2025-06,50
@@ -802,6 +802,7 @@ customer_id,name,city,county,date,year,month,gallons
 1401,Tasty Bites,Barre,Washington,2025-03-21,2025,2025-03,40
 1401,Tasty Bites,Barre,Washington,2025-03-11,2025,2025-03,45
 1401,Tasty Bites,Barre,Washington,2025-03-03,2025,2025-03,2
+127,The Meltdown-Barre,Barre,Washington,2026-06-23,2026,2026-06,120
 127,The Meltdown-Barre,Barre,Washington,2026-04-03,2026,2026-04,85
 127,The Meltdown-Barre,Barre,Washington,2026-02-03,2026,2026-02,55
 127,The Meltdown-Barre,Barre,Washington,2025-11-24,2025,2025-11,55
@@ -2091,6 +2092,7 @@ customer_id,name,city,county,date,year,month,gallons
 300,Blue Bird BBQ - blue keychain in mack,Burlington,Chittenden,2015-03-05,2015,2015-03,25
 300,Blue Bird BBQ - blue keychain in mack,Burlington,Chittenden,2015-02-12,2015,2015-02,40
 300,Blue Bird BBQ - blue keychain in mack,Burlington,Chittenden,2015-01-07,2015,2015-01,30
+1070,Burlington Beer Co,Burlington,Chittenden,2026-06-19,2026,2026-06,50
 1070,Burlington Beer Co,Burlington,Chittenden,2026-06-04,2026,2026-06,60
 1070,Burlington Beer Co,Burlington,Chittenden,2026-05-26,2026,2026-05,100
 1070,Burlington Beer Co,Burlington,Chittenden,2026-05-15,2026,2026-05,30
@@ -2225,6 +2227,276 @@ customer_id,name,city,county,date,year,month,gallons
 1070,Burlington Beer Co,Burlington,Chittenden,2021-11-19,2021,2021-11,130
 1070,Burlington Beer Co,Burlington,Chittenden,2021-11-01,2021,2021-11,85
 1070,Burlington Beer Co,Burlington,Chittenden,2021-10-22,2021,2021-10,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2026-06-19,2026,2026-06,130
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2026-05-26,2026,2026-05,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2026-05-14,2026,2026-05,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2026-04-28,2026,2026-04,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2026-04-16,2026,2026-04,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2026-03-31,2026,2026-03,40
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2026-03-17,2026,2026-03,40
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2026-03-05,2026,2026-03,30
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2026-02-24,2026,2026-02,55
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2026-02-10,2026,2026-02,45
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2026-01-27,2026,2026-01,55
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2026-01-08,2026,2026-01,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-12-23,2025,2025-12,85
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-12-04,2025,2025-12,80
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-11-20,2025,2025-11,20
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-11-04,2025,2025-11,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-10-23,2025,2025-10,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-10-09,2025,2025-10,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-09-25,2025,2025-09,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-09-09,2025,2025-09,80
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-08-26,2025,2025-08,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-08-12,2025,2025-08,100
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-07-22,2025,2025-07,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-07-08,2025,2025-07,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-06-25,2025,2025-06,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-06-13,2025,2025-06,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-06-07,2025,2025-06,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-06-03,2025,2025-06,90
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-05-22,2025,2025-05,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-05-15,2025,2025-05,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-04-30,2025,2025-04,100
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-04-15,2025,2025-04,45
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-04-02,2025,2025-04,80
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-03-17,2025,2025-03,80
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-02-28,2025,2025-02,55
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-02-19,2025,2025-02,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-01-31,2025,2025-01,55
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-01-16,2025,2025-01,60
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2025-01-04,2025,2025-01,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-12-18,2024,2024-12,60
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-12-06,2024,2024-12,45
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-11-27,2024,2024-11,80
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-11-11,2024,2024-11,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-10-29,2024,2024-10,80
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-10-15,2024,2024-10,115
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-10-01,2024,2024-10,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-09-17,2024,2024-09,80
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-09-03,2024,2024-09,145
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-08-15,2024,2024-08,100
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-07-29,2024,2024-07,90
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-07-15,2024,2024-07,120
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-06-28,2024,2024-06,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-06-17,2024,2024-06,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-06-06,2024,2024-06,95
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-05-22,2024,2024-05,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-05-10,2024,2024-05,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-04-29,2024,2024-04,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-04-16,2024,2024-04,85
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-04-02,2024,2024-04,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-03-22,2024,2024-03,140
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-03-05,2024,2024-03,90
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-02-19,2024,2024-02,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-02-08,2024,2024-02,100
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-01-24,2024,2024-01,105
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2024-01-11,2024,2024-01,115
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-12-27,2023,2023-12,90
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-12-13,2023,2023-12,80
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-12-01,2023,2023-12,100
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-11-16,2023,2023-11,45
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-11-08,2023,2023-11,90
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-10-24,2023,2023-10,45
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-10-11,2023,2023-10,80
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-09-26,2023,2023-09,85
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-09-11,2023,2023-09,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-08-28,2023,2023-08,120
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-08-07,2023,2023-08,120
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-07-17,2023,2023-07,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-07-03,2023,2023-07,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-06-19,2023,2023-06,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-06-06,2023,2023-06,60
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-05-23,2023,2023-05,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-05-08,2023,2023-05,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-04-24,2023,2023-04,60
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-04-12,2023,2023-04,45
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-03-27,2023,2023-03,45
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-03-15,2023,2023-03,35
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-03-02,2023,2023-03,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-02-21,2023,2023-02,40
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-02-07,2023,2023-02,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-01-23,2023,2023-01,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2023-01-08,2023,2023-01,40
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2022-12-27,2022,2022-12,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2022-12-11,2022,2022-12,30
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2022-11-27,2022,2022-11,55
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2022-11-07,2022,2022-11,40
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2022-10-24,2022,2022-10,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2022-10-03,2022,2022-10,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2022-09-21,2022,2022-09,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2022-09-06,2022,2022-09,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2022-08-22,2022,2022-08,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2022-08-08,2022,2022-08,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2022-07-18,2022,2022-07,20
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2022-07-07,2022,2022-07,90
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2022-06-22,2022,2022-06,35
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2022-06-15,2022,2022-06,30
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2022-06-06,2022,2022-06,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2022-05-20,2022,2022-05,120
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2022-04-25,2022,2022-04,80
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2022-04-08,2022,2022-04,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2022-03-23,2022,2022-03,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2022-03-07,2022,2022-03,100
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2022-02-16,2022,2022-02,55
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2022-01-27,2022,2022-01,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2022-01-10,2022,2022-01,35
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2021-12-28,2021,2021-12,20
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2021-12-17,2021,2021-12,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2021-12-02,2021,2021-12,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2021-11-11,2021,2021-11,60
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2021-10-26,2021,2021-10,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2021-10-11,2021,2021-10,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2021-09-29,2021,2021-09,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2021-09-12,2021,2021-09,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2021-08-10,2021,2021-08,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2021-07-18,2021,2021-07,125
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2021-06-21,2021,2021-06,85
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2021-06-01,2021,2021-06,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2021-05-20,2021,2021-05,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2021-03-29,2021,2021-03,150
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2021-02-16,2021,2021-02,125
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2021-01-25,2021,2021-01,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2021-01-12,2021,2021-01,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2020-11-24,2020,2020-11,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2020-11-11,2020,2020-11,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2020-10-27,2020,2020-10,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2020-10-13,2020,2020-10,80
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2020-09-23,2020,2020-09,30
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2020-09-07,2020,2020-09,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2020-08-12,2020,2020-08,150
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2020-07-21,2020,2020-07,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2020-07-06,2020,2020-07,150
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2020-06-09,2020,2020-06,140
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2020-05-05,2020,2020-05,160
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2020-03-11,2020,2020-03,150
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2020-03-05,2020,2020-03,100
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2020-02-20,2020,2020-02,120
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2020-01-30,2020,2020-01,100
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2020-01-16,2020,2020-01,135
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2019-12-30,2019,2019-12,135
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2019-12-13,2019,2019-12,150
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2019-11-18,2019,2019-11,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2019-11-07,2019,2019-11,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2019-11-01,2019,2019-11,150
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2019-10-01,2019,2019-10,80
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2019-08-29,2019,2019-08,100
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2019-08-05,2019,2019-08,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2019-07-18,2019,2019-07,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2019-07-03,2019,2019-07,60
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2019-06-22,2019,2019-06,100
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2019-06-05,2019,2019-06,90
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2019-05-16,2019,2019-05,80
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2019-04-24,2019,2019-04,100
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2019-04-04,2019,2019-04,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2019-03-20,2019,2019-03,100
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2019-02-27,2019,2019-02,120
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2019-02-05,2019,2019-02,90
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2019-01-15,2019,2019-01,100
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-12-21,2018,2018-12,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-12-05,2018,2018-12,60
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-11-21,2018,2018-11,45
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-11-14,2018,2018-11,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-10-18,2018,2018-10,60
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-10-03,2018,2018-10,80
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-09-18,2018,2018-09,80
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-09-05,2018,2018-09,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-08-23,2018,2018-08,60
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-08-09,2018,2018-08,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-07-31,2018,2018-07,25
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-07-25,2018,2018-07,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-07-17,2018,2018-07,60
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-07-03,2018,2018-07,60
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-06-20,2018,2018-06,90
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-05-31,2018,2018-05,80
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-05-09,2018,2018-05,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-04-26,2018,2018-04,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-04-17,2018,2018-04,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-03-26,2018,2018-03,60
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-03-13,2018,2018-03,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-02-27,2018,2018-02,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-02-15,2018,2018-02,80
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-02-01,2018,2018-02,60
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-01-17,2018,2018-01,80
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2018-01-03,2018,2018-01,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2017-12-25,2017,2017-12,35
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2017-12-13,2017,2017-12,55
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2017-11-29,2017,2017-11,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2017-11-16,2017,2017-11,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2017-10-18,2017,2017-10,60
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2017-10-04,2017,2017-10,60
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2017-09-20,2017,2017-09,40
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2017-09-07,2017,2017-09,55
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2017-08-26,2017,2017-08,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2017-08-12,2017,2017-08,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2017-07-27,2017,2017-07,45
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2017-07-15,2017,2017-07,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2017-07-01,2017,2017-07,60
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2017-06-18,2017,2017-06,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2017-06-03,2017,2017-06,95
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2017-05-21,2017,2017-05,45
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2017-04-22,2017,2017-04,45
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2017-04-08,2017,2017-04,40
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2017-03-25,2017,2017-03,40
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2017-03-11,2017,2017-03,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2017-02-25,2017,2017-02,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2017-02-11,2017,2017-02,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2017-01-29,2017,2017-01,55
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2017-01-14,2017,2017-01,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2017-01-02,2017,2017-01,55
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2016-12-17,2016,2016-12,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2016-12-03,2016,2016-12,45
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2016-11-20,2016,2016-11,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2016-11-05,2016,2016-11,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2016-10-23,2016,2016-10,80
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2016-10-08,2016,2016-10,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2016-09-25,2016,2016-09,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2016-09-10,2016,2016-09,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2016-08-27,2016,2016-08,45
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2016-08-14,2016,2016-08,45
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2016-07-30,2016,2016-07,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2016-07-18,2016,2016-07,60
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2016-07-03,2016,2016-07,30
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2016-06-19,2016,2016-06,45
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2016-06-05,2016,2016-06,60
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2016-05-22,2016,2016-05,40
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2016-05-08,2016,2016-05,60
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2016-04-23,2016,2016-04,45
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2016-04-09,2016,2016-04,40
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2016-03-26,2016,2016-03,30
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2016-03-12,2016,2016-03,38
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2016-02-27,2016,2016-02,40
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2016-02-10,2016,2016-02,35
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2016-01-27,2016,2016-01,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2016-01-11,2016,2016-01,20
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-12-30,2015,2015-12,40
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-12-16,2015,2015-12,60
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-12-03,2015,2015-12,20
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-11-24,2015,2015-11,60
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-11-12,2015,2015-11,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-10-31,2015,2015-10,60
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-10-17,2015,2015-10,60
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-10-06,2015,2015-10,45
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-09-23,2015,2015-09,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-09-08,2015,2015-09,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-08-26,2015,2015-08,60
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-08-17,2015,2015-08,15
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-08-12,2015,2015-08,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-07-29,2015,2015-07,65
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-07-15,2015,2015-07,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-07-01,2015,2015-07,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-06-17,2015,2015-06,35
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-06-08,2015,2015-06,45
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-05-29,2015,2015-05,30
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-05-22,2015,2015-05,45
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-05-13,2015,2015-05,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-04-28,2015,2015-04,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-04-14,2015,2015-04,85
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-03-24,2015,2015-03,90
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-02-27,2015,2015-02,70
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-02-06,2015,2015-02,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-01-15,2015,2015-01,50
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-01-02,2015,2015-01,60
 1091,Cafe Hot,Burlington,Chittenden,2026-05-26,2026,2026-05,100
 1091,Cafe Hot,Burlington,Chittenden,2026-04-24,2026,2026-04,50
 1091,Cafe Hot,Burlington,Chittenden,2026-03-31,2026,2026-03,85
@@ -2277,6 +2549,7 @@ customer_id,name,city,county,date,year,month,gallons
 1091,Cafe Hot,Burlington,Chittenden,2022-05-27,2022,2022-05,105
 1091,Cafe Hot,Burlington,Chittenden,2022-03-23,2022,2022-03,115
 1091,Cafe Hot,Burlington,Chittenden,2021-12-28,2021,2021-12,100
+315,Citizen Cider - 0316,Burlington,Chittenden,2026-06-19,2026,2026-06,55
 315,Citizen Cider - 0316,Burlington,Chittenden,2026-06-04,2026,2026-06,35
 315,Citizen Cider - 0316,Burlington,Chittenden,2026-05-26,2026,2026-05,60
 315,Citizen Cider - 0316,Burlington,Chittenden,2026-05-15,2026,2026-05,20
@@ -2710,275 +2983,6 @@ customer_id,name,city,county,date,year,month,gallons
 1202,DOMA/Paradiso Hifi,Burlington,Chittenden,2022-12-27,2022,2022-12,25
 1440,East West Cafe,Burlington,Chittenden,2025-07-22,2025,2025-07,150
 1440,East West Cafe,Burlington,Chittenden,2025-07-19,2025,2025-07,2
-321,El Cortijo-Burlington,Burlington,Chittenden,2026-05-26,2026,2026-05,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2026-05-14,2026,2026-05,75
-321,El Cortijo-Burlington,Burlington,Chittenden,2026-04-28,2026,2026-04,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2026-04-16,2026,2026-04,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2026-03-31,2026,2026-03,40
-321,El Cortijo-Burlington,Burlington,Chittenden,2026-03-17,2026,2026-03,40
-321,El Cortijo-Burlington,Burlington,Chittenden,2026-03-05,2026,2026-03,30
-321,El Cortijo-Burlington,Burlington,Chittenden,2026-02-24,2026,2026-02,55
-321,El Cortijo-Burlington,Burlington,Chittenden,2026-02-10,2026,2026-02,45
-321,El Cortijo-Burlington,Burlington,Chittenden,2026-01-27,2026,2026-01,55
-321,El Cortijo-Burlington,Burlington,Chittenden,2026-01-08,2026,2026-01,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-12-23,2025,2025-12,85
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-12-04,2025,2025-12,80
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-11-20,2025,2025-11,20
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-11-04,2025,2025-11,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-10-23,2025,2025-10,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-10-09,2025,2025-10,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-09-25,2025,2025-09,75
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-09-09,2025,2025-09,80
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-08-26,2025,2025-08,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-08-12,2025,2025-08,100
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-07-22,2025,2025-07,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-07-08,2025,2025-07,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-06-25,2025,2025-06,75
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-06-13,2025,2025-06,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-06-07,2025,2025-06,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-06-03,2025,2025-06,90
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-05-22,2025,2025-05,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-05-15,2025,2025-05,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-04-30,2025,2025-04,100
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-04-15,2025,2025-04,45
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-04-02,2025,2025-04,80
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-03-17,2025,2025-03,80
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-02-28,2025,2025-02,55
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-02-19,2025,2025-02,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-01-31,2025,2025-01,55
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-01-16,2025,2025-01,60
-321,El Cortijo-Burlington,Burlington,Chittenden,2025-01-04,2025,2025-01,75
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-12-18,2024,2024-12,60
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-12-06,2024,2024-12,45
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-11-27,2024,2024-11,80
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-11-11,2024,2024-11,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-10-29,2024,2024-10,80
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-10-15,2024,2024-10,115
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-10-01,2024,2024-10,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-09-17,2024,2024-09,80
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-09-03,2024,2024-09,145
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-08-15,2024,2024-08,100
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-07-29,2024,2024-07,90
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-07-15,2024,2024-07,120
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-06-28,2024,2024-06,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-06-17,2024,2024-06,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-06-06,2024,2024-06,95
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-05-22,2024,2024-05,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-05-10,2024,2024-05,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-04-29,2024,2024-04,75
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-04-16,2024,2024-04,85
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-04-02,2024,2024-04,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-03-22,2024,2024-03,140
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-03-05,2024,2024-03,90
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-02-19,2024,2024-02,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-02-08,2024,2024-02,100
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-01-24,2024,2024-01,105
-321,El Cortijo-Burlington,Burlington,Chittenden,2024-01-11,2024,2024-01,115
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-12-27,2023,2023-12,90
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-12-13,2023,2023-12,80
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-12-01,2023,2023-12,100
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-11-16,2023,2023-11,45
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-11-08,2023,2023-11,90
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-10-24,2023,2023-10,45
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-10-11,2023,2023-10,80
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-09-26,2023,2023-09,85
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-09-11,2023,2023-09,75
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-08-28,2023,2023-08,120
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-08-07,2023,2023-08,120
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-07-17,2023,2023-07,75
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-07-03,2023,2023-07,75
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-06-19,2023,2023-06,75
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-06-06,2023,2023-06,60
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-05-23,2023,2023-05,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-05-08,2023,2023-05,75
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-04-24,2023,2023-04,60
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-04-12,2023,2023-04,45
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-03-27,2023,2023-03,45
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-03-15,2023,2023-03,35
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-03-02,2023,2023-03,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-02-21,2023,2023-02,40
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-02-07,2023,2023-02,75
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-01-23,2023,2023-01,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2023-01-08,2023,2023-01,40
-321,El Cortijo-Burlington,Burlington,Chittenden,2022-12-27,2022,2022-12,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2022-12-11,2022,2022-12,30
-321,El Cortijo-Burlington,Burlington,Chittenden,2022-11-27,2022,2022-11,55
-321,El Cortijo-Burlington,Burlington,Chittenden,2022-11-07,2022,2022-11,40
-321,El Cortijo-Burlington,Burlington,Chittenden,2022-10-24,2022,2022-10,75
-321,El Cortijo-Burlington,Burlington,Chittenden,2022-10-03,2022,2022-10,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2022-09-21,2022,2022-09,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2022-09-06,2022,2022-09,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2022-08-22,2022,2022-08,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2022-08-08,2022,2022-08,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2022-07-18,2022,2022-07,20
-321,El Cortijo-Burlington,Burlington,Chittenden,2022-07-07,2022,2022-07,90
-321,El Cortijo-Burlington,Burlington,Chittenden,2022-06-22,2022,2022-06,35
-321,El Cortijo-Burlington,Burlington,Chittenden,2022-06-15,2022,2022-06,30
-321,El Cortijo-Burlington,Burlington,Chittenden,2022-06-06,2022,2022-06,75
-321,El Cortijo-Burlington,Burlington,Chittenden,2022-05-20,2022,2022-05,120
-321,El Cortijo-Burlington,Burlington,Chittenden,2022-04-25,2022,2022-04,80
-321,El Cortijo-Burlington,Burlington,Chittenden,2022-04-08,2022,2022-04,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2022-03-23,2022,2022-03,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2022-03-07,2022,2022-03,100
-321,El Cortijo-Burlington,Burlington,Chittenden,2022-02-16,2022,2022-02,55
-321,El Cortijo-Burlington,Burlington,Chittenden,2022-01-27,2022,2022-01,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2022-01-10,2022,2022-01,35
-321,El Cortijo-Burlington,Burlington,Chittenden,2021-12-28,2021,2021-12,20
-321,El Cortijo-Burlington,Burlington,Chittenden,2021-12-17,2021,2021-12,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2021-12-02,2021,2021-12,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2021-11-11,2021,2021-11,60
-321,El Cortijo-Burlington,Burlington,Chittenden,2021-10-26,2021,2021-10,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2021-10-11,2021,2021-10,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2021-09-29,2021,2021-09,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2021-09-12,2021,2021-09,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2021-08-10,2021,2021-08,75
-321,El Cortijo-Burlington,Burlington,Chittenden,2021-07-18,2021,2021-07,125
-321,El Cortijo-Burlington,Burlington,Chittenden,2021-06-21,2021,2021-06,85
-321,El Cortijo-Burlington,Burlington,Chittenden,2021-06-01,2021,2021-06,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2021-05-20,2021,2021-05,75
-321,El Cortijo-Burlington,Burlington,Chittenden,2021-03-29,2021,2021-03,150
-321,El Cortijo-Burlington,Burlington,Chittenden,2021-02-16,2021,2021-02,125
-321,El Cortijo-Burlington,Burlington,Chittenden,2021-01-25,2021,2021-01,75
-321,El Cortijo-Burlington,Burlington,Chittenden,2021-01-12,2021,2021-01,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2020-11-24,2020,2020-11,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2020-11-11,2020,2020-11,75
-321,El Cortijo-Burlington,Burlington,Chittenden,2020-10-27,2020,2020-10,75
-321,El Cortijo-Burlington,Burlington,Chittenden,2020-10-13,2020,2020-10,80
-321,El Cortijo-Burlington,Burlington,Chittenden,2020-09-23,2020,2020-09,30
-321,El Cortijo-Burlington,Burlington,Chittenden,2020-09-07,2020,2020-09,75
-321,El Cortijo-Burlington,Burlington,Chittenden,2020-08-12,2020,2020-08,150
-321,El Cortijo-Burlington,Burlington,Chittenden,2020-07-21,2020,2020-07,75
-321,El Cortijo-Burlington,Burlington,Chittenden,2020-07-06,2020,2020-07,150
-321,El Cortijo-Burlington,Burlington,Chittenden,2020-06-09,2020,2020-06,140
-321,El Cortijo-Burlington,Burlington,Chittenden,2020-05-05,2020,2020-05,160
-321,El Cortijo-Burlington,Burlington,Chittenden,2020-03-11,2020,2020-03,150
-321,El Cortijo-Burlington,Burlington,Chittenden,2020-03-05,2020,2020-03,100
-321,El Cortijo-Burlington,Burlington,Chittenden,2020-02-20,2020,2020-02,120
-321,El Cortijo-Burlington,Burlington,Chittenden,2020-01-30,2020,2020-01,100
-321,El Cortijo-Burlington,Burlington,Chittenden,2020-01-16,2020,2020-01,135
-321,El Cortijo-Burlington,Burlington,Chittenden,2019-12-30,2019,2019-12,135
-321,El Cortijo-Burlington,Burlington,Chittenden,2019-12-13,2019,2019-12,150
-321,El Cortijo-Burlington,Burlington,Chittenden,2019-11-18,2019,2019-11,75
-321,El Cortijo-Burlington,Burlington,Chittenden,2019-11-07,2019,2019-11,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2019-11-01,2019,2019-11,150
-321,El Cortijo-Burlington,Burlington,Chittenden,2019-10-01,2019,2019-10,80
-321,El Cortijo-Burlington,Burlington,Chittenden,2019-08-29,2019,2019-08,100
-321,El Cortijo-Burlington,Burlington,Chittenden,2019-08-05,2019,2019-08,75
-321,El Cortijo-Burlington,Burlington,Chittenden,2019-07-18,2019,2019-07,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2019-07-03,2019,2019-07,60
-321,El Cortijo-Burlington,Burlington,Chittenden,2019-06-22,2019,2019-06,100
-321,El Cortijo-Burlington,Burlington,Chittenden,2019-06-05,2019,2019-06,90
-321,El Cortijo-Burlington,Burlington,Chittenden,2019-05-16,2019,2019-05,80
-321,El Cortijo-Burlington,Burlington,Chittenden,2019-04-24,2019,2019-04,100
-321,El Cortijo-Burlington,Burlington,Chittenden,2019-04-04,2019,2019-04,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2019-03-20,2019,2019-03,100
-321,El Cortijo-Burlington,Burlington,Chittenden,2019-02-27,2019,2019-02,120
-321,El Cortijo-Burlington,Burlington,Chittenden,2019-02-05,2019,2019-02,90
-321,El Cortijo-Burlington,Burlington,Chittenden,2019-01-15,2019,2019-01,100
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-12-21,2018,2018-12,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-12-05,2018,2018-12,60
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-11-21,2018,2018-11,45
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-11-14,2018,2018-11,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-10-18,2018,2018-10,60
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-10-03,2018,2018-10,80
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-09-18,2018,2018-09,80
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-09-05,2018,2018-09,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-08-23,2018,2018-08,60
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-08-09,2018,2018-08,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-07-31,2018,2018-07,25
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-07-25,2018,2018-07,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-07-17,2018,2018-07,60
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-07-03,2018,2018-07,60
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-06-20,2018,2018-06,90
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-05-31,2018,2018-05,80
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-05-09,2018,2018-05,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-04-26,2018,2018-04,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-04-17,2018,2018-04,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-03-26,2018,2018-03,60
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-03-13,2018,2018-03,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-02-27,2018,2018-02,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-02-15,2018,2018-02,80
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-02-01,2018,2018-02,60
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-01-17,2018,2018-01,80
-321,El Cortijo-Burlington,Burlington,Chittenden,2018-01-03,2018,2018-01,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2017-12-25,2017,2017-12,35
-321,El Cortijo-Burlington,Burlington,Chittenden,2017-12-13,2017,2017-12,55
-321,El Cortijo-Burlington,Burlington,Chittenden,2017-11-29,2017,2017-11,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2017-11-16,2017,2017-11,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2017-10-18,2017,2017-10,60
-321,El Cortijo-Burlington,Burlington,Chittenden,2017-10-04,2017,2017-10,60
-321,El Cortijo-Burlington,Burlington,Chittenden,2017-09-20,2017,2017-09,40
-321,El Cortijo-Burlington,Burlington,Chittenden,2017-09-07,2017,2017-09,55
-321,El Cortijo-Burlington,Burlington,Chittenden,2017-08-26,2017,2017-08,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2017-08-12,2017,2017-08,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2017-07-27,2017,2017-07,45
-321,El Cortijo-Burlington,Burlington,Chittenden,2017-07-15,2017,2017-07,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2017-07-01,2017,2017-07,60
-321,El Cortijo-Burlington,Burlington,Chittenden,2017-06-18,2017,2017-06,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2017-06-03,2017,2017-06,95
-321,El Cortijo-Burlington,Burlington,Chittenden,2017-05-21,2017,2017-05,45
-321,El Cortijo-Burlington,Burlington,Chittenden,2017-04-22,2017,2017-04,45
-321,El Cortijo-Burlington,Burlington,Chittenden,2017-04-08,2017,2017-04,40
-321,El Cortijo-Burlington,Burlington,Chittenden,2017-03-25,2017,2017-03,40
-321,El Cortijo-Burlington,Burlington,Chittenden,2017-03-11,2017,2017-03,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2017-02-25,2017,2017-02,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2017-02-11,2017,2017-02,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2017-01-29,2017,2017-01,55
-321,El Cortijo-Burlington,Burlington,Chittenden,2017-01-14,2017,2017-01,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2017-01-02,2017,2017-01,55
-321,El Cortijo-Burlington,Burlington,Chittenden,2016-12-17,2016,2016-12,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2016-12-03,2016,2016-12,45
-321,El Cortijo-Burlington,Burlington,Chittenden,2016-11-20,2016,2016-11,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2016-11-05,2016,2016-11,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2016-10-23,2016,2016-10,80
-321,El Cortijo-Burlington,Burlington,Chittenden,2016-10-08,2016,2016-10,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2016-09-25,2016,2016-09,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2016-09-10,2016,2016-09,75
-321,El Cortijo-Burlington,Burlington,Chittenden,2016-08-27,2016,2016-08,45
-321,El Cortijo-Burlington,Burlington,Chittenden,2016-08-14,2016,2016-08,45
-321,El Cortijo-Burlington,Burlington,Chittenden,2016-07-30,2016,2016-07,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2016-07-18,2016,2016-07,60
-321,El Cortijo-Burlington,Burlington,Chittenden,2016-07-03,2016,2016-07,30
-321,El Cortijo-Burlington,Burlington,Chittenden,2016-06-19,2016,2016-06,45
-321,El Cortijo-Burlington,Burlington,Chittenden,2016-06-05,2016,2016-06,60
-321,El Cortijo-Burlington,Burlington,Chittenden,2016-05-22,2016,2016-05,40
-321,El Cortijo-Burlington,Burlington,Chittenden,2016-05-08,2016,2016-05,60
-321,El Cortijo-Burlington,Burlington,Chittenden,2016-04-23,2016,2016-04,45
-321,El Cortijo-Burlington,Burlington,Chittenden,2016-04-09,2016,2016-04,40
-321,El Cortijo-Burlington,Burlington,Chittenden,2016-03-26,2016,2016-03,30
-321,El Cortijo-Burlington,Burlington,Chittenden,2016-03-12,2016,2016-03,38
-321,El Cortijo-Burlington,Burlington,Chittenden,2016-02-27,2016,2016-02,40
-321,El Cortijo-Burlington,Burlington,Chittenden,2016-02-10,2016,2016-02,35
-321,El Cortijo-Burlington,Burlington,Chittenden,2016-01-27,2016,2016-01,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2016-01-11,2016,2016-01,20
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-12-30,2015,2015-12,40
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-12-16,2015,2015-12,60
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-12-03,2015,2015-12,20
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-11-24,2015,2015-11,60
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-11-12,2015,2015-11,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-10-31,2015,2015-10,60
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-10-17,2015,2015-10,60
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-10-06,2015,2015-10,45
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-09-23,2015,2015-09,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-09-08,2015,2015-09,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-08-26,2015,2015-08,60
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-08-17,2015,2015-08,15
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-08-12,2015,2015-08,75
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-07-29,2015,2015-07,65
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-07-15,2015,2015-07,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-07-01,2015,2015-07,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-06-17,2015,2015-06,35
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-06-08,2015,2015-06,45
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-05-29,2015,2015-05,30
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-05-22,2015,2015-05,45
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-05-13,2015,2015-05,75
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-04-28,2015,2015-04,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-04-14,2015,2015-04,85
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-03-24,2015,2015-03,90
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-02-27,2015,2015-02,70
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-02-06,2015,2015-02,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-01-15,2015,2015-01,50
-321,El Cortijo-Burlington,Burlington,Chittenden,2015-01-02,2015,2015-01,60
 1502,ElksClub -Burlington,Burlington,Chittenden,2026-05-15,2026,2026-05,105
 1502,ElksClub -Burlington,Burlington,Chittenden,2026-05-13,2026,2026-05,2
 351,FANCYS/PAUL Trom.../Cafe Mamajuana,Burlington,Chittenden,2026-06-02,2026,2026-06,60
@@ -3422,6 +3426,7 @@ customer_id,name,city,county,date,year,month,gallons
 1464,Friendly Toast #3251,Burlington,Chittenden,2026-02-20,2026,2026-02,140
 1464,Friendly Toast #3251,Burlington,Chittenden,2025-11-25,2025,2025-11,165
 1464,Friendly Toast #3251,Burlington,Chittenden,2025-11-10,2025,2025-11,2
+352,Great Northern,Burlington,Chittenden,2026-06-19,2026,2026-06,75
 352,Great Northern,Burlington,Chittenden,2026-06-04,2026,2026-06,75
 352,Great Northern,Burlington,Chittenden,2026-05-26,2026,2026-05,55
 352,Great Northern,Burlington,Chittenden,2026-05-15,2026,2026-05,40
@@ -6109,6 +6114,7 @@ customer_id,name,city,county,date,year,month,gallons
 1433,Three Brothers Pizza-Colchester,Colchester,Chittenden,2025-07-03,2025,2025-07,20
 1433,Three Brothers Pizza-Colchester,Colchester,Chittenden,2025-05-30,2025,2025-05,85
 1433,Three Brothers Pizza-Colchester,Colchester,Chittenden,2025-05-20,2025,2025-05,2
+1349,"Concord, Vt Gas Station",Concord,Caledonia,2026-06-19,2026,2026-06,60
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2026-05-04,2026,2026-05,60
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2026-03-19,2026,2026-03,55
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2026-02-09,2026,2026-02,60
@@ -6123,6 +6129,7 @@ customer_id,name,city,county,date,year,month,gallons
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2024-11-07,2024,2024-11,85
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2024-08-21,2024,2024-08,50
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2024-06-06,2024,2024-06,2
+617,Moose Look Diner,Concord,Caledonia,2026-06-19,2026,2026-06,110
 617,Moose Look Diner,Concord,Caledonia,2026-05-04,2026,2026-05,90
 617,Moose Look Diner,Concord,Caledonia,2026-03-19,2026,2026-03,70
 617,Moose Look Diner,Concord,Caledonia,2026-02-09,2026,2026-02,65
@@ -6230,6 +6237,7 @@ customer_id,name,city,county,date,year,month,gallons
 520,Sterling College - Craftsbury,Craftsbury Common,Caledonia,2019-06-29,2019,2019-06,60
 520,Sterling College - Craftsbury,Craftsbury Common,Caledonia,2018-08-24,2018,2018-08,100
 1490,Under Canvas Camping,Dalton,Out-of-State (NH),2026-03-23,2026,2026-03,2
+610,GoodFellas-Danville,Danville,Caledonia,2026-06-19,2026,2026-06,50
 610,GoodFellas-Danville,Danville,Caledonia,2026-05-04,2026,2026-05,150
 610,GoodFellas-Danville,Danville,Caledonia,2026-03-19,2026,2026-03,90
 610,GoodFellas-Danville,Danville,Caledonia,2026-02-09,2026,2026-02,30
@@ -6300,6 +6308,7 @@ customer_id,name,city,county,date,year,month,gallons
 610,GoodFellas-Danville,Danville,Caledonia,2017-12-07,2017,2017-12,70
 610,GoodFellas-Danville,Danville,Caledonia,2017-09-03,2017,2017-09,35
 610,GoodFellas-Danville,Danville,Caledonia,2017-08-03,2017,2017-08,50
+1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2026-06-19,2026,2026-06,25
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2026-05-22,2026,2026-05,45
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2026-03-19,2026,2026-03,50
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2026-01-02,2026,2026-01,40
@@ -6323,6 +6332,7 @@ customer_id,name,city,county,date,year,month,gallons
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2022-05-16,2022,2022-05,60
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2022-02-23,2022,2022-02,25
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2022-01-03,2022,2022-01,30
+611,Three Ponds,Danville,Caledonia,2026-06-19,2026,2026-06,75
 611,Three Ponds,Danville,Caledonia,2026-05-04,2026,2026-05,40
 611,Three Ponds,Danville,Caledonia,2026-03-19,2026,2026-03,20
 611,Three Ponds,Danville,Caledonia,2026-02-09,2026,2026-02,45
@@ -6657,6 +6667,7 @@ customer_id,name,city,county,date,year,month,gallons
 1426,AL’s FF food truck-ESSEX at Lowes,Essex,Chittenden,2025-09-16,2025,2025-09,85
 1426,AL’s FF food truck-ESSEX at Lowes,Essex,Chittenden,2025-08-07,2025,2025-08,100
 1426,AL’s FF food truck-ESSEX at Lowes,Essex,Chittenden,2025-06-11,2025,2025-06,35
+415,Blodgett ovens,Essex Junction,Chittenden,2026-06-19,2026,2026-06,65
 415,Blodgett ovens,Essex Junction,Chittenden,2024-06-18,2024,2024-06,60
 415,Blodgett ovens,Essex Junction,Chittenden,2023-12-21,2023,2023-12,40
 415,Blodgett ovens,Essex Junction,Chittenden,2023-06-19,2023,2023-06,35
@@ -8612,6 +8623,7 @@ customer_id,name,city,county,date,year,month,gallons
 734,Manchester Hockeypas-0150,Manchester Center,Bennington,2022-09-02,2022,2022-09,50
 734,Manchester Hockeypas-0150,Manchester Center,Bennington,2020-07-17,2020,2020-07,50
 734,Manchester Hockeypas-0150,Manchester Center,Bennington,2019-07-07,2019,2019-07,25
+608,Rivers Edge Store-Marshfield,Marshfield,Caledonia,2026-06-19,2026,2026-06,10
 608,Rivers Edge Store-Marshfield,Marshfield,Caledonia,2026-03-19,2026,2026-03,30
 608,Rivers Edge Store-Marshfield,Marshfield,Caledonia,2025-10-04,2025,2025-10,65
 608,Rivers Edge Store-Marshfield,Marshfield,Caledonia,2025-06-09,2025,2025-06,10
@@ -10696,6 +10708,7 @@ customer_id,name,city,county,date,year,month,gallons
 302,Skinny Pancake-Montpelier,Montpelier,Washington,2015-03-05,2015,2015-03,20
 302,Skinny Pancake-Montpelier,Montpelier,Washington,2015-02-12,2015,2015-02,45
 302,Skinny Pancake-Montpelier,Montpelier,Washington,2015-01-07,2015,2015-01,40
+157,State House,Montpelier,Washington,2026-06-23,2026,2026-06,15
 157,State House,Montpelier,Washington,2026-06-12,2026,2026-06,50
 157,State House,Montpelier,Washington,2026-01-02,2026,2026-01,20
 157,State House,Montpelier,Washington,2025-09-15,2025,2025-09,35
@@ -12288,6 +12301,7 @@ customer_id,name,city,county,date,year,month,gallons
 1090,Proctor-Pittsford Country Club,Pittsford,Rutland,2022-09-09,2022,2022-09,100
 1090,Proctor-Pittsford Country Club,Pittsford,Rutland,2022-07-26,2022,2022-07,110
 1090,Proctor-Pittsford Country Club,Pittsford,Rutland,2022-06-10,2022,2022-06,100
+1078,BBB- Pump oil @ Shop,Plainfield,Washington,2026-06-19,2026,2026-06,80
 1078,BBB- Pump oil @ Shop,Plainfield,Washington,2026-06-04,2026,2026-06,180
 1078,BBB- Pump oil @ Shop,Plainfield,Washington,2026-05-06,2026,2026-05,250
 1078,BBB- Pump oil @ Shop,Plainfield,Washington,2026-04-29,2026,2026-04,65
@@ -12374,6 +12388,7 @@ customer_id,name,city,county,date,year,month,gallons
 603,Goddard College- 7532,Plainfield,Washington,2016-06-27,2016,2016-06,45
 603,Goddard College- 7532,Plainfield,Washington,2015-11-24,2015,2015-11,38
 603,Goddard College- 7532,Plainfield,Washington,2015-07-09,2015,2015-07,45
+600,Positive Pie-Plainfield,Plainfield,Washington,2026-06-19,2026,2026-06,20
 600,Positive Pie-Plainfield,Plainfield,Washington,2026-06-04,2026,2026-06,100
 600,Positive Pie-Plainfield,Plainfield,Washington,2026-05-04,2026,2026-05,75
 600,Positive Pie-Plainfield,Plainfield,Washington,2026-04-03,2026,2026-04,130
@@ -12458,6 +12473,7 @@ customer_id,name,city,county,date,year,month,gallons
 1360,Tony’s Homemade Donut’s,Plainfield,Washington,2024-07-17,2024,2024-07,2
 1450,Anthony’s Restaurant -Plattsburgh,Plattsburgh,Out-of-State (NY),2025-09-11,2025,2025-09,300
 1450,Anthony’s Restaurant -Plattsburgh,Plattsburgh,Out-of-State (NY),2025-09-10,2025,2025-09,2
+1173,Hannaford-Plattsburgh,Plattsburgh,Out-of-State (NY),2026-06-23,2026,2026-06,142
 1173,Hannaford-Plattsburgh,Plattsburgh,Out-of-State (NY),2026-05-21,2026,2026-05,138
 1173,Hannaford-Plattsburgh,Plattsburgh,Out-of-State (NY),2026-04-21,2026,2026-04,159
 1173,Hannaford-Plattsburgh,Plattsburgh,Out-of-State (NY),2026-03-18,2026,2026-03,149
@@ -13161,10 +13177,10 @@ customer_id,name,city,county,date,year,month,gallons
 1218,Maple Soul,Rochester,Rutland,2023-06-28,2023,2023-06,15
 1218,Maple Soul,Rochester,Rutland,2023-04-28,2023,2023-04,15
 1218,Maple Soul,Rochester,Rutland,2023-03-16,2023,2023-03,60
-1117,Windridge Summer Camp,Roxbury,Washington,2025-10-02,2025,2025-10,55
-1117,Windridge Summer Camp,Roxbury,Washington,2024-09-05,2024,2024-09,65
-1117,Windridge Summer Camp,Roxbury,Washington,2023-08-27,2023,2023-08,50
-1117,Windridge Summer Camp,Roxbury,Washington,2022-09-23,2022,2022-09,50
+1117,Windridge Summer Camp-September Collection,Roxbury,Washington,2025-10-02,2025,2025-10,55
+1117,Windridge Summer Camp-September Collection,Roxbury,Washington,2024-09-05,2024,2024-09,65
+1117,Windridge Summer Camp-September Collection,Roxbury,Washington,2023-08-27,2023,2023-08,50
+1117,Windridge Summer Camp-September Collection,Roxbury,Washington,2022-09-23,2022,2022-09,50
 1182,Hannaford- Rutland,Rutland,Rutland,2025-09-10,2025,2025-09,39
 1182,Hannaford- Rutland,Rutland,Rutland,2025-05-23,2025,2025-05,48
 1182,Hannaford- Rutland,Rutland,Rutland,2025-01-28,2025,2025-01,85
@@ -13223,6 +13239,7 @@ customer_id,name,city,county,date,year,month,gallons
 123,Ricky's (Indian food gas station),S. Barre,Washington,2016-03-27,2016,2016-03,25
 1442,Maple Grove Farms of Vermont,Saint Johnsbury,Caledonia,2025-08-07,2025,2025-08,275
 1442,Maple Grove Farms of Vermont,Saint Johnsbury,Caledonia,2025-07-30,2025,2025-07,2
+1377,Chef Leu -Shelburne,Shelburne,Chittenden,2026-06-19,2026,2026-06,30
 1377,Chef Leu -Shelburne,Shelburne,Chittenden,2026-05-08,2026,2026-05,10
 1377,Chef Leu -Shelburne,Shelburne,Chittenden,2026-02-10,2026,2026-02,25
 1377,Chef Leu -Shelburne,Shelburne,Chittenden,2025-12-30,2025,2025-12,70
@@ -13319,6 +13336,7 @@ customer_id,name,city,county,date,year,month,gallons
 700,Rustic Roots,Shelburne,Chittenden,2015-06-22,2015,2015-06,25
 700,Rustic Roots,Shelburne,Chittenden,2015-04-06,2015,2015-04,40
 1487,Whistle Pig-White Farmhouse,Shoreham,Addison,2026-03-18,2026,2026-03,2
+1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,Chittenden,2026-06-19,2026,2026-06,140
 1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,Chittenden,2026-06-04,2026,2026-06,50
 1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,Chittenden,2026-05-28,2026,2026-05,125
 1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,Chittenden,2026-05-12,2026,2026-05,90
@@ -13352,6 +13370,7 @@ customer_id,name,city,county,date,year,month,gallons
 1418,Cairns Arena,South Burlington,Chittenden,2025-04-18,2025,2025-04,90
 1418,Cairns Arena,South Burlington,Chittenden,2025-04-10,2025,2025-04,90
 1418,Cairns Arena,South Burlington,Chittenden,2025-04-10,2025,2025-04,2
+1195,Chicken Charlies,South Burlington,Chittenden,2026-06-23,2026,2026-06,25
 1195,Chicken Charlies,South Burlington,Chittenden,2026-06-04,2026,2026-06,25
 1195,Chicken Charlies,South Burlington,Chittenden,2026-05-28,2026,2026-05,20
 1195,Chicken Charlies,South Burlington,Chittenden,2026-05-12,2026,2026-05,40
@@ -13443,6 +13462,7 @@ customer_id,name,city,county,date,year,month,gallons
 1195,Chicken Charlies,South Burlington,Chittenden,2022-11-27,2022,2022-11,300
 1347,Farmers and Foragers-Warehouse,South Burlington,Chittenden,2024-06-05,2024,2024-06,35
 1347,Farmers and Foragers-Warehouse,South Burlington,Chittenden,2024-06-05,2024,2024-06,2
+1448,Good Times Cafe,South Burlington,Chittenden,2026-06-19,2026,2026-06,25
 1448,Good Times Cafe,South Burlington,Chittenden,2026-06-02,2026,2026-06,30
 1448,Good Times Cafe,South Burlington,Chittenden,2026-04-28,2026,2026-04,55
 1448,Good Times Cafe,South Burlington,Chittenden,2026-02-10,2026,2026-02,40
@@ -13489,6 +13509,7 @@ customer_id,name,city,county,date,year,month,gallons
 1458,Jersey Mike's-South Burlington,South Burlington,Chittenden,2026-06-02,2026,2026-06,55
 1458,Jersey Mike's-South Burlington,South Burlington,Chittenden,2026-04-28,2026,2026-04,255
 1458,Jersey Mike's-South Burlington,South Burlington,Chittenden,2025-10-15,2025,2025-10,2
+1216,Koto,South Burlington,Chittenden,2026-06-19,2026,2026-06,25
 1216,Koto,South Burlington,Chittenden,2026-04-28,2026,2026-04,20
 1216,Koto,South Burlington,Chittenden,2026-02-10,2026,2026-02,30
 1216,Koto,South Burlington,Chittenden,2025-12-30,2025,2025-12,40
@@ -13534,6 +13555,7 @@ customer_id,name,city,county,date,year,month,gallons
 318,Mirabelles-South Burlington,South Burlington,Chittenden,2015-08-17,2015,2015-08,20
 318,Mirabelles-South Burlington,South Burlington,Chittenden,2015-06-17,2015,2015-06,35
 318,Mirabelles-South Burlington,South Burlington,Chittenden,2015-03-05,2015,2015-03,45
+1483,Mountain Valley -South Burlington,South Burlington,Chittenden,2026-06-19,2026,2026-06,35
 1483,Mountain Valley -South Burlington,South Burlington,Chittenden,2026-04-09,2026,2026-04,50
 1483,Mountain Valley -South Burlington,South Burlington,Chittenden,2026-01-22,2026,2026-01,2
 344,Parkway Diner,South Burlington,Chittenden,2026-05-28,2026,2026-05,15
@@ -13650,6 +13672,7 @@ customer_id,name,city,county,date,year,month,gallons
 365,Skinny Pancake- BTV airport,South Burlington,Chittenden,2019-03-29,2019,2019-03,105
 365,Skinny Pancake- BTV airport,South Burlington,Chittenden,2019-02-27,2019,2019-02,80
 365,Skinny Pancake- BTV airport,South Burlington,Chittenden,2019-02-05,2019,2019-02,60
+1188,Windjammer,South Burlington,Chittenden,2026-06-23,2026,2026-06,80
 1188,Windjammer,South Burlington,Chittenden,2026-06-04,2026,2026-06,100
 1188,Windjammer,South Burlington,Chittenden,2026-05-28,2026,2026-05,100
 1188,Windjammer,South Burlington,Chittenden,2026-05-12,2026,2026-05,80
@@ -13840,9 +13863,11 @@ customer_id,name,city,county,date,year,month,gallons
 1106,Vermont Law School-South Royalton,South Royalton,Windsor,2022-10-05,2022,2022-10,60
 1106,Vermont Law School-South Royalton,South Royalton,Windsor,2022-08-02,2022,2022-08,50
 1106,Vermont Law School-South Royalton,South Royalton,Windsor,2022-03-25,2022,2022-03,50
+1493,Pizza Hut-St Albans,St Albans,Franklin,2026-06-23,2026,2026-06,15
 1493,Pizza Hut-St Albans,St Albans,Franklin,2026-06-02,2026,2026-06,20
 1493,Pizza Hut-St Albans,St Albans,Franklin,2026-05-12,2026,2026-05,90
 1493,Pizza Hut-St Albans,St Albans,Franklin,2026-03-31,2026,2026-03,2
+1507,St Johnsbury Country Club,Burlington,Chittenden,2026-06-19,2026,2026-06,40
 1155,Hannafords-St Albans,St. Albans,Franklin,2026-06-02,2026,2026-06,64
 1155,Hannafords-St Albans,St. Albans,Franklin,2026-04-09,2026,2026-04,126
 1155,Hannafords-St Albans,St. Albans,Franklin,2025-12-15,2025,2025-12,62
@@ -13868,6 +13893,7 @@ customer_id,name,city,county,date,year,month,gallons
 1086,Nutra Blend-John,St. Albans,Franklin,2021-11-23,2021,2021-11,1100
 1086,Nutra Blend-John,St. Albans,Franklin,2021-11-22,2021,2021-11,1350
 1086,Nutra Blend-John,St. Albans,Franklin,2021-11-17,2021,2021-11,1375
+417,Bayside Pavilion,St. Albans City,Franklin,2026-06-23,2026,2026-06,90
 417,Bayside Pavilion,St. Albans City,Franklin,2026-05-12,2026,2026-05,90
 417,Bayside Pavilion,St. Albans City,Franklin,2026-03-18,2026,2026-03,100
 417,Bayside Pavilion,St. Albans City,Franklin,2026-02-05,2026,2026-02,60
@@ -13918,6 +13944,7 @@ customer_id,name,city,county,date,year,month,gallons
 417,Bayside Pavilion,St. Albans City,Franklin,2018-10-17,2018,2018-10,125
 417,Bayside Pavilion,St. Albans City,Franklin,2018-05-11,2018,2018-05,100
 417,Bayside Pavilion,St. Albans City,Franklin,2018-02-27,2018,2018-02,100
+421,BLACK RADISH/14thStar-Saint Albans-14th Star,St. Albans City,Franklin,2026-06-23,2026,2026-06,100
 421,BLACK RADISH/14thStar-Saint Albans-14th Star,St. Albans City,Franklin,2026-06-02,2026,2026-06,60
 421,BLACK RADISH/14thStar-Saint Albans-14th Star,St. Albans City,Franklin,2026-05-12,2026,2026-05,70
 421,BLACK RADISH/14thStar-Saint Albans-14th Star,St. Albans City,Franklin,2026-04-21,2026,2026-04,45
@@ -13968,6 +13995,7 @@ customer_id,name,city,county,date,year,month,gallons
 421,BLACK RADISH/14thStar-Saint Albans-14th Star,St. Albans City,Franklin,2021-05-09,2021,2021-05,125
 421,BLACK RADISH/14thStar-Saint Albans-14th Star,St. Albans City,Franklin,2021-03-09,2021,2021-03,100
 421,BLACK RADISH/14thStar-Saint Albans-14th Star,St. Albans City,Franklin,2020-10-05,2020,2020-10,125
+1434,Cafe Montette -StAlbans,St. Albans City,Franklin,2026-06-23,2026,2026-06,15
 1434,Cafe Montette -StAlbans,St. Albans City,Franklin,2026-06-02,2026,2026-06,15
 1434,Cafe Montette -StAlbans,St. Albans City,Franklin,2026-05-12,2026,2026-05,55
 1434,Cafe Montette -StAlbans,St. Albans City,Franklin,2026-02-05,2026,2026-02,40
@@ -13975,6 +14003,7 @@ customer_id,name,city,county,date,year,month,gallons
 1434,Cafe Montette -StAlbans,St. Albans City,Franklin,2025-10-15,2025,2025-10,20
 1434,Cafe Montette -StAlbans,St. Albans City,Franklin,2025-09-16,2025,2025-09,25
 1434,Cafe Montette -StAlbans,St. Albans City,Franklin,2025-05-24,2025,2025-05,2
+1138,Kaiju Kitchen-St Albans,St. Albans City,Franklin,2026-06-23,2026,2026-06,15
 1138,Kaiju Kitchen-St Albans,St. Albans City,Franklin,2026-04-21,2026,2026-04,15
 1138,Kaiju Kitchen-St Albans,St. Albans City,Franklin,2026-01-09,2026,2026-01,10
 1138,Kaiju Kitchen-St Albans,St. Albans City,Franklin,2025-10-15,2025,2025-10,15
@@ -13996,6 +14025,7 @@ customer_id,name,city,county,date,year,month,gallons
 1138,Kaiju Kitchen-St Albans,St. Albans City,Franklin,2023-02-12,2023,2023-02,30
 1138,Kaiju Kitchen-St Albans,St. Albans City,Franklin,2022-12-08,2022,2022-12,30
 1138,Kaiju Kitchen-St Albans,St. Albans City,Franklin,2022-08-31,2022,2022-08,15
+418,Nelly's,St. Albans City,Franklin,2026-06-23,2026,2026-06,110
 418,Nelly's,St. Albans City,Franklin,2026-06-02,2026,2026-06,90
 418,Nelly's,St. Albans City,Franklin,2026-05-12,2026,2026-05,120
 418,Nelly's,St. Albans City,Franklin,2026-04-21,2026,2026-04,70
@@ -14092,6 +14122,7 @@ customer_id,name,city,county,date,year,month,gallons
 1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2023-08-21,2023,2023-08,30
 1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2023-08-01,2023,2023-08,90
 1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2023-06-27,2023,2023-06,65
+1293,Center Tower - St. J,St. Johnsbury,Caledonia,2026-06-19,2026,2026-06,35
 1293,Center Tower - St. J,St. Johnsbury,Caledonia,2026-05-22,2026,2026-05,70
 1293,Center Tower - St. J,St. Johnsbury,Caledonia,2026-03-19,2026,2026-03,50
 1293,Center Tower - St. J,St. Johnsbury,Caledonia,2026-02-09,2026,2026-02,30
@@ -14107,6 +14138,7 @@ customer_id,name,city,county,date,year,month,gallons
 1080,JavierBillsAlmostMexican/PicaPica,St. Johnsbury,Caledonia,2023-09-27,2023,2023-09,30
 1080,JavierBillsAlmostMexican/PicaPica,St. Johnsbury,Caledonia,2022-12-22,2022,2022-12,40
 1080,JavierBillsAlmostMexican/PicaPica,St. Johnsbury,Caledonia,2021-11-09,2021,2021-11,60
+1415,The Buttery,St. Johnsbury,Caledonia,2026-06-19,2026,2026-06,15
 1415,The Buttery,St. Johnsbury,Caledonia,2026-05-04,2026,2026-05,20
 1415,The Buttery,St. Johnsbury,Caledonia,2026-03-19,2026,2026-03,40
 1415,The Buttery,St. Johnsbury,Caledonia,2025-11-03,2025,2025-11,15
@@ -14133,6 +14165,7 @@ customer_id,name,city,county,date,year,month,gallons
 1118,Aladdin,Stowe,Lamoille,2022-11-17,2022,2022-11,70
 1118,Aladdin,Stowe,Lamoille,2022-09-12,2022,2022-09,60
 1118,Aladdin,Stowe,Lamoille,2022-06-13,2022,2022-06,20
+1075,Alfies Wild rides,Stowe,Lamoille,2026-06-22,2026,2026-06,10
 1075,Alfies Wild rides,Stowe,Lamoille,2026-03-20,2026,2026-03,20
 1075,Alfies Wild rides,Stowe,Lamoille,2026-03-03,2026,2026-03,20
 1075,Alfies Wild rides,Stowe,Lamoille,2026-02-18,2026,2026-02,20
@@ -14175,6 +14208,7 @@ customer_id,name,city,county,date,year,month,gallons
 1075,Alfies Wild rides,Stowe,Lamoille,2022-10-21,2022,2022-10,15
 1075,Alfies Wild rides,Stowe,Lamoille,2022-09-22,2022,2022-09,40
 1075,Alfies Wild rides,Stowe,Lamoille,2022-06-29,2022,2022-06,40
+1372,Arandas Mexican-Stowe,Stowe,Lamoille,2026-06-22,2026,2026-06,30
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2026-05-27,2026,2026-05,20
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2026-04-29,2026,2026-04,10
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2026-04-15,2026,2026-04,25
@@ -14187,6 +14221,7 @@ customer_id,name,city,county,date,year,month,gallons
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2025-07-24,2025,2025-07,60
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2025-06-17,2025,2025-06,45
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2025-04-15,2025,2025-04,35
+287,Backyard Tavern 50%,Stowe,Lamoille,2026-06-22,2026,2026-06,35
 287,Backyard Tavern 50%,Stowe,Lamoille,2026-06-09,2026,2026-06,25
 287,Backyard Tavern 50%,Stowe,Lamoille,2026-05-27,2026,2026-05,50
 287,Backyard Tavern 50%,Stowe,Lamoille,2026-05-11,2026,2026-05,30
@@ -14458,6 +14493,7 @@ customer_id,name,city,county,date,year,month,gallons
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2016-07-11,2016,2016-07,30
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2016-04-11,2016,2016-04,35
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2015-12-04,2015,2015-12,20
+247,Doc Ponds,Stowe,Lamoille,2026-06-22,2026,2026-06,110
 247,Doc Ponds,Stowe,Lamoille,2026-06-09,2026,2026-06,80
 247,Doc Ponds,Stowe,Lamoille,2026-05-27,2026,2026-05,150
 247,Doc Ponds,Stowe,Lamoille,2026-05-11,2026,2026-05,130
@@ -14703,6 +14739,7 @@ customer_id,name,city,county,date,year,month,gallons
 247,Doc Ponds,Stowe,Lamoille,2015-09-29,2015,2015-09,50
 247,Doc Ponds,Stowe,Lamoille,2015-09-15,2015,2015-09,40
 247,Doc Ponds,Stowe,Lamoille,2015-08-29,2015,2015-08,30
+263,Edson Hill Manor,Stowe,Lamoille,2026-06-22,2026,2026-06,40
 263,Edson Hill Manor,Stowe,Lamoille,2026-04-15,2026,2026-04,30
 263,Edson Hill Manor,Stowe,Lamoille,2026-03-20,2026,2026-03,15
 263,Edson Hill Manor,Stowe,Lamoille,2026-03-03,2026,2026-03,25
@@ -14813,6 +14850,7 @@ customer_id,name,city,county,date,year,month,gallons
 1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2022-04-07,2022,2022-04,90
 1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2021-12-16,2021,2021-12,50
 1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2021-09-30,2021,2021-09,75
+262,Idletyme,Stowe,Lamoille,2026-06-22,2026,2026-06,120
 262,Idletyme,Stowe,Lamoille,2026-06-09,2026,2026-06,90
 262,Idletyme,Stowe,Lamoille,2026-05-27,2026,2026-05,140
 262,Idletyme,Stowe,Lamoille,2026-05-11,2026,2026-05,40
@@ -15174,6 +15212,7 @@ customer_id,name,city,county,date,year,month,gallons
 1361,Outbound Stowe,Stowe,Lamoille,2025-01-14,2025,2025-01,40
 1361,Outbound Stowe,Stowe,Lamoille,2024-11-18,2024,2024-11,35
 1361,Outbound Stowe,Stowe,Lamoille,2024-09-30,2024,2024-09,20
+261,Piecasso,Stowe,Lamoille,2026-06-22,2026,2026-06,120
 261,Piecasso,Stowe,Lamoille,2026-06-09,2026,2026-06,110
 261,Piecasso,Stowe,Lamoille,2026-05-27,2026,2026-05,95
 261,Piecasso,Stowe,Lamoille,2026-05-11,2026,2026-05,45
@@ -15456,6 +15495,7 @@ customer_id,name,city,county,date,year,month,gallons
 276,RAJA- Umami,Stowe,Lamoille,2020-12-24,2020,2020-12,25
 276,RAJA- Umami,Stowe,Lamoille,2020-12-02,2020,2020-12,40
 276,RAJA- Umami,Stowe,Lamoille,2020-10-06,2020,2020-10,65
+248,Ranch Camp 50%,Stowe,Lamoille,2026-06-22,2026,2026-06,35
 248,Ranch Camp 50%,Stowe,Lamoille,2026-06-09,2026,2026-06,25
 248,Ranch Camp 50%,Stowe,Lamoille,2026-05-27,2026,2026-05,50
 248,Ranch Camp 50%,Stowe,Lamoille,2026-05-11,2026,2026-05,30
@@ -15601,6 +15641,7 @@ customer_id,name,city,county,date,year,month,gallons
 248,Ranch Camp 50%,Stowe,Lamoille,2019-03-30,2019,2019-03,30
 248,Ranch Camp 50%,Stowe,Lamoille,2019-03-03,2019,2019-03,40
 248,Ranch Camp 50%,Stowe,Lamoille,2019-02-03,2019,2019-02,90
+249,Rim Rock-Stowe,Stowe,Lamoille,2026-06-22,2026,2026-06,40
 249,Rim Rock-Stowe,Stowe,Lamoille,2026-06-09,2026,2026-06,30
 249,Rim Rock-Stowe,Stowe,Lamoille,2026-05-27,2026,2026-05,20
 249,Rim Rock-Stowe,Stowe,Lamoille,2026-05-11,2026,2026-05,40
@@ -15776,6 +15817,7 @@ customer_id,name,city,county,date,year,month,gallons
 250,Sanfo,Stowe,Lamoille,2019-11-30,2019,2019-11,15
 250,Sanfo,Stowe,Lamoille,2019-05-01,2019,2019-05,50
 250,Sanfo,Stowe,Lamoille,2018-11-04,2018,2018-11,40
+270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-06-22,2026,2026-06,100
 270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-06-09,2026,2026-06,75
 270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-05-27,2026,2026-05,90
 270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-05-11,2026,2026-05,70
@@ -16129,6 +16171,7 @@ customer_id,name,city,county,date,year,month,gallons
 254,Thai in the mountain (SaenSook)-Mountain Rd,Stowe,Lamoille,2016-09-19,2016,2016-09,30
 254,Thai in the mountain (SaenSook)-Mountain Rd,Stowe,Lamoille,2016-08-08,2016,2016-08,32
 254,Thai in the mountain (SaenSook)-Mountain Rd,Stowe,Lamoille,2016-07-11,2016,2016-07,30
+252,The Bench,Stowe,Lamoille,2026-06-22,2026,2026-06,40
 252,The Bench,Stowe,Lamoille,2026-06-09,2026,2026-06,40
 252,The Bench,Stowe,Lamoille,2026-05-27,2026,2026-05,35
 252,The Bench,Stowe,Lamoille,2026-05-11,2026,2026-05,35
@@ -16602,6 +16645,7 @@ customer_id,name,city,county,date,year,month,gallons
 1445,Trapp Family Lodge,Stowe,Lamoille,2025-10-15,2025,2025-10,55
 1445,Trapp Family Lodge,Stowe,Lamoille,2025-09-22,2025,2025-09,40
 1445,Trapp Family Lodge,Stowe,Lamoille,2025-08-19,2025,2025-08,2
+267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2026-06-22,2026,2026-06,65
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2026-06-09,2026,2026-06,75
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2026-05-27,2026,2026-05,75
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2026-05-11,2026,2026-05,70
@@ -16825,6 +16869,7 @@ customer_id,name,city,county,date,year,month,gallons
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2015-03-18,2015,2015-03,35
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2015-02-25,2015,2015-02,40
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2015-01-14,2015,2015-01,45
+244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2026-06-22,2026,2026-06,70
 244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2026-05-27,2026,2026-05,75
 244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2026-04-29,2026,2026-04,35
 244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2026-04-15,2026,2026-04,75
@@ -17012,6 +17057,7 @@ customer_id,name,city,county,date,year,month,gallons
 1162,Grange at Hill Farm-Sunderland,Sunderland,Windham,2023-08-24,2023,2023-08,90
 1162,Grange at Hill Farm-Sunderland,Sunderland,Windham,2023-05-24,2023,2023-05,70
 1162,Grange at Hill Farm-Sunderland,Sunderland,Windham,2023-03-08,2023,2023-03,90
+1176,Hannaford-Swanton,Swanton,Franklin,2026-06-23,2026,2026-06,70
 1176,Hannaford-Swanton,Swanton,Franklin,2026-04-09,2026,2026-04,83
 1176,Hannaford-Swanton,Swanton,Franklin,2025-12-15,2025,2025-12,146
 1176,Hannaford-Swanton,Swanton,Franklin,2025-08-14,2025,2025-08,70
@@ -18400,6 +18446,7 @@ customer_id,name,city,county,date,year,month,gallons
 1374,Arandas Mexican-Waterbury,Waterbury,Washington,2025-02-13,2025,2025-02,45
 1374,Arandas Mexican-Waterbury,Waterbury,Washington,2024-10-30,2024,2024-10,35
 1374,Arandas Mexican-Waterbury,Waterbury,Washington,2024-09-19,2024,2024-09,2
+232,Crossroads Deli,Waterbury,Washington,2026-06-22,2026,2026-06,65
 232,Crossroads Deli,Waterbury,Washington,2026-04-27,2026,2026-04,20
 232,Crossroads Deli,Waterbury,Washington,2026-02-18,2026,2026-02,15
 232,Crossroads Deli,Waterbury,Washington,2025-11-06,2025,2025-11,45
@@ -18464,6 +18511,7 @@ customer_id,name,city,county,date,year,month,gallons
 232,Crossroads Deli,Waterbury,Washington,2015-10-14,2015,2015-10,20
 232,Crossroads Deli,Waterbury,Washington,2015-06-11,2015,2015-06,20
 232,Crossroads Deli,Waterbury,Washington,2015-04-15,2015,2015-04,50
+1345,Gallus-Waterbury,Waterbury,Washington,2026-06-22,2026,2026-06,120
 1345,Gallus-Waterbury,Waterbury,Washington,2026-05-27,2026,2026-05,70
 1345,Gallus-Waterbury,Waterbury,Washington,2026-05-11,2026,2026-05,65
 1345,Gallus-Waterbury,Waterbury,Washington,2026-04-27,2026,2026-04,30
@@ -18495,6 +18543,7 @@ customer_id,name,city,county,date,year,month,gallons
 1345,Gallus-Waterbury,Waterbury,Washington,2024-09-02,2024,2024-09,60
 1345,Gallus-Waterbury,Waterbury,Washington,2024-08-14,2024,2024-08,140
 1345,Gallus-Waterbury,Waterbury,Washington,2024-05-31,2024,2024-05,2
+234,Hen of the Wood-WATERBURY,Waterbury,Washington,2026-06-23,2026,2026-06,70
 234,Hen of the Wood-WATERBURY,Waterbury,Washington,2026-05-11,2026,2026-05,15
 234,Hen of the Wood-WATERBURY,Waterbury,Washington,2026-04-27,2026,2026-04,25
 234,Hen of the Wood-WATERBURY,Waterbury,Washington,2026-04-10,2026,2026-04,75
@@ -18646,6 +18695,7 @@ customer_id,name,city,county,date,year,month,gallons
 240,JunipersFaire Food Truck (19 Commercial Ave.),Waterbury,Washington,2020-03-24,2020,2020-03,80
 240,JunipersFaire Food Truck (19 Commercial Ave.),Waterbury,Washington,2020-02-06,2020,2020-02,30
 240,JunipersFaire Food Truck (19 Commercial Ave.),Waterbury,Washington,2019-09-11,2019,2019-09,50
+233,Maxi's,Waterbury,Washington,2026-06-22,2026,2026-06,55
 233,Maxi's,Waterbury,Washington,2026-05-27,2026,2026-05,50
 233,Maxi's,Waterbury,Washington,2026-04-27,2026,2026-04,100
 233,Maxi's,Waterbury,Washington,2026-03-20,2026,2026-03,15
@@ -18759,6 +18809,7 @@ customer_id,name,city,county,date,year,month,gallons
 233,Maxi's,Waterbury,Washington,2015-06-11,2015,2015-06,25
 233,Maxi's,Waterbury,Washington,2015-03-19,2015,2015-03,40
 233,Maxi's,Waterbury,Washington,2015-01-09,2015,2015-01,25
+241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2026-06-23,2026,2026-06,85
 241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2026-05-27,2026,2026-05,65
 241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2026-05-11,2026,2026-05,90
 241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2026-04-27,2026,2026-04,150
@@ -19018,6 +19069,7 @@ customer_id,name,city,county,date,year,month,gallons
 239,Michael's on the Hill,Waterbury,Washington,2015-01-14,2015,2015-01,40
 1225,Old Stage Coach Inn,Waterbury,Washington,2023-08-02,2023,2023-08,10
 1225,Old Stage Coach Inn,Waterbury,Washington,2023-03-13,2023,2023-03,25
+229,Prohibition Pig,Waterbury,Washington,2026-06-22,2026,2026-06,125
 229,Prohibition Pig,Waterbury,Washington,2026-05-27,2026,2026-05,100
 229,Prohibition Pig,Waterbury,Washington,2026-05-11,2026,2026-05,80
 229,Prohibition Pig,Waterbury,Washington,2026-04-27,2026,2026-04,170
@@ -19239,6 +19291,7 @@ customer_id,name,city,county,date,year,month,gallons
 229,Prohibition Pig,Waterbury,Washington,2015-02-25,2015,2015-02,40
 229,Prohibition Pig,Waterbury,Washington,2015-02-09,2015,2015-02,50
 229,Prohibition Pig,Waterbury,Washington,2015-01-14,2015,2015-01,50
+227,The Reservoir-Waterbury,Waterbury,Washington,2026-06-22,2026,2026-06,160
 227,The Reservoir-Waterbury,Waterbury,Washington,2026-05-27,2026,2026-05,70
 227,The Reservoir-Waterbury,Waterbury,Washington,2026-05-11,2026,2026-05,60
 227,The Reservoir-Waterbury,Waterbury,Washington,2026-04-27,2026,2026-04,200
@@ -19433,6 +19486,7 @@ customer_id,name,city,county,date,year,month,gallons
 227,The Reservoir-Waterbury,Waterbury,Washington,2015-02-18,2015,2015-02,90
 227,The Reservoir-Waterbury,Waterbury,Washington,2015-01-28,2015,2015-01,40
 227,The Reservoir-Waterbury,Waterbury,Washington,2015-01-09,2015,2015-01,155
+1076,Vermont Country Club-Waterbury,Waterbury,Washington,2026-06-19,2026,2026-06,65
 1076,Vermont Country Club-Waterbury,Waterbury,Washington,2026-05-27,2026,2026-05,40
 1076,Vermont Country Club-Waterbury,Waterbury,Washington,2026-04-15,2026,2026-04,60
 1076,Vermont Country Club-Waterbury,Waterbury,Washington,2025-10-15,2025,2025-10,45
@@ -20285,6 +20339,7 @@ customer_id,name,city,county,date,year,month,gallons
 1299,Cannoli,Williston,Chittenden,2024-04-25,2024,2024-04,55
 1299,Cannoli,Williston,Chittenden,2024-03-26,2024,2024-03,55
 1299,Cannoli,Williston,Chittenden,2024-02-26,2024,2024-02,35
+1495,Folinos-Williston,Williston,Chittenden,2026-06-23,2026,2026-06,60
 1495,Folinos-Williston,Williston,Chittenden,2026-06-04,2026,2026-06,100
 1495,Folinos-Williston,Williston,Chittenden,2026-05-14,2026,2026-05,50
 1495,Folinos-Williston,Williston,Chittenden,2026-05-01,2026,2026-05,40
@@ -20452,6 +20507,7 @@ customer_id,name,city,county,date,year,month,gallons
 401,Grazers pc 1425- Williston Garage,Williston,Chittenden,2018-04-30,2018,2018-04,40
 401,Grazers pc 1425- Williston Garage,Williston,Chittenden,2018-04-11,2018,2018-04,300
 401,Grazers pc 1425- Williston Garage,Williston,Chittenden,2018-03-07,2018,2018-03,140
+1183,Hannaford- Williston,Williston,Chittenden,2026-06-23,2026,2026-06,23
 1183,Hannaford- Williston,Williston,Chittenden,2026-04-24,2026,2026-04,67
 1183,Hannaford- Williston,Williston,Chittenden,2026-03-05,2026,2026-03,144
 1183,Hannaford- Williston,Williston,Chittenden,2025-12-18,2025,2025-12,163
@@ -20475,11 +20531,13 @@ customer_id,name,city,county,date,year,month,gallons
 1183,Hannaford- Williston,Williston,Chittenden,2022-10-24,2022,2022-10,28
 1183,Hannaford- Williston,Williston,Chittenden,2022-10-03,2022,2022-10,23
 1183,Hannaford- Williston,Williston,Chittenden,2022-09-22,2022,2022-09,114
+1459,Jersey Mike's - Williston,Williston,Chittenden,2026-06-23,2026,2026-06,20
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-06-04,2026,2026-06,40
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-05-01,2026,2026-05,125
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-04-24,2026,2026-04,55
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-03-31,2026,2026-03,15
 1459,Jersey Mike's - Williston,Williston,Chittenden,2025-10-15,2025,2025-10,2
+1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2026-06-23,2026,2026-06,100
 1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2026-06-04,2026,2026-06,60
 1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2026-05-14,2026,2026-05,40
 1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2026-05-08,2026,2026-05,20
@@ -20581,6 +20639,7 @@ customer_id,name,city,county,date,year,month,gallons
 1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2021-10-22,2021,2021-10,65
 1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2021-10-13,2021,2021-10,50
 1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2021-10-05,2021,2021-10,150
+1211,Men at Wok,Williston,Chittenden,2026-06-23,2026,2026-06,20
 1211,Men at Wok,Williston,Chittenden,2026-06-04,2026,2026-06,40
 1211,Men at Wok,Williston,Chittenden,2026-05-14,2026,2026-05,15
 1211,Men at Wok,Williston,Chittenden,2026-04-24,2026,2026-04,50
@@ -21869,13 +21928,13 @@ customer_id,name,city,county,date,year,month,gallons
 823,Woodstock Inn,Woodstock,Windsor,2018-04-24,2018,2018-04,50
 823,Woodstock Inn,Woodstock,Windsor,2018-03-22,2018,2018-03,75
 823,Woodstock Inn,Woodstock,Windsor,2018-02-23,2018,2018-02,175
-624,LBJ Country Store-Worcester,Worcester,Washington,2024-10-03,2024,2024-10,10
-624,LBJ Country Store-Worcester,Worcester,Washington,2022-11-10,2022,2022-11,20
-624,LBJ Country Store-Worcester,Worcester,Washington,2021-10-18,2021,2021-10,20
-624,LBJ Country Store-Worcester,Worcester,Washington,2020-03-26,2020,2020-03,15
-624,LBJ Country Store-Worcester,Worcester,Washington,2018-05-17,2018,2018-05,25
-624,LBJ Country Store-Worcester,Worcester,Washington,2015-12-28,2015,2015-12,15
-624,LBJ Country Store-Worcester,Worcester,Washington,2015-06-02,2015,2015-06,25
+624,LBJ Country Store-Worcester,Burlington,Chittenden,2024-10-03,2024,2024-10,10
+624,LBJ Country Store-Worcester,Burlington,Chittenden,2022-11-10,2022,2022-11,20
+624,LBJ Country Store-Worcester,Burlington,Chittenden,2021-10-18,2021,2021-10,20
+624,LBJ Country Store-Worcester,Burlington,Chittenden,2020-03-26,2020,2020-03,15
+624,LBJ Country Store-Worcester,Burlington,Chittenden,2018-05-17,2018,2018-05,25
+624,LBJ Country Store-Worcester,Burlington,Chittenden,2015-12-28,2015,2015-12,15
+624,LBJ Country Store-Worcester,Burlington,Chittenden,2015-06-02,2015,2015-06,25
 349,Cafe Saint Paul 30-36-6,Burlington,Chittenden,2025-10-01,2025,2025-10,7
 349,Cafe Saint Paul 30-36-6,Burlington,Chittenden,2025-09-25,2025,2025-09,15
 349,Cafe Saint Paul 30-36-6,Burlington,Chittenden,2025-06-13,2025,2025-06,40
