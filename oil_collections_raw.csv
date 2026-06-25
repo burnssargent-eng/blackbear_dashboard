@@ -62,6 +62,7 @@ customer_id,name,city,county,date,year,month,gallons
 1082,Arandas Mexican-Barre,Barre,Washington,2022-08-19,2022,2022-08,50
 1082,Arandas Mexican-Barre,Barre,Washington,2022-04-06,2022,2022-04,40
 1082,Arandas Mexican-Barre,Barre,Washington,2021-12-27,2021,2021-12,40
+113,Asia Gourmet-Barre,Barre,Washington,2026-06-25,2026,2026-06,90
 113,Asia Gourmet-Barre,Barre,Washington,2026-05-29,2026,2026-05,40
 113,Asia Gourmet-Barre,Barre,Washington,2026-05-08,2026,2026-05,50
 113,Asia Gourmet-Barre,Barre,Washington,2026-04-17,2026,2026-04,70
@@ -347,6 +348,7 @@ customer_id,name,city,county,date,year,month,gallons
 1387,Foxys Barre,Barre,Washington,2025-02-18,2025,2025-02,20
 1387,Foxys Barre,Barre,Washington,2024-12-31,2024,2024-12,15
 1387,Foxys Barre,Barre,Washington,2024-11-20,2024,2024-11,2
+1363,GE-South Barre Gas Station,Barre,Washington,2026-06-25,2026,2026-06,40
 1363,GE-South Barre Gas Station,Barre,Washington,2026-05-08,2026,2026-05,55
 1363,GE-South Barre Gas Station,Barre,Washington,2026-03-10,2026,2026-03,35
 1363,GE-South Barre Gas Station,Barre,Washington,2026-02-03,2026,2026-02,35
@@ -364,6 +366,7 @@ customer_id,name,city,county,date,year,month,gallons
 1363,GE-South Barre Gas Station,Barre,Washington,2024-09-05,2024,2024-09,60
 1363,GE-South Barre Gas Station,Barre,Washington,2024-08-01,2024,2024-08,200
 1363,GE-South Barre Gas Station,Barre,Washington,2024-07-31,2024,2024-07,2
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2026-06-25,2026,2026-06,85
 111,Gunner Brook (Brookside Mkt),Barre,Washington,2026-05-22,2026,2026-05,80
 111,Gunner Brook (Brookside Mkt),Barre,Washington,2026-04-07,2026,2026-04,80
 111,Gunner Brook (Brookside Mkt),Barre,Washington,2026-01-14,2026,2026-01,65
@@ -396,6 +399,7 @@ customer_id,name,city,county,date,year,month,gallons
 111,Gunner Brook (Brookside Mkt),Barre,Washington,2015-09-02,2015,2015-09,25
 111,Gunner Brook (Brookside Mkt),Barre,Washington,2015-06-26,2015,2015-06,25
 111,Gunner Brook (Brookside Mkt),Barre,Washington,2015-04-20,2015,2015-04,40
+1128,Hannaford-South Barre,Barre,Washington,2026-06-25,2026,2026-06,32
 1128,Hannaford-South Barre,Barre,Washington,2026-05-08,2026,2026-05,32
 1128,Hannaford-South Barre,Barre,Washington,2026-03-10,2026,2026-03,128
 1128,Hannaford-South Barre,Barre,Washington,2026-01-14,2026,2026-01,40
@@ -431,6 +435,7 @@ customer_id,name,city,county,date,year,month,gallons
 1128,Hannaford-South Barre,Barre,Washington,2022-08-23,2022,2022-08,114
 1128,Hannaford-South Barre,Barre,Washington,2022-07-26,2022,2022-07,85
 1128,Hannaford-South Barre,Barre,Washington,2022-06-29,2022,2022-06,110
+117,Ladder 1-Barre,Barre,Washington,2026-06-25,2026,2026-06,40
 117,Ladder 1-Barre,Barre,Washington,2026-05-29,2026,2026-05,40
 117,Ladder 1-Barre,Barre,Washington,2026-05-08,2026,2026-05,45
 117,Ladder 1-Barre,Barre,Washington,2026-04-17,2026,2026-04,55
@@ -592,6 +597,7 @@ customer_id,name,city,county,date,year,month,gallons
 1380,Masonic Lodge-Barre,Barre,Washington,2025-01-11,2025,2025-01,35
 1380,Masonic Lodge-Barre,Barre,Washington,2024-10-16,2024,2024-10,2
 1204,McLeods,Barre,Washington,2024-08-07,2024,2024-08,2
+112,Mulligans-Barre,Barre,Washington,2026-06-25,2026,2026-06,110
 112,Mulligans-Barre,Barre,Washington,2026-06-11,2026,2026-06,90
 112,Mulligans-Barre,Barre,Washington,2026-05-29,2026,2026-05,50
 112,Mulligans-Barre,Barre,Washington,2026-05-22,2026,2026-05,90
@@ -839,6 +845,7 @@ customer_id,name,city,county,date,year,month,gallons
 127,The Meltdown-Barre,Barre,Washington,2021-05-04,2021,2021-05,65
 127,The Meltdown-Barre,Barre,Washington,2021-01-13,2021,2021-01,25
 127,The Meltdown-Barre,Barre,Washington,2020-11-12,2020,2020-11,60
+125,The Quarry-Barre,Barre,Washington,2026-06-25,2026,2026-06,45
 125,The Quarry-Barre,Barre,Washington,2026-05-29,2026,2026-05,55
 125,The Quarry-Barre,Barre,Washington,2026-05-08,2026,2026-05,75
 125,The Quarry-Barre,Barre,Washington,2026-04-17,2026,2026-04,65
@@ -934,6 +941,7 @@ customer_id,name,city,county,date,year,month,gallons
 125,The Quarry-Barre,Barre,Washington,2019-08-19,2019,2019-08,100
 125,The Quarry-Barre,Barre,Washington,2019-07-30,2019,2019-07,80
 125,The Quarry-Barre,Barre,Washington,2019-07-01,2019,2019-07,125
+119,Thunder Road  4567,Barre,Washington,2026-06-25,2026,2026-06,120
 119,Thunder Road  4567,Barre,Washington,2025-10-10,2025,2025-10,145
 119,Thunder Road  4567,Barre,Washington,2025-09-15,2025,2025-09,105
 119,Thunder Road  4567,Barre,Washington,2025-08-19,2025,2025-08,140
@@ -7105,6 +7113,7 @@ customer_id,name,city,county,date,year,month,gallons
 1378,Multitude Take Away-Gilman,Gilman,Essex,2025-05-05,2025,2025-05,95
 1378,Multitude Take Away-Gilman,Gilman,Essex,2024-10-16,2024,2024-10,60
 1378,Multitude Take Away-Gilman,Gilman,Essex,2024-10-12,2024,2024-10,2
+124,Graniteville General,Graniteville,Washington,2026-06-25,2026,2026-06,30
 124,Graniteville General,Graniteville,Washington,2026-05-08,2026,2026-05,65
 124,Graniteville General,Graniteville,Washington,2026-02-03,2026,2026-02,45
 124,Graniteville General,Graniteville,Washington,2025-12-09,2025,2025-12,35
@@ -7772,6 +7781,7 @@ customer_id,name,city,county,date,year,month,gallons
 1193,Phillip Ward- North Hyde Park,Hyde Park,Lamoille,2024-11-01,2024,2024-11,550
 1193,Phillip Ward- North Hyde Park,Hyde Park,Lamoille,2023-10-02,2023,2023-10,1120
 1193,Phillip Ward- North Hyde Park,Hyde Park,Lamoille,2022-11-14,2022,2022-11,1999
+515,Two Sons Bakery/Fork and Gavel-HydePark,Hyde Park,Lamoille,2026-06-25,2026,2026-06,150
 515,Two Sons Bakery/Fork and Gavel-HydePark,Hyde Park,Lamoille,2026-05-01,2026,2026-05,60
 515,Two Sons Bakery/Fork and Gavel-HydePark,Hyde Park,Lamoille,2026-04-15,2026,2026-04,100
 515,Two Sons Bakery/Fork and Gavel-HydePark,Hyde Park,Lamoille,2026-02-05,2026,2026-02,70
@@ -9191,6 +9201,7 @@ customer_id,name,city,county,date,year,month,gallons
 1180,Hannaford- Milton,Milton,Chittenden,2023-02-12,2023,2023-02,69
 1180,Hannaford- Milton,Milton,Chittenden,2022-10-27,2022,2022-10,25
 1180,Hannaford- Milton,Milton,Chittenden,2022-09-22,2022,2022-09,92
+423,Perrigo Nutritionals,Milton,Chittenden,2026-06-24,2026,2026-06,3300
 423,Perrigo Nutritionals,Milton,Chittenden,2026-06-16,2026,2026-06,4000
 423,Perrigo Nutritionals,Milton,Chittenden,2026-06-10,2026,2026-06,6100
 423,Perrigo Nutritionals,Milton,Chittenden,2026-04-02,2026,2026-04,650
@@ -11260,6 +11271,7 @@ customer_id,name,city,county,date,year,month,gallons
 509,Moogs Place- Morrisville,Morristown,Lamoille,2015-01-05,2015,2015-01,45
 1460,Copley Hospital,Morrisville,Lamoille,2026-05-18,2026,2026-05,50
 1460,Copley Hospital,Morrisville,Lamoille,2025-10-28,2025,2025-10,20
+1497,Gondola Seasonal Snack Shack Route 15,Morrisville,Lamoille,2026-06-25,2026,2026-06,75
 1497,Gondola Seasonal Snack Shack Route 15,Morrisville,Lamoille,2026-05-27,2026,2026-05,30
 1497,Gondola Seasonal Snack Shack Route 15,Morrisville,Lamoille,2026-04-29,2026,2026-04,2
 1181,Hannaford- Morrisville,Morrisville,Lamoille,2026-05-27,2026,2026-05,77
@@ -21578,6 +21590,7 @@ customer_id,name,city,county,date,year,month,gallons
 1135,Waterworks-Winooski,Winooski,Chittenden,2022-09-22,2022,2022-09,70
 1135,Waterworks-Winooski,Winooski,Chittenden,2022-08-25,2022,2022-08,100
 1135,Waterworks-Winooski,Winooski,Chittenden,2022-07-25,2022,2022-07,50
+500,Wolcott General Store,Wolcott,Lamoille,2026-06-25,2026,2026-06,40
 500,Wolcott General Store,Wolcott,Lamoille,2026-05-27,2026,2026-05,40
 500,Wolcott General Store,Wolcott,Lamoille,2026-05-01,2026,2026-05,50
 500,Wolcott General Store,Wolcott,Lamoille,2026-03-23,2026,2026-03,75

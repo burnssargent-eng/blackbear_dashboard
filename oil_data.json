@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-24T15:45:28.871724",
+  "last_updated": "2026-06-25T16:17:22.642795",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -29394,7 +29394,7 @@
     {
       "month": "2026-06",
       "city": "Barre",
-      "gallons": 250
+      "gallons": 812
     },
     {
       "month": "2026-06",
@@ -29463,6 +29463,11 @@
     },
     {
       "month": "2026-06",
+      "city": "Graniteville",
+      "gallons": 30
+    },
+    {
+      "month": "2026-06",
       "city": "Hanover",
       "gallons": 50
     },
@@ -29470,6 +29475,11 @@
       "month": "2026-06",
       "city": "Hardwick",
       "gallons": 290
+    },
+    {
+      "month": "2026-06",
+      "city": "Hyde Park",
+      "gallons": 150
     },
     {
       "month": "2026-06",
@@ -29504,7 +29514,7 @@
     {
       "month": "2026-06",
       "city": "Milton",
-      "gallons": 10256
+      "gallons": 13556
     },
     {
       "month": "2026-06",
@@ -29515,6 +29525,11 @@
       "month": "2026-06",
       "city": "Morristown",
       "gallons": 215
+    },
+    {
+      "month": "2026-06",
+      "city": "Morrisville",
+      "gallons": 75
     },
     {
       "month": "2026-06",
@@ -29645,6 +29660,11 @@
       "month": "2026-06",
       "city": "Winooski",
       "gallons": 405
+    },
+    {
+      "month": "2026-06",
+      "city": "Wolcott",
+      "gallons": 40
     },
     {
       "month": "2026-06",
@@ -37106,7 +37126,7 @@
     {
       "month": "2026-06",
       "county": "Chittenden",
-      "gallons": 17173
+      "gallons": 20473
     },
     {
       "month": "2026-06",
@@ -37121,7 +37141,7 @@
     {
       "month": "2026-06",
       "county": "Lamoille",
-      "gallons": 1905
+      "gallons": 2170
     },
     {
       "month": "2026-06",
@@ -37141,7 +37161,7 @@
     {
       "month": "2026-06",
       "county": "Washington",
-      "gallons": 2580
+      "gallons": 3172
     },
     {
       "month": "2026-06",
@@ -37196,10 +37216,10 @@
     },
     {
       "year": 2026,
-      "gallons": 143559
+      "gallons": 147716
     }
   ],
-  "all_time_total": 2062522,
-  "current_year_total": 143559,
+  "all_time_total": 2066679,
+  "current_year_total": 147716,
   "customer_count": 812
 }
