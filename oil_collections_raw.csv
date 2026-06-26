@@ -2730,6 +2730,7 @@ customer_id,name,city,county,date,year,month,gallons
 1389,CK Dumplings House - North St.,Burlington,Chittenden,2025-05-06,2025,2025-05,50
 1389,CK Dumplings House - North St.,Burlington,Chittenden,2024-12-20,2024,2024-12,2
 1491,CNX THAI,Burlington,Chittenden,2026-03-28,2026,2026-03,2
+1306,Crispy Burger- Jason (Volcano),Burlington,Chittenden,2026-06-26,2026,2026-06,140
 1306,Crispy Burger- Jason (Volcano),Burlington,Chittenden,2026-06-08,2026,2026-06,70
 1306,Crispy Burger- Jason (Volcano),Burlington,Chittenden,2026-05-26,2026,2026-05,50
 1306,Crispy Burger- Jason (Volcano),Burlington,Chittenden,2026-05-14,2026,2026-05,70
@@ -5654,6 +5655,7 @@ customer_id,name,city,county,date,year,month,gallons
 605,Rhapsody Natural Foods,Cabot,Caledonia,2017-11-16,2017,2017-11,25
 605,Rhapsody Natural Foods,Cabot,Caledonia,2017-05-17,2017,2017-05,100
 605,Rhapsody Natural Foods,Cabot,Caledonia,2016-11-16,2016,2016-11,70
+1404,ERICAS-Cambridge,Cambridge,Lamoille,2026-06-25,2026,2026-06,75
 1404,ERICAS-Cambridge,Cambridge,Lamoille,2026-05-27,2026,2026-05,110
 1404,ERICAS-Cambridge,Cambridge,Lamoille,2026-04-15,2026,2026-04,55
 1404,ERICAS-Cambridge,Cambridge,Lamoille,2026-03-23,2026,2026-03,85
@@ -8151,6 +8153,7 @@ customer_id,name,city,county,date,year,month,gallons
 530,Jay Village Inn,Jay,Orleans,2018-12-04,2018,2018-12,35
 530,Jay Village Inn,Jay,Orleans,2018-10-15,2018,2018-10,75
 530,Jay Village Inn,Jay,Orleans,2018-08-02,2018,2018-08,60
+540,Lot Six- Brewster River Pub & Brewery,Jeffersonville,Lamoille,2026-06-25,2026,2026-06,170
 540,Lot Six- Brewster River Pub & Brewery,Jeffersonville,Lamoille,2026-04-15,2026,2026-04,135
 540,Lot Six- Brewster River Pub & Brewery,Jeffersonville,Lamoille,2026-02-24,2026,2026-02,50
 540,Lot Six- Brewster River Pub & Brewery,Jeffersonville,Lamoille,2026-02-05,2026,2026-02,60
@@ -16074,6 +16077,7 @@ customer_id,name,city,county,date,year,month,gallons
 258,Stowebowl,Stowe,Lamoille,2016-04-11,2016,2016-04,30
 258,Stowebowl,Stowe,Lamoille,2016-03-19,2016,2016-03,30
 258,Stowebowl,Stowe,Lamoille,2016-02-27,2016,2016-02,25
+1223,StoweCider-Shakedown,Stowe,Lamoille,2026-06-25,2026,2026-06,60
 1223,StoweCider-Shakedown,Stowe,Lamoille,2026-06-09,2026,2026-06,70
 1223,StoweCider-Shakedown,Stowe,Lamoille,2026-05-11,2026,2026-05,25
 1223,StoweCider-Shakedown,Stowe,Lamoille,2026-04-15,2026,2026-04,85

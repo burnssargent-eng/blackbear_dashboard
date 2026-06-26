@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-25T16:17:22.642795",
+  "last_updated": "2026-06-26T15:37:19.260960",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -29424,7 +29424,12 @@
     {
       "month": "2026-06",
       "city": "Burlington",
-      "gallons": 4514
+      "gallons": 4654
+    },
+    {
+      "month": "2026-06",
+      "city": "Cambridge",
+      "gallons": 75
     },
     {
       "month": "2026-06",
@@ -29485,6 +29490,11 @@
       "month": "2026-06",
       "city": "Jay",
       "gallons": 80
+    },
+    {
+      "month": "2026-06",
+      "city": "Jeffersonville",
+      "gallons": 170
     },
     {
       "month": "2026-06",
@@ -29614,7 +29624,7 @@
     {
       "month": "2026-06",
       "city": "Stowe",
-      "gallons": 1610
+      "gallons": 1670
     },
     {
       "month": "2026-06",
@@ -37126,7 +37136,7 @@
     {
       "month": "2026-06",
       "county": "Chittenden",
-      "gallons": 20473
+      "gallons": 20613
     },
     {
       "month": "2026-06",
@@ -37141,7 +37151,7 @@
     {
       "month": "2026-06",
       "county": "Lamoille",
-      "gallons": 2170
+      "gallons": 2475
     },
     {
       "month": "2026-06",
@@ -37216,10 +37226,10 @@
     },
     {
       "year": 2026,
-      "gallons": 147716
+      "gallons": 148161
     }
   ],
-  "all_time_total": 2066679,
-  "current_year_total": 147716,
+  "all_time_total": 2067124,
+  "current_year_total": 148161,
   "customer_count": 812
 }
