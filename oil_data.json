@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-26T15:37:19.260960",
+  "last_updated": "2026-06-27T12:06:04.207707",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -29424,7 +29424,7 @@
     {
       "month": "2026-06",
       "city": "Burlington",
-      "gallons": 4654
+      "gallons": 4729
     },
     {
       "month": "2026-06",
@@ -29529,7 +29529,7 @@
     {
       "month": "2026-06",
       "city": "Montpelier",
-      "gallons": 215
+      "gallons": 265
     },
     {
       "month": "2026-06",
@@ -29584,7 +29584,7 @@
     {
       "month": "2026-06",
       "city": "Richmond",
-      "gallons": 50
+      "gallons": 160
     },
     {
       "month": "2026-06",
@@ -29594,7 +29594,7 @@
     {
       "month": "2026-06",
       "city": "South Burlington",
-      "gallons": 640
+      "gallons": 690
     },
     {
       "month": "2026-06",
@@ -37136,7 +37136,7 @@
     {
       "month": "2026-06",
       "county": "Chittenden",
-      "gallons": 20613
+      "gallons": 20848
     },
     {
       "month": "2026-06",
@@ -37171,7 +37171,7 @@
     {
       "month": "2026-06",
       "county": "Washington",
-      "gallons": 3172
+      "gallons": 3222
     },
     {
       "month": "2026-06",
@@ -37226,10 +37226,10 @@
     },
     {
       "year": 2026,
-      "gallons": 148161
+      "gallons": 148446
     }
   ],
-  "all_time_total": 2067124,
-  "current_year_total": 148161,
+  "all_time_total": 2067409,
+  "current_year_total": 148446,
   "customer_count": 812
 }

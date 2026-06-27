@@ -3023,6 +3023,7 @@ customer_id,name,city,county,date,year,month,gallons
 351,FANCYS/PAUL Trom.../Cafe Mamajuana,Burlington,Chittenden,2021-06-22,2021,2021-06,50
 351,FANCYS/PAUL Trom.../Cafe Mamajuana,Burlington,Chittenden,2021-05-11,2021,2021-05,50
 351,FANCYS/PAUL Trom.../Cafe Mamajuana,Burlington,Chittenden,2021-01-17,2021,2021-01,80
+361,Farmers & Foragers (Lauren food truck),Burlington,Chittenden,2026-06-26,2026,2026-06,75
 361,Farmers & Foragers (Lauren food truck),Burlington,Chittenden,2025-11-04,2025,2025-11,46
 361,Farmers & Foragers (Lauren food truck),Burlington,Chittenden,2025-08-26,2025,2025-08,55
 361,Farmers & Foragers (Lauren food truck),Burlington,Chittenden,2025-06-07,2025,2025-06,140
@@ -9592,6 +9593,7 @@ customer_id,name,city,county,date,year,month,gallons
 1376,Arandas-Montpelier,Montpelier,Washington,2024-12-13,2024,2024-12,30
 1376,Arandas-Montpelier,Montpelier,Washington,2024-11-14,2024,2024-11,30
 1366,Barr Hill -Load,Montpelier,Washington,2024-08-08,2024,2024-08,2
+1489,Barr Hill -OIL collection,Montpelier,Washington,2026-06-26,2026,2026-06,50
 1489,Barr Hill -OIL collection,Montpelier,Washington,2026-05-29,2026,2026-05,40
 1489,Barr Hill -OIL collection,Montpelier,Washington,2026-05-07,2026,2026-05,35
 1489,Barr Hill -OIL collection,Montpelier,Washington,2026-04-20,2026,2026-04,50
@@ -12942,6 +12944,7 @@ customer_id,name,city,county,date,year,month,gallons
 1136,Richford Country Club,Richford,Franklin,2023-08-22,2023,2023-08,85
 1136,Richford Country Club,Richford,Franklin,2023-05-11,2023,2023-05,40
 1136,Richford Country Club,Richford,Franklin,2022-08-24,2022,2022-08,45
+284,Big Spruce,Richmond,Chittenden,2026-06-26,2026,2026-06,35
 284,Big Spruce,Richmond,Chittenden,2026-06-04,2026,2026-06,50
 284,Big Spruce,Richmond,Chittenden,2026-05-07,2026,2026-05,50
 284,Big Spruce,Richmond,Chittenden,2026-04-08,2026,2026-04,85
@@ -13000,6 +13003,7 @@ customer_id,name,city,county,date,year,month,gallons
 284,Big Spruce,Richmond,Chittenden,2021-01-25,2021,2021-01,65
 284,Big Spruce,Richmond,Chittenden,2020-12-22,2020,2020-12,65
 284,Big Spruce,Richmond,Chittenden,2020-12-01,2020,2020-12,50
+282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2026-06-26,2026,2026-06,75
 282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2025-04-04,2025,2025-04,7
 282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2025-04-02,2025,2025-04,70
 282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2025-02-28,2025,2025-02,45
@@ -13351,6 +13355,7 @@ customer_id,name,city,county,date,year,month,gallons
 700,Rustic Roots,Shelburne,Chittenden,2015-06-22,2015,2015-06,25
 700,Rustic Roots,Shelburne,Chittenden,2015-04-06,2015,2015-04,40
 1487,Whistle Pig-White Farmhouse,Shoreham,Addison,2026-03-18,2026,2026-03,2
+1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,Chittenden,2026-06-26,2026,2026-06,50
 1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,Chittenden,2026-06-19,2026,2026-06,140
 1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,Chittenden,2026-06-04,2026,2026-06,50
 1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,Chittenden,2026-05-28,2026,2026-05,125
@@ -13475,8 +13480,6 @@ customer_id,name,city,county,date,year,month,gallons
 1195,Chicken Charlies,South Burlington,Chittenden,2022-12-29,2022,2022-12,50
 1195,Chicken Charlies,South Burlington,Chittenden,2022-12-15,2022,2022-12,75
 1195,Chicken Charlies,South Burlington,Chittenden,2022-11-27,2022,2022-11,300
-1347,Farmers and Foragers-Warehouse,South Burlington,Chittenden,2024-06-05,2024,2024-06,35
-1347,Farmers and Foragers-Warehouse,South Burlington,Chittenden,2024-06-05,2024,2024-06,2
 1448,Good Times Cafe,South Burlington,Chittenden,2026-06-19,2026,2026-06,25
 1448,Good Times Cafe,South Burlington,Chittenden,2026-06-02,2026,2026-06,30
 1448,Good Times Cafe,South Burlington,Chittenden,2026-04-28,2026,2026-04,55
@@ -23287,6 +23290,8 @@ customer_id,name,city,county,date,year,month,gallons
 1170,FANCYS/Paul Trombley,Burlington,Chittenden,2023-07-26,2023,2023-07,50
 1170,FANCYS/Paul Trombley,Burlington,Chittenden,2023-06-06,2023,2023-06,50
 1170,FANCYS/Paul Trombley,Burlington,Chittenden,2022-11-09,2022,2022-11,45
+1347,Farmers and Foragers-Warehouse,South Burlington,Chittenden,2024-06-05,2024,2024-06,35
+1347,Farmers and Foragers-Warehouse,South Burlington,Chittenden,2024-06-05,2024,2024-06,2
 813,Fire on the Mountain,Burlington,Chittenden,2018-02-23,2018,2018-02,40
 915,Five Corners Pub,Burlington,Chittenden,2018-01-12,2018,2018-01,25
 915,Five Corners Pub,Burlington,Chittenden,2017-02-27,2017,2017-02,15
