@@ -7088,6 +7088,25 @@ customer_id,name,city,county,date,year,month,gallons
 1461,Arandas-Fairlee,Fairlee,Orange,2026-04-01,2026,2026-04,35
 1461,Arandas-Fairlee,Fairlee,Orange,2026-01-20,2026,2026-01,35
 1461,Arandas-Fairlee,Fairlee,Orange,2025-10-27,2025,2025-10,2
+1268,Broken Hearts Burger,Fairlee,Orange,2026-01-20,2026,2026-01,60
+1268,Broken Hearts Burger,Fairlee,Orange,2025-10-30,2025,2025-10,70
+1268,Broken Hearts Burger,Fairlee,Orange,2025-08-18,2025,2025-08,55
+1268,Broken Hearts Burger,Fairlee,Orange,2025-06-12,2025,2025-06,40
+1268,Broken Hearts Burger,Fairlee,Orange,2025-04-21,2025,2025-04,50
+1268,Broken Hearts Burger,Fairlee,Orange,2024-12-19,2024,2024-12,50
+1268,Broken Hearts Burger,Fairlee,Orange,2024-10-28,2024,2024-10,100
+1268,Broken Hearts Burger,Fairlee,Orange,2024-09-02,2024,2024-09,55
+1268,Broken Hearts Burger,Fairlee,Orange,2024-08-05,2024,2024-08,110
+1268,Broken Hearts Burger,Fairlee,Orange,2024-06-25,2024,2024-06,45
+1268,Broken Hearts Burger,Fairlee,Orange,2024-05-30,2024,2024-05,50
+1268,Broken Hearts Burger,Fairlee,Orange,2024-04-22,2024,2024-04,20
+1268,Broken Hearts Burger,Fairlee,Orange,2024-04-01,2024,2024-04,15
+1268,Broken Hearts Burger,Fairlee,Orange,2024-03-12,2024,2024-03,40
+1268,Broken Hearts Burger,Fairlee,Orange,2024-02-06,2024,2024-02,45
+1268,Broken Hearts Burger,Fairlee,Orange,2024-01-05,2024,2024-01,90
+1268,Broken Hearts Burger,Fairlee,Orange,2023-10-16,2023,2023-10,85
+1268,Broken Hearts Burger,Fairlee,Orange,2023-09-05,2023,2023-09,100
+1268,Broken Hearts Burger,Fairlee,Orange,2023-08-03,2023,2023-08,90
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2026-04-01,2026,2026-04,65
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2026-01-20,2026,2026-01,330
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2025-10-30,2025,2025-10,75
@@ -9579,6 +9598,7 @@ customer_id,name,city,county,date,year,month,gallons
 523,The Inn-Montgomery,Montgomery Center,Orleans,2015-08-17,2015,2015-08,45
 523,The Inn-Montgomery,Montgomery Center,Orleans,2015-05-12,2015,2015-05,30
 523,The Inn-Montgomery,Montgomery Center,Orleans,2015-03-04,2015,2015-03,35
+1376,Arandas-Montpelier,Montpelier,Washington,2026-06-29,2026,2026-06,20
 1376,Arandas-Montpelier,Montpelier,Washington,2026-05-29,2026,2026-05,25
 1376,Arandas-Montpelier,Montpelier,Washington,2026-04-29,2026,2026-04,25
 1376,Arandas-Montpelier,Montpelier,Washington,2026-03-25,2026,2026-03,60
@@ -9598,6 +9618,7 @@ customer_id,name,city,county,date,year,month,gallons
 1489,Barr Hill -OIL collection,Montpelier,Washington,2026-05-07,2026,2026-05,35
 1489,Barr Hill -OIL collection,Montpelier,Washington,2026-04-20,2026,2026-04,50
 1489,Barr Hill -OIL collection,Montpelier,Washington,2026-03-20,2026,2026-03,2
+147,Buddy's Famous Burgers,Montpelier,Washington,2026-06-29,2026,2026-06,120
 147,Buddy's Famous Burgers,Montpelier,Washington,2026-05-29,2026,2026-05,30
 147,Buddy's Famous Burgers,Montpelier,Washington,2026-05-12,2026,2026-05,85
 147,Buddy's Famous Burgers,Montpelier,Washington,2026-04-17,2026,2026-04,100
@@ -9690,6 +9711,7 @@ customer_id,name,city,county,date,year,month,gallons
 147,Buddy's Famous Burgers,Montpelier,Washington,2018-05-15,2018,2018-05,150
 147,Buddy's Famous Burgers,Montpelier,Washington,2018-04-02,2018,2018-04,75
 147,Buddy's Famous Burgers,Montpelier,Washington,2018-03-05,2018,2018-03,75
+1315,CHICOS MontP/The Filibuster Cafe,Montpelier,Washington,2026-06-29,2026,2026-06,20
 1315,CHICOS MontP/The Filibuster Cafe,Montpelier,Washington,2026-05-29,2026,2026-05,10
 1315,CHICOS MontP/The Filibuster Cafe,Montpelier,Washington,2026-04-29,2026,2026-04,40
 1315,CHICOS MontP/The Filibuster Cafe,Montpelier,Washington,2026-03-06,2026,2026-03,25
@@ -9770,6 +9792,7 @@ customer_id,name,city,county,date,year,month,gallons
 151,House of Tang,Montpelier,Washington,2018-04-18,2018,2018-04,25
 151,House of Tang,Montpelier,Washington,2018-03-06,2018,2018-03,25
 151,House of Tang,Montpelier,Washington,2018-02-15,2018,2018-02,10
+1100,Hugo’s ~,Montpelier,Washington,2026-06-29,2026,2026-06,30
 1100,Hugo’s ~,Montpelier,Washington,2026-05-12,2026,2026-05,40
 1100,Hugo’s ~,Montpelier,Washington,2026-03-25,2026,2026-03,40
 1100,Hugo’s ~,Montpelier,Washington,2025-12-31,2025,2025-12,10
@@ -9817,6 +9840,7 @@ customer_id,name,city,county,date,year,month,gallons
 1100,Hugo’s ~,Montpelier,Washington,2022-03-22,2022,2022-03,60
 1100,Hugo’s ~,Montpelier,Washington,2022-03-09,2022,2022-03,55
 1100,Hugo’s ~,Montpelier,Washington,2022-02-24,2022,2022-02,40
+1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2026-06-29,2026,2026-06,50
 1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2026-06-12,2026,2026-06,70
 1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2026-05-12,2026,2026-05,35
 1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2026-04-17,2026,2026-04,50
@@ -9838,6 +9862,7 @@ customer_id,name,city,county,date,year,month,gallons
 1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2024-12-31,2024,2024-12,55
 1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2024-11-26,2024,2024-11,100
 1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2024-10-15,2024,2024-10,2
+143,Julio's-67%,Montpelier,Washington,2026-06-29,2026,2026-06,45
 143,Julio's-67%,Montpelier,Washington,2026-05-29,2026,2026-05,35
 143,Julio's-67%,Montpelier,Washington,2026-05-12,2026,2026-05,35
 143,Julio's-67%,Montpelier,Washington,2026-04-17,2026,2026-04,50
@@ -10041,6 +10066,7 @@ customer_id,name,city,county,date,year,month,gallons
 1209,MJH Massage,Montpelier,Washington,2024-09-24,2024,2024-09,10
 1209,MJH Massage,Montpelier,Washington,2023-08-09,2023,2023-08,10
 1209,MJH Massage,Montpelier,Washington,2023-01-18,2023,2023-01,7
+131,Namaste ~ 33%,Montpelier,Washington,2026-06-29,2026,2026-06,90
 131,Namaste ~ 33%,Montpelier,Washington,2026-05-29,2026,2026-05,33
 131,Namaste ~ 33%,Montpelier,Washington,2026-05-12,2026,2026-05,30
 131,Namaste ~ 33%,Montpelier,Washington,2026-04-23,2026,2026-04,15
@@ -10152,6 +10178,7 @@ customer_id,name,city,county,date,year,month,gallons
 149,National Life,Montpelier,Washington,2015-09-03,2015,2015-09,55
 149,National Life,Montpelier,Washington,2015-05-06,2015,2015-05,15
 149,National Life,Montpelier,Washington,2015-04-02,2015,2015-04,20
+169,Oakes and Evelyn-33%,Montpelier,Washington,2026-06-29,2026,2026-06,25
 169,Oakes and Evelyn-33%,Montpelier,Washington,2026-05-29,2026,2026-05,20
 169,Oakes and Evelyn-33%,Montpelier,Washington,2026-05-12,2026,2026-05,15
 169,Oakes and Evelyn-33%,Montpelier,Washington,2026-04-17,2026,2026-04,25
@@ -10208,6 +10235,7 @@ customer_id,name,city,county,date,year,month,gallons
 153,Parkers Quick Stop,Montpelier,Washington,2022-09-08,2022,2022-09,45
 153,Parkers Quick Stop,Montpelier,Washington,2017-04-25,2017,2017-04,10
 153,Parkers Quick Stop,Montpelier,Washington,2017-04-06,2017,2017-04,5
+145,Pho Capital,Montpelier,Washington,2026-06-29,2026,2026-06,15
 145,Pho Capital,Montpelier,Washington,2026-06-12,2026,2026-06,30
 145,Pho Capital,Montpelier,Washington,2026-05-12,2026,2026-05,20
 145,Pho Capital,Montpelier,Washington,2026-04-17,2026,2026-04,25
@@ -10312,6 +10340,7 @@ customer_id,name,city,county,date,year,month,gallons
 145,Pho Capital,Montpelier,Washington,2015-07-15,2015,2015-07,30
 145,Pho Capital,Montpelier,Washington,2015-05-06,2015,2015-05,25
 145,Pho Capital,Montpelier,Washington,2015-01-05,2015,2015-01,40
+140,Positive Pie 2-Montpelier,Montpelier,Washington,2026-06-29,2026,2026-06,80
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2026-05-29,2026,2026-05,50
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2026-05-12,2026,2026-05,60
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2026-04-17,2026,2026-04,65
@@ -10496,6 +10525,7 @@ customer_id,name,city,county,date,year,month,gallons
 137,Royal Orchid,Montpelier,Washington,2016-05-01,2016,2016-05,20
 137,Royal Orchid,Montpelier,Washington,2015-06-22,2015,2015-06,16
 137,Royal Orchid,Montpelier,Washington,2015-03-12,2015,2015-03,12
+146,Sarduccis,Montpelier,Washington,2026-06-29,2026,2026-06,50
 146,Sarduccis,Montpelier,Washington,2026-05-29,2026,2026-05,40
 146,Sarduccis,Montpelier,Washington,2026-05-12,2026,2026-05,100
 146,Sarduccis,Montpelier,Washington,2026-04-17,2026,2026-04,100
@@ -10609,6 +10639,7 @@ customer_id,name,city,county,date,year,month,gallons
 146,Sarduccis,Montpelier,Washington,2017-02-19,2017,2017-02,160
 146,Sarduccis,Montpelier,Washington,2017-01-14,2017,2017-01,150
 146,Sarduccis,Montpelier,Washington,2016-11-27,2016,2016-11,15
+302,Skinny Pancake-Montpelier,Montpelier,Washington,2026-06-29,2026,2026-06,85
 302,Skinny Pancake-Montpelier,Montpelier,Washington,2026-04-29,2026,2026-04,45
 302,Skinny Pancake-Montpelier,Montpelier,Washington,2026-03-25,2026,2026-03,95
 302,Skinny Pancake-Montpelier,Montpelier,Washington,2026-01-05,2026,2026-01,55
@@ -10737,6 +10768,7 @@ customer_id,name,city,county,date,year,month,gallons
 157,State House,Montpelier,Washington,2023-05-18,2023,2023-05,45
 157,State House,Montpelier,Washington,2023-01-04,2023,2023-01,50
 157,State House,Montpelier,Washington,2020-04-29,2020,2020-04,50
+130,Three Penny Taproom 67%,Montpelier,Washington,2026-06-29,2026,2026-06,180
 130,Three Penny Taproom 67%,Montpelier,Washington,2026-05-29,2026,2026-05,67
 130,Three Penny Taproom 67%,Montpelier,Washington,2026-05-12,2026,2026-05,70
 130,Three Penny Taproom 67%,Montpelier,Washington,2026-04-23,2026,2026-04,35
@@ -11144,6 +11176,7 @@ customer_id,name,city,county,date,year,month,gallons
 511,Black Diamond BBQ,Morristown,Lamoille,2017-04-01,2017,2017-04,25
 511,Black Diamond BBQ,Morristown,Lamoille,2017-01-21,2017,2017-01,15
 511,Black Diamond BBQ,Morristown,Lamoille,2016-12-26,2016,2016-12,30
+1352,Gondola’s snack shack -NEW LOCATION,Morristown,Lamoille,2026-06-29,2026,2026-06,35
 1352,Gondola’s snack shack -NEW LOCATION,Morristown,Lamoille,2026-06-05,2026,2026-06,215
 1352,Gondola’s snack shack -NEW LOCATION,Morristown,Lamoille,2026-05-27,2026,2026-05,85
 1352,Gondola’s snack shack -NEW LOCATION,Morristown,Lamoille,2026-05-18,2026,2026-05,150
@@ -12318,6 +12351,7 @@ customer_id,name,city,county,date,year,month,gallons
 1090,Proctor-Pittsford Country Club,Pittsford,Rutland,2022-09-09,2022,2022-09,100
 1090,Proctor-Pittsford Country Club,Pittsford,Rutland,2022-07-26,2022,2022-07,110
 1090,Proctor-Pittsford Country Club,Pittsford,Rutland,2022-06-10,2022,2022-06,100
+1078,BBB- Pump oil @ Shop,Plainfield,Washington,2026-06-29,2026,2026-06,300
 1078,BBB- Pump oil @ Shop,Plainfield,Washington,2026-06-19,2026,2026-06,80
 1078,BBB- Pump oil @ Shop,Plainfield,Washington,2026-06-04,2026,2026-06,180
 1078,BBB- Pump oil @ Shop,Plainfield,Washington,2026-05-06,2026,2026-05,250
@@ -22612,25 +22646,6 @@ customer_id,name,city,county,date,year,month,gallons
 376,Broccoli Bar,South Burlington,Chittenden,2022-07-07,2022,2022-07,20
 376,Broccoli Bar,South Burlington,Chittenden,2022-06-09,2022,2022-06,20
 376,Broccoli Bar,South Burlington,Chittenden,2021-11-10,2021,2021-11,55
-1268,Broken Hearts Burger,Fairlee,Orange,2026-01-20,2026,2026-01,60
-1268,Broken Hearts Burger,Fairlee,Orange,2025-10-30,2025,2025-10,70
-1268,Broken Hearts Burger,Fairlee,Orange,2025-08-18,2025,2025-08,55
-1268,Broken Hearts Burger,Fairlee,Orange,2025-06-12,2025,2025-06,40
-1268,Broken Hearts Burger,Fairlee,Orange,2025-04-21,2025,2025-04,50
-1268,Broken Hearts Burger,Fairlee,Orange,2024-12-19,2024,2024-12,50
-1268,Broken Hearts Burger,Fairlee,Orange,2024-10-28,2024,2024-10,100
-1268,Broken Hearts Burger,Fairlee,Orange,2024-09-02,2024,2024-09,55
-1268,Broken Hearts Burger,Fairlee,Orange,2024-08-05,2024,2024-08,110
-1268,Broken Hearts Burger,Fairlee,Orange,2024-06-25,2024,2024-06,45
-1268,Broken Hearts Burger,Fairlee,Orange,2024-05-30,2024,2024-05,50
-1268,Broken Hearts Burger,Fairlee,Orange,2024-04-22,2024,2024-04,20
-1268,Broken Hearts Burger,Fairlee,Orange,2024-04-01,2024,2024-04,15
-1268,Broken Hearts Burger,Fairlee,Orange,2024-03-12,2024,2024-03,40
-1268,Broken Hearts Burger,Fairlee,Orange,2024-02-06,2024,2024-02,45
-1268,Broken Hearts Burger,Fairlee,Orange,2024-01-05,2024,2024-01,90
-1268,Broken Hearts Burger,Fairlee,Orange,2023-10-16,2023,2023-10,85
-1268,Broken Hearts Burger,Fairlee,Orange,2023-09-05,2023,2023-09,100
-1268,Broken Hearts Burger,Fairlee,Orange,2023-08-03,2023,2023-08,90
 1252,Burgers and Dogs,Brattleboro,Windham,2024-12-03,2024,2024-12,7
 1252,Burgers and Dogs,Brattleboro,Windham,2024-08-15,2024,2024-08,50
 1252,Burgers and Dogs,Brattleboro,Windham,2024-06-28,2024,2024-06,35
