@@ -209,6 +209,7 @@ customer_id,name,city,county,date,year,month,gallons
 110,Canadian Club,Barre,Washington,2017-05-17,2017,2017-05,50
 110,Canadian Club,Barre,Washington,2016-04-16,2016,2016-04,25
 110,Canadian Club,Barre,Washington,2016-03-12,2016,2016-03,45
+115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2026-06-30,2026,2026-06,80
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2026-05-29,2026,2026-05,65
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2026-04-29,2026,2026-04,75
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2026-03-25,2026,2026-03,75
@@ -789,6 +790,7 @@ customer_id,name,city,county,date,year,month,gallons
 118,Spaulding High School,Barre,Washington,2017-05-17,2017,2017-05,100
 118,Spaulding High School,Barre,Washington,2016-06-27,2016,2016-06,30
 118,Spaulding High School,Barre,Washington,2015-10-13,2015,2015-10,20
+1401,Tasty Bites,Barre,Washington,2026-06-30,2026,2026-06,60
 1401,Tasty Bites,Barre,Washington,2026-05-29,2026,2026-05,30
 1401,Tasty Bites,Barre,Washington,2026-05-08,2026,2026-05,20
 1401,Tasty Bites,Barre,Washington,2026-04-17,2026,2026-04,20
@@ -7604,9 +7606,10 @@ customer_id,name,city,county,date,year,month,gallons
 501,Positive Pie 3 ~25%,Hardwick,Caledonia,2015-03-02,2015,2015-03,35
 501,Positive Pie 3 ~25%,Hardwick,Caledonia,2015-01-30,2015,2015-01,30
 501,Positive Pie 3 ~25%,Hardwick,Caledonia,2015-01-05,2015,2015-01,45
-1504,Snack Shack-Hardwick,Hardwick,Caledonia,2026-06-18,2026,2026-06,50
-1504,Snack Shack-Hardwick,Hardwick,Caledonia,2026-06-10,2026,2026-06,50
-1504,Snack Shack-Hardwick,Hardwick,Caledonia,2026-05-27,2026,2026-05,45
+1504,Two Peas in A Pod-Snack Shack-Hardwick,Hardwick,Caledonia,2026-06-29,2026,2026-06,55
+1504,Two Peas in A Pod-Snack Shack-Hardwick,Hardwick,Caledonia,2026-06-18,2026,2026-06,50
+1504,Two Peas in A Pod-Snack Shack-Hardwick,Hardwick,Caledonia,2026-06-10,2026,2026-06,50
+1504,Two Peas in A Pod-Snack Shack-Hardwick,Hardwick,Caledonia,2026-05-27,2026,2026-05,45
 502,Village Restaurant-Hardwick~ 50%,Hardwick,Caledonia,2026-06-18,2026,2026-06,75
 502,Village Restaurant-Hardwick~ 50%,Hardwick,Caledonia,2026-05-22,2026,2026-05,20
 502,Village Restaurant-Hardwick~ 50%,Hardwick,Caledonia,2026-05-06,2026,2026-05,40
@@ -8497,8 +8500,7 @@ customer_id,name,city,county,date,year,month,gallons
 1453,Jeffrey Burger - Lyndonville,Lyndonville,Caledonia,2025-09-23,2025,2025-09,2
 1465,Lyndonville Station Irving,Lyndonville,Caledonia,2026-02-09,2026,2026-02,15
 1465,Lyndonville Station Irving,Lyndonville,Caledonia,2026-01-02,2026,2026-01,20
-1467,Lyndonville Station Irving,Lyndonville,Caledonia,2025-11-21,2025,2025-11,50
-1467,Lyndonville Station Irving,Lyndonville,Caledonia,2025-11-17,2025,2025-11,2
+1465,Lyndonville Station Irving,Lyndonville,Caledonia,2025-11-17,2025,2025-11,50
 733,Copper Grouse,Manchester,Bennington,2026-06-15,2026,2026-06,40
 733,Copper Grouse,Manchester,Bennington,2026-05-13,2026,2026-05,55
 733,Copper Grouse,Manchester,Bennington,2026-04-16,2026,2026-04,40
@@ -10975,6 +10977,7 @@ customer_id,name,city,county,date,year,month,gallons
 150,West View Meadows,Montpelier,Washington,2016-02-11,2016,2016-02,15
 150,West View Meadows,Montpelier,Washington,2015-07-09,2015,2015-07,20
 150,West View Meadows,Montpelier,Washington,2015-03-06,2015,2015-03,16
+510,10 Railroad Street,Morristown,Lamoille,2026-06-29,2026,2026-06,40
 510,10 Railroad Street,Morristown,Lamoille,2026-05-27,2026,2026-05,70
 510,10 Railroad Street,Morristown,Lamoille,2026-05-01,2026,2026-05,50
 510,10 Railroad Street,Morristown,Lamoille,2026-03-18,2026,2026-03,65
@@ -11097,6 +11100,7 @@ customer_id,name,city,county,date,year,month,gallons
 510,10 Railroad Street,Morristown,Lamoille,2015-03-02,2015,2015-03,45
 510,10 Railroad Street,Morristown,Lamoille,2015-01-30,2015,2015-01,40
 510,10 Railroad Street,Morristown,Lamoille,2015-01-05,2015,2015-01,25
+511,Black Diamond BBQ,Morristown,Lamoille,2026-06-29,2026,2026-06,75
 511,Black Diamond BBQ,Morristown,Lamoille,2026-05-27,2026,2026-05,85
 511,Black Diamond BBQ,Morristown,Lamoille,2026-05-01,2026,2026-05,105
 511,Black Diamond BBQ,Morristown,Lamoille,2026-03-18,2026,2026-03,130
@@ -11196,6 +11200,7 @@ customer_id,name,city,county,date,year,month,gallons
 1352,Gondola’s snack shack -NEW LOCATION,Morristown,Lamoille,2024-07-31,2024,2024-07,45
 1352,Gondola’s snack shack -NEW LOCATION,Morristown,Lamoille,2024-07-08,2024,2024-07,30
 1352,Gondola’s snack shack -NEW LOCATION,Morristown,Lamoille,2024-06-21,2024,2024-06,2
+509,Moogs Place- Morrisville,Morristown,Lamoille,2026-06-29,2026,2026-06,70
 509,Moogs Place- Morrisville,Morristown,Lamoille,2026-05-27,2026,2026-05,90
 509,Moogs Place- Morrisville,Morristown,Lamoille,2026-05-01,2026,2026-05,10
 509,Moogs Place- Morrisville,Morristown,Lamoille,2026-03-18,2026,2026-03,110
@@ -11335,6 +11340,7 @@ customer_id,name,city,county,date,year,month,gallons
 1181,Hannaford- Morrisville,Morrisville,Lamoille,2022-11-21,2022,2022-11,35
 1181,Hannaford- Morrisville,Morrisville,Lamoille,2022-10-27,2022,2022-10,40
 1181,Hannaford- Morrisville,Morrisville,Lamoille,2022-09-21,2022,2022-09,104
+1071,Lost Nation Brewery,Morrisville,Lamoille,2026-06-29,2026,2026-06,50
 1071,Lost Nation Brewery,Morrisville,Lamoille,2026-05-27,2026,2026-05,50
 1071,Lost Nation Brewery,Morrisville,Lamoille,2026-05-01,2026,2026-05,45
 1071,Lost Nation Brewery,Morrisville,Lamoille,2026-03-18,2026,2026-03,80
@@ -11375,6 +11381,7 @@ customer_id,name,city,county,date,year,month,gallons
 1071,Lost Nation Brewery,Morrisville,Lamoille,2022-03-16,2022,2022-03,15
 1071,Lost Nation Brewery,Morrisville,Lamoille,2022-02-09,2022,2022-02,55
 1071,Lost Nation Brewery,Morrisville,Lamoille,2021-10-18,2021,2021-10,125
+512,North Country Donuts,Morrisville,Lamoille,2026-06-29,2026,2026-06,50
 512,North Country Donuts,Morrisville,Lamoille,2026-05-27,2026,2026-05,20
 512,North Country Donuts,Morrisville,Lamoille,2026-05-01,2026,2026-05,95
 512,North Country Donuts,Morrisville,Lamoille,2026-02-04,2026,2026-02,30
@@ -11438,6 +11445,7 @@ customer_id,name,city,county,date,year,month,gallons
 512,North Country Donuts,Morrisville,Lamoille,2019-06-29,2019,2019-06,20
 512,North Country Donuts,Morrisville,Lamoille,2019-06-06,2019,2019-06,50
 512,North Country Donuts,Morrisville,Lamoille,2019-05-29,2019,2019-05,55
+508,Pizza on Main -Morrisville,Morrisville,Lamoille,2026-06-29,2026,2026-06,85
 508,Pizza on Main -Morrisville,Morrisville,Lamoille,2024-11-21,2024,2024-11,55
 508,Pizza on Main -Morrisville,Morrisville,Lamoille,2024-10-18,2024,2024-10,30
 508,Pizza on Main -Morrisville,Morrisville,Lamoille,2024-09-11,2024,2024-09,60
@@ -24055,6 +24063,8 @@ customer_id,name,city,county,date,year,month,gallons
 326,Leunigs Bistro,Burlington,Chittenden,2015-01-22,2015,2015-01,40
 326,Leunigs Bistro,Burlington,Chittenden,2015-01-15,2015,2015-01,37
 326,Leunigs Bistro,Burlington,Chittenden,2015-01-02,2015,2015-01,45
+1467,Lyndonville Station Irving,Lyndonville,Caledonia,2025-11-21,2025,2025-11,50
+1467,Lyndonville Station Irving,Lyndonville,Caledonia,2025-11-17,2025,2025-11,2
 801,M and M,Burlington,Chittenden,2018-03-20,2018,2018-03,10
 373,M-Saigon,Burlington,Chittenden,2022-03-17,2022,2022-03,20
 373,M-Saigon,Burlington,Chittenden,2021-11-19,2021,2021-11,50

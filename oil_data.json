@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-29T17:24:46.167522",
+  "last_updated": "2026-06-30T13:35:57.638808",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -27369,7 +27369,7 @@
     {
       "month": "2025-11",
       "city": "Lyndonville",
-      "gallons": 62
+      "gallons": 112
     },
     {
       "month": "2025-11",
@@ -29394,7 +29394,7 @@
     {
       "month": "2026-06",
       "city": "Barre",
-      "gallons": 812
+      "gallons": 952
     },
     {
       "month": "2026-06",
@@ -29479,7 +29479,7 @@
     {
       "month": "2026-06",
       "city": "Hardwick",
-      "gallons": 290
+      "gallons": 345
     },
     {
       "month": "2026-06",
@@ -29534,12 +29534,12 @@
     {
       "month": "2026-06",
       "city": "Morristown",
-      "gallons": 250
+      "gallons": 435
     },
     {
       "month": "2026-06",
       "city": "Morrisville",
-      "gallons": 75
+      "gallons": 260
     },
     {
       "month": "2026-06",
@@ -36651,7 +36651,7 @@
     {
       "month": "2025-11",
       "county": "Caledonia",
-      "gallons": 934
+      "gallons": 984
     },
     {
       "month": "2025-11",
@@ -37131,7 +37131,7 @@
     {
       "month": "2026-06",
       "county": "Caledonia",
-      "gallons": 670
+      "gallons": 725
     },
     {
       "month": "2026-06",
@@ -37151,7 +37151,7 @@
     {
       "month": "2026-06",
       "county": "Lamoille",
-      "gallons": 2510
+      "gallons": 2880
     },
     {
       "month": "2026-06",
@@ -37171,7 +37171,7 @@
     {
       "month": "2026-06",
       "county": "Washington",
-      "gallons": 4332
+      "gallons": 4472
     },
     {
       "month": "2026-06",
@@ -37222,14 +37222,14 @@
     },
     {
       "year": 2025,
-      "gallons": 269977
+      "gallons": 270027
     },
     {
       "year": 2026,
-      "gallons": 149591
+      "gallons": 150156
     }
   ],
-  "all_time_total": 2068554,
-  "current_year_total": 149591,
+  "all_time_total": 2069169,
+  "current_year_total": 150156,
   "customer_count": 812
 }
