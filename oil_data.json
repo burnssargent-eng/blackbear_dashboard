@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-30T13:35:57.638808",
+  "last_updated": "2026-07-01T16:17:38.903668",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -29399,12 +29399,12 @@
     {
       "month": "2026-06",
       "city": "Berlin",
-      "gallons": 85
+      "gallons": 245
     },
     {
       "month": "2026-06",
       "city": "Bethel",
-      "gallons": 180
+      "gallons": 430
     },
     {
       "month": "2026-06",
@@ -29569,7 +29569,7 @@
     {
       "month": "2026-06",
       "city": "Quechee",
-      "gallons": 380
+      "gallons": 675
     },
     {
       "month": "2026-06",
@@ -29679,7 +29679,17 @@
     {
       "month": "2026-06",
       "city": "Woodstock",
-      "gallons": 310
+      "gallons": 500
+    },
+    {
+      "month": "2026-07",
+      "city": "Burlington",
+      "gallons": 1275
+    },
+    {
+      "month": "2026-07",
+      "city": "Williston",
+      "gallons": 150
     }
   ],
   "monthly_by_county": [
@@ -37171,12 +37181,17 @@
     {
       "month": "2026-06",
       "county": "Washington",
-      "gallons": 4472
+      "gallons": 4632
     },
     {
       "month": "2026-06",
       "county": "Windsor",
-      "gallons": 1410
+      "gallons": 2145
+    },
+    {
+      "month": "2026-07",
+      "county": "Chittenden",
+      "gallons": 1425
     }
   ],
   "yearly_totals": [
@@ -37226,10 +37241,10 @@
     },
     {
       "year": 2026,
-      "gallons": 150156
+      "gallons": 152476
     }
   ],
-  "all_time_total": 2069169,
-  "current_year_total": 150156,
+  "all_time_total": 2071489,
+  "current_year_total": 152476,
   "customer_count": 812
 }
