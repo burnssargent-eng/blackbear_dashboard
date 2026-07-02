@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-01T16:17:38.903668",
+  "last_updated": "2026-07-02T13:26:20.772611",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -29688,6 +29688,16 @@
     },
     {
       "month": "2026-07",
+      "city": "Greensboro",
+      "gallons": 2
+    },
+    {
+      "month": "2026-07",
+      "city": "Johnson",
+      "gallons": 2
+    },
+    {
+      "month": "2026-07",
       "city": "Williston",
       "gallons": 150
     }
@@ -37190,8 +37200,18 @@
     },
     {
       "month": "2026-07",
+      "county": "Caledonia",
+      "gallons": 2
+    },
+    {
+      "month": "2026-07",
       "county": "Chittenden",
       "gallons": 1425
+    },
+    {
+      "month": "2026-07",
+      "county": "Lamoille",
+      "gallons": 2
     }
   ],
   "yearly_totals": [
@@ -37241,10 +37261,10 @@
     },
     {
       "year": 2026,
-      "gallons": 152476
+      "gallons": 152480
     }
   ],
-  "all_time_total": 2071489,
-  "current_year_total": 152476,
-  "customer_count": 812
+  "all_time_total": 2071493,
+  "current_year_total": 152480,
+  "customer_count": 814
 }

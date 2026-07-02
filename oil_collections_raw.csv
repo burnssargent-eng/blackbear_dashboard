@@ -7205,6 +7205,7 @@ customer_id,name,city,county,date,year,month,gallons
 124,Graniteville General,Graniteville,Washington,2018-12-18,2018,2018-12,20
 124,Graniteville General,Graniteville,Washington,2018-10-16,2018,2018-10,50
 124,Graniteville General,Graniteville,Washington,2018-10-03,2018,2018-10,50
+1513,Circus Smirkus,Greensboro,Caledonia,2026-07-01,2026,2026-07,2
 550,Highland Lodge- Elsa,Greensboro,Caledonia,2026-05-27,2026,2026-05,35
 550,Highland Lodge- Elsa,Greensboro,Caledonia,2025-09-18,2025,2025-09,45
 550,Highland Lodge- Elsa,Greensboro,Caledonia,2025-05-09,2025,2025-05,40
@@ -8412,6 +8413,7 @@ customer_id,name,city,county,date,year,month,gallons
 543,Marsala Salsa/ Pizzeria -Johnson-10%,Johnson,Lamoille,2019-12-09,2019,2019-12,110
 543,Marsala Salsa/ Pizzeria -Johnson-10%,Johnson,Lamoille,2019-10-08,2019,2019-10,125
 543,Marsala Salsa/ Pizzeria -Johnson-10%,Johnson,Lamoille,2019-06-21,2019,2019-06,175
+1515,NVU-Johnson,Johnson,Lamoille,2026-07-01,2026,2026-07,2
 1391,Grey Bonnet Inn-Killington,Killington,Rutland,2025-08-25,2025,2025-08,10
 1391,Grey Bonnet Inn-Killington,Killington,Rutland,2025-03-05,2025,2025-03,15
 1391,Grey Bonnet Inn-Killington,Killington,Rutland,2025-01-15,2025,2025-01,2
