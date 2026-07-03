@@ -8522,6 +8522,7 @@ customer_id,name,city,county,date,year,month,gallons
 910,The Hatchery,Ludlow,Windsor,2017-01-31,2017,2017-01,35
 1453,Jeffrey Burger - Lyndonville,Lyndonville,Caledonia,2025-11-10,2025,2025-11,10
 1453,Jeffrey Burger - Lyndonville,Lyndonville,Caledonia,2025-09-23,2025,2025-09,2
+1465,Lyndonville Station Irving,Lyndonville,Caledonia,2026-07-02,2026,2026-07,50
 1465,Lyndonville Station Irving,Lyndonville,Caledonia,2026-02-09,2026,2026-02,15
 1465,Lyndonville Station Irving,Lyndonville,Caledonia,2026-01-02,2026,2026-01,20
 1465,Lyndonville Station Irving,Lyndonville,Caledonia,2025-11-17,2025,2025-11,50
@@ -9250,6 +9251,7 @@ customer_id,name,city,county,date,year,month,gallons
 1180,Hannaford- Milton,Milton,Chittenden,2023-02-12,2023,2023-02,69
 1180,Hannaford- Milton,Milton,Chittenden,2022-10-27,2022,2022-10,25
 1180,Hannaford- Milton,Milton,Chittenden,2022-09-22,2022,2022-09,92
+423,Perrigo Nutritionals,Milton,Chittenden,2026-07-02,2026,2026-07,1600
 423,Perrigo Nutritionals,Milton,Chittenden,2026-06-24,2026,2026-06,3300
 423,Perrigo Nutritionals,Milton,Chittenden,2026-06-16,2026,2026-06,4000
 423,Perrigo Nutritionals,Milton,Chittenden,2026-06-10,2026,2026-06,6100
@@ -11618,6 +11620,7 @@ customer_id,name,city,county,date,year,month,gallons
 534,Dusit Thai,Newport,Orleans,2017-02-21,2017,2017-02,15
 534,Dusit Thai,Newport,Orleans,2017-01-31,2017,2017-01,40
 534,Dusit Thai,Newport,Orleans,2016-12-09,2016,2016-12,20
+1171,Hoagies-Newport,Newport,Orleans,2026-07-02,2026,2026-07,300
 1171,Hoagies-Newport,Newport,Orleans,2026-06-12,2026,2026-06,180
 1171,Hoagies-Newport,Newport,Orleans,2026-05-22,2026,2026-05,290
 1171,Hoagies-Newport,Newport,Orleans,2026-04-29,2026,2026-04,40
@@ -11670,6 +11673,7 @@ customer_id,name,city,county,date,year,month,gallons
 1171,Hoagies-Newport,Newport,Orleans,2022-12-22,2022,2022-12,135
 1171,Hoagies-Newport,Newport,Orleans,2022-11-01,2022,2022-11,115
 1171,Hoagies-Newport,Newport,Orleans,2022-09-07,2022,2022-09,525
+1074,JumbleBite/Hilmers on Main,Newport,Orleans,2026-07-02,2026,2026-07,120
 1074,JumbleBite/Hilmers on Main,Newport,Orleans,2026-04-24,2026,2026-04,50
 1074,JumbleBite/Hilmers on Main,Newport,Orleans,2026-03-17,2026,2026-03,150
 1074,JumbleBite/Hilmers on Main,Newport,Orleans,2026-02-20,2026,2026-02,25

@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-02T13:26:20.772611",
+  "last_updated": "2026-07-03T13:29:40.326897",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -29698,6 +29698,21 @@
     },
     {
       "month": "2026-07",
+      "city": "Lyndonville",
+      "gallons": 50
+    },
+    {
+      "month": "2026-07",
+      "city": "Milton",
+      "gallons": 1600
+    },
+    {
+      "month": "2026-07",
+      "city": "Newport",
+      "gallons": 420
+    },
+    {
+      "month": "2026-07",
       "city": "Williston",
       "gallons": 150
     }
@@ -37201,17 +37216,22 @@
     {
       "month": "2026-07",
       "county": "Caledonia",
-      "gallons": 2
+      "gallons": 52
     },
     {
       "month": "2026-07",
       "county": "Chittenden",
-      "gallons": 1425
+      "gallons": 3025
     },
     {
       "month": "2026-07",
       "county": "Lamoille",
       "gallons": 2
+    },
+    {
+      "month": "2026-07",
+      "county": "Orleans",
+      "gallons": 420
     }
   ],
   "yearly_totals": [
@@ -37261,10 +37281,10 @@
     },
     {
       "year": 2026,
-      "gallons": 152480
+      "gallons": 154550
     }
   ],
-  "all_time_total": 2071493,
-  "current_year_total": 152480,
+  "all_time_total": 2073563,
+  "current_year_total": 154550,
   "customer_count": 814
 }
