@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-05T12:09:47.259270",
+  "last_updated": "2026-07-06T17:35:38.499289",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -29683,13 +29683,33 @@
     },
     {
       "month": "2026-07",
+      "city": "Albany",
+      "gallons": 165
+    },
+    {
+      "month": "2026-07",
       "city": "Burlington",
-      "gallons": 1275
+      "gallons": 1490
+    },
+    {
+      "month": "2026-07",
+      "city": "Colchester",
+      "gallons": 410
+    },
+    {
+      "month": "2026-07",
+      "city": "Essex Junction",
+      "gallons": 40
     },
     {
       "month": "2026-07",
       "city": "Greensboro",
       "gallons": 2
+    },
+    {
+      "month": "2026-07",
+      "city": "Jericho Center",
+      "gallons": 125
     },
     {
       "month": "2026-07",
@@ -29703,6 +29723,11 @@
     },
     {
       "month": "2026-07",
+      "city": "Middlebury",
+      "gallons": 325
+    },
+    {
+      "month": "2026-07",
       "city": "Milton",
       "gallons": 1600
     },
@@ -29710,6 +29735,31 @@
       "month": "2026-07",
       "city": "Newport",
       "gallons": 420
+    },
+    {
+      "month": "2026-07",
+      "city": "North Hero",
+      "gallons": 305
+    },
+    {
+      "month": "2026-07",
+      "city": "Northfield",
+      "gallons": 150
+    },
+    {
+      "month": "2026-07",
+      "city": "Plainfield",
+      "gallons": 400
+    },
+    {
+      "month": "2026-07",
+      "city": "South Hero",
+      "gallons": 125
+    },
+    {
+      "month": "2026-07",
+      "city": "Vergennes",
+      "gallons": 100
     },
     {
       "month": "2026-07",
@@ -37215,13 +37265,23 @@
     },
     {
       "month": "2026-07",
+      "county": "Addison",
+      "gallons": 425
+    },
+    {
+      "month": "2026-07",
       "county": "Caledonia",
       "gallons": 52
     },
     {
       "month": "2026-07",
       "county": "Chittenden",
-      "gallons": 3025
+      "gallons": 3815
+    },
+    {
+      "month": "2026-07",
+      "county": "Grand Isle",
+      "gallons": 430
     },
     {
       "month": "2026-07",
@@ -37232,6 +37292,16 @@
       "month": "2026-07",
       "county": "Orleans",
       "gallons": 420
+    },
+    {
+      "month": "2026-07",
+      "county": "Out-of-State (NY)",
+      "gallons": 165
+    },
+    {
+      "month": "2026-07",
+      "county": "Washington",
+      "gallons": 550
     }
   ],
   "yearly_totals": [
@@ -37281,10 +37351,10 @@
     },
     {
       "year": 2026,
-      "gallons": 154550
+      "gallons": 156910
     }
   ],
-  "all_time_total": 2073563,
-  "current_year_total": 154550,
+  "all_time_total": 2075923,
+  "current_year_total": 156910,
   "customer_count": 814
 }

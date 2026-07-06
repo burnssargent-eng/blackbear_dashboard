@@ -1,6 +1,7 @@
 customer_id,name,city,county,date,year,month,gallons
 1498,Barre Country Club-Plainfield,Burlington,Chittenden,2026-05-04,2026,2026-05,2
 1509,"Champlain Valley Fairgrounds, Lot P",Burlington,Chittenden,2026-06-13,2026,2026-06,2700
+551,The Genny- Albany General Store,Albany,Out-of-State (NY),2026-07-05,2026,2026-07,165
 551,The Genny- Albany General Store,Albany,Out-of-State (NY),2026-04-15,2026,2026-04,95
 551,The Genny- Albany General Store,Albany,Out-of-State (NY),2026-02-25,2026,2026-02,85
 551,The Genny- Albany General Store,Albany,Out-of-State (NY),2025-12-31,2025,2025-12,120
@@ -5078,6 +5079,7 @@ customer_id,name,city,county,date,year,month,gallons
 1350,Switchback,Burlington,Chittenden,2024-09-03,2024,2024-09,100
 1350,Switchback,Burlington,Chittenden,2024-08-08,2024,2024-08,60
 1350,Switchback,Burlington,Chittenden,2024-06-27,2024,2024-06,2
+1029,The Beach House- NORTH BEACH,Burlington,Chittenden,2026-07-06,2026,2026-07,115
 1029,The Beach House- NORTH BEACH,Burlington,Chittenden,2025-08-19,2025,2025-08,110
 1029,The Beach House- NORTH BEACH,Burlington,Chittenden,2025-06-13,2025,2025-06,110
 1029,The Beach House- NORTH BEACH,Burlington,Chittenden,2024-08-08,2024,2024-08,85
@@ -5867,6 +5869,7 @@ customer_id,name,city,county,date,year,month,gallons
 1192,Hannaford-Claremont,Claremont,Out-of-State (NH),2022-11-08,2022,2022-11,165
 1337,Adventure Diner,Colchester,Chittenden,2026-01-22,2026,2026-01,55
 1337,Adventure Diner,Colchester,Chittenden,2025-03-18,2025,2025-03,55
+1375,Cafe Mammajuana-Colchester2025,Colchester,Chittenden,2026-07-06,2026,2026-07,85
 1375,Cafe Mammajuana-Colchester2025,Colchester,Chittenden,2026-05-12,2026,2026-05,15
 1375,Cafe Mammajuana-Colchester2025,Colchester,Chittenden,2026-04-20,2026,2026-04,80
 1375,Cafe Mammajuana-Colchester2025,Colchester,Chittenden,2026-03-09,2026,2026-03,95
@@ -5888,6 +5891,7 @@ customer_id,name,city,county,date,year,month,gallons
 1139,Cloud 9 catering- Sarah-COOK-Food Truck,Colchester,Chittenden,2023-06-14,2023,2023-06,50
 1139,Cloud 9 catering- Sarah-COOK-Food Truck,Colchester,Chittenden,2022-12-08,2022,2022-12,40
 1139,Cloud 9 catering- Sarah-COOK-Food Truck,Colchester,Chittenden,2022-07-25,2022,2022-07,60
+446,McGillicuddy's On The Green,Colchester,Chittenden,2026-07-06,2026,2026-07,130
 446,McGillicuddy's On The Green,Colchester,Chittenden,2026-06-11,2026,2026-06,50
 446,McGillicuddy's On The Green,Colchester,Chittenden,2026-05-28,2026,2026-05,50
 446,McGillicuddy's On The Green,Colchester,Chittenden,2026-05-12,2026,2026-05,90
@@ -5968,6 +5972,7 @@ customer_id,name,city,county,date,year,month,gallons
 446,McGillicuddy's On The Green,Colchester,Chittenden,2021-09-14,2021,2021-09,125
 446,McGillicuddy's On The Green,Colchester,Chittenden,2021-08-31,2021,2021-08,100
 446,McGillicuddy's On The Green,Colchester,Chittenden,2021-08-19,2021,2021-08,75
+1215,NY Oven Pizza 50%,Colchester,Chittenden,2026-07-06,2026,2026-07,65
 1215,NY Oven Pizza 50%,Colchester,Chittenden,2026-06-02,2026,2026-06,35
 1215,NY Oven Pizza 50%,Colchester,Chittenden,2026-05-12,2026,2026-05,40
 1215,NY Oven Pizza 50%,Colchester,Chittenden,2026-04-20,2026,2026-04,50
@@ -6023,6 +6028,7 @@ customer_id,name,city,county,date,year,month,gallons
 1215,NY Oven Pizza 50%,Colchester,Chittenden,2023-03-22,2023,2023-03,45
 1215,NY Oven Pizza 50%,Colchester,Chittenden,2023-02-24,2023,2023-02,36
 1215,NY Oven Pizza 50%,Colchester,Chittenden,2023-02-07,2023,2023-02,15
+425,Pickled Perch,Colchester,Chittenden,2026-07-06,2026,2026-07,65
 425,Pickled Perch,Colchester,Chittenden,2026-05-12,2026,2026-05,25
 425,Pickled Perch,Colchester,Chittenden,2026-04-20,2026,2026-04,90
 425,Pickled Perch,Colchester,Chittenden,2026-02-10,2026,2026-02,15
@@ -6087,6 +6093,7 @@ customer_id,name,city,county,date,year,month,gallons
 425,Pickled Perch,Colchester,Chittenden,2019-05-31,2019,2019-05,50
 425,Pickled Perch,Colchester,Chittenden,2019-04-10,2019,2019-04,100
 425,Pickled Perch,Colchester,Chittenden,2018-10-05,2018,2018-10,60
+1214,Pioneer Lakeshore Cafe 50%,Colchester,Chittenden,2026-07-06,2026,2026-07,65
 1214,Pioneer Lakeshore Cafe 50%,Colchester,Chittenden,2026-06-02,2026,2026-06,35
 1214,Pioneer Lakeshore Cafe 50%,Colchester,Chittenden,2026-05-12,2026,2026-05,45
 1214,Pioneer Lakeshore Cafe 50%,Colchester,Chittenden,2026-04-20,2026,2026-04,50
@@ -6806,6 +6813,7 @@ customer_id,name,city,county,date,year,month,gallons
 409,Mad Taco-Essex Jct,Essex Junction,Chittenden,2020-01-09,2020,2020-01,40
 409,Mad Taco-Essex Jct,Essex Junction,Chittenden,2019-07-09,2019,2019-07,25
 409,Mad Taco-Essex Jct,Essex Junction,Chittenden,2019-02-11,2019,2019-02,55
+447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2026-07-06,2026,2026-07,40
 447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2026-06-11,2026,2026-06,120
 447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2026-05-12,2026,2026-05,55
 447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2026-05-01,2026,2026-05,75
@@ -8254,6 +8262,7 @@ customer_id,name,city,county,date,year,month,gallons
 540,Lot Six- Brewster River Pub & Brewery,Jeffersonville,Lamoille,2016-02-23,2016,2016-02,150
 540,Lot Six- Brewster River Pub & Brewery,Jeffersonville,Lamoille,2015-11-04,2015,2015-11,65
 540,Lot Six- Brewster River Pub & Brewery,Jeffersonville,Lamoille,2015-09-09,2015,2015-09,160
+285,Jericho Country Store,Jericho Center,Chittenden,2026-07-06,2026,2026-07,125
 285,Jericho Country Store,Jericho Center,Chittenden,2026-04-08,2026,2026-04,130
 285,Jericho Country Store,Jericho Center,Chittenden,2026-01-03,2026,2026-01,80
 285,Jericho Country Store,Jericho Center,Chittenden,2025-07-25,2025,2025-07,80
@@ -8991,6 +9000,7 @@ customer_id,name,city,county,date,year,month,gallons
 723,Marriott,Middlebury,Addison,2019-09-12,2019,2019-09,50
 723,Marriott,Middlebury,Addison,2019-07-08,2019,2019-07,60
 723,Marriott,Middlebury,Addison,2019-04-24,2019,2019-04,40
+720,Otter Creek/Residence Inn,Middlebury,Addison,2026-07-06,2026,2026-07,165
 720,Otter Creek/Residence Inn,Middlebury,Addison,2026-02-03,2026,2026-02,10
 720,Otter Creek/Residence Inn,Middlebury,Addison,2026-01-13,2026,2026-01,10
 720,Otter Creek/Residence Inn,Middlebury,Addison,2025-12-17,2025,2025-12,35
@@ -9082,6 +9092,7 @@ customer_id,name,city,county,date,year,month,gallons
 732,Ross Conrad,Middlebury,Addison,2017-03-30,2017,2017-03,325
 732,Ross Conrad,Middlebury,Addison,2016-12-07,2016,2016-12,305
 732,Ross Conrad,Middlebury,Addison,2016-04-23,2016,2016-04,50
+714,Two Brothers Tavern,Middlebury,Addison,2026-07-06,2026,2026-07,160
 714,Two Brothers Tavern,Middlebury,Addison,2026-06-12,2026,2026-06,100
 714,Two Brothers Tavern,Middlebury,Addison,2026-05-26,2026,2026-05,160
 714,Two Brothers Tavern,Middlebury,Addison,2026-04-30,2026,2026-04,100
@@ -11571,6 +11582,7 @@ customer_id,name,city,county,date,year,month,gallons
 513,The Manor,Morrisville,Lamoille,2025-09-12,2025,2025-09,7
 513,The Manor,Morrisville,Lamoille,2025-04-30,2025,2025-04,2
 513,The Manor,Morrisville,Lamoille,2019-04-23,2019,2019-04,50
+1496,Tourterelle -just north of MIDDLEBURY,Burlington,Chittenden,2026-07-06,2026,2026-07,100
 1496,Tourterelle -just north of MIDDLEBURY,Burlington,Chittenden,2026-04-30,2026,2026-04,75
 1496,Tourterelle -just north of MIDDLEBURY,Burlington,Chittenden,2026-04-24,2026,2026-04,2
 534,Dusit Thai,Newport,Orleans,2026-04-29,2026,2026-04,70
@@ -11821,6 +11833,7 @@ customer_id,name,city,county,date,year,month,gallons
 1371,West Side Market and Deli,Newport,Orleans,2025-02-14,2025,2025-02,15
 1371,West Side Market and Deli,Newport,Orleans,2025-01-10,2025,2025-01,45
 1371,West Side Market and Deli,Newport,Orleans,2024-10-08,2024,2024-10,15
+1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2026-07-06,2026,2026-07,75
 1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2025-08-22,2025,2025-08,35
 1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2025-08-01,2025,2025-08,75
 1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2025-06-06,2025,2025-06,10
@@ -11833,6 +11846,7 @@ customer_id,name,city,county,date,year,month,gallons
 1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2023-07-13,2023,2023-07,15
 1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2022-10-27,2022,2022-10,25
 1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2022-09-13,2022,2022-09,45
+416,North Hero House,North Hero,Grand Isle,2026-07-06,2026,2026-07,160
 416,North Hero House,North Hero,Grand Isle,2026-05-21,2026,2026-05,100
 416,North Hero House,North Hero,Grand Isle,2026-04-09,2026,2026-04,140
 416,North Hero House,North Hero,Grand Isle,2026-01-14,2026,2026-01,50
@@ -11866,6 +11880,7 @@ customer_id,name,city,county,date,year,month,gallons
 416,North Hero House,North Hero,Grand Isle,2020-06-30,2020,2020-06,150
 416,North Hero House,North Hero,Grand Isle,2020-03-13,2020,2020-03,100
 416,North Hero House,North Hero,Grand Isle,2018-08-08,2018,2018-08,175
+1144,Shore Acres-North Hero,North Hero,Grand Isle,2026-07-06,2026,2026-07,70
 1144,Shore Acres-North Hero,North Hero,Grand Isle,2025-08-22,2025,2025-08,15
 1144,Shore Acres-North Hero,North Hero,Grand Isle,2025-08-01,2025,2025-08,75
 1144,Shore Acres-North Hero,North Hero,Grand Isle,2025-06-06,2025,2025-06,10
@@ -11976,6 +11991,7 @@ customer_id,name,city,county,date,year,month,gallons
 1390,Folignos Pizza-Northfield,Northfield,Washington,2025-02-18,2025,2025-02,20
 1390,Folignos Pizza-Northfield,Northfield,Washington,2025-01-29,2025,2025-01,10
 1390,Folignos Pizza-Northfield,Northfield,Washington,2025-01-11,2025,2025-01,2
+161,GOOD MEASURE!!!!-(1980),Northfield,Washington,2026-07-06,2026,2026-07,150
 161,GOOD MEASURE!!!!-(1980),Northfield,Washington,2026-06-17,2026,2026-06,130
 161,GOOD MEASURE!!!!-(1980),Northfield,Washington,2026-05-27,2026,2026-05,65
 161,GOOD MEASURE!!!!-(1980),Northfield,Washington,2026-05-19,2026,2026-05,170
@@ -12387,6 +12403,7 @@ customer_id,name,city,county,date,year,month,gallons
 1090,Proctor-Pittsford Country Club,Pittsford,Rutland,2022-09-09,2022,2022-09,100
 1090,Proctor-Pittsford Country Club,Pittsford,Rutland,2022-07-26,2022,2022-07,110
 1090,Proctor-Pittsford Country Club,Pittsford,Rutland,2022-06-10,2022,2022-06,100
+1078,BBB- Pump oil @ Shop,Plainfield,Washington,2026-07-03,2026,2026-07,400
 1078,BBB- Pump oil @ Shop,Plainfield,Washington,2026-06-29,2026,2026-06,300
 1078,BBB- Pump oil @ Shop,Plainfield,Washington,2026-06-19,2026,2026-06,80
 1078,BBB- Pump oil @ Shop,Plainfield,Washington,2026-06-04,2026,2026-06,180
@@ -13836,6 +13853,7 @@ customer_id,name,city,county,date,year,month,gallons
 1188,Windjammer,South Burlington,Chittenden,2022-11-27,2022,2022-11,80
 1188,Windjammer,South Burlington,Chittenden,2022-11-07,2022,2022-11,70
 1188,Windjammer,South Burlington,Chittenden,2022-10-14,2022,2022-10,235
+1409,Pan’sPizza-South Hero,South Hero,Grand Isle,2026-07-06,2026,2026-07,15
 1409,Pan’sPizza-South Hero,South Hero,Grand Isle,2026-05-21,2026,2026-05,30
 1409,Pan’sPizza-South Hero,South Hero,Grand Isle,2026-04-09,2026,2026-04,20
 1409,Pan’sPizza-South Hero,South Hero,Grand Isle,2026-01-14,2026,2026-01,15
@@ -13843,6 +13861,7 @@ customer_id,name,city,county,date,year,month,gallons
 1409,Pan’sPizza-South Hero,South Hero,Grand Isle,2025-08-22,2025,2025-08,15
 1409,Pan’sPizza-South Hero,South Hero,Grand Isle,2025-06-06,2025,2025-06,15
 1409,Pan’sPizza-South Hero,South Hero,Grand Isle,2025-04-01,2025,2025-04,35
+1396,Sandbar Bar & Grill,South Hero,Grand Isle,2026-07-06,2026,2026-07,40
 1396,Sandbar Bar & Grill,South Hero,Grand Isle,2026-06-11,2026,2026-06,75
 1396,Sandbar Bar & Grill,South Hero,Grand Isle,2026-05-21,2026,2026-05,50
 1396,Sandbar Bar & Grill,South Hero,Grand Isle,2026-05-12,2026,2026-05,75
@@ -13860,11 +13879,13 @@ customer_id,name,city,county,date,year,month,gallons
 1396,Sandbar Bar & Grill,South Hero,Grand Isle,2025-07-07,2025,2025-07,110
 1396,Sandbar Bar & Grill,South Hero,Grand Isle,2025-06-06,2025,2025-06,60
 1396,Sandbar Bar & Grill,South Hero,Grand Isle,2025-01-29,2025,2025-01,2
+1471,Thai in Town-South Hero,South Hero,Grand Isle,2026-07-06,2026,2026-07,30
 1471,Thai in Town-South Hero,South Hero,Grand Isle,2026-05-21,2026,2026-05,40
 1471,Thai in Town-South Hero,South Hero,Grand Isle,2026-04-09,2026,2026-04,35
 1471,Thai in Town-South Hero,South Hero,Grand Isle,2026-02-05,2026,2026-02,45
 1471,Thai in Town-South Hero,South Hero,Grand Isle,2025-12-02,2025,2025-12,15
 1471,Thai in Town-South Hero,South Hero,Grand Isle,2025-11-27,2025,2025-11,2
+1319,Two Heros Public House,South Hero,Grand Isle,2026-07-06,2026,2026-07,40
 1319,Two Heros Public House,South Hero,Grand Isle,2026-05-12,2026,2026-05,70
 1319,Two Heros Public House,South Hero,Grand Isle,2026-04-09,2026,2026-04,30
 1319,Two Heros Public House,South Hero,Grand Isle,2026-01-14,2026,2026-01,50
@@ -17240,6 +17261,7 @@ customer_id,name,city,county,date,year,month,gallons
 708,Collins AreospacePlace,Vergennes,Addison,2022-01-31,2022,2022-01,60
 708,Collins AreospacePlace,Vergennes,Addison,2020-07-03,2020,2020-07,50
 708,Collins AreospacePlace,Vergennes,Addison,2020-06-18,2020,2020-06,100
+709,Goodies Snack Bar,Vergennes,Addison,2026-07-06,2026,2026-07,100
 709,Goodies Snack Bar,Vergennes,Addison,2025-10-23,2025,2025-10,40
 709,Goodies Snack Bar,Vergennes,Addison,2025-09-08,2025,2025-09,50
 709,Goodies Snack Bar,Vergennes,Addison,2025-06-24,2025,2025-06,60
