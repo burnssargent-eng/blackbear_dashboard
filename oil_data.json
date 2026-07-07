@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-06T17:35:38.499289",
+  "last_updated": "2026-07-07T16:19:10.941470",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -29693,6 +29693,11 @@
     },
     {
       "month": "2026-07",
+      "city": "Charlotte",
+      "gallons": 145
+    },
+    {
+      "month": "2026-07",
       "city": "Colchester",
       "gallons": 410
     },
@@ -29754,12 +29759,22 @@
     {
       "month": "2026-07",
       "city": "South Hero",
-      "gallons": 125
+      "gallons": 195
+    },
+    {
+      "month": "2026-07",
+      "city": "Stowe",
+      "gallons": 1245
     },
     {
       "month": "2026-07",
       "city": "Vergennes",
       "gallons": 100
+    },
+    {
+      "month": "2026-07",
+      "city": "Waterbury",
+      "gallons": 90
     },
     {
       "month": "2026-07",
@@ -37276,17 +37291,17 @@
     {
       "month": "2026-07",
       "county": "Chittenden",
-      "gallons": 3815
+      "gallons": 3960
     },
     {
       "month": "2026-07",
       "county": "Grand Isle",
-      "gallons": 430
+      "gallons": 500
     },
     {
       "month": "2026-07",
       "county": "Lamoille",
-      "gallons": 2
+      "gallons": 1247
     },
     {
       "month": "2026-07",
@@ -37301,7 +37316,7 @@
     {
       "month": "2026-07",
       "county": "Washington",
-      "gallons": 550
+      "gallons": 640
     }
   ],
   "yearly_totals": [
@@ -37351,10 +37366,10 @@
     },
     {
       "year": 2026,
-      "gallons": 156910
+      "gallons": 158460
     }
   ],
-  "all_time_total": 2075923,
-  "current_year_total": 156910,
+  "all_time_total": 2077473,
+  "current_year_total": 158460,
   "customer_count": 814
 }
