@@ -321,28 +321,6 @@ customer_id,name,city,county,date,year,month,gallons
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2015-04-09,2015,2015-04,75
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2015-02-20,2015,2015-02,60
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2015-01-16,2015,2015-01,45
-121,CVSWMD#7477,Barre,Washington,2025-05-27,2025,2025-05,10
-121,CVSWMD#7477,Barre,Washington,2024-12-31,2024,2024-12,10
-121,CVSWMD#7477,Barre,Washington,2024-07-01,2024,2024-07,40
-121,CVSWMD#7477,Barre,Washington,2023-02-28,2023,2023-02,20
-121,CVSWMD#7477,Barre,Washington,2022-11-28,2022,2022-11,15
-121,CVSWMD#7477,Barre,Washington,2021-03-23,2021,2021-03,35
-121,CVSWMD#7477,Barre,Washington,2021-01-13,2021,2021-01,55
-121,CVSWMD#7477,Barre,Washington,2019-10-01,2019,2019-10,50
-121,CVSWMD#7477,Barre,Washington,2019-05-08,2019,2019-05,30
-121,CVSWMD#7477,Barre,Washington,2018-11-08,2018,2018-11,25
-121,CVSWMD#7477,Barre,Washington,2018-07-24,2018,2018-07,15
-121,CVSWMD#7477,Barre,Washington,2018-06-21,2018,2018-06,25
-121,CVSWMD#7477,Barre,Washington,2018-04-02,2018,2018-04,25
-121,CVSWMD#7477,Barre,Washington,2017-09-28,2017,2017-09,10
-121,CVSWMD#7477,Barre,Washington,2017-08-01,2017,2017-08,40
-121,CVSWMD#7477,Barre,Washington,2017-07-08,2017,2017-07,20
-121,CVSWMD#7477,Barre,Washington,2017-04-29,2017,2017-04,50
-121,CVSWMD#7477,Barre,Washington,2017-01-28,2017,2017-01,65
-121,CVSWMD#7477,Barre,Washington,2016-09-19,2016,2016-09,40
-121,CVSWMD#7477,Barre,Washington,2016-09-03,2016,2016-09,40
-121,CVSWMD#7477,Barre,Washington,2016-04-09,2016,2016-04,50
-121,CVSWMD#7477,Barre,Washington,2016-03-19,2016,2016-03,30
 1387,Foxys Barre,Barre,Washington,2026-04-10,2026,2026-04,35
 1387,Foxys Barre,Barre,Washington,2025-06-06,2025,2025-06,20
 1387,Foxys Barre,Barre,Washington,2025-04-17,2025,2025-04,35
@@ -1061,6 +1039,28 @@ customer_id,name,city,county,date,year,month,gallons
 1296,Burger King- Bennington/Mahoney,Bennington,Bennington,2024-03-25,2024,2024-03,110
 1296,Burger King- Bennington/Mahoney,Bennington,Bennington,2024-02-15,2024,2024-02,120
 1296,Burger King- Bennington/Mahoney,Bennington,Bennington,2024-01-02,2024,2024-01,200
+121,Central Vermont Solid Waste Management District,Berlin,Washington,2025-05-27,2025,2025-05,10
+121,Central Vermont Solid Waste Management District,Berlin,Washington,2024-12-31,2024,2024-12,10
+121,Central Vermont Solid Waste Management District,Berlin,Washington,2024-07-01,2024,2024-07,40
+121,Central Vermont Solid Waste Management District,Berlin,Washington,2023-02-28,2023,2023-02,20
+121,Central Vermont Solid Waste Management District,Berlin,Washington,2022-11-28,2022,2022-11,15
+121,Central Vermont Solid Waste Management District,Berlin,Washington,2021-03-23,2021,2021-03,35
+121,Central Vermont Solid Waste Management District,Berlin,Washington,2021-01-13,2021,2021-01,55
+121,Central Vermont Solid Waste Management District,Berlin,Washington,2019-10-01,2019,2019-10,50
+121,Central Vermont Solid Waste Management District,Berlin,Washington,2019-05-08,2019,2019-05,30
+121,Central Vermont Solid Waste Management District,Berlin,Washington,2018-11-08,2018,2018-11,25
+121,Central Vermont Solid Waste Management District,Berlin,Washington,2018-07-24,2018,2018-07,15
+121,Central Vermont Solid Waste Management District,Berlin,Washington,2018-06-21,2018,2018-06,25
+121,Central Vermont Solid Waste Management District,Berlin,Washington,2018-04-02,2018,2018-04,25
+121,Central Vermont Solid Waste Management District,Berlin,Washington,2017-09-28,2017,2017-09,10
+121,Central Vermont Solid Waste Management District,Berlin,Washington,2017-08-01,2017,2017-08,40
+121,Central Vermont Solid Waste Management District,Berlin,Washington,2017-07-08,2017,2017-07,20
+121,Central Vermont Solid Waste Management District,Berlin,Washington,2017-04-29,2017,2017-04,50
+121,Central Vermont Solid Waste Management District,Berlin,Washington,2017-01-28,2017,2017-01,65
+121,Central Vermont Solid Waste Management District,Berlin,Washington,2016-09-19,2016,2016-09,40
+121,Central Vermont Solid Waste Management District,Berlin,Washington,2016-09-03,2016,2016-09,40
+121,Central Vermont Solid Waste Management District,Berlin,Washington,2016-04-09,2016,2016-04,50
+121,Central Vermont Solid Waste Management District,Berlin,Washington,2016-03-19,2016,2016-03,30
 108,CVMC-Berlin Hospital,Berlin,Washington,2026-05-08,2026,2026-05,40
 108,CVMC-Berlin Hospital,Berlin,Washington,2025-11-26,2025,2025-11,30
 108,CVMC-Berlin Hospital,Berlin,Washington,2025-05-27,2025,2025-05,45
@@ -1958,6 +1958,7 @@ customer_id,name,city,county,date,year,month,gallons
 1273,BKK-inTheAlley 10%,Burlington,Chittenden,2023-11-16,2023,2023-11,20
 1273,BKK-inTheAlley 10%,Burlington,Chittenden,2023-10-24,2023,2023-10,30
 1273,BKK-inTheAlley 10%,Burlington,Chittenden,2023-07-28,2023,2023-07,100
+300,Blue Bird BBQ - blue keychain in mack,Burlington,Chittenden,2026-07-08,2026,2026-07,80
 300,Blue Bird BBQ - blue keychain in mack,Burlington,Chittenden,2026-06-17,2026,2026-06,90
 300,Blue Bird BBQ - blue keychain in mack,Burlington,Chittenden,2026-05-15,2026,2026-05,160
 300,Blue Bird BBQ - blue keychain in mack,Burlington,Chittenden,2026-04-08,2026,2026-04,100
@@ -2740,6 +2741,7 @@ customer_id,name,city,county,date,year,month,gallons
 1389,CK Dumplings House - North St.,Burlington,Chittenden,2025-05-06,2025,2025-05,50
 1389,CK Dumplings House - North St.,Burlington,Chittenden,2024-12-20,2024,2024-12,2
 1491,CNX THAI,Burlington,Chittenden,2026-03-28,2026,2026-03,2
+1306,Crispy Burger- Jason (Volcano),Burlington,Chittenden,2026-07-08,2026,2026-07,75
 1306,Crispy Burger- Jason (Volcano),Burlington,Chittenden,2026-06-26,2026,2026-06,140
 1306,Crispy Burger- Jason (Volcano),Burlington,Chittenden,2026-06-08,2026,2026-06,70
 1306,Crispy Burger- Jason (Volcano),Burlington,Chittenden,2026-05-26,2026,2026-05,50
@@ -3391,6 +3393,7 @@ customer_id,name,city,county,date,year,month,gallons
 325,Farmhouse,Burlington,Chittenden,2015-01-22,2015,2015-01,90
 325,Farmhouse,Burlington,Chittenden,2015-01-15,2015,2015-01,45
 325,Farmhouse,Burlington,Chittenden,2015-01-02,2015,2015-01,75
+1381,Fire and Gold-North Winooski Ave - 100%,Burlington,Chittenden,2026-07-08,2026,2026-07,50
 1381,Fire and Gold-North Winooski Ave - 100%,Burlington,Chittenden,2026-04-24,2026,2026-04,40
 1381,Fire and Gold-North Winooski Ave - 100%,Burlington,Chittenden,2026-03-17,2026,2026-03,15
 1381,Fire and Gold-North Winooski Ave - 100%,Burlington,Chittenden,2026-03-05,2026,2026-03,15
@@ -4174,6 +4177,7 @@ customer_id,name,city,county,date,year,month,gallons
 337,Lake Monsters,Burlington,Chittenden,2015-08-07,2015,2015-08,45
 337,Lake Monsters,Burlington,Chittenden,2015-07-21,2015,2015-07,50
 337,Lake Monsters,Burlington,Chittenden,2015-07-01,2015,2015-07,50
+1133,May Day,Burlington,Chittenden,2026-07-08,2026,2026-07,100
 1133,May Day,Burlington,Chittenden,2026-05-26,2026,2026-05,80
 1133,May Day,Burlington,Chittenden,2026-04-24,2026,2026-04,75
 1133,May Day,Burlington,Chittenden,2026-03-17,2026,2026-03,90
@@ -13447,6 +13451,7 @@ customer_id,name,city,county,date,year,month,gallons
 700,Rustic Roots,Shelburne,Chittenden,2015-06-22,2015,2015-06,25
 700,Rustic Roots,Shelburne,Chittenden,2015-04-06,2015,2015-04,40
 1487,Whistle Pig-White Farmhouse,Shoreham,Addison,2026-03-18,2026,2026-03,2
+1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,Chittenden,2026-07-08,2026,2026-07,70
 1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,Chittenden,2026-06-26,2026,2026-06,50
 1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,Chittenden,2026-06-19,2026,2026-06,140
 1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,Chittenden,2026-06-04,2026,2026-06,50
@@ -13482,6 +13487,7 @@ customer_id,name,city,county,date,year,month,gallons
 1418,Cairns Arena,South Burlington,Chittenden,2025-04-18,2025,2025-04,90
 1418,Cairns Arena,South Burlington,Chittenden,2025-04-10,2025,2025-04,90
 1418,Cairns Arena,South Burlington,Chittenden,2025-04-10,2025,2025-04,2
+1195,Chicken Charlies,South Burlington,Chittenden,2026-07-08,2026,2026-07,10
 1195,Chicken Charlies,South Burlington,Chittenden,2026-06-23,2026,2026-06,25
 1195,Chicken Charlies,South Burlington,Chittenden,2026-06-04,2026,2026-06,25
 1195,Chicken Charlies,South Burlington,Chittenden,2026-05-28,2026,2026-05,20
@@ -13668,6 +13674,7 @@ customer_id,name,city,county,date,year,month,gallons
 1483,Mountain Valley -South Burlington,South Burlington,Chittenden,2026-06-19,2026,2026-06,35
 1483,Mountain Valley -South Burlington,South Burlington,Chittenden,2026-04-09,2026,2026-04,50
 1483,Mountain Valley -South Burlington,South Burlington,Chittenden,2026-01-22,2026,2026-01,2
+344,Parkway Diner,South Burlington,Chittenden,2026-07-08,2026,2026-07,25
 344,Parkway Diner,South Burlington,Chittenden,2026-05-28,2026,2026-05,15
 344,Parkway Diner,South Burlington,Chittenden,2026-04-28,2026,2026-04,60
 344,Parkway Diner,South Burlington,Chittenden,2026-03-05,2026,2026-03,40
@@ -13741,6 +13748,7 @@ customer_id,name,city,county,date,year,month,gallons
 374,Pulcinella,South Burlington,Chittenden,2021-01-05,2021,2021-01,30
 374,Pulcinella,South Burlington,Chittenden,2020-12-01,2020,2020-12,125
 374,Pulcinella,South Burlington,Chittenden,2020-08-05,2020,2020-08,110
+365,Skinny Pancake- BTV airport,South Burlington,Chittenden,2026-07-08,2026,2026-07,100
 365,Skinny Pancake- BTV airport,South Burlington,Chittenden,2026-05-28,2026,2026-05,65
 365,Skinny Pancake- BTV airport,South Burlington,Chittenden,2026-04-28,2026,2026-04,75
 365,Skinny Pancake- BTV airport,South Burlington,Chittenden,2026-04-07,2026,2026-04,135
@@ -13782,6 +13790,7 @@ customer_id,name,city,county,date,year,month,gallons
 365,Skinny Pancake- BTV airport,South Burlington,Chittenden,2019-03-29,2019,2019-03,105
 365,Skinny Pancake- BTV airport,South Burlington,Chittenden,2019-02-27,2019,2019-02,80
 365,Skinny Pancake- BTV airport,South Burlington,Chittenden,2019-02-05,2019,2019-02,60
+1188,Windjammer,South Burlington,Chittenden,2026-07-08,2026,2026-07,115
 1188,Windjammer,South Burlington,Chittenden,2026-06-23,2026,2026-06,80
 1188,Windjammer,South Burlington,Chittenden,2026-06-04,2026,2026-06,100
 1188,Windjammer,South Burlington,Chittenden,2026-05-28,2026,2026-05,100
@@ -20474,11 +20483,13 @@ customer_id,name,city,county,date,year,month,gallons
 1299,Cannoli,Williston,Chittenden,2024-04-25,2024,2024-04,55
 1299,Cannoli,Williston,Chittenden,2024-03-26,2024,2024-03,55
 1299,Cannoli,Williston,Chittenden,2024-02-26,2024,2024-02,35
+1495,Folinos-Williston,Williston,Chittenden,2026-07-08,2026,2026-07,60
 1495,Folinos-Williston,Williston,Chittenden,2026-06-23,2026,2026-06,60
 1495,Folinos-Williston,Williston,Chittenden,2026-06-04,2026,2026-06,100
 1495,Folinos-Williston,Williston,Chittenden,2026-05-14,2026,2026-05,50
 1495,Folinos-Williston,Williston,Chittenden,2026-05-01,2026,2026-05,40
 1495,Folinos-Williston,Williston,Chittenden,2026-04-02,2026,2026-04,2
+401,Grazers pc 1425- Williston Garage,Williston,Chittenden,2026-07-08,2026,2026-07,160
 401,Grazers pc 1425- Williston Garage,Williston,Chittenden,2026-06-04,2026,2026-06,180
 401,Grazers pc 1425- Williston Garage,Williston,Chittenden,2026-05-08,2026,2026-05,120
 401,Grazers pc 1425- Williston Garage,Williston,Chittenden,2026-04-24,2026,2026-04,150
@@ -20672,6 +20683,7 @@ customer_id,name,city,county,date,year,month,gallons
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-04-24,2026,2026-04,55
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-03-31,2026,2026-03,15
 1459,Jersey Mike's - Williston,Williston,Chittenden,2025-10-15,2025,2025-10,2
+1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2026-07-08,2026,2026-07,50
 1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2026-06-23,2026,2026-06,100
 1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2026-06-04,2026,2026-06,60
 1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2026-05-14,2026,2026-05,40
@@ -20825,6 +20837,7 @@ customer_id,name,city,county,date,year,month,gallons
 1211,Men at Wok,Williston,Chittenden,2023-04-12,2023,2023-04,30
 1211,Men at Wok,Williston,Chittenden,2023-03-22,2023,2023-03,2
 1211,Men at Wok,Williston,Chittenden,2023-03-03,2023,2023-03,2
+1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2026-07-08,2026,2026-07,95
 1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2026-06-04,2026,2026-06,100
 1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2026-04-24,2026,2026-04,100
 1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2026-03-05,2026,2026-03,80
@@ -20867,6 +20880,7 @@ customer_id,name,city,county,date,year,month,gallons
 1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2022-09-08,2022,2022-09,80
 1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2022-08-17,2022,2022-08,150
 1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2022-07-15,2022,2022-07,400
+405,Williston Place -Retirement home,Williston,Chittenden,2026-07-08,2026,2026-07,55
 405,Williston Place -Retirement home,Williston,Chittenden,2025-10-21,2025,2025-10,30
 405,Williston Place -Retirement home,Williston,Chittenden,2025-08-06,2025,2025-08,10
 405,Williston Place -Retirement home,Williston,Chittenden,2025-04-17,2025,2025-04,40
@@ -20895,6 +20909,7 @@ customer_id,name,city,county,date,year,month,gallons
 905,Haystack Golf course,Wilmington,Windham,2020-12-02,2020,2020-12,150
 1129,Hog back Mountain country store,Wilmington,Windham,2025-07-23,2025,2025-07,50
 1129,Hog back Mountain country store,Wilmington,Windham,2024-07-16,2024,2024-07,60
+1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-07-08,2026,2026-07,65
 1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-06-17,2026,2026-06,60
 1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-05-28,2026,2026-05,50
 1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-05-14,2026,2026-05,75
@@ -20984,6 +20999,7 @@ customer_id,name,city,county,date,year,month,gallons
 434,Asian Bistro-Winooski,Winooski,Chittenden,2018-03-16,2018,2018-03,30
 434,Asian Bistro-Winooski,Winooski,Chittenden,2018-02-15,2018,2018-02,20
 434,Asian Bistro-Winooski,Winooski,Chittenden,2018-01-27,2018,2018-01,100
+445,Four Quarters-Winooski,Winooski,Chittenden,2026-07-08,2026,2026-07,70
 445,Four Quarters-Winooski,Winooski,Chittenden,2026-05-28,2026,2026-05,40
 445,Four Quarters-Winooski,Winooski,Chittenden,2026-04-27,2026,2026-04,30
 445,Four Quarters-Winooski,Winooski,Chittenden,2026-04-08,2026,2026-04,70
@@ -21018,6 +21034,7 @@ customer_id,name,city,county,date,year,month,gallons
 445,Four Quarters-Winooski,Winooski,Chittenden,2021-11-01,2021,2021-11,115
 445,Four Quarters-Winooski,Winooski,Chittenden,2021-08-11,2021,2021-08,225
 445,Four Quarters-Winooski,Winooski,Chittenden,2021-06-03,2021,2021-06,125
+1099,Fusion cafe and bar,Winooski,Chittenden,2026-07-08,2026,2026-07,30
 1099,Fusion cafe and bar,Winooski,Chittenden,2026-06-17,2026,2026-06,70
 1099,Fusion cafe and bar,Winooski,Chittenden,2026-05-28,2026,2026-05,60
 1099,Fusion cafe and bar,Winooski,Chittenden,2026-05-14,2026,2026-05,70
@@ -21179,6 +21196,7 @@ customer_id,name,city,county,date,year,month,gallons
 1207,Mountain Valley-Winooski,Winooski,Chittenden,2023-09-18,2023,2023-09,135
 1207,Mountain Valley-Winooski,Winooski,Chittenden,2023-03-23,2023,2023-03,25
 1207,Mountain Valley-Winooski,Winooski,Chittenden,2023-01-18,2023,2023-01,25
+1168,Onion City Chicken and Oysters,Winooski,Chittenden,2026-07-08,2026,2026-07,110
 1168,Onion City Chicken and Oysters,Winooski,Chittenden,2026-06-17,2026,2026-06,125
 1168,Onion City Chicken and Oysters,Winooski,Chittenden,2026-05-28,2026,2026-05,100
 1168,Onion City Chicken and Oysters,Winooski,Chittenden,2026-05-14,2026,2026-05,90
@@ -21416,6 +21434,7 @@ customer_id,name,city,county,date,year,month,gallons
 1259,Test Kitchen winooski/Canoli,Winooski,Chittenden,2024-04-25,2024,2024-04,15
 1259,Test Kitchen winooski/Canoli,Winooski,Chittenden,2024-04-16,2024,2024-04,45
 1259,Test Kitchen winooski/Canoli,Winooski,Chittenden,2023-08-16,2023,2023-08,20
+429,The Mule Bar 100pct!,Winooski,Chittenden,2026-07-08,2026,2026-07,180
 429,The Mule Bar 100pct!,Winooski,Chittenden,2026-05-14,2026,2026-05,60
 429,The Mule Bar 100pct!,Winooski,Chittenden,2026-04-27,2026,2026-04,100
 429,The Mule Bar 100pct!,Winooski,Chittenden,2026-04-08,2026,2026-04,90
@@ -21570,6 +21589,7 @@ customer_id,name,city,county,date,year,month,gallons
 429,The Mule Bar 100pct!,Winooski,Chittenden,2015-03-19,2015,2015-03,30
 429,The Mule Bar 100pct!,Winooski,Chittenden,2015-02-26,2015,2015-02,38
 429,The Mule Bar 100pct!,Winooski,Chittenden,2015-01-26,2015,2015-01,35
+433,Tiny Thai,Winooski,Chittenden,2026-07-08,2026,2026-07,60
 433,Tiny Thai,Winooski,Chittenden,2026-05-28,2026,2026-05,40
 433,Tiny Thai,Winooski,Chittenden,2026-04-27,2026,2026-04,30
 433,Tiny Thai,Winooski,Chittenden,2026-04-08,2026,2026-04,45
@@ -21647,6 +21667,7 @@ customer_id,name,city,county,date,year,month,gallons
 433,Tiny Thai,Winooski,Chittenden,2018-08-09,2018,2018-08,125
 433,Tiny Thai,Winooski,Chittenden,2018-04-03,2018,2018-04,25
 433,Tiny Thai,Winooski,Chittenden,2018-03-16,2018,2018-03,5
+1135,Waterworks-Winooski,Winooski,Chittenden,2026-07-08,2026,2026-07,120
 1135,Waterworks-Winooski,Winooski,Chittenden,2026-06-17,2026,2026-06,100
 1135,Waterworks-Winooski,Winooski,Chittenden,2026-05-28,2026,2026-05,90
 1135,Waterworks-Winooski,Winooski,Chittenden,2026-05-14,2026,2026-05,85

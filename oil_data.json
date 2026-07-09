@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-08T12:13:18.719891",
+  "last_updated": "2026-07-09T10:26:07.210864",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -1504,7 +1504,12 @@
     {
       "month": "2016-03",
       "city": "Barre",
-      "gallons": 190
+      "gallons": 160
+    },
+    {
+      "month": "2016-03",
+      "city": "Berlin",
+      "gallons": 30
     },
     {
       "month": "2016-03",
@@ -1629,7 +1634,12 @@
     {
       "month": "2016-04",
       "city": "Barre",
-      "gallons": 470
+      "gallons": 420
+    },
+    {
+      "month": "2016-04",
+      "city": "Berlin",
+      "gallons": 50
     },
     {
       "month": "2016-04",
@@ -2299,7 +2309,12 @@
     {
       "month": "2016-09",
       "city": "Barre",
-      "gallons": 125
+      "gallons": 45
+    },
+    {
+      "month": "2016-09",
+      "city": "Berlin",
+      "gallons": 80
     },
     {
       "month": "2016-09",
@@ -2874,7 +2889,12 @@
     {
       "month": "2017-01",
       "city": "Barre",
-      "gallons": 200
+      "gallons": 135
+    },
+    {
+      "month": "2017-01",
+      "city": "Berlin",
+      "gallons": 65
     },
     {
       "month": "2017-01",
@@ -3344,12 +3364,12 @@
     {
       "month": "2017-04",
       "city": "Barre",
-      "gallons": 445
+      "gallons": 395
     },
     {
       "month": "2017-04",
       "city": "Berlin",
-      "gallons": 190
+      "gallons": 240
     },
     {
       "month": "2017-04",
@@ -3814,7 +3834,7 @@
     {
       "month": "2017-07",
       "city": "Barre",
-      "gallons": 570
+      "gallons": 550
     },
     {
       "month": "2017-07",
@@ -3829,7 +3849,7 @@
     {
       "month": "2017-07",
       "city": "Berlin",
-      "gallons": 180
+      "gallons": 200
     },
     {
       "month": "2017-07",
@@ -3989,7 +4009,7 @@
     {
       "month": "2017-08",
       "city": "Barre",
-      "gallons": 415
+      "gallons": 375
     },
     {
       "month": "2017-08",
@@ -3999,7 +4019,7 @@
     {
       "month": "2017-08",
       "city": "Berlin",
-      "gallons": 115
+      "gallons": 155
     },
     {
       "month": "2017-08",
@@ -4174,7 +4194,7 @@
     {
       "month": "2017-09",
       "city": "Barre",
-      "gallons": 610
+      "gallons": 600
     },
     {
       "month": "2017-09",
@@ -4189,7 +4209,7 @@
     {
       "month": "2017-09",
       "city": "Berlin",
-      "gallons": 170
+      "gallons": 180
     },
     {
       "month": "2017-09",
@@ -5324,7 +5344,7 @@
     {
       "month": "2018-04",
       "city": "Barre",
-      "gallons": 785
+      "gallons": 760
     },
     {
       "month": "2018-04",
@@ -5334,7 +5354,7 @@
     {
       "month": "2018-04",
       "city": "Berlin",
-      "gallons": 55
+      "gallons": 80
     },
     {
       "month": "2018-04",
@@ -5744,12 +5764,12 @@
     {
       "month": "2018-06",
       "city": "Barre",
-      "gallons": 565
+      "gallons": 540
     },
     {
       "month": "2018-06",
       "city": "Berlin",
-      "gallons": 125
+      "gallons": 150
     },
     {
       "month": "2018-06",
@@ -5909,12 +5929,12 @@
     {
       "month": "2018-07",
       "city": "Barre",
-      "gallons": 765
+      "gallons": 750
     },
     {
       "month": "2018-07",
       "city": "Berlin",
-      "gallons": 40
+      "gallons": 55
     },
     {
       "month": "2018-07",
@@ -6689,12 +6709,12 @@
     {
       "month": "2018-11",
       "city": "Barre",
-      "gallons": 580
+      "gallons": 555
     },
     {
       "month": "2018-11",
       "city": "Berlin",
-      "gallons": 80
+      "gallons": 105
     },
     {
       "month": "2018-11",
@@ -7854,7 +7874,7 @@
     {
       "month": "2019-05",
       "city": "Barre",
-      "gallons": 610
+      "gallons": 580
     },
     {
       "month": "2019-05",
@@ -7864,7 +7884,7 @@
     {
       "month": "2019-05",
       "city": "Berlin",
-      "gallons": 200
+      "gallons": 230
     },
     {
       "month": "2019-05",
@@ -8834,12 +8854,12 @@
     {
       "month": "2019-10",
       "city": "Barre",
-      "gallons": 600
+      "gallons": 550
     },
     {
       "month": "2019-10",
       "city": "Berlin",
-      "gallons": 50
+      "gallons": 100
     },
     {
       "month": "2019-10",
@@ -11594,7 +11614,7 @@
     {
       "month": "2021-01",
       "city": "Barre",
-      "gallons": 345
+      "gallons": 290
     },
     {
       "month": "2021-01",
@@ -11604,7 +11624,7 @@
     {
       "month": "2021-01",
       "city": "Berlin",
-      "gallons": 230
+      "gallons": 285
     },
     {
       "month": "2021-01",
@@ -11964,12 +11984,12 @@
     {
       "month": "2021-03",
       "city": "Barre",
-      "gallons": 690
+      "gallons": 655
     },
     {
       "month": "2021-03",
       "city": "Berlin",
-      "gallons": 425
+      "gallons": 460
     },
     {
       "month": "2021-03",
@@ -16569,12 +16589,12 @@
     {
       "month": "2022-11",
       "city": "Barre",
-      "gallons": 886
+      "gallons": 871
     },
     {
       "month": "2022-11",
       "city": "Berlin",
-      "gallons": 370
+      "gallons": 385
     },
     {
       "month": "2022-11",
@@ -17369,12 +17389,12 @@
     {
       "month": "2023-02",
       "city": "Barre",
-      "gallons": 761
+      "gallons": 741
     },
     {
       "month": "2023-02",
       "city": "Berlin",
-      "gallons": 325
+      "gallons": 345
     },
     {
       "month": "2023-02",
@@ -22249,12 +22269,12 @@
     {
       "month": "2024-07",
       "city": "Barre",
-      "gallons": 767
+      "gallons": 727
     },
     {
       "month": "2024-07",
       "city": "Berlin",
-      "gallons": 140
+      "gallons": 180
     },
     {
       "month": "2024-07",
@@ -23799,7 +23819,7 @@
     {
       "month": "2024-12",
       "city": "Barre",
-      "gallons": 983
+      "gallons": 973
     },
     {
       "month": "2024-12",
@@ -23814,7 +23834,7 @@
     {
       "month": "2024-12",
       "city": "Berlin",
-      "gallons": 300
+      "gallons": 310
     },
     {
       "month": "2024-12",
@@ -25324,7 +25344,7 @@
     {
       "month": "2025-05",
       "city": "Barre",
-      "gallons": 475
+      "gallons": 465
     },
     {
       "month": "2025-05",
@@ -25334,7 +25354,7 @@
     {
       "month": "2025-05",
       "city": "Berlin",
-      "gallons": 160
+      "gallons": 170
     },
     {
       "month": "2025-05",
@@ -29689,7 +29709,7 @@
     {
       "month": "2026-07",
       "city": "Burlington",
-      "gallons": 1490
+      "gallons": 1795
     },
     {
       "month": "2026-07",
@@ -29758,6 +29778,11 @@
     },
     {
       "month": "2026-07",
+      "city": "South Burlington",
+      "gallons": 320
+    },
+    {
+      "month": "2026-07",
       "city": "South Hero",
       "gallons": 195
     },
@@ -29779,7 +29804,12 @@
     {
       "month": "2026-07",
       "city": "Williston",
-      "gallons": 150
+      "gallons": 570
+    },
+    {
+      "month": "2026-07",
+      "city": "Winooski",
+      "gallons": 635
     }
   ],
   "monthly_by_county": [
@@ -37291,7 +37321,7 @@
     {
       "month": "2026-07",
       "county": "Chittenden",
-      "gallons": 3960
+      "gallons": 5640
     },
     {
       "month": "2026-07",
@@ -37366,10 +37396,10 @@
     },
     {
       "year": 2026,
-      "gallons": 158460
+      "gallons": 160140
     }
   ],
-  "all_time_total": 2077473,
-  "current_year_total": 158460,
+  "all_time_total": 2079153,
+  "current_year_total": 160140,
   "customer_count": 814
 }
