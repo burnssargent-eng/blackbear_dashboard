@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-09T10:26:07.210864",
+  "last_updated": "2026-07-10T10:24:32.169949",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -29723,6 +29723,16 @@
     },
     {
       "month": "2026-07",
+      "city": "Eden",
+      "gallons": 95
+    },
+    {
+      "month": "2026-07",
+      "city": "Eden Mills",
+      "gallons": 50
+    },
+    {
+      "month": "2026-07",
       "city": "Essex Junction",
       "gallons": 40
     },
@@ -29730,6 +29740,16 @@
       "month": "2026-07",
       "city": "Greensboro",
       "gallons": 2
+    },
+    {
+      "month": "2026-07",
+      "city": "Hardwick",
+      "gallons": 275
+    },
+    {
+      "month": "2026-07",
+      "city": "Jay",
+      "gallons": 290
     },
     {
       "month": "2026-07",
@@ -29755,6 +29775,16 @@
       "month": "2026-07",
       "city": "Milton",
       "gallons": 1600
+    },
+    {
+      "month": "2026-07",
+      "city": "Montgomery",
+      "gallons": 40
+    },
+    {
+      "month": "2026-07",
+      "city": "Montgomery Center",
+      "gallons": 95
     },
     {
       "month": "2026-07",
@@ -29789,7 +29819,7 @@
     {
       "month": "2026-07",
       "city": "Stowe",
-      "gallons": 1245
+      "gallons": 1380
     },
     {
       "month": "2026-07",
@@ -29799,7 +29829,7 @@
     {
       "month": "2026-07",
       "city": "Waterbury",
-      "gallons": 90
+      "gallons": 260
     },
     {
       "month": "2026-07",
@@ -37316,7 +37346,7 @@
     {
       "month": "2026-07",
       "county": "Caledonia",
-      "gallons": 52
+      "gallons": 327
     },
     {
       "month": "2026-07",
@@ -37331,12 +37361,12 @@
     {
       "month": "2026-07",
       "county": "Lamoille",
-      "gallons": 1247
+      "gallons": 1527
     },
     {
       "month": "2026-07",
       "county": "Orleans",
-      "gallons": 420
+      "gallons": 845
     },
     {
       "month": "2026-07",
@@ -37346,7 +37376,7 @@
     {
       "month": "2026-07",
       "county": "Washington",
-      "gallons": 640
+      "gallons": 810
     }
   ],
   "yearly_totals": [
@@ -37396,10 +37426,10 @@
     },
     {
       "year": 2026,
-      "gallons": 160140
+      "gallons": 161290
     }
   ],
-  "all_time_total": 2079153,
-  "current_year_total": 160140,
+  "all_time_total": 2080303,
+  "current_year_total": 161290,
   "customer_count": 814
 }

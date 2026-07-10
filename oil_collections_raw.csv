@@ -6559,6 +6559,7 @@ customer_id,name,city,county,date,year,month,gallons
 1407,Fox Market-East Montpelier,East Montpelier,Washington,2025-04-22,2025,2025-04,30
 1407,Fox Market-East Montpelier,East Montpelier,Washington,2025-03-10,2025,2025-03,35
 1407,Fox Market-East Montpelier,East Montpelier,Washington,2025-03-09,2025,2025-03,2
+1364,Snake and Apple,Eden,Lamoille,2026-07-09,2026,2026-07,95
 1364,Snake and Apple,Eden,Lamoille,2026-05-11,2026,2026-05,60
 1364,Snake and Apple,Eden,Lamoille,2026-04-03,2026,2026-04,80
 1364,Snake and Apple,Eden,Lamoille,2025-11-28,2025,2025-11,65
@@ -6568,6 +6569,7 @@ customer_id,name,city,county,date,year,month,gallons
 1364,Snake and Apple,Eden,Lamoille,2025-04-18,2025,2025-04,50
 1364,Snake and Apple,Eden,Lamoille,2024-12-28,2024,2024-12,55
 1364,Snake and Apple,Eden,Lamoille,2024-08-07,2024,2024-08,2
+1276,Lake Eden Country Store,Eden Mills,Lamoille,2026-07-09,2026,2026-07,50
 1276,Lake Eden Country Store,Eden Mills,Lamoille,2026-06-12,2026,2026-06,80
 1276,Lake Eden Country Store,Eden Mills,Lamoille,2026-05-11,2026,2026-05,25
 1276,Lake Eden Country Store,Eden Mills,Lamoille,2026-03-18,2026,2026-03,70
@@ -7241,6 +7243,7 @@ customer_id,name,city,county,date,year,month,gallons
 1242,Caja Taqueria-Hardwick,Hardwick,Caledonia,2024-02-07,2024,2024-02,30
 1242,Caja Taqueria-Hardwick,Hardwick,Caledonia,2023-09-22,2023,2023-09,20
 1242,Caja Taqueria-Hardwick,Hardwick,Caledonia,2023-06-23,2023,2023-06,20
+504,Cork & Fork/Scale House ~25%,Hardwick,Caledonia,2026-07-09,2026,2026-07,15
 504,Cork & Fork/Scale House ~25%,Hardwick,Caledonia,2026-06-18,2026,2026-06,35
 504,Cork & Fork/Scale House ~25%,Hardwick,Caledonia,2026-05-22,2026,2026-05,10
 504,Cork & Fork/Scale House ~25%,Hardwick,Caledonia,2026-05-06,2026,2026-05,20
@@ -7325,6 +7328,7 @@ customer_id,name,city,county,date,year,month,gallons
 504,Cork & Fork/Scale House ~25%,Hardwick,Caledonia,2017-06-05,2017,2017-06,10
 504,Cork & Fork/Scale House ~25%,Hardwick,Caledonia,2016-10-30,2016,2016-10,20
 504,Cork & Fork/Scale House ~25%,Hardwick,Caledonia,2016-02-05,2016,2016-02,50
+503,Hardwick House of Pizza,Hardwick,Caledonia,2026-07-09,2026,2026-07,40
 503,Hardwick House of Pizza,Hardwick,Caledonia,2026-06-18,2026,2026-06,40
 503,Hardwick House of Pizza,Hardwick,Caledonia,2026-05-22,2026,2026-05,25
 503,Hardwick House of Pizza,Hardwick,Caledonia,2026-05-06,2026,2026-05,25
@@ -7420,6 +7424,7 @@ customer_id,name,city,county,date,year,month,gallons
 503,Hardwick House of Pizza,Hardwick,Caledonia,2018-05-20,2018,2018-05,30
 503,Hardwick House of Pizza,Hardwick,Caledonia,2018-03-25,2018,2018-03,70
 503,Hardwick House of Pizza,Hardwick,Caledonia,2018-01-31,2018,2018-01,125
+1085,Hardwick kwik stop and deli,Hardwick,Caledonia,2026-07-09,2026,2026-07,175
 1085,Hardwick kwik stop and deli,Hardwick,Caledonia,2026-04-17,2026,2026-04,35
 1085,Hardwick kwik stop and deli,Hardwick,Caledonia,2026-03-19,2026,2026-03,110
 1085,Hardwick kwik stop and deli,Hardwick,Caledonia,2026-02-24,2026,2026-02,80
@@ -7508,6 +7513,7 @@ customer_id,name,city,county,date,year,month,gallons
 505,M & M Beverage-Hardwick,Hardwick,Caledonia,2017-01-21,2017,2017-01,8
 505,M & M Beverage-Hardwick,Hardwick,Caledonia,2017-01-11,2017,2017-01,12
 505,M & M Beverage-Hardwick,Hardwick,Caledonia,2016-12-26,2016,2016-12,4
+501,Positive Pie 3 ~25%,Hardwick,Caledonia,2026-07-09,2026,2026-07,15
 501,Positive Pie 3 ~25%,Hardwick,Caledonia,2026-06-18,2026,2026-06,40
 501,Positive Pie 3 ~25%,Hardwick,Caledonia,2026-05-22,2026,2026-05,10
 501,Positive Pie 3 ~25%,Hardwick,Caledonia,2026-05-06,2026,2026-05,20
@@ -7646,6 +7652,7 @@ customer_id,name,city,county,date,year,month,gallons
 1504,Two Peas in A Pod-Snack Shack-Hardwick,Hardwick,Caledonia,2026-06-18,2026,2026-06,50
 1504,Two Peas in A Pod-Snack Shack-Hardwick,Hardwick,Caledonia,2026-06-10,2026,2026-06,50
 1504,Two Peas in A Pod-Snack Shack-Hardwick,Hardwick,Caledonia,2026-05-27,2026,2026-05,45
+502,Village Restaurant-Hardwick~ 50%,Hardwick,Caledonia,2026-07-09,2026,2026-07,30
 502,Village Restaurant-Hardwick~ 50%,Hardwick,Caledonia,2026-06-18,2026,2026-06,75
 502,Village Restaurant-Hardwick~ 50%,Hardwick,Caledonia,2026-05-22,2026,2026-05,20
 502,Village Restaurant-Hardwick~ 50%,Hardwick,Caledonia,2026-05-06,2026,2026-05,40
@@ -7950,6 +7957,7 @@ customer_id,name,city,county,date,year,month,gallons
 1300,Jacksonville General Store,Jacksonville,Windham,2024-10-14,2024,2024-10,40
 1300,Jacksonville General Store,Jacksonville,Windham,2024-08-15,2024,2024-08,90
 1300,Jacksonville General Store,Jacksonville,Windham,2024-03-25,2024,2024-03,70
+528,Jay Peak- Golf Course,Jay,Orleans,2026-07-09,2026,2026-07,140
 528,Jay Peak- Golf Course,Jay,Orleans,2026-04-13,2026,2026-04,10
 528,Jay Peak- Golf Course,Jay,Orleans,2026-02-25,2026,2026-02,60
 528,Jay Peak- Golf Course,Jay,Orleans,2025-10-13,2025,2025-10,100
@@ -8057,6 +8065,7 @@ customer_id,name,city,county,date,year,month,gallons
 529,Jay Peak-Stateside (loading dock),Jay,Orleans,2016-08-18,2016,2016-08,30
 529,Jay Peak-Stateside (loading dock),Jay,Orleans,2016-07-07,2016,2016-07,80
 529,Jay Peak-Stateside (loading dock),Jay,Orleans,2015-02-09,2015,2015-02,70
+526,Jay Peak-waterslide,Jay,Orleans,2026-07-09,2026,2026-07,150
 526,Jay Peak-waterslide,Jay,Orleans,2026-05-11,2026,2026-05,130
 526,Jay Peak-waterslide,Jay,Orleans,2026-04-13,2026,2026-04,390
 526,Jay Peak-waterslide,Jay,Orleans,2026-02-25,2026,2026-02,150
@@ -9407,6 +9416,7 @@ customer_id,name,city,county,date,year,month,gallons
 1357,Uncle Ronnie's Deli-Milton,Milton,Chittenden,2024-11-14,2024,2024-11,45
 1357,Uncle Ronnie's Deli-Milton,Milton,Chittenden,2024-09-09,2024,2024-09,75
 1357,Uncle Ronnie's Deli-Milton,Milton,Chittenden,2024-07-02,2024,2024-07,2
+525,Black Lantern-Montgomery,Montgomery,Orleans,2026-07-09,2026,2026-07,30
 525,Black Lantern-Montgomery,Montgomery,Orleans,2026-05-11,2026,2026-05,40
 525,Black Lantern-Montgomery,Montgomery,Orleans,2026-03-18,2026,2026-03,35
 525,Black Lantern-Montgomery,Montgomery,Orleans,2026-01-29,2026,2026-01,45
@@ -9459,6 +9469,7 @@ customer_id,name,city,county,date,year,month,gallons
 525,Black Lantern-Montgomery,Montgomery,Orleans,2019-02-17,2019,2019-02,45
 525,Black Lantern-Montgomery,Montgomery,Orleans,2019-02-03,2019,2019-02,50
 525,Black Lantern-Montgomery,Montgomery,Orleans,2019-01-05,2019,2019-01,100
+524,OMAKASE/Big Jay Tavern,Montgomery,Orleans,2026-07-09,2026,2026-07,10
 524,OMAKASE/Big Jay Tavern,Montgomery,Orleans,2026-05-11,2026,2026-05,15
 524,OMAKASE/Big Jay Tavern,Montgomery,Orleans,2026-04-13,2026,2026-04,100
 524,OMAKASE/Big Jay Tavern,Montgomery,Orleans,2025-12-31,2025,2025-12,50
@@ -9494,6 +9505,7 @@ customer_id,name,city,county,date,year,month,gallons
 524,OMAKASE/Big Jay Tavern,Montgomery,Orleans,2015-09-28,2015,2015-09,60
 524,OMAKASE/Big Jay Tavern,Montgomery,Orleans,2015-04-07,2015,2015-04,20
 524,OMAKASE/Big Jay Tavern,Montgomery,Orleans,2015-02-09,2015,2015-02,27
+522,Snow Shoe Lodge-Montgomery,Montgomery Center,Orleans,2026-07-09,2026,2026-07,70
 522,Snow Shoe Lodge-Montgomery,Montgomery Center,Orleans,2026-05-11,2026,2026-05,105
 522,Snow Shoe Lodge-Montgomery,Montgomery Center,Orleans,2026-03-18,2026,2026-03,110
 522,Snow Shoe Lodge-Montgomery,Montgomery Center,Orleans,2026-01-29,2026,2026-01,60
@@ -9584,6 +9596,7 @@ customer_id,name,city,county,date,year,month,gallons
 522,Snow Shoe Lodge-Montgomery,Montgomery Center,Orleans,2015-09-09,2015,2015-09,20
 522,Snow Shoe Lodge-Montgomery,Montgomery Center,Orleans,2015-08-17,2015,2015-08,35
 522,Snow Shoe Lodge-Montgomery,Montgomery Center,Orleans,2015-05-12,2015,2015-05,25
+523,The Inn-Montgomery,Montgomery Center,Orleans,2026-07-09,2026,2026-07,25
 523,The Inn-Montgomery,Montgomery Center,Orleans,2026-05-11,2026,2026-05,10
 523,The Inn-Montgomery,Montgomery Center,Orleans,2026-03-18,2026,2026-03,25
 523,The Inn-Montgomery,Montgomery Center,Orleans,2026-01-29,2026,2026-01,25
@@ -14523,6 +14536,7 @@ customer_id,name,city,county,date,year,month,gallons
 1103,Burt’s Pub/old Blue Donkey,Stowe,Lamoille,2022-05-13,2022,2022-05,20
 1103,Burt’s Pub/old Blue Donkey,Stowe,Lamoille,2022-03-16,2022,2022-03,15
 1103,Burt’s Pub/old Blue Donkey,Stowe,Lamoille,2022-03-02,2022,2022-03,20
+242,Cork Wine Bar-Stowe,Stowe,Lamoille,2026-07-09,2026,2026-07,15
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2026-05-27,2026,2026-05,20
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2026-04-29,2026,2026-04,20
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2026-04-03,2026,2026-04,25
@@ -16561,6 +16575,7 @@ customer_id,name,city,county,date,year,month,gallons
 255,The Butchery,Stowe,Lamoille,2018-11-04,2018,2018-11,35
 255,The Butchery,Stowe,Lamoille,2018-06-17,2018,2018-06,25
 255,The Butchery,Stowe,Lamoille,2018-04-21,2018,2018-04,25
+246,The Stowe Inn Tavern,Stowe,Lamoille,2026-07-09,2026,2026-07,50
 246,The Stowe Inn Tavern,Stowe,Lamoille,2026-06-09,2026,2026-06,40
 246,The Stowe Inn Tavern,Stowe,Lamoille,2026-05-27,2026,2026-05,30
 246,The Stowe Inn Tavern,Stowe,Lamoille,2026-05-11,2026,2026-05,40
@@ -17010,6 +17025,7 @@ customer_id,name,city,county,date,year,month,gallons
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2015-03-18,2015,2015-03,35
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2015-02-25,2015,2015-02,40
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2015-01-14,2015,2015-01,45
+244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2026-07-09,2026,2026-07,70
 244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2026-06-22,2026,2026-06,70
 244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2026-05-27,2026,2026-05,75
 244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2026-04-29,2026,2026-04,35
@@ -18653,6 +18669,7 @@ customer_id,name,city,county,date,year,month,gallons
 232,Crossroads Deli,Waterbury,Washington,2015-10-14,2015,2015-10,20
 232,Crossroads Deli,Waterbury,Washington,2015-06-11,2015,2015-06,20
 232,Crossroads Deli,Waterbury,Washington,2015-04-15,2015,2015-04,50
+1345,Gallus-Waterbury,Waterbury,Washington,2026-07-09,2026,2026-07,45
 1345,Gallus-Waterbury,Waterbury,Washington,2026-06-22,2026,2026-06,120
 1345,Gallus-Waterbury,Waterbury,Washington,2026-05-27,2026,2026-05,70
 1345,Gallus-Waterbury,Waterbury,Washington,2026-05-11,2026,2026-05,65
@@ -19434,6 +19451,7 @@ customer_id,name,city,county,date,year,month,gallons
 229,Prohibition Pig,Waterbury,Washington,2015-02-25,2015,2015-02,40
 229,Prohibition Pig,Waterbury,Washington,2015-02-09,2015,2015-02,50
 229,Prohibition Pig,Waterbury,Washington,2015-01-14,2015,2015-01,50
+227,The Reservoir-Waterbury,Waterbury,Washington,2026-07-09,2026,2026-07,60
 227,The Reservoir-Waterbury,Waterbury,Washington,2026-06-22,2026,2026-06,160
 227,The Reservoir-Waterbury,Waterbury,Washington,2026-05-27,2026,2026-05,70
 227,The Reservoir-Waterbury,Waterbury,Washington,2026-05-11,2026,2026-05,60
@@ -19629,6 +19647,7 @@ customer_id,name,city,county,date,year,month,gallons
 227,The Reservoir-Waterbury,Waterbury,Washington,2015-02-18,2015,2015-02,90
 227,The Reservoir-Waterbury,Waterbury,Washington,2015-01-28,2015,2015-01,40
 227,The Reservoir-Waterbury,Waterbury,Washington,2015-01-09,2015,2015-01,155
+1076,Vermont Country Club-Waterbury,Waterbury,Washington,2026-07-09,2026,2026-07,65
 1076,Vermont Country Club-Waterbury,Waterbury,Washington,2026-06-19,2026,2026-06,65
 1076,Vermont Country Club-Waterbury,Waterbury,Washington,2026-05-27,2026,2026-05,40
 1076,Vermont Country Club-Waterbury,Waterbury,Washington,2026-04-15,2026,2026-04,60
