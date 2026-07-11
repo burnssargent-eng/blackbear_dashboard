@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-10T10:24:32.169949",
+  "last_updated": "2026-07-11T08:49:10.986146",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -29708,6 +29708,21 @@
     },
     {
       "month": "2026-07",
+      "city": "Barre",
+      "gallons": 130
+    },
+    {
+      "month": "2026-07",
+      "city": "Berlin",
+      "gallons": 50
+    },
+    {
+      "month": "2026-07",
+      "city": "Bethel",
+      "gallons": 120
+    },
+    {
+      "month": "2026-07",
       "city": "Burlington",
       "gallons": 1795
     },
@@ -29788,6 +29803,11 @@
     },
     {
       "month": "2026-07",
+      "city": "Montpelier",
+      "gallons": 65
+    },
+    {
+      "month": "2026-07",
       "city": "Newport",
       "gallons": 420
     },
@@ -29808,6 +29828,11 @@
     },
     {
       "month": "2026-07",
+      "city": "Quechee",
+      "gallons": 150
+    },
+    {
+      "month": "2026-07",
       "city": "South Burlington",
       "gallons": 320
     },
@@ -29815,6 +29840,11 @@
       "month": "2026-07",
       "city": "South Hero",
       "gallons": 195
+    },
+    {
+      "month": "2026-07",
+      "city": "South Royalton",
+      "gallons": 40
     },
     {
       "month": "2026-07",
@@ -29833,6 +29863,11 @@
     },
     {
       "month": "2026-07",
+      "city": "West Lebanon",
+      "gallons": 251
+    },
+    {
+      "month": "2026-07",
       "city": "Williston",
       "gallons": 570
     },
@@ -29840,6 +29875,11 @@
       "month": "2026-07",
       "city": "Winooski",
       "gallons": 635
+    },
+    {
+      "month": "2026-07",
+      "city": "Woodstock",
+      "gallons": 70
     }
   ],
   "monthly_by_county": [
@@ -37370,13 +37410,23 @@
     },
     {
       "month": "2026-07",
+      "county": "Out-of-State (NH)",
+      "gallons": 251
+    },
+    {
+      "month": "2026-07",
       "county": "Out-of-State (NY)",
       "gallons": 165
     },
     {
       "month": "2026-07",
       "county": "Washington",
-      "gallons": 810
+      "gallons": 1055
+    },
+    {
+      "month": "2026-07",
+      "county": "Windsor",
+      "gallons": 380
     }
   ],
   "yearly_totals": [
@@ -37426,10 +37476,10 @@
     },
     {
       "year": 2026,
-      "gallons": 161290
+      "gallons": 162166
     }
   ],
-  "all_time_total": 2080303,
-  "current_year_total": 161290,
+  "all_time_total": 2081179,
+  "current_year_total": 162166,
   "customer_count": 814
 }

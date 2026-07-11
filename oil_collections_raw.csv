@@ -577,6 +577,7 @@ customer_id,name,city,county,date,year,month,gallons
 1380,Masonic Lodge-Barre,Barre,Washington,2025-01-11,2025,2025-01,35
 1380,Masonic Lodge-Barre,Barre,Washington,2024-10-16,2024,2024-10,2
 1204,McLeods,Barre,Washington,2024-08-07,2024,2024-08,2
+112,Mulligans-Barre,Barre,Washington,2026-07-10,2026,2026-07,130
 112,Mulligans-Barre,Barre,Washington,2026-06-25,2026,2026-06,110
 112,Mulligans-Barre,Barre,Washington,2026-06-11,2026,2026-06,90
 112,Mulligans-Barre,Barre,Washington,2026-05-29,2026,2026-05,50
@@ -1039,6 +1040,7 @@ customer_id,name,city,county,date,year,month,gallons
 1296,Burger King- Bennington/Mahoney,Bennington,Bennington,2024-03-25,2024,2024-03,110
 1296,Burger King- Bennington/Mahoney,Bennington,Bennington,2024-02-15,2024,2024-02,120
 1296,Burger King- Bennington/Mahoney,Bennington,Bennington,2024-01-02,2024,2024-01,200
+121,Central Vermont Solid Waste Management District,Berlin,Washington,2026-07-10,2026,2026-07,30
 121,Central Vermont Solid Waste Management District,Berlin,Washington,2025-05-27,2025,2025-05,10
 121,Central Vermont Solid Waste Management District,Berlin,Washington,2024-12-31,2024,2024-12,10
 121,Central Vermont Solid Waste Management District,Berlin,Washington,2024-07-01,2024,2024-07,40
@@ -1086,6 +1088,7 @@ customer_id,name,city,county,date,year,month,gallons
 108,CVMC-Berlin Hospital,Berlin,Washington,2017-04-01,2017,2017-04,10
 1444,Dan-Jockey Hollow 2025,Berlin,Washington,2025-08-21,2025,2025-08,85
 1444,Dan-Jockey Hollow 2025,Berlin,Washington,2025-08-19,2025,2025-08,2
+107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2026-07-10,2026,2026-07,20
 107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2026-06-30,2026,2026-06,60
 107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2026-06-17,2026,2026-06,85
 107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2026-05-27,2026,2026-05,90
@@ -1381,6 +1384,7 @@ customer_id,name,city,county,date,year,month,gallons
 802,Creek House Diner,Bethel,Windsor,2015-04-20,2015,2015-04,25
 802,Creek House Diner,Bethel,Windsor,2015-03-10,2015,2015-03,25
 802,Creek House Diner,Bethel,Windsor,2015-01-29,2015,2015-01,25
+803,Toziers-,Bethel,Windsor,2026-07-10,2026,2026-07,120
 803,Toziers-,Bethel,Windsor,2026-06-30,2026,2026-06,250
 803,Toziers-,Bethel,Windsor,2026-06-15,2026,2026-06,180
 803,Toziers-,Bethel,Windsor,2026-05-27,2026,2026-05,85
@@ -11023,6 +11027,7 @@ customer_id,name,city,county,date,year,month,gallons
 152,VFW Post 792,Montpelier,Washington,2017-06-03,2017,2017-06,40
 152,VFW Post 792,Montpelier,Washington,2016-10-17,2016,2016-10,25
 152,VFW Post 792,Montpelier,Washington,2016-05-09,2016,2016-05,25
+150,West View Meadows,Montpelier,Washington,2026-07-10,2026,2026-07,65
 150,West View Meadows,Montpelier,Washington,2023-12-06,2023,2023-12,25
 150,West View Meadows,Montpelier,Washington,2022-08-02,2022,2022-08,65
 150,West View Meadows,Montpelier,Washington,2018-06-01,2018,2018-06,25
@@ -12649,6 +12654,7 @@ customer_id,name,city,county,date,year,month,gallons
 829,Chef Brad Crazy Sides,Quechee,Windsor,2016-10-30,2016,2016-10,50
 1463,Mobil Station,Quechee,Windsor,2025-11-14,2025,2025-11,7
 1463,Mobil Station,Quechee,Windsor,2025-11-14,2025,2025-11,30
+1056,Quechee Gorge Snack Bar,Quechee,Windsor,2026-07-10,2026,2026-07,120
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2026-06-30,2026,2026-06,180
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2026-06-15,2026,2026-06,195
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2026-05-27,2026,2026-05,85
@@ -12831,6 +12837,7 @@ customer_id,name,city,county,date,year,month,gallons
 827,Simon Pearce~100%,Quechee,Windsor,2015-04-20,2015,2015-04,75
 827,Simon Pearce~100%,Quechee,Windsor,2015-03-10,2015,2015-03,50
 827,Simon Pearce~100%,Quechee,Windsor,2015-01-29,2015,2015-01,60
+1233,Skinny Pancake- Quechee,Quechee,Windsor,2026-07-10,2026,2026-07,30
 1233,Skinny Pancake- Quechee,Quechee,Windsor,2026-06-30,2026,2026-06,60
 1233,Skinny Pancake- Quechee,Quechee,Windsor,2026-06-15,2026,2026-06,70
 1233,Skinny Pancake- Quechee,Quechee,Windsor,2026-05-27,2026,2026-05,40
@@ -13960,6 +13967,7 @@ customer_id,name,city,county,date,year,month,gallons
 1097,GrandmasGriddle/802 Pizza- south royalton,South Royalton,Windsor,2022-07-06,2022,2022-07,50
 1097,GrandmasGriddle/802 Pizza- south royalton,South Royalton,Windsor,2022-04-28,2022,2022-04,40
 1097,GrandmasGriddle/802 Pizza- south royalton,South Royalton,Windsor,2022-03-25,2022,2022-03,60
+804,IRVING/EXIT 3 Jockey Hollow Rest area,South Royalton,Windsor,2026-07-10,2026,2026-07,40
 804,IRVING/EXIT 3 Jockey Hollow Rest area,South Royalton,Windsor,2026-04-02,2026,2026-04,35
 804,IRVING/EXIT 3 Jockey Hollow Rest area,South Royalton,Windsor,2025-12-27,2025,2025-12,25
 804,IRVING/EXIT 3 Jockey Hollow Rest area,South Royalton,Windsor,2025-09-18,2025,2025-09,45
@@ -19977,6 +19985,7 @@ customer_id,name,city,county,date,year,month,gallons
 537,Parker Pie- West Glover,West Glover,Orleans,2017-03-30,2017,2017-03,95
 537,Parker Pie- West Glover,West Glover,Orleans,2017-03-14,2017,2017-03,50
 537,Parker Pie- West Glover,West Glover,Orleans,2017-01-25,2017,2017-01,50
+928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2026-07-10,2026,2026-07,80
 928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2026-06-15,2026,2026-06,65
 928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2026-05-27,2026,2026-05,85
 928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2026-04-30,2026,2026-04,60
@@ -20098,6 +20107,7 @@ customer_id,name,city,county,date,year,month,gallons
 928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2016-09-03,2016,2016-09,75
 928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2016-08-06,2016,2016-08,75
 928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2016-07-10,2016,2016-07,150
+1119,Hannaford-West Lebanon,West Lebanon,Out-of-State (NH),2026-07-10,2026,2026-07,156
 1119,Hannaford-West Lebanon,West Lebanon,Out-of-State (NH),2026-06-15,2026,2026-06,134
 1119,Hannaford-West Lebanon,West Lebanon,Out-of-State (NH),2026-05-27,2026,2026-05,165
 1119,Hannaford-West Lebanon,West Lebanon,Out-of-State (NH),2026-04-30,2026,2026-04,121
@@ -20176,6 +20186,7 @@ customer_id,name,city,county,date,year,month,gallons
 930,Lebanon SWMD,West Lebanon,Out-of-State (NH),2018-03-20,2018,2018-03,30
 930,Lebanon SWMD,West Lebanon,Out-of-State (NH),2018-02-08,2018,2018-02,75
 930,Lebanon SWMD,West Lebanon,Out-of-State (NH),2017-11-06,2017,2017-11,100
+1369,The Karribean-West Lebanon,West Lebanon,Out-of-State (NH),2026-07-10,2026,2026-07,15
 1369,The Karribean-West Lebanon,West Lebanon,Out-of-State (NH),2026-06-15,2026,2026-06,20
 1369,The Karribean-West Lebanon,West Lebanon,Out-of-State (NH),2026-04-30,2026,2026-04,10
 1369,The Karribean-West Lebanon,West Lebanon,Out-of-State (NH),2026-04-10,2026,2026-04,15
@@ -21863,6 +21874,7 @@ customer_id,name,city,county,date,year,month,gallons
 500,Wolcott General Store,Wolcott,Lamoille,2015-06-02,2015,2015-06,25
 500,Wolcott General Store,Wolcott,Lamoille,2015-03-02,2015,2015-03,45
 500,Wolcott General Store,Wolcott,Lamoille,2015-01-05,2015,2015-01,50
+1455,Farmer and the Bell,Woodstock,Windsor,2026-07-10,2026,2026-07,20
 1455,Farmer and the Bell,Woodstock,Windsor,2026-06-30,2026,2026-06,40
 1455,Farmer and the Bell,Woodstock,Windsor,2026-06-15,2026,2026-06,70
 1455,Farmer and the Bell,Woodstock,Windsor,2026-05-19,2026,2026-05,55
@@ -22019,6 +22031,7 @@ customer_id,name,city,county,date,year,month,gallons
 825,Woodstock Country Club,Woodstock,Windsor,2021-08-17,2021,2021-08,75
 825,Woodstock Country Club,Woodstock,Windsor,2019-12-05,2019,2019-12,50
 825,Woodstock Country Club,Woodstock,Windsor,2019-04-26,2019,2019-04,50
+823,Woodstock Inn,Woodstock,Windsor,2026-07-10,2026,2026-07,50
 823,Woodstock Inn,Woodstock,Windsor,2026-06-30,2026,2026-06,80
 823,Woodstock Inn,Woodstock,Windsor,2026-06-15,2026,2026-06,80
 823,Woodstock Inn,Woodstock,Windsor,2026-05-19,2026,2026-05,70
