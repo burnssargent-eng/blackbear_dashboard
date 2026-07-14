@@ -2112,6 +2112,7 @@ customer_id,name,city,county,date,year,month,gallons
 300,Blue Bird BBQ - blue keychain in mack,Burlington,Chittenden,2015-03-05,2015,2015-03,25
 300,Blue Bird BBQ - blue keychain in mack,Burlington,Chittenden,2015-02-12,2015,2015-02,40
 300,Blue Bird BBQ - blue keychain in mack,Burlington,Chittenden,2015-01-07,2015,2015-01,30
+1070,Burlington Beer Co,Burlington,Chittenden,2026-07-13,2026,2026-07,50
 1070,Burlington Beer Co,Burlington,Chittenden,2026-07-01,2026,2026-07,100
 1070,Burlington Beer Co,Burlington,Chittenden,2026-06-19,2026,2026-06,50
 1070,Burlington Beer Co,Burlington,Chittenden,2026-06-04,2026,2026-06,60
@@ -2571,6 +2572,7 @@ customer_id,name,city,county,date,year,month,gallons
 1091,Cafe Hot,Burlington,Chittenden,2022-05-27,2022,2022-05,105
 1091,Cafe Hot,Burlington,Chittenden,2022-03-23,2022,2022-03,115
 1091,Cafe Hot,Burlington,Chittenden,2021-12-28,2021,2021-12,100
+315,Citizen Cider - 0316,Burlington,Chittenden,2026-07-13,2026,2026-07,65
 315,Citizen Cider - 0316,Burlington,Chittenden,2026-07-01,2026,2026-07,90
 315,Citizen Cider - 0316,Burlington,Chittenden,2026-06-19,2026,2026-06,55
 315,Citizen Cider - 0316,Burlington,Chittenden,2026-06-04,2026,2026-06,35
@@ -3457,6 +3459,7 @@ customer_id,name,city,county,date,year,month,gallons
 1464,Friendly Toast #3251,Burlington,Chittenden,2026-02-20,2026,2026-02,140
 1464,Friendly Toast #3251,Burlington,Chittenden,2025-11-25,2025,2025-11,165
 1464,Friendly Toast #3251,Burlington,Chittenden,2025-11-10,2025,2025-11,2
+352,Great Northern,Burlington,Chittenden,2026-07-13,2026,2026-07,95
 352,Great Northern,Burlington,Chittenden,2026-07-01,2026,2026-07,120
 352,Great Northern,Burlington,Chittenden,2026-06-19,2026,2026-06,75
 352,Great Northern,Burlington,Chittenden,2026-06-04,2026,2026-06,75
@@ -5057,6 +5060,7 @@ customer_id,name,city,county,date,year,month,gallons
 328,Sweetwaters 2.0!!!- 50%,Burlington,Chittenden,2018-02-27,2018,2018-02,135
 328,Sweetwaters 2.0!!!- 50%,Burlington,Chittenden,2018-02-15,2018,2018-02,100
 328,Sweetwaters 2.0!!!- 50%,Burlington,Chittenden,2018-02-04,2018,2018-02,165
+1350,Switchback,Burlington,Chittenden,2026-07-13,2026,2026-07,50
 1350,Switchback,Burlington,Chittenden,2026-07-01,2026,2026-07,80
 1350,Switchback,Burlington,Chittenden,2026-06-04,2026,2026-06,30
 1350,Switchback,Burlington,Chittenden,2026-05-26,2026,2026-05,40
@@ -6716,6 +6720,7 @@ customer_id,name,city,county,date,year,month,gallons
 1149,Hannaford-Enosburg Falls,Enosburg Falls,Orleans,2022-10-03,2022,2022-10,60
 1149,Hannaford-Enosburg Falls,Enosburg Falls,Orleans,2022-08-31,2022,2022-08,50
 1149,Hannaford-Enosburg Falls,Enosburg Falls,Orleans,2022-08-04,2022,2022-08,100
+1426,AL’s FF food truck-ESSEX at Lowes,Essex,Chittenden,2026-07-13,2026,2026-07,55
 1426,AL’s FF food truck-ESSEX at Lowes,Essex,Chittenden,2025-10-01,2025,2025-10,90
 1426,AL’s FF food truck-ESSEX at Lowes,Essex,Chittenden,2025-09-16,2025,2025-09,85
 1426,AL’s FF food truck-ESSEX at Lowes,Essex,Chittenden,2025-08-07,2025,2025-08,100
@@ -6996,6 +7001,7 @@ customer_id,name,city,county,date,year,month,gallons
 1248,Sparky’s BBQ and Grill- 1977,Essex Junction,Chittenden,2025-01-16,2025,2025-01,55
 1248,Sparky’s BBQ and Grill- 1977,Essex Junction,Chittenden,2023-10-20,2023,2023-10,55
 1248,Sparky’s BBQ and Grill- 1977,Essex Junction,Chittenden,2023-07-21,2023,2023-07,90
+411,Vespa Pizza,Essex Junction,Chittenden,2026-07-13,2026,2026-07,35
 411,Vespa Pizza,Essex Junction,Chittenden,2026-05-28,2026,2026-05,40
 411,Vespa Pizza,Essex Junction,Chittenden,2026-05-01,2026,2026-05,40
 411,Vespa Pizza,Essex Junction,Chittenden,2026-04-08,2026,2026-04,50
@@ -7803,6 +7809,7 @@ customer_id,name,city,county,date,year,month,gallons
 502,Village Restaurant-Hardwick~ 50%,Hardwick,Caledonia,2015-03-02,2015,2015-03,45
 502,Village Restaurant-Hardwick~ 50%,Hardwick,Caledonia,2015-01-30,2015,2015-01,20
 502,Village Restaurant-Hardwick~ 50%,Hardwick,Caledonia,2015-01-05,2015,2015-01,30
+1480,Papa Nicks-Hinesburg,Hinesburg,Chittenden,2026-07-13,2026,2026-07,130
 1480,Papa Nicks-Hinesburg,Hinesburg,Chittenden,2026-05-26,2026,2026-05,55
 1480,Papa Nicks-Hinesburg,Hinesburg,Chittenden,2026-05-07,2026,2026-05,70
 1480,Papa Nicks-Hinesburg,Hinesburg,Chittenden,2026-04-30,2026,2026-04,55
@@ -7814,6 +7821,7 @@ customer_id,name,city,county,date,year,month,gallons
 1351,Bushel Market,Hinesburgh,Chittenden,2025-09-08,2025,2025-09,90
 1351,Bushel Market,Hinesburgh,Chittenden,2024-07-08,2024,2024-07,70
 1351,Bushel Market,Hinesburgh,Chittenden,2024-06-21,2024,2024-06,2
+1030,Hinesburg Public House,Hinesburgh,Chittenden,2026-07-13,2026,2026-07,80
 1030,Hinesburg Public House,Hinesburgh,Chittenden,2026-05-26,2026,2026-05,90
 1030,Hinesburg Public House,Hinesburgh,Chittenden,2026-04-02,2026,2026-04,100
 1030,Hinesburg Public House,Hinesburgh,Chittenden,2026-02-03,2026,2026-02,15
@@ -13060,6 +13068,7 @@ customer_id,name,city,county,date,year,month,gallons
 1136,Richford Country Club,Richford,Franklin,2023-08-22,2023,2023-08,85
 1136,Richford Country Club,Richford,Franklin,2023-05-11,2023,2023-05,40
 1136,Richford Country Club,Richford,Franklin,2022-08-24,2022,2022-08,45
+284,Big Spruce,Richmond,Chittenden,2026-07-13,2026,2026-07,20
 284,Big Spruce,Richmond,Chittenden,2026-06-26,2026,2026-06,35
 284,Big Spruce,Richmond,Chittenden,2026-06-04,2026,2026-06,50
 284,Big Spruce,Richmond,Chittenden,2026-05-07,2026,2026-05,50
@@ -13119,6 +13128,7 @@ customer_id,name,city,county,date,year,month,gallons
 284,Big Spruce,Richmond,Chittenden,2021-01-25,2021,2021-01,65
 284,Big Spruce,Richmond,Chittenden,2020-12-22,2020,2020-12,65
 284,Big Spruce,Richmond,Chittenden,2020-12-01,2020,2020-12,50
+282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2026-07-13,2026,2026-07,40
 282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2026-06-26,2026,2026-06,75
 282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2025-04-04,2025,2025-04,7
 282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2025-04-02,2025,2025-04,70
@@ -13374,6 +13384,7 @@ customer_id,name,city,county,date,year,month,gallons
 123,Ricky's (Indian food gas station),S. Barre,Washington,2016-03-27,2016,2016-03,25
 1442,Maple Grove Farms of Vermont,Saint Johnsbury,Caledonia,2025-08-07,2025,2025-08,275
 1442,Maple Grove Farms of Vermont,Saint Johnsbury,Caledonia,2025-07-30,2025,2025-07,2
+1377,Chef Leu -Shelburne,Shelburne,Chittenden,2026-07-13,2026,2026-07,15
 1377,Chef Leu -Shelburne,Shelburne,Chittenden,2026-06-19,2026,2026-06,30
 1377,Chef Leu -Shelburne,Shelburne,Chittenden,2026-05-08,2026,2026-05,10
 1377,Chef Leu -Shelburne,Shelburne,Chittenden,2026-02-10,2026,2026-02,25
@@ -13387,6 +13398,7 @@ customer_id,name,city,county,date,year,month,gallons
 1377,Chef Leu -Shelburne,Shelburne,Chittenden,2025-01-07,2025,2025-01,25
 1377,Chef Leu -Shelburne,Shelburne,Chittenden,2024-11-15,2024,2024-11,35
 1377,Chef Leu -Shelburne,Shelburne,Chittenden,2024-10-03,2024,2024-10,2
+1298,Electras-Shelburne,Shelburne,Chittenden,2026-07-13,2026,2026-07,20
 1298,Electras-Shelburne,Shelburne,Chittenden,2026-03-26,2026,2026-03,50
 1298,Electras-Shelburne,Shelburne,Chittenden,2025-12-30,2025,2025-12,110
 1298,Electras-Shelburne,Shelburne,Chittenden,2025-10-20,2025,2025-10,90
@@ -13397,6 +13409,7 @@ customer_id,name,city,county,date,year,month,gallons
 1298,Electras-Shelburne,Shelburne,Chittenden,2024-04-12,2024,2024-04,75
 1298,Electras-Shelburne,Shelburne,Chittenden,2024-02-19,2024,2024-02,25
 1298,Electras-Shelburne,Shelburne,Chittenden,2024-01-17,2024,2024-01,70
+1422,Folignos Pizza-Shelburne,Shelburne,Chittenden,2026-07-13,2026,2026-07,130
 1422,Folignos Pizza-Shelburne,Shelburne,Chittenden,2026-05-08,2026,2026-05,60
 1422,Folignos Pizza-Shelburne,Shelburne,Chittenden,2026-04-10,2026,2026-04,100
 1422,Folignos Pizza-Shelburne,Shelburne,Chittenden,2026-02-20,2026,2026-02,55
@@ -13407,6 +13420,7 @@ customer_id,name,city,county,date,year,month,gallons
 1422,Folignos Pizza-Shelburne,Shelburne,Chittenden,2025-08-28,2025,2025-08,80
 1422,Folignos Pizza-Shelburne,Shelburne,Chittenden,2025-07-30,2025,2025-07,100
 1422,Folignos Pizza-Shelburne,Shelburne,Chittenden,2025-06-11,2025,2025-06,80
+1197,Le~Marche~Cafe,Shelburne,Chittenden,2026-07-13,2026,2026-07,45
 1197,Le~Marche~Cafe,Shelburne,Chittenden,2026-03-26,2026,2026-03,100
 1197,Le~Marche~Cafe,Shelburne,Chittenden,2026-02-20,2026,2026-02,15
 1197,Le~Marche~Cafe,Shelburne,Chittenden,2025-12-30,2025,2025-12,30
@@ -13598,6 +13612,7 @@ customer_id,name,city,county,date,year,month,gallons
 1195,Chicken Charlies,South Burlington,Chittenden,2022-12-29,2022,2022-12,50
 1195,Chicken Charlies,South Burlington,Chittenden,2022-12-15,2022,2022-12,75
 1195,Chicken Charlies,South Burlington,Chittenden,2022-11-27,2022,2022-11,300
+1448,Good Times Cafe,South Burlington,Chittenden,2026-07-13,2026,2026-07,20
 1448,Good Times Cafe,South Burlington,Chittenden,2026-06-19,2026,2026-06,25
 1448,Good Times Cafe,South Burlington,Chittenden,2026-06-02,2026,2026-06,30
 1448,Good Times Cafe,South Burlington,Chittenden,2026-04-28,2026,2026-04,55
@@ -13667,6 +13682,7 @@ customer_id,name,city,county,date,year,month,gallons
 1216,Koto,South Burlington,Chittenden,2023-05-31,2023,2023-05,65
 1216,Koto,South Burlington,Chittenden,2023-04-24,2023,2023-04,150
 1216,Koto,South Burlington,Chittenden,2023-03-15,2023,2023-03,60
+1505,La Casa del Sabor,South Burlington,Chittenden,2026-07-13,2026,2026-07,35
 1505,La Casa del Sabor,South Burlington,Chittenden,2026-06-02,2026,2026-06,50
 1505,La Casa del Sabor,South Burlington,Chittenden,2026-05-29,2026,2026-05,2
 318,Mirabelles-South Burlington,South Burlington,Chittenden,2025-01-11,2025,2025-01,20
@@ -13691,6 +13707,7 @@ customer_id,name,city,county,date,year,month,gallons
 318,Mirabelles-South Burlington,South Burlington,Chittenden,2015-08-17,2015,2015-08,20
 318,Mirabelles-South Burlington,South Burlington,Chittenden,2015-06-17,2015,2015-06,35
 318,Mirabelles-South Burlington,South Burlington,Chittenden,2015-03-05,2015,2015-03,45
+1483,Mountain Valley -South Burlington,South Burlington,Chittenden,2026-07-13,2026,2026-07,20
 1483,Mountain Valley -South Burlington,South Burlington,Chittenden,2026-06-19,2026,2026-06,35
 1483,Mountain Valley -South Burlington,South Burlington,Chittenden,2026-04-09,2026,2026-04,50
 1483,Mountain Valley -South Burlington,South Burlington,Chittenden,2026-01-22,2026,2026-01,2
@@ -13726,6 +13743,7 @@ customer_id,name,city,county,date,year,month,gallons
 344,Parkway Diner,South Burlington,Chittenden,2019-12-13,2019,2019-12,60
 344,Parkway Diner,South Burlington,Chittenden,2019-09-27,2019,2019-09,50
 344,Parkway Diner,South Burlington,Chittenden,2019-07-27,2019,2019-07,40
+374,Pulcinella,South Burlington,Chittenden,2026-07-13,2026,2026-07,20
 374,Pulcinella,South Burlington,Chittenden,2026-05-08,2026,2026-05,20
 374,Pulcinella,South Burlington,Chittenden,2026-04-10,2026,2026-04,25
 374,Pulcinella,South Burlington,Chittenden,2026-02-20,2026,2026-02,45

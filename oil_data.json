@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-13T10:24:49.314511",
+  "last_updated": "2026-07-14T09:07:19.334423",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -29724,7 +29724,7 @@
     {
       "month": "2026-07",
       "city": "Burlington",
-      "gallons": 1795
+      "gallons": 2055
     },
     {
       "month": "2026-07",
@@ -29748,8 +29748,13 @@
     },
     {
       "month": "2026-07",
+      "city": "Essex",
+      "gallons": 55
+    },
+    {
+      "month": "2026-07",
       "city": "Essex Junction",
-      "gallons": 40
+      "gallons": 75
     },
     {
       "month": "2026-07",
@@ -29760,6 +29765,16 @@
       "month": "2026-07",
       "city": "Hardwick",
       "gallons": 275
+    },
+    {
+      "month": "2026-07",
+      "city": "Hinesburg",
+      "gallons": 130
+    },
+    {
+      "month": "2026-07",
+      "city": "Hinesburgh",
+      "gallons": 80
     },
     {
       "month": "2026-07",
@@ -29833,8 +29848,18 @@
     },
     {
       "month": "2026-07",
+      "city": "Richmond",
+      "gallons": 60
+    },
+    {
+      "month": "2026-07",
+      "city": "Shelburne",
+      "gallons": 210
+    },
+    {
+      "month": "2026-07",
       "city": "South Burlington",
-      "gallons": 320
+      "gallons": 415
     },
     {
       "month": "2026-07",
@@ -37391,7 +37416,7 @@
     {
       "month": "2026-07",
       "county": "Chittenden",
-      "gallons": 5640
+      "gallons": 6565
     },
     {
       "month": "2026-07",
@@ -37476,10 +37501,10 @@
     },
     {
       "year": 2026,
-      "gallons": 162166
+      "gallons": 163091
     }
   ],
-  "all_time_total": 2081179,
-  "current_year_total": 162166,
+  "all_time_total": 2082104,
+  "current_year_total": 163091,
   "customer_count": 814
 }
