@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-14T09:07:19.334423",
+  "last_updated": "2026-07-15T09:12:10.221991",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -29724,7 +29724,7 @@
     {
       "month": "2026-07",
       "city": "Burlington",
-      "gallons": 2055
+      "gallons": 3155
     },
     {
       "month": "2026-07",
@@ -29839,7 +29839,7 @@
     {
       "month": "2026-07",
       "city": "Plainfield",
-      "gallons": 400
+      "gallons": 525
     },
     {
       "month": "2026-07",
@@ -29899,7 +29899,7 @@
     {
       "month": "2026-07",
       "city": "Winooski",
-      "gallons": 635
+      "gallons": 637
     },
     {
       "month": "2026-07",
@@ -37416,7 +37416,7 @@
     {
       "month": "2026-07",
       "county": "Chittenden",
-      "gallons": 6565
+      "gallons": 7667
     },
     {
       "month": "2026-07",
@@ -37446,7 +37446,7 @@
     {
       "month": "2026-07",
       "county": "Washington",
-      "gallons": 1055
+      "gallons": 1180
     },
     {
       "month": "2026-07",
@@ -37501,10 +37501,10 @@
     },
     {
       "year": 2026,
-      "gallons": 163091
+      "gallons": 164318
     }
   ],
-  "all_time_total": 2082104,
-  "current_year_total": 163091,
-  "customer_count": 814
+  "all_time_total": 2083331,
+  "current_year_total": 164318,
+  "customer_count": 815
 }

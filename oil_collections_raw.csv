@@ -1931,6 +1931,7 @@ customer_id,name,city,county,date,year,month,gallons
 329,Asiana Noodle-6974,Burlington,Chittenden,2018-06-20,2018,2018-06,90
 329,Asiana Noodle-6974,Burlington,Chittenden,2018-04-26,2018,2018-04,50
 1482,Bangkok Alley,Burlington,Chittenden,2026-02-24,2026,2026-02,15
+1273,BKK-inTheAlley 10%,Burlington,Chittenden,2026-07-14,2026,2026-07,15
 1273,BKK-inTheAlley 10%,Burlington,Chittenden,2026-07-01,2026,2026-07,15
 1273,BKK-inTheAlley 10%,Burlington,Chittenden,2026-06-17,2026,2026-06,10
 1273,BKK-inTheAlley 10%,Burlington,Chittenden,2026-06-08,2026,2026-06,10
@@ -2249,6 +2250,7 @@ customer_id,name,city,county,date,year,month,gallons
 1070,Burlington Beer Co,Burlington,Chittenden,2021-11-19,2021,2021-11,130
 1070,Burlington Beer Co,Burlington,Chittenden,2021-11-01,2021,2021-11,85
 1070,Burlington Beer Co,Burlington,Chittenden,2021-10-22,2021,2021-10,75
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2026-07-14,2026,2026-07,115
 321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2026-07-01,2026,2026-07,100
 321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2026-06-19,2026,2026-06,130
 321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2026-05-26,2026,2026-05,70
@@ -2814,6 +2816,7 @@ customer_id,name,city,county,date,year,month,gallons
 1306,Crispy Burger- Jason (Volcano),Burlington,Chittenden,2024-03-15,2024,2024-03,80
 1306,Crispy Burger- Jason (Volcano),Burlington,Chittenden,2024-02-26,2024,2024-02,80
 1306,Crispy Burger- Jason (Volcano),Burlington,Chittenden,2024-02-01,2024,2024-02,65
+332,Daily Planet-65270,Burlington,Chittenden,2026-07-14,2026,2026-07,20
 332,Daily Planet-65270,Burlington,Chittenden,2026-07-01,2026,2026-07,45
 332,Daily Planet-65270,Burlington,Chittenden,2026-06-17,2026,2026-06,40
 332,Daily Planet-65270,Burlington,Chittenden,2026-06-08,2026,2026-06,30
@@ -3081,6 +3084,7 @@ customer_id,name,city,county,date,year,month,gallons
 361,Farmers & Foragers (Lauren food truck),Burlington,Chittenden,2017-07-15,2017,2017-07,58
 361,Farmers & Foragers (Lauren food truck),Burlington,Chittenden,2016-12-17,2016,2016-12,25
 361,Farmers & Foragers (Lauren food truck),Burlington,Chittenden,2016-08-14,2016,2016-08,35
+325,Farmhouse,Burlington,Chittenden,2026-07-14,2026,2026-07,160
 325,Farmhouse,Burlington,Chittenden,2026-07-01,2026,2026-07,190
 325,Farmhouse,Burlington,Chittenden,2026-06-17,2026,2026-06,110
 325,Farmhouse,Burlington,Chittenden,2026-06-08,2026,2026-06,205
@@ -3419,6 +3423,7 @@ customer_id,name,city,county,date,year,month,gallons
 1381,Fire and Gold-North Winooski Ave - 100%,Burlington,Chittenden,2024-11-27,2024,2024-11,25
 1381,Fire and Gold-North Winooski Ave - 100%,Burlington,Chittenden,2024-10-29,2024,2024-10,27
 1381,Fire and Gold-North Winooski Ave - 100%,Burlington,Chittenden,2024-10-28,2024,2024-10,2
+1336,Frankie’s/Old Penny Cluse,Burlington,Chittenden,2026-07-14,2026,2026-07,20
 1336,Frankie’s/Old Penny Cluse,Burlington,Chittenden,2026-07-01,2026,2026-07,50
 1336,Frankie’s/Old Penny Cluse,Burlington,Chittenden,2026-06-08,2026,2026-06,30
 1336,Frankie’s/Old Penny Cluse,Burlington,Chittenden,2026-05-26,2026,2026-05,20
@@ -3699,6 +3704,7 @@ customer_id,name,city,county,date,year,month,gallons
 1122,Hannaford-Burlington North Ave,Burlington,Chittenden,2022-08-17,2022,2022-08,55
 1122,Hannaford-Burlington North Ave,Burlington,Chittenden,2022-07-27,2022,2022-07,65
 1122,Hannaford-Burlington North Ave,Burlington,Chittenden,2022-06-28,2022,2022-06,20
+1037,Hen of the Wood - 50%,Burlington,Chittenden,2026-07-14,2026,2026-07,25
 1037,Hen of the Wood - 50%,Burlington,Chittenden,2026-07-01,2026,2026-07,40
 1037,Hen of the Wood - 50%,Burlington,Chittenden,2026-06-08,2026,2026-06,20
 1037,Hen of the Wood - 50%,Burlington,Chittenden,2026-05-26,2026,2026-05,25
@@ -3763,6 +3769,7 @@ customer_id,name,city,county,date,year,month,gallons
 1037,Hen of the Wood - 50%,Burlington,Chittenden,2022-01-28,2022,2022-01,35
 1037,Hen of the Wood - 50%,Burlington,Chittenden,2022-01-06,2022,2022-01,50
 1037,Hen of the Wood - 50%,Burlington,Chittenden,2021-12-02,2021,2021-12,35
+322,Henrys Diner-50%,Burlington,Chittenden,2026-07-14,2026,2026-07,35
 322,Henrys Diner-50%,Burlington,Chittenden,2026-07-01,2026,2026-07,35
 322,Henrys Diner-50%,Burlington,Chittenden,2026-06-17,2026,2026-06,25
 322,Henrys Diner-50%,Burlington,Chittenden,2026-06-08,2026,2026-06,30
@@ -3873,6 +3880,7 @@ customer_id,name,city,county,date,year,month,gallons
 322,Henrys Diner-50%,Burlington,Chittenden,2018-05-23,2018,2018-05,25
 322,Henrys Diner-50%,Burlington,Chittenden,2018-05-09,2018,2018-05,40
 322,Henrys Diner-50%,Burlington,Chittenden,2018-05-03,2018,2018-05,125
+304,Hotel Vermont - 50%,Burlington,Chittenden,2026-07-14,2026,2026-07,25
 304,Hotel Vermont - 50%,Burlington,Chittenden,2026-07-01,2026,2026-07,40
 304,Hotel Vermont - 50%,Burlington,Chittenden,2026-06-08,2026,2026-06,20
 304,Hotel Vermont - 50%,Burlington,Chittenden,2026-05-26,2026,2026-05,25
@@ -4085,6 +4093,7 @@ customer_id,name,city,county,date,year,month,gallons
 304,Hotel Vermont - 50%,Burlington,Chittenden,2015-01-26,2015,2015-01,45
 304,Hotel Vermont - 50%,Burlington,Chittenden,2015-01-15,2015,2015-01,120
 304,Hotel Vermont - 50%,Burlington,Chittenden,2015-01-07,2015,2015-01,25
+1338,Ken’s Pizza,Burlington,Chittenden,2026-07-14,2026,2026-07,35
 1338,Ken’s Pizza,Burlington,Chittenden,2026-07-01,2026,2026-07,20
 1338,Ken’s Pizza,Burlington,Chittenden,2026-06-17,2026,2026-06,15
 1338,Ken’s Pizza,Burlington,Chittenden,2026-06-08,2026,2026-06,20
@@ -4249,6 +4258,7 @@ customer_id,name,city,county,date,year,month,gallons
 1432,Nomad-Church St-1638,Burlington,Chittenden,2026-01-08,2026,2026-01,35
 1432,Nomad-Church St-1638,Burlington,Chittenden,2025-09-19,2025,2025-09,110
 1432,Nomad-Church St-1638,Burlington,Chittenden,2025-05-16,2025,2025-05,2
+323,Pascolo 50% with Henrys,Burlington,Chittenden,2026-07-14,2026,2026-07,35
 323,Pascolo 50% with Henrys,Burlington,Chittenden,2026-07-01,2026,2026-07,30
 323,Pascolo 50% with Henrys,Burlington,Chittenden,2026-06-17,2026,2026-06,25
 323,Pascolo 50% with Henrys,Burlington,Chittenden,2026-06-08,2026,2026-06,30
@@ -4515,6 +4525,7 @@ customer_id,name,city,county,date,year,month,gallons
 1386,Poco- Burlington,Burlington,Chittenden,2025-03-24,2025,2025-03,60
 1386,Poco- Burlington,Burlington,Chittenden,2025-02-06,2025,2025-02,30
 1386,Poco- Burlington,Burlington,Chittenden,2024-11-12,2024,2024-11,2
+327,RiRa's 40%,Burlington,Chittenden,2026-07-14,2026,2026-07,55
 327,RiRa's 40%,Burlington,Chittenden,2026-07-01,2026,2026-07,45
 327,RiRa's 40%,Burlington,Chittenden,2026-06-17,2026,2026-06,40
 327,RiRa's 40%,Burlington,Chittenden,2026-06-08,2026,2026-06,40
@@ -4866,6 +4877,7 @@ customer_id,name,city,county,date,year,month,gallons
 339,Shalamar Indian/ Radio Bean- 7419,Burlington,Chittenden,2015-01-26,2015,2015-01,40
 339,Shalamar Indian/ Radio Bean- 7419,Burlington,Chittenden,2015-01-22,2015,2015-01,45
 339,Shalamar Indian/ Radio Bean- 7419,Burlington,Chittenden,2015-01-07,2015,2015-01,45
+444,Skinny Pancake-Burlington LakeFront8741,Burlington,Chittenden,2026-07-14,2026,2026-07,150
 444,Skinny Pancake-Burlington LakeFront8741,Burlington,Chittenden,2026-05-26,2026,2026-05,50
 444,Skinny Pancake-Burlington LakeFront8741,Burlington,Chittenden,2026-04-28,2026,2026-04,65
 444,Skinny Pancake-Burlington LakeFront8741,Burlington,Chittenden,2026-03-31,2026,2026-03,90
@@ -4901,6 +4913,7 @@ customer_id,name,city,county,date,year,month,gallons
 444,Skinny Pancake-Burlington LakeFront8741,Burlington,Chittenden,2023-04-12,2023,2023-04,15
 444,Skinny Pancake-Burlington LakeFront8741,Burlington,Chittenden,2023-04-05,2023,2023-04,40
 444,Skinny Pancake-Burlington LakeFront8741,Burlington,Chittenden,2021-05-04,2021,2021-05,75
+328,Sweetwaters 2.0!!!- 50%,Burlington,Chittenden,2026-07-14,2026,2026-07,70
 328,Sweetwaters 2.0!!!- 50%,Burlington,Chittenden,2026-07-01,2026,2026-07,60
 328,Sweetwaters 2.0!!!- 50%,Burlington,Chittenden,2026-06-17,2026,2026-06,40
 328,Sweetwaters 2.0!!!- 50%,Burlington,Chittenden,2026-06-08,2026,2026-06,50
@@ -5102,6 +5115,7 @@ customer_id,name,city,county,date,year,month,gallons
 1029,The Beach House- NORTH BEACH,Burlington,Chittenden,2022-07-27,2022,2022-07,110
 1029,The Beach House- NORTH BEACH,Burlington,Chittenden,2022-05-12,2022,2022-05,65
 1029,The Beach House- NORTH BEACH,Burlington,Chittenden,2021-10-13,2021,2021-10,145
+1286,The PizzeriaVeritas50%,Burlington,Chittenden,2026-07-14,2026,2026-07,75
 1286,The PizzeriaVeritas50%,Burlington,Chittenden,2026-05-26,2026,2026-05,35
 1286,The PizzeriaVeritas50%,Burlington,Chittenden,2026-04-08,2026,2026-04,50
 1286,The PizzeriaVeritas50%,Burlington,Chittenden,2026-02-10,2026,2026-02,13
@@ -5124,6 +5138,7 @@ customer_id,name,city,county,date,year,month,gallons
 1286,The PizzeriaVeritas50%,Burlington,Chittenden,2024-04-25,2024,2024-04,30
 1286,The PizzeriaVeritas50%,Burlington,Chittenden,2024-04-03,2024,2024-04,10
 1286,The PizzeriaVeritas50%,Burlington,Chittenden,2024-03-05,2024,2024-03,20
+1394,The Wise Fool,Burlington,Chittenden,2026-07-14,2026,2026-07,190
 1394,The Wise Fool,Burlington,Chittenden,2026-06-08,2026,2026-06,70
 1394,The Wise Fool,Burlington,Chittenden,2026-05-21,2026,2026-05,190
 1394,The Wise Fool,Burlington,Chittenden,2026-04-16,2026,2026-04,150
@@ -5143,6 +5158,7 @@ customer_id,name,city,county,date,year,month,gallons
 1394,The Wise Fool,Burlington,Chittenden,2025-04-04,2025,2025-04,85
 1394,The Wise Fool,Burlington,Chittenden,2025-03-10,2025,2025-03,55
 1394,The Wise Fool,Burlington,Chittenden,2025-01-24,2025,2025-01,2
+1287,Trattoria Delia 50%,Burlington,Chittenden,2026-07-14,2026,2026-07,75
 1287,Trattoria Delia 50%,Burlington,Chittenden,2026-05-26,2026,2026-05,35
 1287,Trattoria Delia 50%,Burlington,Chittenden,2026-04-08,2026,2026-04,50
 1287,Trattoria Delia 50%,Burlington,Chittenden,2026-02-10,2026,2026-02,12
@@ -12434,6 +12450,7 @@ customer_id,name,city,county,date,year,month,gallons
 1090,Proctor-Pittsford Country Club,Pittsford,Rutland,2022-09-09,2022,2022-09,100
 1090,Proctor-Pittsford Country Club,Pittsford,Rutland,2022-07-26,2022,2022-07,110
 1090,Proctor-Pittsford Country Club,Pittsford,Rutland,2022-06-10,2022,2022-06,100
+1078,BBB- Pump oil @ Shop,Plainfield,Washington,2026-07-14,2026,2026-07,125
 1078,BBB- Pump oil @ Shop,Plainfield,Washington,2026-07-03,2026,2026-07,400
 1078,BBB- Pump oil @ Shop,Plainfield,Washington,2026-06-29,2026,2026-06,300
 1078,BBB- Pump oil @ Shop,Plainfield,Washington,2026-06-19,2026,2026-06,80
@@ -21782,6 +21799,7 @@ customer_id,name,city,county,date,year,month,gallons
 1135,Waterworks-Winooski,Winooski,Chittenden,2022-09-22,2022,2022-09,70
 1135,Waterworks-Winooski,Winooski,Chittenden,2022-08-25,2022,2022-08,100
 1135,Waterworks-Winooski,Winooski,Chittenden,2022-07-25,2022,2022-07,50
+1517,Zero Point Market-Winooski,Winooski,Chittenden,2026-07-14,2026,2026-07,2
 500,Wolcott General Store,Wolcott,Lamoille,2026-06-25,2026,2026-06,40
 500,Wolcott General Store,Wolcott,Lamoille,2026-05-27,2026,2026-05,40
 500,Wolcott General Store,Wolcott,Lamoille,2026-05-01,2026,2026-05,50
