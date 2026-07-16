@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-15T09:12:10.221991",
+  "last_updated": "2026-07-16T09:15:34.008626",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -29708,18 +29708,28 @@
     },
     {
       "month": "2026-07",
+      "city": "Arlington",
+      "gallons": 60
+    },
+    {
+      "month": "2026-07",
       "city": "Barre",
-      "gallons": 130
+      "gallons": 165
+    },
+    {
+      "month": "2026-07",
+      "city": "Bennington",
+      "gallons": 160
     },
     {
       "month": "2026-07",
       "city": "Berlin",
-      "gallons": 50
+      "gallons": 80
     },
     {
       "month": "2026-07",
       "city": "Bethel",
-      "gallons": 120
+      "gallons": 170
     },
     {
       "month": "2026-07",
@@ -29793,8 +29803,23 @@
     },
     {
       "month": "2026-07",
+      "city": "Killington",
+      "gallons": 60
+    },
+    {
+      "month": "2026-07",
       "city": "Lyndonville",
       "gallons": 50
+    },
+    {
+      "month": "2026-07",
+      "city": "Manchester",
+      "gallons": 285
+    },
+    {
+      "month": "2026-07",
+      "city": "Manchester Center",
+      "gallons": 30
     },
     {
       "month": "2026-07",
@@ -29839,7 +29864,7 @@
     {
       "month": "2026-07",
       "city": "Plainfield",
-      "gallons": 525
+      "gallons": 580
     },
     {
       "month": "2026-07",
@@ -29875,6 +29900,11 @@
       "month": "2026-07",
       "city": "Stowe",
       "gallons": 1380
+    },
+    {
+      "month": "2026-07",
+      "city": "Sunderland",
+      "gallons": 95
     },
     {
       "month": "2026-07",
@@ -37410,6 +37440,11 @@
     },
     {
       "month": "2026-07",
+      "county": "Bennington",
+      "gallons": 475
+    },
+    {
+      "month": "2026-07",
       "county": "Caledonia",
       "gallons": 327
     },
@@ -37445,13 +37480,23 @@
     },
     {
       "month": "2026-07",
+      "county": "Rutland",
+      "gallons": 60
+    },
+    {
+      "month": "2026-07",
       "county": "Washington",
-      "gallons": 1180
+      "gallons": 1300
+    },
+    {
+      "month": "2026-07",
+      "county": "Windham",
+      "gallons": 155
     },
     {
       "month": "2026-07",
       "county": "Windsor",
-      "gallons": 380
+      "gallons": 430
     }
   ],
   "yearly_totals": [
@@ -37501,10 +37546,10 @@
     },
     {
       "year": 2026,
-      "gallons": 164318
+      "gallons": 165178
     }
   ],
-  "all_time_total": 2083331,
-  "current_year_total": 164318,
+  "all_time_total": 2084191,
+  "current_year_total": 165178,
   "customer_count": 815
 }
