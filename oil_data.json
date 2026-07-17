@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-16T09:15:34.008626",
+  "last_updated": "2026-07-17T09:10:20.707722",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -29864,7 +29864,7 @@
     {
       "month": "2026-07",
       "city": "Plainfield",
-      "gallons": 580
+      "gallons": 620
     },
     {
       "month": "2026-07",
@@ -29910,6 +29910,16 @@
       "month": "2026-07",
       "city": "Vergennes",
       "gallons": 100
+    },
+    {
+      "month": "2026-07",
+      "city": "Waitsfield",
+      "gallons": 710
+    },
+    {
+      "month": "2026-07",
+      "city": "Warren",
+      "gallons": 255
     },
     {
       "month": "2026-07",
@@ -37486,7 +37496,7 @@
     {
       "month": "2026-07",
       "county": "Washington",
-      "gallons": 1300
+      "gallons": 2305
     },
     {
       "month": "2026-07",
@@ -37546,10 +37556,10 @@
     },
     {
       "year": 2026,
-      "gallons": 165178
+      "gallons": 166183
     }
   ],
-  "all_time_total": 2084191,
-  "current_year_total": 165178,
+  "all_time_total": 2085196,
+  "current_year_total": 166183,
   "customer_count": 815
 }

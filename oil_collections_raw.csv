@@ -12536,6 +12536,7 @@ customer_id,name,city,county,date,year,month,gallons
 1423,BBB-Load a Barrel,Plainfield,Washington,2025-05-04,2025,2025-05,2
 1410,BBB-Load Metal  Barrel with Clamping ring,Plainfield,Washington,2025-03-13,2025,2025-03,2
 1470,BBB-Screen Fitting,Plainfield,Washington,2025-11-20,2025,2025-11,2
+603,HAYBARN-Goddard College- 7532,Plainfield,Washington,2026-07-16,2026,2026-07,40
 603,HAYBARN-Goddard College- 7532,Plainfield,Washington,2026-04-20,2026,2026-04,45
 603,HAYBARN-Goddard College- 7532,Plainfield,Washington,2025-11-03,2025,2025-11,50
 603,HAYBARN-Goddard College- 7532,Plainfield,Washington,2023-10-27,2023,2023-10,60
@@ -17624,10 +17625,12 @@ customer_id,name,city,county,date,year,month,gallons
 705,Three Squares,Vergennes,Addison,2018-04-24,2018,2018-04,25
 705,Three Squares,Vergennes,Addison,2018-03-28,2018,2018-03,20
 705,Three Squares,Vergennes,Addison,2018-03-05,2018,2018-03,50
+1266,1824 House,Waitsfield,Washington,2026-07-16,2026,2026-07,20
 1266,1824 House,Waitsfield,Washington,2025-11-25,2025,2025-11,20
 1266,1824 House,Waitsfield,Washington,2025-04-23,2025,2025-04,40
 1266,1824 House,Waitsfield,Washington,2024-06-07,2024,2024-06,45
 1266,1824 House,Waitsfield,Washington,2023-06-16,2023,2023-06,50
+211,Canteen Creemee Company,Waitsfield,Washington,2026-07-16,2026,2026-07,170
 211,Canteen Creemee Company,Waitsfield,Washington,2026-05-07,2026,2026-05,80
 211,Canteen Creemee Company,Waitsfield,Washington,2026-03-02,2026,2026-03,80
 211,Canteen Creemee Company,Waitsfield,Washington,2026-01-23,2026,2026-01,30
@@ -17805,6 +17808,7 @@ customer_id,name,city,county,date,year,month,gallons
 210,Inn at Round Barn,Waitsfield,Washington,2020-08-20,2020,2020-08,50
 210,Inn at Round Barn,Waitsfield,Washington,2019-10-14,2019,2019-10,80
 210,Inn at Round Barn,Waitsfield,Washington,2016-07-28,2016,2016-07,10
+1318,Irasville County Store,Waitsfield,Washington,2026-07-16,2026,2026-07,50
 1318,Irasville County Store,Waitsfield,Washington,2026-06-12,2026,2026-06,70
 1318,Irasville County Store,Waitsfield,Washington,2026-05-01,2026,2026-05,95
 1318,Irasville County Store,Waitsfield,Washington,2026-03-02,2026,2026-03,45
@@ -17834,6 +17838,7 @@ customer_id,name,city,county,date,year,month,gallons
 1318,Irasville County Store,Waitsfield,Washington,2024-04-26,2024,2024-04,45
 1318,Irasville County Store,Waitsfield,Washington,2024-04-03,2024,2024-04,55
 1318,Irasville County Store,Waitsfield,Washington,2024-02-28,2024,2024-02,65
+208,Mad Moose/Blue Stone-Waitsfield,Waitsfield,Washington,2026-07-16,2026,2026-07,110
 208,Mad Moose/Blue Stone-Waitsfield,Waitsfield,Washington,2026-05-01,2026,2026-05,150
 208,Mad Moose/Blue Stone-Waitsfield,Waitsfield,Washington,2026-02-05,2026,2026-02,100
 208,Mad Moose/Blue Stone-Waitsfield,Waitsfield,Washington,2025-09-29,2025,2025-09,15
@@ -17933,6 +17938,7 @@ customer_id,name,city,county,date,year,month,gallons
 208,Mad Moose/Blue Stone-Waitsfield,Waitsfield,Washington,2016-04-25,2016,2016-04,68
 208,Mad Moose/Blue Stone-Waitsfield,Waitsfield,Washington,2016-03-29,2016,2016-03,45
 208,Mad Moose/Blue Stone-Waitsfield,Waitsfield,Washington,2016-03-07,2016,2016-03,80
+214,Mad River Barn,Waitsfield,Washington,2026-07-16,2026,2026-07,50
 214,Mad River Barn,Waitsfield,Washington,2026-06-12,2026,2026-06,70
 214,Mad River Barn,Waitsfield,Washington,2026-05-01,2026,2026-05,60
 214,Mad River Barn,Waitsfield,Washington,2026-03-02,2026,2026-03,40
@@ -18055,6 +18061,7 @@ customer_id,name,city,county,date,year,month,gallons
 214,Mad River Barn,Waitsfield,Washington,2015-04-06,2015,2015-04,45
 214,Mad River Barn,Waitsfield,Washington,2015-02-23,2015,2015-02,20
 214,Mad River Barn,Waitsfield,Washington,2015-01-12,2015,2015-01,22
+1219,Mad River Glen,Waitsfield,Washington,2026-07-16,2026,2026-07,90
 1219,Mad River Glen,Waitsfield,Washington,2026-06-12,2026,2026-06,80
 1219,Mad River Glen,Waitsfield,Washington,2026-05-01,2026,2026-05,40
 1219,Mad River Glen,Waitsfield,Washington,2026-03-30,2026,2026-03,110
@@ -18099,6 +18106,7 @@ customer_id,name,city,county,date,year,month,gallons
 1219,Mad River Glen,Waitsfield,Washington,2023-03-23,2023,2023-03,30
 1219,Mad River Glen,Waitsfield,Washington,2023-03-10,2023,2023-03,90
 1219,Mad River Glen,Waitsfield,Washington,2023-02-12,2023,2023-02,100
+215,Mad Taco-Waitsfield,Waitsfield,Washington,2026-07-16,2026,2026-07,45
 215,Mad Taco-Waitsfield,Waitsfield,Washington,2026-05-01,2026,2026-05,20
 215,Mad Taco-Waitsfield,Waitsfield,Washington,2026-03-02,2026,2026-03,15
 215,Mad Taco-Waitsfield,Waitsfield,Washington,2026-02-17,2026,2026-02,15
@@ -18160,6 +18168,7 @@ customer_id,name,city,county,date,year,month,gallons
 215,Mad Taco-Waitsfield,Waitsfield,Washington,2020-06-22,2020,2020-06,50
 215,Mad Taco-Waitsfield,Waitsfield,Washington,2020-06-02,2020,2020-06,15
 215,Mad Taco-Waitsfield,Waitsfield,Washington,2020-02-01,2020,2020-02,50
+212,Mehurons Supermarket,Waitsfield,Washington,2026-07-16,2026,2026-07,25
 212,Mehurons Supermarket,Waitsfield,Washington,2026-05-01,2026,2026-05,20
 212,Mehurons Supermarket,Waitsfield,Washington,2026-03-02,2026,2026-03,15
 212,Mehurons Supermarket,Waitsfield,Washington,2026-01-23,2026,2026-01,20
@@ -18237,6 +18246,7 @@ customer_id,name,city,county,date,year,month,gallons
 1321,MRD-KYLE,Waitsfield,Washington,2025-11-25,2025,2025-11,50
 1321,MRD-KYLE,Waitsfield,Washington,2025-03-06,2025,2025-03,55
 1321,MRD-KYLE,Waitsfield,Washington,2025-02-24,2025,2025-02,2
+206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2026-07-16,2026,2026-07,20
 206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2026-05-01,2026,2026-05,50
 206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2026-03-02,2026,2026-03,35
 206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2026-01-05,2026,2026-01,20
@@ -18259,6 +18269,7 @@ customer_id,name,city,county,date,year,month,gallons
 206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-06-20,2019,2019-06,25
 206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-03-12,2019,2019-03,20
 206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-02-19,2019,2019-02,20
+1269,Riders Outpost-Waitsfield,Waitsfield,Washington,2026-07-16,2026,2026-07,90
 1269,Riders Outpost-Waitsfield,Waitsfield,Washington,2026-05-01,2026,2026-05,25
 1269,Riders Outpost-Waitsfield,Waitsfield,Washington,2026-04-02,2026,2026-04,45
 1269,Riders Outpost-Waitsfield,Waitsfield,Washington,2026-03-02,2026,2026-03,65
@@ -18300,6 +18311,7 @@ customer_id,name,city,county,date,year,month,gallons
 1081,Toast and Eggs,Waitsfield,Washington,2024-06-25,2024,2024-06,45
 1081,Toast and Eggs,Waitsfield,Washington,2022-10-13,2022,2022-10,45
 1081,Toast and Eggs,Waitsfield,Washington,2021-11-10,2021,2021-11,45
+204,Village Grocery,Waitsfield,Washington,2026-07-16,2026,2026-07,40
 204,Village Grocery,Waitsfield,Washington,2026-05-15,2026,2026-05,5
 204,Village Grocery,Waitsfield,Washington,2026-05-01,2026,2026-05,10
 204,Village Grocery,Waitsfield,Washington,2026-03-02,2026,2026-03,40
@@ -18340,6 +18352,7 @@ customer_id,name,city,county,date,year,month,gallons
 204,Village Grocery,Waitsfield,Washington,2017-05-05,2017,2017-05,40
 204,Village Grocery,Waitsfield,Washington,2016-10-18,2016,2016-10,6
 204,Village Grocery,Waitsfield,Washington,2016-09-05,2016,2016-09,45
+213,Hostel Tevere,Warren,Washington,2026-07-16,2026,2026-07,40
 213,Hostel Tevere,Warren,Washington,2026-06-12,2026,2026-06,40
 213,Hostel Tevere,Warren,Washington,2026-04-02,2026,2026-04,45
 213,Hostel Tevere,Warren,Washington,2026-03-02,2026,2026-03,20
@@ -18444,6 +18457,7 @@ customer_id,name,city,county,date,year,month,gallons
 226,Paradise Provisions,Warren,Washington,2021-02-03,2021,2021-02,15
 226,Paradise Provisions,Warren,Washington,2020-10-20,2020,2020-10,110
 226,Paradise Provisions,Warren,Washington,2020-02-01,2020,2020-02,50
+219,Pitchers Inn,Warren,Washington,2026-07-16,2026,2026-07,30
 219,Pitchers Inn,Warren,Washington,2026-06-12,2026,2026-06,60
 219,Pitchers Inn,Warren,Washington,2026-03-02,2026,2026-03,25
 219,Pitchers Inn,Warren,Washington,2026-01-23,2026,2026-01,25
@@ -18505,6 +18519,7 @@ customer_id,name,city,county,date,year,month,gallons
 218,Sugarbush Inn / Fit to Be Thai’d,Warren,Washington,2019-04-22,2019,2019-04,30
 218,Sugarbush Inn / Fit to Be Thai’d,Warren,Washington,2018-11-19,2018,2018-11,20
 218,Sugarbush Inn / Fit to Be Thai’d,Warren,Washington,2018-09-26,2018,2018-09,25
+224,Sugarbush Resort,Warren,Washington,2026-07-16,2026,2026-07,110
 224,Sugarbush Resort,Warren,Washington,2026-05-01,2026,2026-05,185
 224,Sugarbush Resort,Warren,Washington,2026-04-02,2026,2026-04,270
 224,Sugarbush Resort,Warren,Washington,2026-03-30,2026,2026-03,300
@@ -18594,6 +18609,7 @@ customer_id,name,city,county,date,year,month,gallons
 224,Sugarbush Resort,Warren,Washington,2016-02-11,2016,2016-02,230
 224,Sugarbush Resort,Warren,Washington,2016-01-03,2016,2016-01,120
 224,Sugarbush Resort,Warren,Washington,2015-11-30,2015,2015-11,70
+1059,Sugarbush Resort Golf Course,Warren,Washington,2026-07-16,2026,2026-07,45
 1059,Sugarbush Resort Golf Course,Warren,Washington,2025-08-27,2025,2025-08,45
 1059,Sugarbush Resort Golf Course,Warren,Washington,2024-10-30,2024,2024-10,25
 1059,Sugarbush Resort Golf Course,Warren,Washington,2024-09-23,2024,2024-09,20
@@ -18609,6 +18625,7 @@ customer_id,name,city,county,date,year,month,gallons
 1059,Sugarbush Resort Golf Course,Warren,Washington,2022-08-05,2022,2022-08,30
 1059,Sugarbush Resort Golf Course,Warren,Washington,2022-06-29,2022,2022-06,25
 1059,Sugarbush Resort Golf Course,Warren,Washington,2021-11-29,2021,2021-11,45
+288,Warren Store,Warren,Washington,2026-07-16,2026,2026-07,30
 288,Warren Store,Warren,Washington,2026-06-12,2026,2026-06,60
 288,Warren Store,Warren,Washington,2026-03-02,2026,2026-03,25
 288,Warren Store,Warren,Washington,2026-01-23,2026,2026-01,25
