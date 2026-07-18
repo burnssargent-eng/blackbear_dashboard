@@ -1657,6 +1657,7 @@ customer_id,name,city,county,date,year,month,gallons
 1055,Tulip Bar and Cafe 50%-LOCK,Brattleboro,Windham,2022-05-11,2022,2022-05,130
 1055,Tulip Bar and Cafe 50%-LOCK,Brattleboro,Windham,2021-12-22,2021,2021-12,50
 1499,Vegan AF,Brattleboro,Windham,2026-05-10,2026,2026-05,2
+711,Bobcat Brewery,Bristol,Addison,2026-07-17,2026,2026-07,30
 711,Bobcat Brewery,Bristol,Addison,2026-06-12,2026,2026-06,35
 711,Bobcat Brewery,Bristol,Addison,2026-05-07,2026,2026-05,35
 711,Bobcat Brewery,Bristol,Addison,2026-04-02,2026,2026-04,40
@@ -1721,6 +1722,7 @@ customer_id,name,city,county,date,year,month,gallons
 711,Bobcat Brewery,Bristol,Addison,2018-06-28,2018,2018-06,75
 711,Bobcat Brewery,Bristol,Addison,2018-05-24,2018,2018-05,60
 711,Bobcat Brewery,Bristol,Addison,2018-03-28,2018,2018-03,125
+1109,Cubbers,Bristol,Addison,2026-07-17,2026,2026-07,65
 1109,Cubbers,Bristol,Addison,2026-06-12,2026,2026-06,50
 1109,Cubbers,Bristol,Addison,2026-05-07,2026,2026-05,70
 1109,Cubbers,Bristol,Addison,2026-04-02,2026,2026-04,95
@@ -1766,6 +1768,7 @@ customer_id,name,city,county,date,year,month,gallons
 1109,Cubbers,Bristol,Addison,2022-06-15,2022,2022-06,120
 1109,Cubbers,Bristol,Addison,2022-05-05,2022,2022-05,40
 1109,Cubbers,Bristol,Addison,2022-04-05,2022,2022-04,140
+1382,South Mountain Tavern,Bristol,Addison,2026-07-17,2026,2026-07,40
 1382,South Mountain Tavern,Bristol,Addison,2026-06-12,2026,2026-06,25
 1382,South Mountain Tavern,Bristol,Addison,2026-05-07,2026,2026-05,75
 1382,South Mountain Tavern,Bristol,Addison,2026-02-17,2026,2026-02,20
@@ -3596,6 +3599,7 @@ customer_id,name,city,county,date,year,month,gallons
 352,Great Northern,Burlington,Chittenden,2021-08-04,2021,2021-08,75
 352,Great Northern,Burlington,Chittenden,2021-07-05,2021,2021-07,120
 352,Great Northern,Burlington,Chittenden,2021-06-08,2021,2021-06,100
+1187,Hana-Japanese-Dorset,Burlington,Chittenden,2026-07-17,2026,2026-07,85
 1187,Hana-Japanese-Dorset,Burlington,Chittenden,2026-06-02,2026,2026-06,70
 1187,Hana-Japanese-Dorset,Burlington,Chittenden,2026-04-20,2026,2026-04,125
 1187,Hana-Japanese-Dorset,Burlington,Chittenden,2026-02-24,2026,2026-02,40
@@ -5728,6 +5732,7 @@ customer_id,name,city,county,date,year,month,gallons
 1404,ERICAS-Cambridge,Cambridge,Lamoille,2025-09-04,2025,2025-09,95
 1404,ERICAS-Cambridge,Cambridge,Lamoille,2025-07-17,2025,2025-07,95
 1404,ERICAS-Cambridge,Cambridge,Lamoille,2025-03-05,2025,2025-03,2
+1077,Backyard bistro,Charlotte,Chittenden,2026-07-17,2026,2026-07,30
 1077,Backyard bistro,Charlotte,Chittenden,2026-05-07,2026,2026-05,35
 1077,Backyard bistro,Charlotte,Chittenden,2026-01-12,2026,2026-01,10
 1077,Backyard bistro,Charlotte,Chittenden,2025-08-12,2025,2025-08,20
@@ -8780,6 +8785,7 @@ customer_id,name,city,county,date,year,month,gallons
 710,Addison County Solid Waste Management District,Middlebury,Addison,2018-05-24,2018,2018-05,50
 710,Addison County Solid Waste Management District,Middlebury,Addison,2017-09-07,2017,2017-09,50
 710,Addison County Solid Waste Management District,Middlebury,Addison,2016-10-18,2016,2016-10,100
+1346,Cravens Food Truck-Middlebury,Middlebury,Addison,2026-07-17,2026,2026-07,85
 1346,Cravens Food Truck-Middlebury,Middlebury,Addison,2026-06-12,2026,2026-06,75
 1346,Cravens Food Truck-Middlebury,Middlebury,Addison,2025-11-25,2025,2025-11,40
 1346,Cravens Food Truck-Middlebury,Middlebury,Addison,2025-10-23,2025,2025-10,40
@@ -13514,6 +13520,7 @@ customer_id,name,city,county,date,year,month,gallons
 700,Rustic Roots,Shelburne,Chittenden,2015-06-22,2015,2015-06,25
 700,Rustic Roots,Shelburne,Chittenden,2015-04-06,2015,2015-04,40
 1487,Whistle Pig-White Farmhouse,Shoreham,Addison,2026-03-18,2026,2026-03,2
+1510,Folinos Pizza-South Burlington,South Burlington,Chittenden,2026-07-17,2026,2026-07,40
 1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,Chittenden,2026-07-08,2026,2026-07,70
 1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,Chittenden,2026-06-26,2026,2026-06,50
 1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,Chittenden,2026-06-19,2026,2026-06,140
@@ -13686,6 +13693,7 @@ customer_id,name,city,county,date,year,month,gallons
 1177,Hannaford-Shelburne Rd,South Burlington,Chittenden,2022-10-24,2022,2022-10,21
 1177,Hannaford-Shelburne Rd,South Burlington,Chittenden,2022-10-03,2022,2022-10,29
 1177,Hannaford-Shelburne Rd,South Burlington,Chittenden,2022-09-13,2022,2022-09,83
+1458,Jersey Mike's-South Burlington,South Burlington,Chittenden,2026-07-17,2026,2026-07,50
 1458,Jersey Mike's-South Burlington,South Burlington,Chittenden,2026-06-02,2026,2026-06,55
 1458,Jersey Mike's-South Burlington,South Burlington,Chittenden,2026-04-28,2026,2026-04,255
 1458,Jersey Mike's-South Burlington,South Burlington,Chittenden,2025-10-15,2025,2025-10,2
@@ -17309,6 +17317,7 @@ customer_id,name,city,county,date,year,month,gallons
 1274,Basin Harbor Resort,Vergennes,Addison,2024-07-05,2024,2024-07,930
 1274,Basin Harbor Resort,Vergennes,Addison,2024-07-03,2024,2024-07,1250
 1274,Basin Harbor Resort,Vergennes,Addison,2023-08-04,2023,2023-08,750
+707,Black Sheep Bistro,Vergennes,Addison,2026-07-17,2026,2026-07,115
 707,Black Sheep Bistro,Vergennes,Addison,2025-10-23,2025,2025-10,40
 707,Black Sheep Bistro,Vergennes,Addison,2025-06-24,2025,2025-06,100
 707,Black Sheep Bistro,Vergennes,Addison,2024-12-26,2024,2024-12,60
@@ -17321,6 +17330,7 @@ customer_id,name,city,county,date,year,month,gallons
 707,Black Sheep Bistro,Vergennes,Addison,2021-07-19,2021,2021-07,75
 707,Black Sheep Bistro,Vergennes,Addison,2020-03-03,2020,2020-03,25
 707,Black Sheep Bistro,Vergennes,Addison,2020-01-14,2020,2020-01,235
+708,Collins AreospacePlace,Vergennes,Addison,2026-07-17,2026,2026-07,40
 708,Collins AreospacePlace,Vergennes,Addison,2026-05-07,2026,2026-05,25
 708,Collins AreospacePlace,Vergennes,Addison,2026-04-02,2026,2026-04,35
 708,Collins AreospacePlace,Vergennes,Addison,2026-02-17,2026,2026-02,15
@@ -17407,10 +17417,12 @@ customer_id,name,city,county,date,year,month,gallons
 1393,Northlands Job Corp,Vergennes,Addison,2025-05-29,2025,2025-05,15
 1393,Northlands Job Corp,Vergennes,Addison,2025-04-02,2025,2025-04,90
 1393,Northlands Job Corp,Vergennes,Addison,2025-01-21,2025,2025-01,2
+1441,Olsens Ice Cream,Vergennes,Addison,2026-07-17,2026,2026-07,25
 1441,Olsens Ice Cream,Vergennes,Addison,2025-10-23,2025,2025-10,7
 1441,Olsens Ice Cream,Vergennes,Addison,2025-10-23,2025,2025-10,20
 1441,Olsens Ice Cream,Vergennes,Addison,2025-08-12,2025,2025-08,20
 1441,Olsens Ice Cream,Vergennes,Addison,2025-07-20,2025,2025-07,2
+706,Park Squeeze,Vergennes,Addison,2026-07-17,2026,2026-07,35
 706,Park Squeeze,Vergennes,Addison,2026-06-12,2026,2026-06,35
 706,Park Squeeze,Vergennes,Addison,2026-05-07,2026,2026-05,35
 706,Park Squeeze,Vergennes,Addison,2026-04-30,2026,2026-04,15
@@ -17498,6 +17510,7 @@ customer_id,name,city,county,date,year,month,gallons
 706,Park Squeeze,Vergennes,Addison,2018-04-24,2018,2018-04,25
 706,Park Squeeze,Vergennes,Addison,2018-03-28,2018,2018-03,30
 706,Park Squeeze,Vergennes,Addison,2018-03-05,2018,2018-03,100
+1164,Rockers Pizzeria-1028,Vergennes,Addison,2026-07-17,2026,2026-07,90
 1164,Rockers Pizzeria-1028,Vergennes,Addison,2026-06-12,2026,2026-06,80
 1164,Rockers Pizzeria-1028,Vergennes,Addison,2026-05-07,2026,2026-05,30
 1164,Rockers Pizzeria-1028,Vergennes,Addison,2026-04-30,2026,2026-04,50
@@ -17546,6 +17559,7 @@ customer_id,name,city,county,date,year,month,gallons
 1164,Rockers Pizzeria-1028,Vergennes,Addison,2022-09-26,2022,2022-09,55
 1164,Rockers Pizzeria-1028,Vergennes,Addison,2022-09-09,2022,2022-09,50
 1164,Rockers Pizzeria-1028,Vergennes,Addison,2022-08-25,2022,2022-08,200
+705,Three Squares,Vergennes,Addison,2026-07-17,2026,2026-07,100
 705,Three Squares,Vergennes,Addison,2026-06-12,2026,2026-06,75
 705,Three Squares,Vergennes,Addison,2026-05-07,2026,2026-05,55
 705,Three Squares,Vergennes,Addison,2026-04-30,2026,2026-04,15
@@ -20469,6 +20483,7 @@ customer_id,name,city,county,date,year,month,gallons
 406,Auryvedic spa,Williston,Chittenden,2022-08-17,2022,2022-08,50
 406,Auryvedic spa,Williston,Chittenden,2022-02-17,2022,2022-02,40
 406,Auryvedic spa,Williston,Chittenden,2020-09-29,2020,2020-09,55
+403,Bliss Bee -Williston-(300),Williston,Chittenden,2026-07-17,2026,2026-07,90
 403,Bliss Bee -Williston-(300),Williston,Chittenden,2026-07-01,2026,2026-07,150
 403,Bliss Bee -Williston-(300),Williston,Chittenden,2026-06-08,2026,2026-06,180
 403,Bliss Bee -Williston-(300),Williston,Chittenden,2026-05-14,2026,2026-05,110
@@ -21028,6 +21043,7 @@ customer_id,name,city,county,date,year,month,gallons
 1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2025-04-28,2025,2025-04,50
 1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2025-04-15,2025,2025-04,80
 1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2025-03-09,2025,2025-03,2
+434,Asian Bistro-Winooski,Winooski,Chittenden,2026-07-17,2026,2026-07,70
 434,Asian Bistro-Winooski,Winooski,Chittenden,2026-05-01,2026,2026-05,40
 434,Asian Bistro-Winooski,Winooski,Chittenden,2026-03-19,2026,2026-03,60
 434,Asian Bistro-Winooski,Winooski,Chittenden,2026-01-21,2026,2026-01,65
@@ -21828,6 +21844,7 @@ customer_id,name,city,county,date,year,month,gallons
 1135,Waterworks-Winooski,Winooski,Chittenden,2022-09-22,2022,2022-09,70
 1135,Waterworks-Winooski,Winooski,Chittenden,2022-08-25,2022,2022-08,100
 1135,Waterworks-Winooski,Winooski,Chittenden,2022-07-25,2022,2022-07,50
+1517,Zero Point Market-Winooski,Winooski,Chittenden,2026-07-17,2026,2026-07,50
 1517,Zero Point Market-Winooski,Winooski,Chittenden,2026-07-14,2026,2026-07,2
 500,Wolcott General Store,Wolcott,Lamoille,2026-06-25,2026,2026-06,40
 500,Wolcott General Store,Wolcott,Lamoille,2026-05-27,2026,2026-05,40

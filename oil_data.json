@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-17T09:10:20.707722",
+  "last_updated": "2026-07-18T08:50:43.909412",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -29733,13 +29733,18 @@
     },
     {
       "month": "2026-07",
+      "city": "Bristol",
+      "gallons": 135
+    },
+    {
+      "month": "2026-07",
       "city": "Burlington",
-      "gallons": 3155
+      "gallons": 3240
     },
     {
       "month": "2026-07",
       "city": "Charlotte",
-      "gallons": 145
+      "gallons": 175
     },
     {
       "month": "2026-07",
@@ -29824,7 +29829,7 @@
     {
       "month": "2026-07",
       "city": "Middlebury",
-      "gallons": 325
+      "gallons": 410
     },
     {
       "month": "2026-07",
@@ -29884,7 +29889,7 @@
     {
       "month": "2026-07",
       "city": "South Burlington",
-      "gallons": 415
+      "gallons": 505
     },
     {
       "month": "2026-07",
@@ -29909,7 +29914,7 @@
     {
       "month": "2026-07",
       "city": "Vergennes",
-      "gallons": 100
+      "gallons": 505
     },
     {
       "month": "2026-07",
@@ -29934,12 +29939,12 @@
     {
       "month": "2026-07",
       "city": "Williston",
-      "gallons": 570
+      "gallons": 660
     },
     {
       "month": "2026-07",
       "city": "Winooski",
-      "gallons": 637
+      "gallons": 757
     },
     {
       "month": "2026-07",
@@ -37446,7 +37451,7 @@
     {
       "month": "2026-07",
       "county": "Addison",
-      "gallons": 425
+      "gallons": 1050
     },
     {
       "month": "2026-07",
@@ -37461,7 +37466,7 @@
     {
       "month": "2026-07",
       "county": "Chittenden",
-      "gallons": 7667
+      "gallons": 8082
     },
     {
       "month": "2026-07",
@@ -37556,10 +37561,10 @@
     },
     {
       "year": 2026,
-      "gallons": 166183
+      "gallons": 167223
     }
   ],
-  "all_time_total": 2085196,
-  "current_year_total": 166183,
-  "customer_count": 815
+  "all_time_total": 2086236,
+  "current_year_total": 167223,
+  "customer_count": 816
 }
