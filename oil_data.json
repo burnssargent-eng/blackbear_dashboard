@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-20T09:59:22.664202",
+  "last_updated": "2026-07-21T09:29:09.960044",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -29714,7 +29714,7 @@
     {
       "month": "2026-07",
       "city": "Barre",
-      "gallons": 165
+      "gallons": 595
     },
     {
       "month": "2026-07",
@@ -29770,6 +29770,11 @@
       "month": "2026-07",
       "city": "Essex Junction",
       "gallons": 75
+    },
+    {
+      "month": "2026-07",
+      "city": "Graniteville",
+      "gallons": 30
     },
     {
       "month": "2026-07",
@@ -29864,7 +29869,7 @@
     {
       "month": "2026-07",
       "city": "Northfield",
-      "gallons": 150
+      "gallons": 455
     },
     {
       "month": "2026-07",
@@ -29935,6 +29940,11 @@
       "month": "2026-07",
       "city": "West Lebanon",
       "gallons": 251
+    },
+    {
+      "month": "2026-07",
+      "city": "Williamstown",
+      "gallons": 200
     },
     {
       "month": "2026-07",
@@ -37501,7 +37511,7 @@
     {
       "month": "2026-07",
       "county": "Washington",
-      "gallons": 2305
+      "gallons": 3270
     },
     {
       "month": "2026-07",
@@ -37561,10 +37571,10 @@
     },
     {
       "year": 2026,
-      "gallons": 167223
+      "gallons": 168188
     }
   ],
-  "all_time_total": 2086236,
-  "current_year_total": 167223,
+  "all_time_total": 2087201,
+  "current_year_total": 168188,
   "customer_count": 816
 }

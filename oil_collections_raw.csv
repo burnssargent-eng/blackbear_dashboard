@@ -46,6 +46,7 @@ customer_id,name,city,county,date,year,month,gallons
 1333,Barnard Inn,Barnard,Windsor,2024-11-25,2024,2024-11,45
 1333,Barnard Inn,Barnard,Windsor,2024-08-07,2024,2024-08,20
 1333,Barnard Inn,Barnard,Windsor,2024-05-09,2024,2024-05,20
+1082,Arandas Mexican-Barre,Barre,Washington,2026-07-20,2026,2026-07,35
 1082,Arandas Mexican-Barre,Barre,Washington,2026-05-29,2026,2026-05,45
 1082,Arandas Mexican-Barre,Barre,Washington,2026-04-02,2026,2026-04,80
 1082,Arandas Mexican-Barre,Barre,Washington,2026-02-03,2026,2026-02,10
@@ -64,6 +65,7 @@ customer_id,name,city,county,date,year,month,gallons
 1082,Arandas Mexican-Barre,Barre,Washington,2022-08-19,2022,2022-08,50
 1082,Arandas Mexican-Barre,Barre,Washington,2022-04-06,2022,2022-04,40
 1082,Arandas Mexican-Barre,Barre,Washington,2021-12-27,2021,2021-12,40
+113,Asia Gourmet-Barre,Barre,Washington,2026-07-20,2026,2026-07,50
 113,Asia Gourmet-Barre,Barre,Washington,2026-06-25,2026,2026-06,90
 113,Asia Gourmet-Barre,Barre,Washington,2026-05-29,2026,2026-05,40
 113,Asia Gourmet-Barre,Barre,Washington,2026-05-08,2026,2026-05,50
@@ -180,6 +182,7 @@ customer_id,name,city,county,date,year,month,gallons
 113,Asia Gourmet-Barre,Barre,Washington,2017-09-28,2017,2017-09,60
 113,Asia Gourmet-Barre,Barre,Washington,2017-09-07,2017,2017-09,125
 1365,Aubuchon Barre-Ken,Barre,Washington,2024-08-07,2024,2024-08,2
+110,Canadian Club,Barre,Washington,2026-07-20,2026,2026-07,20
 110,Canadian Club,Barre,Washington,2026-05-29,2026,2026-05,75
 110,Canadian Club,Barre,Washington,2026-03-25,2026,2026-03,15
 110,Canadian Club,Barre,Washington,2026-01-14,2026,2026-01,15
@@ -211,6 +214,7 @@ customer_id,name,city,county,date,year,month,gallons
 110,Canadian Club,Barre,Washington,2017-05-17,2017,2017-05,50
 110,Canadian Club,Barre,Washington,2016-04-16,2016,2016-04,25
 110,Canadian Club,Barre,Washington,2016-03-12,2016,2016-03,45
+115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2026-07-20,2026,2026-07,45
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2026-06-30,2026,2026-06,80
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2026-05-29,2026,2026-05,65
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2026-04-29,2026,2026-04,75
@@ -416,6 +420,7 @@ customer_id,name,city,county,date,year,month,gallons
 1128,Hannaford-South Barre,Barre,Washington,2022-08-23,2022,2022-08,114
 1128,Hannaford-South Barre,Barre,Washington,2022-07-26,2022,2022-07,85
 1128,Hannaford-South Barre,Barre,Washington,2022-06-29,2022,2022-06,110
+117,Ladder 1-Barre,Barre,Washington,2026-07-20,2026,2026-07,40
 117,Ladder 1-Barre,Barre,Washington,2026-06-25,2026,2026-06,40
 117,Ladder 1-Barre,Barre,Washington,2026-05-29,2026,2026-05,40
 117,Ladder 1-Barre,Barre,Washington,2026-05-08,2026,2026-05,45
@@ -578,6 +583,7 @@ customer_id,name,city,county,date,year,month,gallons
 1380,Masonic Lodge-Barre,Barre,Washington,2025-01-11,2025,2025-01,35
 1380,Masonic Lodge-Barre,Barre,Washington,2024-10-16,2024,2024-10,2
 1204,McLeods,Barre,Washington,2024-08-07,2024,2024-08,2
+112,Mulligans-Barre,Barre,Washington,2026-07-20,2026,2026-07,80
 112,Mulligans-Barre,Barre,Washington,2026-07-10,2026,2026-07,130
 112,Mulligans-Barre,Barre,Washington,2026-06-25,2026,2026-06,110
 112,Mulligans-Barre,Barre,Washington,2026-06-11,2026,2026-06,90
@@ -771,6 +777,7 @@ customer_id,name,city,county,date,year,month,gallons
 118,Spaulding High School,Barre,Washington,2017-05-17,2017,2017-05,100
 118,Spaulding High School,Barre,Washington,2016-06-27,2016,2016-06,30
 118,Spaulding High School,Barre,Washington,2015-10-13,2015,2015-10,20
+1401,Tasty Bites,Barre,Washington,2026-07-20,2026,2026-07,30
 1401,Tasty Bites,Barre,Washington,2026-06-30,2026,2026-06,60
 1401,Tasty Bites,Barre,Washington,2026-05-29,2026,2026-05,30
 1401,Tasty Bites,Barre,Washington,2026-05-08,2026,2026-05,20
@@ -828,6 +835,7 @@ customer_id,name,city,county,date,year,month,gallons
 127,The Meltdown-Barre,Barre,Washington,2021-05-04,2021,2021-05,65
 127,The Meltdown-Barre,Barre,Washington,2021-01-13,2021,2021-01,25
 127,The Meltdown-Barre,Barre,Washington,2020-11-12,2020,2020-11,60
+125,The Quarry-Barre,Barre,Washington,2026-07-20,2026,2026-07,65
 125,The Quarry-Barre,Barre,Washington,2026-06-25,2026,2026-06,45
 125,The Quarry-Barre,Barre,Washington,2026-05-29,2026,2026-05,55
 125,The Quarry-Barre,Barre,Washington,2026-05-08,2026,2026-05,75
@@ -924,6 +932,7 @@ customer_id,name,city,county,date,year,month,gallons
 125,The Quarry-Barre,Barre,Washington,2019-08-19,2019,2019-08,100
 125,The Quarry-Barre,Barre,Washington,2019-07-30,2019,2019-07,80
 125,The Quarry-Barre,Barre,Washington,2019-07-01,2019,2019-07,125
+119,Thunder Road  4567,Barre,Washington,2026-07-20,2026,2026-07,65
 119,Thunder Road  4567,Barre,Washington,2026-06-25,2026,2026-06,120
 119,Thunder Road  4567,Barre,Washington,2025-10-10,2025,2025-10,145
 119,Thunder Road  4567,Barre,Washington,2025-09-15,2025,2025-09,105
@@ -7210,6 +7219,7 @@ customer_id,name,city,county,date,year,month,gallons
 1378,Multitude Take Away-Gilman,Gilman,Essex,2025-05-05,2025,2025-05,95
 1378,Multitude Take Away-Gilman,Gilman,Essex,2024-10-16,2024,2024-10,60
 1378,Multitude Take Away-Gilman,Gilman,Essex,2024-10-12,2024,2024-10,2
+124,Graniteville General,Graniteville,Washington,2026-07-20,2026,2026-07,30
 124,Graniteville General,Graniteville,Washington,2026-06-25,2026,2026-06,30
 124,Graniteville General,Graniteville,Washington,2026-05-08,2026,2026-05,65
 124,Graniteville General,Graniteville,Washington,2026-02-03,2026,2026-02,45
@@ -12032,6 +12042,7 @@ customer_id,name,city,county,date,year,month,gallons
 1165,Toasted Bun-North Troy,North Troy,Orleans,2023-05-11,2023,2023-05,20
 1165,Toasted Bun-North Troy,North Troy,Orleans,2023-04-26,2023,2023-04,100
 1165,Toasted Bun-North Troy,North Troy,Orleans,2022-09-07,2022,2022-09,395
+1390,Folignos Pizza-Northfield,Northfield,Washington,2026-07-20,2026,2026-07,70
 1390,Folignos Pizza-Northfield,Northfield,Washington,2026-06-17,2026,2026-06,35
 1390,Folignos Pizza-Northfield,Northfield,Washington,2026-05-19,2026,2026-05,80
 1390,Folignos Pizza-Northfield,Northfield,Washington,2026-04-29,2026,2026-04,140
@@ -12054,6 +12065,7 @@ customer_id,name,city,county,date,year,month,gallons
 1390,Folignos Pizza-Northfield,Northfield,Washington,2025-02-18,2025,2025-02,20
 1390,Folignos Pizza-Northfield,Northfield,Washington,2025-01-29,2025,2025-01,10
 1390,Folignos Pizza-Northfield,Northfield,Washington,2025-01-11,2025,2025-01,2
+161,GOOD MEASURE!!!!-(1980),Northfield,Washington,2026-07-20,2026,2026-07,80
 161,GOOD MEASURE!!!!-(1980),Northfield,Washington,2026-07-06,2026,2026-07,150
 161,GOOD MEASURE!!!!-(1980),Northfield,Washington,2026-06-17,2026,2026-06,130
 161,GOOD MEASURE!!!!-(1980),Northfield,Washington,2026-05-27,2026,2026-05,65
@@ -12199,6 +12211,7 @@ customer_id,name,city,county,date,year,month,gallons
 161,GOOD MEASURE!!!!-(1980),Northfield,Washington,2016-05-23,2016,2016-05,35
 161,GOOD MEASURE!!!!-(1980),Northfield,Washington,2016-04-30,2016,2016-04,50
 161,GOOD MEASURE!!!!-(1980),Northfield,Washington,2016-04-02,2016,2016-04,50
+159,Northfield Pizza/ Depot Square 50%,Northfield,Washington,2026-07-20,2026,2026-07,25
 159,Northfield Pizza/ Depot Square 50%,Northfield,Washington,2026-06-17,2026,2026-06,30
 159,Northfield Pizza/ Depot Square 50%,Northfield,Washington,2026-05-27,2026,2026-05,20
 159,Northfield Pizza/ Depot Square 50%,Northfield,Washington,2026-04-29,2026,2026-04,40
@@ -12255,6 +12268,7 @@ customer_id,name,city,county,date,year,month,gallons
 159,Northfield Pizza/ Depot Square 50%,Northfield,Washington,2018-06-01,2018,2018-06,25
 159,Northfield Pizza/ Depot Square 50%,Northfield,Washington,2018-03-28,2018,2018-03,50
 159,Northfield Pizza/ Depot Square 50%,Northfield,Washington,2017-11-02,2017,2017-11,20
+162,O'Maddis 50%,Northfield,Washington,2026-07-20,2026,2026-07,25
 162,O'Maddis 50%,Northfield,Washington,2026-06-17,2026,2026-06,30
 162,O'Maddis 50%,Northfield,Washington,2026-05-27,2026,2026-05,20
 162,O'Maddis 50%,Northfield,Washington,2026-04-29,2026,2026-04,40
@@ -12355,6 +12369,7 @@ customer_id,name,city,county,date,year,month,gallons
 162,O'Maddis 50%,Northfield,Washington,2016-03-07,2016,2016-03,90
 162,O'Maddis 50%,Northfield,Washington,2016-02-10,2016,2016-02,70
 162,O'Maddis 50%,Northfield,Washington,2015-11-30,2015,2015-11,45
+163,Shady's Deli,Northfield,Washington,2026-07-20,2026,2026-07,40
 163,Shady's Deli,Northfield,Washington,2026-04-29,2026,2026-04,65
 163,Shady's Deli,Northfield,Washington,2026-02-05,2026,2026-02,25
 163,Shady's Deli,Northfield,Washington,2025-10-20,2025,2025-10,40
@@ -12382,6 +12397,7 @@ customer_id,name,city,county,date,year,month,gallons
 163,Shady's Deli,Northfield,Washington,2016-07-02,2016,2016-07,20
 163,Shady's Deli,Northfield,Washington,2016-04-02,2016,2016-04,75
 163,Shady's Deli,Northfield,Washington,2015-04-15,2015,2015-04,65
+1419,THE STIC// old RUSTIC-Northfield,Northfield,Washington,2026-07-20,2026,2026-07,65
 1419,THE STIC// old RUSTIC-Northfield,Northfield,Washington,2026-06-12,2026,2026-06,85
 1419,THE STIC// old RUSTIC-Northfield,Northfield,Washington,2026-06-04,2026,2026-06,55
 1419,THE STIC// old RUSTIC-Northfield,Northfield,Washington,2026-05-27,2026,2026-05,40
@@ -20284,6 +20300,7 @@ customer_id,name,city,county,date,year,month,gallons
 1416,Tata,Whiting,Addison,2025-04-24,2025,2025-04,275
 1416,Tata,Whiting,Addison,2025-04-09,2025,2025-04,1950
 1416,Tata,Whiting,Addison,2025-03-28,2025,2025-03,2
+102,The Den/Roadhouse-Williamstown,Williamstown,Washington,2026-07-20,2026,2026-07,90
 102,The Den/Roadhouse-Williamstown,Williamstown,Washington,2026-05-19,2026,2026-05,80
 102,The Den/Roadhouse-Williamstown,Williamstown,Washington,2026-03-20,2026,2026-03,80
 102,The Den/Roadhouse-Williamstown,Williamstown,Washington,2026-02-03,2026,2026-02,30
@@ -20321,6 +20338,7 @@ customer_id,name,city,county,date,year,month,gallons
 102,The Den/Roadhouse-Williamstown,Williamstown,Washington,2021-09-13,2021,2021-09,50
 102,The Den/Roadhouse-Williamstown,Williamstown,Washington,2021-07-13,2021,2021-07,75
 102,The Den/Roadhouse-Williamstown,Williamstown,Washington,2021-05-18,2021,2021-05,25
+101,The Pub-Williamstown,Williamstown,Washington,2026-07-20,2026,2026-07,110
 101,The Pub-Williamstown,Williamstown,Washington,2026-05-19,2026,2026-05,85
 101,The Pub-Williamstown,Williamstown,Washington,2026-03-20,2026,2026-03,120
 101,The Pub-Williamstown,Williamstown,Washington,2025-12-27,2025,2025-12,60
