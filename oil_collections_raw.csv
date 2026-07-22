@@ -1503,6 +1503,7 @@ customer_id,name,city,county,date,year,month,gallons
 803,Toziers-,Bethel,Windsor,2016-08-17,2016,2016-08,75
 803,Toziers-,Bethel,Windsor,2016-08-03,2016,2016-08,25
 803,Toziers-,Bethel,Windsor,2016-07-28,2016,2016-07,40
+1506,NH State Penitentiary,Burlington,Chittenden,2026-07-21,2026,2026-07,145
 279,Bolton Valley,Bolton Valley,Chittenden,2026-03-17,2026,2026-03,300
 279,Bolton Valley,Bolton Valley,Chittenden,2026-02-10,2026,2026-02,260
 279,Bolton Valley,Bolton Valley,Chittenden,2026-01-06,2026,2026-01,265
@@ -5715,6 +5716,7 @@ customer_id,name,city,county,date,year,month,gallons
 1134,Willows Bagels,Burlington,Chittenden,2022-11-09,2022,2022-11,40
 1134,Willows Bagels,Burlington,Chittenden,2022-09-16,2022,2022-09,45
 606,Cabot Village Store,Cabot,Caledonia,2017-03-30,2017,2017-03,15
+1280,JETS BRUNCH/Headwaters-Cabot,Cabot,Caledonia,2026-07-21,2026,2026-07,50
 1280,JETS BRUNCH/Headwaters-Cabot,Cabot,Caledonia,2026-05-04,2026,2026-05,65
 1280,JETS BRUNCH/Headwaters-Cabot,Cabot,Caledonia,2024-02-21,2024,2024-02,40
 1280,JETS BRUNCH/Headwaters-Cabot,Cabot,Caledonia,2023-12-12,2023,2023-12,30
@@ -6204,6 +6206,7 @@ customer_id,name,city,county,date,year,month,gallons
 1433,Three Brothers Pizza-Colchester,Colchester,Chittenden,2025-07-03,2025,2025-07,20
 1433,Three Brothers Pizza-Colchester,Colchester,Chittenden,2025-05-30,2025,2025-05,85
 1433,Three Brothers Pizza-Colchester,Colchester,Chittenden,2025-05-20,2025,2025-05,2
+1349,"Concord, Vt Gas Station",Concord,Caledonia,2026-07-21,2026,2026-07,50
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2026-06-19,2026,2026-06,60
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2026-05-04,2026,2026-05,60
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2026-03-19,2026,2026-03,55
@@ -6219,6 +6222,7 @@ customer_id,name,city,county,date,year,month,gallons
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2024-11-07,2024,2024-11,85
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2024-08-21,2024,2024-08,50
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2024-06-06,2024,2024-06,2
+617,Moose Look Diner,Concord,Caledonia,2026-07-21,2026,2026-07,60
 617,Moose Look Diner,Concord,Caledonia,2026-06-19,2026,2026-06,110
 617,Moose Look Diner,Concord,Caledonia,2026-05-04,2026,2026-05,90
 617,Moose Look Diner,Concord,Caledonia,2026-03-19,2026,2026-03,70
@@ -6327,6 +6331,7 @@ customer_id,name,city,county,date,year,month,gallons
 520,Sterling College - Craftsbury,Craftsbury Common,Caledonia,2019-06-29,2019,2019-06,60
 520,Sterling College - Craftsbury,Craftsbury Common,Caledonia,2018-08-24,2018,2018-08,100
 1490,Under Canvas Camping,Dalton,Out-of-State (NH),2026-03-23,2026,2026-03,2
+610,GoodFellas-Danville,Danville,Caledonia,2026-07-21,2026,2026-07,50
 610,GoodFellas-Danville,Danville,Caledonia,2026-06-19,2026,2026-06,50
 610,GoodFellas-Danville,Danville,Caledonia,2026-05-04,2026,2026-05,150
 610,GoodFellas-Danville,Danville,Caledonia,2026-03-19,2026,2026-03,90
@@ -6398,6 +6403,7 @@ customer_id,name,city,county,date,year,month,gallons
 610,GoodFellas-Danville,Danville,Caledonia,2017-12-07,2017,2017-12,70
 610,GoodFellas-Danville,Danville,Caledonia,2017-09-03,2017,2017-09,35
 610,GoodFellas-Danville,Danville,Caledonia,2017-08-03,2017,2017-08,50
+1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2026-07-21,2026,2026-07,20
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2026-06-19,2026,2026-06,25
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2026-05-22,2026,2026-05,45
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2026-03-19,2026,2026-03,50
@@ -6422,6 +6428,7 @@ customer_id,name,city,county,date,year,month,gallons
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2022-05-16,2022,2022-05,60
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2022-02-23,2022,2022-02,25
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2022-01-03,2022,2022-01,30
+611,Three Ponds,Danville,Caledonia,2026-07-21,2026,2026-07,40
 611,Three Ponds,Danville,Caledonia,2026-06-19,2026,2026-06,75
 611,Three Ponds,Danville,Caledonia,2026-05-04,2026,2026-05,40
 611,Three Ponds,Danville,Caledonia,2026-03-19,2026,2026-03,20
@@ -7214,11 +7221,6 @@ customer_id,name,city,county,date,year,month,gallons
 1304,Lake Morley Resort,Fairlee,Orange,2024-05-30,2024,2024-05,60
 1304,Lake Morley Resort,Fairlee,Orange,2024-03-12,2024,2024-03,50
 1304,Lake Morley Resort,Fairlee,Orange,2024-01-05,2024,2024-01,200
-1378,Multitude Take Away-Gilman,Gilman,Essex,2026-04-24,2026,2026-04,110
-1378,Multitude Take Away-Gilman,Gilman,Essex,2025-08-18,2025,2025-08,10
-1378,Multitude Take Away-Gilman,Gilman,Essex,2025-05-05,2025,2025-05,95
-1378,Multitude Take Away-Gilman,Gilman,Essex,2024-10-16,2024,2024-10,60
-1378,Multitude Take Away-Gilman,Gilman,Essex,2024-10-12,2024,2024-10,2
 124,Graniteville General,Graniteville,Washington,2026-07-20,2026,2026-07,30
 124,Graniteville General,Graniteville,Washington,2026-06-25,2026,2026-06,30
 124,Graniteville General,Graniteville,Washington,2026-05-08,2026,2026-05,65
@@ -14082,6 +14084,7 @@ customer_id,name,city,county,date,year,month,gallons
 1493,Pizza Hut-St Albans,St Albans,Franklin,2026-06-02,2026,2026-06,20
 1493,Pizza Hut-St Albans,St Albans,Franklin,2026-05-12,2026,2026-05,90
 1493,Pizza Hut-St Albans,St Albans,Franklin,2026-03-31,2026,2026-03,2
+1507,St Johnsbury Country Club,Burlington,Chittenden,2026-07-21,2026,2026-07,50
 1507,St Johnsbury Country Club,Burlington,Chittenden,2026-06-19,2026,2026-06,40
 1155,Hannafords-St Albans,St. Albans,Franklin,2026-06-02,2026,2026-06,64
 1155,Hannafords-St Albans,St. Albans,Franklin,2026-04-09,2026,2026-04,126
@@ -14301,6 +14304,7 @@ customer_id,name,city,county,date,year,month,gallons
 1429,Rail City Grill,St. Albans City,Franklin,2025-08-01,2025,2025-08,65
 1429,Rail City Grill,St. Albans City,Franklin,2025-07-11,2025,2025-07,85
 1429,Rail City Grill,St. Albans City,Franklin,2025-05-14,2025,2025-05,2
+1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2026-07-21,2026,2026-07,105
 1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2026-05-22,2026,2026-05,30
 1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2026-05-04,2026,2026-05,95
 1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2026-04-10,2026,2026-04,90
@@ -14353,6 +14357,7 @@ customer_id,name,city,county,date,year,month,gallons
 1080,JavierBillsAlmostMexican/PicaPica,St. Johnsbury,Caledonia,2023-09-27,2023,2023-09,30
 1080,JavierBillsAlmostMexican/PicaPica,St. Johnsbury,Caledonia,2022-12-22,2022,2022-12,40
 1080,JavierBillsAlmostMexican/PicaPica,St. Johnsbury,Caledonia,2021-11-09,2021,2021-11,60
+1415,The Buttery,St. Johnsbury,Caledonia,2026-07-21,2026,2026-07,15
 1415,The Buttery,St. Johnsbury,Caledonia,2026-06-19,2026,2026-06,15
 1415,The Buttery,St. Johnsbury,Caledonia,2026-05-04,2026,2026-05,20
 1415,The Buttery,St. Johnsbury,Caledonia,2026-03-19,2026,2026-03,40
@@ -24599,6 +24604,12 @@ customer_id,name,city,county,date,year,month,gallons
 713,Mr. Up's,Middlebury,Addison,2018-04-24,2018,2018-04,75
 713,Mr. Up's,Middlebury,Addison,2018-03-28,2018,2018-03,75
 713,Mr. Up's,Middlebury,Addison,2018-03-05,2018,2018-03,225
+1378,Multitude Take Away-Gilman,Gilman,Essex,2026-07-21,2026,2026-07,7
+1378,Multitude Take Away-Gilman,Gilman,Essex,2026-04-24,2026,2026-04,110
+1378,Multitude Take Away-Gilman,Gilman,Essex,2025-08-18,2025,2025-08,10
+1378,Multitude Take Away-Gilman,Gilman,Essex,2025-05-05,2025,2025-05,95
+1378,Multitude Take Away-Gilman,Gilman,Essex,2024-10-16,2024,2024-10,60
+1378,Multitude Take Away-Gilman,Gilman,Essex,2024-10-12,2024,2024-10,2
 1184,Mutuo Club,Barre,Washington,2024-06-11,2024,2024-06,15
 440,Neil Solis,Burlington,Chittenden,2018-04-17,2018,2018-04,25
 440,Neil Solis,Burlington,Chittenden,2017-08-26,2017,2017-08,24

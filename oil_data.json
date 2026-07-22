@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-21T09:29:09.960044",
+  "last_updated": "2026-07-22T09:29:25.129600",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -29739,7 +29739,12 @@
     {
       "month": "2026-07",
       "city": "Burlington",
-      "gallons": 3240
+      "gallons": 3435
+    },
+    {
+      "month": "2026-07",
+      "city": "Cabot",
+      "gallons": 50
     },
     {
       "month": "2026-07",
@@ -29750,6 +29755,16 @@
       "month": "2026-07",
       "city": "Colchester",
       "gallons": 410
+    },
+    {
+      "month": "2026-07",
+      "city": "Concord",
+      "gallons": 110
+    },
+    {
+      "month": "2026-07",
+      "city": "Danville",
+      "gallons": 110
     },
     {
       "month": "2026-07",
@@ -29770,6 +29785,11 @@
       "month": "2026-07",
       "city": "Essex Junction",
       "gallons": 75
+    },
+    {
+      "month": "2026-07",
+      "city": "Gilman",
+      "gallons": 7
     },
     {
       "month": "2026-07",
@@ -29905,6 +29925,11 @@
       "month": "2026-07",
       "city": "South Royalton",
       "gallons": 40
+    },
+    {
+      "month": "2026-07",
+      "city": "St. Johnsbury",
+      "gallons": 120
     },
     {
       "month": "2026-07",
@@ -37471,12 +37496,17 @@
     {
       "month": "2026-07",
       "county": "Caledonia",
-      "gallons": 327
+      "gallons": 717
     },
     {
       "month": "2026-07",
       "county": "Chittenden",
-      "gallons": 8082
+      "gallons": 8277
+    },
+    {
+      "month": "2026-07",
+      "county": "Essex",
+      "gallons": 7
     },
     {
       "month": "2026-07",
@@ -37571,10 +37601,10 @@
     },
     {
       "year": 2026,
-      "gallons": 168188
+      "gallons": 168780
     }
   ],
-  "all_time_total": 2087201,
-  "current_year_total": 168188,
-  "customer_count": 816
+  "all_time_total": 2087793,
+  "current_year_total": 168780,
+  "customer_count": 817
 }
