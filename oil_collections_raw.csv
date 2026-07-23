@@ -9726,11 +9726,13 @@ customer_id,name,city,county,date,year,month,gallons
 1376,Arandas-Montpelier,Montpelier,Washington,2024-12-13,2024,2024-12,30
 1376,Arandas-Montpelier,Montpelier,Washington,2024-11-14,2024,2024-11,30
 1366,Barr Hill -Load,Montpelier,Washington,2024-08-08,2024,2024-08,2
+1489,Barr Hill -OIL collection,Montpelier,Washington,2026-07-22,2026,2026-07,30
 1489,Barr Hill -OIL collection,Montpelier,Washington,2026-06-26,2026,2026-06,50
 1489,Barr Hill -OIL collection,Montpelier,Washington,2026-05-29,2026,2026-05,40
 1489,Barr Hill -OIL collection,Montpelier,Washington,2026-05-07,2026,2026-05,35
 1489,Barr Hill -OIL collection,Montpelier,Washington,2026-04-20,2026,2026-04,50
 1489,Barr Hill -OIL collection,Montpelier,Washington,2026-03-20,2026,2026-03,2
+147,Buddy's Famous Burgers,Montpelier,Washington,2026-07-22,2026,2026-07,75
 147,Buddy's Famous Burgers,Montpelier,Washington,2026-06-29,2026,2026-06,120
 147,Buddy's Famous Burgers,Montpelier,Washington,2026-05-29,2026,2026-05,30
 147,Buddy's Famous Burgers,Montpelier,Washington,2026-05-12,2026,2026-05,85
@@ -9824,6 +9826,7 @@ customer_id,name,city,county,date,year,month,gallons
 147,Buddy's Famous Burgers,Montpelier,Washington,2018-05-15,2018,2018-05,150
 147,Buddy's Famous Burgers,Montpelier,Washington,2018-04-02,2018,2018-04,75
 147,Buddy's Famous Burgers,Montpelier,Washington,2018-03-05,2018,2018-03,75
+1315,CHICOS MontP/The Filibuster Cafe,Montpelier,Washington,2026-07-22,2026,2026-07,15
 1315,CHICOS MontP/The Filibuster Cafe,Montpelier,Washington,2026-06-29,2026,2026-06,20
 1315,CHICOS MontP/The Filibuster Cafe,Montpelier,Washington,2026-05-29,2026,2026-05,10
 1315,CHICOS MontP/The Filibuster Cafe,Montpelier,Washington,2026-04-29,2026,2026-04,40
@@ -9953,6 +9956,7 @@ customer_id,name,city,county,date,year,month,gallons
 1100,Hugo’s ~,Montpelier,Washington,2022-03-22,2022,2022-03,60
 1100,Hugo’s ~,Montpelier,Washington,2022-03-09,2022,2022-03,55
 1100,Hugo’s ~,Montpelier,Washington,2022-02-24,2022,2022-02,40
+1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2026-07-22,2026,2026-07,50
 1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2026-06-29,2026,2026-06,50
 1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2026-06-12,2026,2026-06,70
 1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2026-05-12,2026,2026-05,35
@@ -10179,6 +10183,7 @@ customer_id,name,city,county,date,year,month,gallons
 1209,MJH Massage,Montpelier,Washington,2024-09-24,2024,2024-09,10
 1209,MJH Massage,Montpelier,Washington,2023-08-09,2023,2023-08,10
 1209,MJH Massage,Montpelier,Washington,2023-01-18,2023,2023-01,7
+131,Namaste ~ 33%,Montpelier,Washington,2026-07-22,2026,2026-07,80
 131,Namaste ~ 33%,Montpelier,Washington,2026-06-29,2026,2026-06,90
 131,Namaste ~ 33%,Montpelier,Washington,2026-05-29,2026,2026-05,33
 131,Namaste ~ 33%,Montpelier,Washington,2026-05-12,2026,2026-05,30
@@ -10268,6 +10273,7 @@ customer_id,name,city,county,date,year,month,gallons
 131,Namaste ~ 33%,Montpelier,Washington,2021-08-09,2021,2021-08,100
 131,Namaste ~ 33%,Montpelier,Washington,2021-07-07,2021,2021-07,75
 131,Namaste ~ 33%,Montpelier,Washington,2020-08-05,2020,2020-08,50
+149,National Life,Montpelier,Washington,2026-07-22,2026,2026-07,30
 149,National Life,Montpelier,Washington,2026-06-12,2026,2026-06,50
 149,National Life,Montpelier,Washington,2026-04-23,2026,2026-04,125
 149,National Life,Montpelier,Washington,2026-02-09,2026,2026-02,25
@@ -10348,6 +10354,7 @@ customer_id,name,city,county,date,year,month,gallons
 153,Parkers Quick Stop,Montpelier,Washington,2022-09-08,2022,2022-09,45
 153,Parkers Quick Stop,Montpelier,Washington,2017-04-25,2017,2017-04,10
 153,Parkers Quick Stop,Montpelier,Washington,2017-04-06,2017,2017-04,5
+145,Pho Capital,Montpelier,Washington,2026-07-22,2026,2026-07,15
 145,Pho Capital,Montpelier,Washington,2026-06-29,2026,2026-06,15
 145,Pho Capital,Montpelier,Washington,2026-06-12,2026,2026-06,30
 145,Pho Capital,Montpelier,Washington,2026-05-12,2026,2026-05,20
@@ -10453,6 +10460,7 @@ customer_id,name,city,county,date,year,month,gallons
 145,Pho Capital,Montpelier,Washington,2015-07-15,2015,2015-07,30
 145,Pho Capital,Montpelier,Washington,2015-05-06,2015,2015-05,25
 145,Pho Capital,Montpelier,Washington,2015-01-05,2015,2015-01,40
+140,Positive Pie 2-Montpelier,Montpelier,Washington,2026-07-22,2026,2026-07,70
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2026-06-29,2026,2026-06,80
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2026-05-29,2026,2026-05,50
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2026-05-12,2026,2026-05,60
@@ -10595,6 +10603,7 @@ customer_id,name,city,county,date,year,month,gallons
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2015-04-09,2015,2015-04,110
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2015-02-20,2015,2015-02,100
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2015-01-16,2015,2015-01,70
+137,Royal Orchid,Montpelier,Washington,2026-07-22,2026,2026-07,40
 137,Royal Orchid,Montpelier,Washington,2026-05-12,2026,2026-05,50
 137,Royal Orchid,Montpelier,Washington,2026-02-02,2026,2026-02,15
 137,Royal Orchid,Montpelier,Washington,2025-11-07,2025,2025-11,55
@@ -10638,6 +10647,7 @@ customer_id,name,city,county,date,year,month,gallons
 137,Royal Orchid,Montpelier,Washington,2016-05-01,2016,2016-05,20
 137,Royal Orchid,Montpelier,Washington,2015-06-22,2015,2015-06,16
 137,Royal Orchid,Montpelier,Washington,2015-03-12,2015,2015-03,12
+146,Sarduccis,Montpelier,Washington,2026-07-22,2026,2026-07,40
 146,Sarduccis,Montpelier,Washington,2026-06-29,2026,2026-06,50
 146,Sarduccis,Montpelier,Washington,2026-05-29,2026,2026-05,40
 146,Sarduccis,Montpelier,Washington,2026-05-12,2026,2026-05,100
@@ -10881,6 +10891,7 @@ customer_id,name,city,county,date,year,month,gallons
 157,State House,Montpelier,Washington,2023-05-18,2023,2023-05,45
 157,State House,Montpelier,Washington,2023-01-04,2023,2023-01,50
 157,State House,Montpelier,Washington,2020-04-29,2020,2020-04,50
+130,Three Penny Taproom 67%,Montpelier,Washington,2026-07-22,2026,2026-07,170
 130,Three Penny Taproom 67%,Montpelier,Washington,2026-06-29,2026,2026-06,180
 130,Three Penny Taproom 67%,Montpelier,Washington,2026-05-29,2026,2026-05,67
 130,Three Penny Taproom 67%,Montpelier,Washington,2026-05-12,2026,2026-05,70
@@ -18697,6 +18708,7 @@ customer_id,name,city,county,date,year,month,gallons
 288,Warren Store,Warren,Washington,2021-09-16,2021,2021-09,35
 288,Warren Store,Warren,Washington,2021-08-26,2021,2021-08,20
 288,Warren Store,Warren,Washington,2021-08-10,2021,2021-08,100
+1374,Arandas Mexican-Waterbury,Waterbury,Washington,2026-07-22,2026,2026-07,25
 1374,Arandas Mexican-Waterbury,Waterbury,Washington,2026-05-11,2026,2026-05,30
 1374,Arandas Mexican-Waterbury,Waterbury,Washington,2026-03-30,2026,2026-03,35
 1374,Arandas Mexican-Waterbury,Waterbury,Washington,2026-03-03,2026,2026-03,10
@@ -18776,6 +18788,7 @@ customer_id,name,city,county,date,year,month,gallons
 232,Crossroads Deli,Waterbury,Washington,2015-10-14,2015,2015-10,20
 232,Crossroads Deli,Waterbury,Washington,2015-06-11,2015,2015-06,20
 232,Crossroads Deli,Waterbury,Washington,2015-04-15,2015,2015-04,50
+1345,Gallus-Waterbury,Waterbury,Washington,2026-07-22,2026,2026-07,65
 1345,Gallus-Waterbury,Waterbury,Washington,2026-07-09,2026,2026-07,45
 1345,Gallus-Waterbury,Waterbury,Washington,2026-06-22,2026,2026-06,120
 1345,Gallus-Waterbury,Waterbury,Washington,2026-05-27,2026,2026-05,70
@@ -18809,6 +18822,7 @@ customer_id,name,city,county,date,year,month,gallons
 1345,Gallus-Waterbury,Waterbury,Washington,2024-09-02,2024,2024-09,60
 1345,Gallus-Waterbury,Waterbury,Washington,2024-08-14,2024,2024-08,140
 1345,Gallus-Waterbury,Waterbury,Washington,2024-05-31,2024,2024-05,2
+234,Hen of the Wood-WATERBURY,Waterbury,Washington,2026-07-22,2026,2026-07,80
 234,Hen of the Wood-WATERBURY,Waterbury,Washington,2026-06-23,2026,2026-06,70
 234,Hen of the Wood-WATERBURY,Waterbury,Washington,2026-05-11,2026,2026-05,15
 234,Hen of the Wood-WATERBURY,Waterbury,Washington,2026-04-27,2026,2026-04,25
@@ -18922,6 +18936,7 @@ customer_id,name,city,county,date,year,month,gallons
 234,Hen of the Wood-WATERBURY,Waterbury,Washington,2015-05-26,2015,2015-05,20
 234,Hen of the Wood-WATERBURY,Waterbury,Washington,2015-04-27,2015,2015-04,35
 234,Hen of the Wood-WATERBURY,Waterbury,Washington,2015-03-09,2015,2015-03,40
+231,Henders,Waterbury,Washington,2026-07-22,2026,2026-07,40
 231,Henders,Waterbury,Washington,2026-05-11,2026,2026-05,35
 231,Henders,Waterbury,Washington,2026-03-17,2026,2026-03,65
 231,Henders,Waterbury,Washington,2025-09-30,2025,2025-09,40
@@ -18961,6 +18976,7 @@ customer_id,name,city,county,date,year,month,gallons
 240,JunipersFaire Food Truck (19 Commercial Ave.),Waterbury,Washington,2020-03-24,2020,2020-03,80
 240,JunipersFaire Food Truck (19 Commercial Ave.),Waterbury,Washington,2020-02-06,2020,2020-02,30
 240,JunipersFaire Food Truck (19 Commercial Ave.),Waterbury,Washington,2019-09-11,2019,2019-09,50
+233,Maxi's,Waterbury,Washington,2026-07-22,2026,2026-07,45
 233,Maxi's,Waterbury,Washington,2026-06-22,2026,2026-06,55
 233,Maxi's,Waterbury,Washington,2026-05-27,2026,2026-05,50
 233,Maxi's,Waterbury,Washington,2026-04-27,2026,2026-04,100
@@ -19075,6 +19091,7 @@ customer_id,name,city,county,date,year,month,gallons
 233,Maxi's,Waterbury,Washington,2015-06-11,2015,2015-06,25
 233,Maxi's,Waterbury,Washington,2015-03-19,2015,2015-03,40
 233,Maxi's,Waterbury,Washington,2015-01-09,2015,2015-01,25
+241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2026-07-22,2026,2026-07,75
 241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2026-06-23,2026,2026-06,85
 241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2026-05-27,2026,2026-05,65
 241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2026-05-11,2026,2026-05,90
@@ -19335,6 +19352,7 @@ customer_id,name,city,county,date,year,month,gallons
 239,Michael's on the Hill,Waterbury,Washington,2015-01-14,2015,2015-01,40
 1225,Old Stage Coach Inn,Waterbury,Washington,2023-08-02,2023,2023-08,10
 1225,Old Stage Coach Inn,Waterbury,Washington,2023-03-13,2023,2023-03,25
+229,Prohibition Pig,Waterbury,Washington,2026-07-22,2026,2026-07,80
 229,Prohibition Pig,Waterbury,Washington,2026-07-07,2026,2026-07,90
 229,Prohibition Pig,Waterbury,Washington,2026-06-22,2026,2026-06,125
 229,Prohibition Pig,Waterbury,Washington,2026-05-27,2026,2026-05,100
@@ -19754,6 +19772,7 @@ customer_id,name,city,county,date,year,month,gallons
 227,The Reservoir-Waterbury,Waterbury,Washington,2015-02-18,2015,2015-02,90
 227,The Reservoir-Waterbury,Waterbury,Washington,2015-01-28,2015,2015-01,40
 227,The Reservoir-Waterbury,Waterbury,Washington,2015-01-09,2015,2015-01,155
+1076,Vermont Country Club-Waterbury,Waterbury,Washington,2026-07-22,2026,2026-07,35
 1076,Vermont Country Club-Waterbury,Waterbury,Washington,2026-07-09,2026,2026-07,65
 1076,Vermont Country Club-Waterbury,Waterbury,Washington,2026-06-19,2026,2026-06,65
 1076,Vermont Country Club-Waterbury,Waterbury,Washington,2026-05-27,2026,2026-05,40
@@ -19775,6 +19794,7 @@ customer_id,name,city,county,date,year,month,gallons
 1076,Vermont Country Club-Waterbury,Waterbury,Washington,2022-08-23,2022,2022-08,60
 1076,Vermont Country Club-Waterbury,Waterbury,Washington,2022-06-13,2022,2022-06,60
 1076,Vermont Country Club-Waterbury,Waterbury,Washington,2021-10-27,2021,2021-10,2
+238,Zen Barn,Waterbury,Washington,2026-07-22,2026,2026-07,90
 238,Zen Barn,Waterbury,Washington,2026-05-11,2026,2026-05,30
 238,Zen Barn,Waterbury,Washington,2026-04-15,2026,2026-04,35
 238,Zen Barn,Waterbury,Washington,2026-03-20,2026,2026-03,45

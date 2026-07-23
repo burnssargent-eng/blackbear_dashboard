@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-22T09:29:25.129600",
+  "last_updated": "2026-07-23T09:27:35.962693",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -29874,7 +29874,7 @@
     {
       "month": "2026-07",
       "city": "Montpelier",
-      "gallons": 65
+      "gallons": 680
     },
     {
       "month": "2026-07",
@@ -29959,7 +29959,7 @@
     {
       "month": "2026-07",
       "city": "Waterbury",
-      "gallons": 260
+      "gallons": 795
     },
     {
       "month": "2026-07",
@@ -37541,7 +37541,7 @@
     {
       "month": "2026-07",
       "county": "Washington",
-      "gallons": 3270
+      "gallons": 4420
     },
     {
       "month": "2026-07",
@@ -37601,10 +37601,10 @@
     },
     {
       "year": 2026,
-      "gallons": 168780
+      "gallons": 169930
     }
   ],
-  "all_time_total": 2087793,
-  "current_year_total": 168780,
+  "all_time_total": 2088943,
+  "current_year_total": 169930,
   "customer_count": 817
 }
