@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-23T09:27:35.962693",
+  "last_updated": "2026-07-24T09:22:03.649199",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -29934,7 +29934,7 @@
     {
       "month": "2026-07",
       "city": "Stowe",
-      "gallons": 1380
+      "gallons": 2490
     },
     {
       "month": "2026-07",
@@ -37516,7 +37516,7 @@
     {
       "month": "2026-07",
       "county": "Lamoille",
-      "gallons": 1527
+      "gallons": 2637
     },
     {
       "month": "2026-07",
@@ -37601,10 +37601,10 @@
     },
     {
       "year": 2026,
-      "gallons": 169930
+      "gallons": 171040
     }
   ],
-  "all_time_total": 2088943,
-  "current_year_total": 169930,
+  "all_time_total": 2090053,
+  "current_year_total": 171040,
   "customer_count": 817
 }

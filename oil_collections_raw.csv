@@ -14439,6 +14439,7 @@ customer_id,name,city,county,date,year,month,gallons
 1075,Alfies Wild rides,Stowe,Lamoille,2022-10-21,2022,2022-10,15
 1075,Alfies Wild rides,Stowe,Lamoille,2022-09-22,2022,2022-09,40
 1075,Alfies Wild rides,Stowe,Lamoille,2022-06-29,2022,2022-06,40
+1372,Arandas Mexican-Stowe,Stowe,Lamoille,2026-07-23,2026,2026-07,40
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2026-06-22,2026,2026-06,30
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2026-05-27,2026,2026-05,20
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2026-04-29,2026,2026-04,10
@@ -14452,6 +14453,7 @@ customer_id,name,city,county,date,year,month,gallons
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2025-07-24,2025,2025-07,60
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2025-06-17,2025,2025-06,45
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2025-04-15,2025,2025-04,35
+287,Backyard Tavern 50%,Stowe,Lamoille,2026-07-23,2026,2026-07,30
 287,Backyard Tavern 50%,Stowe,Lamoille,2026-07-07,2026,2026-07,70
 287,Backyard Tavern 50%,Stowe,Lamoille,2026-06-22,2026,2026-06,35
 287,Backyard Tavern 50%,Stowe,Lamoille,2026-06-09,2026,2026-06,25
@@ -14727,6 +14729,7 @@ customer_id,name,city,county,date,year,month,gallons
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2016-07-11,2016,2016-07,30
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2016-04-11,2016,2016-04,35
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2015-12-04,2015,2015-12,20
+247,Doc Ponds,Stowe,Lamoille,2026-07-23,2026,2026-07,220
 247,Doc Ponds,Stowe,Lamoille,2026-07-07,2026,2026-07,100
 247,Doc Ponds,Stowe,Lamoille,2026-06-22,2026,2026-06,110
 247,Doc Ponds,Stowe,Lamoille,2026-06-09,2026,2026-06,80
@@ -15064,6 +15067,7 @@ customer_id,name,city,county,date,year,month,gallons
 274,Grey Fox Inn-Wildflower restaurant,Stowe,Lamoille,2020-04-28,2020,2020-04,85
 274,Grey Fox Inn-Wildflower restaurant,Stowe,Lamoille,2020-02-25,2020,2020-02,25
 274,Grey Fox Inn-Wildflower restaurant,Stowe,Lamoille,2020-01-23,2020,2020-01,30
+1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2026-07-23,2026,2026-07,20
 1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2026-04-23,2026,2026-04,120
 1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2026-01-27,2026,2026-01,90
 1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2025-11-06,2025,2025-11,90
@@ -15086,6 +15090,7 @@ customer_id,name,city,county,date,year,month,gallons
 1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2022-04-07,2022,2022-04,90
 1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2021-12-16,2021,2021-12,50
 1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2021-09-30,2021,2021-09,75
+262,Idletyme,Stowe,Lamoille,2026-07-23,2026,2026-07,140
 262,Idletyme,Stowe,Lamoille,2026-07-07,2026,2026-07,140
 262,Idletyme,Stowe,Lamoille,2026-06-22,2026,2026-06,120
 262,Idletyme,Stowe,Lamoille,2026-06-09,2026,2026-06,90
@@ -15327,6 +15332,7 @@ customer_id,name,city,county,date,year,month,gallons
 262,Idletyme,Stowe,Lamoille,2015-02-13,2015,2015-02,45
 262,Idletyme,Stowe,Lamoille,2015-01-28,2015,2015-01,45
 262,Idletyme,Stowe,Lamoille,2015-01-08,2015,2015-01,50
+278,Matterhorn,Stowe,Lamoille,2026-07-23,2026,2026-07,50
 278,Matterhorn,Stowe,Lamoille,2026-07-07,2026,2026-07,70
 278,Matterhorn,Stowe,Lamoille,2026-06-09,2026,2026-06,25
 278,Matterhorn,Stowe,Lamoille,2026-05-27,2026,2026-05,40
@@ -15451,6 +15457,7 @@ customer_id,name,city,county,date,year,month,gallons
 1361,Outbound Stowe,Stowe,Lamoille,2025-01-14,2025,2025-01,40
 1361,Outbound Stowe,Stowe,Lamoille,2024-11-18,2024,2024-11,35
 1361,Outbound Stowe,Stowe,Lamoille,2024-09-30,2024,2024-09,20
+261,Piecasso,Stowe,Lamoille,2026-07-23,2026,2026-07,130
 261,Piecasso,Stowe,Lamoille,2026-07-07,2026,2026-07,120
 261,Piecasso,Stowe,Lamoille,2026-06-22,2026,2026-06,120
 261,Piecasso,Stowe,Lamoille,2026-06-09,2026,2026-06,110
@@ -15700,6 +15707,7 @@ customer_id,name,city,county,date,year,month,gallons
 261,Piecasso,Stowe,Lamoille,2015-02-09,2015,2015-02,90
 261,Piecasso,Stowe,Lamoille,2015-01-21,2015,2015-01,50
 261,Piecasso,Stowe,Lamoille,2015-01-08,2015,2015-01,50
+276,RAJA- Umami,Stowe,Lamoille,2026-07-23,2026,2026-07,15
 276,RAJA- Umami,Stowe,Lamoille,2026-04-29,2026,2026-04,40
 276,RAJA- Umami,Stowe,Lamoille,2025-11-06,2025,2025-11,20
 276,RAJA- Umami,Stowe,Lamoille,2025-09-17,2025,2025-09,20
@@ -15735,6 +15743,7 @@ customer_id,name,city,county,date,year,month,gallons
 276,RAJA- Umami,Stowe,Lamoille,2020-12-24,2020,2020-12,25
 276,RAJA- Umami,Stowe,Lamoille,2020-12-02,2020,2020-12,40
 276,RAJA- Umami,Stowe,Lamoille,2020-10-06,2020,2020-10,65
+248,Ranch Camp 50%,Stowe,Lamoille,2026-07-23,2026,2026-07,30
 248,Ranch Camp 50%,Stowe,Lamoille,2026-07-07,2026,2026-07,70
 248,Ranch Camp 50%,Stowe,Lamoille,2026-06-22,2026,2026-06,35
 248,Ranch Camp 50%,Stowe,Lamoille,2026-06-09,2026,2026-06,25
@@ -15882,6 +15891,7 @@ customer_id,name,city,county,date,year,month,gallons
 248,Ranch Camp 50%,Stowe,Lamoille,2019-03-30,2019,2019-03,30
 248,Ranch Camp 50%,Stowe,Lamoille,2019-03-03,2019,2019-03,40
 248,Ranch Camp 50%,Stowe,Lamoille,2019-02-03,2019,2019-02,90
+249,Rim Rock-Stowe,Stowe,Lamoille,2026-07-23,2026,2026-07,40
 249,Rim Rock-Stowe,Stowe,Lamoille,2026-07-07,2026,2026-07,30
 249,Rim Rock-Stowe,Stowe,Lamoille,2026-06-22,2026,2026-06,40
 249,Rim Rock-Stowe,Stowe,Lamoille,2026-06-09,2026,2026-06,30
@@ -16015,6 +16025,7 @@ customer_id,name,city,county,date,year,month,gallons
 249,Rim Rock-Stowe,Stowe,Lamoille,2018-02-21,2018,2018-02,75
 249,Rim Rock-Stowe,Stowe,Lamoille,2018-01-31,2018,2018-01,10
 249,Rim Rock-Stowe,Stowe,Lamoille,2018-01-19,2018,2018-01,75
+250,Sanfo,Stowe,Lamoille,2026-07-23,2026,2026-07,45
 250,Sanfo,Stowe,Lamoille,2026-05-27,2026,2026-05,25
 250,Sanfo,Stowe,Lamoille,2026-04-15,2026,2026-04,25
 250,Sanfo,Stowe,Lamoille,2026-04-03,2026,2026-04,90
@@ -16059,6 +16070,7 @@ customer_id,name,city,county,date,year,month,gallons
 250,Sanfo,Stowe,Lamoille,2019-11-30,2019,2019-11,15
 250,Sanfo,Stowe,Lamoille,2019-05-01,2019,2019-05,50
 250,Sanfo,Stowe,Lamoille,2018-11-04,2018,2018-11,40
+270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-07-23,2026,2026-07,140
 270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-07-07,2026,2026-07,160
 270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-06-22,2026,2026-06,100
 270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-06-09,2026,2026-06,75
@@ -16417,6 +16429,7 @@ customer_id,name,city,county,date,year,month,gallons
 254,Thai in the mountain (SaenSook)-Mountain Rd,Stowe,Lamoille,2016-09-19,2016,2016-09,30
 254,Thai in the mountain (SaenSook)-Mountain Rd,Stowe,Lamoille,2016-08-08,2016,2016-08,32
 254,Thai in the mountain (SaenSook)-Mountain Rd,Stowe,Lamoille,2016-07-11,2016,2016-07,30
+252,The Bench,Stowe,Lamoille,2026-07-23,2026,2026-07,35
 252,The Bench,Stowe,Lamoille,2026-07-07,2026,2026-07,45
 252,The Bench,Stowe,Lamoille,2026-06-22,2026,2026-06,40
 252,The Bench,Stowe,Lamoille,2026-06-09,2026,2026-06,40
@@ -16670,6 +16683,7 @@ customer_id,name,city,county,date,year,month,gallons
 255,The Butchery,Stowe,Lamoille,2018-11-04,2018,2018-11,35
 255,The Butchery,Stowe,Lamoille,2018-06-17,2018,2018-06,25
 255,The Butchery,Stowe,Lamoille,2018-04-21,2018,2018-04,25
+246,The Stowe Inn Tavern,Stowe,Lamoille,2026-07-23,2026,2026-07,15
 246,The Stowe Inn Tavern,Stowe,Lamoille,2026-07-09,2026,2026-07,50
 246,The Stowe Inn Tavern,Stowe,Lamoille,2026-06-09,2026,2026-06,40
 246,The Stowe Inn Tavern,Stowe,Lamoille,2026-05-27,2026,2026-05,30
@@ -16710,6 +16724,7 @@ customer_id,name,city,county,date,year,month,gallons
 246,The Stowe Inn Tavern,Stowe,Lamoille,2016-05-09,2016,2016-05,30
 246,The Stowe Inn Tavern,Stowe,Lamoille,2015-12-04,2015,2015-12,20
 246,The Stowe Inn Tavern,Stowe,Lamoille,2015-05-06,2015,2015-05,20
+265,Topnotch (The Roost),Stowe,Lamoille,2026-07-23,2026,2026-07,70
 265,Topnotch (The Roost),Stowe,Lamoille,2026-07-07,2026,2026-07,115
 265,Topnotch (The Roost),Stowe,Lamoille,2026-05-11,2026,2026-05,100
 265,Topnotch (The Roost),Stowe,Lamoille,2026-04-03,2026,2026-04,95
@@ -16881,6 +16896,7 @@ customer_id,name,city,county,date,year,month,gallons
 265,Topnotch (The Roost),Stowe,Lamoille,2015-02-25,2015,2015-02,40
 265,Topnotch (The Roost),Stowe,Lamoille,2015-01-28,2015,2015-01,40
 265,Topnotch (The Roost),Stowe,Lamoille,2015-01-08,2015,2015-01,70
+1445,Trapp Family Lodge,Stowe,Lamoille,2026-07-23,2026,2026-07,25
 1445,Trapp Family Lodge,Stowe,Lamoille,2026-07-07,2026,2026-07,40
 1445,Trapp Family Lodge,Stowe,Lamoille,2026-06-09,2026,2026-06,15
 1445,Trapp Family Lodge,Stowe,Lamoille,2026-05-27,2026,2026-05,30
@@ -16895,6 +16911,7 @@ customer_id,name,city,county,date,year,month,gallons
 1445,Trapp Family Lodge,Stowe,Lamoille,2025-10-15,2025,2025-10,55
 1445,Trapp Family Lodge,Stowe,Lamoille,2025-09-22,2025,2025-09,40
 1445,Trapp Family Lodge,Stowe,Lamoille,2025-08-19,2025,2025-08,2
+267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2026-07-23,2026,2026-07,65
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2026-07-07,2026,2026-07,75
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2026-06-22,2026,2026-06,65
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2026-06-09,2026,2026-06,75
