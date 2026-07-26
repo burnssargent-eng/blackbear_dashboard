@@ -357,28 +357,59 @@ let monthlyByCounty = {};
 let yearlyTotals = {};
 let countyChart = null;
 
+// Town names in oil_data.json are already normalized to official GeoJSON town
+// names by oil_scraper.py (normalize_geo_town). This map is only a safety net
+// for a stale/cached oil_data.json produced before that change. Keep it in sync
+// with GEO_TOWN_NAME_MAP in oil_scraper.py.
 const TOWN_NAME_MAP = {
-  "St. Albans": "Saint Albans",
-  "St. Albans City": "Saint Albans",
-  "St Albans": "Saint Albans",
+  // spelling variants
   "St. Johnsbury": "Saint Johnsbury",
   "Hinesburgh": "Hinesburg",
   "Betlin": "Berlin",
-  "S. Barre": "Barre",
+  "Enosburg": "Enosburgh",
+  "Enosburg Falls": "Enosburgh",
+  "Enosburgh Falls": "Enosburgh",
+
+  // villages that roll up to their official town
   "Montgomery Center": "Montgomery",
   "Craftsbury Common": "Craftsbury",
   "Jericho Center": "Jericho",
   "Eden Mills": "Eden",
-  "Enosburgh Falls": "Enosburg",
-  "Enosburg Falls": "Enosburg",
   "Randolph Center": "Randolph",
   "South Pomfret": "Pomfret",
   "South Royalton": "Royalton",
   "Manchester Center": "Manchester",
   "Bolton Valley": "Bolton",
   "West Dover": "Dover",
-  "East Barre": "Barre",
-  "Graniteville": "Barre"
+  "Quechee": "Hartford",
+  "Morrisville": "Morristown",
+  "West Glover": "Glover",
+  "Jeffersonville": "Cambridge",
+  "North Troy": "Troy",
+  "Island Pond": "Brighton",
+  "Wells River": "Newbury",
+  "Lyndonville": "Lyndon",
+  "Orleans": "Barton",
+  "East Burke": "Burke",
+  "Jacksonville": "Whitingham",
+  "Lower Waterford": "Waterford",
+  "Bellows Falls": "Rockingham",
+  "Gilman": "Lunenburg",
+  "Perkinsville": "Weathersfield",
+  "Belmont": "Mount Holly",
+
+  // villages inside Barre Town, not Barre City
+  "East Barre": "Barre Town",
+  "Graniteville": "Barre Town",
+  "S. Barre": "Barre Town",
+
+  // Vermont splits these into two separate polygons; default to the City.
+  "Barre": "Barre City",
+  "Newport": "Newport City",
+  "Rutland": "Rutland City",
+  "St. Albans": "Saint Albans City",
+  "St Albans": "Saint Albans City",
+  "St. Albans City": "Saint Albans City"
 };
 
 function normalizeTown(name) {
@@ -455,7 +486,8 @@ async function loadAll() {
 
   allData.monthly_by_town.forEach(row => {
     const month = row.month;
-    const town = normalizeTown(row.city);
+    // Prefer the pre-normalized geo_town; fall back to city for older JSON.
+    const town = normalizeTown(row.geo_town || row.city);
 
     if (!monthlyByTown[month]) monthlyByTown[month] = {};
     monthlyByTown[month][town] = (monthlyByTown[month][town] || 0) + Number(row.gallons || 0);

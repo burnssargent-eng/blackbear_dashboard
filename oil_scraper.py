@@ -25,7 +25,7 @@ INACTIVE_URL = f"{BASE_URL}/inactive.php"
 DELAY_SEC    = 0.3
 
 # Quantities meaning "we collected nothing" — excluded from all totals
-EMPTY_QTYS = {0, 1, 3}
+EMPTY_QTYS = {0, 1, 2, 3}
 
 MONTH_MAP = {
     "Jan": 1, "Feb": 2, "Mar": 3, "Apr": 4,  "May": 5,  "Jun": 6,
@@ -166,18 +166,159 @@ COUNTY_MAP = {
     "Fairfax":           "Franklin",
     "North Hero":        "Grand Isle",
     "South Hero":        "Grand Isle",
-    "Albany":            "Out-of-State (NY)",
+    "Albany":            "Orleans",
     "Plattsburgh":       "Out-of-State (NY)",
     "Claremont":         "Out-of-State (NH)",
     "Hanover":           "Out-of-State (NH)",
     "West Lebanon":      "Out-of-State (NH)",
     "Pawtucket":         "Out-of-State (RI)",
     "Dalton":            "Out-of-State (NH)",
-    "Belmont":           "Out-of-State (NH)",
+    "Belmont":           "Rutland",
 }
 
 # Longest-first helps avoid partial matches like Essex before Essex Junction.
 KNOWN_CITIES = sorted(COUNTY_MAP.keys(), key=len, reverse=True)
+
+# ─────────────────────────────────────────────
+# OFFICIAL VERMONT TOWN NORMALIZATION (for the map)
+# ─────────────────────────────────────────────
+# The heatmap is drawn from vermont_towns.geojson, whose town names live in the
+# TOWNNAMEMC property. Our scraped "city" values are mailing/village names, which
+# often are NOT official towns. Every value on the right-hand side below has been
+# verified to exist in vermont_towns.geojson.
+#
+# Rule: villages roll up to the official town whose borders contain them.
+GEO_TOWN_NAME_MAP = {
+    # --- spelling variants ---
+    "St. Johnsbury":     "Saint Johnsbury",
+    "Hinesburgh":        "Hinesburg",
+    "Betlin":            "Berlin",
+    # The official town is spelled "Enosburgh" (with the h) in the state GeoJSON.
+    "Enosburg":          "Enosburgh",
+    "Enosburg Falls":    "Enosburgh",
+    "Enosburgh Falls":   "Enosburgh",
+
+    # --- village / place names that roll up to their official town ---
+    "Montgomery Center": "Montgomery",
+    "Craftsbury Common": "Craftsbury",
+    "Jericho Center":    "Jericho",
+    "Eden Mills":        "Eden",
+    "Randolph Center":   "Randolph",
+    "South Pomfret":     "Pomfret",
+    "South Royalton":    "Royalton",
+    "Manchester Center": "Manchester",
+    "Bolton Valley":     "Bolton",
+    "West Dover":        "Dover",
+    "Quechee":           "Hartford",
+    "Morrisville":       "Morristown",
+    "West Glover":       "Glover",
+    "Jeffersonville":    "Cambridge",
+    "North Troy":        "Troy",
+    "Island Pond":       "Brighton",
+    "Wells River":       "Newbury",
+    "Lyndonville":       "Lyndon",
+    "Orleans":           "Barton",
+    "East Burke":        "Burke",
+    "Jacksonville":      "Whitingham",
+    "Lower Waterford":   "Waterford",
+    "Bellows Falls":     "Rockingham",
+    "Gilman":            "Lunenburg",
+    "Perkinsville":      "Weathersfield",
+    "Belmont":           "Mount Holly",
+
+    # --- villages inside Barre Town (NOT Barre City) ---
+    "East Barre":        "Barre Town",
+    "Graniteville":      "Barre Town",
+    "S. Barre":          "Barre Town",
+
+    # --- ambiguous City/Town pairs -------------------------------------------
+    # Vermont splits each of these into two separate municipalities with two
+    # separate polygons, but our source data only says e.g. "Barre". These are
+    # the DEFAULTS; individual customers whose street address places them in the
+    # Town are corrected by CITY_TOWN_BY_CUSTOMER below.
+    "Barre":             "Barre City",
+    "Newport":           "Newport City",
+    "Rutland":           "Rutland City",
+    "St. Albans":        "Saint Albans City",
+    "St Albans":         "Saint Albans City",
+    "St. Albans City":   "Saint Albans City",
+}
+
+# Places that are genuinely not in Vermont. These are kept in the raw data and
+# in the county summaries, but are deliberately never mapped onto a Vermont
+# town polygon.
+OUT_OF_STATE_CITIES = {
+    "Plattsburgh",   # NY
+    "Claremont",     # NH
+    "Hanover",       # NH
+    "West Lebanon",  # NH
+    "Dalton",        # NH
+    "Pawtucket",     # RI
+}
+
+# Per-customer City-vs-Town corrections, resolved from each customer's street
+# address on the source site. Addresses themselves are intentionally NOT stored
+# in this repo; only the resulting official town name is kept.
+# Only customers that differ from the GEO_TOWN_NAME_MAP default are listed.
+CITY_TOWN_BY_CUSTOMER = {
+    119:  "Barre Town",         # Thunder Road, Fisher Rd — outside the city line
+    1128: "Barre Town",         # Hannaford, South Barre
+    111:  "Barre Town",         # Gunner Brook, East Montpelier Rd
+    110:  "Barre Town",         # Canadian Club, East Montpelier Rd
+    1363: "Barre Town",         # GE gas station, South Barre Rd
+    1258: "Rutland Town",       # Denny's, US-7 strip
+    1493: "Saint Albans Town",  # Pizza Hut, Highgate Commons
+    417:  "Saint Albans Town",  # Bayside Pavilion — St Albans Bay; the City is landlocked
+}
+
+
+def normalize_geo_town(city, customer_id=None):
+    """
+    Map a scraped city/village name to an official Vermont town name that exists
+    in vermont_towns.geojson.
+
+    Returns None for out-of-state places and for anything we cannot confidently
+    place, so callers can exclude them from the Vermont map instead of guessing.
+    """
+    if not city:
+        return None
+
+    city = str(city).strip()
+    if city in OUT_OF_STATE_CITIES:
+        return None
+
+    # A per-customer address-based correction always wins over the default.
+    if customer_id is not None:
+        try:
+            override = CITY_TOWN_BY_CUSTOMER.get(int(customer_id))
+        except (TypeError, ValueError):
+            override = None
+        if override:
+            return override
+
+    return GEO_TOWN_NAME_MAP.get(city, city)
+
+
+def prepare_dataframe(df):
+    """
+    Apply data-correctness rules that must hold no matter whether the rows were
+    freshly scraped or reloaded from oil_collections_raw.csv.
+
+      1. Drop quantities that mean "nothing was collected".
+      2. Add the normalized official-town column used by the map.
+
+    The original 'city' value is always preserved untouched.
+    """
+    if df.empty:
+        return df
+
+    df = df[~df["gallons"].isin(EMPTY_QTYS)].copy()
+
+    df["geo_town"] = [
+        normalize_geo_town(city, cid) or ""
+        for city, cid in zip(df["city"], df["customer_id"])
+    ]
+    return df
 
 # ─────────────────────────────────────────────
 # CUSTOM SUBREGION DEFINITIONS
@@ -536,13 +677,22 @@ def build_reports(df):
 def export_json(df):
     """Export clean JSON for the website to consume."""
     
-    # Monthly totals by town
+    # Monthly totals by town, grouped by official GeoJSON town name so the
+    # heatmap can match them. Rows with no Vermont town (out-of-state, or a
+    # place we could not confidently resolve) are excluded from the map data —
+    # they remain in the raw CSV and in the county summary below.
+    mappable = df[df["geo_town"] != ""]
     monthly_town = (
-        df.groupby(["month", "city"])["gallons"]
+        mappable.groupby(["month", "geo_town"])["gallons"]
         .sum()
         .reset_index()
     )
-    
+    # 'city' is kept as a backward-compatible alias of 'geo_town' so an older
+    # cached copy of index.html keeps working. Safe to drop once cache-busting
+    # is in place (Phase 3).
+    monthly_town["city"] = monthly_town["geo_town"]
+
+
     # Monthly totals by county
     monthly_county = (
         df.groupby(["month", "county"])["gallons"]
@@ -569,6 +719,9 @@ def export_json(df):
         "all_time_total":  int(df["gallons"].sum()),
         "current_year_total": int(current["gallons"].sum()),
         "customer_count":  df["customer_id"].nunique(),
+        # Gallons excluded from the Vermont map (out-of-state / unresolved).
+        # Reported so the map total can be reconciled against all_time_total.
+        "unmapped_total":  int(df[df["geo_town"] == ""]["gallons"].sum()),
     }
     
     with open("oil_data.json", "w") as f:
@@ -599,6 +752,12 @@ if __name__ == "__main__":
     else:
         print("Fresh scrape requested.\n")
         df = scrape_all()
+
+    # Normalize town names and drop empty-quantity rows before anything is
+    # written out, so the CSV, the Excel report and the JSON all agree.
+    before = len(df)
+    df = prepare_dataframe(df)
+    print(f"\nPrepared {len(df):,} records ({before - len(df):,} empty-quantity rows dropped).")
 
     build_reports(df)
     export_json(df)
