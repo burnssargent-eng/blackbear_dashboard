@@ -275,7 +275,7 @@
   </div>
   <div class="stat">
     <div class="stat-val" id="stat-month">—</div>
-    <div class="stat-label">Selected Month</div>
+    <div class="stat-label">Selected Period</div>
   </div>
   <div class="stat">
     <div class="stat-val" id="stat-customers">—</div>
@@ -305,6 +305,8 @@
         <select id="view-mode">
           <option value="month">Monthly</option>
           <option value="ytd">Year to Date</option>
+          <option value="year">Selected Year</option>
+          <option value="alltime_todate">All Time To Date</option>
           <option value="alltime">All Time</option>
         </select>
       </div>
@@ -354,8 +356,10 @@ let playInterval = null;
 let geojsonLayer = null;
 let monthlyByTown = {};
 let monthlyByCounty = {};
+let monthlyTotals = {};
 let yearlyTotals = {};
 let countyChart = null;
+let hasFitBounds = false;
 
 // Town names in oil_data.json are already normalized to official GeoJSON town
 // names by oil_scraper.py (normalize_geo_town). This map is only a safety net
@@ -417,22 +421,114 @@ function normalizeTown(name) {
   return TOWN_NAME_MAP[name] || name;
 }
 
-const COLOR_BREAKS = [
-  { min: 9000, color: "#1a4a1a", label: "9,000+ gal" },
+// The green ramp, palest first. These are the same seven greens the dashboard
+// has always used — only the thresholds are calculated now, not the colors.
+const GREEN_RAMP = [
+  "#e5ebe3", "#c6d0c1", "#9aaa91", "#6f8f61",
+  "#4b7f42", "#2d6e2d", "#1a4a1a"
+];
+
+const NO_DATA_COLOR = "#ffffff";
+
+// The original hand-picked thresholds. Kept so the scale can be switched back
+// without rewriting anything — see SCALE_MODE below.
+const FIXED_BREAKS = [
+  { min: 9000, color: "#1a4a1a", label: "9,000+" },
   { min: 3000, color: "#2d6e2d", label: "3,000–9,000" },
   { min: 1500, color: "#4b7f42", label: "1,500–3,000" },
   { min: 750,  color: "#6f8f61", label: "750–1,500" },
   { min: 375,  color: "#9aaa91", label: "375–750" },
   { min: 175,  color: "#c6d0c1", label: "175–375" },
-  { min: 10,   color: "#e5ebe3", label: "10–175" },
-  { min: 0,    color: "#ffffff", label: "0" }
+  { min: 10,   color: "#e5ebe3", label: "10–175" }
 ];
 
-function getColor(gallons) {
-  for (const b of COLOR_BREAKS) {
+// "dynamic" = rescale to the towns currently on screen.
+// "fixed"   = always use FIXED_BREAKS above.
+// A future UI toggle only needs to flip this value and re-render.
+const SCALE_MODE = "dynamic";
+
+// Round up to a readable number: 1, 2, 2.5 or 5 times a power of ten.
+// Turns a raw quantile like 1,847 into 2,000 so the legend reads cleanly.
+function niceNumber(x) {
+  if (x <= 0) return 0;
+  const exp = Math.floor(Math.log10(x));
+  const base = Math.pow(10, exp);
+  const frac = x / base;
+
+  for (const step of [1, 2, 2.5, 5]) {
+    if (frac <= step) return step * base;
+  }
+  return 10 * base;
+}
+
+/**
+ * Build the color scale for the towns currently being displayed.
+ *
+ * Uses quantiles rather than equal-width steps because the data is very
+ * lop-sided: in All Time view the biggest town has ~433,000 gallons while the
+ * median town has ~5,000. Equal-width bins would drop almost every town into
+ * the palest color and leave one dark outlier. Quantiles spread the towns
+ * evenly across the ramp, so the map actually shows differences.
+ *
+ * Returns bins ordered darkest-first, each { min, color, label }.
+ * Returns [] when there is nothing to show.
+ */
+function computeBins(values) {
+  if (SCALE_MODE === "fixed") return FIXED_BREAKS;
+
+  const positive = values.filter(v => v > 0).sort((a, b) => a - b);
+  if (!positive.length) return [];
+
+  const binCount = GREEN_RAMP.length;
+
+  // Cut points at the 1/7 ... 6/7 quantiles, rounded to readable numbers.
+  // Rounding can make two cuts land on the same value (common in a sparse
+  // month); dropping the duplicates just means fewer, wider bins, which is
+  // the honest result rather than a bug.
+  const cuts = [];
+  for (let i = 1; i < binCount; i++) {
+    const q = positive[Math.min(
+      Math.floor((i / binCount) * positive.length),
+      positive.length - 1
+    )];
+    const cut = niceNumber(q);
+    if (cut > 0 && (cuts.length === 0 || cut > cuts[cuts.length - 1])) {
+      cuts.push(cut);
+    }
+  }
+
+  // Lower edge of every bin: the first starts just above zero.
+  const edges = [1, ...cuts];
+
+  // Spread the chosen colors across the WHOLE ramp rather than taking a slice
+  // off one end. When rounding leaves only 5 bins, the lightest bin must still
+  // be the palest green — otherwise a quiet month renders uniformly dark.
+  const colors = edges.map((_, i) =>
+    edges.length === 1
+      ? GREEN_RAMP[GREEN_RAMP.length - 1]
+      : GREEN_RAMP[Math.round(i * (GREEN_RAMP.length - 1) / (edges.length - 1))]
+  );
+
+  const bins = edges.map((min, i) => {
+    const next = edges[i + 1];
+    return {
+      min,
+      color: colors[i],
+      label: next
+        ? `${formatNumber(min)}–${formatNumber(next - 1)}`
+        : `${formatNumber(min)}+`
+    };
+  });
+
+  // Darkest first, so getColor can return on the first threshold met.
+  return bins.reverse();
+}
+
+function getColor(gallons, bins) {
+  for (const b of bins) {
     if (gallons >= b.min) return b.color;
   }
-  return "#ffffff";
+  return NO_DATA_COLOR;
 }
 
 function formatNumber(n) {
@@ -449,7 +545,12 @@ function getFeatureTownName(feature) {
 
 const map = L.map("map", {
   center: [44.0, -72.7],
-  zoom: 8
+  zoom: 8,
+  // Leaflet snaps to whole zoom levels by default, which made fitBounds round
+  // down and leave Vermont floating in a sea of neighboring states. Quarter
+  // steps let it fill the panel properly.
+  zoomSnap: 0.25,
+  zoomDelta: 0.5
 });
 
 L.tileLayer(
@@ -459,21 +560,31 @@ L.tileLayer(
   }
 ).addTo(map);
 
-function buildLegend() {
+function buildLegend(bins) {
   const container = document.getElementById("legend-items");
-  container.innerHTML = "";
 
-  COLOR_BREAKS.slice(0, 7).forEach(b => {
-    container.innerHTML += `
+  if (!bins || !bins.length) {
+    container.innerHTML = `
       <div class="legend-item">
-        <div class="legend-swatch" style="background:${b.color}"></div>
-        <span>${b.label}</span>
+        <div class="legend-swatch" style="background:${NO_DATA_COLOR}"></div>
+        <span>No data for this period</span>
       </div>
     `;
-  });
-}
+    return;
+  }
 
-buildLegend();
+  container.innerHTML = bins.map(b => `
+    <div class="legend-item">
+      <div class="legend-swatch" style="background:${b.color}"></div>
+      <span>${b.label}</span>
+    </div>
+  `).join("") + `
+    <div class="legend-item">
+      <div class="legend-swatch" style="background:${NO_DATA_COLOR}"></div>
+      <span>0</span>
+    </div>
+  `;
+}
 
 async function loadAll() {
   // The nightly job rewrites these same URLs, so without a changing query
@@ -507,6 +618,11 @@ async function loadAll() {
     yearlyTotals[row.year] = Number(row.gallons || 0);
   });
 
+  // Added in Phase 2. Guarded so an older cached oil_data.json still works.
+  (allData.monthly_totals || []).forEach(row => {
+    monthlyTotals[row.month] = Number(row.gallons || 0);
+  });
+
   months = Object.keys(monthlyByTown).sort();
 
   const slider = document.getElementById("month-slider");
@@ -524,62 +640,124 @@ async function loadAll() {
   buildCharts();
 }
 
-function getTownGallons(idx) {
-  const mode = document.getElementById("view-mode").value;
+/**
+ * Which months does the selected mode cover, given the slider position?
+ * Everything downstream works from this one list, so the map, the stat card,
+ * the town list and the county chart can never disagree about the period.
+ */
+function getMonthsForMode(mode, idx) {
+  if (!months.length) return [];
 
-  if (!months.length) return {};
+  const selected = months[idx];
+  const year = selected.slice(0, 4);
 
-  if (mode === "month") {
-    return monthlyByTown[months[idx]] || {};
+  switch (mode) {
+    case "month":
+      return [selected];
+
+    case "ytd":               // January through the selected month, same year
+      return months.filter(m => m.slice(0, 4) === year && m <= selected);
+
+    case "year":              // every month of the selected year
+      return months.filter(m => m.slice(0, 4) === year);
+
+    case "alltime_todate":    // the very beginning through the selected month
+      return months.filter(m => m <= selected);
+
+    case "alltime":
+      return months.slice();
+
+    default:
+      return [selected];
   }
+}
 
-  if (mode === "ytd") {
-    const year = months[idx].slice(0, 4);
-    const ytdMonths = months.filter(m => m.slice(0, 4) === year && m <= months[idx]);
-    const totals = {};
+/** Total gallons per town across a list of "YYYY-MM" months. */
+function sumTownMonths(monthList) {
+  const totals = {};
 
-    ytdMonths.forEach(m => {
-      Object.entries(monthlyByTown[m] || {}).forEach(([town, gal]) => {
-        totals[town] = (totals[town] || 0) + gal;
-      });
+  monthList.forEach(m => {
+    Object.entries(monthlyByTown[m] || {}).forEach(([town, gal]) => {
+      totals[town] = (totals[town] || 0) + gal;
     });
+  });
 
-    return totals;
-  }
+  return totals;
+}
 
-  if (mode === "alltime") {
-    const totals = {};
+/** Total gallons per county across a list of months. */
+function sumCountyMonths(monthList) {
+  const totals = {};
 
-    Object.values(monthlyByTown).forEach(monthData => {
-      Object.entries(monthData).forEach(([town, gal]) => {
-        totals[town] = (totals[town] || 0) + gal;
-      });
+  monthList.forEach(m => {
+    Object.entries(monthlyByCounty[m] || {}).forEach(([county, gal]) => {
+      totals[county] = (totals[county] || 0) + gal;
     });
+  });
 
-    return totals;
+  return totals;
+}
+
+/**
+ * Grand total for the period, including out-of-state gallons.
+ *
+ * Prefers monthly_totals because that is the whole-business figure and matches
+ * the basis of the All-Time card. The town sum below is a fallback and is
+ * slightly lower, since towns outside Vermont are not on the map.
+ */
+function periodTotal(monthList) {
+  if (monthlyTotals && Object.keys(monthlyTotals).length) {
+    return monthList.reduce((sum, m) => sum + (Number(monthlyTotals[m]) || 0), 0);
   }
 
-  return {};
+  return monthList.reduce(
+    (sum, m) => sum + Object.values(monthlyByTown[m] || {}).reduce((a, b) => a + b, 0),
+    0
+  );
+}
+
+/** Human-readable description of what the map is currently showing. */
+function periodLabel(mode, idx) {
+  if (!months.length) return "—";
+
+  const selected = months[idx];
+  const [year, mo] = selected.split("-");
+  const longMonth = new Date(year, Number(mo) - 1)
+    .toLocaleString("default", { month: "long", year: "numeric" });
+  const shortMonth = new Date(year, Number(mo) - 1)
+    .toLocaleString("default", { month: "short" });
+
+  switch (mode) {
+    case "month":
+      return longMonth;
+    case "ytd":
+      return mo === "01" ? `Jan ${year}` : `Jan–${shortMonth} ${year}`;
+    case "year":
+      return `${year}`;
+    case "alltime_todate":
+      return `Through ${longMonth}`;
+    case "alltime":
+      return `All Time (${months[0].slice(0, 4)}–${months[months.length - 1].slice(0, 4)})`;
+    default:
+      return longMonth;
+  }
 }
 
 function renderMap(idx) {
   if (!months.length || !geoData) return;
 
-  const townGallons = getTownGallons(idx);
-  const month = months[idx];
+  const mode = document.getElementById("view-mode").value;
+  const periodMonths = getMonthsForMode(mode, idx);
+  const townGallons = sumTownMonths(periodMonths);
 
-  const [year, mo] = month.split("-");
-  const label = new Date(year, Number(mo) - 1).toLocaleString("default", {
-    month: "long",
-    year: "numeric"
-  });
+  document.getElementById("month-label").textContent = periodLabel(mode, idx);
+  document.getElementById("stat-month").textContent =
+    formatNumber(periodTotal(periodMonths));
 
-  document.getElementById("month-label").textContent = label;
-
-  const selectedMonthTotal = Object.values(monthlyByTown[month] || {})
-    .reduce((a, b) => a + b, 0);
-
-  document.getElementById("stat-month").textContent = formatNumber(selectedMonthTotal);
+  // Rescale the colors to whatever is on screen right now, then rebuild the
+  // legend from the same bins so the two can never drift apart.
+  const bins = computeBins(Object.values(townGallons));
+  buildLegend(bins);
 
   if (geojsonLayer) {
     map.removeLayer(geojsonLayer);
@@ -587,12 +765,14 @@ function renderMap(idx) {
 
   geojsonLayer = L.geoJSON(geoData, {
     style: feature => {
-      const rawName = getFeatureTownName(feature);
-      const name = normalizeTown(rawName);
+      const name = normalizeTown(getFeatureTownName(feature));
       const gallons = townGallons[name] || 0;
 
+      // Towns with data are filled solidly enough to read as a heatmap; empty
+      // towns stay light so the basemap's roads, water and labels show through
+      // instead of the map turning into a white block.
       return {
-        fillColor: getColor(gallons),
+        fillColor: getColor(gallons, bins),
         fillOpacity: gallons > 0 ? 0.85 : 0.15,
         color: "#111",
         weight: 0.7
@@ -621,15 +801,45 @@ function renderMap(idx) {
       layer.on("mouseout", () => {
         geojsonLayer.resetStyle(layer);
       });
+
+      // town.html is built in the next phase; the link pattern is ready now.
+      layer.on("click", () => {
+        window.location.href = "town.html?town=" + encodeURIComponent(name);
+      });
     }
   }).addTo(map);
 
-  map.fitBounds(geojsonLayer.getBounds());
+  // Frame Vermont once. Re-fitting on every render would throw away any pan or
+  // zoom the moment the slider moved.
+  if (!hasFitBounds) {
+    // Leaflet caches the container size. This first render happens while the
+    // page is still settling, so without re-measuring it fits Vermont to a
+    // stale (taller) box and the state ends up overflowing the panel.
+    map.invalidateSize();
 
-  updateSidePanels(idx, townGallons);
+    const bounds = geojsonLayer.getBounds();
+    // Extra bottom padding keeps southern Vermont clear of the floating
+    // time-controls card, which sits over the lower middle of the map.
+    // animate:false matters. An animated fit applies its new zoom over the next
+    // few frames, so map.getZoom() below would still report the OLD zoom and
+    // setMinZoom would clamp the animation right back to where it started.
+    map.fitBounds(bounds, {
+      paddingTopLeft: [12, 12],
+      // Tuned by measurement. Larger values push the fit down a whole zoom
+      // step, which shrinks Vermont and shows more of the neighboring states
+      // without actually clearing the controls card.
+      paddingBottomRight: [12, 110],
+      animate: false
+    });
+    map.setMaxBounds(bounds.pad(0.35));
+    map.setMinZoom(map.getZoom());
+    hasFitBounds = true;
+  }
+
+  updateSidePanels(idx, townGallons, periodMonths);
 }
 
-function updateSidePanels(idx, townGallons) {
+function updateSidePanels(idx, townGallons, periodMonths) {
   const sortedTowns = Object.entries(townGallons)
     .filter(([, gal]) => gal > 0)
     .sort(([, a], [, b]) => b - a)
@@ -649,8 +859,9 @@ function updateSidePanels(idx, townGallons) {
     </li>
   `).join("");
 
-  const month = months[idx];
-  updateCountyChart(monthlyByCounty[month] || {});
+  // The county chart follows the same period as the map, so the two panels
+  // always describe the same slice of time.
+  updateCountyChart(sumCountyMonths(periodMonths));
 }
 
 function buildCharts() {
