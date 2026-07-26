@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-24T09:22:03.649199",
+  "last_updated": "2026-07-26T09:13:46.112690",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -29733,13 +29733,18 @@
     },
     {
       "month": "2026-07",
+      "city": "Bradford",
+      "gallons": 160
+    },
+    {
+      "month": "2026-07",
       "city": "Bristol",
       "gallons": 135
     },
     {
       "month": "2026-07",
       "city": "Burlington",
-      "gallons": 3435
+      "gallons": 3710
     },
     {
       "month": "2026-07",
@@ -29754,7 +29759,7 @@
     {
       "month": "2026-07",
       "city": "Colchester",
-      "gallons": 410
+      "gallons": 460
     },
     {
       "month": "2026-07",
@@ -29784,7 +29789,12 @@
     {
       "month": "2026-07",
       "city": "Essex Junction",
-      "gallons": 75
+      "gallons": 746
+    },
+    {
+      "month": "2026-07",
+      "city": "Fairlee",
+      "gallons": 360
     },
     {
       "month": "2026-07",
@@ -29800,6 +29810,11 @@
       "month": "2026-07",
       "city": "Greensboro",
       "gallons": 2
+    },
+    {
+      "month": "2026-07",
+      "city": "Hanover",
+      "gallons": 20
     },
     {
       "month": "2026-07",
@@ -29819,7 +29834,7 @@
     {
       "month": "2026-07",
       "city": "Jay",
-      "gallons": 290
+      "gallons": 370
     },
     {
       "month": "2026-07",
@@ -29879,12 +29894,17 @@
     {
       "month": "2026-07",
       "city": "Newport",
-      "gallons": 420
+      "gallons": 950
     },
     {
       "month": "2026-07",
       "city": "North Hero",
       "gallons": 305
+    },
+    {
+      "month": "2026-07",
+      "city": "North Troy",
+      "gallons": 505
     },
     {
       "month": "2026-07",
@@ -29963,6 +29983,11 @@
     },
     {
       "month": "2026-07",
+      "city": "West Glover",
+      "gallons": 230
+    },
+    {
+      "month": "2026-07",
       "city": "West Lebanon",
       "gallons": 251
     },
@@ -29979,7 +30004,7 @@
     {
       "month": "2026-07",
       "city": "Winooski",
-      "gallons": 757
+      "gallons": 997
     },
     {
       "month": "2026-07",
@@ -37501,7 +37526,7 @@
     {
       "month": "2026-07",
       "county": "Chittenden",
-      "gallons": 8277
+      "gallons": 9513
     },
     {
       "month": "2026-07",
@@ -37520,13 +37545,18 @@
     },
     {
       "month": "2026-07",
+      "county": "Orange",
+      "gallons": 520
+    },
+    {
+      "month": "2026-07",
       "county": "Orleans",
-      "gallons": 845
+      "gallons": 2190
     },
     {
       "month": "2026-07",
       "county": "Out-of-State (NH)",
-      "gallons": 251
+      "gallons": 271
     },
     {
       "month": "2026-07",
@@ -37601,10 +37631,10 @@
     },
     {
       "year": 2026,
-      "gallons": 171040
+      "gallons": 174161
     }
   ],
-  "all_time_total": 2090053,
-  "current_year_total": 171040,
+  "all_time_total": 2093174,
+  "current_year_total": 174161,
   "customer_count": 817
 }

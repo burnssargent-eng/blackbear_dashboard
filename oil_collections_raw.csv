@@ -1534,6 +1534,7 @@ customer_id,name,city,county,date,year,month,gallons
 279,Bolton Valley,Bolton Valley,Chittenden,2019-02-03,2019,2019-02,80
 279,Bolton Valley,Bolton Valley,Chittenden,2018-04-11,2018,2018-04,175
 279,Bolton Valley,Bolton Valley,Chittenden,2018-03-06,2018,2018-03,300
+1178,Hannaford- Bradford,Bradford,Orange,2026-07-24,2026,2026-07,160
 1178,Hannaford- Bradford,Bradford,Orange,2026-04-10,2026,2026-04,149
 1178,Hannaford- Bradford,Bradford,Orange,2026-01-26,2026,2026-01,113
 1178,Hannaford- Bradford,Bradford,Orange,2025-10-10,2025,2025-10,164
@@ -4180,6 +4181,7 @@ customer_id,name,city,county,date,year,month,gallons
 1354,Kismet Mediterranean - 22222#,Burlington,Chittenden,2024-07-01,2024,2024-07,2
 1481,Kountry Kart,Burlington,Chittenden,2026-02-20,2026,2026-02,140
 1481,Kountry Kart,Burlington,Chittenden,2026-01-29,2026,2026-01,100
+337,Lake Monsters,Burlington,Chittenden,2026-07-24,2026,2026-07,275
 337,Lake Monsters,Burlington,Chittenden,2025-08-22,2025,2025-08,200
 337,Lake Monsters,Burlington,Chittenden,2025-07-15,2025,2025-07,200
 337,Lake Monsters,Burlington,Chittenden,2024-09-09,2024,2024-09,60
@@ -5941,6 +5943,7 @@ customer_id,name,city,county,date,year,month,gallons
 1139,Cloud 9 catering- Sarah-COOK-Food Truck,Colchester,Chittenden,2023-06-14,2023,2023-06,50
 1139,Cloud 9 catering- Sarah-COOK-Food Truck,Colchester,Chittenden,2022-12-08,2022,2022-12,40
 1139,Cloud 9 catering- Sarah-COOK-Food Truck,Colchester,Chittenden,2022-07-25,2022,2022-07,60
+446,McGillicuddy's On The Green,Colchester,Chittenden,2026-07-24,2026,2026-07,50
 446,McGillicuddy's On The Green,Colchester,Chittenden,2026-07-06,2026,2026-07,130
 446,McGillicuddy's On The Green,Colchester,Chittenden,2026-06-11,2026,2026-06,50
 446,McGillicuddy's On The Green,Colchester,Chittenden,2026-05-28,2026,2026-05,50
@@ -6786,6 +6789,7 @@ customer_id,name,city,county,date,year,month,gallons
 1247,Bramble,Essex Junction,Chittenden,2024-06-18,2024,2024-06,50
 1247,Bramble,Essex Junction,Chittenden,2024-01-14,2024,2024-01,20
 1247,Bramble,Essex Junction,Chittenden,2023-08-07,2023,2023-08,5
+413,Champlain Valley Expo,Essex Junction,Chittenden,2026-07-24,2026,2026-07,435
 413,Champlain Valley Expo,Essex Junction,Chittenden,2025-10-09,2025,2025-10,640
 413,Champlain Valley Expo,Essex Junction,Chittenden,2025-09-12,2025,2025-09,585
 413,Champlain Valley Expo,Essex Junction,Chittenden,2025-09-01,2025,2025-09,100
@@ -6831,6 +6835,7 @@ customer_id,name,city,county,date,year,month,gallons
 1302,Essex HS-Center of Technology,Essex Junction,Chittenden,2026-06-11,2026,2026-06,50
 1302,Essex HS-Center of Technology,Essex Junction,Chittenden,2024-08-02,2024,2024-08,45
 1302,Essex HS-Center of Technology,Essex Junction,Chittenden,2023-12-15,2023,2023-12,25
+1156,Hannafords-Essex Jct,Essex Junction,Chittenden,2026-07-24,2026,2026-07,86
 1156,Hannafords-Essex Jct,Essex Junction,Chittenden,2026-04-21,2026,2026-04,149
 1156,Hannafords-Essex Jct,Essex Junction,Chittenden,2026-01-29,2026,2026-01,82
 1156,Hannafords-Essex Jct,Essex Junction,Chittenden,2025-12-04,2025,2025-12,54
@@ -6871,6 +6876,7 @@ customer_id,name,city,county,date,year,month,gallons
 409,Mad Taco-Essex Jct,Essex Junction,Chittenden,2020-01-09,2020,2020-01,40
 409,Mad Taco-Essex Jct,Essex Junction,Chittenden,2019-07-09,2019,2019-07,25
 409,Mad Taco-Essex Jct,Essex Junction,Chittenden,2019-02-11,2019,2019-02,55
+447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2026-07-24,2026,2026-07,115
 447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2026-07-06,2026,2026-07,40
 447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2026-06-11,2026,2026-06,120
 447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2026-05-12,2026,2026-05,55
@@ -6958,6 +6964,7 @@ customer_id,name,city,county,date,year,month,gallons
 447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2021-07-16,2021,2021-07,100
 447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2021-07-12,2021,2021-07,65
 447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2021-07-01,2021,2021-07,355
+1053,Namaste Garden 50%-Essex Jct,Essex Junction,Chittenden,2026-07-24,2026,2026-07,20
 1053,Namaste Garden 50%-Essex Jct,Essex Junction,Chittenden,2026-05-12,2026,2026-05,10
 1053,Namaste Garden 50%-Essex Jct,Essex Junction,Chittenden,2026-04-21,2026,2026-04,10
 1053,Namaste Garden 50%-Essex Jct,Essex Junction,Chittenden,2026-04-08,2026,2026-04,20
@@ -7011,6 +7018,7 @@ customer_id,name,city,county,date,year,month,gallons
 1053,Namaste Garden 50%-Essex Jct,Essex Junction,Chittenden,2021-12-29,2021,2021-12,75
 1053,Namaste Garden 50%-Essex Jct,Essex Junction,Chittenden,2021-12-01,2021,2021-12,55
 1053,Namaste Garden 50%-Essex Jct,Essex Junction,Chittenden,2021-10-22,2021,2021-10,100
+1402,Pick Thai -50% EssexJCT,Essex Junction,Chittenden,2026-07-24,2026,2026-07,15
 1402,Pick Thai -50% EssexJCT,Essex Junction,Chittenden,2026-05-12,2026,2026-05,10
 1402,Pick Thai -50% EssexJCT,Essex Junction,Chittenden,2026-04-21,2026,2026-04,10
 1402,Pick Thai -50% EssexJCT,Essex Junction,Chittenden,2026-04-08,2026,2026-04,20
@@ -7176,9 +7184,11 @@ customer_id,name,city,county,date,year,month,gallons
 422,Northwest Solid Waste Management District,Fairfax,Franklin,2017-01-26,2017,2017-01,125
 422,Northwest Solid Waste Management District,Fairfax,Franklin,2016-09-02,2016,2016-09,100
 422,Northwest Solid Waste Management District,Fairfax,Franklin,2015-11-19,2015,2015-11,90
+1461,Arandas-Fairlee,Fairlee,Orange,2026-07-24,2026,2026-07,60
 1461,Arandas-Fairlee,Fairlee,Orange,2026-04-01,2026,2026-04,35
 1461,Arandas-Fairlee,Fairlee,Orange,2026-01-20,2026,2026-01,35
 1461,Arandas-Fairlee,Fairlee,Orange,2025-10-27,2025,2025-10,2
+1268,Broken Hearts Burger,Fairlee,Orange,2026-07-24,2026,2026-07,80
 1268,Broken Hearts Burger,Fairlee,Orange,2026-01-20,2026,2026-01,60
 1268,Broken Hearts Burger,Fairlee,Orange,2025-10-30,2025,2025-10,70
 1268,Broken Hearts Burger,Fairlee,Orange,2025-08-18,2025,2025-08,55
@@ -7198,6 +7208,7 @@ customer_id,name,city,county,date,year,month,gallons
 1268,Broken Hearts Burger,Fairlee,Orange,2023-10-16,2023,2023-10,85
 1268,Broken Hearts Burger,Fairlee,Orange,2023-09-05,2023,2023-09,100
 1268,Broken Hearts Burger,Fairlee,Orange,2023-08-03,2023,2023-08,90
+1305,Jan’s Fairlee Diner,Fairlee,Orange,2026-07-24,2026,2026-07,110
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2026-04-01,2026,2026-04,65
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2026-01-20,2026,2026-01,330
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2025-10-30,2025,2025-10,75
@@ -7208,6 +7219,7 @@ customer_id,name,city,county,date,year,month,gallons
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2024-05-30,2024,2024-05,50
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2024-03-12,2024,2024-03,50
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2024-01-05,2024,2024-01,40
+1304,Lake Morley Resort,Fairlee,Orange,2026-07-24,2026,2026-07,110
 1304,Lake Morley Resort,Fairlee,Orange,2026-04-01,2026,2026-04,65
 1304,Lake Morley Resort,Fairlee,Orange,2026-01-20,2026,2026-01,60
 1304,Lake Morley Resort,Fairlee,Orange,2025-10-30,2025,2025-10,100
@@ -7279,6 +7291,7 @@ customer_id,name,city,county,date,year,month,gallons
 550,Highland Lodge- Elsa,Greensboro,Caledonia,2022-08-19,2022,2022-08,45
 550,Highland Lodge- Elsa,Greensboro,Caledonia,2021-08-29,2021,2021-08,65
 1469,Maplehurst Gebbie Farm,Greensboro,Caledonia,2025-11-20,2025,2025-11,2
+1484,Sushiya-Hanover NH,Hanover,Out-of-State (NH),2026-07-24,2026,2026-07,20
 1484,Sushiya-Hanover NH,Hanover,Out-of-State (NH),2026-06-02,2026,2026-06,50
 1484,Sushiya-Hanover NH,Hanover,Out-of-State (NH),2026-04-01,2026,2026-04,100
 1484,Sushiya-Hanover NH,Hanover,Out-of-State (NH),2026-01-26,2026,2026-01,110
@@ -8205,6 +8218,7 @@ customer_id,name,city,county,date,year,month,gallons
 526,Jay Peak-waterslide,Jay,Orleans,2015-04-16,2015,2015-04,1000
 526,Jay Peak-waterslide,Jay,Orleans,2015-04-07,2015,2015-04,250
 526,Jay Peak-waterslide,Jay,Orleans,2015-04-03,2015,2015-04,500
+530,Jay Village Inn,Jay,Orleans,2026-07-24,2026,2026-07,80
 530,Jay Village Inn,Jay,Orleans,2026-06-12,2026,2026-06,80
 530,Jay Village Inn,Jay,Orleans,2026-05-11,2026,2026-05,40
 530,Jay Village Inn,Jay,Orleans,2026-04-13,2026,2026-04,120
@@ -11718,6 +11732,7 @@ customer_id,name,city,county,date,year,month,gallons
 534,Dusit Thai,Newport,Orleans,2017-02-21,2017,2017-02,15
 534,Dusit Thai,Newport,Orleans,2017-01-31,2017,2017-01,40
 534,Dusit Thai,Newport,Orleans,2016-12-09,2016,2016-12,20
+1171,Hoagies-Newport,Newport,Orleans,2026-07-24,2026,2026-07,230
 1171,Hoagies-Newport,Newport,Orleans,2026-07-02,2026,2026-07,300
 1171,Hoagies-Newport,Newport,Orleans,2026-06-12,2026,2026-06,180
 1171,Hoagies-Newport,Newport,Orleans,2026-05-22,2026,2026-05,290
@@ -11790,6 +11805,7 @@ customer_id,name,city,county,date,year,month,gallons
 1074,JumbleBite/Hilmers on Main,Newport,Orleans,2022-07-14,2022,2022-07,25
 1074,JumbleBite/Hilmers on Main,Newport,Orleans,2022-06-07,2022,2022-06,50
 1074,JumbleBite/Hilmers on Main,Newport,Orleans,2021-10-14,2021,2021-10,30
+533,Newport Country Club,Newport,Orleans,2026-07-24,2026,2026-07,70
 533,Newport Country Club,Newport,Orleans,2026-06-12,2026,2026-06,25
 533,Newport Country Club,Newport,Orleans,2026-04-29,2026,2026-04,75
 533,Newport Country Club,Newport,Orleans,2026-02-20,2026,2026-02,70
@@ -11857,6 +11873,7 @@ customer_id,name,city,county,date,year,month,gallons
 1072,The Warehouse/Cider,Newport,Orleans,2022-01-03,2022,2022-01,70
 1072,The Warehouse/Cider,Newport,Orleans,2021-11-09,2021,2021-11,40
 1072,The Warehouse/Cider,Newport,Orleans,2021-10-14,2021,2021-10,70
+531,"Wal-mart,Newport",Newport,Orleans,2026-07-24,2026,2026-07,230
 531,"Wal-mart,Newport",Newport,Orleans,2026-04-29,2026,2026-04,224
 531,"Wal-mart,Newport",Newport,Orleans,2026-02-20,2026,2026-02,108
 531,"Wal-mart,Newport",Newport,Orleans,2025-12-31,2025,2025-12,265
@@ -11980,8 +11997,10 @@ customer_id,name,city,county,date,year,month,gallons
 1144,Shore Acres-North Hero,North Hero,Grand Isle,2022-08-12,2022,2022-08,25
 1503,Way Out Wax,Burlington,Chittenden,2026-05-27,2026,2026-05,60
 1503,Way Out Wax,Burlington,Chittenden,2026-05-15,2026,2026-05,2
+1500,802 Deli and Market,North Troy,Orleans,2026-07-24,2026,2026-07,80
 1500,802 Deli and Market,North Troy,Orleans,2026-06-12,2026,2026-06,100
 1500,802 Deli and Market,North Troy,Orleans,2026-05-12,2026,2026-05,2
+1314,Hoagies in North Troy,North Troy,Orleans,2026-07-24,2026,2026-07,130
 1314,Hoagies in North Troy,North Troy,Orleans,2026-06-12,2026,2026-06,80
 1314,Hoagies in North Troy,North Troy,Orleans,2026-04-13,2026,2026-04,180
 1314,Hoagies in North Troy,North Troy,Orleans,2026-02-25,2026,2026-02,180
@@ -12004,6 +12023,7 @@ customer_id,name,city,county,date,year,month,gallons
 1314,Hoagies in North Troy,North Troy,Orleans,2024-04-18,2024,2024-04,120
 1314,Hoagies in North Troy,North Troy,Orleans,2024-03-18,2024,2024-03,45
 1454,Inglenook Condo-Jay Peak,North Troy,Orleans,2025-09-26,2025,2025-09,2
+1436,JNETME CONCESSIONS 50%-North Troy,North Troy,Orleans,2026-07-24,2026,2026-07,75
 1436,JNETME CONCESSIONS 50%-North Troy,North Troy,Orleans,2026-06-12,2026,2026-06,20
 1436,JNETME CONCESSIONS 50%-North Troy,North Troy,Orleans,2026-05-11,2026,2026-05,20
 1436,JNETME CONCESSIONS 50%-North Troy,North Troy,Orleans,2026-04-13,2026,2026-04,30
@@ -12012,6 +12032,7 @@ customer_id,name,city,county,date,year,month,gallons
 1436,JNETME CONCESSIONS 50%-North Troy,North Troy,Orleans,2025-07-24,2025,2025-07,20
 1436,JNETME CONCESSIONS 50%-North Troy,North Troy,Orleans,2025-06-17,2025,2025-06,50
 1436,JNETME CONCESSIONS 50%-North Troy,North Troy,Orleans,2025-06-05,2025,2025-06,2
+1246,Junction Restaurant-50%-North Troy,North Troy,Orleans,2026-07-24,2026,2026-07,75
 1246,Junction Restaurant-50%-North Troy,North Troy,Orleans,2026-06-12,2026,2026-06,20
 1246,Junction Restaurant-50%-North Troy,North Troy,Orleans,2026-05-11,2026,2026-05,20
 1246,Junction Restaurant-50%-North Troy,North Troy,Orleans,2026-04-13,2026,2026-04,30
@@ -12036,6 +12057,7 @@ customer_id,name,city,county,date,year,month,gallons
 1246,Junction Restaurant-50%-North Troy,North Troy,Orleans,2023-06-27,2023,2023-06,100
 1246,Junction Restaurant-50%-North Troy,North Troy,Orleans,2023-05-11,2023,2023-05,35
 1246,Junction Restaurant-50%-North Troy,North Troy,Orleans,2023-04-26,2023,2023-04,10
+1165,Toasted Bun-North Troy,North Troy,Orleans,2026-07-24,2026,2026-07,145
 1165,Toasted Bun-North Troy,North Troy,Orleans,2026-06-12,2026,2026-06,85
 1165,Toasted Bun-North Troy,North Troy,Orleans,2026-05-11,2026,2026-05,80
 1165,Toasted Bun-North Troy,North Troy,Orleans,2025-10-13,2025,2025-10,75
@@ -20049,6 +20071,7 @@ customer_id,name,city,county,date,year,month,gallons
 1205,Sundance-(Mount Snow),West Dover,Windham,2025-02-20,2025,2025-02,100
 1205,Sundance-(Mount Snow),West Dover,Windham,2023-11-29,2023,2023-11,50
 1205,Sundance-(Mount Snow),West Dover,Windham,2023-01-30,2023,2023-01,30
+537,Parker Pie- West Glover,West Glover,Orleans,2026-07-24,2026,2026-07,230
 537,Parker Pie- West Glover,West Glover,Orleans,2026-04-29,2026,2026-04,250
 537,Parker Pie- West Glover,West Glover,Orleans,2026-02-20,2026,2026-02,60
 537,Parker Pie- West Glover,West Glover,Orleans,2026-01-16,2026,2026-01,100
@@ -21366,6 +21389,7 @@ customer_id,name,city,county,date,year,month,gallons
 1207,Mountain Valley-Winooski,Winooski,Chittenden,2023-09-18,2023,2023-09,135
 1207,Mountain Valley-Winooski,Winooski,Chittenden,2023-03-23,2023,2023-03,25
 1207,Mountain Valley-Winooski,Winooski,Chittenden,2023-01-18,2023,2023-01,25
+1168,Onion City Chicken and Oysters,Winooski,Chittenden,2026-07-24,2026,2026-07,100
 1168,Onion City Chicken and Oysters,Winooski,Chittenden,2026-07-08,2026,2026-07,110
 1168,Onion City Chicken and Oysters,Winooski,Chittenden,2026-06-17,2026,2026-06,125
 1168,Onion City Chicken and Oysters,Winooski,Chittenden,2026-05-28,2026,2026-05,100
@@ -21475,6 +21499,7 @@ customer_id,name,city,county,date,year,month,gallons
 437,Pho Dang,Winooski,Chittenden,2018-06-27,2018,2018-06,75
 437,Pho Dang,Winooski,Chittenden,2018-04-03,2018,2018-04,20
 437,Pho Dang,Winooski,Chittenden,2018-03-16,2018,2018-03,35
+1113,Saroms,Winooski,Chittenden,2026-07-24,2026,2026-07,50
 1113,Saroms,Winooski,Chittenden,2026-03-18,2026,2026-03,60
 1113,Saroms,Winooski,Chittenden,2025-11-07,2025,2025-11,25
 1113,Saroms,Winooski,Chittenden,2025-08-15,2025,2025-08,20
@@ -21837,6 +21862,7 @@ customer_id,name,city,county,date,year,month,gallons
 433,Tiny Thai,Winooski,Chittenden,2018-08-09,2018,2018-08,125
 433,Tiny Thai,Winooski,Chittenden,2018-04-03,2018,2018-04,25
 433,Tiny Thai,Winooski,Chittenden,2018-03-16,2018,2018-03,5
+1135,Waterworks-Winooski,Winooski,Chittenden,2026-07-24,2026,2026-07,90
 1135,Waterworks-Winooski,Winooski,Chittenden,2026-07-08,2026,2026-07,120
 1135,Waterworks-Winooski,Winooski,Chittenden,2026-06-17,2026,2026-06,100
 1135,Waterworks-Winooski,Winooski,Chittenden,2026-05-28,2026,2026-05,90
