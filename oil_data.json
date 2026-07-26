@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-26T00:27:31.810404",
+  "last_updated": "2026-07-26T13:48:43.286066",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -32703,6 +32703,12 @@
     },
     {
       "month": "2026-07",
+      "geo_town": "Bradford",
+      "gallons": 160,
+      "city": "Bradford"
+    },
+    {
+      "month": "2026-07",
       "geo_town": "Bristol",
       "gallons": 135,
       "city": "Bristol"
@@ -32710,7 +32716,7 @@
     {
       "month": "2026-07",
       "geo_town": "Burlington",
-      "gallons": 3435,
+      "gallons": 3710,
       "city": "Burlington"
     },
     {
@@ -32728,7 +32734,7 @@
     {
       "month": "2026-07",
       "geo_town": "Colchester",
-      "gallons": 410,
+      "gallons": 460,
       "city": "Colchester"
     },
     {
@@ -32758,8 +32764,20 @@
     {
       "month": "2026-07",
       "geo_town": "Essex Junction",
-      "gallons": 75,
+      "gallons": 746,
       "city": "Essex Junction"
+    },
+    {
+      "month": "2026-07",
+      "geo_town": "Fairlee",
+      "gallons": 360,
+      "city": "Fairlee"
+    },
+    {
+      "month": "2026-07",
+      "geo_town": "Glover",
+      "gallons": 230,
+      "city": "Glover"
     },
     {
       "month": "2026-07",
@@ -32782,7 +32800,7 @@
     {
       "month": "2026-07",
       "geo_town": "Jay",
-      "gallons": 290,
+      "gallons": 370,
       "city": "Jay"
     },
     {
@@ -32842,7 +32860,7 @@
     {
       "month": "2026-07",
       "geo_town": "Newport City",
-      "gallons": 420,
+      "gallons": 950,
       "city": "Newport City"
     },
     {
@@ -32913,6 +32931,12 @@
     },
     {
       "month": "2026-07",
+      "geo_town": "Troy",
+      "gallons": 505,
+      "city": "Troy"
+    },
+    {
+      "month": "2026-07",
       "geo_town": "Vergennes",
       "gallons": 505,
       "city": "Vergennes"
@@ -32950,7 +32974,7 @@
     {
       "month": "2026-07",
       "geo_town": "Winooski",
-      "gallons": 755,
+      "gallons": 995,
       "city": "Winooski"
     },
     {
@@ -33939,12 +33963,12 @@
     {
       "month": "2017-02",
       "county": "Out-of-State (NH)",
-      "gallons": 205
+      "gallons": 190
     },
     {
       "month": "2017-02",
       "county": "Rutland",
-      "gallons": 460
+      "gallons": 475
     },
     {
       "month": "2017-02",
@@ -34059,12 +34083,12 @@
     {
       "month": "2017-05",
       "county": "Out-of-State (NH)",
-      "gallons": 165
+      "gallons": 150
     },
     {
       "month": "2017-05",
       "county": "Rutland",
-      "gallons": 235
+      "gallons": 250
     },
     {
       "month": "2017-05",
@@ -34159,12 +34183,12 @@
     {
       "month": "2017-07",
       "county": "Out-of-State (NH)",
-      "gallons": 220
+      "gallons": 170
     },
     {
       "month": "2017-07",
       "county": "Rutland",
-      "gallons": 145
+      "gallons": 195
     },
     {
       "month": "2017-07",
@@ -34209,12 +34233,12 @@
     {
       "month": "2017-08",
       "county": "Out-of-State (NH)",
-      "gallons": 150
+      "gallons": 100
     },
     {
       "month": "2017-08",
       "county": "Rutland",
-      "gallons": 240
+      "gallons": 290
     },
     {
       "month": "2017-08",
@@ -34259,7 +34283,12 @@
     {
       "month": "2017-09",
       "county": "Out-of-State (NH)",
-      "gallons": 335
+      "gallons": 250
+    },
+    {
+      "month": "2017-09",
+      "county": "Rutland",
+      "gallons": 85
     },
     {
       "month": "2017-09",
@@ -34344,12 +34373,12 @@
     {
       "month": "2017-11",
       "county": "Out-of-State (NH)",
-      "gallons": 500
+      "gallons": 440
     },
     {
       "month": "2017-11",
       "county": "Rutland",
-      "gallons": 340
+      "gallons": 400
     },
     {
       "month": "2017-11",
@@ -34434,12 +34463,12 @@
     {
       "month": "2018-01",
       "county": "Out-of-State (NH)",
-      "gallons": 153
+      "gallons": 125
     },
     {
       "month": "2018-01",
       "county": "Rutland",
-      "gallons": 220
+      "gallons": 248
     },
     {
       "month": "2018-01",
@@ -34659,12 +34688,12 @@
     {
       "month": "2018-05",
       "county": "Out-of-State (NH)",
-      "gallons": 250
+      "gallons": 75
     },
     {
       "month": "2018-05",
       "county": "Rutland",
-      "gallons": 275
+      "gallons": 450
     },
     {
       "month": "2018-05",
@@ -34804,12 +34833,12 @@
     {
       "month": "2018-08",
       "county": "Out-of-State (NH)",
-      "gallons": 425
+      "gallons": 250
     },
     {
       "month": "2018-08",
       "county": "Rutland",
-      "gallons": 50
+      "gallons": 225
     },
     {
       "month": "2018-08",
@@ -34904,7 +34933,12 @@
     {
       "month": "2018-10",
       "county": "Out-of-State (NH)",
-      "gallons": 245
+      "gallons": 185
+    },
+    {
+      "month": "2018-10",
+      "county": "Rutland",
+      "gallons": 60
     },
     {
       "month": "2018-10",
@@ -35168,13 +35202,8 @@
     },
     {
       "month": "2019-03",
-      "county": "Out-of-State (NH)",
-      "gallons": 150
-    },
-    {
-      "month": "2019-03",
       "county": "Rutland",
-      "gallons": 50
+      "gallons": 200
     },
     {
       "month": "2019-03",
@@ -35264,7 +35293,12 @@
     {
       "month": "2019-05",
       "county": "Out-of-State (NH)",
-      "gallons": 645
+      "gallons": 600
+    },
+    {
+      "month": "2019-05",
+      "county": "Rutland",
+      "gallons": 45
     },
     {
       "month": "2019-05",
@@ -35404,12 +35438,12 @@
     {
       "month": "2019-08",
       "county": "Out-of-State (NH)",
-      "gallons": 600
+      "gallons": 500
     },
     {
       "month": "2019-08",
       "county": "Rutland",
-      "gallons": 50
+      "gallons": 150
     },
     {
       "month": "2019-08",
@@ -35658,7 +35692,7 @@
     },
     {
       "month": "2020-01",
-      "county": "Out-of-State (NH)",
+      "county": "Rutland",
       "gallons": 40
     },
     {
@@ -35759,12 +35793,12 @@
     {
       "month": "2020-03",
       "county": "Out-of-State (NH)",
-      "gallons": 400
+      "gallons": 275
     },
     {
       "month": "2020-03",
       "county": "Rutland",
-      "gallons": 165
+      "gallons": 290
     },
     {
       "month": "2020-03",
@@ -35899,7 +35933,12 @@
     {
       "month": "2020-06",
       "county": "Out-of-State (NH)",
-      "gallons": 375
+      "gallons": 325
+    },
+    {
+      "month": "2020-06",
+      "county": "Rutland",
+      "gallons": 50
     },
     {
       "month": "2020-06",
@@ -36034,12 +36073,12 @@
     {
       "month": "2020-09",
       "county": "Out-of-State (NH)",
-      "gallons": 595
+      "gallons": 475
     },
     {
       "month": "2020-09",
       "county": "Rutland",
-      "gallons": 250
+      "gallons": 370
     },
     {
       "month": "2020-09",
@@ -36129,12 +36168,12 @@
     {
       "month": "2020-11",
       "county": "Out-of-State (NH)",
-      "gallons": 240
+      "gallons": 220
     },
     {
       "month": "2020-11",
       "county": "Rutland",
-      "gallons": 80
+      "gallons": 100
     },
     {
       "month": "2020-11",
@@ -36239,7 +36278,12 @@
     {
       "month": "2021-01",
       "county": "Out-of-State (NH)",
-      "gallons": 385
+      "gallons": 305
+    },
+    {
+      "month": "2021-01",
+      "county": "Rutland",
+      "gallons": 80
     },
     {
       "month": "2021-01",
@@ -36434,12 +36478,12 @@
     {
       "month": "2021-05",
       "county": "Out-of-State (NH)",
-      "gallons": 450
+      "gallons": 300
     },
     {
       "month": "2021-05",
       "county": "Rutland",
-      "gallons": 175
+      "gallons": 325
     },
     {
       "month": "2021-05",
@@ -36589,12 +36633,12 @@
     {
       "month": "2021-08",
       "county": "Out-of-State (NH)",
-      "gallons": 380
+      "gallons": 305
     },
     {
       "month": "2021-08",
       "county": "Rutland",
-      "gallons": 150
+      "gallons": 225
     },
     {
       "month": "2021-08",
@@ -36639,12 +36683,12 @@
     {
       "month": "2021-09",
       "county": "Out-of-State (NH)",
-      "gallons": 305
+      "gallons": 285
     },
     {
       "month": "2021-09",
       "county": "Rutland",
-      "gallons": 165
+      "gallons": 185
     },
     {
       "month": "2021-09",
@@ -36689,17 +36733,12 @@
     {
       "month": "2021-10",
       "county": "Orleans",
-      "gallons": 990
+      "gallons": 1070
     },
     {
       "month": "2021-10",
       "county": "Out-of-State (NH)",
       "gallons": 205
-    },
-    {
-      "month": "2021-10",
-      "county": "Out-of-State (NY)",
-      "gallons": 80
     },
     {
       "month": "2021-10",
@@ -36749,17 +36788,12 @@
     {
       "month": "2021-11",
       "county": "Orleans",
-      "gallons": 125
+      "gallons": 200
     },
     {
       "month": "2021-11",
       "county": "Out-of-State (NH)",
       "gallons": 155
-    },
-    {
-      "month": "2021-11",
-      "county": "Out-of-State (NY)",
-      "gallons": 75
     },
     {
       "month": "2021-11",
@@ -36814,17 +36848,12 @@
     {
       "month": "2021-12",
       "county": "Orleans",
-      "gallons": 891
+      "gallons": 991
     },
     {
       "month": "2021-12",
       "county": "Out-of-State (NH)",
-      "gallons": 210
-    },
-    {
-      "month": "2021-12",
-      "county": "Out-of-State (NY)",
-      "gallons": 100
+      "gallons": 160
     },
     {
       "month": "2021-12",
@@ -36834,7 +36863,7 @@
     {
       "month": "2021-12",
       "county": "Rutland",
-      "gallons": 25
+      "gallons": 75
     },
     {
       "month": "2021-12",
@@ -36919,17 +36948,12 @@
     {
       "month": "2022-02",
       "county": "Orleans",
-      "gallons": 1395
+      "gallons": 1425
     },
     {
       "month": "2022-02",
       "county": "Out-of-State (NH)",
       "gallons": 260
-    },
-    {
-      "month": "2022-02",
-      "county": "Out-of-State (NY)",
-      "gallons": 30
     },
     {
       "month": "2022-02",
@@ -36983,18 +37007,18 @@
     },
     {
       "month": "2022-03",
-      "county": "Out-of-State (NH)",
-      "gallons": 405
-    },
-    {
-      "month": "2022-03",
-      "county": "Out-of-State (NY)",
+      "county": "Orleans",
       "gallons": 25
     },
     {
       "month": "2022-03",
+      "county": "Out-of-State (NH)",
+      "gallons": 255
+    },
+    {
+      "month": "2022-03",
       "county": "Rutland",
-      "gallons": 30
+      "gallons": 180
     },
     {
       "month": "2022-03",
@@ -37044,17 +37068,12 @@
     {
       "month": "2022-04",
       "county": "Orleans",
-      "gallons": 1920
+      "gallons": 2100
     },
     {
       "month": "2022-04",
       "county": "Out-of-State (NH)",
       "gallons": 210
-    },
-    {
-      "month": "2022-04",
-      "county": "Out-of-State (NY)",
-      "gallons": 180
     },
     {
       "month": "2022-04",
@@ -37103,13 +37122,13 @@
     },
     {
       "month": "2022-05",
-      "county": "Out-of-State (NH)",
-      "gallons": 205
+      "county": "Orleans",
+      "gallons": 55
     },
     {
       "month": "2022-05",
-      "county": "Out-of-State (NY)",
-      "gallons": 55
+      "county": "Out-of-State (NH)",
+      "gallons": 205
     },
     {
       "month": "2022-05",
@@ -37164,12 +37183,12 @@
     {
       "month": "2022-06",
       "county": "Out-of-State (NH)",
-      "gallons": 305
+      "gallons": 255
     },
     {
       "month": "2022-06",
       "county": "Rutland",
-      "gallons": 285
+      "gallons": 335
     },
     {
       "month": "2022-06",
@@ -37224,17 +37243,12 @@
     {
       "month": "2022-07",
       "county": "Orleans",
-      "gallons": 453
+      "gallons": 493
     },
     {
       "month": "2022-07",
       "county": "Out-of-State (NH)",
       "gallons": 415
-    },
-    {
-      "month": "2022-07",
-      "county": "Out-of-State (NY)",
-      "gallons": 40
     },
     {
       "month": "2022-07",
@@ -37294,12 +37308,7 @@
     {
       "month": "2022-08",
       "county": "Orleans",
-      "gallons": 1290
-    },
-    {
-      "month": "2022-08",
-      "county": "Out-of-State (NY)",
-      "gallons": 70
+      "gallons": 1360
     },
     {
       "month": "2022-08",
@@ -37364,7 +37373,7 @@
     {
       "month": "2022-09",
       "county": "Out-of-State (NH)",
-      "gallons": 692
+      "gallons": 612
     },
     {
       "month": "2022-09",
@@ -37374,7 +37383,7 @@
     {
       "month": "2022-09",
       "county": "Rutland",
-      "gallons": 755
+      "gallons": 835
     },
     {
       "month": "2022-09",
@@ -37429,7 +37438,7 @@
     {
       "month": "2022-10",
       "county": "Orleans",
-      "gallons": 120
+      "gallons": 160
     },
     {
       "month": "2022-10",
@@ -37439,7 +37448,7 @@
     {
       "month": "2022-10",
       "county": "Out-of-State (NY)",
-      "gallons": 166
+      "gallons": 126
     },
     {
       "month": "2022-10",
@@ -37554,7 +37563,7 @@
     {
       "month": "2022-12",
       "county": "Out-of-State (NH)",
-      "gallons": 394
+      "gallons": 319
     },
     {
       "month": "2022-12",
@@ -37564,7 +37573,7 @@
     {
       "month": "2022-12",
       "county": "Rutland",
-      "gallons": 470
+      "gallons": 545
     },
     {
       "month": "2022-12",
@@ -37613,13 +37622,13 @@
     },
     {
       "month": "2023-01",
-      "county": "Out-of-State (NH)",
-      "gallons": 354
+      "county": "Orleans",
+      "gallons": 70
     },
     {
       "month": "2023-01",
-      "county": "Out-of-State (NY)",
-      "gallons": 70
+      "county": "Out-of-State (NH)",
+      "gallons": 354
     },
     {
       "month": "2023-01",
@@ -37724,7 +37733,7 @@
     {
       "month": "2023-03",
       "county": "Orleans",
-      "gallons": 925
+      "gallons": 975
     },
     {
       "month": "2023-03",
@@ -37734,7 +37743,7 @@
     {
       "month": "2023-03",
       "county": "Out-of-State (NY)",
-      "gallons": 177
+      "gallons": 127
     },
     {
       "month": "2023-03",
@@ -37799,12 +37808,12 @@
     {
       "month": "2023-04",
       "county": "Out-of-State (NH)",
-      "gallons": 375
+      "gallons": 285
     },
     {
       "month": "2023-04",
       "county": "Rutland",
-      "gallons": 298
+      "gallons": 388
     },
     {
       "month": "2023-04",
@@ -37859,7 +37868,7 @@
     {
       "month": "2023-05",
       "county": "Orleans",
-      "gallons": 675
+      "gallons": 745
     },
     {
       "month": "2023-05",
@@ -37869,7 +37878,7 @@
     {
       "month": "2023-05",
       "county": "Out-of-State (NY)",
-      "gallons": 198
+      "gallons": 128
     },
     {
       "month": "2023-05",
@@ -37929,22 +37938,22 @@
     {
       "month": "2023-06",
       "county": "Orleans",
-      "gallons": 1780
+      "gallons": 1847
     },
     {
       "month": "2023-06",
       "county": "Out-of-State (NH)",
-      "gallons": 440
+      "gallons": 395
     },
     {
       "month": "2023-06",
       "county": "Out-of-State (NY)",
-      "gallons": 205
+      "gallons": 138
     },
     {
       "month": "2023-06",
       "county": "Rutland",
-      "gallons": 480
+      "gallons": 525
     },
     {
       "month": "2023-06",
@@ -38124,7 +38133,7 @@
     {
       "month": "2023-09",
       "county": "Orleans",
-      "gallons": 762
+      "gallons": 862
     },
     {
       "month": "2023-09",
@@ -38134,7 +38143,7 @@
     {
       "month": "2023-09",
       "county": "Out-of-State (NY)",
-      "gallons": 228
+      "gallons": 128
     },
     {
       "month": "2023-09",
@@ -38194,7 +38203,7 @@
     {
       "month": "2023-10",
       "county": "Out-of-State (NH)",
-      "gallons": 329
+      "gallons": 289
     },
     {
       "month": "2023-10",
@@ -38204,7 +38213,7 @@
     {
       "month": "2023-10",
       "county": "Rutland",
-      "gallons": 305
+      "gallons": 345
     },
     {
       "month": "2023-10",
@@ -38264,7 +38273,7 @@
     {
       "month": "2023-11",
       "county": "Orleans",
-      "gallons": 955
+      "gallons": 1015
     },
     {
       "month": "2023-11",
@@ -38274,7 +38283,7 @@
     {
       "month": "2023-11",
       "county": "Out-of-State (NY)",
-      "gallons": 197
+      "gallons": 137
     },
     {
       "month": "2023-11",
@@ -38469,7 +38478,7 @@
     {
       "month": "2024-02",
       "county": "Orleans",
-      "gallons": 1936
+      "gallons": 2026
     },
     {
       "month": "2024-02",
@@ -38479,7 +38488,7 @@
     {
       "month": "2024-02",
       "county": "Out-of-State (NY)",
-      "gallons": 194
+      "gallons": 104
     },
     {
       "month": "2024-02",
@@ -38759,22 +38768,22 @@
     {
       "month": "2024-06",
       "county": "Orleans",
-      "gallons": 940
+      "gallons": 1005
     },
     {
       "month": "2024-06",
       "county": "Out-of-State (NH)",
-      "gallons": 629
+      "gallons": 579
     },
     {
       "month": "2024-06",
       "county": "Out-of-State (NY)",
-      "gallons": 213
+      "gallons": 148
     },
     {
       "month": "2024-06",
       "county": "Rutland",
-      "gallons": 220
+      "gallons": 270
     },
     {
       "month": "2024-06",
@@ -38889,7 +38898,7 @@
     {
       "month": "2024-08",
       "county": "Orleans",
-      "gallons": 910
+      "gallons": 1050
     },
     {
       "month": "2024-08",
@@ -38899,7 +38908,7 @@
     {
       "month": "2024-08",
       "county": "Out-of-State (NY)",
-      "gallons": 271
+      "gallons": 131
     },
     {
       "month": "2024-08",
@@ -38969,7 +38978,7 @@
     {
       "month": "2024-09",
       "county": "Out-of-State (NH)",
-      "gallons": 635
+      "gallons": 550
     },
     {
       "month": "2024-09",
@@ -38979,7 +38988,7 @@
     {
       "month": "2024-09",
       "county": "Rutland",
-      "gallons": 200
+      "gallons": 285
     },
     {
       "month": "2024-09",
@@ -39039,7 +39048,7 @@
     {
       "month": "2024-10",
       "county": "Orleans",
-      "gallons": 1364
+      "gallons": 1449
     },
     {
       "month": "2024-10",
@@ -39049,7 +39058,7 @@
     {
       "month": "2024-10",
       "county": "Out-of-State (NY)",
-      "gallons": 230
+      "gallons": 145
     },
     {
       "month": "2024-10",
@@ -39194,22 +39203,22 @@
     {
       "month": "2024-12",
       "county": "Orleans",
-      "gallons": 1518
+      "gallons": 1608
     },
     {
       "month": "2024-12",
       "county": "Out-of-State (NH)",
-      "gallons": 394
+      "gallons": 354
     },
     {
       "month": "2024-12",
       "county": "Out-of-State (NY)",
-      "gallons": 236
+      "gallons": 146
     },
     {
       "month": "2024-12",
       "county": "Rutland",
-      "gallons": 132
+      "gallons": 172
     },
     {
       "month": "2024-12",
@@ -39384,17 +39393,12 @@
     {
       "month": "2025-03",
       "county": "Orleans",
-      "gallons": 2385
+      "gallons": 2475
     },
     {
       "month": "2025-03",
       "county": "Out-of-State (NH)",
       "gallons": 308
-    },
-    {
-      "month": "2025-03",
-      "county": "Out-of-State (NY)",
-      "gallons": 90
     },
     {
       "month": "2025-03",
@@ -39464,12 +39468,17 @@
     {
       "month": "2025-04",
       "county": "Out-of-State (NH)",
-      "gallons": 429
+      "gallons": 349
     },
     {
       "month": "2025-04",
       "county": "Out-of-State (NY)",
       "gallons": 165
+    },
+    {
+      "month": "2025-04",
+      "county": "Rutland",
+      "gallons": 80
     },
     {
       "month": "2025-04",
@@ -39519,12 +39528,12 @@
     {
       "month": "2025-05",
       "county": "Orleans",
-      "gallons": 1000
+      "gallons": 1120
     },
     {
       "month": "2025-05",
       "county": "Out-of-State (NY)",
-      "gallons": 268
+      "gallons": 148
     },
     {
       "month": "2025-05",
@@ -39659,17 +39668,22 @@
     {
       "month": "2025-07",
       "county": "Orleans",
-      "gallons": 870
+      "gallons": 1005
     },
     {
       "month": "2025-07",
       "county": "Out-of-State (NH)",
-      "gallons": 282
+      "gallons": 237
     },
     {
       "month": "2025-07",
       "county": "Out-of-State (NY)",
-      "gallons": 264
+      "gallons": 129
+    },
+    {
+      "month": "2025-07",
+      "county": "Rutland",
+      "gallons": 45
     },
     {
       "month": "2025-07",
@@ -39874,7 +39888,7 @@
     {
       "month": "2025-10",
       "county": "Orleans",
-      "gallons": 1624
+      "gallons": 1779
     },
     {
       "month": "2025-10",
@@ -39884,7 +39898,7 @@
     {
       "month": "2025-10",
       "county": "Out-of-State (NY)",
-      "gallons": 304
+      "gallons": 149
     },
     {
       "month": "2025-10",
@@ -40004,7 +40018,7 @@
     {
       "month": "2025-12",
       "county": "Orleans",
-      "gallons": 1801
+      "gallons": 1921
     },
     {
       "month": "2025-12",
@@ -40014,7 +40028,7 @@
     {
       "month": "2025-12",
       "county": "Out-of-State (NY)",
-      "gallons": 228
+      "gallons": 108
     },
     {
       "month": "2025-12",
@@ -40144,7 +40158,7 @@
     {
       "month": "2026-02",
       "county": "Orleans",
-      "gallons": 1710
+      "gallons": 1795
     },
     {
       "month": "2026-02",
@@ -40154,7 +40168,7 @@
     {
       "month": "2026-02",
       "county": "Out-of-State (NY)",
-      "gallons": 218
+      "gallons": 133
     },
     {
       "month": "2026-02",
@@ -40284,22 +40298,22 @@
     {
       "month": "2026-04",
       "county": "Orleans",
-      "gallons": 2965
+      "gallons": 3060
     },
     {
       "month": "2026-04",
       "county": "Out-of-State (NH)",
-      "gallons": 708
+      "gallons": 558
     },
     {
       "month": "2026-04",
       "county": "Out-of-State (NY)",
-      "gallons": 254
+      "gallons": 159
     },
     {
       "month": "2026-04",
       "county": "Rutland",
-      "gallons": 50
+      "gallons": 200
     },
     {
       "month": "2026-04",
@@ -40459,7 +40473,7 @@
     {
       "month": "2026-07",
       "county": "Chittenden",
-      "gallons": 8275
+      "gallons": 9511
     },
     {
       "month": "2026-07",
@@ -40478,18 +40492,18 @@
     },
     {
       "month": "2026-07",
+      "county": "Orange",
+      "gallons": 520
+    },
+    {
+      "month": "2026-07",
       "county": "Orleans",
-      "gallons": 845
+      "gallons": 2355
     },
     {
       "month": "2026-07",
       "county": "Out-of-State (NH)",
-      "gallons": 251
-    },
-    {
-      "month": "2026-07",
-      "county": "Out-of-State (NY)",
-      "gallons": 165
+      "gallons": 271
     },
     {
       "month": "2026-07",
@@ -40559,11 +40573,9071 @@
     },
     {
       "year": 2026,
-      "gallons": 170992
+      "gallons": 174113
     }
   ],
-  "all_time_total": 2089759,
-  "current_year_total": 170992,
+  "all_time_total": 2092880,
+  "current_year_total": 174113,
   "customer_count": 792,
-  "unmapped_total": 38723
+  "unmapped_total": 38743,
+  "monthly_totals": [
+    {
+      "month": "2015-01",
+      "gallons": 3913
+    },
+    {
+      "month": "2015-02",
+      "gallons": 3042
+    },
+    {
+      "month": "2015-03",
+      "gallons": 3428
+    },
+    {
+      "month": "2015-04",
+      "gallons": 6856
+    },
+    {
+      "month": "2015-05",
+      "gallons": 4864
+    },
+    {
+      "month": "2015-06",
+      "gallons": 4418
+    },
+    {
+      "month": "2015-07",
+      "gallons": 4482
+    },
+    {
+      "month": "2015-08",
+      "gallons": 5045
+    },
+    {
+      "month": "2015-09",
+      "gallons": 5877
+    },
+    {
+      "month": "2015-10",
+      "gallons": 4120
+    },
+    {
+      "month": "2015-11",
+      "gallons": 5336
+    },
+    {
+      "month": "2015-12",
+      "gallons": 5301
+    },
+    {
+      "month": "2016-01",
+      "gallons": 4432
+    },
+    {
+      "month": "2016-02",
+      "gallons": 6308
+    },
+    {
+      "month": "2016-03",
+      "gallons": 5676
+    },
+    {
+      "month": "2016-04",
+      "gallons": 6593
+    },
+    {
+      "month": "2016-05",
+      "gallons": 7082
+    },
+    {
+      "month": "2016-06",
+      "gallons": 10586
+    },
+    {
+      "month": "2016-07",
+      "gallons": 13147
+    },
+    {
+      "month": "2016-08",
+      "gallons": 7916
+    },
+    {
+      "month": "2016-09",
+      "gallons": 8012
+    },
+    {
+      "month": "2016-10",
+      "gallons": 8118
+    },
+    {
+      "month": "2016-11",
+      "gallons": 6385
+    },
+    {
+      "month": "2016-12",
+      "gallons": 6113
+    },
+    {
+      "month": "2017-01",
+      "gallons": 9614
+    },
+    {
+      "month": "2017-02",
+      "gallons": 7107
+    },
+    {
+      "month": "2017-03",
+      "gallons": 8471
+    },
+    {
+      "month": "2017-04",
+      "gallons": 7500
+    },
+    {
+      "month": "2017-05",
+      "gallons": 9528
+    },
+    {
+      "month": "2017-06",
+      "gallons": 10630
+    },
+    {
+      "month": "2017-07",
+      "gallons": 10874
+    },
+    {
+      "month": "2017-08",
+      "gallons": 10666
+    },
+    {
+      "month": "2017-09",
+      "gallons": 12456
+    },
+    {
+      "month": "2017-10",
+      "gallons": 13691
+    },
+    {
+      "month": "2017-11",
+      "gallons": 8648
+    },
+    {
+      "month": "2017-12",
+      "gallons": 6784
+    },
+    {
+      "month": "2018-01",
+      "gallons": 8568
+    },
+    {
+      "month": "2018-02",
+      "gallons": 11377
+    },
+    {
+      "month": "2018-03",
+      "gallons": 13755
+    },
+    {
+      "month": "2018-04",
+      "gallons": 15131
+    },
+    {
+      "month": "2018-05",
+      "gallons": 14730
+    },
+    {
+      "month": "2018-06",
+      "gallons": 12610
+    },
+    {
+      "month": "2018-07",
+      "gallons": 17534
+    },
+    {
+      "month": "2018-08",
+      "gallons": 13384
+    },
+    {
+      "month": "2018-09",
+      "gallons": 12785
+    },
+    {
+      "month": "2018-10",
+      "gallons": 16316
+    },
+    {
+      "month": "2018-11",
+      "gallons": 12160
+    },
+    {
+      "month": "2018-12",
+      "gallons": 12983
+    },
+    {
+      "month": "2019-01",
+      "gallons": 11689
+    },
+    {
+      "month": "2019-02",
+      "gallons": 14564
+    },
+    {
+      "month": "2019-03",
+      "gallons": 15290
+    },
+    {
+      "month": "2019-04",
+      "gallons": 14760
+    },
+    {
+      "month": "2019-05",
+      "gallons": 17060
+    },
+    {
+      "month": "2019-06",
+      "gallons": 15000
+    },
+    {
+      "month": "2019-07",
+      "gallons": 16605
+    },
+    {
+      "month": "2019-08",
+      "gallons": 12257
+    },
+    {
+      "month": "2019-09",
+      "gallons": 13805
+    },
+    {
+      "month": "2019-10",
+      "gallons": 17125
+    },
+    {
+      "month": "2019-11",
+      "gallons": 14217
+    },
+    {
+      "month": "2019-12",
+      "gallons": 13660
+    },
+    {
+      "month": "2020-01",
+      "gallons": 13706
+    },
+    {
+      "month": "2020-02",
+      "gallons": 12776
+    },
+    {
+      "month": "2020-03",
+      "gallons": 14345
+    },
+    {
+      "month": "2020-04",
+      "gallons": 15526
+    },
+    {
+      "month": "2020-05",
+      "gallons": 5925
+    },
+    {
+      "month": "2020-06",
+      "gallons": 11805
+    },
+    {
+      "month": "2020-07",
+      "gallons": 12175
+    },
+    {
+      "month": "2020-08",
+      "gallons": 9840
+    },
+    {
+      "month": "2020-09",
+      "gallons": 12013
+    },
+    {
+      "month": "2020-10",
+      "gallons": 12670
+    },
+    {
+      "month": "2020-11",
+      "gallons": 11765
+    },
+    {
+      "month": "2020-12",
+      "gallons": 14015
+    },
+    {
+      "month": "2021-01",
+      "gallons": 11560
+    },
+    {
+      "month": "2021-02",
+      "gallons": 8840
+    },
+    {
+      "month": "2021-03",
+      "gallons": 11850
+    },
+    {
+      "month": "2021-04",
+      "gallons": 9130
+    },
+    {
+      "month": "2021-05",
+      "gallons": 13910
+    },
+    {
+      "month": "2021-06",
+      "gallons": 16004
+    },
+    {
+      "month": "2021-07",
+      "gallons": 15277
+    },
+    {
+      "month": "2021-08",
+      "gallons": 18620
+    },
+    {
+      "month": "2021-09",
+      "gallons": 13578
+    },
+    {
+      "month": "2021-10",
+      "gallons": 15188
+    },
+    {
+      "month": "2021-11",
+      "gallons": 16001
+    },
+    {
+      "month": "2021-12",
+      "gallons": 17947
+    },
+    {
+      "month": "2022-01",
+      "gallons": 9626
+    },
+    {
+      "month": "2022-02",
+      "gallons": 13102
+    },
+    {
+      "month": "2022-03",
+      "gallons": 22746
+    },
+    {
+      "month": "2022-04",
+      "gallons": 21050
+    },
+    {
+      "month": "2022-05",
+      "gallons": 17690
+    },
+    {
+      "month": "2022-06",
+      "gallons": 18845
+    },
+    {
+      "month": "2022-07",
+      "gallons": 18167
+    },
+    {
+      "month": "2022-08",
+      "gallons": 23259
+    },
+    {
+      "month": "2022-09",
+      "gallons": 23761
+    },
+    {
+      "month": "2022-10",
+      "gallons": 20768
+    },
+    {
+      "month": "2022-11",
+      "gallons": 20799
+    },
+    {
+      "month": "2022-12",
+      "gallons": 16576
+    },
+    {
+      "month": "2023-01",
+      "gallons": 16360
+    },
+    {
+      "month": "2023-02",
+      "gallons": 21630
+    },
+    {
+      "month": "2023-03",
+      "gallons": 20486
+    },
+    {
+      "month": "2023-04",
+      "gallons": 19060
+    },
+    {
+      "month": "2023-05",
+      "gallons": 21982
+    },
+    {
+      "month": "2023-06",
+      "gallons": 24960
+    },
+    {
+      "month": "2023-07",
+      "gallons": 18055
+    },
+    {
+      "month": "2023-08",
+      "gallons": 24501
+    },
+    {
+      "month": "2023-09",
+      "gallons": 17557
+    },
+    {
+      "month": "2023-10",
+      "gallons": 23247
+    },
+    {
+      "month": "2023-11",
+      "gallons": 18298
+    },
+    {
+      "month": "2023-12",
+      "gallons": 18226
+    },
+    {
+      "month": "2024-01",
+      "gallons": 19982
+    },
+    {
+      "month": "2024-02",
+      "gallons": 21041
+    },
+    {
+      "month": "2024-03",
+      "gallons": 20551
+    },
+    {
+      "month": "2024-04",
+      "gallons": 25983
+    },
+    {
+      "month": "2024-05",
+      "gallons": 20427
+    },
+    {
+      "month": "2024-06",
+      "gallons": 22290
+    },
+    {
+      "month": "2024-07",
+      "gallons": 24230
+    },
+    {
+      "month": "2024-08",
+      "gallons": 21675
+    },
+    {
+      "month": "2024-09",
+      "gallons": 23845
+    },
+    {
+      "month": "2024-10",
+      "gallons": 22593
+    },
+    {
+      "month": "2024-11",
+      "gallons": 20260
+    },
+    {
+      "month": "2024-12",
+      "gallons": 20380
+    },
+    {
+      "month": "2025-01",
+      "gallons": 19140
+    },
+    {
+      "month": "2025-02",
+      "gallons": 18140
+    },
+    {
+      "month": "2025-03",
+      "gallons": 26961
+    },
+    {
+      "month": "2025-04",
+      "gallons": 27145
+    },
+    {
+      "month": "2025-05",
+      "gallons": 20751
+    },
+    {
+      "month": "2025-06",
+      "gallons": 23433
+    },
+    {
+      "month": "2025-07",
+      "gallons": 22672
+    },
+    {
+      "month": "2025-08",
+      "gallons": 25119
+    },
+    {
+      "month": "2025-09",
+      "gallons": 25498
+    },
+    {
+      "month": "2025-10",
+      "gallons": 21968
+    },
+    {
+      "month": "2025-11",
+      "gallons": 20207
+    },
+    {
+      "month": "2025-12",
+      "gallons": 18875
+    },
+    {
+      "month": "2026-01",
+      "gallons": 22048
+    },
+    {
+      "month": "2026-02",
+      "gallons": 20695
+    },
+    {
+      "month": "2026-03",
+      "gallons": 25965
+    },
+    {
+      "month": "2026-04",
+      "gallons": 27823
+    },
+    {
+      "month": "2026-05",
+      "gallons": 20331
+    },
+    {
+      "month": "2026-06",
+      "gallons": 34147
+    },
+    {
+      "month": "2026-07",
+      "gallons": 23104
+    }
+  ],
+  "monthly_by_region": [
+    {
+      "month": "2015-01",
+      "region": "Burlington",
+      "gallons": 1478
+    },
+    {
+      "month": "2015-01",
+      "region": "Central Vermont",
+      "gallons": 450
+    },
+    {
+      "month": "2015-01",
+      "region": "Middlebury+Vergennes",
+      "gallons": 120
+    },
+    {
+      "month": "2015-01",
+      "region": "Other",
+      "gallons": 610
+    },
+    {
+      "month": "2015-01",
+      "region": "Stowe",
+      "gallons": 555
+    },
+    {
+      "month": "2015-01",
+      "region": "Warren+Waitsfield",
+      "gallons": 22
+    },
+    {
+      "month": "2015-01",
+      "region": "Waterbury",
+      "gallons": 400
+    },
+    {
+      "month": "2015-01",
+      "region": "Winooski",
+      "gallons": 113
+    },
+    {
+      "month": "2015-01",
+      "region": "Woodstock+Quechee",
+      "gallons": 165
+    },
+    {
+      "month": "2015-02",
+      "region": "Burlington",
+      "gallons": 1374
+    },
+    {
+      "month": "2015-02",
+      "region": "Central Vermont",
+      "gallons": 418
+    },
+    {
+      "month": "2015-02",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 97
+    },
+    {
+      "month": "2015-02",
+      "region": "Middlebury+Vergennes",
+      "gallons": 120
+    },
+    {
+      "month": "2015-02",
+      "region": "Other",
+      "gallons": 138
+    },
+    {
+      "month": "2015-02",
+      "region": "Stowe",
+      "gallons": 545
+    },
+    {
+      "month": "2015-02",
+      "region": "Warren+Waitsfield",
+      "gallons": 20
+    },
+    {
+      "month": "2015-02",
+      "region": "Waterbury",
+      "gallons": 225
+    },
+    {
+      "month": "2015-02",
+      "region": "Winooski",
+      "gallons": 105
+    },
+    {
+      "month": "2015-03",
+      "region": "Burlington",
+      "gallons": 1052
+    },
+    {
+      "month": "2015-03",
+      "region": "Central Vermont",
+      "gallons": 188
+    },
+    {
+      "month": "2015-03",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 35
+    },
+    {
+      "month": "2015-03",
+      "region": "Other",
+      "gallons": 883
+    },
+    {
+      "month": "2015-03",
+      "region": "Stowe",
+      "gallons": 585
+    },
+    {
+      "month": "2015-03",
+      "region": "Waterbury",
+      "gallons": 420
+    },
+    {
+      "month": "2015-03",
+      "region": "Winooski",
+      "gallons": 125
+    },
+    {
+      "month": "2015-03",
+      "region": "Woodstock+Quechee",
+      "gallons": 140
+    },
+    {
+      "month": "2015-04",
+      "region": "Burlington",
+      "gallons": 2076
+    },
+    {
+      "month": "2015-04",
+      "region": "Central Vermont",
+      "gallons": 695
+    },
+    {
+      "month": "2015-04",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 1770
+    },
+    {
+      "month": "2015-04",
+      "region": "Middlebury+Vergennes",
+      "gallons": 140
+    },
+    {
+      "month": "2015-04",
+      "region": "Other",
+      "gallons": 660
+    },
+    {
+      "month": "2015-04",
+      "region": "Stowe",
+      "gallons": 510
+    },
+    {
+      "month": "2015-04",
+      "region": "Warren+Waitsfield",
+      "gallons": 45
+    },
+    {
+      "month": "2015-04",
+      "region": "Waterbury",
+      "gallons": 555
+    },
+    {
+      "month": "2015-04",
+      "region": "Winooski",
+      "gallons": 185
+    },
+    {
+      "month": "2015-04",
+      "region": "Woodstock+Quechee",
+      "gallons": 220
+    },
+    {
+      "month": "2015-05",
+      "region": "Burlington",
+      "gallons": 1891
+    },
+    {
+      "month": "2015-05",
+      "region": "Central Vermont",
+      "gallons": 457
+    },
+    {
+      "month": "2015-05",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 805
+    },
+    {
+      "month": "2015-05",
+      "region": "Middlebury+Vergennes",
+      "gallons": 140
+    },
+    {
+      "month": "2015-05",
+      "region": "Other",
+      "gallons": 403
+    },
+    {
+      "month": "2015-05",
+      "region": "Stowe",
+      "gallons": 530
+    },
+    {
+      "month": "2015-05",
+      "region": "Warren+Waitsfield",
+      "gallons": 40
+    },
+    {
+      "month": "2015-05",
+      "region": "Waterbury",
+      "gallons": 343
+    },
+    {
+      "month": "2015-05",
+      "region": "Winooski",
+      "gallons": 110
+    },
+    {
+      "month": "2015-05",
+      "region": "Woodstock+Quechee",
+      "gallons": 145
+    },
+    {
+      "month": "2015-06",
+      "region": "Burlington",
+      "gallons": 1606
+    },
+    {
+      "month": "2015-06",
+      "region": "Central Vermont",
+      "gallons": 830
+    },
+    {
+      "month": "2015-06",
+      "region": "Middlebury+Vergennes",
+      "gallons": 75
+    },
+    {
+      "month": "2015-06",
+      "region": "Other",
+      "gallons": 740
+    },
+    {
+      "month": "2015-06",
+      "region": "Stowe",
+      "gallons": 470
+    },
+    {
+      "month": "2015-06",
+      "region": "Warren+Waitsfield",
+      "gallons": 20
+    },
+    {
+      "month": "2015-06",
+      "region": "Waterbury",
+      "gallons": 287
+    },
+    {
+      "month": "2015-06",
+      "region": "Winooski",
+      "gallons": 155
+    },
+    {
+      "month": "2015-06",
+      "region": "Woodstock+Quechee",
+      "gallons": 235
+    },
+    {
+      "month": "2015-07",
+      "region": "Burlington",
+      "gallons": 2050
+    },
+    {
+      "month": "2015-07",
+      "region": "Central Vermont",
+      "gallons": 563
+    },
+    {
+      "month": "2015-07",
+      "region": "Other",
+      "gallons": 678
+    },
+    {
+      "month": "2015-07",
+      "region": "Stowe",
+      "gallons": 455
+    },
+    {
+      "month": "2015-07",
+      "region": "Waterbury",
+      "gallons": 495
+    },
+    {
+      "month": "2015-07",
+      "region": "Winooski",
+      "gallons": 86
+    },
+    {
+      "month": "2015-07",
+      "region": "Woodstock+Quechee",
+      "gallons": 155
+    },
+    {
+      "month": "2015-08",
+      "region": "Burlington",
+      "gallons": 1731
+    },
+    {
+      "month": "2015-08",
+      "region": "Central Vermont",
+      "gallons": 835
+    },
+    {
+      "month": "2015-08",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 482
+    },
+    {
+      "month": "2015-08",
+      "region": "Middlebury+Vergennes",
+      "gallons": 105
+    },
+    {
+      "month": "2015-08",
+      "region": "Other",
+      "gallons": 722
+    },
+    {
+      "month": "2015-08",
+      "region": "Stowe",
+      "gallons": 795
+    },
+    {
+      "month": "2015-08",
+      "region": "Warren+Waitsfield",
+      "gallons": 25
+    },
+    {
+      "month": "2015-08",
+      "region": "Waterbury",
+      "gallons": 260
+    },
+    {
+      "month": "2015-08",
+      "region": "Winooski",
+      "gallons": 90
+    },
+    {
+      "month": "2015-09",
+      "region": "Burlington",
+      "gallons": 2427
+    },
+    {
+      "month": "2015-09",
+      "region": "Central Vermont",
+      "gallons": 510
+    },
+    {
+      "month": "2015-09",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 280
+    },
+    {
+      "month": "2015-09",
+      "region": "Middlebury+Vergennes",
+      "gallons": 135
+    },
+    {
+      "month": "2015-09",
+      "region": "Other",
+      "gallons": 860
+    },
+    {
+      "month": "2015-09",
+      "region": "Stowe",
+      "gallons": 635
+    },
+    {
+      "month": "2015-09",
+      "region": "Warren+Waitsfield",
+      "gallons": 35
+    },
+    {
+      "month": "2015-09",
+      "region": "Waterbury",
+      "gallons": 485
+    },
+    {
+      "month": "2015-09",
+      "region": "Winooski",
+      "gallons": 215
+    },
+    {
+      "month": "2015-09",
+      "region": "Woodstock+Quechee",
+      "gallons": 295
+    },
+    {
+      "month": "2015-10",
+      "region": "Burlington",
+      "gallons": 1935
+    },
+    {
+      "month": "2015-10",
+      "region": "Central Vermont",
+      "gallons": 570
+    },
+    {
+      "month": "2015-10",
+      "region": "Middlebury+Vergennes",
+      "gallons": 160
+    },
+    {
+      "month": "2015-10",
+      "region": "Other",
+      "gallons": 600
+    },
+    {
+      "month": "2015-10",
+      "region": "Stowe",
+      "gallons": 255
+    },
+    {
+      "month": "2015-10",
+      "region": "Warren+Waitsfield",
+      "gallons": 40
+    },
+    {
+      "month": "2015-10",
+      "region": "Waterbury",
+      "gallons": 235
+    },
+    {
+      "month": "2015-10",
+      "region": "Winooski",
+      "gallons": 120
+    },
+    {
+      "month": "2015-10",
+      "region": "Woodstock+Quechee",
+      "gallons": 205
+    },
+    {
+      "month": "2015-11",
+      "region": "Burlington",
+      "gallons": 1575
+    },
+    {
+      "month": "2015-11",
+      "region": "Central Vermont",
+      "gallons": 670
+    },
+    {
+      "month": "2015-11",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 435
+    },
+    {
+      "month": "2015-11",
+      "region": "Other",
+      "gallons": 1019
+    },
+    {
+      "month": "2015-11",
+      "region": "Stowe",
+      "gallons": 685
+    },
+    {
+      "month": "2015-11",
+      "region": "Warren+Waitsfield",
+      "gallons": 90
+    },
+    {
+      "month": "2015-11",
+      "region": "Waterbury",
+      "gallons": 550
+    },
+    {
+      "month": "2015-11",
+      "region": "Winooski",
+      "gallons": 110
+    },
+    {
+      "month": "2015-11",
+      "region": "Woodstock+Quechee",
+      "gallons": 202
+    },
+    {
+      "month": "2015-12",
+      "region": "Burlington",
+      "gallons": 2092
+    },
+    {
+      "month": "2015-12",
+      "region": "Central Vermont",
+      "gallons": 482
+    },
+    {
+      "month": "2015-12",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 393
+    },
+    {
+      "month": "2015-12",
+      "region": "Middlebury+Vergennes",
+      "gallons": 100
+    },
+    {
+      "month": "2015-12",
+      "region": "Other",
+      "gallons": 773
+    },
+    {
+      "month": "2015-12",
+      "region": "Stowe",
+      "gallons": 865
+    },
+    {
+      "month": "2015-12",
+      "region": "Waterbury",
+      "gallons": 365
+    },
+    {
+      "month": "2015-12",
+      "region": "Winooski",
+      "gallons": 126
+    },
+    {
+      "month": "2015-12",
+      "region": "Woodstock+Quechee",
+      "gallons": 105
+    },
+    {
+      "month": "2016-01",
+      "region": "Burlington",
+      "gallons": 1768
+    },
+    {
+      "month": "2016-01",
+      "region": "Central Vermont",
+      "gallons": 390
+    },
+    {
+      "month": "2016-01",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 210
+    },
+    {
+      "month": "2016-01",
+      "region": "Middlebury+Vergennes",
+      "gallons": 150
+    },
+    {
+      "month": "2016-01",
+      "region": "Other",
+      "gallons": 597
+    },
+    {
+      "month": "2016-01",
+      "region": "Stowe",
+      "gallons": 648
+    },
+    {
+      "month": "2016-01",
+      "region": "Warren+Waitsfield",
+      "gallons": 150
+    },
+    {
+      "month": "2016-01",
+      "region": "Waterbury",
+      "gallons": 210
+    },
+    {
+      "month": "2016-01",
+      "region": "Winooski",
+      "gallons": 79
+    },
+    {
+      "month": "2016-01",
+      "region": "Woodstock+Quechee",
+      "gallons": 230
+    },
+    {
+      "month": "2016-02",
+      "region": "Burlington",
+      "gallons": 2131
+    },
+    {
+      "month": "2016-02",
+      "region": "Central Vermont",
+      "gallons": 440
+    },
+    {
+      "month": "2016-02",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 560
+    },
+    {
+      "month": "2016-02",
+      "region": "Middlebury+Vergennes",
+      "gallons": 40
+    },
+    {
+      "month": "2016-02",
+      "region": "Other",
+      "gallons": 1034
+    },
+    {
+      "month": "2016-02",
+      "region": "Stowe",
+      "gallons": 983
+    },
+    {
+      "month": "2016-02",
+      "region": "Warren+Waitsfield",
+      "gallons": 395
+    },
+    {
+      "month": "2016-02",
+      "region": "Waterbury",
+      "gallons": 450
+    },
+    {
+      "month": "2016-02",
+      "region": "Winooski",
+      "gallons": 145
+    },
+    {
+      "month": "2016-02",
+      "region": "Woodstock+Quechee",
+      "gallons": 130
+    },
+    {
+      "month": "2016-03",
+      "region": "Burlington",
+      "gallons": 2129
+    },
+    {
+      "month": "2016-03",
+      "region": "Central Vermont",
+      "gallons": 607
+    },
+    {
+      "month": "2016-03",
+      "region": "Middlebury+Vergennes",
+      "gallons": 130
+    },
+    {
+      "month": "2016-03",
+      "region": "Other",
+      "gallons": 915
+    },
+    {
+      "month": "2016-03",
+      "region": "Stowe",
+      "gallons": 580
+    },
+    {
+      "month": "2016-03",
+      "region": "Warren+Waitsfield",
+      "gallons": 525
+    },
+    {
+      "month": "2016-03",
+      "region": "Waterbury",
+      "gallons": 320
+    },
+    {
+      "month": "2016-03",
+      "region": "Winooski",
+      "gallons": 155
+    },
+    {
+      "month": "2016-03",
+      "region": "Woodstock+Quechee",
+      "gallons": 315
+    },
+    {
+      "month": "2016-04",
+      "region": "Burlington",
+      "gallons": 1803
+    },
+    {
+      "month": "2016-04",
+      "region": "Central Vermont",
+      "gallons": 1037
+    },
+    {
+      "month": "2016-04",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 990
+    },
+    {
+      "month": "2016-04",
+      "region": "Middlebury+Vergennes",
+      "gallons": 580
+    },
+    {
+      "month": "2016-04",
+      "region": "Other",
+      "gallons": 795
+    },
+    {
+      "month": "2016-04",
+      "region": "Stowe",
+      "gallons": 690
+    },
+    {
+      "month": "2016-04",
+      "region": "Warren+Waitsfield",
+      "gallons": 158
+    },
+    {
+      "month": "2016-04",
+      "region": "Waterbury",
+      "gallons": 290
+    },
+    {
+      "month": "2016-04",
+      "region": "Winooski",
+      "gallons": 100
+    },
+    {
+      "month": "2016-04",
+      "region": "Woodstock+Quechee",
+      "gallons": 150
+    },
+    {
+      "month": "2016-05",
+      "region": "Burlington",
+      "gallons": 2494
+    },
+    {
+      "month": "2016-05",
+      "region": "Central Vermont",
+      "gallons": 880
+    },
+    {
+      "month": "2016-05",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 255
+    },
+    {
+      "month": "2016-05",
+      "region": "Middlebury+Vergennes",
+      "gallons": 100
+    },
+    {
+      "month": "2016-05",
+      "region": "Other",
+      "gallons": 958
+    },
+    {
+      "month": "2016-05",
+      "region": "Stowe",
+      "gallons": 1535
+    },
+    {
+      "month": "2016-05",
+      "region": "Waterbury",
+      "gallons": 715
+    },
+    {
+      "month": "2016-05",
+      "region": "Winooski",
+      "gallons": 145
+    },
+    {
+      "month": "2016-06",
+      "region": "Burlington",
+      "gallons": 7215
+    },
+    {
+      "month": "2016-06",
+      "region": "Central Vermont",
+      "gallons": 460
+    },
+    {
+      "month": "2016-06",
+      "region": "Middlebury+Vergennes",
+      "gallons": 300
+    },
+    {
+      "month": "2016-06",
+      "region": "Other",
+      "gallons": 723
+    },
+    {
+      "month": "2016-06",
+      "region": "Stowe",
+      "gallons": 640
+    },
+    {
+      "month": "2016-06",
+      "region": "Warren+Waitsfield",
+      "gallons": 325
+    },
+    {
+      "month": "2016-06",
+      "region": "Waterbury",
+      "gallons": 445
+    },
+    {
+      "month": "2016-06",
+      "region": "Winooski",
+      "gallons": 133
+    },
+    {
+      "month": "2016-06",
+      "region": "Woodstock+Quechee",
+      "gallons": 345
+    },
+    {
+      "month": "2016-07",
+      "region": "Burlington",
+      "gallons": 3031
+    },
+    {
+      "month": "2016-07",
+      "region": "Central Vermont",
+      "gallons": 847
+    },
+    {
+      "month": "2016-07",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 795
+    },
+    {
+      "month": "2016-07",
+      "region": "Middlebury+Vergennes",
+      "gallons": 90
+    },
+    {
+      "month": "2016-07",
+      "region": "Other",
+      "gallons": 2800
+    },
+    {
+      "month": "2016-07",
+      "region": "Stowe",
+      "gallons": 1210
+    },
+    {
+      "month": "2016-07",
+      "region": "Warren+Waitsfield",
+      "gallons": 70
+    },
+    {
+      "month": "2016-07",
+      "region": "Waterbury",
+      "gallons": 3937
+    },
+    {
+      "month": "2016-07",
+      "region": "Winooski",
+      "gallons": 172
+    },
+    {
+      "month": "2016-07",
+      "region": "Woodstock+Quechee",
+      "gallons": 195
+    },
+    {
+      "month": "2016-08",
+      "region": "Burlington",
+      "gallons": 2511
+    },
+    {
+      "month": "2016-08",
+      "region": "Central Vermont",
+      "gallons": 1065
+    },
+    {
+      "month": "2016-08",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 900
+    },
+    {
+      "month": "2016-08",
+      "region": "Middlebury+Vergennes",
+      "gallons": 200
+    },
+    {
+      "month": "2016-08",
+      "region": "Other",
+      "gallons": 1578
+    },
+    {
+      "month": "2016-08",
+      "region": "Stowe",
+      "gallons": 807
+    },
+    {
+      "month": "2016-08",
+      "region": "Warren+Waitsfield",
+      "gallons": 165
+    },
+    {
+      "month": "2016-08",
+      "region": "Waterbury",
+      "gallons": 395
+    },
+    {
+      "month": "2016-08",
+      "region": "Winooski",
+      "gallons": 115
+    },
+    {
+      "month": "2016-08",
+      "region": "Woodstock+Quechee",
+      "gallons": 180
+    },
+    {
+      "month": "2016-09",
+      "region": "Burlington",
+      "gallons": 2380
+    },
+    {
+      "month": "2016-09",
+      "region": "Central Vermont",
+      "gallons": 560
+    },
+    {
+      "month": "2016-09",
+      "region": "Middlebury+Vergennes",
+      "gallons": 305
+    },
+    {
+      "month": "2016-09",
+      "region": "Other",
+      "gallons": 2430
+    },
+    {
+      "month": "2016-09",
+      "region": "Stowe",
+      "gallons": 875
+    },
+    {
+      "month": "2016-09",
+      "region": "Warren+Waitsfield",
+      "gallons": 387
+    },
+    {
+      "month": "2016-09",
+      "region": "Waterbury",
+      "gallons": 525
+    },
+    {
+      "month": "2016-09",
+      "region": "Winooski",
+      "gallons": 120
+    },
+    {
+      "month": "2016-09",
+      "region": "Woodstock+Quechee",
+      "gallons": 430
+    },
+    {
+      "month": "2016-10",
+      "region": "Burlington",
+      "gallons": 2163
+    },
+    {
+      "month": "2016-10",
+      "region": "Central Vermont",
+      "gallons": 1316
+    },
+    {
+      "month": "2016-10",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 75
+    },
+    {
+      "month": "2016-10",
+      "region": "Middlebury+Vergennes",
+      "gallons": 310
+    },
+    {
+      "month": "2016-10",
+      "region": "Other",
+      "gallons": 1730
+    },
+    {
+      "month": "2016-10",
+      "region": "Stowe",
+      "gallons": 1228
+    },
+    {
+      "month": "2016-10",
+      "region": "Warren+Waitsfield",
+      "gallons": 101
+    },
+    {
+      "month": "2016-10",
+      "region": "Waterbury",
+      "gallons": 735
+    },
+    {
+      "month": "2016-10",
+      "region": "Winooski",
+      "gallons": 160
+    },
+    {
+      "month": "2016-10",
+      "region": "Woodstock+Quechee",
+      "gallons": 300
+    },
+    {
+      "month": "2016-11",
+      "region": "Burlington",
+      "gallons": 2065
+    },
+    {
+      "month": "2016-11",
+      "region": "Central Vermont",
+      "gallons": 520
+    },
+    {
+      "month": "2016-11",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 160
+    },
+    {
+      "month": "2016-11",
+      "region": "Middlebury+Vergennes",
+      "gallons": 210
+    },
+    {
+      "month": "2016-11",
+      "region": "Other",
+      "gallons": 2140
+    },
+    {
+      "month": "2016-11",
+      "region": "Stowe",
+      "gallons": 580
+    },
+    {
+      "month": "2016-11",
+      "region": "Warren+Waitsfield",
+      "gallons": 80
+    },
+    {
+      "month": "2016-11",
+      "region": "Waterbury",
+      "gallons": 375
+    },
+    {
+      "month": "2016-11",
+      "region": "Winooski",
+      "gallons": 35
+    },
+    {
+      "month": "2016-11",
+      "region": "Woodstock+Quechee",
+      "gallons": 220
+    },
+    {
+      "month": "2016-12",
+      "region": "Burlington",
+      "gallons": 1768
+    },
+    {
+      "month": "2016-12",
+      "region": "Central Vermont",
+      "gallons": 670
+    },
+    {
+      "month": "2016-12",
+      "region": "Middlebury+Vergennes",
+      "gallons": 490
+    },
+    {
+      "month": "2016-12",
+      "region": "Other",
+      "gallons": 1155
+    },
+    {
+      "month": "2016-12",
+      "region": "Stowe",
+      "gallons": 770
+    },
+    {
+      "month": "2016-12",
+      "region": "Warren+Waitsfield",
+      "gallons": 75
+    },
+    {
+      "month": "2016-12",
+      "region": "Waterbury",
+      "gallons": 890
+    },
+    {
+      "month": "2016-12",
+      "region": "Winooski",
+      "gallons": 165
+    },
+    {
+      "month": "2016-12",
+      "region": "Woodstock+Quechee",
+      "gallons": 130
+    },
+    {
+      "month": "2017-01",
+      "region": "Burlington",
+      "gallons": 3068
+    },
+    {
+      "month": "2017-01",
+      "region": "Central Vermont",
+      "gallons": 1110
+    },
+    {
+      "month": "2017-01",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 835
+    },
+    {
+      "month": "2017-01",
+      "region": "Manchester",
+      "gallons": 130
+    },
+    {
+      "month": "2017-01",
+      "region": "Middlebury+Vergennes",
+      "gallons": 210
+    },
+    {
+      "month": "2017-01",
+      "region": "Other",
+      "gallons": 2080
+    },
+    {
+      "month": "2017-01",
+      "region": "Stowe",
+      "gallons": 841
+    },
+    {
+      "month": "2017-01",
+      "region": "Warren+Waitsfield",
+      "gallons": 250
+    },
+    {
+      "month": "2017-01",
+      "region": "Waterbury",
+      "gallons": 480
+    },
+    {
+      "month": "2017-01",
+      "region": "Winooski",
+      "gallons": 185
+    },
+    {
+      "month": "2017-01",
+      "region": "Woodstock+Quechee",
+      "gallons": 425
+    },
+    {
+      "month": "2017-02",
+      "region": "Burlington",
+      "gallons": 2350
+    },
+    {
+      "month": "2017-02",
+      "region": "Central Vermont",
+      "gallons": 650
+    },
+    {
+      "month": "2017-02",
+      "region": "Manchester",
+      "gallons": 150
+    },
+    {
+      "month": "2017-02",
+      "region": "Middlebury+Vergennes",
+      "gallons": 80
+    },
+    {
+      "month": "2017-02",
+      "region": "Other",
+      "gallons": 1620
+    },
+    {
+      "month": "2017-02",
+      "region": "Stowe",
+      "gallons": 675
+    },
+    {
+      "month": "2017-02",
+      "region": "Warren+Waitsfield",
+      "gallons": 485
+    },
+    {
+      "month": "2017-02",
+      "region": "Waterbury",
+      "gallons": 832
+    },
+    {
+      "month": "2017-02",
+      "region": "Winooski",
+      "gallons": 85
+    },
+    {
+      "month": "2017-02",
+      "region": "Woodstock+Quechee",
+      "gallons": 180
+    },
+    {
+      "month": "2017-03",
+      "region": "Burlington",
+      "gallons": 1932
+    },
+    {
+      "month": "2017-03",
+      "region": "Central Vermont",
+      "gallons": 930
+    },
+    {
+      "month": "2017-03",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 1240
+    },
+    {
+      "month": "2017-03",
+      "region": "Middlebury+Vergennes",
+      "gallons": 355
+    },
+    {
+      "month": "2017-03",
+      "region": "Other",
+      "gallons": 1652
+    },
+    {
+      "month": "2017-03",
+      "region": "Stowe",
+      "gallons": 823
+    },
+    {
+      "month": "2017-03",
+      "region": "Warren+Waitsfield",
+      "gallons": 391
+    },
+    {
+      "month": "2017-03",
+      "region": "Waterbury",
+      "gallons": 850
+    },
+    {
+      "month": "2017-03",
+      "region": "Winooski",
+      "gallons": 113
+    },
+    {
+      "month": "2017-03",
+      "region": "Woodstock+Quechee",
+      "gallons": 185
+    },
+    {
+      "month": "2017-04",
+      "region": "Burlington",
+      "gallons": 1995
+    },
+    {
+      "month": "2017-04",
+      "region": "Central Vermont",
+      "gallons": 1519
+    },
+    {
+      "month": "2017-04",
+      "region": "Other",
+      "gallons": 1648
+    },
+    {
+      "month": "2017-04",
+      "region": "Stowe",
+      "gallons": 1203
+    },
+    {
+      "month": "2017-04",
+      "region": "Waterbury",
+      "gallons": 715
+    },
+    {
+      "month": "2017-04",
+      "region": "Winooski",
+      "gallons": 100
+    },
+    {
+      "month": "2017-04",
+      "region": "Woodstock+Quechee",
+      "gallons": 320
+    },
+    {
+      "month": "2017-05",
+      "region": "Burlington",
+      "gallons": 2373
+    },
+    {
+      "month": "2017-05",
+      "region": "Central Vermont",
+      "gallons": 1320
+    },
+    {
+      "month": "2017-05",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 80
+    },
+    {
+      "month": "2017-05",
+      "region": "Middlebury+Vergennes",
+      "gallons": 340
+    },
+    {
+      "month": "2017-05",
+      "region": "Other",
+      "gallons": 2988
+    },
+    {
+      "month": "2017-05",
+      "region": "Stowe",
+      "gallons": 715
+    },
+    {
+      "month": "2017-05",
+      "region": "Warren+Waitsfield",
+      "gallons": 448
+    },
+    {
+      "month": "2017-05",
+      "region": "Waterbury",
+      "gallons": 905
+    },
+    {
+      "month": "2017-05",
+      "region": "Winooski",
+      "gallons": 154
+    },
+    {
+      "month": "2017-05",
+      "region": "Woodstock+Quechee",
+      "gallons": 205
+    },
+    {
+      "month": "2017-06",
+      "region": "Burlington",
+      "gallons": 2757
+    },
+    {
+      "month": "2017-06",
+      "region": "Central Vermont",
+      "gallons": 798
+    },
+    {
+      "month": "2017-06",
+      "region": "Manchester",
+      "gallons": 230
+    },
+    {
+      "month": "2017-06",
+      "region": "Middlebury+Vergennes",
+      "gallons": 310
+    },
+    {
+      "month": "2017-06",
+      "region": "Other",
+      "gallons": 4400
+    },
+    {
+      "month": "2017-06",
+      "region": "Stowe",
+      "gallons": 770
+    },
+    {
+      "month": "2017-06",
+      "region": "Warren+Waitsfield",
+      "gallons": 120
+    },
+    {
+      "month": "2017-06",
+      "region": "Waterbury",
+      "gallons": 830
+    },
+    {
+      "month": "2017-06",
+      "region": "Winooski",
+      "gallons": 230
+    },
+    {
+      "month": "2017-06",
+      "region": "Woodstock+Quechee",
+      "gallons": 185
+    },
+    {
+      "month": "2017-07",
+      "region": "Burlington",
+      "gallons": 3291
+    },
+    {
+      "month": "2017-07",
+      "region": "Central Vermont",
+      "gallons": 1635
+    },
+    {
+      "month": "2017-07",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 790
+    },
+    {
+      "month": "2017-07",
+      "region": "Manchester",
+      "gallons": 150
+    },
+    {
+      "month": "2017-07",
+      "region": "Middlebury+Vergennes",
+      "gallons": 225
+    },
+    {
+      "month": "2017-07",
+      "region": "Other",
+      "gallons": 2973
+    },
+    {
+      "month": "2017-07",
+      "region": "Stowe",
+      "gallons": 565
+    },
+    {
+      "month": "2017-07",
+      "region": "Warren+Waitsfield",
+      "gallons": 120
+    },
+    {
+      "month": "2017-07",
+      "region": "Waterbury",
+      "gallons": 535
+    },
+    {
+      "month": "2017-07",
+      "region": "Winooski",
+      "gallons": 175
+    },
+    {
+      "month": "2017-07",
+      "region": "Woodstock+Quechee",
+      "gallons": 415
+    },
+    {
+      "month": "2017-08",
+      "region": "Burlington",
+      "gallons": 3525
+    },
+    {
+      "month": "2017-08",
+      "region": "Central Vermont",
+      "gallons": 1370
+    },
+    {
+      "month": "2017-08",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 325
+    },
+    {
+      "month": "2017-08",
+      "region": "Manchester",
+      "gallons": 140
+    },
+    {
+      "month": "2017-08",
+      "region": "Middlebury+Vergennes",
+      "gallons": 195
+    },
+    {
+      "month": "2017-08",
+      "region": "Other",
+      "gallons": 2606
+    },
+    {
+      "month": "2017-08",
+      "region": "Stowe",
+      "gallons": 1135
+    },
+    {
+      "month": "2017-08",
+      "region": "Warren+Waitsfield",
+      "gallons": 100
+    },
+    {
+      "month": "2017-08",
+      "region": "Waterbury",
+      "gallons": 930
+    },
+    {
+      "month": "2017-08",
+      "region": "Winooski",
+      "gallons": 115
+    },
+    {
+      "month": "2017-08",
+      "region": "Woodstock+Quechee",
+      "gallons": 225
+    },
+    {
+      "month": "2017-09",
+      "region": "Burlington",
+      "gallons": 2497
+    },
+    {
+      "month": "2017-09",
+      "region": "Central Vermont",
+      "gallons": 2235
+    },
+    {
+      "month": "2017-09",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 250
+    },
+    {
+      "month": "2017-09",
+      "region": "Manchester",
+      "gallons": 185
+    },
+    {
+      "month": "2017-09",
+      "region": "Middlebury+Vergennes",
+      "gallons": 699
+    },
+    {
+      "month": "2017-09",
+      "region": "Mt. Snow",
+      "gallons": 100
+    },
+    {
+      "month": "2017-09",
+      "region": "Other",
+      "gallons": 3125
+    },
+    {
+      "month": "2017-09",
+      "region": "Stowe",
+      "gallons": 1230
+    },
+    {
+      "month": "2017-09",
+      "region": "Warren+Waitsfield",
+      "gallons": 405
+    },
+    {
+      "month": "2017-09",
+      "region": "Waterbury",
+      "gallons": 1335
+    },
+    {
+      "month": "2017-09",
+      "region": "Winooski",
+      "gallons": 95
+    },
+    {
+      "month": "2017-09",
+      "region": "Woodstock+Quechee",
+      "gallons": 300
+    },
+    {
+      "month": "2017-10",
+      "region": "Burlington",
+      "gallons": 8767
+    },
+    {
+      "month": "2017-10",
+      "region": "Central Vermont",
+      "gallons": 1175
+    },
+    {
+      "month": "2017-10",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 200
+    },
+    {
+      "month": "2017-10",
+      "region": "Manchester",
+      "gallons": 100
+    },
+    {
+      "month": "2017-10",
+      "region": "Middlebury+Vergennes",
+      "gallons": 325
+    },
+    {
+      "month": "2017-10",
+      "region": "Other",
+      "gallons": 1744
+    },
+    {
+      "month": "2017-10",
+      "region": "Stowe",
+      "gallons": 680
+    },
+    {
+      "month": "2017-10",
+      "region": "Warren+Waitsfield",
+      "gallons": 40
+    },
+    {
+      "month": "2017-10",
+      "region": "Waterbury",
+      "gallons": 425
+    },
+    {
+      "month": "2017-10",
+      "region": "Winooski",
+      "gallons": 105
+    },
+    {
+      "month": "2017-10",
+      "region": "Woodstock+Quechee",
+      "gallons": 130
+    },
+    {
+      "month": "2017-11",
+      "region": "Burlington",
+      "gallons": 2029
+    },
+    {
+      "month": "2017-11",
+      "region": "Central Vermont",
+      "gallons": 1220
+    },
+    {
+      "month": "2017-11",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 140
+    },
+    {
+      "month": "2017-11",
+      "region": "Other",
+      "gallons": 2244
+    },
+    {
+      "month": "2017-11",
+      "region": "Stowe",
+      "gallons": 1445
+    },
+    {
+      "month": "2017-11",
+      "region": "Waterbury",
+      "gallons": 890
+    },
+    {
+      "month": "2017-11",
+      "region": "Winooski",
+      "gallons": 120
+    },
+    {
+      "month": "2017-11",
+      "region": "Woodstock+Quechee",
+      "gallons": 560
+    },
+    {
+      "month": "2017-12",
+      "region": "Burlington",
+      "gallons": 1747
+    },
+    {
+      "month": "2017-12",
+      "region": "Central Vermont",
+      "gallons": 1280
+    },
+    {
+      "month": "2017-12",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 340
+    },
+    {
+      "month": "2017-12",
+      "region": "Middlebury+Vergennes",
+      "gallons": 325
+    },
+    {
+      "month": "2017-12",
+      "region": "Other",
+      "gallons": 1787
+    },
+    {
+      "month": "2017-12",
+      "region": "Stowe",
+      "gallons": 455
+    },
+    {
+      "month": "2017-12",
+      "region": "Warren+Waitsfield",
+      "gallons": 215
+    },
+    {
+      "month": "2017-12",
+      "region": "Waterbury",
+      "gallons": 325
+    },
+    {
+      "month": "2017-12",
+      "region": "Winooski",
+      "gallons": 170
+    },
+    {
+      "month": "2017-12",
+      "region": "Woodstock+Quechee",
+      "gallons": 140
+    },
+    {
+      "month": "2018-01",
+      "region": "Burlington",
+      "gallons": 1605
+    },
+    {
+      "month": "2018-01",
+      "region": "Central Vermont",
+      "gallons": 940
+    },
+    {
+      "month": "2018-01",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 250
+    },
+    {
+      "month": "2018-01",
+      "region": "Manchester",
+      "gallons": 250
+    },
+    {
+      "month": "2018-01",
+      "region": "Middlebury+Vergennes",
+      "gallons": 185
+    },
+    {
+      "month": "2018-01",
+      "region": "Mt. Snow",
+      "gallons": 750
+    },
+    {
+      "month": "2018-01",
+      "region": "Other",
+      "gallons": 1733
+    },
+    {
+      "month": "2018-01",
+      "region": "Stowe",
+      "gallons": 1240
+    },
+    {
+      "month": "2018-01",
+      "region": "Warren+Waitsfield",
+      "gallons": 100
+    },
+    {
+      "month": "2018-01",
+      "region": "Waterbury",
+      "gallons": 1125
+    },
+    {
+      "month": "2018-01",
+      "region": "Winooski",
+      "gallons": 290
+    },
+    {
+      "month": "2018-01",
+      "region": "Woodstock+Quechee",
+      "gallons": 100
+    },
+    {
+      "month": "2018-02",
+      "region": "Burlington",
+      "gallons": 3205
+    },
+    {
+      "month": "2018-02",
+      "region": "Central Vermont",
+      "gallons": 195
+    },
+    {
+      "month": "2018-02",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 485
+    },
+    {
+      "month": "2018-02",
+      "region": "Manchester",
+      "gallons": 125
+    },
+    {
+      "month": "2018-02",
+      "region": "Middlebury+Vergennes",
+      "gallons": 190
+    },
+    {
+      "month": "2018-02",
+      "region": "Mt. Snow",
+      "gallons": 775
+    },
+    {
+      "month": "2018-02",
+      "region": "Other",
+      "gallons": 2297
+    },
+    {
+      "month": "2018-02",
+      "region": "Stowe",
+      "gallons": 1070
+    },
+    {
+      "month": "2018-02",
+      "region": "UVM",
+      "gallons": 825
+    },
+    {
+      "month": "2018-02",
+      "region": "Warren+Waitsfield",
+      "gallons": 450
+    },
+    {
+      "month": "2018-02",
+      "region": "Waterbury",
+      "gallons": 1005
+    },
+    {
+      "month": "2018-02",
+      "region": "Winooski",
+      "gallons": 265
+    },
+    {
+      "month": "2018-02",
+      "region": "Woodstock+Quechee",
+      "gallons": 490
+    },
+    {
+      "month": "2018-03",
+      "region": "Burlington",
+      "gallons": 3045
+    },
+    {
+      "month": "2018-03",
+      "region": "Central Vermont",
+      "gallons": 2710
+    },
+    {
+      "month": "2018-03",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 700
+    },
+    {
+      "month": "2018-03",
+      "region": "Manchester",
+      "gallons": 150
+    },
+    {
+      "month": "2018-03",
+      "region": "Middlebury+Vergennes",
+      "gallons": 825
+    },
+    {
+      "month": "2018-03",
+      "region": "Mt. Snow",
+      "gallons": 300
+    },
+    {
+      "month": "2018-03",
+      "region": "Other",
+      "gallons": 3105
+    },
+    {
+      "month": "2018-03",
+      "region": "Stowe",
+      "gallons": 1165
+    },
+    {
+      "month": "2018-03",
+      "region": "UVM",
+      "gallons": 60
+    },
+    {
+      "month": "2018-03",
+      "region": "Warren+Waitsfield",
+      "gallons": 190
+    },
+    {
+      "month": "2018-03",
+      "region": "Waterbury",
+      "gallons": 935
+    },
+    {
+      "month": "2018-03",
+      "region": "Winooski",
+      "gallons": 280
+    },
+    {
+      "month": "2018-03",
+      "region": "Woodstock+Quechee",
+      "gallons": 290
+    },
+    {
+      "month": "2018-04",
+      "region": "Burlington",
+      "gallons": 3780
+    },
+    {
+      "month": "2018-04",
+      "region": "Central Vermont",
+      "gallons": 1945
+    },
+    {
+      "month": "2018-04",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 575
+    },
+    {
+      "month": "2018-04",
+      "region": "Middlebury+Vergennes",
+      "gallons": 500
+    },
+    {
+      "month": "2018-04",
+      "region": "Mt. Snow",
+      "gallons": 450
+    },
+    {
+      "month": "2018-04",
+      "region": "Other",
+      "gallons": 3113
+    },
+    {
+      "month": "2018-04",
+      "region": "Stowe",
+      "gallons": 1125
+    },
+    {
+      "month": "2018-04",
+      "region": "UVM",
+      "gallons": 420
+    },
+    {
+      "month": "2018-04",
+      "region": "Warren+Waitsfield",
+      "gallons": 410
+    },
+    {
+      "month": "2018-04",
+      "region": "Waterbury",
+      "gallons": 2323
+    },
+    {
+      "month": "2018-04",
+      "region": "Winooski",
+      "gallons": 190
+    },
+    {
+      "month": "2018-04",
+      "region": "Woodstock+Quechee",
+      "gallons": 300
+    },
+    {
+      "month": "2018-05",
+      "region": "Burlington",
+      "gallons": 3388
+    },
+    {
+      "month": "2018-05",
+      "region": "Central Vermont",
+      "gallons": 1497
+    },
+    {
+      "month": "2018-05",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 325
+    },
+    {
+      "month": "2018-05",
+      "region": "Manchester",
+      "gallons": 200
+    },
+    {
+      "month": "2018-05",
+      "region": "Middlebury+Vergennes",
+      "gallons": 650
+    },
+    {
+      "month": "2018-05",
+      "region": "Other",
+      "gallons": 5515
+    },
+    {
+      "month": "2018-05",
+      "region": "Stowe",
+      "gallons": 1015
+    },
+    {
+      "month": "2018-05",
+      "region": "UVM",
+      "gallons": 400
+    },
+    {
+      "month": "2018-05",
+      "region": "Warren+Waitsfield",
+      "gallons": 245
+    },
+    {
+      "month": "2018-05",
+      "region": "Waterbury",
+      "gallons": 700
+    },
+    {
+      "month": "2018-05",
+      "region": "Winooski",
+      "gallons": 450
+    },
+    {
+      "month": "2018-05",
+      "region": "Woodstock+Quechee",
+      "gallons": 345
+    },
+    {
+      "month": "2018-06",
+      "region": "Burlington",
+      "gallons": 4115
+    },
+    {
+      "month": "2018-06",
+      "region": "Central Vermont",
+      "gallons": 2110
+    },
+    {
+      "month": "2018-06",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 150
+    },
+    {
+      "month": "2018-06",
+      "region": "Middlebury+Vergennes",
+      "gallons": 290
+    },
+    {
+      "month": "2018-06",
+      "region": "Other",
+      "gallons": 3630
+    },
+    {
+      "month": "2018-06",
+      "region": "Stowe",
+      "gallons": 975
+    },
+    {
+      "month": "2018-06",
+      "region": "UVM",
+      "gallons": 55
+    },
+    {
+      "month": "2018-06",
+      "region": "Warren+Waitsfield",
+      "gallons": 150
+    },
+    {
+      "month": "2018-06",
+      "region": "Waterbury",
+      "gallons": 405
+    },
+    {
+      "month": "2018-06",
+      "region": "Winooski",
+      "gallons": 455
+    },
+    {
+      "month": "2018-06",
+      "region": "Woodstock+Quechee",
+      "gallons": 275
+    },
+    {
+      "month": "2018-07",
+      "region": "Burlington",
+      "gallons": 5105
+    },
+    {
+      "month": "2018-07",
+      "region": "Central Vermont",
+      "gallons": 2580
+    },
+    {
+      "month": "2018-07",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 200
+    },
+    {
+      "month": "2018-07",
+      "region": "Manchester",
+      "gallons": 225
+    },
+    {
+      "month": "2018-07",
+      "region": "Middlebury+Vergennes",
+      "gallons": 245
+    },
+    {
+      "month": "2018-07",
+      "region": "Other",
+      "gallons": 5399
+    },
+    {
+      "month": "2018-07",
+      "region": "Stowe",
+      "gallons": 1870
+    },
+    {
+      "month": "2018-07",
+      "region": "Waterbury",
+      "gallons": 1395
+    },
+    {
+      "month": "2018-07",
+      "region": "Winooski",
+      "gallons": 305
+    },
+    {
+      "month": "2018-07",
+      "region": "Woodstock+Quechee",
+      "gallons": 210
+    },
+    {
+      "month": "2018-08",
+      "region": "Burlington",
+      "gallons": 2900
+    },
+    {
+      "month": "2018-08",
+      "region": "Central Vermont",
+      "gallons": 2035
+    },
+    {
+      "month": "2018-08",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 535
+    },
+    {
+      "month": "2018-08",
+      "region": "Middlebury+Vergennes",
+      "gallons": 490
+    },
+    {
+      "month": "2018-08",
+      "region": "Other",
+      "gallons": 4592
+    },
+    {
+      "month": "2018-08",
+      "region": "Stowe",
+      "gallons": 1190
+    },
+    {
+      "month": "2018-08",
+      "region": "Warren+Waitsfield",
+      "gallons": 330
+    },
+    {
+      "month": "2018-08",
+      "region": "Waterbury",
+      "gallons": 567
+    },
+    {
+      "month": "2018-08",
+      "region": "Winooski",
+      "gallons": 375
+    },
+    {
+      "month": "2018-08",
+      "region": "Woodstock+Quechee",
+      "gallons": 370
+    },
+    {
+      "month": "2018-09",
+      "region": "Burlington",
+      "gallons": 2995
+    },
+    {
+      "month": "2018-09",
+      "region": "Central Vermont",
+      "gallons": 2145
+    },
+    {
+      "month": "2018-09",
+      "region": "Manchester",
+      "gallons": 250
+    },
+    {
+      "month": "2018-09",
+      "region": "Middlebury+Vergennes",
+      "gallons": 740
+    },
+    {
+      "month": "2018-09",
+      "region": "Other",
+      "gallons": 4070
+    },
+    {
+      "month": "2018-09",
+      "region": "Stowe",
+      "gallons": 470
+    },
+    {
+      "month": "2018-09",
+      "region": "UVM",
+      "gallons": 320
+    },
+    {
+      "month": "2018-09",
+      "region": "Warren+Waitsfield",
+      "gallons": 590
+    },
+    {
+      "month": "2018-09",
+      "region": "Waterbury",
+      "gallons": 425
+    },
+    {
+      "month": "2018-09",
+      "region": "Winooski",
+      "gallons": 375
+    },
+    {
+      "month": "2018-09",
+      "region": "Woodstock+Quechee",
+      "gallons": 405
+    },
+    {
+      "month": "2018-10",
+      "region": "Burlington",
+      "gallons": 4915
+    },
+    {
+      "month": "2018-10",
+      "region": "Central Vermont",
+      "gallons": 1495
+    },
+    {
+      "month": "2018-10",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 440
+    },
+    {
+      "month": "2018-10",
+      "region": "Manchester",
+      "gallons": 175
+    },
+    {
+      "month": "2018-10",
+      "region": "Middlebury+Vergennes",
+      "gallons": 785
+    },
+    {
+      "month": "2018-10",
+      "region": "Other",
+      "gallons": 4266
+    },
+    {
+      "month": "2018-10",
+      "region": "Stowe",
+      "gallons": 1240
+    },
+    {
+      "month": "2018-10",
+      "region": "UVM",
+      "gallons": 560
+    },
+    {
+      "month": "2018-10",
+      "region": "Warren+Waitsfield",
+      "gallons": 140
+    },
+    {
+      "month": "2018-10",
+      "region": "Waterbury",
+      "gallons": 1410
+    },
+    {
+      "month": "2018-10",
+      "region": "Winooski",
+      "gallons": 450
+    },
+    {
+      "month": "2018-10",
+      "region": "Woodstock+Quechee",
+      "gallons": 440
+    },
+    {
+      "month": "2018-11",
+      "region": "Burlington",
+      "gallons": 3104
+    },
+    {
+      "month": "2018-11",
+      "region": "Central Vermont",
+      "gallons": 2075
+    },
+    {
+      "month": "2018-11",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 275
+    },
+    {
+      "month": "2018-11",
+      "region": "Middlebury+Vergennes",
+      "gallons": 380
+    },
+    {
+      "month": "2018-11",
+      "region": "Mt. Snow",
+      "gallons": 200
+    },
+    {
+      "month": "2018-11",
+      "region": "Other",
+      "gallons": 2911
+    },
+    {
+      "month": "2018-11",
+      "region": "Stowe",
+      "gallons": 825
+    },
+    {
+      "month": "2018-11",
+      "region": "UVM",
+      "gallons": 620
+    },
+    {
+      "month": "2018-11",
+      "region": "Warren+Waitsfield",
+      "gallons": 250
+    },
+    {
+      "month": "2018-11",
+      "region": "Waterbury",
+      "gallons": 800
+    },
+    {
+      "month": "2018-11",
+      "region": "Winooski",
+      "gallons": 300
+    },
+    {
+      "month": "2018-11",
+      "region": "Woodstock+Quechee",
+      "gallons": 420
+    },
+    {
+      "month": "2018-12",
+      "region": "Burlington",
+      "gallons": 3565
+    },
+    {
+      "month": "2018-12",
+      "region": "Central Vermont",
+      "gallons": 1385
+    },
+    {
+      "month": "2018-12",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 345
+    },
+    {
+      "month": "2018-12",
+      "region": "Manchester",
+      "gallons": 150
+    },
+    {
+      "month": "2018-12",
+      "region": "Middlebury+Vergennes",
+      "gallons": 605
+    },
+    {
+      "month": "2018-12",
+      "region": "Mt. Snow",
+      "gallons": 375
+    },
+    {
+      "month": "2018-12",
+      "region": "Other",
+      "gallons": 3000
+    },
+    {
+      "month": "2018-12",
+      "region": "Stowe",
+      "gallons": 1728
+    },
+    {
+      "month": "2018-12",
+      "region": "UVM",
+      "gallons": 295
+    },
+    {
+      "month": "2018-12",
+      "region": "Warren+Waitsfield",
+      "gallons": 130
+    },
+    {
+      "month": "2018-12",
+      "region": "Waterbury",
+      "gallons": 795
+    },
+    {
+      "month": "2018-12",
+      "region": "Winooski",
+      "gallons": 295
+    },
+    {
+      "month": "2018-12",
+      "region": "Woodstock+Quechee",
+      "gallons": 315
+    },
+    {
+      "month": "2019-01",
+      "region": "Burlington",
+      "gallons": 2135
+    },
+    {
+      "month": "2019-01",
+      "region": "Central Vermont",
+      "gallons": 1550
+    },
+    {
+      "month": "2019-01",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 1055
+    },
+    {
+      "month": "2019-01",
+      "region": "Manchester",
+      "gallons": 100
+    },
+    {
+      "month": "2019-01",
+      "region": "Middlebury+Vergennes",
+      "gallons": 480
+    },
+    {
+      "month": "2019-01",
+      "region": "Mt. Snow",
+      "gallons": 575
+    },
+    {
+      "month": "2019-01",
+      "region": "Other",
+      "gallons": 1914
+    },
+    {
+      "month": "2019-01",
+      "region": "Stowe",
+      "gallons": 1270
+    },
+    {
+      "month": "2019-01",
+      "region": "UVM",
+      "gallons": 155
+    },
+    {
+      "month": "2019-01",
+      "region": "Warren+Waitsfield",
+      "gallons": 485
+    },
+    {
+      "month": "2019-01",
+      "region": "Waterbury",
+      "gallons": 1135
+    },
+    {
+      "month": "2019-01",
+      "region": "Winooski",
+      "gallons": 520
+    },
+    {
+      "month": "2019-01",
+      "region": "Woodstock+Quechee",
+      "gallons": 315
+    },
+    {
+      "month": "2019-02",
+      "region": "Burlington",
+      "gallons": 3323
+    },
+    {
+      "month": "2019-02",
+      "region": "Central Vermont",
+      "gallons": 1758
+    },
+    {
+      "month": "2019-02",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 395
+    },
+    {
+      "month": "2019-02",
+      "region": "Middlebury+Vergennes",
+      "gallons": 905
+    },
+    {
+      "month": "2019-02",
+      "region": "Mt. Snow",
+      "gallons": 800
+    },
+    {
+      "month": "2019-02",
+      "region": "Other",
+      "gallons": 4025
+    },
+    {
+      "month": "2019-02",
+      "region": "Stowe",
+      "gallons": 1253
+    },
+    {
+      "month": "2019-02",
+      "region": "UVM",
+      "gallons": 275
+    },
+    {
+      "month": "2019-02",
+      "region": "Warren+Waitsfield",
+      "gallons": 240
+    },
+    {
+      "month": "2019-02",
+      "region": "Waterbury",
+      "gallons": 1270
+    },
+    {
+      "month": "2019-02",
+      "region": "Woodstock+Quechee",
+      "gallons": 320
+    },
+    {
+      "month": "2019-03",
+      "region": "Burlington",
+      "gallons": 2185
+    },
+    {
+      "month": "2019-03",
+      "region": "Central Vermont",
+      "gallons": 1735
+    },
+    {
+      "month": "2019-03",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 1010
+    },
+    {
+      "month": "2019-03",
+      "region": "Manchester",
+      "gallons": 150
+    },
+    {
+      "month": "2019-03",
+      "region": "Middlebury+Vergennes",
+      "gallons": 510
+    },
+    {
+      "month": "2019-03",
+      "region": "Other",
+      "gallons": 4755
+    },
+    {
+      "month": "2019-03",
+      "region": "Stowe",
+      "gallons": 1715
+    },
+    {
+      "month": "2019-03",
+      "region": "UVM",
+      "gallons": 665
+    },
+    {
+      "month": "2019-03",
+      "region": "Warren+Waitsfield",
+      "gallons": 300
+    },
+    {
+      "month": "2019-03",
+      "region": "Waterbury",
+      "gallons": 1190
+    },
+    {
+      "month": "2019-03",
+      "region": "Winooski",
+      "gallons": 715
+    },
+    {
+      "month": "2019-03",
+      "region": "Woodstock+Quechee",
+      "gallons": 360
+    },
+    {
+      "month": "2019-04",
+      "region": "Burlington",
+      "gallons": 2345
+    },
+    {
+      "month": "2019-04",
+      "region": "Central Vermont",
+      "gallons": 2245
+    },
+    {
+      "month": "2019-04",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 150
+    },
+    {
+      "month": "2019-04",
+      "region": "Middlebury+Vergennes",
+      "gallons": 1005
+    },
+    {
+      "month": "2019-04",
+      "region": "Mt. Snow",
+      "gallons": 750
+    },
+    {
+      "month": "2019-04",
+      "region": "Other",
+      "gallons": 5070
+    },
+    {
+      "month": "2019-04",
+      "region": "Stowe",
+      "gallons": 285
+    },
+    {
+      "month": "2019-04",
+      "region": "UVM",
+      "gallons": 580
+    },
+    {
+      "month": "2019-04",
+      "region": "Warren+Waitsfield",
+      "gallons": 575
+    },
+    {
+      "month": "2019-04",
+      "region": "Waterbury",
+      "gallons": 1015
+    },
+    {
+      "month": "2019-04",
+      "region": "Winooski",
+      "gallons": 200
+    },
+    {
+      "month": "2019-04",
+      "region": "Woodstock+Quechee",
+      "gallons": 540
+    },
+    {
+      "month": "2019-05",
+      "region": "Burlington",
+      "gallons": 3130
+    },
+    {
+      "month": "2019-05",
+      "region": "Central Vermont",
+      "gallons": 2370
+    },
+    {
+      "month": "2019-05",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 660
+    },
+    {
+      "month": "2019-05",
+      "region": "Manchester",
+      "gallons": 175
+    },
+    {
+      "month": "2019-05",
+      "region": "Other",
+      "gallons": 5955
+    },
+    {
+      "month": "2019-05",
+      "region": "Stowe",
+      "gallons": 2155
+    },
+    {
+      "month": "2019-05",
+      "region": "UVM",
+      "gallons": 290
+    },
+    {
+      "month": "2019-05",
+      "region": "Waterbury",
+      "gallons": 1355
+    },
+    {
+      "month": "2019-05",
+      "region": "Winooski",
+      "gallons": 645
+    },
+    {
+      "month": "2019-05",
+      "region": "Woodstock+Quechee",
+      "gallons": 325
+    },
+    {
+      "month": "2019-06",
+      "region": "Burlington",
+      "gallons": 3900
+    },
+    {
+      "month": "2019-06",
+      "region": "Central Vermont",
+      "gallons": 1240
+    },
+    {
+      "month": "2019-06",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 390
+    },
+    {
+      "month": "2019-06",
+      "region": "Middlebury+Vergennes",
+      "gallons": 805
+    },
+    {
+      "month": "2019-06",
+      "region": "Other",
+      "gallons": 5580
+    },
+    {
+      "month": "2019-06",
+      "region": "Stowe",
+      "gallons": 1305
+    },
+    {
+      "month": "2019-06",
+      "region": "Warren+Waitsfield",
+      "gallons": 450
+    },
+    {
+      "month": "2019-06",
+      "region": "Waterbury",
+      "gallons": 710
+    },
+    {
+      "month": "2019-06",
+      "region": "Winooski",
+      "gallons": 245
+    },
+    {
+      "month": "2019-06",
+      "region": "Woodstock+Quechee",
+      "gallons": 375
+    },
+    {
+      "month": "2019-07",
+      "region": "Burlington",
+      "gallons": 3865
+    },
+    {
+      "month": "2019-07",
+      "region": "Central Vermont",
+      "gallons": 2290
+    },
+    {
+      "month": "2019-07",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 1090
+    },
+    {
+      "month": "2019-07",
+      "region": "Manchester",
+      "gallons": 225
+    },
+    {
+      "month": "2019-07",
+      "region": "Middlebury+Vergennes",
+      "gallons": 740
+    },
+    {
+      "month": "2019-07",
+      "region": "Mt. Snow",
+      "gallons": 375
+    },
+    {
+      "month": "2019-07",
+      "region": "Other",
+      "gallons": 4030
+    },
+    {
+      "month": "2019-07",
+      "region": "Stowe",
+      "gallons": 1575
+    },
+    {
+      "month": "2019-07",
+      "region": "UVM",
+      "gallons": 75
+    },
+    {
+      "month": "2019-07",
+      "region": "Warren+Waitsfield",
+      "gallons": 205
+    },
+    {
+      "month": "2019-07",
+      "region": "Waterbury",
+      "gallons": 685
+    },
+    {
+      "month": "2019-07",
+      "region": "Winooski",
+      "gallons": 725
+    },
+    {
+      "month": "2019-07",
+      "region": "Woodstock+Quechee",
+      "gallons": 725
+    },
+    {
+      "month": "2019-08",
+      "region": "Burlington",
+      "gallons": 3171
+    },
+    {
+      "month": "2019-08",
+      "region": "Central Vermont",
+      "gallons": 1615
+    },
+    {
+      "month": "2019-08",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 60
+    },
+    {
+      "month": "2019-08",
+      "region": "Middlebury+Vergennes",
+      "gallons": 515
+    },
+    {
+      "month": "2019-08",
+      "region": "Other",
+      "gallons": 3850
+    },
+    {
+      "month": "2019-08",
+      "region": "Stowe",
+      "gallons": 1050
+    },
+    {
+      "month": "2019-08",
+      "region": "UVM",
+      "gallons": 390
+    },
+    {
+      "month": "2019-08",
+      "region": "Warren+Waitsfield",
+      "gallons": 670
+    },
+    {
+      "month": "2019-08",
+      "region": "Waterbury",
+      "gallons": 420
+    },
+    {
+      "month": "2019-08",
+      "region": "Winooski",
+      "gallons": 516
+    },
+    {
+      "month": "2019-09",
+      "region": "Burlington",
+      "gallons": 1825
+    },
+    {
+      "month": "2019-09",
+      "region": "Central Vermont",
+      "gallons": 810
+    },
+    {
+      "month": "2019-09",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 175
+    },
+    {
+      "month": "2019-09",
+      "region": "Manchester",
+      "gallons": 200
+    },
+    {
+      "month": "2019-09",
+      "region": "Middlebury+Vergennes",
+      "gallons": 835
+    },
+    {
+      "month": "2019-09",
+      "region": "Other",
+      "gallons": 6345
+    },
+    {
+      "month": "2019-09",
+      "region": "Stowe",
+      "gallons": 1290
+    },
+    {
+      "month": "2019-09",
+      "region": "UVM",
+      "gallons": 100
+    },
+    {
+      "month": "2019-09",
+      "region": "Warren+Waitsfield",
+      "gallons": 320
+    },
+    {
+      "month": "2019-09",
+      "region": "Waterbury",
+      "gallons": 780
+    },
+    {
+      "month": "2019-09",
+      "region": "Winooski",
+      "gallons": 695
+    },
+    {
+      "month": "2019-09",
+      "region": "Woodstock+Quechee",
+      "gallons": 430
+    },
+    {
+      "month": "2019-10",
+      "region": "Burlington",
+      "gallons": 4105
+    },
+    {
+      "month": "2019-10",
+      "region": "Central Vermont",
+      "gallons": 1820
+    },
+    {
+      "month": "2019-10",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 725
+    },
+    {
+      "month": "2019-10",
+      "region": "Middlebury+Vergennes",
+      "gallons": 600
+    },
+    {
+      "month": "2019-10",
+      "region": "Mt. Snow",
+      "gallons": 250
+    },
+    {
+      "month": "2019-10",
+      "region": "Other",
+      "gallons": 6000
+    },
+    {
+      "month": "2019-10",
+      "region": "Stowe",
+      "gallons": 1515
+    },
+    {
+      "month": "2019-10",
+      "region": "UVM",
+      "gallons": 575
+    },
+    {
+      "month": "2019-10",
+      "region": "Warren+Waitsfield",
+      "gallons": 470
+    },
+    {
+      "month": "2019-10",
+      "region": "Waterbury",
+      "gallons": 590
+    },
+    {
+      "month": "2019-10",
+      "region": "Winooski",
+      "gallons": 125
+    },
+    {
+      "month": "2019-10",
+      "region": "Woodstock+Quechee",
+      "gallons": 350
+    },
+    {
+      "month": "2019-11",
+      "region": "Burlington",
+      "gallons": 2856
+    },
+    {
+      "month": "2019-11",
+      "region": "Central Vermont",
+      "gallons": 2355
+    },
+    {
+      "month": "2019-11",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 80
+    },
+    {
+      "month": "2019-11",
+      "region": "Manchester",
+      "gallons": 150
+    },
+    {
+      "month": "2019-11",
+      "region": "Middlebury+Vergennes",
+      "gallons": 410
+    },
+    {
+      "month": "2019-11",
+      "region": "Other",
+      "gallons": 2925
+    },
+    {
+      "month": "2019-11",
+      "region": "Stowe",
+      "gallons": 1705
+    },
+    {
+      "month": "2019-11",
+      "region": "UVM",
+      "gallons": 625
+    },
+    {
+      "month": "2019-11",
+      "region": "Warren+Waitsfield",
+      "gallons": 815
+    },
+    {
+      "month": "2019-11",
+      "region": "Waterbury",
+      "gallons": 1145
+    },
+    {
+      "month": "2019-11",
+      "region": "Winooski",
+      "gallons": 1076
+    },
+    {
+      "month": "2019-11",
+      "region": "Woodstock+Quechee",
+      "gallons": 75
+    },
+    {
+      "month": "2019-12",
+      "region": "Burlington",
+      "gallons": 2850
+    },
+    {
+      "month": "2019-12",
+      "region": "Central Vermont",
+      "gallons": 1485
+    },
+    {
+      "month": "2019-12",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 690
+    },
+    {
+      "month": "2019-12",
+      "region": "Mt. Snow",
+      "gallons": 700
+    },
+    {
+      "month": "2019-12",
+      "region": "Other",
+      "gallons": 4260
+    },
+    {
+      "month": "2019-12",
+      "region": "Stowe",
+      "gallons": 1870
+    },
+    {
+      "month": "2019-12",
+      "region": "Waterbury",
+      "gallons": 650
+    },
+    {
+      "month": "2019-12",
+      "region": "Winooski",
+      "gallons": 550
+    },
+    {
+      "month": "2019-12",
+      "region": "Woodstock+Quechee",
+      "gallons": 605
+    },
+    {
+      "month": "2020-01",
+      "region": "Burlington",
+      "gallons": 2826
+    },
+    {
+      "month": "2020-01",
+      "region": "Central Vermont",
+      "gallons": 1085
+    },
+    {
+      "month": "2020-01",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 535
+    },
+    {
+      "month": "2020-01",
+      "region": "Manchester",
+      "gallons": 130
+    },
+    {
+      "month": "2020-01",
+      "region": "Middlebury+Vergennes",
+      "gallons": 1075
+    },
+    {
+      "month": "2020-01",
+      "region": "Other",
+      "gallons": 4020
+    },
+    {
+      "month": "2020-01",
+      "region": "Stowe",
+      "gallons": 1660
+    },
+    {
+      "month": "2020-01",
+      "region": "UVM",
+      "gallons": 500
+    },
+    {
+      "month": "2020-01",
+      "region": "Warren+Waitsfield",
+      "gallons": 675
+    },
+    {
+      "month": "2020-01",
+      "region": "Waterbury",
+      "gallons": 555
+    },
+    {
+      "month": "2020-01",
+      "region": "Winooski",
+      "gallons": 410
+    },
+    {
+      "month": "2020-01",
+      "region": "Woodstock+Quechee",
+      "gallons": 235
+    },
+    {
+      "month": "2020-02",
+      "region": "Burlington",
+      "gallons": 1790
+    },
+    {
+      "month": "2020-02",
+      "region": "Central Vermont",
+      "gallons": 1765
+    },
+    {
+      "month": "2020-02",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 100
+    },
+    {
+      "month": "2020-02",
+      "region": "Mt. Snow",
+      "gallons": 675
+    },
+    {
+      "month": "2020-02",
+      "region": "Other",
+      "gallons": 3230
+    },
+    {
+      "month": "2020-02",
+      "region": "Stowe",
+      "gallons": 2170
+    },
+    {
+      "month": "2020-02",
+      "region": "UVM",
+      "gallons": 730
+    },
+    {
+      "month": "2020-02",
+      "region": "Warren+Waitsfield",
+      "gallons": 950
+    },
+    {
+      "month": "2020-02",
+      "region": "Waterbury",
+      "gallons": 565
+    },
+    {
+      "month": "2020-02",
+      "region": "Winooski",
+      "gallons": 451
+    },
+    {
+      "month": "2020-02",
+      "region": "Woodstock+Quechee",
+      "gallons": 350
+    },
+    {
+      "month": "2020-03",
+      "region": "Burlington",
+      "gallons": 2525
+    },
+    {
+      "month": "2020-03",
+      "region": "Central Vermont",
+      "gallons": 1165
+    },
+    {
+      "month": "2020-03",
+      "region": "Middlebury+Vergennes",
+      "gallons": 760
+    },
+    {
+      "month": "2020-03",
+      "region": "Mt. Snow",
+      "gallons": 750
+    },
+    {
+      "month": "2020-03",
+      "region": "Other",
+      "gallons": 4635
+    },
+    {
+      "month": "2020-03",
+      "region": "Stowe",
+      "gallons": 1725
+    },
+    {
+      "month": "2020-03",
+      "region": "Warren+Waitsfield",
+      "gallons": 1270
+    },
+    {
+      "month": "2020-03",
+      "region": "Waterbury",
+      "gallons": 650
+    },
+    {
+      "month": "2020-03",
+      "region": "Winooski",
+      "gallons": 455
+    },
+    {
+      "month": "2020-03",
+      "region": "Woodstock+Quechee",
+      "gallons": 410
+    },
+    {
+      "month": "2020-04",
+      "region": "Burlington",
+      "gallons": 921
+    },
+    {
+      "month": "2020-04",
+      "region": "Central Vermont",
+      "gallons": 1440
+    },
+    {
+      "month": "2020-04",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 600
+    },
+    {
+      "month": "2020-04",
+      "region": "Manchester",
+      "gallons": 175
+    },
+    {
+      "month": "2020-04",
+      "region": "Middlebury+Vergennes",
+      "gallons": 575
+    },
+    {
+      "month": "2020-04",
+      "region": "Other",
+      "gallons": 10035
+    },
+    {
+      "month": "2020-04",
+      "region": "Stowe",
+      "gallons": 680
+    },
+    {
+      "month": "2020-04",
+      "region": "UVM",
+      "gallons": 440
+    },
+    {
+      "month": "2020-04",
+      "region": "Waterbury",
+      "gallons": 585
+    },
+    {
+      "month": "2020-04",
+      "region": "Woodstock+Quechee",
+      "gallons": 75
+    },
+    {
+      "month": "2020-05",
+      "region": "Burlington",
+      "gallons": 1750
+    },
+    {
+      "month": "2020-05",
+      "region": "Central Vermont",
+      "gallons": 605
+    },
+    {
+      "month": "2020-05",
+      "region": "Other",
+      "gallons": 1980
+    },
+    {
+      "month": "2020-05",
+      "region": "Stowe",
+      "gallons": 135
+    },
+    {
+      "month": "2020-05",
+      "region": "Warren+Waitsfield",
+      "gallons": 150
+    },
+    {
+      "month": "2020-05",
+      "region": "Waterbury",
+      "gallons": 295
+    },
+    {
+      "month": "2020-05",
+      "region": "Winooski",
+      "gallons": 955
+    },
+    {
+      "month": "2020-05",
+      "region": "Woodstock+Quechee",
+      "gallons": 55
+    },
+    {
+      "month": "2020-06",
+      "region": "Burlington",
+      "gallons": 1645
+    },
+    {
+      "month": "2020-06",
+      "region": "Central Vermont",
+      "gallons": 1725
+    },
+    {
+      "month": "2020-06",
+      "region": "Middlebury+Vergennes",
+      "gallons": 655
+    },
+    {
+      "month": "2020-06",
+      "region": "Other",
+      "gallons": 5820
+    },
+    {
+      "month": "2020-06",
+      "region": "Stowe",
+      "gallons": 990
+    },
+    {
+      "month": "2020-06",
+      "region": "Warren+Waitsfield",
+      "gallons": 455
+    },
+    {
+      "month": "2020-06",
+      "region": "Waterbury",
+      "gallons": 290
+    },
+    {
+      "month": "2020-06",
+      "region": "Winooski",
+      "gallons": 150
+    },
+    {
+      "month": "2020-06",
+      "region": "Woodstock+Quechee",
+      "gallons": 75
+    },
+    {
+      "month": "2020-07",
+      "region": "Burlington",
+      "gallons": 2660
+    },
+    {
+      "month": "2020-07",
+      "region": "Central Vermont",
+      "gallons": 685
+    },
+    {
+      "month": "2020-07",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 50
+    },
+    {
+      "month": "2020-07",
+      "region": "Manchester",
+      "gallons": 125
+    },
+    {
+      "month": "2020-07",
+      "region": "Middlebury+Vergennes",
+      "gallons": 840
+    },
+    {
+      "month": "2020-07",
+      "region": "Other",
+      "gallons": 5080
+    },
+    {
+      "month": "2020-07",
+      "region": "Stowe",
+      "gallons": 1345
+    },
+    {
+      "month": "2020-07",
+      "region": "Warren+Waitsfield",
+      "gallons": 290
+    },
+    {
+      "month": "2020-07",
+      "region": "Waterbury",
+      "gallons": 155
+    },
+    {
+      "month": "2020-07",
+      "region": "Winooski",
+      "gallons": 595
+    },
+    {
+      "month": "2020-07",
+      "region": "Woodstock+Quechee",
+      "gallons": 350
+    },
+    {
+      "month": "2020-08",
+      "region": "Burlington",
+      "gallons": 1780
+    },
+    {
+      "month": "2020-08",
+      "region": "Central Vermont",
+      "gallons": 855
+    },
+    {
+      "month": "2020-08",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 200
+    },
+    {
+      "month": "2020-08",
+      "region": "Middlebury+Vergennes",
+      "gallons": 645
+    },
+    {
+      "month": "2020-08",
+      "region": "Other",
+      "gallons": 3575
+    },
+    {
+      "month": "2020-08",
+      "region": "Stowe",
+      "gallons": 1135
+    },
+    {
+      "month": "2020-08",
+      "region": "Warren+Waitsfield",
+      "gallons": 275
+    },
+    {
+      "month": "2020-08",
+      "region": "Waterbury",
+      "gallons": 675
+    },
+    {
+      "month": "2020-08",
+      "region": "Winooski",
+      "gallons": 375
+    },
+    {
+      "month": "2020-08",
+      "region": "Woodstock+Quechee",
+      "gallons": 325
+    },
+    {
+      "month": "2020-09",
+      "region": "Burlington",
+      "gallons": 2490
+    },
+    {
+      "month": "2020-09",
+      "region": "Central Vermont",
+      "gallons": 2370
+    },
+    {
+      "month": "2020-09",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 150
+    },
+    {
+      "month": "2020-09",
+      "region": "Middlebury+Vergennes",
+      "gallons": 625
+    },
+    {
+      "month": "2020-09",
+      "region": "Other",
+      "gallons": 4018
+    },
+    {
+      "month": "2020-09",
+      "region": "Stowe",
+      "gallons": 1025
+    },
+    {
+      "month": "2020-09",
+      "region": "UVM",
+      "gallons": 325
+    },
+    {
+      "month": "2020-09",
+      "region": "Warren+Waitsfield",
+      "gallons": 80
+    },
+    {
+      "month": "2020-09",
+      "region": "Waterbury",
+      "gallons": 335
+    },
+    {
+      "month": "2020-09",
+      "region": "Winooski",
+      "gallons": 50
+    },
+    {
+      "month": "2020-09",
+      "region": "Woodstock+Quechee",
+      "gallons": 545
+    },
+    {
+      "month": "2020-10",
+      "region": "Burlington",
+      "gallons": 2065
+    },
+    {
+      "month": "2020-10",
+      "region": "Central Vermont",
+      "gallons": 825
+    },
+    {
+      "month": "2020-10",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 125
+    },
+    {
+      "month": "2020-10",
+      "region": "Manchester",
+      "gallons": 175
+    },
+    {
+      "month": "2020-10",
+      "region": "Middlebury+Vergennes",
+      "gallons": 540
+    },
+    {
+      "month": "2020-10",
+      "region": "Other",
+      "gallons": 5015
+    },
+    {
+      "month": "2020-10",
+      "region": "Stowe",
+      "gallons": 2475
+    },
+    {
+      "month": "2020-10",
+      "region": "Warren+Waitsfield",
+      "gallons": 525
+    },
+    {
+      "month": "2020-10",
+      "region": "Waterbury",
+      "gallons": 580
+    },
+    {
+      "month": "2020-10",
+      "region": "Winooski",
+      "gallons": 345
+    },
+    {
+      "month": "2020-11",
+      "region": "Burlington",
+      "gallons": 2155
+    },
+    {
+      "month": "2020-11",
+      "region": "Central Vermont",
+      "gallons": 2015
+    },
+    {
+      "month": "2020-11",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 695
+    },
+    {
+      "month": "2020-11",
+      "region": "Mt. Snow",
+      "gallons": 350
+    },
+    {
+      "month": "2020-11",
+      "region": "Other",
+      "gallons": 3195
+    },
+    {
+      "month": "2020-11",
+      "region": "Stowe",
+      "gallons": 1120
+    },
+    {
+      "month": "2020-11",
+      "region": "UVM",
+      "gallons": 250
+    },
+    {
+      "month": "2020-11",
+      "region": "Warren+Waitsfield",
+      "gallons": 360
+    },
+    {
+      "month": "2020-11",
+      "region": "Waterbury",
+      "gallons": 490
+    },
+    {
+      "month": "2020-11",
+      "region": "Winooski",
+      "gallons": 610
+    },
+    {
+      "month": "2020-11",
+      "region": "Woodstock+Quechee",
+      "gallons": 525
+    },
+    {
+      "month": "2020-12",
+      "region": "Burlington",
+      "gallons": 665
+    },
+    {
+      "month": "2020-12",
+      "region": "Central Vermont",
+      "gallons": 1270
+    },
+    {
+      "month": "2020-12",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 230
+    },
+    {
+      "month": "2020-12",
+      "region": "Manchester",
+      "gallons": 125
+    },
+    {
+      "month": "2020-12",
+      "region": "Middlebury+Vergennes",
+      "gallons": 610
+    },
+    {
+      "month": "2020-12",
+      "region": "Other",
+      "gallons": 5935
+    },
+    {
+      "month": "2020-12",
+      "region": "Stowe",
+      "gallons": 2825
+    },
+    {
+      "month": "2020-12",
+      "region": "UVM",
+      "gallons": 375
+    },
+    {
+      "month": "2020-12",
+      "region": "Warren+Waitsfield",
+      "gallons": 395
+    },
+    {
+      "month": "2020-12",
+      "region": "Waterbury",
+      "gallons": 810
+    },
+    {
+      "month": "2020-12",
+      "region": "Winooski",
+      "gallons": 580
+    },
+    {
+      "month": "2020-12",
+      "region": "Woodstock+Quechee",
+      "gallons": 195
+    },
+    {
+      "month": "2021-01",
+      "region": "Burlington",
+      "gallons": 2125
+    },
+    {
+      "month": "2021-01",
+      "region": "Central Vermont",
+      "gallons": 1050
+    },
+    {
+      "month": "2021-01",
+      "region": "Middlebury+Vergennes",
+      "gallons": 370
+    },
+    {
+      "month": "2021-01",
+      "region": "Mt. Snow",
+      "gallons": 375
+    },
+    {
+      "month": "2021-01",
+      "region": "Other",
+      "gallons": 3695
+    },
+    {
+      "month": "2021-01",
+      "region": "Stowe",
+      "gallons": 2500
+    },
+    {
+      "month": "2021-01",
+      "region": "UVM",
+      "gallons": 50
+    },
+    {
+      "month": "2021-01",
+      "region": "Warren+Waitsfield",
+      "gallons": 295
+    },
+    {
+      "month": "2021-01",
+      "region": "Waterbury",
+      "gallons": 480
+    },
+    {
+      "month": "2021-01",
+      "region": "Winooski",
+      "gallons": 495
+    },
+    {
+      "month": "2021-01",
+      "region": "Woodstock+Quechee",
+      "gallons": 125
+    },
+    {
+      "month": "2021-02",
+      "region": "Burlington",
+      "gallons": 1170
+    },
+    {
+      "month": "2021-02",
+      "region": "Central Vermont",
+      "gallons": 675
+    },
+    {
+      "month": "2021-02",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 580
+    },
+    {
+      "month": "2021-02",
+      "region": "Mt. Snow",
+      "gallons": 250
+    },
+    {
+      "month": "2021-02",
+      "region": "Other",
+      "gallons": 3200
+    },
+    {
+      "month": "2021-02",
+      "region": "Stowe",
+      "gallons": 1075
+    },
+    {
+      "month": "2021-02",
+      "region": "UVM",
+      "gallons": 260
+    },
+    {
+      "month": "2021-02",
+      "region": "Warren+Waitsfield",
+      "gallons": 680
+    },
+    {
+      "month": "2021-02",
+      "region": "Waterbury",
+      "gallons": 435
+    },
+    {
+      "month": "2021-02",
+      "region": "Winooski",
+      "gallons": 415
+    },
+    {
+      "month": "2021-02",
+      "region": "Woodstock+Quechee",
+      "gallons": 100
+    },
+    {
+      "month": "2021-03",
+      "region": "Burlington",
+      "gallons": 1340
+    },
+    {
+      "month": "2021-03",
+      "region": "Central Vermont",
+      "gallons": 2265
+    },
+    {
+      "month": "2021-03",
+      "region": "Manchester",
+      "gallons": 200
+    },
+    {
+      "month": "2021-03",
+      "region": "Middlebury+Vergennes",
+      "gallons": 500
+    },
+    {
+      "month": "2021-03",
+      "region": "Mt. Snow",
+      "gallons": 250
+    },
+    {
+      "month": "2021-03",
+      "region": "Other",
+      "gallons": 4025
+    },
+    {
+      "month": "2021-03",
+      "region": "Stowe",
+      "gallons": 1545
+    },
+    {
+      "month": "2021-03",
+      "region": "UVM",
+      "gallons": 365
+    },
+    {
+      "month": "2021-03",
+      "region": "Warren+Waitsfield",
+      "gallons": 740
+    },
+    {
+      "month": "2021-03",
+      "region": "Waterbury",
+      "gallons": 620
+    },
+    {
+      "month": "2021-04",
+      "region": "Burlington",
+      "gallons": 910
+    },
+    {
+      "month": "2021-04",
+      "region": "Central Vermont",
+      "gallons": 690
+    },
+    {
+      "month": "2021-04",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 450
+    },
+    {
+      "month": "2021-04",
+      "region": "Mt. Snow",
+      "gallons": 650
+    },
+    {
+      "month": "2021-04",
+      "region": "Other",
+      "gallons": 3125
+    },
+    {
+      "month": "2021-04",
+      "region": "Stowe",
+      "gallons": 630
+    },
+    {
+      "month": "2021-04",
+      "region": "UVM",
+      "gallons": 570
+    },
+    {
+      "month": "2021-04",
+      "region": "Warren+Waitsfield",
+      "gallons": 900
+    },
+    {
+      "month": "2021-04",
+      "region": "Waterbury",
+      "gallons": 540
+    },
+    {
+      "month": "2021-04",
+      "region": "Winooski",
+      "gallons": 515
+    },
+    {
+      "month": "2021-04",
+      "region": "Woodstock+Quechee",
+      "gallons": 150
+    },
+    {
+      "month": "2021-05",
+      "region": "Burlington",
+      "gallons": 1920
+    },
+    {
+      "month": "2021-05",
+      "region": "Central Vermont",
+      "gallons": 1045
+    },
+    {
+      "month": "2021-05",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 375
+    },
+    {
+      "month": "2021-05",
+      "region": "Middlebury+Vergennes",
+      "gallons": 625
+    },
+    {
+      "month": "2021-05",
+      "region": "Other",
+      "gallons": 6645
+    },
+    {
+      "month": "2021-05",
+      "region": "Stowe",
+      "gallons": 1495
+    },
+    {
+      "month": "2021-05",
+      "region": "Warren+Waitsfield",
+      "gallons": 440
+    },
+    {
+      "month": "2021-05",
+      "region": "Waterbury",
+      "gallons": 565
+    },
+    {
+      "month": "2021-05",
+      "region": "Winooski",
+      "gallons": 75
+    },
+    {
+      "month": "2021-05",
+      "region": "Woodstock+Quechee",
+      "gallons": 725
+    },
+    {
+      "month": "2021-06",
+      "region": "Burlington",
+      "gallons": 3172
+    },
+    {
+      "month": "2021-06",
+      "region": "Central Vermont",
+      "gallons": 1595
+    },
+    {
+      "month": "2021-06",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 275
+    },
+    {
+      "month": "2021-06",
+      "region": "Manchester",
+      "gallons": 175
+    },
+    {
+      "month": "2021-06",
+      "region": "Middlebury+Vergennes",
+      "gallons": 100
+    },
+    {
+      "month": "2021-06",
+      "region": "Other",
+      "gallons": 7265
+    },
+    {
+      "month": "2021-06",
+      "region": "Stowe",
+      "gallons": 2121
+    },
+    {
+      "month": "2021-06",
+      "region": "Waterbury",
+      "gallons": 550
+    },
+    {
+      "month": "2021-06",
+      "region": "Winooski",
+      "gallons": 751
+    },
+    {
+      "month": "2021-07",
+      "region": "Burlington",
+      "gallons": 2982
+    },
+    {
+      "month": "2021-07",
+      "region": "Central Vermont",
+      "gallons": 1435
+    },
+    {
+      "month": "2021-07",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 70
+    },
+    {
+      "month": "2021-07",
+      "region": "Middlebury+Vergennes",
+      "gallons": 820
+    },
+    {
+      "month": "2021-07",
+      "region": "Okemo",
+      "gallons": 400
+    },
+    {
+      "month": "2021-07",
+      "region": "Other",
+      "gallons": 5755
+    },
+    {
+      "month": "2021-07",
+      "region": "Stowe",
+      "gallons": 1340
+    },
+    {
+      "month": "2021-07",
+      "region": "UVM",
+      "gallons": 495
+    },
+    {
+      "month": "2021-07",
+      "region": "Warren+Waitsfield",
+      "gallons": 425
+    },
+    {
+      "month": "2021-07",
+      "region": "Waterbury",
+      "gallons": 625
+    },
+    {
+      "month": "2021-07",
+      "region": "Winooski",
+      "gallons": 475
+    },
+    {
+      "month": "2021-07",
+      "region": "Woodstock+Quechee",
+      "gallons": 455
+    },
+    {
+      "month": "2021-08",
+      "region": "Burlington",
+      "gallons": 2880
+    },
+    {
+      "month": "2021-08",
+      "region": "Central Vermont",
+      "gallons": 2080
+    },
+    {
+      "month": "2021-08",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 500
+    },
+    {
+      "month": "2021-08",
+      "region": "Manchester",
+      "gallons": 150
+    },
+    {
+      "month": "2021-08",
+      "region": "Middlebury+Vergennes",
+      "gallons": 100
+    },
+    {
+      "month": "2021-08",
+      "region": "Mt. Snow",
+      "gallons": 125
+    },
+    {
+      "month": "2021-08",
+      "region": "Okemo",
+      "gallons": 275
+    },
+    {
+      "month": "2021-08",
+      "region": "Other",
+      "gallons": 7340
+    },
+    {
+      "month": "2021-08",
+      "region": "Stowe",
+      "gallons": 2255
+    },
+    {
+      "month": "2021-08",
+      "region": "Warren+Waitsfield",
+      "gallons": 655
+    },
+    {
+      "month": "2021-08",
+      "region": "Waterbury",
+      "gallons": 725
+    },
+    {
+      "month": "2021-08",
+      "region": "Winooski",
+      "gallons": 950
+    },
+    {
+      "month": "2021-08",
+      "region": "Woodstock+Quechee",
+      "gallons": 585
+    },
+    {
+      "month": "2021-09",
+      "region": "Burlington",
+      "gallons": 2140
+    },
+    {
+      "month": "2021-09",
+      "region": "Central Vermont",
+      "gallons": 1565
+    },
+    {
+      "month": "2021-09",
+      "region": "Manchester",
+      "gallons": 110
+    },
+    {
+      "month": "2021-09",
+      "region": "Middlebury+Vergennes",
+      "gallons": 595
+    },
+    {
+      "month": "2021-09",
+      "region": "Okemo",
+      "gallons": 150
+    },
+    {
+      "month": "2021-09",
+      "region": "Other",
+      "gallons": 4205
+    },
+    {
+      "month": "2021-09",
+      "region": "Stowe",
+      "gallons": 3058
+    },
+    {
+      "month": "2021-09",
+      "region": "Warren+Waitsfield",
+      "gallons": 675
+    },
+    {
+      "month": "2021-09",
+      "region": "Waterbury",
+      "gallons": 1030
+    },
+    {
+      "month": "2021-09",
+      "region": "Woodstock+Quechee",
+      "gallons": 50
+    },
+    {
+      "month": "2021-10",
+      "region": "Burlington",
+      "gallons": 2375
+    },
+    {
+      "month": "2021-10",
+      "region": "Central Vermont",
+      "gallons": 2095
+    },
+    {
+      "month": "2021-10",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 500
+    },
+    {
+      "month": "2021-10",
+      "region": "Middlebury+Vergennes",
+      "gallons": 865
+    },
+    {
+      "month": "2021-10",
+      "region": "Other",
+      "gallons": 4735
+    },
+    {
+      "month": "2021-10",
+      "region": "Stowe",
+      "gallons": 2140
+    },
+    {
+      "month": "2021-10",
+      "region": "UVM",
+      "gallons": 150
+    },
+    {
+      "month": "2021-10",
+      "region": "Warren+Waitsfield",
+      "gallons": 610
+    },
+    {
+      "month": "2021-10",
+      "region": "Waterbury",
+      "gallons": 845
+    },
+    {
+      "month": "2021-10",
+      "region": "Winooski",
+      "gallons": 443
+    },
+    {
+      "month": "2021-10",
+      "region": "Woodstock+Quechee",
+      "gallons": 430
+    },
+    {
+      "month": "2021-11",
+      "region": "Burlington",
+      "gallons": 2070
+    },
+    {
+      "month": "2021-11",
+      "region": "Central Vermont",
+      "gallons": 1512
+    },
+    {
+      "month": "2021-11",
+      "region": "Manchester",
+      "gallons": 150
+    },
+    {
+      "month": "2021-11",
+      "region": "Middlebury+Vergennes",
+      "gallons": 105
+    },
+    {
+      "month": "2021-11",
+      "region": "Other",
+      "gallons": 8399
+    },
+    {
+      "month": "2021-11",
+      "region": "Stowe",
+      "gallons": 1795
+    },
+    {
+      "month": "2021-11",
+      "region": "UVM",
+      "gallons": 470
+    },
+    {
+      "month": "2021-11",
+      "region": "Warren+Waitsfield",
+      "gallons": 445
+    },
+    {
+      "month": "2021-11",
+      "region": "Waterbury",
+      "gallons": 585
+    },
+    {
+      "month": "2021-11",
+      "region": "Winooski",
+      "gallons": 415
+    },
+    {
+      "month": "2021-11",
+      "region": "Woodstock+Quechee",
+      "gallons": 55
+    },
+    {
+      "month": "2021-12",
+      "region": "Burlington",
+      "gallons": 3080
+    },
+    {
+      "month": "2021-12",
+      "region": "Central Vermont",
+      "gallons": 2535
+    },
+    {
+      "month": "2021-12",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 365
+    },
+    {
+      "month": "2021-12",
+      "region": "Manchester",
+      "gallons": 125
+    },
+    {
+      "month": "2021-12",
+      "region": "Middlebury+Vergennes",
+      "gallons": 435
+    },
+    {
+      "month": "2021-12",
+      "region": "Mt. Snow",
+      "gallons": 725
+    },
+    {
+      "month": "2021-12",
+      "region": "Other",
+      "gallons": 6632
+    },
+    {
+      "month": "2021-12",
+      "region": "Stowe",
+      "gallons": 1930
+    },
+    {
+      "month": "2021-12",
+      "region": "UVM",
+      "gallons": 375
+    },
+    {
+      "month": "2021-12",
+      "region": "Warren+Waitsfield",
+      "gallons": 380
+    },
+    {
+      "month": "2021-12",
+      "region": "Waterbury",
+      "gallons": 700
+    },
+    {
+      "month": "2021-12",
+      "region": "Winooski",
+      "gallons": 330
+    },
+    {
+      "month": "2021-12",
+      "region": "Woodstock+Quechee",
+      "gallons": 335
+    },
+    {
+      "month": "2022-01",
+      "region": "Burlington",
+      "gallons": 1960
+    },
+    {
+      "month": "2022-01",
+      "region": "Central Vermont",
+      "gallons": 605
+    },
+    {
+      "month": "2022-01",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 310
+    },
+    {
+      "month": "2022-01",
+      "region": "Middlebury+Vergennes",
+      "gallons": 450
+    },
+    {
+      "month": "2022-01",
+      "region": "Other",
+      "gallons": 2851
+    },
+    {
+      "month": "2022-01",
+      "region": "Stowe",
+      "gallons": 2330
+    },
+    {
+      "month": "2022-01",
+      "region": "UVM",
+      "gallons": 20
+    },
+    {
+      "month": "2022-01",
+      "region": "Warren+Waitsfield",
+      "gallons": 440
+    },
+    {
+      "month": "2022-01",
+      "region": "Waterbury",
+      "gallons": 380
+    },
+    {
+      "month": "2022-01",
+      "region": "Winooski",
+      "gallons": 230
+    },
+    {
+      "month": "2022-01",
+      "region": "Woodstock+Quechee",
+      "gallons": 50
+    },
+    {
+      "month": "2022-02",
+      "region": "Burlington",
+      "gallons": 1585
+    },
+    {
+      "month": "2022-02",
+      "region": "Central Vermont",
+      "gallons": 1767
+    },
+    {
+      "month": "2022-02",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 910
+    },
+    {
+      "month": "2022-02",
+      "region": "Mt. Snow",
+      "gallons": 550
+    },
+    {
+      "month": "2022-02",
+      "region": "Other",
+      "gallons": 5185
+    },
+    {
+      "month": "2022-02",
+      "region": "Stowe",
+      "gallons": 1220
+    },
+    {
+      "month": "2022-02",
+      "region": "UVM",
+      "gallons": 335
+    },
+    {
+      "month": "2022-02",
+      "region": "Warren+Waitsfield",
+      "gallons": 320
+    },
+    {
+      "month": "2022-02",
+      "region": "Waterbury",
+      "gallons": 670
+    },
+    {
+      "month": "2022-02",
+      "region": "Winooski",
+      "gallons": 375
+    },
+    {
+      "month": "2022-02",
+      "region": "Woodstock+Quechee",
+      "gallons": 185
+    },
+    {
+      "month": "2022-03",
+      "region": "Burlington",
+      "gallons": 3045
+    },
+    {
+      "month": "2022-03",
+      "region": "Central Vermont",
+      "gallons": 1885
+    },
+    {
+      "month": "2022-03",
+      "region": "Manchester",
+      "gallons": 70
+    },
+    {
+      "month": "2022-03",
+      "region": "Middlebury+Vergennes",
+      "gallons": 465
+    },
+    {
+      "month": "2022-03",
+      "region": "Mt. Snow",
+      "gallons": 560
+    },
+    {
+      "month": "2022-03",
+      "region": "Other",
+      "gallons": 10942
+    },
+    {
+      "month": "2022-03",
+      "region": "Stowe",
+      "gallons": 2890
+    },
+    {
+      "month": "2022-03",
+      "region": "UVM",
+      "gallons": 355
+    },
+    {
+      "month": "2022-03",
+      "region": "Warren+Waitsfield",
+      "gallons": 830
+    },
+    {
+      "month": "2022-03",
+      "region": "Waterbury",
+      "gallons": 859
+    },
+    {
+      "month": "2022-03",
+      "region": "Winooski",
+      "gallons": 630
+    },
+    {
+      "month": "2022-03",
+      "region": "Woodstock+Quechee",
+      "gallons": 215
+    },
+    {
+      "month": "2022-04",
+      "region": "Burlington",
+      "gallons": 3387
+    },
+    {
+      "month": "2022-04",
+      "region": "Central Vermont",
+      "gallons": 2070
+    },
+    {
+      "month": "2022-04",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 970
+    },
+    {
+      "month": "2022-04",
+      "region": "Manchester",
+      "gallons": 130
+    },
+    {
+      "month": "2022-04",
+      "region": "Middlebury+Vergennes",
+      "gallons": 490
+    },
+    {
+      "month": "2022-04",
+      "region": "Other",
+      "gallons": 8305
+    },
+    {
+      "month": "2022-04",
+      "region": "Stowe",
+      "gallons": 3013
+    },
+    {
+      "month": "2022-04",
+      "region": "UVM",
+      "gallons": 450
+    },
+    {
+      "month": "2022-04",
+      "region": "Warren+Waitsfield",
+      "gallons": 1090
+    },
+    {
+      "month": "2022-04",
+      "region": "Waterbury",
+      "gallons": 945
+    },
+    {
+      "month": "2022-04",
+      "region": "Winooski",
+      "gallons": 150
+    },
+    {
+      "month": "2022-04",
+      "region": "Woodstock+Quechee",
+      "gallons": 50
+    },
+    {
+      "month": "2022-05",
+      "region": "Burlington",
+      "gallons": 2245
+    },
+    {
+      "month": "2022-05",
+      "region": "Central Vermont",
+      "gallons": 1435
+    },
+    {
+      "month": "2022-05",
+      "region": "Middlebury+Vergennes",
+      "gallons": 325
+    },
+    {
+      "month": "2022-05",
+      "region": "Mt. Snow",
+      "gallons": 520
+    },
+    {
+      "month": "2022-05",
+      "region": "Other",
+      "gallons": 8100
+    },
+    {
+      "month": "2022-05",
+      "region": "Stowe",
+      "gallons": 2235
+    },
+    {
+      "month": "2022-05",
+      "region": "UVM",
+      "gallons": 490
+    },
+    {
+      "month": "2022-05",
+      "region": "Warren+Waitsfield",
+      "gallons": 500
+    },
+    {
+      "month": "2022-05",
+      "region": "Waterbury",
+      "gallons": 715
+    },
+    {
+      "month": "2022-05",
+      "region": "Winooski",
+      "gallons": 785
+    },
+    {
+      "month": "2022-05",
+      "region": "Woodstock+Quechee",
+      "gallons": 340
+    },
+    {
+      "month": "2022-06",
+      "region": "Burlington",
+      "gallons": 3895
+    },
+    {
+      "month": "2022-06",
+      "region": "Central Vermont",
+      "gallons": 2055
+    },
+    {
+      "month": "2022-06",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 390
+    },
+    {
+      "month": "2022-06",
+      "region": "Manchester",
+      "gallons": 100
+    },
+    {
+      "month": "2022-06",
+      "region": "Middlebury+Vergennes",
+      "gallons": 810
+    },
+    {
+      "month": "2022-06",
+      "region": "Other",
+      "gallons": 7465
+    },
+    {
+      "month": "2022-06",
+      "region": "Stowe",
+      "gallons": 1945
+    },
+    {
+      "month": "2022-06",
+      "region": "Warren+Waitsfield",
+      "gallons": 550
+    },
+    {
+      "month": "2022-06",
+      "region": "Waterbury",
+      "gallons": 670
+    },
+    {
+      "month": "2022-06",
+      "region": "Winooski",
+      "gallons": 520
+    },
+    {
+      "month": "2022-06",
+      "region": "Woodstock+Quechee",
+      "gallons": 445
+    },
+    {
+      "month": "2022-07",
+      "region": "Burlington",
+      "gallons": 3125
+    },
+    {
+      "month": "2022-07",
+      "region": "Central Vermont",
+      "gallons": 2019
+    },
+    {
+      "month": "2022-07",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 100
+    },
+    {
+      "month": "2022-07",
+      "region": "Manchester",
+      "gallons": 125
+    },
+    {
+      "month": "2022-07",
+      "region": "Middlebury+Vergennes",
+      "gallons": 700
+    },
+    {
+      "month": "2022-07",
+      "region": "Other",
+      "gallons": 9633
+    },
+    {
+      "month": "2022-07",
+      "region": "Stowe",
+      "gallons": 970
+    },
+    {
+      "month": "2022-07",
+      "region": "Waterbury",
+      "gallons": 240
+    },
+    {
+      "month": "2022-07",
+      "region": "Winooski",
+      "gallons": 695
+    },
+    {
+      "month": "2022-07",
+      "region": "Woodstock+Quechee",
+      "gallons": 560
+    },
+    {
+      "month": "2022-08",
+      "region": "Burlington",
+      "gallons": 3695
+    },
+    {
+      "month": "2022-08",
+      "region": "Central Vermont",
+      "gallons": 2283
+    },
+    {
+      "month": "2022-08",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 650
+    },
+    {
+      "month": "2022-08",
+      "region": "Middlebury+Vergennes",
+      "gallons": 1150
+    },
+    {
+      "month": "2022-08",
+      "region": "Other",
+      "gallons": 10036
+    },
+    {
+      "month": "2022-08",
+      "region": "Stowe",
+      "gallons": 2545
+    },
+    {
+      "month": "2022-08",
+      "region": "UVM",
+      "gallons": 500
+    },
+    {
+      "month": "2022-08",
+      "region": "Warren+Waitsfield",
+      "gallons": 665
+    },
+    {
+      "month": "2022-08",
+      "region": "Waterbury",
+      "gallons": 850
+    },
+    {
+      "month": "2022-08",
+      "region": "Winooski",
+      "gallons": 420
+    },
+    {
+      "month": "2022-08",
+      "region": "Woodstock+Quechee",
+      "gallons": 465
+    },
+    {
+      "month": "2022-09",
+      "region": "Burlington",
+      "gallons": 3131
+    },
+    {
+      "month": "2022-09",
+      "region": "Central Vermont",
+      "gallons": 2318
+    },
+    {
+      "month": "2022-09",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 395
+    },
+    {
+      "month": "2022-09",
+      "region": "Manchester",
+      "gallons": 150
+    },
+    {
+      "month": "2022-09",
+      "region": "Middlebury+Vergennes",
+      "gallons": 1009
+    },
+    {
+      "month": "2022-09",
+      "region": "Mt. Snow",
+      "gallons": 265
+    },
+    {
+      "month": "2022-09",
+      "region": "Other",
+      "gallons": 10876
+    },
+    {
+      "month": "2022-09",
+      "region": "Stowe",
+      "gallons": 2935
+    },
+    {
+      "month": "2022-09",
+      "region": "UVM",
+      "gallons": 365
+    },
+    {
+      "month": "2022-09",
+      "region": "Warren+Waitsfield",
+      "gallons": 615
+    },
+    {
+      "month": "2022-09",
+      "region": "Waterbury",
+      "gallons": 580
+    },
+    {
+      "month": "2022-09",
+      "region": "Winooski",
+      "gallons": 627
+    },
+    {
+      "month": "2022-09",
+      "region": "Woodstock+Quechee",
+      "gallons": 495
+    },
+    {
+      "month": "2022-10",
+      "region": "Burlington",
+      "gallons": 2720
+    },
+    {
+      "month": "2022-10",
+      "region": "Central Vermont",
+      "gallons": 1773
+    },
+    {
+      "month": "2022-10",
+      "region": "Middlebury+Vergennes",
+      "gallons": 140
+    },
+    {
+      "month": "2022-10",
+      "region": "Mt. Snow",
+      "gallons": 90
+    },
+    {
+      "month": "2022-10",
+      "region": "Other",
+      "gallons": 11401
+    },
+    {
+      "month": "2022-10",
+      "region": "Stowe",
+      "gallons": 1240
+    },
+    {
+      "month": "2022-10",
+      "region": "UVM",
+      "gallons": 70
+    },
+    {
+      "month": "2022-10",
+      "region": "Warren+Waitsfield",
+      "gallons": 675
+    },
+    {
+      "month": "2022-10",
+      "region": "Waterbury",
+      "gallons": 595
+    },
+    {
+      "month": "2022-10",
+      "region": "Winooski",
+      "gallons": 1295
+    },
+    {
+      "month": "2022-10",
+      "region": "Woodstock+Quechee",
+      "gallons": 769
+    },
+    {
+      "month": "2022-11",
+      "region": "Burlington",
+      "gallons": 3108
+    },
+    {
+      "month": "2022-11",
+      "region": "Central Vermont",
+      "gallons": 2384
+    },
+    {
+      "month": "2022-11",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 675
+    },
+    {
+      "month": "2022-11",
+      "region": "Manchester",
+      "gallons": 60
+    },
+    {
+      "month": "2022-11",
+      "region": "Middlebury+Vergennes",
+      "gallons": 1211
+    },
+    {
+      "month": "2022-11",
+      "region": "Other",
+      "gallons": 8636
+    },
+    {
+      "month": "2022-11",
+      "region": "Stowe",
+      "gallons": 2140
+    },
+    {
+      "month": "2022-11",
+      "region": "UVM",
+      "gallons": 570
+    },
+    {
+      "month": "2022-11",
+      "region": "Warren+Waitsfield",
+      "gallons": 325
+    },
+    {
+      "month": "2022-11",
+      "region": "Waterbury",
+      "gallons": 710
+    },
+    {
+      "month": "2022-11",
+      "region": "Winooski",
+      "gallons": 745
+    },
+    {
+      "month": "2022-11",
+      "region": "Woodstock+Quechee",
+      "gallons": 235
+    },
+    {
+      "month": "2022-12",
+      "region": "Burlington",
+      "gallons": 2343
+    },
+    {
+      "month": "2022-12",
+      "region": "Central Vermont",
+      "gallons": 1644
+    },
+    {
+      "month": "2022-12",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 345
+    },
+    {
+      "month": "2022-12",
+      "region": "Middlebury+Vergennes",
+      "gallons": 408
+    },
+    {
+      "month": "2022-12",
+      "region": "Mt. Snow",
+      "gallons": 410
+    },
+    {
+      "month": "2022-12",
+      "region": "Other",
+      "gallons": 7596
+    },
+    {
+      "month": "2022-12",
+      "region": "Stowe",
+      "gallons": 2235
+    },
+    {
+      "month": "2022-12",
+      "region": "UVM",
+      "gallons": 435
+    },
+    {
+      "month": "2022-12",
+      "region": "Warren+Waitsfield",
+      "gallons": 20
+    },
+    {
+      "month": "2022-12",
+      "region": "Waterbury",
+      "gallons": 560
+    },
+    {
+      "month": "2022-12",
+      "region": "Winooski",
+      "gallons": 535
+    },
+    {
+      "month": "2022-12",
+      "region": "Woodstock+Quechee",
+      "gallons": 45
+    },
+    {
+      "month": "2023-01",
+      "region": "Burlington",
+      "gallons": 2454
+    },
+    {
+      "month": "2023-01",
+      "region": "Central Vermont",
+      "gallons": 2223
+    },
+    {
+      "month": "2023-01",
+      "region": "Manchester",
+      "gallons": 215
+    },
+    {
+      "month": "2023-01",
+      "region": "Middlebury+Vergennes",
+      "gallons": 349
+    },
+    {
+      "month": "2023-01",
+      "region": "Mt. Snow",
+      "gallons": 660
+    },
+    {
+      "month": "2023-01",
+      "region": "Other",
+      "gallons": 5674
+    },
+    {
+      "month": "2023-01",
+      "region": "Stowe",
+      "gallons": 2020
+    },
+    {
+      "month": "2023-01",
+      "region": "UVM",
+      "gallons": 390
+    },
+    {
+      "month": "2023-01",
+      "region": "Warren+Waitsfield",
+      "gallons": 730
+    },
+    {
+      "month": "2023-01",
+      "region": "Waterbury",
+      "gallons": 545
+    },
+    {
+      "month": "2023-01",
+      "region": "Winooski",
+      "gallons": 780
+    },
+    {
+      "month": "2023-01",
+      "region": "Woodstock+Quechee",
+      "gallons": 320
+    },
+    {
+      "month": "2023-02",
+      "region": "Burlington",
+      "gallons": 7993
+    },
+    {
+      "month": "2023-02",
+      "region": "Central Vermont",
+      "gallons": 2226
+    },
+    {
+      "month": "2023-02",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 940
+    },
+    {
+      "month": "2023-02",
+      "region": "Middlebury+Vergennes",
+      "gallons": 575
+    },
+    {
+      "month": "2023-02",
+      "region": "Other",
+      "gallons": 5751
+    },
+    {
+      "month": "2023-02",
+      "region": "Stowe",
+      "gallons": 2075
+    },
+    {
+      "month": "2023-02",
+      "region": "UVM",
+      "gallons": 385
+    },
+    {
+      "month": "2023-02",
+      "region": "Warren+Waitsfield",
+      "gallons": 650
+    },
+    {
+      "month": "2023-02",
+      "region": "Waterbury",
+      "gallons": 570
+    },
+    {
+      "month": "2023-02",
+      "region": "Winooski",
+      "gallons": 425
+    },
+    {
+      "month": "2023-02",
+      "region": "Woodstock+Quechee",
+      "gallons": 40
+    },
+    {
+      "month": "2023-03",
+      "region": "Burlington",
+      "gallons": 3749
+    },
+    {
+      "month": "2023-03",
+      "region": "Central Vermont",
+      "gallons": 980
+    },
+    {
+      "month": "2023-03",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 925
+    },
+    {
+      "month": "2023-03",
+      "region": "Manchester",
+      "gallons": 270
+    },
+    {
+      "month": "2023-03",
+      "region": "Middlebury+Vergennes",
+      "gallons": 947
+    },
+    {
+      "month": "2023-03",
+      "region": "Mt. Snow",
+      "gallons": 755
+    },
+    {
+      "month": "2023-03",
+      "region": "Other",
+      "gallons": 7325
+    },
+    {
+      "month": "2023-03",
+      "region": "Stowe",
+      "gallons": 2020
+    },
+    {
+      "month": "2023-03",
+      "region": "UVM",
+      "gallons": 435
+    },
+    {
+      "month": "2023-03",
+      "region": "Warren+Waitsfield",
+      "gallons": 1375
+    },
+    {
+      "month": "2023-03",
+      "region": "Waterbury",
+      "gallons": 370
+    },
+    {
+      "month": "2023-03",
+      "region": "Winooski",
+      "gallons": 1080
+    },
+    {
+      "month": "2023-03",
+      "region": "Woodstock+Quechee",
+      "gallons": 255
+    },
+    {
+      "month": "2023-04",
+      "region": "Burlington",
+      "gallons": 2647
+    },
+    {
+      "month": "2023-04",
+      "region": "Central Vermont",
+      "gallons": 2604
+    },
+    {
+      "month": "2023-04",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 215
+    },
+    {
+      "month": "2023-04",
+      "region": "Manchester",
+      "gallons": 225
+    },
+    {
+      "month": "2023-04",
+      "region": "Middlebury+Vergennes",
+      "gallons": 519
+    },
+    {
+      "month": "2023-04",
+      "region": "Other",
+      "gallons": 8440
+    },
+    {
+      "month": "2023-04",
+      "region": "Stowe",
+      "gallons": 1805
+    },
+    {
+      "month": "2023-04",
+      "region": "UVM",
+      "gallons": 605
+    },
+    {
+      "month": "2023-04",
+      "region": "Warren+Waitsfield",
+      "gallons": 615
+    },
+    {
+      "month": "2023-04",
+      "region": "Waterbury",
+      "gallons": 525
+    },
+    {
+      "month": "2023-04",
+      "region": "Winooski",
+      "gallons": 440
+    },
+    {
+      "month": "2023-04",
+      "region": "Woodstock+Quechee",
+      "gallons": 420
+    },
+    {
+      "month": "2023-05",
+      "region": "Burlington",
+      "gallons": 3029
+    },
+    {
+      "month": "2023-05",
+      "region": "Central Vermont",
+      "gallons": 2113
+    },
+    {
+      "month": "2023-05",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 370
+    },
+    {
+      "month": "2023-05",
+      "region": "Manchester",
+      "gallons": 405
+    },
+    {
+      "month": "2023-05",
+      "region": "Middlebury+Vergennes",
+      "gallons": 445
+    },
+    {
+      "month": "2023-05",
+      "region": "Mt. Snow",
+      "gallons": 100
+    },
+    {
+      "month": "2023-05",
+      "region": "Other",
+      "gallons": 11555
+    },
+    {
+      "month": "2023-05",
+      "region": "Stowe",
+      "gallons": 2075
+    },
+    {
+      "month": "2023-05",
+      "region": "Warren+Waitsfield",
+      "gallons": 380
+    },
+    {
+      "month": "2023-05",
+      "region": "Waterbury",
+      "gallons": 485
+    },
+    {
+      "month": "2023-05",
+      "region": "Winooski",
+      "gallons": 655
+    },
+    {
+      "month": "2023-05",
+      "region": "Woodstock+Quechee",
+      "gallons": 370
+    },
+    {
+      "month": "2023-06",
+      "region": "Burlington",
+      "gallons": 3514
+    },
+    {
+      "month": "2023-06",
+      "region": "Central Vermont",
+      "gallons": 3041
+    },
+    {
+      "month": "2023-06",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 930
+    },
+    {
+      "month": "2023-06",
+      "region": "Manchester",
+      "gallons": 245
+    },
+    {
+      "month": "2023-06",
+      "region": "Middlebury+Vergennes",
+      "gallons": 648
+    },
+    {
+      "month": "2023-06",
+      "region": "Other",
+      "gallons": 11695
+    },
+    {
+      "month": "2023-06",
+      "region": "Stowe",
+      "gallons": 1865
+    },
+    {
+      "month": "2023-06",
+      "region": "UVM",
+      "gallons": 295
+    },
+    {
+      "month": "2023-06",
+      "region": "Warren+Waitsfield",
+      "gallons": 465
+    },
+    {
+      "month": "2023-06",
+      "region": "Waterbury",
+      "gallons": 750
+    },
+    {
+      "month": "2023-06",
+      "region": "Winooski",
+      "gallons": 970
+    },
+    {
+      "month": "2023-06",
+      "region": "Woodstock+Quechee",
+      "gallons": 542
+    },
+    {
+      "month": "2023-07",
+      "region": "Burlington",
+      "gallons": 4018
+    },
+    {
+      "month": "2023-07",
+      "region": "Central Vermont",
+      "gallons": 1145
+    },
+    {
+      "month": "2023-07",
+      "region": "Manchester",
+      "gallons": 250
+    },
+    {
+      "month": "2023-07",
+      "region": "Middlebury+Vergennes",
+      "gallons": 590
+    },
+    {
+      "month": "2023-07",
+      "region": "Mt. Snow",
+      "gallons": 260
+    },
+    {
+      "month": "2023-07",
+      "region": "Other",
+      "gallons": 6958
+    },
+    {
+      "month": "2023-07",
+      "region": "Stowe",
+      "gallons": 2424
+    },
+    {
+      "month": "2023-07",
+      "region": "UVM",
+      "gallons": 185
+    },
+    {
+      "month": "2023-07",
+      "region": "Warren+Waitsfield",
+      "gallons": 870
+    },
+    {
+      "month": "2023-07",
+      "region": "Waterbury",
+      "gallons": 355
+    },
+    {
+      "month": "2023-07",
+      "region": "Winooski",
+      "gallons": 690
+    },
+    {
+      "month": "2023-07",
+      "region": "Woodstock+Quechee",
+      "gallons": 310
+    },
+    {
+      "month": "2023-08",
+      "region": "Burlington",
+      "gallons": 3807
+    },
+    {
+      "month": "2023-08",
+      "region": "Central Vermont",
+      "gallons": 2028
+    },
+    {
+      "month": "2023-08",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 715
+    },
+    {
+      "month": "2023-08",
+      "region": "Manchester",
+      "gallons": 310
+    },
+    {
+      "month": "2023-08",
+      "region": "Middlebury+Vergennes",
+      "gallons": 1692
+    },
+    {
+      "month": "2023-08",
+      "region": "Other",
+      "gallons": 9729
+    },
+    {
+      "month": "2023-08",
+      "region": "Stowe",
+      "gallons": 2555
+    },
+    {
+      "month": "2023-08",
+      "region": "UVM",
+      "gallons": 245
+    },
+    {
+      "month": "2023-08",
+      "region": "Warren+Waitsfield",
+      "gallons": 880
+    },
+    {
+      "month": "2023-08",
+      "region": "Waterbury",
+      "gallons": 900
+    },
+    {
+      "month": "2023-08",
+      "region": "Winooski",
+      "gallons": 895
+    },
+    {
+      "month": "2023-08",
+      "region": "Woodstock+Quechee",
+      "gallons": 745
+    },
+    {
+      "month": "2023-09",
+      "region": "Burlington",
+      "gallons": 3116
+    },
+    {
+      "month": "2023-09",
+      "region": "Central Vermont",
+      "gallons": 1555
+    },
+    {
+      "month": "2023-09",
+      "region": "Middlebury+Vergennes",
+      "gallons": 435
+    },
+    {
+      "month": "2023-09",
+      "region": "Other",
+      "gallons": 8364
+    },
+    {
+      "month": "2023-09",
+      "region": "Stowe",
+      "gallons": 1740
+    },
+    {
+      "month": "2023-09",
+      "region": "UVM",
+      "gallons": 520
+    },
+    {
+      "month": "2023-09",
+      "region": "Warren+Waitsfield",
+      "gallons": 147
+    },
+    {
+      "month": "2023-09",
+      "region": "Waterbury",
+      "gallons": 585
+    },
+    {
+      "month": "2023-09",
+      "region": "Winooski",
+      "gallons": 715
+    },
+    {
+      "month": "2023-09",
+      "region": "Woodstock+Quechee",
+      "gallons": 380
+    },
+    {
+      "month": "2023-10",
+      "region": "Burlington",
+      "gallons": 2942
+    },
+    {
+      "month": "2023-10",
+      "region": "Central Vermont",
+      "gallons": 2592
+    },
+    {
+      "month": "2023-10",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 355
+    },
+    {
+      "month": "2023-10",
+      "region": "Manchester",
+      "gallons": 350
+    },
+    {
+      "month": "2023-10",
+      "region": "Middlebury+Vergennes",
+      "gallons": 405
+    },
+    {
+      "month": "2023-10",
+      "region": "Other",
+      "gallons": 11590
+    },
+    {
+      "month": "2023-10",
+      "region": "Stowe",
+      "gallons": 1680
+    },
+    {
+      "month": "2023-10",
+      "region": "UVM",
+      "gallons": 60
+    },
+    {
+      "month": "2023-10",
+      "region": "Warren+Waitsfield",
+      "gallons": 688
+    },
+    {
+      "month": "2023-10",
+      "region": "Waterbury",
+      "gallons": 805
+    },
+    {
+      "month": "2023-10",
+      "region": "Winooski",
+      "gallons": 620
+    },
+    {
+      "month": "2023-10",
+      "region": "Woodstock+Quechee",
+      "gallons": 1160
+    },
+    {
+      "month": "2023-11",
+      "region": "Burlington",
+      "gallons": 2278
+    },
+    {
+      "month": "2023-11",
+      "region": "Central Vermont",
+      "gallons": 1145
+    },
+    {
+      "month": "2023-11",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 530
+    },
+    {
+      "month": "2023-11",
+      "region": "Manchester",
+      "gallons": 217
+    },
+    {
+      "month": "2023-11",
+      "region": "Middlebury+Vergennes",
+      "gallons": 754
+    },
+    {
+      "month": "2023-11",
+      "region": "Mt. Snow",
+      "gallons": 275
+    },
+    {
+      "month": "2023-11",
+      "region": "Other",
+      "gallons": 7785
+    },
+    {
+      "month": "2023-11",
+      "region": "Stowe",
+      "gallons": 2379
+    },
+    {
+      "month": "2023-11",
+      "region": "UVM",
+      "gallons": 950
+    },
+    {
+      "month": "2023-11",
+      "region": "Warren+Waitsfield",
+      "gallons": 325
+    },
+    {
+      "month": "2023-11",
+      "region": "Waterbury",
+      "gallons": 575
+    },
+    {
+      "month": "2023-11",
+      "region": "Winooski",
+      "gallons": 705
+    },
+    {
+      "month": "2023-11",
+      "region": "Woodstock+Quechee",
+      "gallons": 380
+    },
+    {
+      "month": "2023-12",
+      "region": "Burlington",
+      "gallons": 3976
+    },
+    {
+      "month": "2023-12",
+      "region": "Central Vermont",
+      "gallons": 1787
+    },
+    {
+      "month": "2023-12",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 880
+    },
+    {
+      "month": "2023-12",
+      "region": "Middlebury+Vergennes",
+      "gallons": 520
+    },
+    {
+      "month": "2023-12",
+      "region": "Other",
+      "gallons": 6458
+    },
+    {
+      "month": "2023-12",
+      "region": "Stowe",
+      "gallons": 2270
+    },
+    {
+      "month": "2023-12",
+      "region": "UVM",
+      "gallons": 260
+    },
+    {
+      "month": "2023-12",
+      "region": "Warren+Waitsfield",
+      "gallons": 455
+    },
+    {
+      "month": "2023-12",
+      "region": "Waterbury",
+      "gallons": 560
+    },
+    {
+      "month": "2023-12",
+      "region": "Winooski",
+      "gallons": 700
+    },
+    {
+      "month": "2023-12",
+      "region": "Woodstock+Quechee",
+      "gallons": 360
+    },
+    {
+      "month": "2024-01",
+      "region": "Burlington",
+      "gallons": 2705
+    },
+    {
+      "month": "2024-01",
+      "region": "Central Vermont",
+      "gallons": 1725
+    },
+    {
+      "month": "2024-01",
+      "region": "Manchester",
+      "gallons": 355
+    },
+    {
+      "month": "2024-01",
+      "region": "Middlebury+Vergennes",
+      "gallons": 617
+    },
+    {
+      "month": "2024-01",
+      "region": "Mt. Snow",
+      "gallons": 500
+    },
+    {
+      "month": "2024-01",
+      "region": "Other",
+      "gallons": 7355
+    },
+    {
+      "month": "2024-01",
+      "region": "Stowe",
+      "gallons": 3080
+    },
+    {
+      "month": "2024-01",
+      "region": "UVM",
+      "gallons": 160
+    },
+    {
+      "month": "2024-01",
+      "region": "Warren+Waitsfield",
+      "gallons": 1070
+    },
+    {
+      "month": "2024-01",
+      "region": "Waterbury",
+      "gallons": 880
+    },
+    {
+      "month": "2024-01",
+      "region": "Winooski",
+      "gallons": 1220
+    },
+    {
+      "month": "2024-01",
+      "region": "Woodstock+Quechee",
+      "gallons": 315
+    },
+    {
+      "month": "2024-02",
+      "region": "Burlington",
+      "gallons": 3173
+    },
+    {
+      "month": "2024-02",
+      "region": "Central Vermont",
+      "gallons": 2212
+    },
+    {
+      "month": "2024-02",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 885
+    },
+    {
+      "month": "2024-02",
+      "region": "Middlebury+Vergennes",
+      "gallons": 370
+    },
+    {
+      "month": "2024-02",
+      "region": "Mt. Snow",
+      "gallons": 510
+    },
+    {
+      "month": "2024-02",
+      "region": "Other",
+      "gallons": 7422
+    },
+    {
+      "month": "2024-02",
+      "region": "Stowe",
+      "gallons": 2440
+    },
+    {
+      "month": "2024-02",
+      "region": "UVM",
+      "gallons": 830
+    },
+    {
+      "month": "2024-02",
+      "region": "Warren+Waitsfield",
+      "gallons": 1319
+    },
+    {
+      "month": "2024-02",
+      "region": "Waterbury",
+      "gallons": 515
+    },
+    {
+      "month": "2024-02",
+      "region": "Winooski",
+      "gallons": 915
+    },
+    {
+      "month": "2024-02",
+      "region": "Woodstock+Quechee",
+      "gallons": 450
+    },
+    {
+      "month": "2024-03",
+      "region": "Burlington",
+      "gallons": 2870
+    },
+    {
+      "month": "2024-03",
+      "region": "Central Vermont",
+      "gallons": 2370
+    },
+    {
+      "month": "2024-03",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 1055
+    },
+    {
+      "month": "2024-03",
+      "region": "Manchester",
+      "gallons": 390
+    },
+    {
+      "month": "2024-03",
+      "region": "Middlebury+Vergennes",
+      "gallons": 559
+    },
+    {
+      "month": "2024-03",
+      "region": "Mt. Snow",
+      "gallons": 995
+    },
+    {
+      "month": "2024-03",
+      "region": "Other",
+      "gallons": 6517
+    },
+    {
+      "month": "2024-03",
+      "region": "Stowe",
+      "gallons": 2310
+    },
+    {
+      "month": "2024-03",
+      "region": "UVM",
+      "gallons": 315
+    },
+    {
+      "month": "2024-03",
+      "region": "Warren+Waitsfield",
+      "gallons": 725
+    },
+    {
+      "month": "2024-03",
+      "region": "Waterbury",
+      "gallons": 875
+    },
+    {
+      "month": "2024-03",
+      "region": "Winooski",
+      "gallons": 1260
+    },
+    {
+      "month": "2024-03",
+      "region": "Woodstock+Quechee",
+      "gallons": 310
+    },
+    {
+      "month": "2024-04",
+      "region": "Burlington",
+      "gallons": 4222
+    },
+    {
+      "month": "2024-04",
+      "region": "Central Vermont",
+      "gallons": 2008
+    },
+    {
+      "month": "2024-04",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 1040
+    },
+    {
+      "month": "2024-04",
+      "region": "Middlebury+Vergennes",
+      "gallons": 780
+    },
+    {
+      "month": "2024-04",
+      "region": "Other",
+      "gallons": 11343
+    },
+    {
+      "month": "2024-04",
+      "region": "Stowe",
+      "gallons": 1910
+    },
+    {
+      "month": "2024-04",
+      "region": "UVM",
+      "gallons": 610
+    },
+    {
+      "month": "2024-04",
+      "region": "Warren+Waitsfield",
+      "gallons": 1025
+    },
+    {
+      "month": "2024-04",
+      "region": "Waterbury",
+      "gallons": 1090
+    },
+    {
+      "month": "2024-04",
+      "region": "Winooski",
+      "gallons": 1390
+    },
+    {
+      "month": "2024-04",
+      "region": "Woodstock+Quechee",
+      "gallons": 565
+    },
+    {
+      "month": "2024-05",
+      "region": "Burlington",
+      "gallons": 2869
+    },
+    {
+      "month": "2024-05",
+      "region": "Central Vermont",
+      "gallons": 2625
+    },
+    {
+      "month": "2024-05",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 220
+    },
+    {
+      "month": "2024-05",
+      "region": "Manchester",
+      "gallons": 75
+    },
+    {
+      "month": "2024-05",
+      "region": "Middlebury+Vergennes",
+      "gallons": 452
+    },
+    {
+      "month": "2024-05",
+      "region": "Mt. Snow",
+      "gallons": 360
+    },
+    {
+      "month": "2024-05",
+      "region": "Other",
+      "gallons": 9614
+    },
+    {
+      "month": "2024-05",
+      "region": "Stowe",
+      "gallons": 1812
+    },
+    {
+      "month": "2024-05",
+      "region": "UVM",
+      "gallons": 455
+    },
+    {
+      "month": "2024-05",
+      "region": "Warren+Waitsfield",
+      "gallons": 180
+    },
+    {
+      "month": "2024-05",
+      "region": "Waterbury",
+      "gallons": 610
+    },
+    {
+      "month": "2024-05",
+      "region": "Winooski",
+      "gallons": 730
+    },
+    {
+      "month": "2024-05",
+      "region": "Woodstock+Quechee",
+      "gallons": 425
+    },
+    {
+      "month": "2024-06",
+      "region": "Burlington",
+      "gallons": 4179
+    },
+    {
+      "month": "2024-06",
+      "region": "Central Vermont",
+      "gallons": 2242
+    },
+    {
+      "month": "2024-06",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 560
+    },
+    {
+      "month": "2024-06",
+      "region": "Manchester",
+      "gallons": 330
+    },
+    {
+      "month": "2024-06",
+      "region": "Middlebury+Vergennes",
+      "gallons": 710
+    },
+    {
+      "month": "2024-06",
+      "region": "Other",
+      "gallons": 8434
+    },
+    {
+      "month": "2024-06",
+      "region": "Stowe",
+      "gallons": 2030
+    },
+    {
+      "month": "2024-06",
+      "region": "Warren+Waitsfield",
+      "gallons": 1085
+    },
+    {
+      "month": "2024-06",
+      "region": "Waterbury",
+      "gallons": 760
+    },
+    {
+      "month": "2024-06",
+      "region": "Winooski",
+      "gallons": 1080
+    },
+    {
+      "month": "2024-06",
+      "region": "Woodstock+Quechee",
+      "gallons": 880
+    },
+    {
+      "month": "2024-07",
+      "region": "Burlington",
+      "gallons": 3702
+    },
+    {
+      "month": "2024-07",
+      "region": "Central Vermont",
+      "gallons": 2220
+    },
+    {
+      "month": "2024-07",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 570
+    },
+    {
+      "month": "2024-07",
+      "region": "Manchester",
+      "gallons": 125
+    },
+    {
+      "month": "2024-07",
+      "region": "Middlebury+Vergennes",
+      "gallons": 3021
+    },
+    {
+      "month": "2024-07",
+      "region": "Other",
+      "gallons": 9047
+    },
+    {
+      "month": "2024-07",
+      "region": "Stowe",
+      "gallons": 2310
+    },
+    {
+      "month": "2024-07",
+      "region": "UVM",
+      "gallons": 280
+    },
+    {
+      "month": "2024-07",
+      "region": "Warren+Waitsfield",
+      "gallons": 740
+    },
+    {
+      "month": "2024-07",
+      "region": "Waterbury",
+      "gallons": 800
+    },
+    {
+      "month": "2024-07",
+      "region": "Winooski",
+      "gallons": 1035
+    },
+    {
+      "month": "2024-07",
+      "region": "Woodstock+Quechee",
+      "gallons": 380
+    },
+    {
+      "month": "2024-08",
+      "region": "Burlington",
+      "gallons": 3037
+    },
+    {
+      "month": "2024-08",
+      "region": "Central Vermont",
+      "gallons": 2510
+    },
+    {
+      "month": "2024-08",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 655
+    },
+    {
+      "month": "2024-08",
+      "region": "Manchester",
+      "gallons": 300
+    },
+    {
+      "month": "2024-08",
+      "region": "Middlebury+Vergennes",
+      "gallons": 1097
+    },
+    {
+      "month": "2024-08",
+      "region": "Other",
+      "gallons": 8396
+    },
+    {
+      "month": "2024-08",
+      "region": "Stowe",
+      "gallons": 2340
+    },
+    {
+      "month": "2024-08",
+      "region": "Warren+Waitsfield",
+      "gallons": 560
+    },
+    {
+      "month": "2024-08",
+      "region": "Waterbury",
+      "gallons": 895
+    },
+    {
+      "month": "2024-08",
+      "region": "Winooski",
+      "gallons": 1015
+    },
+    {
+      "month": "2024-08",
+      "region": "Woodstock+Quechee",
+      "gallons": 870
+    },
+    {
+      "month": "2024-09",
+      "region": "Burlington",
+      "gallons": 2852
+    },
+    {
+      "month": "2024-09",
+      "region": "Central Vermont",
+      "gallons": 3255
+    },
+    {
+      "month": "2024-09",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 65
+    },
+    {
+      "month": "2024-09",
+      "region": "Manchester",
+      "gallons": 185
+    },
+    {
+      "month": "2024-09",
+      "region": "Middlebury+Vergennes",
+      "gallons": 595
+    },
+    {
+      "month": "2024-09",
+      "region": "Other",
+      "gallons": 10533
+    },
+    {
+      "month": "2024-09",
+      "region": "Stowe",
+      "gallons": 2650
+    },
+    {
+      "month": "2024-09",
+      "region": "UVM",
+      "gallons": 500
+    },
+    {
+      "month": "2024-09",
+      "region": "Warren+Waitsfield",
+      "gallons": 670
+    },
+    {
+      "month": "2024-09",
+      "region": "Waterbury",
+      "gallons": 1140
+    },
+    {
+      "month": "2024-09",
+      "region": "Winooski",
+      "gallons": 875
+    },
+    {
+      "month": "2024-09",
+      "region": "Woodstock+Quechee",
+      "gallons": 525
+    },
+    {
+      "month": "2024-10",
+      "region": "Burlington",
+      "gallons": 4474
+    },
+    {
+      "month": "2024-10",
+      "region": "Central Vermont",
+      "gallons": 1550
+    },
+    {
+      "month": "2024-10",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 645
+    },
+    {
+      "month": "2024-10",
+      "region": "Manchester",
+      "gallons": 285
+    },
+    {
+      "month": "2024-10",
+      "region": "Middlebury+Vergennes",
+      "gallons": 505
+    },
+    {
+      "month": "2024-10",
+      "region": "Mt. Snow",
+      "gallons": 190
+    },
+    {
+      "month": "2024-10",
+      "region": "Other",
+      "gallons": 9619
+    },
+    {
+      "month": "2024-10",
+      "region": "Stowe",
+      "gallons": 1110
+    },
+    {
+      "month": "2024-10",
+      "region": "UVM",
+      "gallons": 550
+    },
+    {
+      "month": "2024-10",
+      "region": "Warren+Waitsfield",
+      "gallons": 555
+    },
+    {
+      "month": "2024-10",
+      "region": "Waterbury",
+      "gallons": 780
+    },
+    {
+      "month": "2024-10",
+      "region": "Winooski",
+      "gallons": 1430
+    },
+    {
+      "month": "2024-10",
+      "region": "Woodstock+Quechee",
+      "gallons": 900
+    },
+    {
+      "month": "2024-11",
+      "region": "Burlington",
+      "gallons": 2726
+    },
+    {
+      "month": "2024-11",
+      "region": "Central Vermont",
+      "gallons": 2000
+    },
+    {
+      "month": "2024-11",
+      "region": "Manchester",
+      "gallons": 140
+    },
+    {
+      "month": "2024-11",
+      "region": "Middlebury+Vergennes",
+      "gallons": 607
+    },
+    {
+      "month": "2024-11",
+      "region": "Other",
+      "gallons": 8532
+    },
+    {
+      "month": "2024-11",
+      "region": "Stowe",
+      "gallons": 2290
+    },
+    {
+      "month": "2024-11",
+      "region": "UVM",
+      "gallons": 1045
+    },
+    {
+      "month": "2024-11",
+      "region": "Warren+Waitsfield",
+      "gallons": 530
+    },
+    {
+      "month": "2024-11",
+      "region": "Waterbury",
+      "gallons": 775
+    },
+    {
+      "month": "2024-11",
+      "region": "Winooski",
+      "gallons": 970
+    },
+    {
+      "month": "2024-11",
+      "region": "Woodstock+Quechee",
+      "gallons": 645
+    },
+    {
+      "month": "2024-12",
+      "region": "Burlington",
+      "gallons": 2787
+    },
+    {
+      "month": "2024-12",
+      "region": "Central Vermont",
+      "gallons": 2703
+    },
+    {
+      "month": "2024-12",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 795
+    },
+    {
+      "month": "2024-12",
+      "region": "Manchester",
+      "gallons": 90
+    },
+    {
+      "month": "2024-12",
+      "region": "Middlebury+Vergennes",
+      "gallons": 650
+    },
+    {
+      "month": "2024-12",
+      "region": "Mt. Snow",
+      "gallons": 55
+    },
+    {
+      "month": "2024-12",
+      "region": "Okemo",
+      "gallons": 95
+    },
+    {
+      "month": "2024-12",
+      "region": "Other",
+      "gallons": 8215
+    },
+    {
+      "month": "2024-12",
+      "region": "Stowe",
+      "gallons": 2660
+    },
+    {
+      "month": "2024-12",
+      "region": "UVM",
+      "gallons": 230
+    },
+    {
+      "month": "2024-12",
+      "region": "Warren+Waitsfield",
+      "gallons": 145
+    },
+    {
+      "month": "2024-12",
+      "region": "Waterbury",
+      "gallons": 680
+    },
+    {
+      "month": "2024-12",
+      "region": "Winooski",
+      "gallons": 1025
+    },
+    {
+      "month": "2024-12",
+      "region": "Woodstock+Quechee",
+      "gallons": 250
+    },
+    {
+      "month": "2025-01",
+      "region": "Burlington",
+      "gallons": 4196
+    },
+    {
+      "month": "2025-01",
+      "region": "Central Vermont",
+      "gallons": 1670
+    },
+    {
+      "month": "2025-01",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 990
+    },
+    {
+      "month": "2025-01",
+      "region": "Manchester",
+      "gallons": 145
+    },
+    {
+      "month": "2025-01",
+      "region": "Middlebury+Vergennes",
+      "gallons": 643
+    },
+    {
+      "month": "2025-01",
+      "region": "Mt. Snow",
+      "gallons": 965
+    },
+    {
+      "month": "2025-01",
+      "region": "Okemo",
+      "gallons": 860
+    },
+    {
+      "month": "2025-01",
+      "region": "Other",
+      "gallons": 4481
+    },
+    {
+      "month": "2025-01",
+      "region": "Stowe",
+      "gallons": 2090
+    },
+    {
+      "month": "2025-01",
+      "region": "UVM",
+      "gallons": 110
+    },
+    {
+      "month": "2025-01",
+      "region": "Warren+Waitsfield",
+      "gallons": 1395
+    },
+    {
+      "month": "2025-01",
+      "region": "Waterbury",
+      "gallons": 670
+    },
+    {
+      "month": "2025-01",
+      "region": "Winooski",
+      "gallons": 730
+    },
+    {
+      "month": "2025-01",
+      "region": "Woodstock+Quechee",
+      "gallons": 195
+    },
+    {
+      "month": "2025-02",
+      "region": "Burlington",
+      "gallons": 2490
+    },
+    {
+      "month": "2025-02",
+      "region": "Central Vermont",
+      "gallons": 1305
+    },
+    {
+      "month": "2025-02",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 945
+    },
+    {
+      "month": "2025-02",
+      "region": "Manchester",
+      "gallons": 207
+    },
+    {
+      "month": "2025-02",
+      "region": "Mt. Snow",
+      "gallons": 670
+    },
+    {
+      "month": "2025-02",
+      "region": "Okemo",
+      "gallons": 655
+    },
+    {
+      "month": "2025-02",
+      "region": "Other",
+      "gallons": 7168
+    },
+    {
+      "month": "2025-02",
+      "region": "Stowe",
+      "gallons": 2325
+    },
+    {
+      "month": "2025-02",
+      "region": "UVM",
+      "gallons": 345
+    },
+    {
+      "month": "2025-02",
+      "region": "Warren+Waitsfield",
+      "gallons": 360
+    },
+    {
+      "month": "2025-02",
+      "region": "Waterbury",
+      "gallons": 620
+    },
+    {
+      "month": "2025-02",
+      "region": "Winooski",
+      "gallons": 765
+    },
+    {
+      "month": "2025-02",
+      "region": "Woodstock+Quechee",
+      "gallons": 285
+    },
+    {
+      "month": "2025-03",
+      "region": "Burlington",
+      "gallons": 2947
+    },
+    {
+      "month": "2025-03",
+      "region": "Central Vermont",
+      "gallons": 2956
+    },
+    {
+      "month": "2025-03",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 1355
+    },
+    {
+      "month": "2025-03",
+      "region": "Manchester",
+      "gallons": 205
+    },
+    {
+      "month": "2025-03",
+      "region": "Middlebury+Vergennes",
+      "gallons": 370
+    },
+    {
+      "month": "2025-03",
+      "region": "Mt. Snow",
+      "gallons": 450
+    },
+    {
+      "month": "2025-03",
+      "region": "Okemo",
+      "gallons": 750
+    },
+    {
+      "month": "2025-03",
+      "region": "Other",
+      "gallons": 9683
+    },
+    {
+      "month": "2025-03",
+      "region": "Stowe",
+      "gallons": 3125
+    },
+    {
+      "month": "2025-03",
+      "region": "UVM",
+      "gallons": 580
+    },
+    {
+      "month": "2025-03",
+      "region": "Warren+Waitsfield",
+      "gallons": 1770
+    },
+    {
+      "month": "2025-03",
+      "region": "Waterbury",
+      "gallons": 920
+    },
+    {
+      "month": "2025-03",
+      "region": "Winooski",
+      "gallons": 1390
+    },
+    {
+      "month": "2025-03",
+      "region": "Woodstock+Quechee",
+      "gallons": 460
+    },
+    {
+      "month": "2025-04",
+      "region": "Burlington",
+      "gallons": 4961
+    },
+    {
+      "month": "2025-04",
+      "region": "Central Vermont",
+      "gallons": 2244
+    },
+    {
+      "month": "2025-04",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 80
+    },
+    {
+      "month": "2025-04",
+      "region": "Manchester",
+      "gallons": 160
+    },
+    {
+      "month": "2025-04",
+      "region": "Middlebury+Vergennes",
+      "gallons": 1072
+    },
+    {
+      "month": "2025-04",
+      "region": "Mt. Snow",
+      "gallons": 345
+    },
+    {
+      "month": "2025-04",
+      "region": "Okemo",
+      "gallons": 200
+    },
+    {
+      "month": "2025-04",
+      "region": "Other",
+      "gallons": 12381
+    },
+    {
+      "month": "2025-04",
+      "region": "Stowe",
+      "gallons": 1855
+    },
+    {
+      "month": "2025-04",
+      "region": "UVM",
+      "gallons": 605
+    },
+    {
+      "month": "2025-04",
+      "region": "Warren+Waitsfield",
+      "gallons": 975
+    },
+    {
+      "month": "2025-04",
+      "region": "Waterbury",
+      "gallons": 840
+    },
+    {
+      "month": "2025-04",
+      "region": "Winooski",
+      "gallons": 1317
+    },
+    {
+      "month": "2025-04",
+      "region": "Woodstock+Quechee",
+      "gallons": 110
+    },
+    {
+      "month": "2025-05",
+      "region": "Burlington",
+      "gallons": 3149
+    },
+    {
+      "month": "2025-05",
+      "region": "Central Vermont",
+      "gallons": 2600
+    },
+    {
+      "month": "2025-05",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 685
+    },
+    {
+      "month": "2025-05",
+      "region": "Manchester",
+      "gallons": 120
+    },
+    {
+      "month": "2025-05",
+      "region": "Middlebury+Vergennes",
+      "gallons": 1236
+    },
+    {
+      "month": "2025-05",
+      "region": "Other",
+      "gallons": 7571
+    },
+    {
+      "month": "2025-05",
+      "region": "Stowe",
+      "gallons": 1730
+    },
+    {
+      "month": "2025-05",
+      "region": "UVM",
+      "gallons": 695
+    },
+    {
+      "month": "2025-05",
+      "region": "Warren+Waitsfield",
+      "gallons": 660
+    },
+    {
+      "month": "2025-05",
+      "region": "Waterbury",
+      "gallons": 960
+    },
+    {
+      "month": "2025-05",
+      "region": "Winooski",
+      "gallons": 910
+    },
+    {
+      "month": "2025-05",
+      "region": "Woodstock+Quechee",
+      "gallons": 435
+    },
+    {
+      "month": "2025-06",
+      "region": "Burlington",
+      "gallons": 4253
+    },
+    {
+      "month": "2025-06",
+      "region": "Central Vermont",
+      "gallons": 2796
+    },
+    {
+      "month": "2025-06",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 575
+    },
+    {
+      "month": "2025-06",
+      "region": "Manchester",
+      "gallons": 145
+    },
+    {
+      "month": "2025-06",
+      "region": "Middlebury+Vergennes",
+      "gallons": 1015
+    },
+    {
+      "month": "2025-06",
+      "region": "Other",
+      "gallons": 9399
+    },
+    {
+      "month": "2025-06",
+      "region": "Stowe",
+      "gallons": 2090
+    },
+    {
+      "month": "2025-06",
+      "region": "UVM",
+      "gallons": 45
+    },
+    {
+      "month": "2025-06",
+      "region": "Warren+Waitsfield",
+      "gallons": 470
+    },
+    {
+      "month": "2025-06",
+      "region": "Waterbury",
+      "gallons": 830
+    },
+    {
+      "month": "2025-06",
+      "region": "Winooski",
+      "gallons": 1070
+    },
+    {
+      "month": "2025-06",
+      "region": "Woodstock+Quechee",
+      "gallons": 745
+    },
+    {
+      "month": "2025-07",
+      "region": "Burlington",
+      "gallons": 3411
+    },
+    {
+      "month": "2025-07",
+      "region": "Central Vermont",
+      "gallons": 2340
+    },
+    {
+      "month": "2025-07",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 755
+    },
+    {
+      "month": "2025-07",
+      "region": "Manchester",
+      "gallons": 175
+    },
+    {
+      "month": "2025-07",
+      "region": "Middlebury+Vergennes",
+      "gallons": 473
+    },
+    {
+      "month": "2025-07",
+      "region": "Mt. Snow",
+      "gallons": 85
+    },
+    {
+      "month": "2025-07",
+      "region": "Okemo",
+      "gallons": 60
+    },
+    {
+      "month": "2025-07",
+      "region": "Other",
+      "gallons": 9173
+    },
+    {
+      "month": "2025-07",
+      "region": "Stowe",
+      "gallons": 2260
+    },
+    {
+      "month": "2025-07",
+      "region": "Warren+Waitsfield",
+      "gallons": 600
+    },
+    {
+      "month": "2025-07",
+      "region": "Waterbury",
+      "gallons": 1050
+    },
+    {
+      "month": "2025-07",
+      "region": "Winooski",
+      "gallons": 1070
+    },
+    {
+      "month": "2025-07",
+      "region": "Woodstock+Quechee",
+      "gallons": 1220
+    },
+    {
+      "month": "2025-08",
+      "region": "Burlington",
+      "gallons": 4120
+    },
+    {
+      "month": "2025-08",
+      "region": "Central Vermont",
+      "gallons": 2530
+    },
+    {
+      "month": "2025-08",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 180
+    },
+    {
+      "month": "2025-08",
+      "region": "Middlebury+Vergennes",
+      "gallons": 1011
+    },
+    {
+      "month": "2025-08",
+      "region": "Okemo",
+      "gallons": 120
+    },
+    {
+      "month": "2025-08",
+      "region": "Other",
+      "gallons": 10098
+    },
+    {
+      "month": "2025-08",
+      "region": "Stowe",
+      "gallons": 2640
+    },
+    {
+      "month": "2025-08",
+      "region": "UVM",
+      "gallons": 265
+    },
+    {
+      "month": "2025-08",
+      "region": "Warren+Waitsfield",
+      "gallons": 1120
+    },
+    {
+      "month": "2025-08",
+      "region": "Waterbury",
+      "gallons": 1130
+    },
+    {
+      "month": "2025-08",
+      "region": "Winooski",
+      "gallons": 1055
+    },
+    {
+      "month": "2025-08",
+      "region": "Woodstock+Quechee",
+      "gallons": 850
+    },
+    {
+      "month": "2025-09",
+      "region": "Burlington",
+      "gallons": 3494
+    },
+    {
+      "month": "2025-09",
+      "region": "Central Vermont",
+      "gallons": 2736
+    },
+    {
+      "month": "2025-09",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 630
+    },
+    {
+      "month": "2025-09",
+      "region": "Manchester",
+      "gallons": 285
+    },
+    {
+      "month": "2025-09",
+      "region": "Middlebury+Vergennes",
+      "gallons": 946
+    },
+    {
+      "month": "2025-09",
+      "region": "Other",
+      "gallons": 9652
+    },
+    {
+      "month": "2025-09",
+      "region": "Stowe",
+      "gallons": 3425
+    },
+    {
+      "month": "2025-09",
+      "region": "UVM",
+      "gallons": 510
+    },
+    {
+      "month": "2025-09",
+      "region": "Warren+Waitsfield",
+      "gallons": 450
+    },
+    {
+      "month": "2025-09",
+      "region": "Waterbury",
+      "gallons": 1165
+    },
+    {
+      "month": "2025-09",
+      "region": "Winooski",
+      "gallons": 1450
+    },
+    {
+      "month": "2025-09",
+      "region": "Woodstock+Quechee",
+      "gallons": 755
+    },
+    {
+      "month": "2025-10",
+      "region": "Burlington",
+      "gallons": 3116
+    },
+    {
+      "month": "2025-10",
+      "region": "Central Vermont",
+      "gallons": 2547
+    },
+    {
+      "month": "2025-10",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 580
+    },
+    {
+      "month": "2025-10",
+      "region": "Manchester",
+      "gallons": 245
+    },
+    {
+      "month": "2025-10",
+      "region": "Middlebury+Vergennes",
+      "gallons": 803
+    },
+    {
+      "month": "2025-10",
+      "region": "Other",
+      "gallons": 9969
+    },
+    {
+      "month": "2025-10",
+      "region": "Stowe",
+      "gallons": 1350
+    },
+    {
+      "month": "2025-10",
+      "region": "UVM",
+      "gallons": 560
+    },
+    {
+      "month": "2025-10",
+      "region": "Warren+Waitsfield",
+      "gallons": 296
+    },
+    {
+      "month": "2025-10",
+      "region": "Waterbury",
+      "gallons": 740
+    },
+    {
+      "month": "2025-10",
+      "region": "Winooski",
+      "gallons": 835
+    },
+    {
+      "month": "2025-10",
+      "region": "Woodstock+Quechee",
+      "gallons": 927
+    },
+    {
+      "month": "2025-11",
+      "region": "Burlington",
+      "gallons": 2829
+    },
+    {
+      "month": "2025-11",
+      "region": "Central Vermont",
+      "gallons": 2828
+    },
+    {
+      "month": "2025-11",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 450
+    },
+    {
+      "month": "2025-11",
+      "region": "Middlebury+Vergennes",
+      "gallons": 550
+    },
+    {
+      "month": "2025-11",
+      "region": "Other",
+      "gallons": 6493
+    },
+    {
+      "month": "2025-11",
+      "region": "Stowe",
+      "gallons": 2700
+    },
+    {
+      "month": "2025-11",
+      "region": "UVM",
+      "gallons": 965
+    },
+    {
+      "month": "2025-11",
+      "region": "Warren+Waitsfield",
+      "gallons": 685
+    },
+    {
+      "month": "2025-11",
+      "region": "Waterbury",
+      "gallons": 955
+    },
+    {
+      "month": "2025-11",
+      "region": "Winooski",
+      "gallons": 1000
+    },
+    {
+      "month": "2025-11",
+      "region": "Woodstock+Quechee",
+      "gallons": 752
+    },
+    {
+      "month": "2025-12",
+      "region": "Burlington",
+      "gallons": 3063
+    },
+    {
+      "month": "2025-12",
+      "region": "Central Vermont",
+      "gallons": 1890
+    },
+    {
+      "month": "2025-12",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 735
+    },
+    {
+      "month": "2025-12",
+      "region": "Manchester",
+      "gallons": 315
+    },
+    {
+      "month": "2025-12",
+      "region": "Middlebury+Vergennes",
+      "gallons": 598
+    },
+    {
+      "month": "2025-12",
+      "region": "Mt. Snow",
+      "gallons": 490
+    },
+    {
+      "month": "2025-12",
+      "region": "Okemo",
+      "gallons": 605
+    },
+    {
+      "month": "2025-12",
+      "region": "Other",
+      "gallons": 5649
+    },
+    {
+      "month": "2025-12",
+      "region": "Stowe",
+      "gallons": 2895
+    },
+    {
+      "month": "2025-12",
+      "region": "Warren+Waitsfield",
+      "gallons": 820
+    },
+    {
+      "month": "2025-12",
+      "region": "Waterbury",
+      "gallons": 550
+    },
+    {
+      "month": "2025-12",
+      "region": "Winooski",
+      "gallons": 970
+    },
+    {
+      "month": "2025-12",
+      "region": "Woodstock+Quechee",
+      "gallons": 295
+    },
+    {
+      "month": "2026-01",
+      "region": "Burlington",
+      "gallons": 3419
+    },
+    {
+      "month": "2026-01",
+      "region": "Central Vermont",
+      "gallons": 1005
+    },
+    {
+      "month": "2026-01",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 825
+    },
+    {
+      "month": "2026-01",
+      "region": "Manchester",
+      "gallons": 475
+    },
+    {
+      "month": "2026-01",
+      "region": "Middlebury+Vergennes",
+      "gallons": 552
+    },
+    {
+      "month": "2026-01",
+      "region": "Mt. Snow",
+      "gallons": 695
+    },
+    {
+      "month": "2026-01",
+      "region": "Okemo",
+      "gallons": 750
+    },
+    {
+      "month": "2026-01",
+      "region": "Other",
+      "gallons": 7972
+    },
+    {
+      "month": "2026-01",
+      "region": "Stowe",
+      "gallons": 2515
+    },
+    {
+      "month": "2026-01",
+      "region": "UVM",
+      "gallons": 460
+    },
+    {
+      "month": "2026-01",
+      "region": "Warren+Waitsfield",
+      "gallons": 1185
+    },
+    {
+      "month": "2026-01",
+      "region": "Waterbury",
+      "gallons": 895
+    },
+    {
+      "month": "2026-01",
+      "region": "Winooski",
+      "gallons": 805
+    },
+    {
+      "month": "2026-01",
+      "region": "Woodstock+Quechee",
+      "gallons": 495
+    },
+    {
+      "month": "2026-02",
+      "region": "Burlington",
+      "gallons": 2997
+    },
+    {
+      "month": "2026-02",
+      "region": "Central Vermont",
+      "gallons": 1985
+    },
+    {
+      "month": "2026-02",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 805
+    },
+    {
+      "month": "2026-02",
+      "region": "Manchester",
+      "gallons": 215
+    },
+    {
+      "month": "2026-02",
+      "region": "Middlebury+Vergennes",
+      "gallons": 545
+    },
+    {
+      "month": "2026-02",
+      "region": "Mt. Snow",
+      "gallons": 1040
+    },
+    {
+      "month": "2026-02",
+      "region": "Okemo",
+      "gallons": 725
+    },
+    {
+      "month": "2026-02",
+      "region": "Other",
+      "gallons": 7583
+    },
+    {
+      "month": "2026-02",
+      "region": "Stowe",
+      "gallons": 2175
+    },
+    {
+      "month": "2026-02",
+      "region": "UVM",
+      "gallons": 400
+    },
+    {
+      "month": "2026-02",
+      "region": "Warren+Waitsfield",
+      "gallons": 800
+    },
+    {
+      "month": "2026-02",
+      "region": "Waterbury",
+      "gallons": 830
+    },
+    {
+      "month": "2026-02",
+      "region": "Winooski",
+      "gallons": 340
+    },
+    {
+      "month": "2026-02",
+      "region": "Woodstock+Quechee",
+      "gallons": 255
+    },
+    {
+      "month": "2026-03",
+      "region": "Burlington",
+      "gallons": 3290
+    },
+    {
+      "month": "2026-03",
+      "region": "Central Vermont",
+      "gallons": 3208
+    },
+    {
+      "month": "2026-03",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 170
+    },
+    {
+      "month": "2026-03",
+      "region": "Manchester",
+      "gallons": 385
+    },
+    {
+      "month": "2026-03",
+      "region": "Middlebury+Vergennes",
+      "gallons": 414
+    },
+    {
+      "month": "2026-03",
+      "region": "Mt. Snow",
+      "gallons": 1035
+    },
+    {
+      "month": "2026-03",
+      "region": "Okemo",
+      "gallons": 770
+    },
+    {
+      "month": "2026-03",
+      "region": "Other",
+      "gallons": 9368
+    },
+    {
+      "month": "2026-03",
+      "region": "Stowe",
+      "gallons": 2510
+    },
+    {
+      "month": "2026-03",
+      "region": "UVM",
+      "gallons": 505
+    },
+    {
+      "month": "2026-03",
+      "region": "Warren+Waitsfield",
+      "gallons": 1400
+    },
+    {
+      "month": "2026-03",
+      "region": "Waterbury",
+      "gallons": 1195
+    },
+    {
+      "month": "2026-03",
+      "region": "Winooski",
+      "gallons": 1120
+    },
+    {
+      "month": "2026-03",
+      "region": "Woodstock+Quechee",
+      "gallons": 595
+    },
+    {
+      "month": "2026-04",
+      "region": "Burlington",
+      "gallons": 3711
+    },
+    {
+      "month": "2026-04",
+      "region": "Central Vermont",
+      "gallons": 2780
+    },
+    {
+      "month": "2026-04",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 1340
+    },
+    {
+      "month": "2026-04",
+      "region": "Manchester",
+      "gallons": 160
+    },
+    {
+      "month": "2026-04",
+      "region": "Middlebury+Vergennes",
+      "gallons": 990
+    },
+    {
+      "month": "2026-04",
+      "region": "Okemo",
+      "gallons": 445
+    },
+    {
+      "month": "2026-04",
+      "region": "Other",
+      "gallons": 11302
+    },
+    {
+      "month": "2026-04",
+      "region": "Stowe",
+      "gallons": 3250
+    },
+    {
+      "month": "2026-04",
+      "region": "UVM",
+      "gallons": 645
+    },
+    {
+      "month": "2026-04",
+      "region": "Warren+Waitsfield",
+      "gallons": 370
+    },
+    {
+      "month": "2026-04",
+      "region": "Waterbury",
+      "gallons": 985
+    },
+    {
+      "month": "2026-04",
+      "region": "Winooski",
+      "gallons": 1275
+    },
+    {
+      "month": "2026-04",
+      "region": "Woodstock+Quechee",
+      "gallons": 570
+    },
+    {
+      "month": "2026-05",
+      "region": "Burlington",
+      "gallons": 3216
+    },
+    {
+      "month": "2026-05",
+      "region": "Central Vermont",
+      "gallons": 2564
+    },
+    {
+      "month": "2026-05",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 580
+    },
+    {
+      "month": "2026-05",
+      "region": "Manchester",
+      "gallons": 150
+    },
+    {
+      "month": "2026-05",
+      "region": "Middlebury+Vergennes",
+      "gallons": 655
+    },
+    {
+      "month": "2026-05",
+      "region": "Mt. Snow",
+      "gallons": 110
+    },
+    {
+      "month": "2026-05",
+      "region": "Other",
+      "gallons": 7866
+    },
+    {
+      "month": "2026-05",
+      "region": "Stowe",
+      "gallons": 1720
+    },
+    {
+      "month": "2026-05",
+      "region": "UVM",
+      "gallons": 435
+    },
+    {
+      "month": "2026-05",
+      "region": "Warren+Waitsfield",
+      "gallons": 820
+    },
+    {
+      "month": "2026-05",
+      "region": "Waterbury",
+      "gallons": 815
+    },
+    {
+      "month": "2026-05",
+      "region": "Winooski",
+      "gallons": 845
+    },
+    {
+      "month": "2026-05",
+      "region": "Woodstock+Quechee",
+      "gallons": 555
+    },
+    {
+      "month": "2026-06",
+      "region": "Burlington",
+      "gallons": 4729
+    },
+    {
+      "month": "2026-06",
+      "region": "Central Vermont",
+      "gallons": 2637
+    },
+    {
+      "month": "2026-06",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 385
+    },
+    {
+      "month": "2026-06",
+      "region": "Manchester",
+      "gallons": 255
+    },
+    {
+      "month": "2026-06",
+      "region": "Middlebury+Vergennes",
+      "gallons": 450
+    },
+    {
+      "month": "2026-06",
+      "region": "Other",
+      "gallons": 21271
+    },
+    {
+      "month": "2026-06",
+      "region": "Stowe",
+      "gallons": 1670
+    },
+    {
+      "month": "2026-06",
+      "region": "Warren+Waitsfield",
+      "gallons": 425
+    },
+    {
+      "month": "2026-06",
+      "region": "Waterbury",
+      "gallons": 745
+    },
+    {
+      "month": "2026-06",
+      "region": "Winooski",
+      "gallons": 405
+    },
+    {
+      "month": "2026-06",
+      "region": "Woodstock+Quechee",
+      "gallons": 1175
+    },
+    {
+      "month": "2026-07",
+      "region": "Burlington",
+      "gallons": 3710
+    },
+    {
+      "month": "2026-07",
+      "region": "Central Vermont",
+      "gallons": 1810
+    },
+    {
+      "month": "2026-07",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 1010
+    },
+    {
+      "month": "2026-07",
+      "region": "Manchester",
+      "gallons": 315
+    },
+    {
+      "month": "2026-07",
+      "region": "Middlebury+Vergennes",
+      "gallons": 915
+    },
+    {
+      "month": "2026-07",
+      "region": "Other",
+      "gallons": 9879
+    },
+    {
+      "month": "2026-07",
+      "region": "Stowe",
+      "gallons": 2490
+    },
+    {
+      "month": "2026-07",
+      "region": "Warren+Waitsfield",
+      "gallons": 965
+    },
+    {
+      "month": "2026-07",
+      "region": "Waterbury",
+      "gallons": 795
+    },
+    {
+      "month": "2026-07",
+      "region": "Winooski",
+      "gallons": 995
+    },
+    {
+      "month": "2026-07",
+      "region": "Woodstock+Quechee",
+      "gallons": 220
+    }
+  ],
+  "yearly_by_region": [
+    {
+      "year": 2015,
+      "region": "Burlington",
+      "gallons": 21287
+    },
+    {
+      "year": 2015,
+      "region": "Central Vermont",
+      "gallons": 6668
+    },
+    {
+      "year": 2015,
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 4297
+    },
+    {
+      "year": 2015,
+      "region": "Middlebury+Vergennes",
+      "gallons": 1095
+    },
+    {
+      "year": 2015,
+      "region": "Other",
+      "gallons": 8086
+    },
+    {
+      "year": 2015,
+      "region": "Stowe",
+      "gallons": 6885
+    },
+    {
+      "year": 2015,
+      "region": "Warren+Waitsfield",
+      "gallons": 337
+    },
+    {
+      "year": 2015,
+      "region": "Waterbury",
+      "gallons": 4620
+    },
+    {
+      "year": 2015,
+      "region": "Winooski",
+      "gallons": 1540
+    },
+    {
+      "year": 2015,
+      "region": "Woodstock+Quechee",
+      "gallons": 1867
+    },
+    {
+      "year": 2016,
+      "region": "Burlington",
+      "gallons": 31458
+    },
+    {
+      "year": 2016,
+      "region": "Central Vermont",
+      "gallons": 8792
+    },
+    {
+      "year": 2016,
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 3945
+    },
+    {
+      "year": 2016,
+      "region": "Middlebury+Vergennes",
+      "gallons": 2905
+    },
+    {
+      "year": 2016,
+      "region": "Other",
+      "gallons": 16855
+    },
+    {
+      "year": 2016,
+      "region": "Stowe",
+      "gallons": 10546
+    },
+    {
+      "year": 2016,
+      "region": "Warren+Waitsfield",
+      "gallons": 2431
+    },
+    {
+      "year": 2016,
+      "region": "Waterbury",
+      "gallons": 9287
+    },
+    {
+      "year": 2016,
+      "region": "Winooski",
+      "gallons": 1524
+    },
+    {
+      "year": 2016,
+      "region": "Woodstock+Quechee",
+      "gallons": 2625
+    },
+    {
+      "year": 2017,
+      "region": "Burlington",
+      "gallons": 36331
+    },
+    {
+      "year": 2017,
+      "region": "Central Vermont",
+      "gallons": 15242
+    },
+    {
+      "year": 2017,
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 4200
+    },
+    {
+      "year": 2017,
+      "region": "Manchester",
+      "gallons": 1085
+    },
+    {
+      "year": 2017,
+      "region": "Middlebury+Vergennes",
+      "gallons": 3064
+    },
+    {
+      "year": 2017,
+      "region": "Mt. Snow",
+      "gallons": 100
+    },
+    {
+      "year": 2017,
+      "region": "Other",
+      "gallons": 28867
+    },
+    {
+      "year": 2017,
+      "region": "Stowe",
+      "gallons": 10537
+    },
+    {
+      "year": 2017,
+      "region": "Warren+Waitsfield",
+      "gallons": 2574
+    },
+    {
+      "year": 2017,
+      "region": "Waterbury",
+      "gallons": 9052
+    },
+    {
+      "year": 2017,
+      "region": "Winooski",
+      "gallons": 1647
+    },
+    {
+      "year": 2017,
+      "region": "Woodstock+Quechee",
+      "gallons": 3270
+    },
+    {
+      "year": 2018,
+      "region": "Burlington",
+      "gallons": 41722
+    },
+    {
+      "year": 2018,
+      "region": "Central Vermont",
+      "gallons": 21112
+    },
+    {
+      "year": 2018,
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 4280
+    },
+    {
+      "year": 2018,
+      "region": "Manchester",
+      "gallons": 1525
+    },
+    {
+      "year": 2018,
+      "region": "Middlebury+Vergennes",
+      "gallons": 5885
+    },
+    {
+      "year": 2018,
+      "region": "Mt. Snow",
+      "gallons": 2850
+    },
+    {
+      "year": 2018,
+      "region": "Other",
+      "gallons": 43631
+    },
+    {
+      "year": 2018,
+      "region": "Stowe",
+      "gallons": 13913
+    },
+    {
+      "year": 2018,
+      "region": "UVM",
+      "gallons": 3555
+    },
+    {
+      "year": 2018,
+      "region": "Warren+Waitsfield",
+      "gallons": 2985
+    },
+    {
+      "year": 2018,
+      "region": "Waterbury",
+      "gallons": 11885
+    },
+    {
+      "year": 2018,
+      "region": "Winooski",
+      "gallons": 4030
+    },
+    {
+      "year": 2018,
+      "region": "Woodstock+Quechee",
+      "gallons": 3960
+    },
+    {
+      "year": 2019,
+      "region": "Burlington",
+      "gallons": 35690
+    },
+    {
+      "year": 2019,
+      "region": "Central Vermont",
+      "gallons": 21273
+    },
+    {
+      "year": 2019,
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 6480
+    },
+    {
+      "year": 2019,
+      "region": "Manchester",
+      "gallons": 1000
+    },
+    {
+      "year": 2019,
+      "region": "Middlebury+Vergennes",
+      "gallons": 6805
+    },
+    {
+      "year": 2019,
+      "region": "Mt. Snow",
+      "gallons": 3450
+    },
+    {
+      "year": 2019,
+      "region": "Other",
+      "gallons": 54709
+    },
+    {
+      "year": 2019,
+      "region": "Stowe",
+      "gallons": 16988
+    },
+    {
+      "year": 2019,
+      "region": "UVM",
+      "gallons": 3730
+    },
+    {
+      "year": 2019,
+      "region": "Warren+Waitsfield",
+      "gallons": 4530
+    },
+    {
+      "year": 2019,
+      "region": "Waterbury",
+      "gallons": 10945
+    },
+    {
+      "year": 2019,
+      "region": "Winooski",
+      "gallons": 6012
+    },
+    {
+      "year": 2019,
+      "region": "Woodstock+Quechee",
+      "gallons": 4420
+    },
+    {
+      "year": 2020,
+      "region": "Burlington",
+      "gallons": 23272
+    },
+    {
+      "year": 2020,
+      "region": "Central Vermont",
+      "gallons": 15805
+    },
+    {
+      "year": 2020,
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 2685
+    },
+    {
+      "year": 2020,
+      "region": "Manchester",
+      "gallons": 730
+    },
+    {
+      "year": 2020,
+      "region": "Middlebury+Vergennes",
+      "gallons": 6325
+    },
+    {
+      "year": 2020,
+      "region": "Mt. Snow",
+      "gallons": 1775
+    },
+    {
+      "year": 2020,
+      "region": "Other",
+      "gallons": 56538
+    },
+    {
+      "year": 2020,
+      "region": "Stowe",
+      "gallons": 17285
+    },
+    {
+      "year": 2020,
+      "region": "UVM",
+      "gallons": 2620
+    },
+    {
+      "year": 2020,
+      "region": "Warren+Waitsfield",
+      "gallons": 5425
+    },
+    {
+      "year": 2020,
+      "region": "Waterbury",
+      "gallons": 5985
+    },
+    {
+      "year": 2020,
+      "region": "Winooski",
+      "gallons": 4976
+    },
+    {
+      "year": 2020,
+      "region": "Woodstock+Quechee",
+      "gallons": 3140
+    },
+    {
+      "year": 2021,
+      "region": "Burlington",
+      "gallons": 26164
+    },
+    {
+      "year": 2021,
+      "region": "Central Vermont",
+      "gallons": 18542
+    },
+    {
+      "year": 2021,
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 3115
+    },
+    {
+      "year": 2021,
+      "region": "Manchester",
+      "gallons": 910
+    },
+    {
+      "year": 2021,
+      "region": "Middlebury+Vergennes",
+      "gallons": 4515
+    },
+    {
+      "year": 2021,
+      "region": "Mt. Snow",
+      "gallons": 2375
+    },
+    {
+      "year": 2021,
+      "region": "Okemo",
+      "gallons": 825
+    },
+    {
+      "year": 2021,
+      "region": "Other",
+      "gallons": 65021
+    },
+    {
+      "year": 2021,
+      "region": "Stowe",
+      "gallons": 21884
+    },
+    {
+      "year": 2021,
+      "region": "UVM",
+      "gallons": 2735
+    },
+    {
+      "year": 2021,
+      "region": "Warren+Waitsfield",
+      "gallons": 6245
+    },
+    {
+      "year": 2021,
+      "region": "Waterbury",
+      "gallons": 7700
+    },
+    {
+      "year": 2021,
+      "region": "Winooski",
+      "gallons": 4864
+    },
+    {
+      "year": 2021,
+      "region": "Woodstock+Quechee",
+      "gallons": 3010
+    },
+    {
+      "year": 2022,
+      "region": "Burlington",
+      "gallons": 34239
+    },
+    {
+      "year": 2022,
+      "region": "Central Vermont",
+      "gallons": 22238
+    },
+    {
+      "year": 2022,
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 4745
+    },
+    {
+      "year": 2022,
+      "region": "Manchester",
+      "gallons": 635
+    },
+    {
+      "year": 2022,
+      "region": "Middlebury+Vergennes",
+      "gallons": 7158
+    },
+    {
+      "year": 2022,
+      "region": "Mt. Snow",
+      "gallons": 2395
+    },
+    {
+      "year": 2022,
+      "region": "Other",
+      "gallons": 101026
+    },
+    {
+      "year": 2022,
+      "region": "Stowe",
+      "gallons": 25698
+    },
+    {
+      "year": 2022,
+      "region": "UVM",
+      "gallons": 3590
+    },
+    {
+      "year": 2022,
+      "region": "Warren+Waitsfield",
+      "gallons": 6030
+    },
+    {
+      "year": 2022,
+      "region": "Waterbury",
+      "gallons": 7774
+    },
+    {
+      "year": 2022,
+      "region": "Winooski",
+      "gallons": 7007
+    },
+    {
+      "year": 2022,
+      "region": "Woodstock+Quechee",
+      "gallons": 3854
+    },
+    {
+      "year": 2023,
+      "region": "Burlington",
+      "gallons": 43523
+    },
+    {
+      "year": 2023,
+      "region": "Central Vermont",
+      "gallons": 23439
+    },
+    {
+      "year": 2023,
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 5860
+    },
+    {
+      "year": 2023,
+      "region": "Manchester",
+      "gallons": 2487
+    },
+    {
+      "year": 2023,
+      "region": "Middlebury+Vergennes",
+      "gallons": 7879
+    },
+    {
+      "year": 2023,
+      "region": "Mt. Snow",
+      "gallons": 2050
+    },
+    {
+      "year": 2023,
+      "region": "Other",
+      "gallons": 101324
+    },
+    {
+      "year": 2023,
+      "region": "Stowe",
+      "gallons": 24908
+    },
+    {
+      "year": 2023,
+      "region": "UVM",
+      "gallons": 4330
+    },
+    {
+      "year": 2023,
+      "region": "Warren+Waitsfield",
+      "gallons": 7580
+    },
+    {
+      "year": 2023,
+      "region": "Waterbury",
+      "gallons": 7025
+    },
+    {
+      "year": 2023,
+      "region": "Winooski",
+      "gallons": 8675
+    },
+    {
+      "year": 2023,
+      "region": "Woodstock+Quechee",
+      "gallons": 5282
+    },
+    {
+      "year": 2024,
+      "region": "Burlington",
+      "gallons": 39596
+    },
+    {
+      "year": 2024,
+      "region": "Central Vermont",
+      "gallons": 27420
+    },
+    {
+      "year": 2024,
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 6490
+    },
+    {
+      "year": 2024,
+      "region": "Manchester",
+      "gallons": 2275
+    },
+    {
+      "year": 2024,
+      "region": "Middlebury+Vergennes",
+      "gallons": 9963
+    },
+    {
+      "year": 2024,
+      "region": "Mt. Snow",
+      "gallons": 2610
+    },
+    {
+      "year": 2024,
+      "region": "Okemo",
+      "gallons": 95
+    },
+    {
+      "year": 2024,
+      "region": "Other",
+      "gallons": 105027
+    },
+    {
+      "year": 2024,
+      "region": "Stowe",
+      "gallons": 26942
+    },
+    {
+      "year": 2024,
+      "region": "UVM",
+      "gallons": 4975
+    },
+    {
+      "year": 2024,
+      "region": "Warren+Waitsfield",
+      "gallons": 8604
+    },
+    {
+      "year": 2024,
+      "region": "Waterbury",
+      "gallons": 9800
+    },
+    {
+      "year": 2024,
+      "region": "Winooski",
+      "gallons": 12945
+    },
+    {
+      "year": 2024,
+      "region": "Woodstock+Quechee",
+      "gallons": 6515
+    },
+    {
+      "year": 2025,
+      "region": "Burlington",
+      "gallons": 42029
+    },
+    {
+      "year": 2025,
+      "region": "Central Vermont",
+      "gallons": 28442
+    },
+    {
+      "year": 2025,
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 7960
+    },
+    {
+      "year": 2025,
+      "region": "Manchester",
+      "gallons": 2002
+    },
+    {
+      "year": 2025,
+      "region": "Middlebury+Vergennes",
+      "gallons": 8717
+    },
+    {
+      "year": 2025,
+      "region": "Mt. Snow",
+      "gallons": 3005
+    },
+    {
+      "year": 2025,
+      "region": "Okemo",
+      "gallons": 3250
+    },
+    {
+      "year": 2025,
+      "region": "Other",
+      "gallons": 101717
+    },
+    {
+      "year": 2025,
+      "region": "Stowe",
+      "gallons": 28485
+    },
+    {
+      "year": 2025,
+      "region": "UVM",
+      "gallons": 4680
+    },
+    {
+      "year": 2025,
+      "region": "Warren+Waitsfield",
+      "gallons": 9601
+    },
+    {
+      "year": 2025,
+      "region": "Waterbury",
+      "gallons": 10430
+    },
+    {
+      "year": 2025,
+      "region": "Winooski",
+      "gallons": 12562
+    },
+    {
+      "year": 2025,
+      "region": "Woodstock+Quechee",
+      "gallons": 7029
+    },
+    {
+      "year": 2026,
+      "region": "Burlington",
+      "gallons": 25072
+    },
+    {
+      "year": 2026,
+      "region": "Central Vermont",
+      "gallons": 15989
+    },
+    {
+      "year": 2026,
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 5115
+    },
+    {
+      "year": 2026,
+      "region": "Manchester",
+      "gallons": 1955
+    },
+    {
+      "year": 2026,
+      "region": "Middlebury+Vergennes",
+      "gallons": 4521
+    },
+    {
+      "year": 2026,
+      "region": "Mt. Snow",
+      "gallons": 2880
+    },
+    {
+      "year": 2026,
+      "region": "Okemo",
+      "gallons": 2690
+    },
+    {
+      "year": 2026,
+      "region": "Other",
+      "gallons": 75241
+    },
+    {
+      "year": 2026,
+      "region": "Stowe",
+      "gallons": 16330
+    },
+    {
+      "year": 2026,
+      "region": "UVM",
+      "gallons": 2445
+    },
+    {
+      "year": 2026,
+      "region": "Warren+Waitsfield",
+      "gallons": 5965
+    },
+    {
+      "year": 2026,
+      "region": "Waterbury",
+      "gallons": 6260
+    },
+    {
+      "year": 2026,
+      "region": "Winooski",
+      "gallons": 5785
+    },
+    {
+      "year": 2026,
+      "region": "Woodstock+Quechee",
+      "gallons": 3865
+    }
+  ],
+  "region_names": [
+    "Stowe",
+    "Waterbury",
+    "Warren+Waitsfield",
+    "Middlebury+Vergennes",
+    "Jay+Montgomery+Troy",
+    "Winooski",
+    "UVM",
+    "Woodstock+Quechee",
+    "Mt. Snow",
+    "Manchester",
+    "Okemo",
+    "Central Vermont",
+    "Burlington"
+  ],
+  "collections_file": "oil_collections.json",
+  "collections_count": 26889,
+  "out_of_state_total": 38743
 }

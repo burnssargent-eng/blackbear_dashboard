@@ -476,9 +476,12 @@ function buildLegend() {
 buildLegend();
 
 async function loadAll() {
+  // The nightly job rewrites these same URLs, so without a changing query
+  // string a returning visitor can be served a stale cached copy.
+  const cacheBust = Date.now();
   const [dataResp, geoResp] = await Promise.all([
-    fetch("oil_data.json"),
-    fetch("vermont_towns.geojson")
+    fetch(`oil_data.json?v=${cacheBust}`),
+    fetch(`vermont_towns.geojson?v=${cacheBust}`)
   ]);
 
   allData = await dataResp.json();

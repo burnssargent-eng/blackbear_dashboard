@@ -24,6 +24,9 @@ LIST_URL     = f"{BASE_URL}/assign_routes.php"
 INACTIVE_URL = f"{BASE_URL}/inactive.php"
 DELAY_SEC    = 0.3
 
+# Per-record detail, written alongside the summary oil_data.json.
+COLLECTIONS_JSON = "oil_collections.json"
+
 # Quantities meaning "we collected nothing" — excluded from all totals
 EMPTY_QTYS = {0, 1, 2, 3}
 
@@ -306,6 +309,8 @@ def prepare_dataframe(df):
 
       1. Drop quantities that mean "nothing was collected".
       2. Add the normalized official-town column used by the map.
+      3. Re-derive 'county' from COUNTY_MAP.
+      4. Guarantee an 'is_active' column exists.
 
     The original 'city' value is always preserved untouched.
     """
@@ -318,6 +323,20 @@ def prepare_dataframe(df):
         normalize_geo_town(city, cid) or ""
         for city, cid in zip(df["city"], df["customer_id"])
     ]
+
+    # County is derived, not stored data. Recomputing it here means a correction
+    # to COUNTY_MAP takes effect on the next plain run, instead of waiting for a
+    # full --rescrape. Without this the county summary can disagree with the map:
+    # a town could be mapped to a Vermont polygon while its stale county column
+    # still said "Out-of-State".
+    df["county"] = [COUNTY_MAP.get(city, "Unknown") for city in df["city"]]
+
+    # Source-site active/inactive status is only knowable during a live scrape.
+    # A CSV written before that field existed has no such column, so create it
+    # as null rather than guessing a status from the last pickup date.
+    if "is_active" not in df.columns:
+        df["is_active"] = pd.NA
+
     return df
 
 # ─────────────────────────────────────────────
@@ -450,6 +469,9 @@ def parse_collections(soup, customer):
             "year": date.year,
             "month": date.strftime("%Y-%m"),
             "gallons": qty,
+            # True/False when scraped live; stays None if the caller did not
+            # stamp the customer (never inferred from collection history).
+            "is_active": customer.get("is_active"),
         }
 
     years_covered = set()
@@ -520,13 +542,20 @@ def scrape_all():
     print(f"   {len(inactive_only)} inactive-only customers to add.")
 
     customers = active + inactive_only
+
+    # Stamp the source-site status onto each customer so it reaches the records
+    # (and therefore the CSV and the JSON), instead of only the progress log.
+    # A customer on both lists counts as active.
+    for cust in customers:
+        cust["is_active"] = cust["customer_id"] in seen_ids
+
     print(f"\nScraping {len(customers)} total customers...\n")
 
     all_records = []
     unresolved_city_ids = []
 
     for i, cust in enumerate(customers, 1):
-        tag = "INACTIVE" if cust["customer_id"] not in seen_ids else "active  "
+        tag = "active  " if cust["is_active"] else "INACTIVE"
         url = f"{BASE_URL}/customer.php?id={cust['customer_id']}"
         try:
             csoup = get_soup(url, session)
@@ -674,9 +703,28 @@ def build_reports(df):
     print(yr.to_string())
     
     
+def records(frame):
+    """
+    DataFrame -> list of dicts using plain Python types.
+
+    json.dump below is called with default=str, so any value it cannot natively
+    serialize gets stringified. A leftover numpy int64 would therefore be
+    written as "26530" instead of 26530, which quietly breaks any consumer doing
+    arithmetic on it. Coerce to native types here so that cannot happen.
+    """
+    rows = frame.to_dict(orient="records")
+    for row in rows:
+        for key, value in row.items():
+            if value is pd.NA or value is None:
+                row[key] = None
+            elif hasattr(value, "item"):        # numpy scalar
+                row[key] = value.item()
+    return rows
+
+
 def export_json(df):
     """Export clean JSON for the website to consume."""
-    
+
     # Monthly totals by town, grouped by official GeoJSON town name so the
     # heatmap can match them. Rows with no Vermont town (out-of-state, or a
     # place we could not confidently resolve) are excluded from the map data —
@@ -707,27 +755,110 @@ def export_json(df):
         .reset_index()
     )
     
+    # Grand total per month, across every record including out-of-state ones,
+    # so sum(monthly_totals) reconciles exactly to all_time_total.
+    monthly_totals = (
+        df.groupby("month")["gallons"]
+        .sum()
+        .reset_index()
+    )
+
+    # Regions. IMPORTANT: assign_region_labels is deliberately NOT exclusive —
+    # a record matching two regions is emitted once per region, and anything
+    # matching none lands in "Other". Region gallons therefore SUM TO MORE than
+    # all_time_total. That is the existing Excel behavior and is intentional;
+    # do not "fix" it by forcing one region per record.
+    df_region = assign_region_labels(df)
+    monthly_region = (
+        df_region.groupby(["month", "region"])["gallons"]
+        .sum()
+        .reset_index()
+    )
+    yearly_region = (
+        df_region.groupby(["year", "region"])["gallons"]
+        .sum()
+        .reset_index()
+    )
+
     # Current year month-by-month
     current_year = datetime.today().year
     current = df[df["year"] == current_year]
-    
+
     output = {
         "last_updated":    datetime.now().isoformat(),
-        "monthly_by_town": monthly_town.to_dict(orient="records"),
-        "monthly_by_county": monthly_county.to_dict(orient="records"),
-        "yearly_totals":   yearly.to_dict(orient="records"),
+        "monthly_by_town": records(monthly_town),
+        "monthly_by_county": records(monthly_county),
+        "yearly_totals":   records(yearly),
         "all_time_total":  int(df["gallons"].sum()),
         "current_year_total": int(current["gallons"].sum()),
-        "customer_count":  df["customer_id"].nunique(),
+        "customer_count":  int(df["customer_id"].nunique()),
         # Gallons excluded from the Vermont map (out-of-state / unresolved).
         # Reported so the map total can be reconciled against all_time_total.
         "unmapped_total":  int(df[df["geo_town"] == ""]["gallons"].sum()),
+
+        # ── added in Phase 2 so future pages can be built from this file ──
+        "monthly_totals":    records(monthly_totals),
+        "monthly_by_region": records(monthly_region),
+        "yearly_by_region":  records(yearly_region),
+        # The 13 named regions, in report order. Excludes the "Other" bucket,
+        # which still appears in the region summaries above.
+        "region_names":      list(REGION_NAMES),
+        # Per-record detail lives in its own file so the homepage does not have
+        # to download ~4.7 MB it never reads. Fetch it only when a page needs it.
+        "collections_file":  COLLECTIONS_JSON,
+        "collections_count": int(len(df)),
+        "out_of_state_total": int(
+            df[df["county"].str.startswith("Out-of-State", na=False)]["gallons"].sum()
+        ),
     }
-    
+
     with open("oil_data.json", "w") as f:
         json.dump(output, f, indent=2, default=str)
-    
+
     print("Exported oil_data.json")
+
+
+def export_collections(df):
+    """
+    Export every individual collection record to its own JSON file.
+
+    Kept separate from oil_data.json on purpose: this is roughly 4.7 MB and the
+    homepage does not use it. Detail pages can fetch it on demand.
+
+    Out-of-state rows ARE included — raw collections keep everything. Only the
+    map-facing summaries in export_json filter them out.
+    """
+    detail = df.copy()
+    # 'date' is a datetime; without this it would serialize as
+    # "2026-06-13 00:00:00" instead of a plain calendar date.
+    detail["date"] = pd.to_datetime(detail["date"]).dt.strftime("%Y-%m-%d")
+
+    columns = [
+        "customer_id",   # source-site id
+        "name",          # customer name as shown on the source site
+        "city",          # ORIGINAL raw scraped city/village, never rewritten
+        "geo_town",      # normalized official VT town ("" when unmappable)
+        "county",
+        "date",
+        "year",
+        "month",
+        "gallons",
+        "is_active",     # source-site status; null until a scrape captures it
+    ]
+    detail = detail[columns]
+
+    output = {
+        "last_updated": datetime.now().isoformat(),
+        "count": int(len(detail)),
+        "records": detail.to_dict(orient="records"),
+    }
+
+    with open(COLLECTIONS_JSON, "w") as f:
+        # Compact separators keep this near 4.7 MB instead of 6.3 MB.
+        json.dump(output, f, separators=(",", ":"), default=str)
+
+    size_mb = os.path.getsize(COLLECTIONS_JSON) / 1_000_000
+    print(f"Exported {COLLECTIONS_JSON} ({len(detail):,} records, {size_mb:.1f} MB)")
 
 # ─────────────────────────────────────────────
 # MAIN
@@ -761,6 +892,7 @@ if __name__ == "__main__":
 
     build_reports(df)
     export_json(df)
+    export_collections(df)
 
     print("\nDone.")
 
