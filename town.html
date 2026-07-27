@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Town Detail — Black Bear Bio</title>
+  <title>Town Detail — Black Bear Biodiesel</title>
 
   <link rel="stylesheet" href="dashboard.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
@@ -12,11 +12,12 @@
 <body>
 
 <header>
-  <img src="logo.png" alt="Black Bear Bio" onerror="this.style.display='none'">
+  <img src="logo.png" alt="Black Bear Biodiesel" onerror="this.style.display='none'">
   <div>
-    <div class="subtitle">Oil Collection Dashboard</div>
-    <h1>Black Bear Bio</h1>
+    <div class="subtitle">Oil Collection Analytics</div>
+    <h1>Black Bear Biodiesel</h1>
   </div>
+  <div class="page-name" id="page-name"></div>
   <nav class="main-nav" id="main-nav"></nav>
   <div class="last-updated" id="last-updated"></div>
 </header>
@@ -41,7 +42,7 @@ async function init() {
     return;
   }
 
-  document.title = `${townParam} — Black Bear Bio`;
+  document.title = `${townParam} — Black Bear Biodiesel`;
 
   let data, records;
   try {
@@ -78,6 +79,8 @@ function render(page, rows, data) {
   const townName = rows[0].geo_town;
   const county = rows[0].county || "—";
 
+  renderPageName(`${townName} Oil Collection`);
+
   const customers = aggregateCustomers(rows);
   const monthTotals = groupSum(rows, r => r.month);
   const yearTotals = groupSum(rows, r => r.year);
@@ -92,7 +95,6 @@ function render(page, rows, data) {
 
   page.innerHTML = `
     <a class="back-link" href="index.html">← Back to the dashboard</a>
-    <div class="page-title">${escapeHtml(townName)} Oil Collection</div>
     <div class="page-subtitle">${escapeHtml(county)} County · ${formatNumber(rows.length)} pickups on record</div>
 
     <div class="stats-bar">

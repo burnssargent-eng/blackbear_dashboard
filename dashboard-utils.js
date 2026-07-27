@@ -304,7 +304,15 @@ function chartDefaults() {
   return {
     responsive: true,
     maintainAspectRatio: false,
-    plugins: { legend: { display: false } },
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        // Exact gallons on hover, comma-formatted.
+        callbacks: {
+          label: ctx => formatGallons(ctx.parsed.y != null ? ctx.parsed.y : ctx.parsed.x)
+        }
+      }
+    },
     scales: {
       x: { ticks: { color: CHART_TICK, maxTicksLimit: 12 }, grid: { color: CHART_GRID } },
       y: { ticks: { color: CHART_TICK }, grid: { color: CHART_GRID } }
@@ -379,9 +387,12 @@ function navHtml(current, latestYear, defaultRegion) {
 
   const links = [
     { key: "dashboard", href: "index.html", label: "Dashboard" },
-    { key: "customers", href: "customers.html", label: "Top Customers" },
+    { key: "region", href: `region.html?region=${encodeURIComponent(region)}`, label: "Regions" },
+    { key: "customers", href: "customers.html", label: "Customers" },
     { key: "year", href: `year.html?year=${encodeURIComponent(year)}`, label: "Years" },
-    { key: "region", href: `region.html?region=${encodeURIComponent(region)}`, label: "Regions" }
+    // schmootz.html is built in Phase 4D. The link is present now so the nav
+    // order is final; it 404s until that page exists.
+    { key: "schmootz", href: "schmootz.html", label: "Schmootz" }
   ];
 
   return links
@@ -415,3 +426,18 @@ function renderLastUpdated(data) {
   if (!el || !data || !data.last_updated) return;
   el.textContent = "Updated: " + new Date(data.last_updated).toLocaleString();
 }
+
+/** Sets the centered page name in the detail-page header. */
+function renderPageName(text) {
+  const el = document.getElementById("page-name");
+  if (el) el.textContent = text || "";
+}
+
+/* ─────────────────────────────────────────────
+ * Shared footnote wording
+ * ───────────────────────────────────────────── */
+
+/** Shown anywhere lifecycle figures appear. */
+const LIFECYCLE_FOOTNOTE =
+  "Lost customers are assigned to the year of their last qualifying pickup, " +
+  "based on current source-site status as of the latest scrape.";

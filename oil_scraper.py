@@ -10,6 +10,7 @@ import os
 import requests
 import re
 import time
+import calendar
 import pandas as pd
 from bs4 import BeautifulSoup
 from datetime import datetime
@@ -722,6 +723,101 @@ def records(frame):
     return rows
 
 
+def compute_projection(df):
+    """
+    Project the current year's counted gallons from the pace so far.
+
+    Compares against the PRORATED previous year rather than the previous year's
+    same-day total, so a partial month is scaled by how much of it has elapsed:
+
+        previousProratedYTD  = previousThroughPriorMonth
+                               + (dayOfMonth / daysInMonth) * previousSameMonthTotal
+        projectedCurrentYear = previousYearFull / previousProratedYTD * currentYTD
+
+    Anchored to the latest collection date in the data, NOT today's real date,
+    so a scrape that has not run for a few days does not drag the projection
+    down as though nothing were collected.
+
+    Returns None when there is no usable prior year to compare against.
+    """
+    if df.empty:
+        return None
+
+    latest = pd.to_datetime(df["date"]).max()
+    current_year = int(latest.year)
+    previous_year = current_year - 1
+
+    current_rows = df[df["year"] == current_year]
+    previous_rows = df[df["year"] == previous_year]
+    if current_rows.empty or previous_rows.empty:
+        return None
+
+    month = int(latest.month)
+    day = int(latest.day)
+    days_in_month = calendar.monthrange(previous_year, month)[1]
+
+    current_ytd = int(current_rows["gallons"].sum())
+    previous_year_full = int(previous_rows["gallons"].sum())
+
+    prior_months = previous_rows[
+        pd.to_datetime(previous_rows["date"]).dt.month < month
+    ]
+    previous_through_prior_month = int(prior_months["gallons"].sum())
+
+    same_month = previous_rows[
+        pd.to_datetime(previous_rows["date"]).dt.month == month
+    ]
+    previous_same_month_total = int(same_month["gallons"].sum())
+
+    previous_prorated_ytd = (
+        previous_through_prior_month
+        + (day / days_in_month) * previous_same_month_total
+    )
+
+    # Guard against a prior year with nothing to compare against.
+    if previous_prorated_ytd <= 0 or previous_year_full <= 0:
+        return None
+
+    projected = previous_year_full / previous_prorated_ytd * current_ytd
+
+    return {
+        "latest_data_date": latest.strftime("%Y-%m-%d"),
+        "current_year": current_year,
+        "previous_year": previous_year,
+        "current_ytd": current_ytd,
+        "previous_year_full": previous_year_full,
+        "previous_through_prior_month": previous_through_prior_month,
+        "previous_same_month_total": previous_same_month_total,
+        "previous_prorated_ytd": round(previous_prorated_ytd, 2),
+        "projected_current_year": int(round(projected)),
+        "percent_vs_previous_year": round(projected / previous_year_full - 1, 6),
+    }
+
+
+def compute_region_stats(df_region):
+    """
+    Customer and active-customer counts per region.
+
+    Regions are NOT exclusive — a customer matching two regions is counted in
+    both — so these counts do not sum to the company total. That matches the
+    existing Excel behavior and is intentional.
+    """
+    stats = {}
+
+    for region, group in df_region.groupby("region"):
+        by_customer = group.drop_duplicates("customer_id")
+        active = by_customer["is_active"]
+
+        stats[str(region)] = {
+            "customers": int(len(by_customer)),
+            # Source-site status only. Never inferred from pickup recency.
+            # None when the scrape has not captured status yet.
+            "active": int((active == True).sum()) if active.notna().any() else None,
+        }
+
+    return stats
+
+
 def export_json(df):
     """Export clean JSON for the website to consume."""
 
@@ -810,6 +906,20 @@ def export_json(df):
         "out_of_state_total": int(
             df[df["county"].str.startswith("Out-of-State", na=False)]["gallons"].sum()
         ),
+
+        # ── added in Phase 4B ──
+        # Source-site active customers. None if a scrape has not captured
+        # status yet; the page then says so rather than showing a wrong number.
+        "active_customer_count": (
+            int(df.drop_duplicates("customer_id")["is_active"].eq(True).sum())
+            if df["is_active"].notna().any() else None
+        ),
+        # Month-prorated projection for the current year. None when there is no
+        # usable prior year to compare against.
+        "projection": compute_projection(df),
+        # Per-region customer and active-customer counts. Not additive: regions
+        # are not exclusive.
+        "region_stats": compute_region_stats(df_region),
     }
 
     with open("oil_data.json", "w") as f:

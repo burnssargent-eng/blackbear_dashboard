@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Black Bear Bio — Oil Collection Dashboard</title>
+  <title>Black Bear Biodiesel — Oil Collection Analytics</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
@@ -97,6 +97,19 @@
       color: #8b949e;
       margin-top: 4px;
     }
+
+    /* Secondary line inside an existing stat card. Deliberately smaller than
+       .stat-val so the headline number stays the focus and the 4-card grid
+       is unchanged. */
+    .stat-sub {
+      font-size: 12px;
+      color: #8b949e;
+      margin-top: 6px;
+      min-height: 15px;
+    }
+
+    .stat-sub .up   { color: #3fb950; }
+    .stat-sub .down { color: #e5734b; }
 
     .main {
       display: grid;
@@ -282,16 +295,19 @@
 <body>
 
 <header>
-  <img src="logo.png" alt="Black Bear Bio" onerror="this.style.display='none'">
+  <img src="logo.png" alt="Black Bear Biodiesel" onerror="this.style.display='none'">
   <div>
-    <div class="subtitle">Oil Collection Dashboard</div>
-    <h1>Black Bear Bio</h1>
+    <div class="subtitle">Oil Collection Analytics</div>
+    <h1>Black Bear Biodiesel</h1>
   </div>
   <nav class="main-nav" id="main-nav">
     <a href="index.html" class="active">Dashboard</a>
-    <a href="customers.html">Top Customers</a>
-    <a href="year.html" id="nav-year">Years</a>
     <a href="region.html" id="nav-region">Regions</a>
+    <a href="customers.html">Customers</a>
+    <a href="year.html" id="nav-year">Years</a>
+    <!-- schmootz.html is built in Phase 4D; the link is here so the nav order
+         is final. It 404s until that page exists. -->
+    <a href="schmootz.html">Schmootz</a>
   </nav>
   <div class="last-updated" id="last-updated">Loading...</div>
 </header>
@@ -304,6 +320,7 @@
   <div class="stat">
     <div class="stat-val" id="stat-year">—</div>
     <div class="stat-label">This Year</div>
+    <div class="stat-sub" id="stat-projection"></div>
   </div>
   <div class="stat">
     <div class="stat-val" id="stat-month">—</div>
@@ -312,6 +329,7 @@
   <div class="stat">
     <div class="stat-val" id="stat-customers">—</div>
     <div class="stat-label">Customers</div>
+    <div class="stat-sub" id="stat-active"></div>
   </div>
 </div>
 
@@ -668,6 +686,9 @@ async function loadAll() {
   document.getElementById("last-updated").textContent =
     "Updated: " + new Date(allData.last_updated).toLocaleString();
 
+  renderProjection(allData.projection);
+  renderActiveCustomers(allData.active_customer_count);
+
   // Point the nav at real values from the data rather than hardcoding them.
   const latestYear = months.length ? months[months.length - 1].slice(0, 4) : "";
   if (latestYear) {
@@ -681,6 +702,49 @@ async function loadAll() {
 
   renderMap(currentIdx);
   buildCharts();
+}
+
+/**
+ * Secondary line inside the "This Year" card: where the year is on pace to
+ * land, and how that compares with the previous full year.
+ *
+ * The projection is computed in oil_scraper.py against the PRORATED previous
+ * year and anchored to the latest collection date, so a scrape that has not
+ * run for a few days does not drag it down.
+ */
+function renderProjection(projection) {
+  const el = document.getElementById("stat-projection");
+  if (!el) return;
+
+  if (!projection || !Number.isFinite(Number(projection.projected_current_year))) {
+    el.textContent = "Projection unavailable";
+    return;
+  }
+
+  const pct = Number(projection.percent_vs_previous_year);
+  const arrow = pct >= 0 ? "+" : "";
+  const cls = pct >= 0 ? "up" : "down";
+
+  el.innerHTML =
+    "Projected: " + formatNumber(projection.projected_current_year) +
+    ` <span class="${cls}">(${arrow}${(pct * 100).toFixed(1)}% vs ` +
+    `${projection.previous_year})</span>`;
+}
+
+/**
+ * Secondary line inside the "Customers" card.
+ * Source-site status only — never inferred from how recently a customer had a
+ * pickup.
+ */
+function renderActiveCustomers(count) {
+  const el = document.getElementById("stat-active");
+  if (!el) return;
+
+  // Note the explicit null/undefined test: Number(null) is 0, which is finite,
+  // so a plain isFinite check would render a missing count as "Active: 0".
+  el.textContent = (count === null || count === undefined || !Number.isFinite(Number(count)))
+    ? "Active status pending next scrape"
+    : "Active: " + formatNumber(count);
 }
 
 /**

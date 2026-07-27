@@ -542,6 +542,120 @@ def check_12_cache_busting(report, fetches, text):
                     "the nightly job rewrites the data files.")
 
 
+def check_quantity_rule(report, coll):
+    report.section("Q", "Counted-quantity rule")
+
+    from oil_scraper import EMPTY_QTYS
+
+    expected = {0, 1, 2, 3}
+    if set(EMPTY_QTYS) == expected:
+        report.ok(f"EMPTY_QTYS is {sorted(EMPTY_QTYS)} — unchanged.")
+    else:
+        report.fail(f"EMPTY_QTYS is {sorted(EMPTY_QTYS)}, expected {sorted(expected)}. "
+                    "Counted gallons would move.")
+
+    if 4 in EMPTY_QTYS:
+        report.fail("4 is excluded. 4-gallon pickups must stay counted as 4.")
+    else:
+        report.ok("4 is NOT excluded — 4-gallon pickups stay counted as 4.")
+
+    if not coll:
+        report.warn("Skipped record scan — collections not available.")
+        return
+
+    smallest = min(r.get("gallons", 0) for r in coll)
+    if smallest >= 4:
+        report.ok(f"Lowest retained quantity is {smallest} — the retained records "
+                  "are the qualifying-pickup set (gallons >= 4).")
+    else:
+        report.fail(f"Lowest retained quantity is {smallest}, below 4.")
+
+    fours = sum(1 for r in coll if r.get("gallons") == 4)
+    report.info(f"{fours} record(s) at exactly 4 gallons, counted as 4 (not rounded).")
+
+
+def check_projection(report, data):
+    report.section("P", "Current-year projection")
+
+    proj = data.get("projection")
+    if not proj:
+        report.warn("No projection exported. The homepage will show "
+                    "'Projection unavailable'.")
+        return
+
+    required = ["latest_data_date", "current_ytd", "previous_year_full",
+                "previous_through_prior_month", "previous_same_month_total",
+                "previous_prorated_ytd", "projected_current_year",
+                "percent_vs_previous_year"]
+    missing = [k for k in required if k not in proj]
+    if missing:
+        report.fail(f"Projection is missing field(s): {missing}")
+        return
+    report.ok("All projection fields present.")
+
+    # Recompute independently from the stored inputs.
+    import calendar as _cal
+    day = int(proj["latest_data_date"][8:10])
+    month = int(proj["latest_data_date"][5:7])
+    dim = _cal.monthrange(int(proj["previous_year"]), month)[1]
+
+    prorated = (proj["previous_through_prior_month"]
+                + (day / dim) * proj["previous_same_month_total"])
+    if abs(prorated - proj["previous_prorated_ytd"]) > 1:
+        report.fail(f"previous_prorated_ytd is {proj['previous_prorated_ytd']:,}, "
+                    f"recomputed {prorated:,.2f}")
+    else:
+        report.ok(f"previous_prorated_ytd checks out ({prorated:,.1f}).")
+
+    projected = proj["previous_year_full"] / prorated * proj["current_ytd"]
+    if abs(projected - proj["projected_current_year"]) > 1:
+        report.fail(f"projected_current_year is {proj['projected_current_year']:,}, "
+                    f"recomputed {projected:,.0f}")
+    else:
+        report.ok(f"projected_current_year checks out "
+                  f"({proj['projected_current_year']:,}).")
+
+    pct = proj["percent_vs_previous_year"]
+    report.info(f"Projected {proj['projected_current_year']:,} for "
+                f"{proj['current_year']} — {pct * 100:+.1f}% vs "
+                f"{proj['previous_year']} ({proj['previous_year_full']:,}).")
+    report.info(f"Anchored to latest data date {proj['latest_data_date']}, "
+                "not today's date.")
+
+
+def check_active_customers(report, data, coll):
+    report.section("A", "Source-site active customers")
+
+    count = data.get("active_customer_count")
+    if count is None:
+        report.warn("active_customer_count is null — status not captured yet. "
+                    "The card will say so rather than show a wrong number.")
+    else:
+        report.ok(f"active_customer_count = {count:,} of "
+                  f"{data.get('customer_count', 0):,} total.")
+
+        if coll:
+            status = {}
+            for r in coll:
+                status[r["customer_id"]] = r.get("is_active")
+            recomputed = sum(1 for v in status.values() if v is True)
+            if recomputed != count:
+                report.fail(f"Recomputed active count is {recomputed:,}, "
+                            f"export says {count:,}.")
+            else:
+                report.ok("Recomputed from collections and it matches.")
+
+    stats = data.get("region_stats")
+    if not stats:
+        report.warn("No region_stats exported — the region page will show "
+                    "'Active unavailable'.")
+        return
+
+    report.ok(f"region_stats present for {len(stats)} region(s).")
+    report.info("Regions are not exclusive, so these counts do not sum to the "
+                "company total.")
+
+
 def check_reconciliation(report, data):
     report.section("R", "Totals reconcile against all_time_total")
 
@@ -660,6 +774,9 @@ def main():
     fetches = check_11_static_fetches(report, text)
     check_12_cache_busting(report, fetches, text)
 
+    check_quantity_rule(report, coll)
+    check_projection(report, data)
+    check_active_customers(report, data, coll)
     check_reconciliation(report, data)
     check_regions(report, data)
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Region Detail — Black Bear Bio</title>
+  <title>Region Detail — Black Bear Biodiesel</title>
 
   <link rel="stylesheet" href="dashboard.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
@@ -12,11 +12,12 @@
 <body>
 
 <header>
-  <img src="logo.png" alt="Black Bear Bio" onerror="this.style.display='none'">
+  <img src="logo.png" alt="Black Bear Biodiesel" onerror="this.style.display='none'">
   <div>
-    <div class="subtitle">Oil Collection Dashboard</div>
-    <h1>Black Bear Bio</h1>
+    <div class="subtitle">Oil Collection Analytics</div>
+    <h1>Black Bear Biodiesel</h1>
   </div>
+  <div class="page-name" id="page-name"></div>
   <nav class="main-nav" id="main-nav"></nav>
   <div class="last-updated" id="last-updated"></div>
 </header>
@@ -74,7 +75,7 @@ async function init() {
   const match = options.find(r => r.toLowerCase() === requested.toLowerCase());
   const region = match || options[0];
 
-  document.title = `${region} — Black Bear Bio`;
+  document.title = `${region} — Black Bear Biodiesel`;
 
   const monthly = monthlyRows.filter(r => r.region === region);
   const yearly = yearlyRows.filter(r => r.region === region);
@@ -84,10 +85,13 @@ async function init() {
     return;
   }
 
-  render(page, region, options, monthly, yearly, named);
+  render(page, region, options, monthly, yearly, named,
+         (data.region_stats || {})[region]);
 }
 
-function render(page, region, options, monthly, yearly, named) {
+function render(page, region, options, monthly, yearly, named, regionStats) {
+  renderPageName(`${region} Region`);
+
   const monthTotals = {};
   monthly.forEach(r => { monthTotals[r.month] = (monthTotals[r.month] || 0) + (Number(r.gallons) || 0); });
 
@@ -103,9 +107,18 @@ function render(page, region, options, monthly, yearly, named) {
 
   const isOther = !named.includes(region);
 
+  // Source-site active customers in this region. Exported by oil_scraper.py so
+  // the region matchers stay in one place. Never inferred from pickup recency.
+  const activeCount = regionStats ? regionStats.active : undefined;
+  // Explicit null test: Number(null) is 0 and would render a missing count
+  // as "0" rather than saying the status is unavailable.
+  const activeDisplay = (activeCount === null || activeCount === undefined
+                         || !Number.isFinite(Number(activeCount)))
+    ? "Active unavailable"
+    : formatNumber(activeCount);
+
   page.innerHTML = `
     <a class="back-link" href="index.html">← Back to the dashboard</a>
-    <div class="page-title">${escapeHtml(region)} Region</div>
     <div class="page-subtitle">
       ${escapeHtml(formatMonth(months[0]))} – ${escapeHtml(formatMonth(latestMonth))}
       ${isOther ? " · unassigned bucket" : ""}
@@ -135,8 +148,8 @@ function render(page, region, options, monthly, yearly, named) {
         <div class="stat-label">${escapeHtml(formatMonth(latestMonth))}</div>
       </div>
       <div class="stat">
-        <div class="stat-val">${formatNumber(months.length)}</div>
-        <div class="stat-label">Months With Data</div>
+        <div class="stat-val">${activeDisplay}</div>
+        <div class="stat-label">Active Customers</div>
       </div>
     </div>
 
@@ -146,6 +159,10 @@ function render(page, region, options, monthly, yearly, named) {
       not sum to the all-time company total. This mirrors the region logic used by
       the Excel report and is intentional.
       ${isOther ? "<br><strong>" + escapeHtml(region) + "</strong> is the catch-all bucket for records that match no named region." : ""}
+      ${regionStats && Number.isFinite(Number(regionStats.customers))
+        ? `<br><strong>Active Customers</strong> counts source-site active customers
+           out of ${formatNumber(regionStats.customers)} total in this region.
+           It is not derived from how recently a customer had a pickup.` : ""}
       <br>Customer-level ranking is not shown here because region membership is
       not exported per customer yet. That is a possible future enhancement.
     </div>

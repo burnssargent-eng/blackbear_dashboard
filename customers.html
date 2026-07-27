@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Top Customers — Black Bear Bio</title>
+  <title>Top Customers — Black Bear Biodiesel</title>
 
   <link rel="stylesheet" href="dashboard.css">
 </head>
@@ -11,11 +11,12 @@
 <body>
 
 <header>
-  <img src="logo.png" alt="Black Bear Bio" onerror="this.style.display='none'">
+  <img src="logo.png" alt="Black Bear Biodiesel" onerror="this.style.display='none'">
   <div>
-    <div class="subtitle">Oil Collection Dashboard</div>
-    <h1>Black Bear Bio</h1>
+    <div class="subtitle">Oil Collection Analytics</div>
+    <h1>Black Bear Biodiesel</h1>
   </div>
+  <div class="page-name" id="page-name"></div>
   <nav class="main-nav" id="main-nav"></nav>
   <div class="last-updated" id="last-updated"></div>
 </header>
@@ -68,11 +69,12 @@ async function init() {
 }
 
 function buildShell(page) {
+  renderPageName("Top Producing Customers");
+
   const latest = allMonths[allMonths.length - 1];
 
   page.innerHTML = `
     <a class="back-link" href="index.html">← Back to the dashboard</a>
-    <div class="page-title">Top Producing Customers</div>
     <div class="page-subtitle" id="period-label">—</div>
 
     <div class="controls">
