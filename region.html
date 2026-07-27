@@ -37,8 +37,12 @@
  * monthly and yearly aggregates. Which customers belong to a region is not
  * exported, so there is deliberately no customer table here — inventing one
  * would mean re-implementing the region matchers in the browser and risking
- * disagreement with the Excel report.
+ * disagreement with the Excel report. Phase 4C added region_customers to
+ * oil_data.json, so the customer table below uses that exported membership
+ * rather than deriving anything client-side.
  */
+
+const REGION_CUSTOMER_LIMIT = 25;
 
 async function init() {
   const page = document.getElementById("page");
@@ -85,11 +89,30 @@ async function init() {
     return;
   }
 
+  // Region membership comes from oil_scraper.py, derived with the same
+  // CUSTOM_REGIONS matchers the Excel report uses, so the two cannot drift.
+  // Regions are NOT exclusive: a customer matching two regions appears in both.
+  const memberIds = new Set((data.region_customers || {})[region] || []);
+
+  let regionCustomers = [];
+  if (memberIds.size) {
+    try {
+      const lifecycle = await loadCustomerLifecycle(data);
+      regionCustomers = lifecycle
+        .filter(c => memberIds.has(c.customer_id))
+        .sort((a, b) => b.gallons - a.gallons);
+    } catch (err) {
+      // The summary above still renders; only the customer table is missing.
+      regionCustomers = [];
+    }
+  }
+
   render(page, region, options, monthly, yearly, named,
-         (data.region_stats || {})[region]);
+         (data.region_stats || {})[region], regionCustomers);
 }
 
-function render(page, region, options, monthly, yearly, named, regionStats) {
+function render(page, region, options, monthly, yearly, named, regionStats,
+                regionCustomers) {
   renderPageName(`${region} Region`);
 
   const monthTotals = {};
@@ -106,6 +129,11 @@ function render(page, region, options, monthly, yearly, named, regionStats) {
   const allTime = Object.values(monthTotals).reduce((a, b) => a + b, 0);
 
   const isOther = !named.includes(region);
+
+  const topCustomers = regionCustomers || [];
+  const shownGallons = topCustomers
+    .slice(0, REGION_CUSTOMER_LIMIT)
+    .reduce((sum, c) => sum + (Number(c.gallons) || 0), 0);
 
   // Source-site active customers in this region. Exported by oil_scraper.py so
   // the region matchers stay in one place. Never inferred from pickup recency.
@@ -163,8 +191,26 @@ function render(page, region, options, monthly, yearly, named, regionStats) {
         ? `<br><strong>Active Customers</strong> counts source-site active customers
            out of ${formatNumber(regionStats.customers)} total in this region.
            It is not derived from how recently a customer had a pickup.` : ""}
-      <br>Customer-level ranking is not shown here because region membership is
-      not exported per customer yet. That is a possible future enhancement.
+    </div>
+
+    <div class="section">
+      <div class="section-title">
+        Top ${formatNumber(Math.min(REGION_CUSTOMER_LIMIT, topCustomers.length))}
+        Producing Customers — ${escapeHtml(region)}${
+          topCustomers.length > REGION_CUSTOMER_LIMIT
+            ? ` (of ${formatNumber(topCustomers.length)})` : ""}
+      </div>
+      ${topCustomers.length ? `
+        <div class="note">
+          Ranked by all-time qualifying gallons. Their total is
+          ${formatNumber(shownGallons)} gallons of the region's
+          ${formatNumber(allTime)}.
+          Status comes from the source site's active and inactive lists, not from
+          how recently a customer had a pickup.
+        </div>
+        ${customerTableHtml(topCustomers.slice(0, REGION_CUSTOMER_LIMIT),
+                            { town: true, dates: false })}
+      ` : `<div class="note">No customer-level detail is available for this region.</div>`}
     </div>
 
     <div class="section chart-grid">

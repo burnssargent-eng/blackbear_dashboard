@@ -116,11 +116,11 @@ function render(page, rows, data) {
       </div>
       <div class="stat">
         <div class="stat-val small">${formatDate(dates[0])}</div>
-        <div class="stat-label">First Pickup</div>
+        <div class="stat-label">First Qualifying Pickup</div>
       </div>
       <div class="stat">
         <div class="stat-val small">${formatDate(dates[dates.length - 1])}</div>
-        <div class="stat-label">Latest Pickup</div>
+        <div class="stat-label">Last Qualifying Pickup</div>
       </div>
     </div>
 
@@ -151,8 +151,8 @@ function render(page, rows, data) {
               <th>Customer</th>
               <th class="num">Total Gallons</th>
               <th class="num">Pickups</th>
-              <th>First Pickup</th>
-              <th>Latest Pickup</th>
+              <th>First Qualifying Pickup</th>
+              <th>Last Qualifying Pickup</th>
               <th>Status</th>
             </tr>
           </thead>

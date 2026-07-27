@@ -37,10 +37,11 @@ const TOP_CUSTOMER_LIMIT = 25;
 async function init() {
   const page = document.getElementById("page");
 
-  let data, records;
+  let data, records, lifecycle;
   try {
     data = await loadOilData();
     records = await loadCollections(data);
+    lifecycle = await loadCustomerLifecycle(data);
   } catch (err) {
     renderNav("year", null);
     renderState(page, "error", "Could not load the collection data.", err.message);
@@ -75,11 +76,22 @@ async function init() {
     return;
   }
 
-  render(page, rows, year, availableYears);
+  render(page, rows, year, availableYears, lifecycle, data.dormant_cutoff);
 }
 
-function render(page, rows, year, availableYears) {
+function render(page, rows, year, availableYears, lifecycle, dormantCutoff) {
   renderPageName(`${year} Oil Collection`);
+
+  // Lifecycle membership is decided in oil_scraper.py from the whole dataset,
+  // not from this year's rows, so a customer's gained/lost year is stable no
+  // matter which year page you are looking at.
+  const gainedCustomers = (lifecycle || [])
+    .filter(c => Number(c.gained_year) === year)
+    .sort((a, b) => (a.first_qualifying_pickup || "").localeCompare(b.first_qualifying_pickup || ""));
+
+  const lostCustomers = (lifecycle || [])
+    .filter(c => Number(c.lost_year) === year)
+    .sort((a, b) => (a.last_qualifying_pickup || "").localeCompare(b.last_qualifying_pickup || ""));
 
   const customers = aggregateCustomers(rows);
   const monthTotals = groupSum(rows, r => r.month);
@@ -133,11 +145,11 @@ function render(page, rows, year, availableYears) {
       </div>
       <div class="stat">
         <div class="stat-val small">${formatDate(dates[0])}</div>
-        <div class="stat-label">First Pickup</div>
+        <div class="stat-label">First Qualifying Pickup</div>
       </div>
       <div class="stat">
         <div class="stat-val small">${formatDate(dates[dates.length - 1])}</div>
-        <div class="stat-label">Latest Pickup</div>
+        <div class="stat-label">Last Qualifying Pickup</div>
       </div>
     </div>
 
@@ -226,6 +238,68 @@ function render(page, rows, year, availableYears) {
           </tbody>
         </table>
       </div>
+    </div>
+
+    <div class="section chart-grid">
+      <div>
+        <div class="section-title">
+          Customers Gained in ${year} (${formatNumber(gainedCustomers.length)})
+        </div>
+        ${gainedCustomers.length ? `
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Customer</th><th>Town / City</th><th>First Qualifying Pickup</th></tr>
+            </thead>
+            <tbody>
+              ${gainedCustomers.map(c => `
+                <tr>
+                  <td>${escapeHtml(c.name)}</td>
+                  <td>${c.geo_town
+                      ? `<a href="town.html?town=${encodeURIComponent(c.geo_town)}">${escapeHtml(c.geo_town)}</a>`
+                      : escapeHtml(c.city || "—")}</td>
+                  <td>${formatDate(c.first_qualifying_pickup)}</td>
+                </tr>`).join("")}
+            </tbody>
+          </table>
+        </div>` : `<div class="note">No customers had their first qualifying pickup in ${year}.</div>`}
+      </div>
+
+      <div>
+        <div class="section-title">
+          Customers Lost in ${year} (${formatNumber(lostCustomers.length)})
+        </div>
+        ${lostCustomers.length ? `
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Customer</th><th>Town / City</th><th>Last Qualifying Pickup</th><th>Reason</th></tr>
+            </thead>
+            <tbody>
+              ${lostCustomers.map(c => `
+                <tr>
+                  <td>${escapeHtml(c.name)}</td>
+                  <td>${c.geo_town
+                      ? `<a href="town.html?town=${encodeURIComponent(c.geo_town)}">${escapeHtml(c.geo_town)}</a>`
+                      : escapeHtml(c.city || "—")}</td>
+                  <td>${formatDate(c.last_qualifying_pickup)}</td>
+                  <td>${escapeHtml(c.lost_reason || "—")}</td>
+                </tr>`).join("")}
+            </tbody>
+          </table>
+        </div>` : `<div class="note">No customers are attributed as lost in ${year}.</div>`}
+      </div>
+    </div>
+
+    <div class="section">
+      ${lifecycleFootnoteHtml(`
+        <br><strong>Source-site inactive</strong> means the customer is no longer on
+        the active customer list.
+        <strong>Dormant active-list</strong> means they are still on the active list
+        but have had no qualifying pickup since
+        ${escapeHtml(dormantCutoff || "the dormant cutoff")}.
+        <br>A customer's lost year is the year of their last qualifying pickup, which
+        can be well before they were marked inactive.`)}
     </div>
   `;
 

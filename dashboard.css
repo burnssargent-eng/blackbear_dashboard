@@ -288,6 +288,10 @@ select:disabled {
   width: 48px;
 }
 
+/* Net movement: green when customers were gained, orange-red when lost. */
+.data-table .up   { color: #3fb950; font-weight: bold; }
+.data-table .down { color: #e5734b; font-weight: bold; }
+
 .data-table a {
   color: #e6edf3;
   text-decoration: none;

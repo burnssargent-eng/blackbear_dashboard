@@ -28,8 +28,18 @@ DELAY_SEC    = 0.3
 # Per-record detail, written alongside the summary oil_data.json.
 COLLECTIONS_JSON = "oil_collections.json"
 
-# Quantities meaning "we collected nothing" — excluded from all totals
+# Quantities meaning "we collected nothing" — excluded from all totals.
+#   2 = customer call received / entered in the system, not an oil pickup
+#   3 = barrel or tote delivery, not an oil pickup
+# 4 is NOT excluded: it is a data-entry typo but counts as 4 gallons exactly,
+# and is never rounded up.
 EMPTY_QTYS = {0, 1, 2, 3}
+
+# A source-site ACTIVE customer with no qualifying pickup since this date counts
+# as lost, attributed to the year of their last qualifying pickup. Fixed rather
+# than rolling so the numbers are reproducible against past reports; change this
+# one line to move it.
+DORMANT_CUTOFF = "2025-01-01"
 
 MONTH_MAP = {
     "Jan": 1, "Feb": 2, "Mar": 3, "Apr": 4,  "May": 5,  "Jun": 6,
@@ -794,6 +804,122 @@ def compute_projection(df):
     }
 
 
+def compute_customer_lifecycle(df):
+    """
+    One row per customer describing their qualifying-pickup lifecycle.
+
+    Every row in df is already a qualifying pickup: EMPTY_QTYS strips 0/1/2/3 at
+    parse time, so everything retained is an oil pickup of 4+ gallons. That
+    means "first/last pickup" here is precisely "first/last QUALIFYING pickup",
+    and the pages must label it that way.
+
+    lost_year is set when the customer is either off the source-site active list
+    or still on it but dormant since DORMANT_CUTOFF. It is the year of their
+    LAST qualifying pickup, which may be long before they were marked inactive.
+    """
+    if df.empty:
+        return []
+
+    dates = pd.to_datetime(df["date"]).dt.strftime("%Y-%m-%d")
+    work = df.assign(_date=dates)
+
+    customers = []
+
+    for cid, group in work.groupby("customer_id"):
+        first = group["_date"].min()
+        last = group["_date"].max()
+        row = group.iloc[0]
+
+        is_active = row["is_active"]
+        if pd.isna(is_active):
+            is_active = None
+        else:
+            is_active = bool(is_active)
+
+        # Two independent ways to be "lost". Recorded separately so the year
+        # page can explain WHY a customer appears in the list.
+        source_inactive = is_active is False
+        dormant_active = is_active is True and last < DORMANT_CUTOFF
+
+        if source_inactive:
+            lost_reason = "Source-site inactive"
+        elif dormant_active:
+            lost_reason = "Dormant active-list"
+        else:
+            lost_reason = None
+
+        customers.append({
+            "customer_id": int(cid),
+            "name": row["name"],
+            "city": row["city"],
+            "geo_town": row["geo_town"],
+            "county": row["county"],
+            "is_active": is_active,
+            "gallons": int(group["gallons"].sum()),
+            "pickups": int(len(group)),
+            "first_qualifying_pickup": first,
+            "last_qualifying_pickup": last,
+            "gained_year": int(first[:4]),
+            "lost_year": int(last[:4]) if lost_reason else None,
+            "lost_reason": lost_reason,
+        })
+
+    customers.sort(key=lambda c: -c["gallons"])
+    return customers
+
+
+def compute_lifecycle_by_year(df, customers):
+    """
+    Places serviced / gained / lost / net per calendar year.
+
+      places_serviced — unique customers with 1+ qualifying pickup that year
+      gained          — customers whose FIRST qualifying pickup was that year
+      lost            — customers whose LAST qualifying pickup was that year AND
+                        who are source-site inactive or dormant-active
+      net             — gained - lost
+    """
+    if df.empty:
+        return []
+
+    served = df.groupby("year")["customer_id"].nunique()
+
+    gained = {}
+    lost = {}
+    for c in customers:
+        gained[c["gained_year"]] = gained.get(c["gained_year"], 0) + 1
+        if c["lost_year"] is not None:
+            lost[c["lost_year"]] = lost.get(c["lost_year"], 0) + 1
+
+    rows = []
+    for year in sorted(served.index):
+        y = int(year)
+        g = int(gained.get(y, 0))
+        l = int(lost.get(y, 0))
+        rows.append({
+            "year": y,
+            "places_serviced": int(served.loc[year]),
+            "gained": g,
+            "lost": l,
+            "net": g - l,
+        })
+
+    return rows
+
+
+def compute_region_customers(df_region):
+    """
+    Which customer ids belong to each region.
+
+    Derived from the same CUSTOM_REGIONS matchers used by the Excel report, so
+    the website cannot drift from it. Regions are NOT exclusive — a customer
+    matching two regions appears under both.
+    """
+    return {
+        str(region): sorted(int(c) for c in group["customer_id"].unique())
+        for region, group in df_region.groupby("region")
+    }
+
+
 def compute_region_stats(df_region):
     """
     Customer and active-customer counts per region.
@@ -876,6 +1002,9 @@ def export_json(df):
         .reset_index()
     )
 
+    # Per-customer lifecycle, shared by the summary below and the detail file.
+    customers = compute_customer_lifecycle(df)
+
     # Current year month-by-month
     current_year = datetime.today().year
     current = df[df["year"] == current_year]
@@ -920,6 +1049,16 @@ def export_json(df):
         # Per-region customer and active-customer counts. Not additive: regions
         # are not exclusive.
         "region_stats": compute_region_stats(df_region),
+
+        # ── added in Phase 4C ──
+        # Places serviced / gained / lost / net per year. Small enough to live
+        # in the summary file; the per-customer detail behind it ships with
+        # oil_collections.json so the homepage does not pay for it.
+        "lifecycle_by_year": compute_lifecycle_by_year(df, customers),
+        "dormant_cutoff": DORMANT_CUTOFF,
+        # Region membership by customer id, from the same matchers the Excel
+        # report uses. Regions are not exclusive.
+        "region_customers": compute_region_customers(df_region),
     }
 
     with open("oil_data.json", "w") as f:
@@ -960,6 +1099,10 @@ def export_collections(df):
     output = {
         "last_updated": datetime.now().isoformat(),
         "count": int(len(detail)),
+        # Per-customer lifecycle travels with the detail file rather than the
+        # summary, so the homepage never downloads it.
+        "customers": compute_customer_lifecycle(df),
+        "dormant_cutoff": DORMANT_CUTOFF,
         "records": detail.to_dict(orient="records"),
     }
 

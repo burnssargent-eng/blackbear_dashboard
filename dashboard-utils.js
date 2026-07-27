@@ -34,7 +34,12 @@ async function loadOilData() {
  * reuses the browser's cached copy instead of re-downloading 5 MB every time,
  * while a nightly update still produces a new URL and is picked up at once.
  */
-async function loadCollections(data) {
+let _collectionsPayload = null;
+
+/** Fetches the detail file once and reuses it for every accessor below. */
+async function loadCollectionsPayload(data) {
+  if (_collectionsPayload) return _collectionsPayload;
+
   const file = (data && data.collections_file) || "oil_collections.json";
   const version = encodeURIComponent((data && data.last_updated) || Date.now());
 
@@ -43,8 +48,23 @@ async function loadCollections(data) {
     throw new Error(`Could not load ${file} (HTTP ${resp.status})`);
   }
 
-  const payload = await resp.json();
+  _collectionsPayload = await resp.json();
+  return _collectionsPayload;
+}
+
+async function loadCollections(data) {
+  const payload = await loadCollectionsPayload(data);
   return payload.records || [];
+}
+
+/**
+ * Per-customer lifecycle, computed in oil_scraper.py so the website cannot
+ * drift from the Excel report. Each entry carries first/last QUALIFYING pickup,
+ * source-site status, and lost_year / lost_reason when applicable.
+ */
+async function loadCustomerLifecycle(data) {
+  const payload = await loadCollectionsPayload(data);
+  return payload.customers || [];
 }
 
 /* ─────────────────────────────────────────────
@@ -439,5 +459,65 @@ function renderPageName(text) {
 
 /** Shown anywhere lifecycle figures appear. */
 const LIFECYCLE_FOOTNOTE =
+  "Lifecycle metrics are based on qualifying oil pickups of 4+ gallons. " +
   "Lost customers are assigned to the year of their last qualifying pickup, " +
-  "based on current source-site status as of the latest scrape.";
+  "based on current source-site status and the dormant cutoff as of the " +
+  "latest scrape.";
+
+/** The footnote as a styled note block, for dropping straight into a page. */
+function lifecycleFootnoteHtml(extra) {
+  return `<div class="note">${escapeHtml(LIFECYCLE_FOOTNOTE)}${extra || ""}</div>`;
+}
+
+/**
+ * Renders the shared top-producing-customers table.
+ *
+ * `rows` are customer objects from loadCustomerLifecycle (or any object with
+ * the same field names). `columns` selects which optional columns to show, so
+ * the customers, year and region pages can share one implementation.
+ */
+function customerTableHtml(rows, options) {
+  const opts = options || {};
+  const showTown = opts.town !== false;
+  const showCounty = opts.county === true;
+  const showDates = opts.dates === true;
+
+  const head = [
+    '<th class="rank">#</th>',
+    "<th>Customer</th>",
+    showTown ? "<th>Town</th>" : "",
+    showCounty ? "<th>County</th>" : "",
+    '<th class="num">Total Gallons</th>',
+    '<th class="num">Pickups</th>',
+    showDates ? "<th>First Qualifying Pickup</th>" : "",
+    showDates ? "<th>Last Qualifying Pickup</th>" : "",
+    "<th>Status</th>",
+  ].join("");
+
+  const body = rows.map((c, i) => {
+    const town = c.geo_town
+      ? `<a href="town.html?town=${encodeURIComponent(c.geo_town)}">${escapeHtml(c.geo_town)}</a>`
+      : escapeHtml(c.city || "—");
+
+    return `
+      <tr>
+        <td class="rank">${i + 1}</td>
+        <td>${escapeHtml(c.name)}</td>
+        ${showTown ? `<td>${town}</td>` : ""}
+        ${showCounty ? `<td>${escapeHtml(c.county || "—")}</td>` : ""}
+        <td class="gal">${formatNumber(c.gallons)}</td>
+        <td class="num">${formatNumber(c.pickups)}</td>
+        ${showDates ? `<td>${formatDate(c.first_qualifying_pickup || c.first)}</td>` : ""}
+        ${showDates ? `<td>${formatDate(c.last_qualifying_pickup || c.last)}</td>` : ""}
+        <td>${statusBadge(c.is_active)}</td>
+      </tr>`;
+  }).join("");
+
+  return `
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr>${head}</tr></thead>
+        <tbody>${body}</tbody>
+      </table>
+    </div>`;
+}

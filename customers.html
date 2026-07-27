@@ -32,6 +32,8 @@
 let allRecords = [];
 let allMonths = [];
 let firstPickupByCustomer = {};   // customer_id -> earliest date anywhere in the data
+let lifecycleRows = [];           // per-year serviced / gained / lost / net
+let dormantCutoff = "";
 
 async function init() {
   const page = document.getElementById("page");
@@ -64,8 +66,85 @@ async function init() {
     if (!seen || r.date < seen) firstPickupByCustomer[r.customer_id] = r.date;
   });
 
+  lifecycleRows = data.lifecycle_by_year || [];
+  dormantCutoff = data.dormant_cutoff || "";
+
   buildShell(page);
   update();
+  renderLifecycle();
+}
+
+/**
+ * Places serviced / gained / lost / net per year.
+ *
+ * These are whole-history figures computed in oil_scraper.py, so they do NOT
+ * follow the period selector above — a lifecycle year means the same thing
+ * regardless of which month is selected.
+ */
+function renderLifecycle() {
+  const el = document.getElementById("lifecycle-section");
+  if (!el) return;
+
+  if (!lifecycleRows.length) {
+    el.innerHTML = `
+      <div class="section-title">Customer Lifecycle by Year</div>
+      <div class="note">Lifecycle data is not available in this export.</div>`;
+    return;
+  }
+
+  const totals = lifecycleRows.reduce((acc, r) => ({
+    gained: acc.gained + (Number(r.gained) || 0),
+    lost: acc.lost + (Number(r.lost) || 0),
+  }), { gained: 0, lost: 0 });
+
+  const firstYear = lifecycleRows[0].year;
+
+  el.innerHTML = `
+    <div class="section-title">Customer Lifecycle by Year</div>
+    ${lifecycleFootnoteHtml(`
+      <br><strong>Places Serviced</strong> counts unique customers with at least
+      one qualifying pickup that year.
+      <strong>Gained</strong> is the year of a customer's first qualifying pickup.
+      <strong>Lost</strong> is the year of their last qualifying pickup, counted
+      only for customers who are source-site inactive or still active but with no
+      qualifying pickup since ${escapeHtml(dormantCutoff || "the dormant cutoff")}.
+      <strong>Net</strong> is Gained minus Lost.
+      <br>${firstYear} shows every pre-existing customer as gained, because it is
+      the first year of recorded data rather than the year they actually started.`)}
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th class="num">Places Serviced</th>
+            <th class="num">Gained</th>
+            <th class="num">Lost</th>
+            <th class="num">Net</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${lifecycleRows.slice().reverse().map(r => {
+            const net = Number(r.net) || 0;
+            const cls = net > 0 ? "up" : (net < 0 ? "down" : "");
+            return `
+              <tr>
+                <td><a href="year.html?year=${encodeURIComponent(r.year)}">${escapeHtml(r.year)}</a></td>
+                <td class="num">${formatNumber(r.places_serviced)}</td>
+                <td class="num">${formatNumber(r.gained)}</td>
+                <td class="num">${formatNumber(r.lost)}</td>
+                <td class="num ${cls}">${net > 0 ? "+" : ""}${formatNumber(net)}</td>
+              </tr>`;
+          }).join("")}
+          <tr class="group-row">
+            <td>All years</td>
+            <td class="num">—</td>
+            <td class="num">${formatNumber(totals.gained)}</td>
+            <td class="num">${formatNumber(totals.lost)}</td>
+            <td class="num">${totals.gained - totals.lost > 0 ? "+" : ""}${formatNumber(totals.gained - totals.lost)}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>`;
 }
 
 function buildShell(page) {
@@ -102,6 +181,8 @@ function buildShell(page) {
       <div class="section-title" id="table-title">Customers</div>
       <div id="table-area"></div>
     </div>
+
+    <div class="section" id="lifecycle-section"></div>
   `;
 
   document.getElementById("mode-select").addEventListener("change", update);
@@ -249,8 +330,8 @@ function renderTable(area, customers) {
             <th>County</th>
             <th class="num">Gallons</th>
             <th class="num">Pickups</th>
-            <th>First Pickup</th>
-            <th>Latest Pickup</th>
+            <th>First Qualifying Pickup</th>
+            <th>Last Qualifying Pickup</th>
             <th>Status</th>
           </tr>
         </thead>

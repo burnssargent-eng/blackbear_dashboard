@@ -197,17 +197,21 @@ def check_2_geojson(report):
     return towns
 
 
-def load_collections(data):
-    """Read the detail file without reporting anything. Returns [] on any problem;
-    check 5 is what actually reports on it."""
+def load_collections_payload(data):
+    """Read the whole detail file without reporting anything. Returns {} on any
+    problem; check 5 is what actually reports on it."""
     path = data.get("collections_file")
     if not path or not os.path.exists(path):
-        return []
+        return {}
     try:
         with open(path) as f:
-            return json.load(f).get("records", [])
+            return json.load(f)
     except (json.JSONDecodeError, OSError):
-        return []
+        return {}
+
+
+def load_collections(data):
+    return load_collections_payload(data).get("records", [])
 
 
 def check_3_latest_date(report, data, coll):
@@ -656,6 +660,134 @@ def check_active_customers(report, data, coll):
                 "company total.")
 
 
+def check_lifecycle(report, data, coll_payload):
+    report.section("L", "Customer lifecycle")
+
+    rows = data.get("lifecycle_by_year")
+    if not rows:
+        report.warn("No lifecycle_by_year exported — the customers page will "
+                    "say lifecycle data is unavailable.")
+        return
+
+    cutoff = data.get("dormant_cutoff")
+    report.ok(f"lifecycle_by_year present for {len(rows)} year(s).")
+    report.info(f"Dormant cutoff: {cutoff}")
+
+    customers = (coll_payload or {}).get("customers") or []
+    if not customers:
+        report.warn("Per-customer lifecycle not present in the collections file.")
+        return
+    report.ok(f"Per-customer lifecycle present for {len(customers):,} customer(s).")
+
+    # No impossible values.
+    bad = []
+    for r in rows:
+        for field in ("places_serviced", "gained", "lost"):
+            v = r.get(field)
+            if not isinstance(v, int) or v < 0:
+                bad.append((r.get("year"), field, v))
+        if r.get("net") != r.get("gained", 0) - r.get("lost", 0):
+            bad.append((r.get("year"), "net", r.get("net")))
+    if bad:
+        report.fail(f"{len(bad)} impossible lifecycle value(s):")
+        for y, f, v in bad[:10]:
+            report.detail(f"{y} {f} = {v!r}")
+    else:
+        report.ok("All counts are non-negative integers and Net = Gained - Lost.")
+
+    # Gained/lost years must match the customer's own first/last dates.
+    mismatched_gain = [c for c in customers
+                       if c.get("gained_year") != int(str(c.get("first_qualifying_pickup"))[:4])]
+    mismatched_lost = [c for c in customers
+                       if c.get("lost_year") is not None
+                       and c["lost_year"] != int(str(c.get("last_qualifying_pickup"))[:4])]
+    if mismatched_gain:
+        report.fail(f"{len(mismatched_gain)} customer(s) whose gained_year is not "
+                    "the year of their first qualifying pickup.")
+    else:
+        report.ok("Every gained_year matches the first qualifying pickup.")
+    if mismatched_lost:
+        report.fail(f"{len(mismatched_lost)} customer(s) whose lost_year is not "
+                    "the year of their last qualifying pickup.")
+    else:
+        report.ok("Every lost_year matches the last qualifying pickup.")
+
+    # Lost membership must equal inactive + dormant-active.
+    inactive = [c for c in customers if c.get("is_active") is False]
+    dormant = [c for c in customers
+               if c.get("is_active") is True
+               and str(c.get("last_qualifying_pickup", "")) < str(cutoff)]
+    flagged = [c for c in customers if c.get("lost_year") is not None]
+
+    if len(flagged) != len(inactive) + len(dormant):
+        report.fail(f"{len(flagged)} customers flagged lost, but inactive "
+                    f"({len(inactive)}) + dormant-active ({len(dormant)}) = "
+                    f"{len(inactive) + len(dormant)}.")
+    else:
+        report.ok(f"{len(flagged)} lost = {len(inactive)} source-site inactive "
+                  f"+ {len(dormant)} dormant active-list.")
+
+    total_gained = sum(r["gained"] for r in rows)
+    total_lost = sum(r["lost"] for r in rows)
+    if total_gained != len(customers):
+        report.fail(f"Gained totals {total_gained} but there are "
+                    f"{len(customers)} customers; every customer is gained once.")
+    else:
+        report.ok(f"Gained sums to {total_gained:,}, one per customer.")
+    report.info(f"Lost sums to {total_lost:,}. Net across all years: "
+                f"{total_gained - total_lost:+,}")
+
+    first_year = rows[0]["year"]
+    report.info(f"{first_year} shows {rows[0]['gained']} gained because it is the "
+                "first year of data, not that many genuinely new customers.")
+
+
+def check_region_customers(report, data, coll_payload):
+    report.section("RC", "Region customer membership")
+
+    membership = data.get("region_customers")
+    if not membership:
+        report.warn("No region_customers exported — the region page will show "
+                    "no customer table.")
+        return
+
+    report.ok(f"region_customers present for {len(membership)} region(s).")
+
+    customers = {c["customer_id"]: c for c in (coll_payload or {}).get("customers") or []}
+    if not customers:
+        report.warn("Skipped reconciliation — per-customer lifecycle unavailable.")
+        return
+
+    monthly = data.get("monthly_by_region") or []
+    region_totals = {}
+    for r in monthly:
+        region_totals[r["region"]] = region_totals.get(r["region"], 0) + r["gallons"]
+
+    mismatches = []
+    for region, ids in membership.items():
+        derived = sum(customers[i]["gallons"] for i in ids if i in customers)
+        expected = region_totals.get(region, 0)
+        if derived != expected:
+            mismatches.append((region, derived, expected))
+
+    if mismatches:
+        report.fail(f"{len(mismatches)} region(s) whose member gallons do not "
+                    "match the aggregate export:")
+        for region, d, e in mismatches[:10]:
+            report.detail(f"{region}: members {d:,} vs monthly_by_region {e:,}")
+    else:
+        report.ok("Every region's member gallons reconcile exactly with "
+                  "monthly_by_region.")
+
+    unknown = {r: [i for i in ids if i not in customers]
+               for r, ids in membership.items()}
+    stray = sum(len(v) for v in unknown.values())
+    if stray:
+        report.fail(f"{stray} region member id(s) have no customer record.")
+    else:
+        report.ok("Every region member id resolves to a known customer.")
+
+
 def check_reconciliation(report, data):
     report.section("R", "Totals reconcile against all_time_total")
 
@@ -774,9 +906,13 @@ def main():
     fetches = check_11_static_fetches(report, text)
     check_12_cache_busting(report, fetches, text)
 
+    coll_payload = load_collections_payload(data)
+
     check_quantity_rule(report, coll)
     check_projection(report, data)
     check_active_customers(report, data, coll)
+    check_lifecycle(report, data, coll_payload)
+    check_region_customers(report, data, coll_payload)
     check_reconciliation(report, data)
     check_regions(report, data)
 
