@@ -42,9 +42,35 @@
     }
 
     .last-updated {
-      margin-left: auto;
+      margin-left: 24px;
       font-size: 12px;
       color: #8b949e;
+      white-space: nowrap;
+    }
+
+    /* Links to the detail pages. Kept in the header so the map keeps its
+       full height. Mirrors the .main-nav rules in dashboard.css, which the
+       detail pages use. */
+    .main-nav {
+      margin-left: auto;
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .main-nav a {
+      color: #8b949e;
+      text-decoration: none;
+      font-size: 13px;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    .main-nav a:hover { color: #e6edf3; }
+
+    .main-nav a.active {
+      color: #3fb950;
+      border-bottom-color: #3fb950;
     }
 
     .stats-bar {
@@ -261,6 +287,12 @@
     <div class="subtitle">Oil Collection Dashboard</div>
     <h1>Black Bear Bio</h1>
   </div>
+  <nav class="main-nav" id="main-nav">
+    <a href="index.html" class="active">Dashboard</a>
+    <a href="customers.html">Top Customers</a>
+    <a href="year.html" id="nav-year">Years</a>
+    <a href="region.html" id="nav-region">Regions</a>
+  </nav>
   <div class="last-updated" id="last-updated">Loading...</div>
 </header>
 
@@ -636,6 +668,17 @@ async function loadAll() {
   document.getElementById("last-updated").textContent =
     "Updated: " + new Date(allData.last_updated).toLocaleString();
 
+  // Point the nav at real values from the data rather than hardcoding them.
+  const latestYear = months.length ? months[months.length - 1].slice(0, 4) : "";
+  if (latestYear) {
+    document.getElementById("nav-year").href = "year.html?year=" + latestYear;
+  }
+  const firstRegion = (allData.region_names || [])[0];
+  if (firstRegion) {
+    document.getElementById("nav-region").href =
+      "region.html?region=" + encodeURIComponent(firstRegion);
+  }
+
   renderMap(currentIdx);
   buildCharts();
 }
@@ -920,6 +963,16 @@ function buildCharts() {
       scales: {
         x: { ticks: { color: "#8b949e" }, grid: { color: "#21262d" } },
         y: { ticks: { color: "#8b949e" }, grid: { color: "#21262d" } }
+      },
+      // Clicking a bar opens that year's detail page. Data, colors and scales
+      // above are untouched.
+      onClick: (evt, elements) => {
+        if (elements.length) {
+          window.location.href = "year.html?year=" + years[elements[0].index];
+        }
+      },
+      onHover: (evt, elements) => {
+        evt.native.target.style.cursor = elements.length ? "pointer" : "default";
       }
     }
   });

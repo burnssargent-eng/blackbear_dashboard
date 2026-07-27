@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Top Customers — Black Bear Bio</title>
+
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+<header>
+  <img src="logo.png" alt="Black Bear Bio" onerror="this.style.display='none'">
+  <div>
+    <div class="subtitle">Oil Collection Dashboard</div>
+    <h1>Black Bear Bio</h1>
+  </div>
+  <nav class="main-nav" id="main-nav"></nav>
+  <div class="last-updated" id="last-updated"></div>
+</header>
+
+<div class="page" id="page">
+  <div class="page-state">
+    <div class="state-message">Loading customer data…</div>
+  </div>
+</div>
+
+<script src="dashboard-utils.js"></script>
+<script>
+let allRecords = [];
+let allMonths = [];
+let firstPickupByCustomer = {};   // customer_id -> earliest date anywhere in the data
+
+async function init() {
+  const page = document.getElementById("page");
+
+  let data;
+  try {
+    data = await loadOilData();
+    allRecords = await loadCollections(data);
+  } catch (err) {
+    renderNav("customers", null);
+    renderState(page, "error", "Could not load the collection data.", err.message);
+    return;
+  }
+
+  renderNav("customers", data);
+  renderLastUpdated(data);
+
+  if (!allRecords.length) {
+    renderState(page, "empty", "No collection records are available.");
+    return;
+  }
+
+  allMonths = Array.from(new Set(allRecords.map(r => r.month))).sort();
+
+  // Earliest pickup per customer across the WHOLE dataset. Used to decide
+  // whether a customer was gained during the selected period, which has to be
+  // judged against all history rather than only the filtered rows.
+  allRecords.forEach(r => {
+    const seen = firstPickupByCustomer[r.customer_id];
+    if (!seen || r.date < seen) firstPickupByCustomer[r.customer_id] = r.date;
+  });
+
+  buildShell(page);
+  update();
+}
+
+function buildShell(page) {
+  const latest = allMonths[allMonths.length - 1];
+
+  page.innerHTML = `
+    <a class="back-link" href="index.html">← Back to the dashboard</a>
+    <div class="page-title">Top Producing Customers</div>
+    <div class="page-subtitle" id="period-label">—</div>
+
+    <div class="controls">
+      <label for="mode-select">Period</label>
+      <select id="mode-select">
+        ${VIEW_MODES.map(m => `<option value="${m.value}">${m.label}</option>`).join("")}
+      </select>
+
+      <label for="month-select">Month</label>
+      <select id="month-select">
+        ${allMonths.slice().reverse().map(m =>
+          `<option value="${m}"${m === latest ? " selected" : ""}>${formatMonth(m)}</option>`).join("")}
+      </select>
+
+      <label>Sort</label>
+      <button id="sort-gallons" class="active">Top producers</button>
+      <button id="sort-status">Active first</button>
+    </div>
+
+    <div class="stats-bar" id="summary"></div>
+
+    <div class="note" id="notes"></div>
+
+    <div class="section">
+      <div class="section-title" id="table-title">Customers</div>
+      <div id="table-area"></div>
+    </div>
+  `;
+
+  document.getElementById("mode-select").addEventListener("change", update);
+  document.getElementById("month-select").addEventListener("change", update);
+
+  document.getElementById("sort-gallons").addEventListener("click", () => setSort("gallons"));
+  document.getElementById("sort-status").addEventListener("click", () => setSort("status"));
+}
+
+let sortMode = "gallons";
+
+function setSort(mode) {
+  sortMode = mode;
+  document.getElementById("sort-gallons").classList.toggle("active", mode === "gallons");
+  document.getElementById("sort-status").classList.toggle("active", mode === "status");
+  update();
+}
+
+function update() {
+  const mode = document.getElementById("mode-select").value;
+  const selectedMonth = document.getElementById("month-select").value;
+
+  // The month picker only matters for periods anchored to a month.
+  document.getElementById("month-select").disabled = (mode === "alltime");
+
+  const periodMonths = new Set(getMonthsForMode(mode, allMonths, selectedMonth));
+  const rows = allRecords.filter(r => periodMonths.has(r.month));
+
+  document.getElementById("period-label").textContent =
+    periodLabel(mode, allMonths, selectedMonth);
+
+  const summary = document.getElementById("summary");
+  const tableArea = document.getElementById("table-area");
+  const notes = document.getElementById("notes");
+
+  if (!rows.length) {
+    summary.innerHTML = "";
+    notes.innerHTML = "";
+    renderState(tableArea, "empty", "No collections in the selected period.",
+      "Try a different month or a wider period.");
+    return;
+  }
+
+  const customers = aggregateCustomers(rows);
+  const totalGallons = sumGallons(rows);
+  const avgPerPickup = rows.length ? totalGallons / rows.length : 0;
+
+  // Gained: the customer's first-ever pickup falls inside this period.
+  //
+  // Only meaningful when the period starts after the data does. A period that
+  // reaches back to the first month trivially "gains" every customer who ever
+  // existed, so that is shown as a dash instead of a misleading total.
+  const coversStart = periodMonths.has(allMonths[0]);
+  const gained = coversStart
+    ? null
+    : customers.filter(c => periodMonths.has(
+        String(firstPickupByCustomer[c.customer_id] || "").slice(0, 7)
+      )).length;
+
+  summary.innerHTML = `
+    <div class="stat">
+      <div class="stat-val">${formatNumber(totalGallons)}</div>
+      <div class="stat-label">Total Gallons</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">${formatNumber(customers.length)}</div>
+      <div class="stat-label">Customers</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">${formatNumber(rows.length)}</div>
+      <div class="stat-label">Pickups</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">${formatNumber(Math.round(avgPerPickup))}</div>
+      <div class="stat-label">Avg Gallons / Pickup</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">${gained === null ? "—" : formatNumber(gained)}</div>
+      <div class="stat-label">Gained Customers</div>
+    </div>
+  `;
+
+  notes.innerHTML = `
+    <strong>Status</strong> comes from the source site's active and inactive
+    customer lists, never from how recently a customer had a pickup.
+    <br><strong>Gained customers</strong> are those whose first-ever pickup in the
+    whole dataset falls inside this period. It shows a dash for periods that
+    reach back to the start of the data, where every customer would count as
+    gained.
+    <br><strong>Lost customers is not shown.</strong> There are several defensible
+    definitions (dropped off the source-site active list, versus stopped having
+    pickups) and they give different numbers, so this metric needs your sign-off
+    on a definition before it goes on the page.
+  `;
+
+  renderTable(tableArea, customers);
+  document.getElementById("table-title").textContent =
+    `${formatNumber(customers.length)} customers · ${periodLabel(document.getElementById("mode-select").value, allMonths, document.getElementById("month-select").value)}`;
+}
+
+function renderTable(area, customers) {
+  const sorted = sortMode === "status"
+    ? sortCustomersByStatusThenGallons(customers)
+    : sortCustomersByGallons(customers);
+
+  let body = "";
+  let lastGroup = null;
+
+  sorted.forEach((c, i) => {
+    if (sortMode === "status") {
+      const group = customerStatusLabel(c.is_active).text;
+      if (group !== lastGroup) {
+        body += `<tr class="group-row"><td colspan="9">${group}</td></tr>`;
+        lastGroup = group;
+      }
+    }
+
+    const townCell = c.geo_town
+      ? `<a href="town.html?town=${encodeURIComponent(c.geo_town)}">${escapeHtml(c.geo_town)}</a>`
+      : escapeHtml(c.city || "—");
+
+    body += `
+      <tr>
+        <td class="rank">${i + 1}</td>
+        <td>${escapeHtml(c.name)}</td>
+        <td>${townCell}</td>
+        <td>${escapeHtml(c.county || "—")}</td>
+        <td class="gal">${formatNumber(c.gallons)}</td>
+        <td class="num">${formatNumber(c.pickups)}</td>
+        <td>${formatDate(c.first)}</td>
+        <td>${formatDate(c.last)}</td>
+        <td>${statusBadge(c.is_active)}</td>
+      </tr>
+    `;
+  });
+
+  area.innerHTML = `
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th class="rank">#</th>
+            <th>Customer</th>
+            <th>Town</th>
+            <th>County</th>
+            <th class="num">Gallons</th>
+            <th class="num">Pickups</th>
+            <th>First Pickup</th>
+            <th>Latest Pickup</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>${body}</tbody>
+      </table>
+    </div>
+  `;
+}
+
+init();
+</script>
+
+</body>
+</html>

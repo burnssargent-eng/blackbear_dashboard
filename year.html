@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Year Detail — Black Bear Bio</title>
+
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.png" alt="Black Bear Bio" onerror="this.style.display='none'">
+  <div>
+    <div class="subtitle">Oil Collection Dashboard</div>
+    <h1>Black Bear Bio</h1>
+  </div>
+  <nav class="main-nav" id="main-nav"></nav>
+  <div class="last-updated" id="last-updated"></div>
+</header>
+
+<div class="page" id="page">
+  <div class="page-state">
+    <div class="state-message">Loading year data…</div>
+  </div>
+</div>
+
+<script src="dashboard-utils.js"></script>
+<script>
+// How many towns the bar chart shows before it becomes unreadable.
+const TOWN_CHART_LIMIT = 20;
+const TOP_CUSTOMER_LIMIT = 25;
+
+async function init() {
+  const page = document.getElementById("page");
+
+  let data, records;
+  try {
+    data = await loadOilData();
+    records = await loadCollections(data);
+  } catch (err) {
+    renderNav("year", null);
+    renderState(page, "error", "Could not load the collection data.", err.message);
+    return;
+  }
+
+  renderNav("year", data);
+  renderLastUpdated(data);
+
+  const availableYears = Array.from(new Set(records.map(r => Number(r.year))))
+    .filter(Number.isFinite)
+    .sort((a, b) => a - b);
+
+  if (!availableYears.length) {
+    renderState(page, "empty", "No collection years found in the data.");
+    return;
+  }
+
+  // Default to the most recent year when no valid year is supplied.
+  const requested = Number(getUrlParam("year"));
+  const year = availableYears.includes(requested)
+    ? requested
+    : availableYears[availableYears.length - 1];
+
+  document.title = `${year} — Black Bear Bio`;
+
+  const rows = records.filter(r => Number(r.year) === year);
+
+  if (!rows.length) {
+    renderState(page, "empty", `No collections recorded for ${year}.`,
+      `Data is available for ${availableYears[0]} through ${availableYears[availableYears.length - 1]}.`);
+    return;
+  }
+
+  render(page, rows, year, availableYears);
+}
+
+function render(page, rows, year, availableYears) {
+  const customers = aggregateCustomers(rows);
+  const monthTotals = groupSum(rows, r => r.month);
+  const townTotals = groupSum(rows, r => r.geo_town);
+
+  const months = Object.keys(monthTotals).sort();
+  const townEntries = sortedEntries(townTotals);
+  const dates = rows.map(r => r.date).sort();
+
+  const idx = availableYears.indexOf(year);
+  const prev = idx > 0 ? availableYears[idx - 1] : null;
+  const next = idx < availableYears.length - 1 ? availableYears[idx + 1] : null;
+
+  // Records with a blank geo_town are out-of-state pickups. They count toward
+  // gallons but are not a Vermont town, so they are excluded from the town
+  // count and called out separately.
+  const outOfState = rows.filter(r => !(r.geo_town || "").trim()).length;
+
+  page.innerHTML = `
+    <a class="back-link" href="index.html">← Back to the dashboard</a>
+    <div class="page-title">${year} Oil Collection</div>
+    <div class="page-subtitle">
+      ${formatDate(dates[0])} – ${formatDate(dates[dates.length - 1])}
+    </div>
+
+    <div class="controls">
+      <label for="year-select">Year</label>
+      <select id="year-select">
+        ${availableYears.map(y =>
+          `<option value="${y}"${y === year ? " selected" : ""}>${y}</option>`).join("")}
+      </select>
+      <button id="btn-prev"${prev ? "" : " disabled"}>◀ ${prev || ""}</button>
+      <button id="btn-next"${next ? "" : " disabled"}>${next || ""} ▶</button>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat">
+        <div class="stat-val">${formatNumber(sumGallons(rows))}</div>
+        <div class="stat-label">Total Gallons</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">${formatNumber(rows.length)}</div>
+        <div class="stat-label">Pickups</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">${formatNumber(customers.length)}</div>
+        <div class="stat-label">Customers Served</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">${formatNumber(townEntries.length)}</div>
+        <div class="stat-label">Towns Served</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val small">${formatDate(dates[0])}</div>
+        <div class="stat-label">First Pickup</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val small">${formatDate(dates[dates.length - 1])}</div>
+        <div class="stat-label">Latest Pickup</div>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Customers Served</strong> counts customers with at least one pickup
+      in ${year}. That is different from the source-site Active/Inactive status
+      shown in the table below, which reflects whether the customer is currently
+      on the active list.
+      ${outOfState ? `<br>${formatNumber(outOfState)} pickup(s) this year were outside Vermont and are included in gallons but not in the town counts.` : ""}
+    </div>
+
+    <div class="section chart-grid">
+      <div>
+        <div class="chart-title">Monthly Gallons — ${year}</div>
+        <div class="chart-container"><canvas id="chart-monthly"></canvas></div>
+      </div>
+      <div>
+        <div class="chart-title">
+          Top Towns — ${year}${townEntries.length > TOWN_CHART_LIMIT
+            ? ` (top ${TOWN_CHART_LIMIT} of ${townEntries.length})` : ""}
+        </div>
+        <div class="chart-container"><canvas id="chart-towns"></canvas></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Monthly Totals</div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Month</th><th class="num">Gallons</th><th class="num">Pickups</th></tr></thead>
+          <tbody>
+            ${months.map(m => `
+              <tr>
+                <td>${escapeHtml(formatMonth(m))}</td>
+                <td class="gal">${formatNumber(monthTotals[m])}</td>
+                <td class="num">${formatNumber(rows.filter(r => r.month === m).length)}</td>
+              </tr>`).join("")}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Town Totals</div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th class="rank">#</th><th>Town</th><th class="num">Gallons</th><th class="num">Customers</th></tr></thead>
+          <tbody>
+            ${townEntries.map(([town, gallons], i) => `
+              <tr>
+                <td class="rank">${i + 1}</td>
+                <td><a href="town.html?town=${encodeURIComponent(town)}">${escapeHtml(town)}</a></td>
+                <td class="gal">${formatNumber(gallons)}</td>
+                <td class="num">${formatNumber(new Set(rows.filter(r => r.geo_town === town).map(r => r.customer_id)).size)}</td>
+              </tr>`).join("")}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">
+        Top ${Math.min(TOP_CUSTOMER_LIMIT, customers.length)} Producing Customers — ${year}
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th class="rank">#</th><th>Customer</th><th>Town</th><th>County</th>
+              <th class="num">Gallons</th><th class="num">Pickups</th><th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${sortCustomersByGallons(customers).slice(0, TOP_CUSTOMER_LIMIT).map((c, i) => `
+              <tr>
+                <td class="rank">${i + 1}</td>
+                <td>${escapeHtml(c.name)}</td>
+                <td>${c.geo_town
+                    ? `<a href="town.html?town=${encodeURIComponent(c.geo_town)}">${escapeHtml(c.geo_town)}</a>`
+                    : escapeHtml(c.city || "—")}</td>
+                <td>${escapeHtml(c.county || "—")}</td>
+                <td class="gal">${formatNumber(c.gallons)}</td>
+                <td class="num">${formatNumber(c.pickups)}</td>
+                <td>${statusBadge(c.is_active)}</td>
+              </tr>`).join("")}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+
+  new Chart(
+    document.getElementById("chart-monthly"),
+    lineChartConfig(months.map(formatMonth), months.map(m => monthTotals[m]))
+  );
+
+  const chartTowns = townEntries.slice(0, TOWN_CHART_LIMIT);
+  new Chart(
+    document.getElementById("chart-towns"),
+    barChartConfig(chartTowns.map(e => e[0]), chartTowns.map(e => e[1]), true)
+  );
+
+  const go = y => { window.location.href = `year.html?year=${y}`; };
+  document.getElementById("year-select").addEventListener("change", function () { go(this.value); });
+  if (prev) document.getElementById("btn-prev").addEventListener("click", () => go(prev));
+  if (next) document.getElementById("btn-next").addEventListener("click", () => go(next));
+}
+
+init();
+</script>
+
+</body>
+</html>

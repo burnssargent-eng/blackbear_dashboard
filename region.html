@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Region Detail — Black Bear Bio</title>
+
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.png" alt="Black Bear Bio" onerror="this.style.display='none'">
+  <div>
+    <div class="subtitle">Oil Collection Dashboard</div>
+    <h1>Black Bear Bio</h1>
+  </div>
+  <nav class="main-nav" id="main-nav"></nav>
+  <div class="last-updated" id="last-updated"></div>
+</header>
+
+<div class="page" id="page">
+  <div class="page-state">
+    <div class="state-message">Loading region data…</div>
+  </div>
+</div>
+
+<script src="dashboard-utils.js"></script>
+<script>
+/*
+ * This page reads oil_data.json ONLY.
+ *
+ * Regions are defined by CUSTOM_REGIONS in oil_scraper.py and are exported as
+ * monthly and yearly aggregates. Which customers belong to a region is not
+ * exported, so there is deliberately no customer table here — inventing one
+ * would mean re-implementing the region matchers in the browser and risking
+ * disagreement with the Excel report.
+ */
+
+async function init() {
+  const page = document.getElementById("page");
+
+  let data;
+  try {
+    data = await loadOilData();
+  } catch (err) {
+    renderNav("region", null);
+    renderState(page, "error", "Could not load the summary data.", err.message);
+    return;
+  }
+
+  renderNav("region", data);
+  renderLastUpdated(data);
+
+  const monthlyRows = data.monthly_by_region || [];
+  const yearlyRows = data.yearly_by_region || [];
+
+  if (!monthlyRows.length) {
+    renderState(page, "empty", "No region data is available.",
+      "oil_data.json does not contain monthly_by_region. Re-run oil_scraper.py to generate it.");
+    return;
+  }
+
+  // region_names holds the 13 named regions. "Other" also appears in the data
+  // as the catch-all for records matching no region, so it is offered last.
+  const named = data.region_names || [];
+  const present = Array.from(new Set(monthlyRows.map(r => r.region)));
+  const extras = present.filter(r => !named.includes(r)).sort();
+  const options = named.concat(extras);
+
+  const requested = getUrlParam("region");
+  const match = options.find(r => r.toLowerCase() === requested.toLowerCase());
+  const region = match || options[0];
+
+  document.title = `${region} — Black Bear Bio`;
+
+  const monthly = monthlyRows.filter(r => r.region === region);
+  const yearly = yearlyRows.filter(r => r.region === region);
+
+  if (!monthly.length) {
+    renderState(page, "empty", `No collections recorded for the ${region} region.`);
+    return;
+  }
+
+  render(page, region, options, monthly, yearly, named);
+}
+
+function render(page, region, options, monthly, yearly, named) {
+  const monthTotals = {};
+  monthly.forEach(r => { monthTotals[r.month] = (monthTotals[r.month] || 0) + (Number(r.gallons) || 0); });
+
+  const yearTotals = {};
+  yearly.forEach(r => { yearTotals[r.year] = (yearTotals[r.year] || 0) + (Number(r.gallons) || 0); });
+
+  const months = Object.keys(monthTotals).sort();
+  const years = Object.keys(yearTotals).sort();
+
+  const latestMonth = months[months.length - 1];
+  const currentYear = years[years.length - 1];
+  const allTime = Object.values(monthTotals).reduce((a, b) => a + b, 0);
+
+  const isOther = !named.includes(region);
+
+  page.innerHTML = `
+    <a class="back-link" href="index.html">← Back to the dashboard</a>
+    <div class="page-title">${escapeHtml(region)} Region</div>
+    <div class="page-subtitle">
+      ${escapeHtml(formatMonth(months[0]))} – ${escapeHtml(formatMonth(latestMonth))}
+      ${isOther ? " · unassigned bucket" : ""}
+    </div>
+
+    <div class="controls">
+      <label for="region-select">Region</label>
+      <select id="region-select">
+        ${options.map(r => `
+          <option value="${escapeHtml(r)}"${r === region ? " selected" : ""}>
+            ${escapeHtml(r)}${named.includes(r) ? "" : " (unassigned)"}
+          </option>`).join("")}
+      </select>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat">
+        <div class="stat-val">${formatNumber(allTime)}</div>
+        <div class="stat-label">All-Time Gallons</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">${formatNumber(yearTotals[currentYear])}</div>
+        <div class="stat-label">${escapeHtml(currentYear)} Gallons</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">${formatNumber(monthTotals[latestMonth])}</div>
+        <div class="stat-label">${escapeHtml(formatMonth(latestMonth))}</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">${formatNumber(months.length)}</div>
+        <div class="stat-label">Months With Data</div>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Regions are not mutually exclusive.</strong> A customer matching two
+      region rules is counted in both, so region totals are not additive and will
+      not sum to the all-time company total. This mirrors the region logic used by
+      the Excel report and is intentional.
+      ${isOther ? "<br><strong>" + escapeHtml(region) + "</strong> is the catch-all bucket for records that match no named region." : ""}
+      <br>Customer-level ranking is not shown here because region membership is
+      not exported per customer yet. That is a possible future enhancement.
+    </div>
+
+    <div class="section chart-grid">
+      <div>
+        <div class="chart-title">Monthly Gallons</div>
+        <div class="chart-container"><canvas id="chart-monthly"></canvas></div>
+      </div>
+      <div>
+        <div class="chart-title">Yearly Totals</div>
+        <div class="chart-container"><canvas id="chart-yearly"></canvas></div>
+      </div>
+    </div>
+
+    <div class="section chart-grid">
+      <div>
+        <div class="section-title">Yearly Totals</div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Year</th><th class="num">Gallons</th></tr></thead>
+            <tbody>
+              ${years.slice().reverse().map(y => `
+                <tr>
+                  <td><a href="year.html?year=${encodeURIComponent(y)}">${escapeHtml(y)}</a></td>
+                  <td class="gal">${formatNumber(yearTotals[y])}</td>
+                </tr>`).join("")}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title">Monthly Totals</div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Month</th><th class="num">Gallons</th></tr></thead>
+            <tbody>
+              ${months.slice().reverse().map(m => `
+                <tr>
+                  <td>${escapeHtml(formatMonth(m))}</td>
+                  <td class="gal">${formatNumber(monthTotals[m])}</td>
+                </tr>`).join("")}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  `;
+
+  new Chart(
+    document.getElementById("chart-monthly"),
+    lineChartConfig(months.map(formatMonth), months.map(m => monthTotals[m]))
+  );
+
+  new Chart(
+    document.getElementById("chart-yearly"),
+    barChartConfig(years, years.map(y => yearTotals[y]))
+  );
+
+  document.getElementById("region-select").addEventListener("change", function () {
+    window.location.href = `region.html?region=${encodeURIComponent(this.value)}`;
+  });
+}
+
+init();
+</script>
+
+</body>
+</html>
