@@ -788,6 +788,96 @@ def check_region_customers(report, data, coll_payload):
         report.ok("Every region member id resolves to a known customer.")
 
 
+def check_schmootz(report):
+    report.section("S", "Schmootz displacement data")
+
+    path = "schmootz_data.json"
+    if not os.path.exists(path):
+        report.warn(f"{path} not found. The Schmootz page will say the data is "
+                    "unavailable. Run: python3 export_schmootz.py")
+        return
+
+    try:
+        with open(path) as f:
+            data = json.load(f)
+    except json.JSONDecodeError as exc:
+        report.fail(f"{path} is not valid JSON: {exc}")
+        return
+
+    size_kb = os.path.getsize(path) / 1000
+    report.ok(f"{path} parsed cleanly ({size_kb:.1f} KB).")
+
+    # These come from the Phase 4A audit of the workbook and must not drift.
+    expected = {
+        "total_barr_hill_to_gebbie": 2_134_668,
+        "total_bbb_shop_to_gebbie": 133_475,
+    }
+    for field, want in expected.items():
+        got = data.get(field)
+        if got == want:
+            report.ok(f"{field} = {want:,} — matches the workbook audit.")
+        else:
+            report.fail(f"{field} is {got!r}, expected {want:,}. "
+                        "The workbook or the exporter has changed.")
+
+    combined = data.get("combined_total")
+    parts = sum(data.get(f) or 0 for f in expected)
+    if combined == parts:
+        report.ok(f"combined_total = {combined:,} = the sum of both sources.")
+    else:
+        report.fail(f"combined_total is {combined!r}, but the sources sum to {parts:,}.")
+
+    # Per-block internal consistency.
+    for block in data.get("blocks", []):
+        by_year = sum(e["gallons"] for e in block.get("by_year", []))
+        monthly = sum(m["gallons"] for m in block.get("monthly", []))
+        if by_year == monthly == block.get("total_gallons"):
+            report.ok(f"{block['label']}: yearly, monthly and total all agree "
+                      f"({monthly:,}).")
+        else:
+            report.fail(f"{block['label']} disagrees — total "
+                        f"{block.get('total_gallons'):,}, by_year {by_year:,}, "
+                        f"monthly {monthly:,}.")
+
+    # Every month key must parse.
+    bad_months = []
+    for block in data.get("blocks", []):
+        for m in block.get("monthly", []):
+            text = str(m.get("month", ""))
+            if len(text) != 7 or text[4] != "-" or not text[:4].isdigit() \
+                    or not text[5:].isdigit() or not 1 <= int(text[5:]) <= 12:
+                bad_months.append(text)
+    if bad_months:
+        report.fail(f"{len(bad_months)} unparseable month key(s), e.g. {bad_months[0]!r}")
+    else:
+        report.ok("Every month key parses as YYYY-MM.")
+
+    # Nothing null-like should reach the page as a displayed value.
+    raw = open(path).read()
+    for token in ("NaN", "Infinity", '"null"', '"undefined"', '"-"'):
+        if token in raw:
+            report.fail(f"{path} contains {token}, which could render as text.")
+            break
+    else:
+        report.ok("No NaN, Infinity or null-like strings in the export.")
+
+    report.info(f"Generated {data.get('generated_at', '—')} from "
+                f"{data.get('source_file', '—')} · sheet "
+                f"{data.get('source_sheet', '—')}.")
+    report.info("Schmootz is site-to-site displacement and is deliberately NOT "
+                "part of any oil collection total.")
+
+
+def check_schmootz_isolation(report, data):
+    """Schmootz gallons must never leak into the collection totals."""
+    leaked = [k for k in data if "schmootz" in k.lower()]
+    if leaked:
+        report.fail(f"oil_data.json contains Schmootz field(s): {leaked}. "
+                    "Schmootz must stay separate from collection totals.")
+    else:
+        report.ok("oil_data.json contains no Schmootz fields — kept separate.")
+
+
 def check_reconciliation(report, data):
     report.section("R", "Totals reconcile against all_time_total")
 
@@ -913,6 +1003,8 @@ def main():
     check_active_customers(report, data, coll)
     check_lifecycle(report, data, coll_payload)
     check_region_customers(report, data, coll_payload)
+    check_schmootz(report)
+    check_schmootz_isolation(report, data)
     check_reconciliation(report, data)
     check_regions(report, data)
 

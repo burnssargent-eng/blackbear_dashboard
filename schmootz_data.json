@@ -1,0 +1,957 @@
+{
+  "generated_at": "2026-07-27T20:40:43",
+  "source_file": "Schmootz.xlsx",
+  "source_sheet": "Schmootz",
+  "total_barr_hill_to_gebbie": 2134668,
+  "total_bbb_shop_to_gebbie": 133475,
+  "combined_total": 2268143,
+  "first_year": 2020,
+  "last_year": 2026,
+  "years": [
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "record_count": 117,
+  "blocks": [
+    {
+      "key": "barr_hill_to_gebbie",
+      "label": "Barr Hill \u2192 Gebbie Farm",
+      "source": "Barr Hill",
+      "destination": "Gebbie Farm",
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "first_year": 2020,
+      "last_year": 2026,
+      "total_gallons": 2134668,
+      "record_count": 78,
+      "months_with_data": 78,
+      "by_year": [
+        {
+          "year": 2020,
+          "gallons": 270300
+        },
+        {
+          "year": 2021,
+          "gallons": 376050
+        },
+        {
+          "year": 2022,
+          "gallons": 352230
+        },
+        {
+          "year": 2023,
+          "gallons": 336900
+        },
+        {
+          "year": 2024,
+          "gallons": 364300
+        },
+        {
+          "year": 2025,
+          "gallons": 277950
+        },
+        {
+          "year": 2026,
+          "gallons": 156938
+        }
+      ],
+      "by_month_name": [
+        {
+          "month_name": "January",
+          "gallons": 157500
+        },
+        {
+          "month_name": "February",
+          "gallons": 188000
+        },
+        {
+          "month_name": "March",
+          "gallons": 198650
+        },
+        {
+          "month_name": "April",
+          "gallons": 177650
+        },
+        {
+          "month_name": "May",
+          "gallons": 205018
+        },
+        {
+          "month_name": "June",
+          "gallons": 182400
+        },
+        {
+          "month_name": "July",
+          "gallons": 159100
+        },
+        {
+          "month_name": "August",
+          "gallons": 193650
+        },
+        {
+          "month_name": "September",
+          "gallons": 198050
+        },
+        {
+          "month_name": "October",
+          "gallons": 198650
+        },
+        {
+          "month_name": "November",
+          "gallons": 130700
+        },
+        {
+          "month_name": "December",
+          "gallons": 145300
+        }
+      ],
+      "monthly": [
+        {
+          "year": 2020,
+          "month": "2020-01",
+          "month_name": "January",
+          "gallons": 10800
+        },
+        {
+          "year": 2021,
+          "month": "2021-01",
+          "month_name": "January",
+          "gallons": 27750
+        },
+        {
+          "year": 2022,
+          "month": "2022-01",
+          "month_name": "January",
+          "gallons": 29200
+        },
+        {
+          "year": 2023,
+          "month": "2023-01",
+          "month_name": "January",
+          "gallons": 24200
+        },
+        {
+          "year": 2024,
+          "month": "2024-01",
+          "month_name": "January",
+          "gallons": 23600
+        },
+        {
+          "year": 2025,
+          "month": "2025-01",
+          "month_name": "January",
+          "gallons": 22000
+        },
+        {
+          "year": 2026,
+          "month": "2026-01",
+          "month_name": "January",
+          "gallons": 19950
+        },
+        {
+          "year": 2020,
+          "month": "2020-02",
+          "month_name": "February",
+          "gallons": 21600
+        },
+        {
+          "year": 2021,
+          "month": "2021-02",
+          "month_name": "February",
+          "gallons": 30750
+        },
+        {
+          "year": 2022,
+          "month": "2022-02",
+          "month_name": "February",
+          "gallons": 25100
+        },
+        {
+          "year": 2023,
+          "month": "2023-02",
+          "month_name": "February",
+          "gallons": 30150
+        },
+        {
+          "year": 2024,
+          "month": "2024-02",
+          "month_name": "February",
+          "gallons": 34750
+        },
+        {
+          "year": 2025,
+          "month": "2025-02",
+          "month_name": "February",
+          "gallons": 12700
+        },
+        {
+          "year": 2026,
+          "month": "2026-02",
+          "month_name": "February",
+          "gallons": 32950
+        },
+        {
+          "year": 2020,
+          "month": "2020-03",
+          "month_name": "March",
+          "gallons": 33600
+        },
+        {
+          "year": 2021,
+          "month": "2021-03",
+          "month_name": "March",
+          "gallons": 32400
+        },
+        {
+          "year": 2022,
+          "month": "2022-03",
+          "month_name": "March",
+          "gallons": 35050
+        },
+        {
+          "year": 2023,
+          "month": "2023-03",
+          "month_name": "March",
+          "gallons": 22800
+        },
+        {
+          "year": 2024,
+          "month": "2024-03",
+          "month_name": "March",
+          "gallons": 40550
+        },
+        {
+          "year": 2025,
+          "month": "2025-03",
+          "month_name": "March",
+          "gallons": 10700
+        },
+        {
+          "year": 2026,
+          "month": "2026-03",
+          "month_name": "March",
+          "gallons": 23550
+        },
+        {
+          "year": 2020,
+          "month": "2020-04",
+          "month_name": "April",
+          "gallons": 8400
+        },
+        {
+          "year": 2021,
+          "month": "2021-04",
+          "month_name": "April",
+          "gallons": 28500
+        },
+        {
+          "year": 2022,
+          "month": "2022-04",
+          "month_name": "April",
+          "gallons": 23550
+        },
+        {
+          "year": 2023,
+          "month": "2023-04",
+          "month_name": "April",
+          "gallons": 38250
+        },
+        {
+          "year": 2024,
+          "month": "2024-04",
+          "month_name": "April",
+          "gallons": 33100
+        },
+        {
+          "year": 2025,
+          "month": "2025-04",
+          "month_name": "April",
+          "gallons": 25500
+        },
+        {
+          "year": 2026,
+          "month": "2026-04",
+          "month_name": "April",
+          "gallons": 20350
+        },
+        {
+          "year": 2020,
+          "month": "2020-05",
+          "month_name": "May",
+          "gallons": 22800
+        },
+        {
+          "year": 2021,
+          "month": "2021-05",
+          "month_name": "May",
+          "gallons": 40800
+        },
+        {
+          "year": 2022,
+          "month": "2022-05",
+          "month_name": "May",
+          "gallons": 32280
+        },
+        {
+          "year": 2023,
+          "month": "2023-05",
+          "month_name": "May",
+          "gallons": 26300
+        },
+        {
+          "year": 2024,
+          "month": "2024-05",
+          "month_name": "May",
+          "gallons": 33000
+        },
+        {
+          "year": 2025,
+          "month": "2025-05",
+          "month_name": "May",
+          "gallons": 23550
+        },
+        {
+          "year": 2026,
+          "month": "2026-05",
+          "month_name": "May",
+          "gallons": 26288
+        },
+        {
+          "year": 2020,
+          "month": "2020-06",
+          "month_name": "June",
+          "gallons": 21600
+        },
+        {
+          "year": 2021,
+          "month": "2021-06",
+          "month_name": "June",
+          "gallons": 25350
+        },
+        {
+          "year": 2022,
+          "month": "2022-06",
+          "month_name": "June",
+          "gallons": 24250
+        },
+        {
+          "year": 2023,
+          "month": "2023-06",
+          "month_name": "June",
+          "gallons": 28400
+        },
+        {
+          "year": 2024,
+          "month": "2024-06",
+          "month_name": "June",
+          "gallons": 33600
+        },
+        {
+          "year": 2025,
+          "month": "2025-06",
+          "month_name": "June",
+          "gallons": 15350
+        },
+        {
+          "year": 2026,
+          "month": "2026-06",
+          "month_name": "June",
+          "gallons": 33850
+        },
+        {
+          "year": 2020,
+          "month": "2020-07",
+          "month_name": "July",
+          "gallons": 22800
+        },
+        {
+          "year": 2021,
+          "month": "2021-07",
+          "month_name": "July",
+          "gallons": 28650
+        },
+        {
+          "year": 2022,
+          "month": "2022-07",
+          "month_name": "July",
+          "gallons": 33100
+        },
+        {
+          "year": 2023,
+          "month": "2023-07",
+          "month_name": "July",
+          "gallons": 20950
+        },
+        {
+          "year": 2024,
+          "month": "2024-07",
+          "month_name": "July",
+          "gallons": 28150
+        },
+        {
+          "year": 2025,
+          "month": "2025-07",
+          "month_name": "July",
+          "gallons": 25450
+        },
+        {
+          "year": 2020,
+          "month": "2020-08",
+          "month_name": "August",
+          "gallons": 30000
+        },
+        {
+          "year": 2021,
+          "month": "2021-08",
+          "month_name": "August",
+          "gallons": 46200
+        },
+        {
+          "year": 2022,
+          "month": "2022-08",
+          "month_name": "August",
+          "gallons": 30150
+        },
+        {
+          "year": 2023,
+          "month": "2023-08",
+          "month_name": "August",
+          "gallons": 29500
+        },
+        {
+          "year": 2024,
+          "month": "2024-08",
+          "month_name": "August",
+          "gallons": 33500
+        },
+        {
+          "year": 2025,
+          "month": "2025-08",
+          "month_name": "August",
+          "gallons": 24300
+        },
+        {
+          "year": 2020,
+          "month": "2020-09",
+          "month_name": "September",
+          "gallons": 22800
+        },
+        {
+          "year": 2021,
+          "month": "2021-09",
+          "month_name": "September",
+          "gallons": 31350
+        },
+        {
+          "year": 2022,
+          "month": "2022-09",
+          "month_name": "September",
+          "gallons": 30850
+        },
+        {
+          "year": 2023,
+          "month": "2023-09",
+          "month_name": "September",
+          "gallons": 32200
+        },
+        {
+          "year": 2024,
+          "month": "2024-09",
+          "month_name": "September",
+          "gallons": 41800
+        },
+        {
+          "year": 2025,
+          "month": "2025-09",
+          "month_name": "September",
+          "gallons": 39050
+        },
+        {
+          "year": 2020,
+          "month": "2020-10",
+          "month_name": "October",
+          "gallons": 27150
+        },
+        {
+          "year": 2021,
+          "month": "2021-10",
+          "month_name": "October",
+          "gallons": 36900
+        },
+        {
+          "year": 2022,
+          "month": "2022-10",
+          "month_name": "October",
+          "gallons": 38900
+        },
+        {
+          "year": 2023,
+          "month": "2023-10",
+          "month_name": "October",
+          "gallons": 38900
+        },
+        {
+          "year": 2024,
+          "month": "2024-10",
+          "month_name": "October",
+          "gallons": 32750
+        },
+        {
+          "year": 2025,
+          "month": "2025-10",
+          "month_name": "October",
+          "gallons": 24050
+        },
+        {
+          "year": 2020,
+          "month": "2020-11",
+          "month_name": "November",
+          "gallons": 22650
+        },
+        {
+          "year": 2021,
+          "month": "2021-11",
+          "month_name": "November",
+          "gallons": 23250
+        },
+        {
+          "year": 2022,
+          "month": "2022-11",
+          "month_name": "November",
+          "gallons": 24250
+        },
+        {
+          "year": 2023,
+          "month": "2023-11",
+          "month_name": "November",
+          "gallons": 23050
+        },
+        {
+          "year": 2024,
+          "month": "2024-11",
+          "month_name": "November",
+          "gallons": 15150
+        },
+        {
+          "year": 2025,
+          "month": "2025-11",
+          "month_name": "November",
+          "gallons": 22350
+        },
+        {
+          "year": 2020,
+          "month": "2020-12",
+          "month_name": "December",
+          "gallons": 26100
+        },
+        {
+          "year": 2021,
+          "month": "2021-12",
+          "month_name": "December",
+          "gallons": 24150
+        },
+        {
+          "year": 2022,
+          "month": "2022-12",
+          "month_name": "December",
+          "gallons": 25550
+        },
+        {
+          "year": 2023,
+          "month": "2023-12",
+          "month_name": "December",
+          "gallons": 22200
+        },
+        {
+          "year": 2024,
+          "month": "2024-12",
+          "month_name": "December",
+          "gallons": 14350
+        },
+        {
+          "year": 2025,
+          "month": "2025-12",
+          "month_name": "December",
+          "gallons": 32950
+        }
+      ]
+    },
+    {
+      "key": "bbb_shop_to_gebbie",
+      "label": "Black Bear Biodiesel Shop \u2192 Gebbie Farm",
+      "source": "Black Bear Biodiesel Shop",
+      "destination": "Gebbie Farm",
+      "years": [
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "first_year": 2023,
+      "last_year": 2026,
+      "total_gallons": 133475,
+      "record_count": 39,
+      "months_with_data": 39,
+      "by_year": [
+        {
+          "year": 2023,
+          "gallons": 24300
+        },
+        {
+          "year": 2024,
+          "gallons": 46850
+        },
+        {
+          "year": 2025,
+          "gallons": 45075
+        },
+        {
+          "year": 2026,
+          "gallons": 17250
+        }
+      ],
+      "by_month_name": [
+        {
+          "month_name": "January",
+          "gallons": 6000
+        },
+        {
+          "month_name": "February",
+          "gallons": 7250
+        },
+        {
+          "month_name": "March",
+          "gallons": 13950
+        },
+        {
+          "month_name": "April",
+          "gallons": 13600
+        },
+        {
+          "month_name": "May",
+          "gallons": 14825
+        },
+        {
+          "month_name": "June",
+          "gallons": 12750
+        },
+        {
+          "month_name": "July",
+          "gallons": 11700
+        },
+        {
+          "month_name": "August",
+          "gallons": 11700
+        },
+        {
+          "month_name": "September",
+          "gallons": 14450
+        },
+        {
+          "month_name": "October",
+          "gallons": 8650
+        },
+        {
+          "month_name": "November",
+          "gallons": 10350
+        },
+        {
+          "month_name": "December",
+          "gallons": 8250
+        }
+      ],
+      "monthly": [
+        {
+          "year": 2024,
+          "month": "2024-01",
+          "month_name": "January",
+          "gallons": 1400
+        },
+        {
+          "year": 2025,
+          "month": "2025-01",
+          "month_name": "January",
+          "gallons": 2700
+        },
+        {
+          "year": 2026,
+          "month": "2026-01",
+          "month_name": "January",
+          "gallons": 1900
+        },
+        {
+          "year": 2024,
+          "month": "2024-02",
+          "month_name": "February",
+          "gallons": 2050
+        },
+        {
+          "year": 2025,
+          "month": "2025-02",
+          "month_name": "February",
+          "gallons": 4000
+        },
+        {
+          "year": 2026,
+          "month": "2026-02",
+          "month_name": "February",
+          "gallons": 1200
+        },
+        {
+          "year": 2023,
+          "month": "2023-03",
+          "month_name": "March",
+          "gallons": 1200
+        },
+        {
+          "year": 2024,
+          "month": "2024-03",
+          "month_name": "March",
+          "gallons": 4750
+        },
+        {
+          "year": 2025,
+          "month": "2025-03",
+          "month_name": "March",
+          "gallons": 4800
+        },
+        {
+          "year": 2026,
+          "month": "2026-03",
+          "month_name": "March",
+          "gallons": 3200
+        },
+        {
+          "year": 2024,
+          "month": "2024-04",
+          "month_name": "April",
+          "gallons": 2800
+        },
+        {
+          "year": 2025,
+          "month": "2025-04",
+          "month_name": "April",
+          "gallons": 5800
+        },
+        {
+          "year": 2026,
+          "month": "2026-04",
+          "month_name": "April",
+          "gallons": 5000
+        },
+        {
+          "year": 2023,
+          "month": "2023-05",
+          "month_name": "May",
+          "gallons": 4200
+        },
+        {
+          "year": 2024,
+          "month": "2024-05",
+          "month_name": "May",
+          "gallons": 3500
+        },
+        {
+          "year": 2025,
+          "month": "2025-05",
+          "month_name": "May",
+          "gallons": 4175
+        },
+        {
+          "year": 2026,
+          "month": "2026-05",
+          "month_name": "May",
+          "gallons": 2950
+        },
+        {
+          "year": 2023,
+          "month": "2023-06",
+          "month_name": "June",
+          "gallons": 2750
+        },
+        {
+          "year": 2024,
+          "month": "2024-06",
+          "month_name": "June",
+          "gallons": 2900
+        },
+        {
+          "year": 2025,
+          "month": "2025-06",
+          "month_name": "June",
+          "gallons": 4100
+        },
+        {
+          "year": 2026,
+          "month": "2026-06",
+          "month_name": "June",
+          "gallons": 3000
+        },
+        {
+          "year": 2023,
+          "month": "2023-07",
+          "month_name": "July",
+          "gallons": 3300
+        },
+        {
+          "year": 2024,
+          "month": "2024-07",
+          "month_name": "July",
+          "gallons": 3850
+        },
+        {
+          "year": 2025,
+          "month": "2025-07",
+          "month_name": "July",
+          "gallons": 4550
+        },
+        {
+          "year": 2023,
+          "month": "2023-08",
+          "month_name": "August",
+          "gallons": 5200
+        },
+        {
+          "year": 2024,
+          "month": "2024-08",
+          "month_name": "August",
+          "gallons": 3400
+        },
+        {
+          "year": 2025,
+          "month": "2025-08",
+          "month_name": "August",
+          "gallons": 3100
+        },
+        {
+          "year": 2023,
+          "month": "2023-09",
+          "month_name": "September",
+          "gallons": 2050
+        },
+        {
+          "year": 2024,
+          "month": "2024-09",
+          "month_name": "September",
+          "gallons": 7950
+        },
+        {
+          "year": 2025,
+          "month": "2025-09",
+          "month_name": "September",
+          "gallons": 4450
+        },
+        {
+          "year": 2023,
+          "month": "2023-10",
+          "month_name": "October",
+          "gallons": 1350
+        },
+        {
+          "year": 2024,
+          "month": "2024-10",
+          "month_name": "October",
+          "gallons": 3500
+        },
+        {
+          "year": 2025,
+          "month": "2025-10",
+          "month_name": "October",
+          "gallons": 3800
+        },
+        {
+          "year": 2023,
+          "month": "2023-11",
+          "month_name": "November",
+          "gallons": 1950
+        },
+        {
+          "year": 2024,
+          "month": "2024-11",
+          "month_name": "November",
+          "gallons": 6200
+        },
+        {
+          "year": 2025,
+          "month": "2025-11",
+          "month_name": "November",
+          "gallons": 2200
+        },
+        {
+          "year": 2023,
+          "month": "2023-12",
+          "month_name": "December",
+          "gallons": 2300
+        },
+        {
+          "year": 2024,
+          "month": "2024-12",
+          "month_name": "December",
+          "gallons": 4550
+        },
+        {
+          "year": 2025,
+          "month": "2025-12",
+          "month_name": "December",
+          "gallons": 1400
+        }
+      ]
+    }
+  ],
+  "combined_by_year": [
+    {
+      "year": 2020,
+      "barr_hill_to_gebbie": 270300,
+      "bbb_shop_to_gebbie": null,
+      "combined": 270300
+    },
+    {
+      "year": 2021,
+      "barr_hill_to_gebbie": 376050,
+      "bbb_shop_to_gebbie": null,
+      "combined": 376050
+    },
+    {
+      "year": 2022,
+      "barr_hill_to_gebbie": 352230,
+      "bbb_shop_to_gebbie": null,
+      "combined": 352230
+    },
+    {
+      "year": 2023,
+      "barr_hill_to_gebbie": 336900,
+      "bbb_shop_to_gebbie": 24300,
+      "combined": 361200
+    },
+    {
+      "year": 2024,
+      "barr_hill_to_gebbie": 364300,
+      "bbb_shop_to_gebbie": 46850,
+      "combined": 411150
+    },
+    {
+      "year": 2025,
+      "barr_hill_to_gebbie": 277950,
+      "bbb_shop_to_gebbie": 45075,
+      "combined": 323025
+    },
+    {
+      "year": 2026,
+      "barr_hill_to_gebbie": 156938,
+      "bbb_shop_to_gebbie": 17250,
+      "combined": 174188
+    }
+  ]
+}
