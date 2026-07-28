@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-27T10:41:40.670542",
+  "last_updated": "2026-07-28T09:38:35.264865",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -29819,7 +29819,7 @@
     {
       "month": "2026-07",
       "city": "Hardwick",
-      "gallons": 275
+      "gallons": 385
     },
     {
       "month": "2026-07",
@@ -29829,7 +29829,7 @@
     {
       "month": "2026-07",
       "city": "Hinesburgh",
-      "gallons": 80
+      "gallons": 95
     },
     {
       "month": "2026-07",
@@ -29869,7 +29869,7 @@
     {
       "month": "2026-07",
       "city": "Middlebury",
-      "gallons": 410
+      "gallons": 775
     },
     {
       "month": "2026-07",
@@ -37511,7 +37511,7 @@
     {
       "month": "2026-07",
       "county": "Addison",
-      "gallons": 1050
+      "gallons": 1415
     },
     {
       "month": "2026-07",
@@ -37521,12 +37521,12 @@
     {
       "month": "2026-07",
       "county": "Caledonia",
-      "gallons": 717
+      "gallons": 827
     },
     {
       "month": "2026-07",
       "county": "Chittenden",
-      "gallons": 9513
+      "gallons": 9528
     },
     {
       "month": "2026-07",
@@ -37631,10 +37631,10 @@
     },
     {
       "year": 2026,
-      "gallons": 174161
+      "gallons": 174651
     }
   ],
-  "all_time_total": 2093174,
-  "current_year_total": 174161,
+  "all_time_total": 2093664,
+  "current_year_total": 174651,
   "customer_count": 817
 }

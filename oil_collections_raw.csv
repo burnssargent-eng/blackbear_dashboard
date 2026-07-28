@@ -7709,6 +7709,7 @@ customer_id,name,city,county,date,year,month,gallons
 501,Positive Pie 3 ~25%,Hardwick,Caledonia,2015-03-02,2015,2015-03,35
 501,Positive Pie 3 ~25%,Hardwick,Caledonia,2015-01-30,2015,2015-01,30
 501,Positive Pie 3 ~25%,Hardwick,Caledonia,2015-01-05,2015,2015-01,45
+1504,Two Peas in A Pod-Hardwick,Hardwick,Caledonia,2026-07-27,2026,2026-07,110
 1504,Two Peas in A Pod-Hardwick,Hardwick,Caledonia,2026-06-29,2026,2026-06,55
 1504,Two Peas in A Pod-Hardwick,Hardwick,Caledonia,2026-06-18,2026,2026-06,50
 1504,Two Peas in A Pod-Hardwick,Hardwick,Caledonia,2026-06-10,2026,2026-06,50
@@ -7872,6 +7873,7 @@ customer_id,name,city,county,date,year,month,gallons
 1351,Bushel Market,Hinesburgh,Chittenden,2025-09-08,2025,2025-09,90
 1351,Bushel Market,Hinesburgh,Chittenden,2024-07-08,2024,2024-07,70
 1351,Bushel Market,Hinesburgh,Chittenden,2024-06-21,2024,2024-06,2
+1030,Hinesburg Public House,Hinesburgh,Chittenden,2026-07-27,2026,2026-07,15
 1030,Hinesburg Public House,Hinesburgh,Chittenden,2026-07-13,2026,2026-07,80
 1030,Hinesburg Public House,Hinesburgh,Chittenden,2026-05-26,2026,2026-05,90
 1030,Hinesburg Public House,Hinesburgh,Chittenden,2026-04-02,2026,2026-04,100
@@ -8827,6 +8829,7 @@ customer_id,name,city,county,date,year,month,gallons
 1346,Cravens Food Truck-Middlebury,Middlebury,Addison,2024-08-01,2024,2024-08,50
 1346,Cravens Food Truck-Middlebury,Middlebury,Addison,2024-07-08,2024,2024-07,40
 1346,Cravens Food Truck-Middlebury,Middlebury,Addison,2024-06-07,2024,2024-06,35
+717,Green Peppers,Middlebury,Addison,2026-07-27,2026,2026-07,55
 717,Green Peppers,Middlebury,Addison,2026-05-26,2026,2026-05,50
 717,Green Peppers,Middlebury,Addison,2026-04-10,2026,2026-04,100
 717,Green Peppers,Middlebury,Addison,2026-02-03,2026,2026-02,15
@@ -8918,6 +8921,7 @@ customer_id,name,city,county,date,year,month,gallons
 717,Green Peppers,Middlebury,Addison,2016-12-15,2016,2016-12,25
 717,Green Peppers,Middlebury,Addison,2016-11-09,2016,2016-11,40
 717,Green Peppers,Middlebury,Addison,2016-10-18,2016,2016-10,75
+1160,Hannaford-Middlebury,Middlebury,Addison,2026-07-27,2026,2026-07,50
 1160,Hannaford-Middlebury,Middlebury,Addison,2026-05-26,2026,2026-05,150
 1160,Hannaford-Middlebury,Middlebury,Addison,2026-03-10,2026,2026-03,164
 1160,Hannaford-Middlebury,Middlebury,Addison,2026-01-13,2026,2026-01,117
@@ -8949,6 +8953,7 @@ customer_id,name,city,county,date,year,month,gallons
 1160,Hannaford-Middlebury,Middlebury,Addison,2022-09-26,2022,2022-09,49
 1160,Hannaford-Middlebury,Middlebury,Addison,2022-09-09,2022,2022-09,50
 1160,Hannaford-Middlebury,Middlebury,Addison,2022-08-23,2022,2022-08,155
+715,Haymaker Buns,Middlebury,Addison,2026-07-27,2026,2026-07,70
 715,Haymaker Buns,Middlebury,Addison,2026-05-26,2026,2026-05,40
 715,Haymaker Buns,Middlebury,Addison,2026-04-10,2026,2026-04,60
 715,Haymaker Buns,Middlebury,Addison,2026-02-03,2026,2026-02,20
@@ -9005,6 +9010,7 @@ customer_id,name,city,county,date,year,month,gallons
 715,Haymaker Buns,Middlebury,Addison,2019-07-08,2019,2019-07,25
 715,Haymaker Buns,Middlebury,Addison,2019-04-25,2019,2019-04,30
 715,Haymaker Buns,Middlebury,Addison,2018-12-06,2018,2018-12,5
+724,Mad Taco-Middlebury,Middlebury,Addison,2026-07-27,2026,2026-07,70
 724,Mad Taco-Middlebury,Middlebury,Addison,2026-04-10,2026,2026-04,70
 724,Mad Taco-Middlebury,Middlebury,Addison,2025-09-29,2025,2025-09,20
 724,Mad Taco-Middlebury,Middlebury,Addison,2025-05-29,2025,2025-05,15
@@ -9176,6 +9182,7 @@ customer_id,name,city,county,date,year,month,gallons
 732,Ross Conrad,Middlebury,Addison,2017-03-30,2017,2017-03,325
 732,Ross Conrad,Middlebury,Addison,2016-12-07,2016,2016-12,305
 732,Ross Conrad,Middlebury,Addison,2016-04-23,2016,2016-04,50
+714,Two Brothers Tavern,Middlebury,Addison,2026-07-27,2026,2026-07,120
 714,Two Brothers Tavern,Middlebury,Addison,2026-07-06,2026,2026-07,160
 714,Two Brothers Tavern,Middlebury,Addison,2026-06-12,2026,2026-06,100
 714,Two Brothers Tavern,Middlebury,Addison,2026-05-26,2026,2026-05,160
