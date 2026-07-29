@@ -16,8 +16,10 @@
     <div class="subtitle">Oil Collection Analytics</div>
     <h1>Black Bear Biodiesel</h1>
   </div>
-  <div class="page-name" id="page-name"></div>
-  <nav class="main-nav" id="main-nav"></nav>
+  <div class="header-center">
+    <div class="page-name" id="page-name"></div>
+    <nav class="main-nav" id="main-nav"></nav>
+  </div>
   <div class="last-updated" id="last-updated"></div>
 </header>
 
@@ -32,6 +34,7 @@
 let allRecords = [];
 let allMonths = [];
 let firstPickupByCustomer = {};   // customer_id -> earliest date anywhere in the data
+let allYears = [];                // calendar years present, ascending
 let lifecycleRows = [];           // per-year serviced / gained / lost / net
 let dormantCutoff = "";
 
@@ -57,6 +60,9 @@ async function init() {
   }
 
   allMonths = Array.from(new Set(allRecords.map(r => r.month))).sort();
+  allYears = Array.from(new Set(allRecords.map(r => Number(r.year))))
+    .filter(Number.isFinite)
+    .sort((a, b) => a - b);
 
   // Earliest pickup per customer across the WHOLE dataset. Used to decide
   // whether a customer was gained during the selected period, which has to be
@@ -100,7 +106,15 @@ function renderLifecycle() {
   const firstYear = lifecycleRows[0].year;
 
   el.innerHTML = `
-    <div class="section-title">Customer Lifecycle by Year</div>
+    <div class="section-title" id="lifecycle">Customer Lifecycle by Year</div>
+    <div class="section-caption">
+      <strong>Serviced</strong> = unique customers with at least one qualifying
+      pickup in that year.
+      <strong>Gained</strong> = customers whose first qualifying pickup was in
+      that year.
+      <strong>Lost</strong> = customers whose last qualifying pickup was in that
+      year and who are inactive or dormant.
+    </div>
     ${lifecycleFootnoteHtml(`
       <br><strong>Places Serviced</strong> counts unique customers with at least
       one qualifying pickup that year.
@@ -116,10 +130,10 @@ function renderLifecycle() {
         <thead>
           <tr>
             <th>Year</th>
-            <th class="num">Places Serviced</th>
-            <th class="num">Gained</th>
-            <th class="num">Lost</th>
-            <th class="num">Net</th>
+            <th class="center">Places Serviced</th>
+            <th class="center">Gained</th>
+            <th class="center">Lost</th>
+            <th class="center">Net</th>
           </tr>
         </thead>
         <tbody>
@@ -129,18 +143,18 @@ function renderLifecycle() {
             return `
               <tr>
                 <td><a href="year.html?year=${encodeURIComponent(r.year)}">${escapeHtml(r.year)}</a></td>
-                <td class="num">${formatNumber(r.places_serviced)}</td>
-                <td class="num">${formatNumber(r.gained)}</td>
-                <td class="num">${formatNumber(r.lost)}</td>
-                <td class="num ${cls}">${net > 0 ? "+" : ""}${formatNumber(net)}</td>
+                <td class="center">${formatNumber(r.places_serviced)}</td>
+                <td class="center">${formatNumber(r.gained)}</td>
+                <td class="center">${formatNumber(r.lost)}</td>
+                <td class="center ${cls}">${net > 0 ? "+" : ""}${formatNumber(net)}</td>
               </tr>`;
           }).join("")}
           <tr class="group-row">
             <td>All years</td>
-            <td class="num">—</td>
-            <td class="num">${formatNumber(totals.gained)}</td>
-            <td class="num">${formatNumber(totals.lost)}</td>
-            <td class="num">${totals.gained - totals.lost > 0 ? "+" : ""}${formatNumber(totals.gained - totals.lost)}</td>
+            <td class="center">—</td>
+            <td class="center">${formatNumber(totals.gained)}</td>
+            <td class="center">${formatNumber(totals.lost)}</td>
+            <td class="center">${totals.gained - totals.lost > 0 ? "+" : ""}${formatNumber(totals.gained - totals.lost)}</td>
           </tr>
         </tbody>
       </table>
@@ -151,6 +165,7 @@ function buildShell(page) {
   renderPageName("Top Producing Customers");
 
   const latest = allMonths[allMonths.length - 1];
+  const latestYear = allYears[allYears.length - 1];
 
   page.innerHTML = `
     <a class="back-link" href="index.html">← Back to the dashboard</a>
@@ -162,16 +177,27 @@ function buildShell(page) {
         ${VIEW_MODES.map(m => `<option value="${m.value}">${m.label}</option>`).join("")}
       </select>
 
-      <label for="month-select">Month</label>
+      <!-- Only one of these is shown at a time, depending on the period.
+           Monthly and the to-date periods need a month; Yearly needs a whole
+           calendar year; All Time needs neither. -->
+      <label id="month-label" for="month-select">Month</label>
       <select id="month-select">
         ${allMonths.slice().reverse().map(m =>
           `<option value="${m}"${m === latest ? " selected" : ""}>${formatMonth(m)}</option>`).join("")}
+      </select>
+
+      <label id="year-label" for="year-select">Year</label>
+      <select id="year-select">
+        ${allYears.slice().reverse().map(y =>
+          `<option value="${y}"${y === latestYear ? " selected" : ""}>${y}</option>`).join("")}
       </select>
 
       <label>Sort</label>
       <button id="sort-gallons" class="active">Top producers</button>
       <button id="sort-status">Active first</button>
     </div>
+
+    <a class="jump-link" href="#lifecycle">↓ View lifecycle summary</a>
 
     <div class="stats-bar" id="summary"></div>
 
@@ -187,6 +213,7 @@ function buildShell(page) {
 
   document.getElementById("mode-select").addEventListener("change", update);
   document.getElementById("month-select").addEventListener("change", update);
+  document.getElementById("year-select").addEventListener("change", update);
 
   document.getElementById("sort-gallons").addEventListener("click", () => setSort("gallons"));
   document.getElementById("sort-status").addEventListener("click", () => setSort("status"));
@@ -203,10 +230,31 @@ function setSort(mode) {
 
 function update() {
   const mode = document.getElementById("mode-select").value;
-  const selectedMonth = document.getElementById("month-select").value;
+  const picker = pickerForMode(mode);
 
-  // The month picker only matters for periods anchored to a month.
-  document.getElementById("month-select").disabled = (mode === "alltime");
+  // Show only the control the selected period actually needs.
+  const monthSel = document.getElementById("month-select");
+  const yearSel = document.getElementById("year-select");
+  const monthLabel = document.getElementById("month-label");
+  const yearLabel = document.getElementById("year-label");
+
+  const showMonth = picker === "month";
+  const showYear = picker === "year";
+
+  monthSel.style.display = showMonth ? "" : "none";
+  monthLabel.style.display = showMonth ? "" : "none";
+  yearSel.style.display = showYear ? "" : "none";
+  yearLabel.style.display = showYear ? "" : "none";
+
+  // Yearly works off the year dropdown, so the month it hands downstream is
+  // any month inside that year — getMonthsForMode expands it to the full year.
+  let selectedMonth;
+  if (showYear) {
+    const year = yearSel.value;
+    selectedMonth = allMonths.filter(m => m.startsWith(year)).pop() || allMonths[allMonths.length - 1];
+  } else {
+    selectedMonth = monthSel.value;
+  }
 
   const periodMonths = new Set(getMonthsForMode(mode, allMonths, selectedMonth));
   const rows = allRecords.filter(r => periodMonths.has(r.month));
@@ -280,7 +328,8 @@ function update() {
 
   renderTable(tableArea, customers);
   document.getElementById("table-title").textContent =
-    `${formatNumber(customers.length)} customers · ${periodLabel(document.getElementById("mode-select").value, allMonths, document.getElementById("month-select").value)}`;
+    `Top Producing Customers · ${formatNumber(customers.length)} in ` +
+    periodLabel(mode, allMonths, selectedMonth);
 }
 
 function renderTable(area, customers) {

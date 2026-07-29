@@ -17,8 +17,10 @@
     <div class="subtitle">Oil Collection Analytics</div>
     <h1>Black Bear Biodiesel</h1>
   </div>
-  <div class="page-name" id="page-name"></div>
-  <nav class="main-nav" id="main-nav"></nav>
+  <div class="header-center">
+    <div class="page-name" id="page-name"></div>
+    <nav class="main-nav" id="main-nav"></nav>
+  </div>
   <div class="last-updated" id="last-updated"></div>
 </header>
 
@@ -130,6 +132,21 @@ function render(page, region, options, monthly, yearly, named, regionStats,
 
   const isOther = !named.includes(region);
 
+  // Average gallons per month over the last two years of available data.
+  // Only months that actually have data are counted — a month the region has
+  // not reached yet is not averaged in as a zero, which would drag it down.
+  const recentMonths = months.filter(m => {
+    const cutoff = new Date(Number(latestMonth.slice(0, 4)),
+                            Number(latestMonth.slice(5)) - 1);
+    cutoff.setMonth(cutoff.getMonth() - 23);
+    const key = `${cutoff.getFullYear()}-${String(cutoff.getMonth() + 1).padStart(2, "0")}`;
+    return m >= key;
+  });
+  const avgMonthsUsed = recentMonths.length;
+  const avgMonthly = avgMonthsUsed
+    ? Math.round(recentMonths.reduce((sum, m) => sum + monthTotals[m], 0) / avgMonthsUsed)
+    : 0;
+
   const topCustomers = regionCustomers || [];
   const shownGallons = topCustomers
     .slice(0, REGION_CUSTOMER_LIMIT)
@@ -176,6 +193,11 @@ function render(page, region, options, monthly, yearly, named, regionStats,
         <div class="stat-label">${escapeHtml(formatMonth(latestMonth))}</div>
       </div>
       <div class="stat">
+        <div class="stat-val">${formatNumber(avgMonthly)}</div>
+        <div class="stat-label">Avg Monthly Gallons</div>
+        <div class="stat-sub">last ${formatNumber(avgMonthsUsed)} months with data</div>
+      </div>
+      <div class="stat">
         <div class="stat-val">${activeDisplay}</div>
         <div class="stat-label">Active Customers</div>
       </div>
@@ -191,6 +213,17 @@ function render(page, region, options, monthly, yearly, named, regionStats,
         ? `<br><strong>Active Customers</strong> counts source-site active customers
            out of ${formatNumber(regionStats.customers)} total in this region.
            It is not derived from how recently a customer had a pickup.` : ""}
+    </div>
+
+    <div class="section chart-grid">
+      <div>
+        <div class="chart-title">Monthly Gallons</div>
+        <div class="chart-container"><canvas id="chart-monthly"></canvas></div>
+      </div>
+      <div>
+        <div class="chart-title">Yearly Totals</div>
+        <div class="chart-container"><canvas id="chart-yearly"></canvas></div>
+      </div>
     </div>
 
     <div class="section">
@@ -211,17 +244,6 @@ function render(page, region, options, monthly, yearly, named, regionStats,
         ${customerTableHtml(topCustomers.slice(0, REGION_CUSTOMER_LIMIT),
                             { town: true, dates: false })}
       ` : `<div class="note">No customer-level detail is available for this region.</div>`}
-    </div>
-
-    <div class="section chart-grid">
-      <div>
-        <div class="chart-title">Monthly Gallons</div>
-        <div class="chart-container"><canvas id="chart-monthly"></canvas></div>
-      </div>
-      <div>
-        <div class="chart-title">Yearly Totals</div>
-        <div class="chart-container"><canvas id="chart-yearly"></canvas></div>
-      </div>
     </div>
 
     <div class="section chart-grid">

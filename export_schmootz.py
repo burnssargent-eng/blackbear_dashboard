@@ -71,6 +71,24 @@ MONTH_FIRST_ROW = 4
 MONTH_LAST_ROW = 15
 TOTALS_ROW = 16
 
+# ── Barr Hill → Montpelier Facility ───────────────────────────────────────────
+#
+# This one is not laid out like the two blocks above. It lives in a pair of
+# per-year side tables further right, highlighted green in the sheet, and only
+# 2025 and 2026 are in scope.
+#
+# The two tables do NOT use the same column order — 2025 runs
+# Gebbie / Montpelier / Shop, while 2026 runs Gebbie / Shop / Montpelier — so
+# the column is located by its header text rather than a fixed offset.
+#
+# Each entry: (year, header row, month-label column, first month row, last row)
+MF_TABLES = [
+    {"year": 2025, "header_row": 3, "month_col": 36, "first_row": 4, "last_row": 15},
+    {"year": 2026, "header_row": 4, "month_col": 41, "first_row": 5, "last_row": 10},
+]
+MF_HEADER_TEXT = "BH to MF"
+MF_SEARCH_COLS = range(36, 46)   # AJ..AS, the side-table area
+
 
 def find_source():
     for path in SOURCE_CANDIDATES:
@@ -190,6 +208,88 @@ def read_block(ws, block):
     }
 
 
+def read_montpelier_block(ws):
+    """
+    Barr Hill → Montpelier Facility, assembled from the per-year side tables.
+
+    Only the years listed in MF_TABLES are read, per instruction. The column is
+    found by matching MF_HEADER_TEXT on the table's header row, because the two
+    tables order their columns differently.
+    """
+    monthly = []
+    by_year = {}
+    by_month_name = {name: 0 for name in MONTHS}
+    years = []
+
+    for table in MF_TABLES:
+        year = table["year"]
+
+        col = None
+        for candidate in MF_SEARCH_COLS:
+            value = ws.cell(row=table["header_row"], column=candidate).value
+            if isinstance(value, str) and value.strip() == MF_HEADER_TEXT:
+                col = candidate
+                break
+
+        if col is None:
+            raise SystemExit(
+                f"Could not find a {MF_HEADER_TEXT!r} column on row "
+                f"{table['header_row']} for {year}. The workbook layout may "
+                "have changed."
+            )
+
+        years.append(year)
+        by_year.setdefault(year, 0)
+
+        for row in range(table["first_row"], table["last_row"] + 1):
+            label = ws.cell(row=row, column=table["month_col"]).value
+            month_name = str(label).strip() if label else None
+            if month_name not in MONTHS:
+                raise SystemExit(
+                    f"Expected a month name at row {row} of the {year} "
+                    f"Montpelier table, found {month_name!r}."
+                )
+            month_number = MONTHS.index(month_name) + 1
+
+            # A blank cell means the month has not happened yet. A literal 0
+            # means it happened and nothing moved — that is real data and is
+            # kept, so the page can show 0 rather than a dash.
+            gallons = cell_number(ws.cell(row=row, column=col).value)
+            if gallons is None:
+                continue
+
+            monthly.append({
+                "year": year,
+                "month": f"{year}-{month_number:02d}",
+                "month_name": month_name,
+                "gallons": gallons,
+            })
+            by_year[year] += gallons
+            by_month_name[month_name] += gallons
+
+    if not monthly:
+        raise SystemExit("No Barr Hill → Montpelier Facility values were found.")
+
+    return {
+        "key": "barr_hill_to_montpelier",
+        "label": "Barr Hill → Montpelier Facility",
+        "source": "Barr Hill",
+        "destination": "Montpelier Facility",
+        "years": years,
+        "first_year": min(years),
+        "last_year": max(years),
+        "total_gallons": sum(by_year.values()),
+        "record_count": len(monthly),
+        "months_with_data": len(monthly),
+        "by_year": [{"year": y, "gallons": by_year[y]} for y in years],
+        "by_month_name": [
+            {"month_name": m, "gallons": by_month_name[m]} for m in MONTHS
+        ],
+        "monthly": monthly,
+        "_sheet_total_mismatches": [],
+    }
+
+
 def main():
     source = find_source()
     wb = openpyxl.load_workbook(source, data_only=True)
@@ -201,6 +301,7 @@ def main():
 
     print(f"Reading {source} · sheet {SHEET_NAME!r}")
     blocks = [read_block(ws, b) for b in BLOCKS]
+    blocks.append(read_montpelier_block(ws))
 
     problems = 0
     for block in blocks:
@@ -221,6 +322,7 @@ def main():
     lookup = {b["key"]: b for b in blocks}
     barr = lookup["barr_hill_to_gebbie"]["total_gallons"]
     shop = lookup["bbb_shop_to_gebbie"]["total_gallons"]
+    montpelier = lookup["barr_hill_to_montpelier"]["total_gallons"]
 
     all_years = sorted({y for b in blocks for y in b["years"]})
 
@@ -242,7 +344,9 @@ def main():
         "source_sheet": SHEET_NAME,
         "total_barr_hill_to_gebbie": barr,
         "total_bbb_shop_to_gebbie": shop,
-        "combined_total": barr + shop,
+        "total_barr_hill_to_montpelier": montpelier,
+        # Headline "Total Waste Displaced" across every source.
+        "combined_total": barr + shop + montpelier,
         "first_year": all_years[0],
         "last_year": all_years[-1],
         "years": all_years,
@@ -255,7 +359,7 @@ def main():
         json.dump(output, f, indent=2)
 
     size_kb = os.path.getsize(OUTPUT_PATH) / 1000
-    print(f"\nCombined: {barr + shop:,} gallons "
+    print(f"\nTotal waste displaced: {barr + shop + montpelier:,} gallons "
           f"({all_years[0]}–{all_years[-1]})")
     print(f"Exported {OUTPUT_PATH} ({size_kb:.1f} KB)")
     print("\nThe workbook itself is not committed; only this JSON is.")

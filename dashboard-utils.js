@@ -253,13 +253,28 @@ function sortCustomersByGallons(customers) {
  * thing everywhere on the site.
  * ───────────────────────────────────────────── */
 
+/*
+ * Used by customers.html only. The homepage keeps its own hardcoded <option>
+ * list and its own periodLabel(), so nothing here affects the map.
+ *
+ * `picker` says which secondary control the mode needs:
+ *   "month" — a specific month, or a month-to-date cutoff
+ *   "year"  — a whole calendar year
+ *   null    — no date selection at all
+ */
 const VIEW_MODES = [
-  { value: "month", label: "Monthly" },
-  { value: "ytd", label: "Year to Date" },
-  { value: "year", label: "Selected Year" },
-  { value: "alltime_todate", label: "All Time To Date" },
-  { value: "alltime", label: "All Time" }
+  { value: "month", label: "Monthly", picker: "month" },
+  { value: "ytd", label: "Year to Date", picker: "month" },
+  { value: "year", label: "Yearly", picker: "year" },
+  { value: "alltime_todate", label: "All Time To Date", picker: "month" },
+  { value: "alltime", label: "All Time", picker: null }
 ];
+
+/** Which secondary control a mode needs: "month", "year" or null. */
+function pickerForMode(mode) {
+  const entry = VIEW_MODES.find(m => m.value === mode);
+  return entry ? entry.picker : "month";
+}
 
 /**
  * Which months a mode covers, relative to a selected "YYYY-MM".
@@ -408,10 +423,8 @@ function navHtml(current, latestYear, defaultRegion) {
   const links = [
     { key: "dashboard", href: "index.html", label: "Dashboard" },
     { key: "region", href: `region.html?region=${encodeURIComponent(region)}`, label: "Regions" },
-    { key: "customers", href: "customers.html", label: "Customers" },
     { key: "year", href: `year.html?year=${encodeURIComponent(year)}`, label: "Years" },
-    // schmootz.html is built in Phase 4D. The link is present now so the nav
-    // order is final; it 404s until that page exists.
+    { key: "customers", href: "customers.html", label: "Customers" },
     { key: "schmootz", href: "schmootz.html", label: "Schmootz" }
   ];
 

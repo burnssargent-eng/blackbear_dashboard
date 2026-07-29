@@ -24,14 +24,30 @@ body {
 header {
   display: flex;
   align-items: center;
-  padding: 16px 32px;
+  /* Trimmed from 16px to claw back vertical space for page content, while
+     staying tall enough that the logo and nav do not feel cramped. */
+  padding: 10px 32px;
   background: #161b22;
   border-bottom: 1px solid #30363d;
+  position: relative;
+}
+
+/* Page name + nav, centred on the viewport rather than in the leftover flex
+   space. The brand block is much wider than the timestamp, so a plain
+   margin-left:auto would push this well right of centre. */
+.header-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
 }
 
 header img {
-  height: 64px;
-  margin-right: 20px;
+  height: 52px;
+  margin-right: 18px;
 }
 
 header h1 {
@@ -45,7 +61,7 @@ header h1 {
 }
 
 .last-updated {
-  margin-left: 24px;
+  margin-left: auto;
   font-size: 12px;
   color: #8b949e;
   white-space: nowrap;
@@ -55,30 +71,53 @@ header h1 {
    between the brand block and the nav, and a little larger than the brand
    subtitle so it reads as the subject of the page. */
 .page-name {
-  flex: 1;
   text-align: center;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
   color: #e6edf3;
-  padding: 0 16px;
-  min-width: 0;
+  line-height: 1.15;
+  white-space: nowrap;
 }
+
+/* Empty on the homepage, where there is no page name above the nav. */
+.page-name:empty { display: none; }
+
+/* Secondary line inside a stat card. Deliberately smaller and grey so the
+   headline .stat-val keeps the emphasis.
+   NOTE: schmootz.html has used this class since Phase 4D but it was only ever
+   defined inline in index.html, so those lines rendered unstyled until now. */
+.stat-sub {
+  font-size: 12px;
+  color: #8b949e;
+  margin-top: 6px;
+  min-height: 15px;
+}
+
+/* The number inside a secondary line: light grey, never the headline green. */
+.stat-sub-value {
+  color: #c9d1d9;
+  font-weight: bold;
+}
+
+.stat-sub .up   { color: #3fb950; }
+.stat-sub .down { color: #e5734b; }
 
 /* ── Navigation ───────────────────────────────────────────── */
 
 .main-nav {
-  margin-left: auto;
   display: flex;
-  gap: 18px;
+  gap: 22px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .main-nav a {
   color: #8b949e;
   text-decoration: none;
-  font-size: 13px;
-  padding: 4px 0;
+  font-size: 15px;
+  padding: 3px 0;
   border-bottom: 2px solid transparent;
+  white-space: nowrap;
 }
 
 .main-nav a:hover {
@@ -94,7 +133,7 @@ header h1 {
 
 .stats-bar {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 1px;
   background: #30363d;
 }
@@ -161,6 +200,16 @@ header h1 {
   color: #8b949e;
   font-size: 13px;
   margin-bottom: 8px;
+}
+
+/* Explains what a chart is showing. Must stay quieter than .chart-title above
+   it — without this rule it inherits body text and shouts over the heading. */
+.tab-caption {
+  color: #8b949e;
+  font-size: 11px;
+  line-height: 1.5;
+  margin: -4px 0 8px;
+  opacity: 0.85;
 }
 
 .chart-container {
@@ -292,6 +341,73 @@ select:disabled {
 .data-table .up   { color: #3fb950; font-weight: bold; }
 .data-table .down { color: #e5734b; font-weight: bold; }
 
+/* Centres a numeric column under its heading, for tables where the figures
+   read better centred than right-aligned. */
+.data-table th.center,
+.data-table td.center {
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* A green total that should sit centred under its heading rather than
+   right-aligned. Explicit so it survives any reordering of this file. */
+.data-table .gal.center {
+  text-align: center;
+}
+
+/* Headline figure for a page whose whole point is one big number. */
+.hero-stat {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  padding: 22px 24px;
+  text-align: center;
+  margin-bottom: 1px;
+}
+
+.hero-value {
+  font-size: 52px;
+  font-weight: bold;
+  color: #3fb950;
+  line-height: 1.1;
+}
+
+.hero-label {
+  font-size: 13px;
+  color: #8b949e;
+  margin-top: 6px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 720px) {
+  .hero-value { font-size: 36px; }
+}
+
+/* Short definition line under a section title, above the longer footnote. */
+.section-caption {
+  color: #8b949e;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: -2px 0 10px;
+}
+
+.jump-link {
+  display: inline-block;
+  color: #3fb950;
+  text-decoration: none;
+  font-size: 12px;
+  border: 1px solid #30363d;
+  background: #161b22;
+  border-radius: 6px;
+  padding: 5px 10px;
+  margin-bottom: 14px;
+}
+
+.jump-link:hover {
+  background: #21262d;
+}
+
 .data-table a {
   color: #e6edf3;
   text-decoration: none;
@@ -342,16 +458,19 @@ select:disabled {
 
 /* ── Notes and states ─────────────────────────────────────── */
 
+/* The green left edge is purely cosmetic — it separates explanatory notes from
+   data panels against the dark background. Padding trimmed slightly here as
+   part of the Phase 5 vertical-space pass. */
 .note {
   background: #161b22;
   border: 1px solid #30363d;
   border-left: 3px solid #3fb950;
   border-radius: 6px;
-  padding: 12px 16px;
+  padding: 10px 16px;
   font-size: 12px;
   color: #8b949e;
   line-height: 1.6;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .page-state {
@@ -389,9 +508,57 @@ select:disabled {
   color: #e5534b;
 }
 
-@media (max-width: 720px) {
+/* Responsive pass. Verified in headless Chrome at 390px; not yet checked on a
+   real handset — see the TODO in the project notes. */
+@media (max-width: 860px) {
   .page { padding: 16px; }
-  header { padding: 12px 16px; }
-  header img { height: 44px; margin-right: 12px; }
+
+  /* The absolutely-centred header block would overlap the logo on a narrow
+     screen, so it returns to normal flow underneath the brand. */
+  header {
+    padding: 8px 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  header img { height: 40px; margin-right: 12px; }
+  header h1 { font-size: 19px; }
+  .subtitle { font-size: 11px; }
+
+  .header-center {
+    position: static;
+    transform: none;
+    width: 100%;
+    order: 3;
+    margin-top: 6px;
+  }
+
+  .page-name { font-size: 18px; white-space: normal; }
+
+  .last-updated {
+    margin-left: 0;
+    order: 4;
+    width: 100%;
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  .main-nav { gap: 16px; }
+  .main-nav a { font-size: 14px; }
+
   .chart-grid { grid-template-columns: 1fr; }
+  .stats-bar { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }
+  .controls { gap: 8px; }
+}
+
+@media (max-width: 520px) {
+  .page { padding: 12px; }
+  .hero-value { font-size: 34px; }
+  .stat-val { font-size: 22px; }
+  .stats-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .main-nav { gap: 12px; }
+  .main-nav a { font-size: 13px; }
+  /* Tables stay readable by scrolling sideways rather than squashing. */
+  .data-table { font-size: 12px; }
+  .data-table th, .data-table td { padding: 7px 10px; }
 }

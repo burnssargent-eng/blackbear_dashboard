@@ -1,10 +1,11 @@
 {
-  "generated_at": "2026-07-27T20:40:43",
+  "generated_at": "2026-07-29T01:46:15",
   "source_file": "Schmootz.xlsx",
   "source_sheet": "Schmootz",
   "total_barr_hill_to_gebbie": 2134668,
   "total_bbb_shop_to_gebbie": 133475,
-  "combined_total": 2268143,
+  "total_barr_hill_to_montpelier": 117212,
+  "combined_total": 2385355,
   "first_year": 2020,
   "last_year": 2026,
   "years": [
@@ -16,7 +17,7 @@
     2025,
     2026
   ],
-  "record_count": 117,
+  "record_count": 135,
   "blocks": [
     {
       "key": "barr_hill_to_gebbie",
@@ -908,6 +909,191 @@
           "gallons": 1400
         }
       ]
+    },
+    {
+      "key": "barr_hill_to_montpelier",
+      "label": "Barr Hill \u2192 Montpelier Facility",
+      "source": "Barr Hill",
+      "destination": "Montpelier Facility",
+      "years": [
+        2025,
+        2026
+      ],
+      "first_year": 2025,
+      "last_year": 2026,
+      "total_gallons": 117212,
+      "record_count": 18,
+      "months_with_data": 18,
+      "by_year": [
+        {
+          "year": 2025,
+          "gallons": 84308
+        },
+        {
+          "year": 2026,
+          "gallons": 32904
+        }
+      ],
+      "by_month_name": [
+        {
+          "month_name": "January",
+          "gallons": 15449
+        },
+        {
+          "month_name": "February",
+          "gallons": 8581
+        },
+        {
+          "month_name": "March",
+          "gallons": 13768
+        },
+        {
+          "month_name": "April",
+          "gallons": 23984
+        },
+        {
+          "month_name": "May",
+          "gallons": 15083
+        },
+        {
+          "month_name": "June",
+          "gallons": 12213
+        },
+        {
+          "month_name": "July",
+          "gallons": 14594
+        },
+        {
+          "month_name": "August",
+          "gallons": 5497
+        },
+        {
+          "month_name": "September",
+          "gallons": 0
+        },
+        {
+          "month_name": "October",
+          "gallons": 0
+        },
+        {
+          "month_name": "November",
+          "gallons": 5727
+        },
+        {
+          "month_name": "December",
+          "gallons": 2316
+        }
+      ],
+      "monthly": [
+        {
+          "year": 2025,
+          "month": "2025-01",
+          "month_name": "January",
+          "gallons": 6887
+        },
+        {
+          "year": 2025,
+          "month": "2025-02",
+          "month_name": "February",
+          "gallons": 8581
+        },
+        {
+          "year": 2025,
+          "month": "2025-03",
+          "month_name": "March",
+          "gallons": 7485
+        },
+        {
+          "year": 2025,
+          "month": "2025-04",
+          "month_name": "April",
+          "gallons": 8313
+        },
+        {
+          "year": 2025,
+          "month": "2025-05",
+          "month_name": "May",
+          "gallons": 12695
+        },
+        {
+          "year": 2025,
+          "month": "2025-06",
+          "month_name": "June",
+          "gallons": 12213
+        },
+        {
+          "year": 2025,
+          "month": "2025-07",
+          "month_name": "July",
+          "gallons": 14594
+        },
+        {
+          "year": 2025,
+          "month": "2025-08",
+          "month_name": "August",
+          "gallons": 5497
+        },
+        {
+          "year": 2025,
+          "month": "2025-09",
+          "month_name": "September",
+          "gallons": 0
+        },
+        {
+          "year": 2025,
+          "month": "2025-10",
+          "month_name": "October",
+          "gallons": 0
+        },
+        {
+          "year": 2025,
+          "month": "2025-11",
+          "month_name": "November",
+          "gallons": 5727
+        },
+        {
+          "year": 2025,
+          "month": "2025-12",
+          "month_name": "December",
+          "gallons": 2316
+        },
+        {
+          "year": 2026,
+          "month": "2026-01",
+          "month_name": "January",
+          "gallons": 8562
+        },
+        {
+          "year": 2026,
+          "month": "2026-02",
+          "month_name": "February",
+          "gallons": 0
+        },
+        {
+          "year": 2026,
+          "month": "2026-03",
+          "month_name": "March",
+          "gallons": 6283
+        },
+        {
+          "year": 2026,
+          "month": "2026-04",
+          "month_name": "April",
+          "gallons": 15671
+        },
+        {
+          "year": 2026,
+          "month": "2026-05",
+          "month_name": "May",
+          "gallons": 2388
+        },
+        {
+          "year": 2026,
+          "month": "2026-06",
+          "month_name": "June",
+          "gallons": 0
+        }
+      ]
     }
   ],
   "combined_by_year": [
@@ -915,43 +1101,50 @@
       "year": 2020,
       "barr_hill_to_gebbie": 270300,
       "bbb_shop_to_gebbie": null,
+      "barr_hill_to_montpelier": null,
       "combined": 270300
     },
     {
       "year": 2021,
       "barr_hill_to_gebbie": 376050,
       "bbb_shop_to_gebbie": null,
+      "barr_hill_to_montpelier": null,
       "combined": 376050
     },
     {
       "year": 2022,
       "barr_hill_to_gebbie": 352230,
       "bbb_shop_to_gebbie": null,
+      "barr_hill_to_montpelier": null,
       "combined": 352230
     },
     {
       "year": 2023,
       "barr_hill_to_gebbie": 336900,
       "bbb_shop_to_gebbie": 24300,
+      "barr_hill_to_montpelier": null,
       "combined": 361200
     },
     {
       "year": 2024,
       "barr_hill_to_gebbie": 364300,
       "bbb_shop_to_gebbie": 46850,
+      "barr_hill_to_montpelier": null,
       "combined": 411150
     },
     {
       "year": 2025,
       "barr_hill_to_gebbie": 277950,
       "bbb_shop_to_gebbie": 45075,
-      "combined": 323025
+      "barr_hill_to_montpelier": 84308,
+      "combined": 407333
     },
     {
       "year": 2026,
       "barr_hill_to_gebbie": 156938,
       "bbb_shop_to_gebbie": 17250,
-      "combined": 174188
+      "barr_hill_to_montpelier": 32904,
+      "combined": 207092
     }
   ]
 }

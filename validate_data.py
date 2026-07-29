@@ -807,10 +807,13 @@ def check_schmootz(report):
     size_kb = os.path.getsize(path) / 1000
     report.ok(f"{path} parsed cleanly ({size_kb:.1f} KB).")
 
-    # These come from the Phase 4A audit of the workbook and must not drift.
+    # These come from the workbook audit and must not drift. Barr Hill →
+    # Montpelier Facility was added in Phase 5 from the green-highlighted
+    # columns, restricted to 2025–2026.
     expected = {
         "total_barr_hill_to_gebbie": 2_134_668,
         "total_bbb_shop_to_gebbie": 133_475,
+        "total_barr_hill_to_montpelier": 117_212,
     }
     for field, want in expected.items():
         got = data.get(field)
@@ -822,8 +825,11 @@ def check_schmootz(report):
 
     combined = data.get("combined_total")
     parts = sum(data.get(f) or 0 for f in expected)
-    if combined == parts:
-        report.ok(f"combined_total = {combined:,} = the sum of both sources.")
+    if combined == parts == 2_385_355:
+        report.ok(f"combined_total = {combined:,} = the sum of all three sources.")
+    elif combined == parts:
+        report.fail(f"combined_total {combined:,} is self-consistent but is not "
+                    "the expected 2,385,355 total waste displaced.")
     else:
         report.fail(f"combined_total is {combined!r}, but the sources sum to {parts:,}.")
 
