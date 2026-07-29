@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Black Bear Bio — Oil Collection Dashboard</title>
+  <!-- Without this the page lays out at ~980px on a phone and overflows
+       sideways, so none of the responsive rules below ever take effect. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Black Bear Biodiesel — Oil Collection Analytics</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
@@ -16,19 +19,43 @@
       font-family: Arial, sans-serif;
       background: #0d1117;
       color: #e6edf3;
+      /* Column flex so .main simply fills whatever is left below the header and
+         stats bar. This replaces a hardcoded calc(100vh - 142px), which was
+         measured before the stat cards gained secondary lines and had drifted
+         out of date. */
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
     }
 
     header {
       display: flex;
       align-items: center;
-      padding: 16px 32px;
+      /* Trimmed from 16px to give the map and side panel more height. */
+      padding: 10px 32px;
       background: #161b22;
       border-bottom: 1px solid #30363d;
+      position: relative;
     }
 
+    /* Nav centred on the viewport rather than in the leftover flex space. The
+       brand block is much wider than the timestamp, so margin-left:auto would
+       push it well right of centre. Mirrors dashboard.css. */
+    .header-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .page-name:empty { display: none; }
+
     header img {
-      height: 64px;
-      margin-right: 20px;
+      height: 52px;
+      margin-right: 18px;
     }
 
     header h1 {
@@ -45,11 +72,38 @@
       margin-left: auto;
       font-size: 12px;
       color: #8b949e;
+      white-space: nowrap;
+    }
+
+    /* Links to the detail pages. Kept in the header so the map keeps its
+       full height. Mirrors the .main-nav rules in dashboard.css, which the
+       detail pages use. */
+    .main-nav {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .main-nav a {
+      color: #8b949e;
+      text-decoration: none;
+      font-size: 15px;
+      padding: 3px 0;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+    }
+
+    .main-nav a:hover { color: #e6edf3; }
+
+    .main-nav a.active {
+      color: #3fb950;
+      border-bottom-color: #3fb950;
     }
 
     .stats-bar {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 1px;
       background: #30363d;
     }
@@ -72,10 +126,33 @@
       margin-top: 4px;
     }
 
+    /* Secondary line inside an existing stat card. Deliberately smaller than
+       .stat-val so the headline number stays the focus and the 4-card grid
+       is unchanged. */
+    .stat-sub {
+      font-size: 12px;
+      color: #8b949e;
+      margin-top: 5px;
+      min-height: 15px;
+    }
+
+    /* The number on a secondary line is light grey, never the headline green,
+       so it reads as supporting detail rather than competing with .stat-val. */
+    .stat-sub-value {
+      color: #c9d1d9;
+      font-weight: bold;
+    }
+
+    .stat-sub .up   { color: #3fb950; }
+    .stat-sub .down { color: #e5734b; }
+
     .main {
       display: grid;
       grid-template-columns: 1fr 420px;
-      height: calc(100vh - 142px);
+      /* Fills the remaining viewport height. min-height:0 lets the grid shrink
+         so #map's height:100% resolves against a definite box. */
+      flex: 1;
+      min-height: 0;
     }
 
     .map-panel {
@@ -210,6 +287,16 @@
       margin-bottom: 8px;
     }
 
+    /* Explains what a chart is showing, so a normalized chart is not mistaken
+       for raw gallons. */
+    .tab-caption {
+      color: #8b949e;
+      font-size: 11px;
+      line-height: 1.5;
+      margin: -4px 0 8px;
+      opacity: 0.85;
+    }
+
     .chart-container {
       height: 220px;
       margin-bottom: 24px;
@@ -250,16 +337,129 @@
       border-radius: 6px;
       font-size: 12px;
     }
+
+    /* Tables in the Totals tab. This page does not link dashboard.css, so the
+       side panel carries its own compact copy of these rules. */
+    .table-wrap {
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin-bottom: 20px;
+    }
+
+    /* Long lists scroll inside the panel instead of stretching it. */
+    .panel-table {
+      max-height: 260px;
+      overflow-y: auto;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      background: #161b22;
+    }
+
+    .data-table td {
+      padding: 6px 10px;
+      border-bottom: 1px solid #21262d;
+    }
+
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:hover td { background: #1c2230; }
+
+    .data-table .gal {
+      color: #3fb950;
+      font-weight: bold;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .data-table a {
+      color: #e6edf3;
+      text-decoration: none;
+    }
+
+    .data-table a:hover { color: #3fb950; text-decoration: underline; }
+
+    /* Responsive pass. The map + 420px sidebar split cannot work on a phone,
+       so below 860px they stack and the map gets a fixed height. */
+    @media (max-width: 860px) {
+      body { height: auto; }
+
+      header {
+        padding: 8px 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      header img { height: 40px; margin-right: 12px; }
+      header h1 { font-size: 19px; }
+
+      .header-center {
+        position: static;
+        transform: none;
+        width: 100%;
+        order: 3;
+        margin-top: 6px;
+      }
+
+      .last-updated {
+        margin-left: 0;
+        order: 4;
+        width: 100%;
+        text-align: center;
+        margin-top: 4px;
+      }
+
+      .main-nav { gap: 16px; }
+      .main-nav a { font-size: 14px; }
+
+      .main {
+        grid-template-columns: 1fr;
+        flex: none;
+      }
+
+      .map-panel { height: 62vh; }
+      .right-panel { border-left: none; border-top: 1px solid #30363d; }
+
+      /* The floating card is wider than a phone screen. */
+      .time-controls {
+        width: calc(100% - 24px);
+        max-width: 520px;
+        padding: 12px 14px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .stats-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .stat-val { font-size: 22px; }
+      .stat { padding: 12px 8px; }
+      .main-nav { gap: 12px; }
+      .main-nav a { font-size: 13px; }
+      .map-panel { height: 55vh; }
+      .slider-controls { flex-wrap: wrap; }
+    }
   </style>
 </head>
 
 <body>
 
 <header>
-  <img src="logo.png" alt="Black Bear Bio" onerror="this.style.display='none'">
+  <img src="logo.png" alt="Black Bear Biodiesel" onerror="this.style.display='none'">
   <div>
-    <div class="subtitle">Oil Collection Dashboard</div>
-    <h1>Black Bear Bio</h1>
+    <div class="subtitle">Oil Collection Analytics</div>
+    <h1>Black Bear Biodiesel</h1>
+  </div>
+  <div class="header-center">
+    <div class="page-name" id="page-name"></div>
+    <nav class="main-nav" id="main-nav">
+    <a href="index.html" class="active">Dashboard</a>
+    <a href="region.html" id="nav-region">Regions</a>
+    <a href="year.html" id="nav-year">Years</a>
+    <a href="customers.html">Customers</a>
+    <a href="schmootz.html">Schmootz</a>
+    </nav>
   </div>
   <div class="last-updated" id="last-updated">Loading...</div>
 </header>
@@ -272,14 +472,16 @@
   <div class="stat">
     <div class="stat-val" id="stat-year">—</div>
     <div class="stat-label">This Year</div>
+    <div class="stat-sub" id="stat-projection"></div>
   </div>
   <div class="stat">
     <div class="stat-val" id="stat-month">—</div>
-    <div class="stat-label">Selected Month</div>
+    <div class="stat-label">Selected Period</div>
   </div>
   <div class="stat">
     <div class="stat-val" id="stat-customers">—</div>
     <div class="stat-label">Customers</div>
+    <div class="stat-sub" id="stat-active"></div>
   </div>
 </div>
 
@@ -305,6 +507,8 @@
         <select id="view-mode">
           <option value="month">Monthly</option>
           <option value="ytd">Year to Date</option>
+          <option value="year">Selected Year</option>
+          <option value="alltime_todate">All Time To Date</option>
           <option value="alltime">All Time</option>
         </select>
       </div>
@@ -314,8 +518,8 @@
   <div class="right-panel">
     <div class="panel-tabs">
       <div class="tab active" onclick="switchTab('trends')">Trends</div>
+      <div class="tab" onclick="switchTab('totals')">Totals</div>
       <div class="tab" onclick="switchTab('towns')">Towns</div>
-      <div class="tab" onclick="switchTab('counties')">Counties</div>
     </div>
 
     <div class="tab-content active" id="tab-trends">
@@ -328,18 +532,53 @@
       <div class="chart-container">
         <canvas id="chart-yearly"></canvas>
       </div>
+
+      <div class="chart-title">Seasonality-adjusted monthly profile</div>
+      <div class="tab-caption" id="seasonality-caption"></div>
+      <div class="chart-container">
+        <canvas id="chart-seasonality"></canvas>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-totals">
+      <div class="tab-caption">
+        Whole-history totals. These do not follow the period selector.
+      </div>
+
+      <div class="chart-title">Totals by Month</div>
+      <div class="table-wrap panel-table">
+        <table class="data-table"><tbody id="totals-month"></tbody></table>
+      </div>
+
+      <div class="chart-title">Totals by Year</div>
+      <div class="table-wrap panel-table">
+        <table class="data-table"><tbody id="totals-year"></tbody></table>
+      </div>
+
+      <div class="chart-title">Totals by Town</div>
+      <div class="table-wrap panel-table">
+        <table class="data-table"><tbody id="totals-town"></tbody></table>
+      </div>
+
+      <div class="chart-title">Totals by County</div>
+      <div class="table-wrap panel-table">
+        <table class="data-table"><tbody id="totals-county"></tbody></table>
+      </div>
     </div>
 
     <div class="tab-content" id="tab-towns">
+      <div class="tab-caption">
+        All three lists reflect the selected period shown on the map.
+      </div>
+
       <div class="chart-title">Top Towns</div>
       <ul class="town-list" id="town-list"></ul>
-    </div>
 
-    <div class="tab-content" id="tab-counties">
-      <div class="chart-title">County Totals</div>
-      <div class="chart-container">
-        <canvas id="chart-counties"></canvas>
-      </div>
+      <div class="chart-title" style="margin-top:20px">Top Regions</div>
+      <ul class="town-list" id="region-list"></ul>
+
+      <div class="chart-title" style="margin-top:20px">Top Counties</div>
+      <ul class="town-list" id="county-list"></ul>
     </div>
   </div>
 
@@ -354,31 +593,64 @@ let playInterval = null;
 let geojsonLayer = null;
 let monthlyByTown = {};
 let monthlyByCounty = {};
+let monthlyByRegion = {};
+let monthlyTotals = {};
 let yearlyTotals = {};
-let countyChart = null;
+let hasFitBounds = false;
 
+// Town names in oil_data.json are already normalized to official GeoJSON town
+// names by oil_scraper.py (normalize_geo_town). This map is only a safety net
+// for a stale/cached oil_data.json produced before that change. Keep it in sync
+// with GEO_TOWN_NAME_MAP in oil_scraper.py.
 const TOWN_NAME_MAP = {
-  "St. Albans": "Saint Albans",
-  "St. Albans City": "Saint Albans",
-  "St Albans": "Saint Albans",
+  // spelling variants
   "St. Johnsbury": "Saint Johnsbury",
   "Hinesburgh": "Hinesburg",
   "Betlin": "Berlin",
-  "S. Barre": "Barre",
+  "Enosburg": "Enosburgh",
+  "Enosburg Falls": "Enosburgh",
+  "Enosburgh Falls": "Enosburgh",
+
+  // villages that roll up to their official town
   "Montgomery Center": "Montgomery",
   "Craftsbury Common": "Craftsbury",
   "Jericho Center": "Jericho",
   "Eden Mills": "Eden",
-  "Enosburgh Falls": "Enosburg",
-  "Enosburg Falls": "Enosburg",
   "Randolph Center": "Randolph",
   "South Pomfret": "Pomfret",
   "South Royalton": "Royalton",
   "Manchester Center": "Manchester",
   "Bolton Valley": "Bolton",
   "West Dover": "Dover",
-  "East Barre": "Barre",
-  "Graniteville": "Barre"
+  "Quechee": "Hartford",
+  "Morrisville": "Morristown",
+  "West Glover": "Glover",
+  "Jeffersonville": "Cambridge",
+  "North Troy": "Troy",
+  "Island Pond": "Brighton",
+  "Wells River": "Newbury",
+  "Lyndonville": "Lyndon",
+  "Orleans": "Barton",
+  "East Burke": "Burke",
+  "Jacksonville": "Whitingham",
+  "Lower Waterford": "Waterford",
+  "Bellows Falls": "Rockingham",
+  "Gilman": "Lunenburg",
+  "Perkinsville": "Weathersfield",
+  "Belmont": "Mount Holly",
+
+  // villages inside Barre Town, not Barre City
+  "East Barre": "Barre Town",
+  "Graniteville": "Barre Town",
+  "S. Barre": "Barre Town",
+
+  // Vermont splits these into two separate polygons; default to the City.
+  "Barre": "Barre City",
+  "Newport": "Newport City",
+  "Rutland": "Rutland City",
+  "St. Albans": "Saint Albans City",
+  "St Albans": "Saint Albans City",
+  "St. Albans City": "Saint Albans City"
 };
 
 function normalizeTown(name) {
@@ -386,22 +658,114 @@ function normalizeTown(name) {
   return TOWN_NAME_MAP[name] || name;
 }
 
-const COLOR_BREAKS = [
-  { min: 9000, color: "#1a4a1a", label: "9,000+ gal" },
+// The green ramp, palest first. These are the same seven greens the dashboard
+// has always used — only the thresholds are calculated now, not the colors.
+const GREEN_RAMP = [
+  "#e5ebe3", "#c6d0c1", "#9aaa91", "#6f8f61",
+  "#4b7f42", "#2d6e2d", "#1a4a1a"
+];
+
+const NO_DATA_COLOR = "#ffffff";
+
+// The original hand-picked thresholds. Kept so the scale can be switched back
+// without rewriting anything — see SCALE_MODE below.
+const FIXED_BREAKS = [
+  { min: 9000, color: "#1a4a1a", label: "9,000+" },
   { min: 3000, color: "#2d6e2d", label: "3,000–9,000" },
   { min: 1500, color: "#4b7f42", label: "1,500–3,000" },
   { min: 750,  color: "#6f8f61", label: "750–1,500" },
   { min: 375,  color: "#9aaa91", label: "375–750" },
   { min: 175,  color: "#c6d0c1", label: "175–375" },
-  { min: 10,   color: "#e5ebe3", label: "10–175" },
-  { min: 0,    color: "#ffffff", label: "0" }
+  { min: 10,   color: "#e5ebe3", label: "10–175" }
 ];
 
-function getColor(gallons) {
-  for (const b of COLOR_BREAKS) {
+// "dynamic" = rescale to the towns currently on screen.
+// "fixed"   = always use FIXED_BREAKS above.
+// A future UI toggle only needs to flip this value and re-render.
+const SCALE_MODE = "dynamic";
+
+// Round up to a readable number: 1, 2, 2.5 or 5 times a power of ten.
+// Turns a raw quantile like 1,847 into 2,000 so the legend reads cleanly.
+function niceNumber(x) {
+  if (x <= 0) return 0;
+  const exp = Math.floor(Math.log10(x));
+  const base = Math.pow(10, exp);
+  const frac = x / base;
+
+  for (const step of [1, 2, 2.5, 5]) {
+    if (frac <= step) return step * base;
+  }
+  return 10 * base;
+}
+
+/**
+ * Build the color scale for the towns currently being displayed.
+ *
+ * Uses quantiles rather than equal-width steps because the data is very
+ * lop-sided: in All Time view the biggest town has ~433,000 gallons while the
+ * median town has ~5,000. Equal-width bins would drop almost every town into
+ * the palest color and leave one dark outlier. Quantiles spread the towns
+ * evenly across the ramp, so the map actually shows differences.
+ *
+ * Returns bins ordered darkest-first, each { min, color, label }.
+ * Returns [] when there is nothing to show.
+ */
+function computeBins(values) {
+  if (SCALE_MODE === "fixed") return FIXED_BREAKS;
+
+  const positive = values.filter(v => v > 0).sort((a, b) => a - b);
+  if (!positive.length) return [];
+
+  const binCount = GREEN_RAMP.length;
+
+  // Cut points at the 1/7 ... 6/7 quantiles, rounded to readable numbers.
+  // Rounding can make two cuts land on the same value (common in a sparse
+  // month); dropping the duplicates just means fewer, wider bins, which is
+  // the honest result rather than a bug.
+  const cuts = [];
+  for (let i = 1; i < binCount; i++) {
+    const q = positive[Math.min(
+      Math.floor((i / binCount) * positive.length),
+      positive.length - 1
+    )];
+    const cut = niceNumber(q);
+    if (cut > 0 && (cuts.length === 0 || cut > cuts[cuts.length - 1])) {
+      cuts.push(cut);
+    }
+  }
+
+  // Lower edge of every bin: the first starts just above zero.
+  const edges = [1, ...cuts];
+
+  // Spread the chosen colors across the WHOLE ramp rather than taking a slice
+  // off one end. When rounding leaves only 5 bins, the lightest bin must still
+  // be the palest green — otherwise a quiet month renders uniformly dark.
+  const colors = edges.map((_, i) =>
+    edges.length === 1
+      ? GREEN_RAMP[GREEN_RAMP.length - 1]
+      : GREEN_RAMP[Math.round(i * (GREEN_RAMP.length - 1) / (edges.length - 1))]
+  );
+
+  const bins = edges.map((min, i) => {
+    const next = edges[i + 1];
+    return {
+      min,
+      color: colors[i],
+      label: next
+        ? `${formatNumber(min)}–${formatNumber(next - 1)}`
+        : `${formatNumber(min)}+`
+    };
+  });
+
+  // Darkest first, so getColor can return on the first threshold met.
+  return bins.reverse();
+}
+
+function getColor(gallons, bins) {
+  for (const b of bins) {
     if (gallons >= b.min) return b.color;
   }
-  return "#ffffff";
+  return NO_DATA_COLOR;
 }
 
 function formatNumber(n) {
@@ -418,7 +782,12 @@ function getFeatureTownName(feature) {
 
 const map = L.map("map", {
   center: [44.0, -72.7],
-  zoom: 8
+  zoom: 8,
+  // Leaflet snaps to whole zoom levels by default, which made fitBounds round
+  // down and leave Vermont floating in a sea of neighboring states. Quarter
+  // steps let it fill the panel properly.
+  zoomSnap: 0.25,
+  zoomDelta: 0.5
 });
 
 L.tileLayer(
@@ -428,26 +797,39 @@ L.tileLayer(
   }
 ).addTo(map);
 
-function buildLegend() {
+function buildLegend(bins) {
   const container = document.getElementById("legend-items");
-  container.innerHTML = "";
 
-  COLOR_BREAKS.slice(0, 7).forEach(b => {
-    container.innerHTML += `
+  if (!bins || !bins.length) {
+    container.innerHTML = `
       <div class="legend-item">
-        <div class="legend-swatch" style="background:${b.color}"></div>
-        <span>${b.label}</span>
+        <div class="legend-swatch" style="background:${NO_DATA_COLOR}"></div>
+        <span>No data for this period</span>
       </div>
     `;
-  });
+    return;
+  }
+
+  container.innerHTML = bins.map(b => `
+    <div class="legend-item">
+      <div class="legend-swatch" style="background:${b.color}"></div>
+      <span>${b.label}</span>
+    </div>
+  `).join("") + `
+    <div class="legend-item">
+      <div class="legend-swatch" style="background:${NO_DATA_COLOR}"></div>
+      <span>0</span>
+    </div>
+  `;
 }
 
-buildLegend();
-
 async function loadAll() {
+  // The nightly job rewrites these same URLs, so without a changing query
+  // string a returning visitor can be served a stale cached copy.
+  const cacheBust = Date.now();
   const [dataResp, geoResp] = await Promise.all([
-    fetch("oil_data.json"),
-    fetch("vermont_towns.geojson")
+    fetch(`oil_data.json?v=${cacheBust}`),
+    fetch(`vermont_towns.geojson?v=${cacheBust}`)
   ]);
 
   allData = await dataResp.json();
@@ -455,7 +837,8 @@ async function loadAll() {
 
   allData.monthly_by_town.forEach(row => {
     const month = row.month;
-    const town = normalizeTown(row.city);
+    // Prefer the pre-normalized geo_town; fall back to city for older JSON.
+    const town = normalizeTown(row.geo_town || row.city);
 
     if (!monthlyByTown[month]) monthlyByTown[month] = {};
     monthlyByTown[month][town] = (monthlyByTown[month][town] || 0) + Number(row.gallons || 0);
@@ -468,8 +851,19 @@ async function loadAll() {
     monthlyByCounty[month][row.county] = (monthlyByCounty[month][row.county] || 0) + Number(row.gallons || 0);
   });
 
+  (allData.monthly_by_region || []).forEach(row => {
+    if (!monthlyByRegion[row.month]) monthlyByRegion[row.month] = {};
+    monthlyByRegion[row.month][row.region] =
+      (monthlyByRegion[row.month][row.region] || 0) + Number(row.gallons || 0);
+  });
+
   allData.yearly_totals.forEach(row => {
     yearlyTotals[row.year] = Number(row.gallons || 0);
+  });
+
+  // Added in Phase 2. Guarded so an older cached oil_data.json still works.
+  (allData.monthly_totals || []).forEach(row => {
+    monthlyTotals[row.month] = Number(row.gallons || 0);
   });
 
   months = Object.keys(monthlyByTown).sort();
@@ -485,66 +879,221 @@ async function loadAll() {
   document.getElementById("last-updated").textContent =
     "Updated: " + new Date(allData.last_updated).toLocaleString();
 
+  renderProjection(allData.projection);
+  renderActiveCustomers(allData.active_customer_count);
+
+  // Point the nav at real values from the data rather than hardcoding them.
+  const latestYear = months.length ? months[months.length - 1].slice(0, 4) : "";
+  if (latestYear) {
+    document.getElementById("nav-year").href = "year.html?year=" + latestYear;
+  }
+  const firstRegion = (allData.region_names || [])[0];
+  if (firstRegion) {
+    document.getElementById("nav-region").href =
+      "region.html?region=" + encodeURIComponent(firstRegion);
+  }
+
   renderMap(currentIdx);
   buildCharts();
 }
 
-function getTownGallons(idx) {
-  const mode = document.getElementById("view-mode").value;
+/**
+ * Secondary line inside the "This Year" card: where the year is on pace to
+ * land, and how that compares with the previous full year.
+ *
+ * The projection is computed in oil_scraper.py against the PRORATED previous
+ * year and anchored to the latest collection date, so a scrape that has not
+ * run for a few days does not drag it down.
+ */
+function renderProjection(projection) {
+  const el = document.getElementById("stat-projection");
+  if (!el) return;
 
-  if (!months.length) return {};
-
-  if (mode === "month") {
-    return monthlyByTown[months[idx]] || {};
+  if (!projection || !Number.isFinite(Number(projection.projected_current_year))) {
+    el.textContent = "Projection unavailable";
+    return;
   }
 
-  if (mode === "ytd") {
-    const year = months[idx].slice(0, 4);
-    const ytdMonths = months.filter(m => m.slice(0, 4) === year && m <= months[idx]);
-    const totals = {};
+  const pct = Number(projection.percent_vs_previous_year);
+  const arrow = pct >= 0 ? "+" : "";
+  const cls = pct >= 0 ? "up" : "down";
 
-    ytdMonths.forEach(m => {
-      Object.entries(monthlyByTown[m] || {}).forEach(([town, gal]) => {
-        totals[town] = (totals[town] || 0) + gal;
-      });
+  // The projected number is light grey, not the headline green, so it reads as
+  // supporting detail. Only the percentage carries the up/down accent.
+  el.innerHTML =
+    `Projected: <span class="stat-sub-value">${formatNumber(projection.projected_current_year)}</span>` +
+    ` <span class="${cls}">(${arrow}${(pct * 100).toFixed(1)}% vs ` +
+    `${projection.previous_year})</span>`;
+}
+
+/**
+ * Secondary line inside the "Customers" card.
+ * Source-site status only — never inferred from how recently a customer had a
+ * pickup.
+ */
+function renderActiveCustomers(count) {
+  const el = document.getElementById("stat-active");
+  if (!el) return;
+
+  // Note the explicit null/undefined test: Number(null) is 0, which is finite,
+  // so a plain isFinite check would render a missing count as "Active: 0".
+  if (count === null || count === undefined || !Number.isFinite(Number(count))) {
+    el.textContent = "Active status pending next scrape";
+    return;
+  }
+
+  el.innerHTML =
+    `Active: <span class="stat-sub-value">${formatNumber(count)}</span>`;
+}
+
+/**
+ * Which months does the selected mode cover, given the slider position?
+ * Everything downstream works from this one list, so the map, the stat card,
+ * the town list and the county chart can never disagree about the period.
+ */
+function getMonthsForMode(mode, idx) {
+  if (!months.length) return [];
+
+  const selected = months[idx];
+  const year = selected.slice(0, 4);
+
+  switch (mode) {
+    case "month":
+      return [selected];
+
+    case "ytd":               // January through the selected month, same year
+      return months.filter(m => m.slice(0, 4) === year && m <= selected);
+
+    case "year":              // every month of the selected year
+      return months.filter(m => m.slice(0, 4) === year);
+
+    case "alltime_todate":    // the very beginning through the selected month
+      return months.filter(m => m <= selected);
+
+    case "alltime":
+      return months.slice();
+
+    default:
+      return [selected];
+  }
+}
+
+/** Total gallons per town across a list of "YYYY-MM" months. */
+function sumTownMonths(monthList) {
+  const totals = {};
+
+  monthList.forEach(m => {
+    Object.entries(monthlyByTown[m] || {}).forEach(([town, gal]) => {
+      totals[town] = (totals[town] || 0) + gal;
     });
+  });
 
-    return totals;
-  }
+  return totals;
+}
 
-  if (mode === "alltime") {
-    const totals = {};
+/** Total gallons per county across a list of months. */
+function sumCountyMonths(monthList) {
+  const totals = {};
 
-    Object.values(monthlyByTown).forEach(monthData => {
-      Object.entries(monthData).forEach(([town, gal]) => {
-        totals[town] = (totals[town] || 0) + gal;
-      });
+  monthList.forEach(m => {
+    Object.entries(monthlyByCounty[m] || {}).forEach(([county, gal]) => {
+      totals[county] = (totals[county] || 0) + gal;
     });
+  });
 
-    return totals;
+  return totals;
+}
+
+/**
+ * Total gallons per region across a list of months.
+ *
+ * Regions are NOT exclusive — a customer matching two regions counts in both —
+ * so these do not sum to the period total. That mirrors the Excel report.
+ * "Other" is dropped because it is a catch-all rather than a place.
+ */
+function sumRegionMonths(monthList) {
+  const totals = {};
+
+  monthList.forEach(m => {
+    Object.entries(monthlyByRegion[m] || {}).forEach(([region, gal]) => {
+      if (region === "Other") return;
+      totals[region] = (totals[region] || 0) + gal;
+    });
+  });
+
+  return totals;
+}
+
+/** Escape text before putting it in innerHTML. */
+function escapeHtml(value) {
+  return String(value == null ? "" : value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+/**
+ * Grand total for the period, including out-of-state gallons.
+ *
+ * Prefers monthly_totals because that is the whole-business figure and matches
+ * the basis of the All-Time card. The town sum below is a fallback and is
+ * slightly lower, since towns outside Vermont are not on the map.
+ */
+function periodTotal(monthList) {
+  if (monthlyTotals && Object.keys(monthlyTotals).length) {
+    return monthList.reduce((sum, m) => sum + (Number(monthlyTotals[m]) || 0), 0);
   }
 
-  return {};
+  return monthList.reduce(
+    (sum, m) => sum + Object.values(monthlyByTown[m] || {}).reduce((a, b) => a + b, 0),
+    0
+  );
+}
+
+/** Human-readable description of what the map is currently showing. */
+function periodLabel(mode, idx) {
+  if (!months.length) return "—";
+
+  const selected = months[idx];
+  const [year, mo] = selected.split("-");
+  const longMonth = new Date(year, Number(mo) - 1)
+    .toLocaleString("default", { month: "long", year: "numeric" });
+  const shortMonth = new Date(year, Number(mo) - 1)
+    .toLocaleString("default", { month: "short" });
+
+  switch (mode) {
+    case "month":
+      return longMonth;
+    case "ytd":
+      return mo === "01" ? `Jan ${year}` : `Jan–${shortMonth} ${year}`;
+    case "year":
+      return `${year}`;
+    case "alltime_todate":
+      return `Through ${longMonth}`;
+    case "alltime":
+      return `All Time (${months[0].slice(0, 4)}–${months[months.length - 1].slice(0, 4)})`;
+    default:
+      return longMonth;
+  }
 }
 
 function renderMap(idx) {
   if (!months.length || !geoData) return;
 
-  const townGallons = getTownGallons(idx);
-  const month = months[idx];
+  const mode = document.getElementById("view-mode").value;
+  const periodMonths = getMonthsForMode(mode, idx);
+  const townGallons = sumTownMonths(periodMonths);
 
-  const [year, mo] = month.split("-");
-  const label = new Date(year, Number(mo) - 1).toLocaleString("default", {
-    month: "long",
-    year: "numeric"
-  });
+  document.getElementById("month-label").textContent = periodLabel(mode, idx);
+  document.getElementById("stat-month").textContent =
+    formatNumber(periodTotal(periodMonths));
 
-  document.getElementById("month-label").textContent = label;
-
-  const selectedMonthTotal = Object.values(monthlyByTown[month] || {})
-    .reduce((a, b) => a + b, 0);
-
-  document.getElementById("stat-month").textContent = formatNumber(selectedMonthTotal);
+  // Rescale the colors to whatever is on screen right now, then rebuild the
+  // legend from the same bins so the two can never drift apart.
+  const bins = computeBins(Object.values(townGallons));
+  buildLegend(bins);
 
   if (geojsonLayer) {
     map.removeLayer(geojsonLayer);
@@ -552,12 +1101,14 @@ function renderMap(idx) {
 
   geojsonLayer = L.geoJSON(geoData, {
     style: feature => {
-      const rawName = getFeatureTownName(feature);
-      const name = normalizeTown(rawName);
+      const name = normalizeTown(getFeatureTownName(feature));
       const gallons = townGallons[name] || 0;
 
+      // Towns with data are filled solidly enough to read as a heatmap; empty
+      // towns stay light so the basemap's roads, water and labels show through
+      // instead of the map turning into a white block.
       return {
-        fillColor: getColor(gallons),
+        fillColor: getColor(gallons, bins),
         fillOpacity: gallons > 0 ? 0.85 : 0.15,
         color: "#111",
         weight: 0.7
@@ -586,36 +1137,78 @@ function renderMap(idx) {
       layer.on("mouseout", () => {
         geojsonLayer.resetStyle(layer);
       });
+
+      // town.html is built in the next phase; the link pattern is ready now.
+      layer.on("click", () => {
+        window.location.href = "town.html?town=" + encodeURIComponent(name);
+      });
     }
   }).addTo(map);
 
-  map.fitBounds(geojsonLayer.getBounds());
+  // Frame Vermont once. Re-fitting on every render would throw away any pan or
+  // zoom the moment the slider moved.
+  if (!hasFitBounds) {
+    // Leaflet caches the container size. This first render happens while the
+    // page is still settling, so without re-measuring it fits Vermont to a
+    // stale (taller) box and the state ends up overflowing the panel.
+    map.invalidateSize();
 
-  updateSidePanels(idx, townGallons);
+    const bounds = geojsonLayer.getBounds();
+    // Extra bottom padding keeps southern Vermont clear of the floating
+    // time-controls card, which sits over the lower middle of the map.
+    // animate:false matters. An animated fit applies its new zoom over the next
+    // few frames, so map.getZoom() below would still report the OLD zoom and
+    // setMinZoom would clamp the animation right back to where it started.
+    // Reserve exactly the height of the floating time-controls card plus a
+    // small gap, so the southern tip of Vermont lands just above it instead of
+    // dipping behind it. Measured at runtime so it stays correct if the card's
+    // contents change.
+    const controlsCard = document.querySelector(".time-controls");
+    const clearance = controlsCard ? controlsCard.offsetHeight + 44 : 110;
+
+    map.fitBounds(bounds, {
+      paddingTopLeft: [12, 12],
+      paddingBottomRight: [12, clearance],
+      animate: false
+    });
+    map.setMaxBounds(bounds.pad(0.35));
+    map.setMinZoom(map.getZoom());
+    hasFitBounds = true;
+  }
+
+  updateSidePanels(idx, townGallons, periodMonths);
 }
 
-function updateSidePanels(idx, townGallons) {
-  const sortedTowns = Object.entries(townGallons)
-    .filter(([, gal]) => gal > 0)
-    .sort(([, a], [, b]) => b - a)
-    .slice(0, 30);
+function updateSidePanels(idx, townGallons, periodMonths) {
+  const sorted = obj => Object.entries(obj).sort(([, a], [, b]) => b - a);
 
-  const maxGal = sortedTowns[0]?.[1] || 1;
+  // All three lists describe the same slice of time as the map.
+  renderRankedList("town-list", sorted(townGallons));
+  renderRankedList("region-list", sorted(sumRegionMonths(periodMonths)));
+  renderRankedList("county-list",
+    sorted(sumCountyMonths(periodMonths)).filter(([c]) => c !== "Unknown"));
+}
 
-  const list = document.getElementById("town-list");
+/**
+ * Renders one of the Towns-tab lists: name, gallons and a proportional bar.
+ * Shared so Top Towns, Top Regions and Top Counties read identically.
+ */
+function renderRankedList(id, entries) {
+  const el = document.getElementById(id);
+  if (!el) return;
 
-  list.innerHTML = sortedTowns.map(([town, gal]) => `
+  const top = entries.filter(([, gal]) => gal > 0).slice(0, 30);
+  const max = top[0] ? top[0][1] : 1;
+
+  el.innerHTML = top.map(([name, gal]) => `
     <li class="town-item">
       <div class="town-row">
-        <span>${town}</span>
+        <span>${escapeHtml(name)}</span>
         <span class="town-gal">${formatNumber(gal)}</span>
       </div>
-      <div class="town-bar" style="width:${(gal / maxGal * 100).toFixed(1)}%"></div>
+      <div class="town-bar" style="width:${(gal / max * 100).toFixed(1)}%"></div>
     </li>
   `).join("");
-
-  const month = months[idx];
-  updateCountyChart(monthlyByCounty[month] || {});
 }
 
 function buildCharts() {
@@ -674,34 +1267,192 @@ function buildCharts() {
       scales: {
         x: { ticks: { color: "#8b949e" }, grid: { color: "#21262d" } },
         y: { ticks: { color: "#8b949e" }, grid: { color: "#21262d" } }
+      },
+      // Clicking a bar opens that year's detail page. Data, colors and scales
+      // above are untouched.
+      onClick: (evt, elements) => {
+        if (elements.length) {
+          window.location.href = "year.html?year=" + years[elements[0].index];
+        }
+      },
+      onHover: (evt, elements) => {
+        evt.native.target.style.cursor = elements.length ? "pointer" : "default";
       }
     }
   });
+
+  buildTotalsCharts();
 }
 
-function updateCountyChart(countyData) {
-  const sorted = Object.entries(countyData)
-    .filter(([county]) => county !== "Unknown")
-    .sort(([, a], [, b]) => b - a);
+/* ─────────────────────────────────────────────
+ * Totals tab
+ *
+ * Aggregate views built entirely from monthly_totals / yearly_totals, which are
+ * already exported. Nothing here touches the map, the heatmap modes, the
+ * binning or the projection.
+ * ───────────────────────────────────────────── */
 
-  if (countyChart) {
-    countyChart.destroy();
+const MONTH_LABELS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+// Years considered for the seasonality profile. Trimmed to what exists, then
+// further trimmed to complete calendar years inside buildSeasonalityChart.
+const COMPARISON_YEARS = [2023, 2024, 2025, 2026];
+
+/** month "YYYY-MM" -> gallons, from the exported monthly_totals. */
+function monthlyTotalsByYear() {
+  const byYear = {};
+  Object.entries(monthlyTotals).forEach(([month, gallons]) => {
+    const year = Number(month.slice(0, 4));
+    const idx = Number(month.slice(5)) - 1;
+    if (!byYear[year]) byYear[year] = new Array(12).fill(null);
+    byYear[year][idx] = Number(gallons) || 0;
+  });
+  return byYear;
+}
+
+function buildTotalsCharts() {
+  const byYear = monthlyTotalsByYear();
+  const presentYears = COMPARISON_YEARS.filter(y => byYear[y]);
+
+  buildSeasonalityChart(byYear, presentYears);
+  buildTotalsTables();
+}
+
+/**
+ * Totals tab: four plain tables of whole-history figures.
+ *
+ * Deliberately not period-driven — "Totals" means the complete picture, and the
+ * Towns tab already covers the selected period.
+ */
+function buildTotalsTables() {
+  const rows = (entries, labelFn) => entries.map(([key, gallons]) => `
+    <tr>
+      <td>${labelFn ? labelFn(key) : escapeHtml(key)}</td>
+      <td class="gal">${formatNumber(gallons)}</td>
+    </tr>`).join("");
+
+  const monthEntries = Object.entries(monthlyTotals)
+    .sort((a, b) => b[0].localeCompare(a[0]));
+  fill("totals-month", rows(monthEntries, m => escapeHtml(prettyMonth(m))));
+
+  const yearEntries = Object.entries(yearlyTotals)
+    .sort((a, b) => b[0].localeCompare(a[0]));
+  fill("totals-year", rows(yearEntries, y =>
+    `<a href="year.html?year=${encodeURIComponent(y)}">${escapeHtml(y)}</a>`));
+
+  fill("totals-town", rows(totalsAcrossMonths(monthlyByTown), t =>
+    `<a href="town.html?town=${encodeURIComponent(t)}">${escapeHtml(t)}</a>`));
+
+  fill("totals-county", rows(
+    totalsAcrossMonths(monthlyByCounty).filter(([c]) => c !== "Unknown")));
+}
+
+function fill(id, html) {
+  const el = document.getElementById(id);
+  if (el) el.innerHTML = html;
+}
+
+/** Collapse a {month: {key: gallons}} map into [key, total] pairs, largest first. */
+function totalsAcrossMonths(byMonth) {
+  const totals = {};
+  Object.values(byMonth).forEach(monthData => {
+    Object.entries(monthData).forEach(([key, gallons]) => {
+      if (!key) return;
+      totals[key] = (totals[key] || 0) + gallons;
+    });
+  });
+  return Object.entries(totals).sort((a, b) => b[1] - a[1]);
+}
+
+/** "2026-07" -> "Jul 2026". */
+function prettyMonth(month) {
+  const [y, mo] = month.split("-");
+  return new Date(y, Number(mo) - 1)
+    .toLocaleString("default", { month: "short", year: "numeric" });
+}
+
+/**
+ * Seasonal shape with business growth divided out.
+ *
+ * For each year, a month's share is month_gallons / that year's total. Those
+ * shares are averaged across years, then scaled back to gallons so the axis is
+ * readable.
+ *
+ * Only COMPLETE calendar years contribute. A partial year's months are divided
+ * by a partial annual total, which inflates every one of its shares — with the
+ * current data that overstated Jan–Jul by up to 8,000 gallons and made the
+ * shares sum to 110% instead of 100%. That is precisely the distortion this
+ * chart exists to remove, so partial years are excluded from the shape. They
+ * still appear in full in the by-year chart below.
+ */
+function buildSeasonalityChart(byYear, presentYears) {
+  const completeYears = presentYears.filter(
+    y => byYear[y].every(v => v !== null)
+  );
+
+  const caption = document.getElementById("seasonality-caption");
+  const canvas = document.getElementById("chart-seasonality");
+  if (!canvas) return;
+
+  if (!completeYears.length) {
+    if (caption) {
+      caption.textContent =
+        "Not enough complete calendar years yet to show a seasonal profile.";
+    }
+    return;
   }
 
-  countyChart = new Chart(document.getElementById("chart-counties"), {
+  const shares = MONTH_LABELS.map((_, i) => {
+    const values = completeYears.map(y => {
+      const total = byYear[y].reduce((a, b) => a + (b || 0), 0);
+      return total ? byYear[y][i] / total : 0;
+    });
+    return values.reduce((a, b) => a + b, 0) / values.length;
+  });
+
+  // Scale to the projected current-year total when available, otherwise to the
+  // average of the complete years, so the axis reads as plausible gallons.
+  const projected = allData && allData.projection
+    ? Number(allData.projection.projected_current_year)
+    : null;
+  const averageAnnual = completeYears
+    .map(y => byYear[y].reduce((a, b) => a + (b || 0), 0))
+    .reduce((a, b) => a + b, 0) / completeYears.length;
+  const scale = Number.isFinite(projected) && projected > 0
+    ? projected : averageAnnual;
+  const scaledTo = Number.isFinite(projected) && projected > 0
+    ? `the projected ${allData.projection.current_year} total`
+    : "the average full year";
+
+  if (caption) {
+    caption.textContent =
+      "Each year is normalized by its annual total so the chart shows seasonal " +
+      `shape rather than business growth. Averaged over ${completeYears.join(", ")} ` +
+      `(complete years only) and scaled to ${scaledTo}.`;
+  }
+
+  new Chart(canvas, {
     type: "bar",
     data: {
-      labels: sorted.map(([county]) => county),
+      labels: MONTH_LABELS,
       datasets: [{
-        data: sorted.map(([, gal]) => gal),
+        data: shares.map(s => Math.round(s * scale)),
         backgroundColor: "#3fb950"
       }]
     },
     options: {
-      indexAxis: "y",
       responsive: true,
       maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => `${formatNumber(ctx.parsed.y)} gal ` +
+                          `(${(shares[ctx.dataIndex] * 100).toFixed(1)}% of a year)`
+          }
+        }
+      },
       scales: {
         x: { ticks: { color: "#8b949e" }, grid: { color: "#21262d" } },
         y: { ticks: { color: "#8b949e" }, grid: { color: "#21262d" } }
@@ -709,6 +1460,9 @@ function updateCountyChart(countyData) {
     }
   });
 }
+
+
+
 
 document.getElementById("month-slider").addEventListener("input", function() {
   currentIdx = parseInt(this.value);

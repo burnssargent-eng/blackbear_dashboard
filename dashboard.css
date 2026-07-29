@@ -1,0 +1,564 @@
+/*
+ * Shared styles for the Black Bear Bio detail pages.
+ *
+ * The palette, typography and component rules below are taken verbatim from
+ * the inline <style> block in index.html so the new pages read as the same
+ * site. index.html deliberately does NOT link this file — it keeps its own
+ * inline styles, so nothing here can alter the homepage.
+ *
+ *   background   #0d1117      panels    #161b22
+ *   borders      #30363d      text      #e6edf3
+ *   muted text   #8b949e      accent    #3fb950
+ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0d1117;
+  color: #e6edf3;
+}
+
+/* ── Header (matches index.html) ───────────────────────────── */
+
+header {
+  display: flex;
+  align-items: center;
+  /* Trimmed from 16px to claw back vertical space for page content, while
+     staying tall enough that the logo and nav do not feel cramped. */
+  padding: 10px 32px;
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
+  position: relative;
+}
+
+/* Page name + nav, centred on the viewport rather than in the leftover flex
+   space. The brand block is much wider than the timestamp, so a plain
+   margin-left:auto would push this well right of centre. */
+.header-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+header img {
+  height: 52px;
+  margin-right: 18px;
+}
+
+header h1 {
+  font-size: 24px;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #8b949e;
+  margin-bottom: 3px;
+}
+
+.last-updated {
+  margin-left: auto;
+  font-size: 12px;
+  color: #8b949e;
+  white-space: nowrap;
+}
+
+/* The page name sits in the header rather than the body, centred in the space
+   between the brand block and the nav, and a little larger than the brand
+   subtitle so it reads as the subject of the page. */
+.page-name {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #e6edf3;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+/* Empty on the homepage, where there is no page name above the nav. */
+.page-name:empty { display: none; }
+
+/* Secondary line inside a stat card. Deliberately smaller and grey so the
+   headline .stat-val keeps the emphasis.
+   NOTE: schmootz.html has used this class since Phase 4D but it was only ever
+   defined inline in index.html, so those lines rendered unstyled until now. */
+.stat-sub {
+  font-size: 12px;
+  color: #8b949e;
+  margin-top: 6px;
+  min-height: 15px;
+}
+
+/* The number inside a secondary line: light grey, never the headline green. */
+.stat-sub-value {
+  color: #c9d1d9;
+  font-weight: bold;
+}
+
+.stat-sub .up   { color: #3fb950; }
+.stat-sub .down { color: #e5734b; }
+
+/* ── Navigation ───────────────────────────────────────────── */
+
+.main-nav {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.main-nav a {
+  color: #8b949e;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 3px 0;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.main-nav a:hover {
+  color: #e6edf3;
+}
+
+.main-nav a.active {
+  color: #3fb950;
+  border-bottom-color: #3fb950;
+}
+
+/* ── Stats bar (matches index.html) ────────────────────────── */
+
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1px;
+  background: #30363d;
+}
+
+.stat {
+  background: #161b22;
+  padding: 16px;
+  text-align: center;
+}
+
+.stat-val {
+  font-size: 28px;
+  font-weight: bold;
+  color: #3fb950;
+}
+
+.stat-val.small {
+  font-size: 18px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #8b949e;
+  margin-top: 4px;
+}
+
+/* ── Page shell ───────────────────────────────────────────── */
+
+.page {
+  padding: 24px 32px 48px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.page-subtitle {
+  font-size: 13px;
+  color: #8b949e;
+  margin-bottom: 18px;
+}
+
+.back-link {
+  display: inline-block;
+  color: #3fb950;
+  text-decoration: none;
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.section {
+  margin-top: 32px;
+}
+
+.chart-title,
+.section-title {
+  color: #8b949e;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+/* Explains what a chart is showing. Must stay quieter than .chart-title above
+   it — without this rule it inherits body text and shouts over the heading. */
+.tab-caption {
+  color: #8b949e;
+  font-size: 11px;
+  line-height: 1.5;
+  margin: -4px 0 8px;
+  opacity: 0.85;
+}
+
+.chart-container {
+  height: 240px;
+  margin-bottom: 24px;
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 20px;
+}
+
+/* ── Controls ─────────────────────────────────────────────── */
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+}
+
+.controls label {
+  font-size: 12px;
+  color: #8b949e;
+}
+
+button, select {
+  background: #21262d;
+  color: #e6edf3;
+  border: 1px solid #30363d;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+button:hover, select:hover {
+  background: #30363d;
+}
+
+button.active {
+  background: #3fb950;
+  color: #0d1117;
+  border-color: #3fb950;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+button:disabled:hover {
+  background: #21262d;
+}
+
+select:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* ── Tables ───────────────────────────────────────────────── */
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background: #161b22;
+}
+
+.data-table th {
+  text-align: left;
+  padding: 10px 14px;
+  color: #8b949e;
+  font-size: 12px;
+  font-weight: bold;
+  background: #0d1117;
+  border-bottom: 1px solid #30363d;
+  white-space: nowrap;
+}
+
+.data-table td {
+  padding: 9px 14px;
+  border-bottom: 1px solid #21262d;
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table tr:hover td {
+  background: #1c2230;
+}
+
+.data-table .num {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.data-table .gal {
+  color: #3fb950;
+  font-weight: bold;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.data-table .rank {
+  color: #8b949e;
+  text-align: right;
+  width: 48px;
+}
+
+/* Net movement: green when customers were gained, orange-red when lost. */
+.data-table .up   { color: #3fb950; font-weight: bold; }
+.data-table .down { color: #e5734b; font-weight: bold; }
+
+/* Centres a numeric column under its heading, for tables where the figures
+   read better centred than right-aligned. */
+.data-table th.center,
+.data-table td.center {
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* A green total that should sit centred under its heading rather than
+   right-aligned. Explicit so it survives any reordering of this file. */
+.data-table .gal.center {
+  text-align: center;
+}
+
+/* Headline figure for a page whose whole point is one big number. */
+.hero-stat {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  padding: 22px 24px;
+  text-align: center;
+  margin-bottom: 1px;
+}
+
+.hero-value {
+  font-size: 52px;
+  font-weight: bold;
+  color: #3fb950;
+  line-height: 1.1;
+}
+
+.hero-label {
+  font-size: 13px;
+  color: #8b949e;
+  margin-top: 6px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 720px) {
+  .hero-value { font-size: 36px; }
+}
+
+/* Short definition line under a section title, above the longer footnote. */
+.section-caption {
+  color: #8b949e;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: -2px 0 10px;
+}
+
+.jump-link {
+  display: inline-block;
+  color: #3fb950;
+  text-decoration: none;
+  font-size: 12px;
+  border: 1px solid #30363d;
+  background: #161b22;
+  border-radius: 6px;
+  padding: 5px 10px;
+  margin-bottom: 14px;
+}
+
+.jump-link:hover {
+  background: #21262d;
+}
+
+.data-table a {
+  color: #e6edf3;
+  text-decoration: none;
+}
+
+.data-table a:hover {
+  color: #3fb950;
+  text-decoration: underline;
+}
+
+.group-row td {
+  background: #0d1117;
+  color: #8b949e;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 8px 14px;
+}
+
+/* ── Status badges ────────────────────────────────────────── */
+
+.status-badge {
+  display: inline-block;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  border: 1px solid;
+  white-space: nowrap;
+}
+
+.status-active {
+  color: #3fb950;
+  border-color: #2d6e2d;
+  background: rgba(63, 185, 80, 0.12);
+}
+
+.status-inactive {
+  color: #8b949e;
+  border-color: #30363d;
+  background: #21262d;
+}
+
+.status-unknown {
+  color: #d3a04a;
+  border-color: #6b5124;
+  background: rgba(211, 160, 74, 0.12);
+}
+
+/* ── Notes and states ─────────────────────────────────────── */
+
+/* The green left edge is purely cosmetic — it separates explanatory notes from
+   data panels against the dark background. Padding trimmed slightly here as
+   part of the Phase 5 vertical-space pass. */
+.note {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-left: 3px solid #3fb950;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 12px;
+  color: #8b949e;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.page-state {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 48px 32px;
+  text-align: center;
+  margin-top: 32px;
+}
+
+.state-message {
+  font-size: 16px;
+  color: #e6edf3;
+  margin-bottom: 8px;
+}
+
+.state-detail {
+  font-size: 13px;
+  color: #8b949e;
+  margin-bottom: 16px;
+}
+
+.state-link {
+  color: #3fb950;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.state-link:hover {
+  text-decoration: underline;
+}
+
+.state-error .state-message {
+  color: #e5534b;
+}
+
+/* Responsive pass. Verified in headless Chrome at 390px; not yet checked on a
+   real handset — see the TODO in the project notes. */
+@media (max-width: 860px) {
+  .page { padding: 16px; }
+
+  /* The absolutely-centred header block would overlap the logo on a narrow
+     screen, so it returns to normal flow underneath the brand. */
+  header {
+    padding: 8px 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  header img { height: 40px; margin-right: 12px; }
+  header h1 { font-size: 19px; }
+  .subtitle { font-size: 11px; }
+
+  .header-center {
+    position: static;
+    transform: none;
+    width: 100%;
+    order: 3;
+    margin-top: 6px;
+  }
+
+  .page-name { font-size: 18px; white-space: normal; }
+
+  .last-updated {
+    margin-left: 0;
+    order: 4;
+    width: 100%;
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  .main-nav { gap: 16px; }
+  .main-nav a { font-size: 14px; }
+
+  .chart-grid { grid-template-columns: 1fr; }
+  .stats-bar { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }
+  .controls { gap: 8px; }
+}
+
+@media (max-width: 520px) {
+  .page { padding: 12px; }
+  .hero-value { font-size: 34px; }
+  .stat-val { font-size: 22px; }
+  .stats-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .main-nav { gap: 12px; }
+  .main-nav a { font-size: 13px; }
+  /* Tables stay readable by scrolling sideways rather than squashing. */
+  .data-table { font-size: 12px; }
+  .data-table th, .data-table td { padding: 7px 10px; }
+}

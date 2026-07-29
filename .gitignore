@@ -1,0 +1,10 @@
+
+__pycache__/
+*.pyc
+
+# Source workbooks are never committed. They are large binaries that grow a new
+# copy in git history on every re-save, and they carry more internal detail than
+# the site needs. Only the generated schmootz_data.json is committed.
+/Schmootz.xlsx
+/data/Schmootz.xlsx
+/data/*.xlsx

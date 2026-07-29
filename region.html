@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Region Detail — Black Bear Biodiesel</title>
+
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.png" alt="Black Bear Biodiesel" onerror="this.style.display='none'">
+  <div>
+    <div class="subtitle">Oil Collection Analytics</div>
+    <h1>Black Bear Biodiesel</h1>
+  </div>
+  <div class="header-center">
+    <div class="page-name" id="page-name"></div>
+    <nav class="main-nav" id="main-nav"></nav>
+  </div>
+  <div class="last-updated" id="last-updated"></div>
+</header>
+
+<div class="page" id="page">
+  <div class="page-state">
+    <div class="state-message">Loading region data…</div>
+  </div>
+</div>
+
+<script src="dashboard-utils.js"></script>
+<script>
+/*
+ * This page reads oil_data.json ONLY.
+ *
+ * Regions are defined by CUSTOM_REGIONS in oil_scraper.py and are exported as
+ * monthly and yearly aggregates. Which customers belong to a region is not
+ * exported, so there is deliberately no customer table here — inventing one
+ * would mean re-implementing the region matchers in the browser and risking
+ * disagreement with the Excel report. Phase 4C added region_customers to
+ * oil_data.json, so the customer table below uses that exported membership
+ * rather than deriving anything client-side.
+ */
+
+const REGION_CUSTOMER_LIMIT = 25;
+
+async function init() {
+  const page = document.getElementById("page");
+
+  let data;
+  try {
+    data = await loadOilData();
+  } catch (err) {
+    renderNav("region", null);
+    renderState(page, "error", "Could not load the summary data.", err.message);
+    return;
+  }
+
+  renderNav("region", data);
+  renderLastUpdated(data);
+
+  const monthlyRows = data.monthly_by_region || [];
+  const yearlyRows = data.yearly_by_region || [];
+
+  if (!monthlyRows.length) {
+    renderState(page, "empty", "No region data is available.",
+      "oil_data.json does not contain monthly_by_region. Re-run oil_scraper.py to generate it.");
+    return;
+  }
+
+  // region_names holds the 13 named regions. "Other" also appears in the data
+  // as the catch-all for records matching no region, so it is offered last.
+  const named = data.region_names || [];
+  const present = Array.from(new Set(monthlyRows.map(r => r.region)));
+  const extras = present.filter(r => !named.includes(r)).sort();
+  const options = named.concat(extras);
+
+  const requested = getUrlParam("region");
+  const match = options.find(r => r.toLowerCase() === requested.toLowerCase());
+  const region = match || options[0];
+
+  document.title = `${region} — Black Bear Biodiesel`;
+
+  const monthly = monthlyRows.filter(r => r.region === region);
+  const yearly = yearlyRows.filter(r => r.region === region);
+
+  if (!monthly.length) {
+    renderState(page, "empty", `No collections recorded for the ${region} region.`);
+    return;
+  }
+
+  // Region membership comes from oil_scraper.py, derived with the same
+  // CUSTOM_REGIONS matchers the Excel report uses, so the two cannot drift.
+  // Regions are NOT exclusive: a customer matching two regions appears in both.
+  const memberIds = new Set((data.region_customers || {})[region] || []);
+
+  let regionCustomers = [];
+  if (memberIds.size) {
+    try {
+      const lifecycle = await loadCustomerLifecycle(data);
+      regionCustomers = lifecycle
+        .filter(c => memberIds.has(c.customer_id))
+        .sort((a, b) => b.gallons - a.gallons);
+    } catch (err) {
+      // The summary above still renders; only the customer table is missing.
+      regionCustomers = [];
+    }
+  }
+
+  render(page, region, options, monthly, yearly, named,
+         (data.region_stats || {})[region], regionCustomers);
+}
+
+function render(page, region, options, monthly, yearly, named, regionStats,
+                regionCustomers) {
+  renderPageName(`${region} Region`);
+
+  const monthTotals = {};
+  monthly.forEach(r => { monthTotals[r.month] = (monthTotals[r.month] || 0) + (Number(r.gallons) || 0); });
+
+  const yearTotals = {};
+  yearly.forEach(r => { yearTotals[r.year] = (yearTotals[r.year] || 0) + (Number(r.gallons) || 0); });
+
+  const months = Object.keys(monthTotals).sort();
+  const years = Object.keys(yearTotals).sort();
+
+  const latestMonth = months[months.length - 1];
+  const currentYear = years[years.length - 1];
+  const allTime = Object.values(monthTotals).reduce((a, b) => a + b, 0);
+
+  const isOther = !named.includes(region);
+
+  // Average gallons per month over the last two years of available data.
+  // Only months that actually have data are counted — a month the region has
+  // not reached yet is not averaged in as a zero, which would drag it down.
+  const recentMonths = months.filter(m => {
+    const cutoff = new Date(Number(latestMonth.slice(0, 4)),
+                            Number(latestMonth.slice(5)) - 1);
+    cutoff.setMonth(cutoff.getMonth() - 23);
+    const key = `${cutoff.getFullYear()}-${String(cutoff.getMonth() + 1).padStart(2, "0")}`;
+    return m >= key;
+  });
+  const avgMonthsUsed = recentMonths.length;
+  const avgMonthly = avgMonthsUsed
+    ? Math.round(recentMonths.reduce((sum, m) => sum + monthTotals[m], 0) / avgMonthsUsed)
+    : 0;
+
+  const topCustomers = regionCustomers || [];
+  const shownGallons = topCustomers
+    .slice(0, REGION_CUSTOMER_LIMIT)
+    .reduce((sum, c) => sum + (Number(c.gallons) || 0), 0);
+
+  // Source-site active customers in this region. Exported by oil_scraper.py so
+  // the region matchers stay in one place. Never inferred from pickup recency.
+  const activeCount = regionStats ? regionStats.active : undefined;
+  // Explicit null test: Number(null) is 0 and would render a missing count
+  // as "0" rather than saying the status is unavailable.
+  const activeDisplay = (activeCount === null || activeCount === undefined
+                         || !Number.isFinite(Number(activeCount)))
+    ? "Active unavailable"
+    : formatNumber(activeCount);
+
+  page.innerHTML = `
+    <a class="back-link" href="index.html">← Back to the dashboard</a>
+    <div class="page-subtitle">
+      ${escapeHtml(formatMonth(months[0]))} – ${escapeHtml(formatMonth(latestMonth))}
+      ${isOther ? " · unassigned bucket" : ""}
+    </div>
+
+    <div class="controls">
+      <label for="region-select">Region</label>
+      <select id="region-select">
+        ${options.map(r => `
+          <option value="${escapeHtml(r)}"${r === region ? " selected" : ""}>
+            ${escapeHtml(r)}${named.includes(r) ? "" : " (unassigned)"}
+          </option>`).join("")}
+      </select>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat">
+        <div class="stat-val">${formatNumber(allTime)}</div>
+        <div class="stat-label">All-Time Gallons</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">${formatNumber(yearTotals[currentYear])}</div>
+        <div class="stat-label">${escapeHtml(currentYear)} Gallons</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">${formatNumber(monthTotals[latestMonth])}</div>
+        <div class="stat-label">${escapeHtml(formatMonth(latestMonth))}</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">${formatNumber(avgMonthly)}</div>
+        <div class="stat-label">Avg Monthly Gallons</div>
+        <div class="stat-sub">last ${formatNumber(avgMonthsUsed)} months with data</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">${activeDisplay}</div>
+        <div class="stat-label">Active Customers</div>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Regions are not mutually exclusive.</strong> A customer matching two
+      region rules is counted in both, so region totals are not additive and will
+      not sum to the all-time company total. This mirrors the region logic used by
+      the Excel report and is intentional.
+      ${isOther ? "<br><strong>" + escapeHtml(region) + "</strong> is the catch-all bucket for records that match no named region." : ""}
+      ${regionStats && Number.isFinite(Number(regionStats.customers))
+        ? `<br><strong>Active Customers</strong> counts source-site active customers
+           out of ${formatNumber(regionStats.customers)} total in this region.
+           It is not derived from how recently a customer had a pickup.` : ""}
+    </div>
+
+    <div class="section chart-grid">
+      <div>
+        <div class="chart-title">Monthly Gallons</div>
+        <div class="chart-container"><canvas id="chart-monthly"></canvas></div>
+      </div>
+      <div>
+        <div class="chart-title">Yearly Totals</div>
+        <div class="chart-container"><canvas id="chart-yearly"></canvas></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">
+        Top ${formatNumber(Math.min(REGION_CUSTOMER_LIMIT, topCustomers.length))}
+        Producing Customers — ${escapeHtml(region)}${
+          topCustomers.length > REGION_CUSTOMER_LIMIT
+            ? ` (of ${formatNumber(topCustomers.length)})` : ""}
+      </div>
+      ${topCustomers.length ? `
+        <div class="note">
+          Ranked by all-time qualifying gallons. Their total is
+          ${formatNumber(shownGallons)} gallons of the region's
+          ${formatNumber(allTime)}.
+          Status comes from the source site's active and inactive lists, not from
+          how recently a customer had a pickup.
+        </div>
+        ${customerTableHtml(topCustomers.slice(0, REGION_CUSTOMER_LIMIT),
+                            { town: true, dates: false })}
+      ` : `<div class="note">No customer-level detail is available for this region.</div>`}
+    </div>
+
+    <div class="section chart-grid">
+      <div>
+        <div class="section-title">Yearly Totals</div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Year</th><th class="num">Gallons</th></tr></thead>
+            <tbody>
+              ${years.slice().reverse().map(y => `
+                <tr>
+                  <td><a href="year.html?year=${encodeURIComponent(y)}">${escapeHtml(y)}</a></td>
+                  <td class="gal">${formatNumber(yearTotals[y])}</td>
+                </tr>`).join("")}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title">Monthly Totals</div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Month</th><th class="num">Gallons</th></tr></thead>
+            <tbody>
+              ${months.slice().reverse().map(m => `
+                <tr>
+                  <td>${escapeHtml(formatMonth(m))}</td>
+                  <td class="gal">${formatNumber(monthTotals[m])}</td>
+                </tr>`).join("")}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  `;
+
+  new Chart(
+    document.getElementById("chart-monthly"),
+    lineChartConfig(months.map(formatMonth), months.map(m => monthTotals[m]))
+  );
+
+  new Chart(
+    document.getElementById("chart-yearly"),
+    barChartConfig(years, years.map(y => yearTotals[y]))
+  );
+
+  document.getElementById("region-select").addEventListener("change", function () {
+    window.location.href = `region.html?region=${encodeURIComponent(this.value)}`;
+  });
+}
+
+init();
+</script>
+
+</body>
+</html>

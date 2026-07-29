@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Town Detail — Black Bear Biodiesel</title>
+
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.png" alt="Black Bear Biodiesel" onerror="this.style.display='none'">
+  <div>
+    <div class="subtitle">Oil Collection Analytics</div>
+    <h1>Black Bear Biodiesel</h1>
+  </div>
+  <div class="header-center">
+    <div class="page-name" id="page-name"></div>
+    <nav class="main-nav" id="main-nav"></nav>
+  </div>
+  <div class="last-updated" id="last-updated"></div>
+</header>
+
+<div class="page" id="page">
+  <div class="page-state">
+    <div class="state-message">Loading town data…</div>
+  </div>
+</div>
+
+<script src="dashboard-utils.js"></script>
+<script>
+const townParam = getUrlParam("town");
+
+async function init() {
+  const page = document.getElementById("page");
+
+  if (!townParam) {
+    renderNav("", null);
+    renderState(page, "empty", "No town was specified.",
+      "Open a town from the map on the dashboard, or add ?town=Burlington to the address.");
+    return;
+  }
+
+  document.title = `${townParam} — Black Bear Biodiesel`;
+
+  let data, records;
+  try {
+    data = await loadOilData();
+    records = await loadCollections(data);
+  } catch (err) {
+    renderNav("", null);
+    renderState(page, "error", "Could not load the collection data.", err.message);
+    return;
+  }
+
+  // No nav item is highlighted: a town page is a drill-down, not one of the
+  // four top-level destinations.
+  renderNav("", data);
+  renderLastUpdated(data);
+
+  // geo_town is the normalized official Vermont town name, which is what the
+  // map links with. Matching is case-insensitive so a hand-typed URL works.
+  const wanted = townParam.toLowerCase();
+  const rows = records.filter(r => (r.geo_town || "").toLowerCase() === wanted);
+
+  if (!rows.length) {
+    renderState(page, "empty",
+      `No oil collections recorded for ${townParam}.`,
+      "This town has no pickups in the dataset. Vermont towns without collections still appear on the map, so this is expected rather than an error.");
+    return;
+  }
+
+  render(page, rows, data);
+}
+
+function render(page, rows, data) {
+  // Use the town's own spelling from the data rather than the URL's.
+  const townName = rows[0].geo_town;
+  const county = rows[0].county || "—";
+
+  renderPageName(`${townName} Oil Collection`);
+
+  const customers = aggregateCustomers(rows);
+  const monthTotals = groupSum(rows, r => r.month);
+  const yearTotals = groupSum(rows, r => r.year);
+
+  const months = Object.keys(monthTotals).sort();
+  const years = Object.keys(yearTotals).sort();
+
+  const latestMonth = months[months.length - 1];
+  const currentYear = String(Math.max(...years.map(Number)));
+
+  const dates = rows.map(r => r.date).sort();
+
+  page.innerHTML = `
+    <a class="back-link" href="index.html">← Back to the dashboard</a>
+    <div class="page-subtitle">${escapeHtml(county)} County · ${formatNumber(rows.length)} pickups on record</div>
+
+    <div class="stats-bar">
+      <div class="stat">
+        <div class="stat-val">${formatNumber(sumGallons(rows))}</div>
+        <div class="stat-label">All-Time Gallons</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">${formatNumber(yearTotals[currentYear])}</div>
+        <div class="stat-label">${escapeHtml(currentYear)} Gallons</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">${formatNumber(monthTotals[latestMonth])}</div>
+        <div class="stat-label">${escapeHtml(formatMonth(latestMonth))}</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">${formatNumber(customers.length)}</div>
+        <div class="stat-label">Customers</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val small">${formatDate(dates[0])}</div>
+        <div class="stat-label">First Qualifying Pickup</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val small">${formatDate(dates[dates.length - 1])}</div>
+        <div class="stat-label">Last Qualifying Pickup</div>
+      </div>
+    </div>
+
+    <div class="section chart-grid">
+      <div>
+        <div class="chart-title">Monthly Gallons</div>
+        <div class="chart-container"><canvas id="chart-monthly"></canvas></div>
+      </div>
+      <div>
+        <div class="chart-title">Yearly Totals</div>
+        <div class="chart-container"><canvas id="chart-yearly"></canvas></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Customers in ${escapeHtml(townName)}</div>
+      <div class="note">
+        Status comes from the source site's active and inactive customer lists.
+        It is not derived from how recently a customer had a pickup.
+        Customers are grouped Active, then Unknown, then Inactive, and sorted by
+        total gallons within each group.
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th class="rank">#</th>
+              <th>Customer</th>
+              <th class="num">Total Gallons</th>
+              <th class="num">Pickups</th>
+              <th>First Qualifying Pickup</th>
+              <th>Last Qualifying Pickup</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="customer-rows"></tbody>
+        </table>
+      </div>
+    </div>
+  `;
+
+  buildCustomerTable(customers);
+
+  new Chart(
+    document.getElementById("chart-monthly"),
+    lineChartConfig(months.map(formatMonth), months.map(m => monthTotals[m]))
+  );
+
+  new Chart(
+    document.getElementById("chart-yearly"),
+    barChartConfig(years, years.map(y => yearTotals[y]))
+  );
+}
+
+function buildCustomerTable(customers) {
+  const sorted = sortCustomersByStatusThenGallons(customers);
+  const body = document.getElementById("customer-rows");
+
+  let html = "";
+  let lastGroup = null;
+  let rank = 0;
+
+  sorted.forEach(c => {
+    const group = customerStatusLabel(c.is_active).text;
+
+    // A header row whenever the status group changes makes the ordering
+    // obvious, so a large inactive customer low in the list is not mistaken
+    // for a small one.
+    if (group !== lastGroup) {
+      html += `<tr class="group-row"><td colspan="7">${group}</td></tr>`;
+      lastGroup = group;
+    }
+
+    rank += 1;
+    html += `
+      <tr>
+        <td class="rank">${rank}</td>
+        <td>${escapeHtml(c.name)}</td>
+        <td class="gal">${formatNumber(c.gallons)}</td>
+        <td class="num">${formatNumber(c.pickups)}</td>
+        <td>${formatDate(c.first)}</td>
+        <td>${formatDate(c.last)}</td>
+        <td>${statusBadge(c.is_active)}</td>
+      </tr>
+    `;
+  });
+
+  body.innerHTML = html;
+}
+
+init();
+</script>
+
+</body>
+</html>
