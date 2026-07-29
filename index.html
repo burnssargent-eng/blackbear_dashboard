@@ -780,6 +780,21 @@ function getFeatureTownName(feature) {
          "";
 }
 
+/*
+ * How far beyond Vermont the user is allowed to pan, as a fraction of the
+ * state's own bounds.
+ *
+ * This is what actually controls the default vertical position. At the previous
+ * 0.35 the allowed box was tighter than the fitted view wanted to be, so
+ * setMaxBounds silently dragged the map back down after every fit — which is
+ * why adding bottom padding (and a panBy) appeared to do nothing at all.
+ * Measured: at 0.35 the southern tip sat 18px INTO the time-controls card
+ * regardless of padding; at 0.8 it sits 37px clear of it.
+ *
+ * Raise this if Vermont should sit higher, lower it to restrict panning.
+ */
+const MAP_MAX_BOUNDS_PAD = 0.8;
+
 const map = L.map("map", {
   center: [44.0, -72.7],
   zoom: 8,
@@ -1171,7 +1186,8 @@ function renderMap(idx) {
       paddingBottomRight: [12, clearance],
       animate: false
     });
-    map.setMaxBounds(bounds.pad(0.35));
+
+    map.setMaxBounds(bounds.pad(MAP_MAX_BOUNDS_PAD));
     map.setMinZoom(map.getZoom());
     hasFitBounds = true;
   }
