@@ -489,6 +489,63 @@ function lifecycleFootnoteHtml(extra) {
  * the same field names). `columns` selects which optional columns to show, so
  * the customers, year and region pages can share one implementation.
  */
+/* ─────────────────────────────────────────────
+ * Expandable customer lists
+ * ───────────────────────────────────────────── */
+
+const CUSTOMER_ROWS_COLLAPSED = 50;
+const CUSTOMER_ROWS_EXPANDED = 250;
+
+/**
+ * Render a customer list capped at 50 rows, with a button to expand to 250.
+ *
+ * Each page keeps its own columns and any status group headers by supplying its
+ * own `renderFn`; only the slicing, the button wording and the open/closed
+ * state are shared, so the four lists behave identically without being forced
+ * onto one table builder.
+ *
+ *   container  element to fill (its contents are replaced)
+ *   rows       the FULL list, already sorted by the caller — order is preserved
+ *   renderFn   (subset) => HTML string for that subset
+ *
+ * State lives on the container, so two lists on one page cannot interfere.
+ * No button is shown when the list already fits in the collapsed limit.
+ */
+function renderExpandableCustomerList(container, rows, renderFn) {
+  if (!container) return;
+
+  const all = rows || [];
+  const expanded = container.dataset.expanded === "true";
+  const limit = expanded ? CUSTOMER_ROWS_EXPANDED : CUSTOMER_ROWS_COLLAPSED;
+  const shown = all.slice(0, limit);
+
+  container.innerHTML = renderFn(shown);
+
+  if (all.length <= CUSTOMER_ROWS_COLLAPSED) return;
+
+  // "Show all N" when everything fits in one expansion, otherwise the cap.
+  const label = expanded
+    ? `Show top ${formatNumber(CUSTOMER_ROWS_COLLAPSED)}`
+    : (all.length <= CUSTOMER_ROWS_EXPANDED
+        ? `Show all ${formatNumber(all.length)}`
+        : `Show top ${formatNumber(CUSTOMER_ROWS_EXPANDED)}`);
+
+  const footer = document.createElement("div");
+  footer.className = "list-more";
+  footer.innerHTML =
+    `<button type="button">${escapeHtml(label)}</button>` +
+    `<span class="list-count">Showing ${formatNumber(shown.length)} ` +
+    `of ${formatNumber(all.length)}</span>`;
+
+  footer.querySelector("button").addEventListener("click", () => {
+    container.dataset.expanded = expanded ? "false" : "true";
+    renderExpandableCustomerList(container, all, renderFn);
+  });
+
+  container.appendChild(footer);
+}
+
+
 function customerTableHtml(rows, options) {
   const opts = options || {};
   const showTown = opts.town !== false;

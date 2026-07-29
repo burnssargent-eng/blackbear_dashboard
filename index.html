@@ -53,6 +53,20 @@
 
     .page-name:empty { display: none; }
 
+    /* The logo and brand text link home. Colour inherited and underline
+       removed so it does not read as a default link. Mirrors dashboard.css. */
+    .brand-home {
+      display: flex;
+      align-items: center;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .brand-home:hover .subtitle,
+    .brand-home:hover h1 {
+      color: #3fb950;
+    }
+
     header img {
       height: 52px;
       margin-right: 18px;
@@ -446,11 +460,13 @@
 <body>
 
 <header>
-  <img src="logo.png" alt="Black Bear Biodiesel" onerror="this.style.display='none'">
-  <div>
-    <div class="subtitle">Oil Collection Analytics</div>
-    <h1>Black Bear Biodiesel</h1>
-  </div>
+  <a class="brand-home" href="index.html" aria-label="Back to dashboard">
+    <img src="logo.png" alt="Black Bear Biodiesel" onerror="this.style.display='none'">
+    <div>
+      <div class="subtitle">Oil Collection Analytics</div>
+      <h1>Black Bear Biodiesel</h1>
+    </div>
+  </a>
   <div class="header-center">
     <div class="page-name" id="page-name"></div>
     <nav class="main-nav" id="main-nav">

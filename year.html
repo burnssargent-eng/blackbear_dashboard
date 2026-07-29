@@ -12,11 +12,13 @@
 <body>
 
 <header>
-  <img src="logo.png" alt="Black Bear Biodiesel" onerror="this.style.display='none'">
-  <div>
-    <div class="subtitle">Oil Collection Analytics</div>
-    <h1>Black Bear Biodiesel</h1>
-  </div>
+  <a class="brand-home" href="index.html" aria-label="Back to dashboard">
+    <img src="logo.png" alt="Black Bear Biodiesel" onerror="this.style.display='none'">
+    <div>
+      <div class="subtitle">Oil Collection Analytics</div>
+      <h1>Black Bear Biodiesel</h1>
+    </div>
+  </a>
   <div class="header-center">
     <div class="page-name" id="page-name"></div>
     <nav class="main-nav" id="main-nav"></nav>
@@ -34,7 +36,6 @@
 <script>
 // How many towns the bar chart shows before it becomes unreadable.
 const TOWN_CHART_LIMIT = 20;
-const TOP_CUSTOMER_LIMIT = 25;
 
 async function init() {
   const page = document.getElementById("page");
@@ -214,32 +215,10 @@ function render(page, rows, year, availableYears, lifecycle, dormantCutoff) {
 
     <div class="section">
       <div class="section-title">
-        Top ${Math.min(TOP_CUSTOMER_LIMIT, customers.length)} Producing Customers — ${year}
+        Top Producing Customers — ${year}
+        (${formatNumber(customers.length)} served)
       </div>
-      <div class="table-wrap">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th class="rank">#</th><th>Customer</th><th>Town</th><th>County</th>
-              <th class="num">Gallons</th><th class="num">Pickups</th><th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${sortCustomersByGallons(customers).slice(0, TOP_CUSTOMER_LIMIT).map((c, i) => `
-              <tr>
-                <td class="rank">${i + 1}</td>
-                <td>${escapeHtml(c.name)}</td>
-                <td>${c.geo_town
-                    ? `<a href="town.html?town=${encodeURIComponent(c.geo_town)}">${escapeHtml(c.geo_town)}</a>`
-                    : escapeHtml(c.city || "—")}</td>
-                <td>${escapeHtml(c.county || "—")}</td>
-                <td class="gal">${formatNumber(c.gallons)}</td>
-                <td class="num">${formatNumber(c.pickups)}</td>
-                <td>${statusBadge(c.is_active)}</td>
-              </tr>`).join("")}
-          </tbody>
-        </table>
-      </div>
+      <div id="year-customer-list"></div>
     </div>
 
     <div class="section chart-grid">
@@ -304,6 +283,13 @@ function render(page, rows, year, availableYears, lifecycle, dormantCutoff) {
         can be well before they were marked inactive.`)}
     </div>
   `;
+
+  // Sorted by gallons descending, then capped at 50 with an expand control.
+  renderExpandableCustomerList(
+    document.getElementById("year-customer-list"),
+    sortCustomersByGallons(customers),
+    subset => customerTableHtml(subset, { town: true, county: true, dates: false })
+  );
 
   // Bars rather than a line, with an exact-gallons tooltip on hover — matching
   // the dashboard's yearly chart. Deliberately NOT clickable.

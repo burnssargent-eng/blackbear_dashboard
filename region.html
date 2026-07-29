@@ -12,11 +12,13 @@
 <body>
 
 <header>
-  <img src="logo.png" alt="Black Bear Biodiesel" onerror="this.style.display='none'">
-  <div>
-    <div class="subtitle">Oil Collection Analytics</div>
-    <h1>Black Bear Biodiesel</h1>
-  </div>
+  <a class="brand-home" href="index.html" aria-label="Back to dashboard">
+    <img src="logo.png" alt="Black Bear Biodiesel" onerror="this.style.display='none'">
+    <div>
+      <div class="subtitle">Oil Collection Analytics</div>
+      <h1>Black Bear Biodiesel</h1>
+    </div>
+  </a>
   <div class="header-center">
     <div class="page-name" id="page-name"></div>
     <nav class="main-nav" id="main-nav"></nav>
@@ -43,8 +45,6 @@
  * oil_data.json, so the customer table below uses that exported membership
  * rather than deriving anything client-side.
  */
-
-const REGION_CUSTOMER_LIMIT = 25;
 
 async function init() {
   const page = document.getElementById("page");
@@ -147,9 +147,10 @@ function render(page, region, options, monthly, yearly, named, regionStats,
     ? Math.round(recentMonths.reduce((sum, m) => sum + monthTotals[m], 0) / avgMonthsUsed)
     : 0;
 
+  // Already sorted by gallons descending in init(). The list renders 50 rows
+  // with an expand control; the note below reports the whole region's share.
   const topCustomers = regionCustomers || [];
   const shownGallons = topCustomers
-    .slice(0, REGION_CUSTOMER_LIMIT)
     .reduce((sum, c) => sum + (Number(c.gallons) || 0), 0);
 
   // Source-site active customers in this region. Exported by oil_scraper.py so
@@ -228,21 +229,17 @@ function render(page, region, options, monthly, yearly, named, regionStats,
 
     <div class="section">
       <div class="section-title">
-        Top ${formatNumber(Math.min(REGION_CUSTOMER_LIMIT, topCustomers.length))}
-        Producing Customers — ${escapeHtml(region)}${
-          topCustomers.length > REGION_CUSTOMER_LIMIT
-            ? ` (of ${formatNumber(topCustomers.length)})` : ""}
+        Top Producing Customers — ${escapeHtml(region)}
+        (${formatNumber(topCustomers.length)} in this region)
       </div>
       ${topCustomers.length ? `
         <div class="note">
-          Ranked by all-time qualifying gallons. Their total is
-          ${formatNumber(shownGallons)} gallons of the region's
-          ${formatNumber(allTime)}.
+          Ranked by all-time qualifying gallons, totalling
+          ${formatNumber(shownGallons)} of the region's ${formatNumber(allTime)}.
           Status comes from the source site's active and inactive lists, not from
           how recently a customer had a pickup.
         </div>
-        ${customerTableHtml(topCustomers.slice(0, REGION_CUSTOMER_LIMIT),
-                            { town: true, dates: false })}
+        <div id="region-customer-list"></div>
       ` : `<div class="note">No customer-level detail is available for this region.</div>`}
     </div>
 
@@ -280,6 +277,12 @@ function render(page, region, options, monthly, yearly, named, regionStats,
       </div>
     </div>
   `;
+
+  renderExpandableCustomerList(
+    document.getElementById("region-customer-list"),
+    topCustomers,
+    subset => customerTableHtml(subset, { town: true, dates: false })
+  );
 
   new Chart(
     document.getElementById("chart-monthly"),

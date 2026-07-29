@@ -12,11 +12,13 @@
 <body>
 
 <header>
-  <img src="logo.png" alt="Black Bear Biodiesel" onerror="this.style.display='none'">
-  <div>
-    <div class="subtitle">Oil Collection Analytics</div>
-    <h1>Black Bear Biodiesel</h1>
-  </div>
+  <a class="brand-home" href="index.html" aria-label="Back to dashboard">
+    <img src="logo.png" alt="Black Bear Biodiesel" onerror="this.style.display='none'">
+    <div>
+      <div class="subtitle">Oil Collection Analytics</div>
+      <h1>Black Bear Biodiesel</h1>
+    </div>
+  </a>
   <div class="header-center">
     <div class="page-name" id="page-name"></div>
     <nav class="main-nav" id="main-nav"></nav>
@@ -138,29 +140,16 @@ function render(page, rows, data) {
     </div>
 
     <div class="section">
-      <div class="section-title">Customers in ${escapeHtml(townName)}</div>
+      <div class="section-title">
+        Customers in ${escapeHtml(townName)} (${formatNumber(customers.length)})
+      </div>
       <div class="note">
         Status comes from the source site's active and inactive customer lists.
         It is not derived from how recently a customer had a pickup.
         Customers are grouped Active, then Unknown, then Inactive, and sorted by
         total gallons within each group.
       </div>
-      <div class="table-wrap">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th class="rank">#</th>
-              <th>Customer</th>
-              <th class="num">Total Gallons</th>
-              <th class="num">Pickups</th>
-              <th>First Qualifying Pickup</th>
-              <th>Last Qualifying Pickup</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody id="customer-rows"></tbody>
-        </table>
-      </div>
+      <div id="town-customer-list"></div>
     </div>
   `;
 
@@ -178,9 +167,15 @@ function render(page, rows, data) {
 }
 
 function buildCustomerTable(customers) {
-  const sorted = sortCustomersByStatusThenGallons(customers);
-  const body = document.getElementById("customer-rows");
+  renderExpandableCustomerList(
+    document.getElementById("town-customer-list"),
+    sortCustomersByStatusThenGallons(customers),
+    townCustomerRowsHtml
+  );
+}
 
+/** This page's table markup, rendered for whatever subset it is given. */
+function townCustomerRowsHtml(sorted) {
   let html = "";
   let lastGroup = null;
   let rank = 0;
@@ -210,7 +205,24 @@ function buildCustomerTable(customers) {
     `;
   });
 
-  body.innerHTML = html;
+  return `
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th class="rank">#</th>
+            <th>Customer</th>
+            <th class="num">Total Gallons</th>
+            <th class="num">Pickups</th>
+            <th>First Qualifying Pickup</th>
+            <th>Last Qualifying Pickup</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>${html}</tbody>
+      </table>
+    </div>
+  `;
 }
 
 init();

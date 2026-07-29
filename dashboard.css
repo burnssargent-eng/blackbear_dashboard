@@ -45,6 +45,21 @@ header {
   gap: 2px;
 }
 
+/* The logo and brand text link home. A real <a> keeps keyboard focus,
+   Enter-to-activate and open-in-new-tab working. Colour is inherited and the
+   underline removed so it does not read as a default link. */
+.brand-home {
+  display: flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+}
+
+.brand-home:hover .subtitle,
+.brand-home:hover h1 {
+  color: #3fb950;
+}
+
 header img {
   height: 52px;
   margin-right: 18px;
@@ -390,6 +405,19 @@ select:disabled {
   font-size: 12px;
   line-height: 1.6;
   margin: -2px 0 10px;
+}
+
+/* Expand/collapse control under a customer list. */
+.list-more {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.list-count {
+  font-size: 12px;
+  color: #8b949e;
 }
 
 .jump-link {
