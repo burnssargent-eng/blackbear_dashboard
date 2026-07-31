@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-30T09:31:30.502900",
+  "last_updated": "2026-07-31T09:45:02.739593",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -32674,7 +32674,7 @@
     {
       "month": "2026-07",
       "geo_town": "Barre City",
-      "gallons": 510,
+      "gallons": 610,
       "city": "Barre City"
     },
     {
@@ -32698,7 +32698,7 @@
     {
       "month": "2026-07",
       "geo_town": "Bethel",
-      "gallons": 170,
+      "gallons": 385,
       "city": "Bethel"
     },
     {
@@ -32706,6 +32706,12 @@
       "geo_town": "Bradford",
       "gallons": 160,
       "city": "Bradford"
+    },
+    {
+      "month": "2026-07",
+      "geo_town": "Braintree",
+      "gallons": 70,
+      "city": "Braintree"
     },
     {
       "month": "2026-07",
@@ -32788,7 +32794,7 @@
     {
       "month": "2026-07",
       "geo_town": "Hartford",
-      "gallons": 150,
+      "gallons": 555,
       "city": "Hartford"
     },
     {
@@ -32880,6 +32886,12 @@
       "geo_town": "Plainfield",
       "gallons": 620,
       "city": "Plainfield"
+    },
+    {
+      "month": "2026-07",
+      "geo_town": "Randolph",
+      "gallons": 70,
+      "city": "Randolph"
     },
     {
       "month": "2026-07",
@@ -32980,7 +32992,7 @@
     {
       "month": "2026-07",
       "geo_town": "Woodstock",
-      "gallons": 70,
+      "gallons": 355,
       "city": "Woodstock"
     }
   ],
@@ -40503,7 +40515,7 @@
     {
       "month": "2026-07",
       "county": "Out-of-State (NH)",
-      "gallons": 271
+      "gallons": 470
     },
     {
       "month": "2026-07",
@@ -40513,7 +40525,7 @@
     {
       "month": "2026-07",
       "county": "Washington",
-      "gallons": 4420
+      "gallons": 4590
     },
     {
       "month": "2026-07",
@@ -40523,7 +40535,7 @@
     {
       "month": "2026-07",
       "county": "Windsor",
-      "gallons": 430
+      "gallons": 1405
     }
   ],
   "yearly_totals": [
@@ -40573,13 +40585,13 @@
     },
     {
       "year": 2026,
-      "gallons": 177463
+      "gallons": 178807
     }
   ],
-  "all_time_total": 2096230,
-  "current_year_total": 177463,
+  "all_time_total": 2097574,
+  "current_year_total": 178807,
   "customer_count": 794,
-  "unmapped_total": 38743,
+  "unmapped_total": 38942,
   "monthly_totals": [
     {
       "month": "2015-01",
@@ -41135,7 +41147,7 @@
     },
     {
       "month": "2026-07",
-      "gallons": 26454
+      "gallons": 27798
     }
   ],
   "monthly_by_region": [
@@ -48807,7 +48819,7 @@
     {
       "month": "2026-07",
       "region": "Central Vermont",
-      "gallons": 1810
+      "gallons": 1910
     },
     {
       "month": "2026-07",
@@ -48827,7 +48839,7 @@
     {
       "month": "2026-07",
       "region": "Other",
-      "gallons": 10923
+      "gallons": 11477
     },
     {
       "month": "2026-07",
@@ -48852,7 +48864,7 @@
     {
       "month": "2026-07",
       "region": "Woodstock+Quechee",
-      "gallons": 220
+      "gallons": 910
     }
   ],
   "yearly_by_region": [
@@ -49559,7 +49571,7 @@
     {
       "year": 2026,
       "region": "Central Vermont",
-      "gallons": 15989
+      "gallons": 16089
     },
     {
       "year": 2026,
@@ -49589,7 +49601,7 @@
     {
       "year": 2026,
       "region": "Other",
-      "gallons": 76285
+      "gallons": 76839
     },
     {
       "year": 2026,
@@ -49619,7 +49631,7 @@
     {
       "year": 2026,
       "region": "Woodstock+Quechee",
-      "gallons": 3865
+      "gallons": 4555
     }
   ],
   "region_names": [
@@ -49638,20 +49650,20 @@
     "Burlington"
   ],
   "collections_file": "oil_collections.json",
-  "collections_count": 26934,
-  "out_of_state_total": 38743,
+  "collections_count": 26950,
+  "out_of_state_total": 38942,
   "active_customer_count": 517,
   "projection": {
-    "latest_data_date": "2026-07-29",
+    "latest_data_date": "2026-07-30",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 177463,
+    "current_ytd": 178807,
     "previous_year_full": 269909,
     "previous_through_prior_month": 135570,
     "previous_same_month_total": 22672,
-    "previous_prorated_ytd": 156779.29,
-    "projected_current_year": 305518,
-    "percent_vs_previous_year": 0.131929
+    "previous_prorated_ytd": 157510.65,
+    "projected_current_year": 306402,
+    "percent_vs_previous_year": 0.135206
   },
   "region_stats": {
     "Burlington": {
