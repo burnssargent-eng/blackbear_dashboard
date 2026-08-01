@@ -348,6 +348,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1363,GE-South Barre Gas Station,Barre,Washington,2024-09-24,2024,2024-09,20,True,Barre Town
 1363,GE-South Barre Gas Station,Barre,Washington,2024-09-05,2024,2024-09,60,True,Barre Town
 1363,GE-South Barre Gas Station,Barre,Washington,2024-08-01,2024,2024-08,200,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2026-07-31,2026,2026-07,65,True,Barre Town
 111,Gunner Brook (Brookside Mkt),Barre,Washington,2026-06-25,2026,2026-06,85,True,Barre Town
 111,Gunner Brook (Brookside Mkt),Barre,Washington,2026-05-22,2026,2026-05,80,True,Barre Town
 111,Gunner Brook (Brookside Mkt),Barre,Washington,2026-04-07,2026,2026-04,80,True,Barre Town
@@ -11917,6 +11918,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2023-07-13,2023,2023-07,15,True,North Hero
 1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2022-10-27,2022,2022-10,25,True,North Hero
 1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2022-09-13,2022,2022-09,45,True,North Hero
+416,North Hero House,North Hero,Grand Isle,2026-07-31,2026,2026-07,105,True,North Hero
 416,North Hero House,North Hero,Grand Isle,2026-07-06,2026,2026-07,160,True,North Hero
 416,North Hero House,North Hero,Grand Isle,2026-05-21,2026,2026-05,100,True,North Hero
 416,North Hero House,North Hero,Grand Isle,2026-04-09,2026,2026-04,140,True,North Hero
@@ -12650,6 +12652,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1360,Tony’s Homemade Donut’s,Plainfield,Washington,2026-03-23,2026,2026-03,25,True,Plainfield
 1360,Tony’s Homemade Donut’s,Plainfield,Washington,2024-07-17,2024,2024-07,15,True,Plainfield
 1450,Anthony’s Restaurant -Plattsburgh,Plattsburgh,Out-of-State (NY),2025-09-11,2025,2025-09,300,True,
+1173,Hannaford-Plattsburgh,Plattsburgh,Out-of-State (NY),2026-07-31,2026,2026-07,139,True,
 1173,Hannaford-Plattsburgh,Plattsburgh,Out-of-State (NY),2026-06-23,2026,2026-06,142,True,
 1173,Hannaford-Plattsburgh,Plattsburgh,Out-of-State (NY),2026-05-21,2026,2026-05,138,True,
 1173,Hannaford-Plattsburgh,Plattsburgh,Out-of-State (NY),2026-04-21,2026,2026-04,159,True,
@@ -14152,6 +14155,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 417,Bayside Pavilion,St. Albans City,Franklin,2018-10-17,2018,2018-10,125,True,Saint Albans Town
 417,Bayside Pavilion,St. Albans City,Franklin,2018-05-11,2018,2018-05,100,True,Saint Albans Town
 417,Bayside Pavilion,St. Albans City,Franklin,2018-02-27,2018,2018-02,100,True,Saint Albans Town
+421,BLACK RADISH/14thStar-Saint Albans-14th Star,St. Albans City,Franklin,2026-07-31,2026,2026-07,200,True,Saint Albans City
 421,BLACK RADISH/14thStar-Saint Albans-14th Star,St. Albans City,Franklin,2026-06-23,2026,2026-06,100,True,Saint Albans City
 421,BLACK RADISH/14thStar-Saint Albans-14th Star,St. Albans City,Franklin,2026-06-02,2026,2026-06,60,True,Saint Albans City
 421,BLACK RADISH/14thStar-Saint Albans-14th Star,St. Albans City,Franklin,2026-05-12,2026,2026-05,70,True,Saint Albans City
@@ -14232,6 +14236,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1138,Kaiju Kitchen-St Albans,St. Albans City,Franklin,2023-02-12,2023,2023-02,30,True,Saint Albans City
 1138,Kaiju Kitchen-St Albans,St. Albans City,Franklin,2022-12-08,2022,2022-12,30,True,Saint Albans City
 1138,Kaiju Kitchen-St Albans,St. Albans City,Franklin,2022-08-31,2022,2022-08,15,True,Saint Albans City
+418,Nelly's,St. Albans City,Franklin,2026-07-31,2026,2026-07,200,True,Saint Albans City
 418,Nelly's,St. Albans City,Franklin,2026-06-23,2026,2026-06,110,True,Saint Albans City
 418,Nelly's,St. Albans City,Franklin,2026-06-02,2026,2026-06,90,True,Saint Albans City
 418,Nelly's,St. Albans City,Franklin,2026-05-12,2026,2026-05,120,True,Saint Albans City
@@ -20618,11 +20623,13 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1299,Cannoli,Williston,Chittenden,2024-04-25,2024,2024-04,55,True,Williston
 1299,Cannoli,Williston,Chittenden,2024-03-26,2024,2024-03,55,True,Williston
 1299,Cannoli,Williston,Chittenden,2024-02-26,2024,2024-02,35,True,Williston
+1495,Folinos-Williston,Williston,Chittenden,2026-07-31,2026,2026-07,50,True,Williston
 1495,Folinos-Williston,Williston,Chittenden,2026-07-08,2026,2026-07,60,True,Williston
 1495,Folinos-Williston,Williston,Chittenden,2026-06-23,2026,2026-06,60,True,Williston
 1495,Folinos-Williston,Williston,Chittenden,2026-06-04,2026,2026-06,100,True,Williston
 1495,Folinos-Williston,Williston,Chittenden,2026-05-14,2026,2026-05,50,True,Williston
 1495,Folinos-Williston,Williston,Chittenden,2026-05-01,2026,2026-05,40,True,Williston
+401,Grazers pc 1425- Williston Garage,Williston,Chittenden,2026-07-31,2026,2026-07,120,True,Williston
 401,Grazers pc 1425- Williston Garage,Williston,Chittenden,2026-07-08,2026,2026-07,160,True,Williston
 401,Grazers pc 1425- Williston Garage,Williston,Chittenden,2026-06-04,2026,2026-06,180,True,Williston
 401,Grazers pc 1425- Williston Garage,Williston,Chittenden,2026-05-08,2026,2026-05,120,True,Williston
@@ -20811,11 +20818,13 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1183,Hannaford- Williston,Williston,Chittenden,2022-10-24,2022,2022-10,28,True,Williston
 1183,Hannaford- Williston,Williston,Chittenden,2022-10-03,2022,2022-10,23,True,Williston
 1183,Hannaford- Williston,Williston,Chittenden,2022-09-22,2022,2022-09,114,True,Williston
+1459,Jersey Mike's - Williston,Williston,Chittenden,2026-07-31,2026,2026-07,50,True,Williston
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-06-23,2026,2026-06,20,True,Williston
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-06-04,2026,2026-06,40,True,Williston
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-05-01,2026,2026-05,125,True,Williston
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-04-24,2026,2026-04,55,True,Williston
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-03-31,2026,2026-03,15,True,Williston
+1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2026-07-31,2026,2026-07,50,True,Williston
 1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2026-07-08,2026,2026-07,50,True,Williston
 1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2026-06-23,2026,2026-06,100,True,Williston
 1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2026-06-04,2026,2026-06,60,True,Williston
@@ -21165,6 +21174,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 445,Four Quarters-Winooski,Winooski,Chittenden,2021-11-01,2021,2021-11,115,True,Winooski
 445,Four Quarters-Winooski,Winooski,Chittenden,2021-08-11,2021,2021-08,225,True,Winooski
 445,Four Quarters-Winooski,Winooski,Chittenden,2021-06-03,2021,2021-06,125,True,Winooski
+1099,Fusion cafe and bar,Winooski,Chittenden,2026-07-31,2026,2026-07,70,True,Winooski
 1099,Fusion cafe and bar,Winooski,Chittenden,2026-07-08,2026,2026-07,30,True,Winooski
 1099,Fusion cafe and bar,Winooski,Chittenden,2026-06-17,2026,2026-06,70,True,Winooski
 1099,Fusion cafe and bar,Winooski,Chittenden,2026-05-28,2026,2026-05,60,True,Winooski
@@ -21552,6 +21562,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 432,Sneakers Alley 100%,Winooski,Chittenden,2019-08-22,2019,2019-08,100,True,Winooski
 432,Sneakers Alley 100%,Winooski,Chittenden,2019-05-26,2019,2019-05,50,True,Winooski
 432,Sneakers Alley 100%,Winooski,Chittenden,2019-03-19,2019,2019-03,25,True,Winooski
+443,Southern Smoke-Winooski,Winooski,Chittenden,2026-07-31,2026,2026-07,60,True,Winooski
 443,Southern Smoke-Winooski,Winooski,Chittenden,2026-05-14,2026,2026-05,45,True,Winooski
 443,Southern Smoke-Winooski,Winooski,Chittenden,2025-07-25,2025,2025-07,45,True,Winooski
 443,Southern Smoke-Winooski,Winooski,Chittenden,2024-08-23,2024,2024-08,50,True,Winooski
