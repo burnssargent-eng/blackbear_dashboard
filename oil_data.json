@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-03T10:41:34.208707",
+  "last_updated": "2026-08-04T09:42:11.748445",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33000,6 +33000,54 @@
       "geo_town": "Woodstock",
       "gallons": 355,
       "city": "Woodstock"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Cambridge",
+      "gallons": 90,
+      "city": "Cambridge"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Hardwick",
+      "gallons": 185,
+      "city": "Hardwick"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Hyde Park",
+      "gallons": 140,
+      "city": "Hyde Park"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Johnson",
+      "gallons": 125,
+      "city": "Johnson"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Morristown",
+      "gallons": 480,
+      "city": "Morristown"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Richmond",
+      "gallons": 70,
+      "city": "Richmond"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Underhill",
+      "gallons": 45,
+      "city": "Underhill"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Wolcott",
+      "gallons": 55,
+      "city": "Wolcott"
     }
   ],
   "monthly_by_county": [
@@ -40552,6 +40600,21 @@
       "month": "2026-07",
       "county": "Windsor",
       "gallons": 1405
+    },
+    {
+      "month": "2026-08",
+      "county": "Caledonia",
+      "gallons": 185
+    },
+    {
+      "month": "2026-08",
+      "county": "Chittenden",
+      "gallons": 115
+    },
+    {
+      "month": "2026-08",
+      "county": "Lamoille",
+      "gallons": 890
     }
   ],
   "yearly_totals": [
@@ -40601,11 +40664,11 @@
     },
     {
       "year": 2026,
-      "gallons": 179916
+      "gallons": 181106
     }
   ],
-  "all_time_total": 2098683,
-  "current_year_total": 179916,
+  "all_time_total": 2099873,
+  "current_year_total": 181106,
   "customer_count": 794,
   "unmapped_total": 39081,
   "monthly_totals": [
@@ -41164,6 +41227,10 @@
     {
       "month": "2026-07",
       "gallons": 28907
+    },
+    {
+      "month": "2026-08",
+      "gallons": 1190
     }
   ],
   "monthly_by_region": [
@@ -48881,6 +48948,11 @@
       "month": "2026-07",
       "region": "Woodstock+Quechee",
       "gallons": 910
+    },
+    {
+      "month": "2026-08",
+      "region": "Other",
+      "gallons": 1190
     }
   ],
   "yearly_by_region": [
@@ -49617,7 +49689,7 @@
     {
       "year": 2026,
       "region": "Other",
-      "gallons": 77753
+      "gallons": 78943
     },
     {
       "year": 2026,
@@ -49666,20 +49738,20 @@
     "Burlington"
   ],
   "collections_file": "oil_collections.json",
-  "collections_count": 26961,
+  "collections_count": 26982,
   "out_of_state_total": 39081,
   "active_customer_count": 517,
   "projection": {
-    "latest_data_date": "2026-07-31",
+    "latest_data_date": "2026-08-03",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 179916,
+    "current_ytd": 181106,
     "previous_year_full": 269909,
-    "previous_through_prior_month": 135570,
-    "previous_same_month_total": 22672,
-    "previous_prorated_ytd": 158242.0,
-    "projected_current_year": 306878,
-    "percent_vs_previous_year": 0.136967
+    "previous_through_prior_month": 158242,
+    "previous_same_month_total": 25119,
+    "previous_prorated_ytd": 160672.87,
+    "projected_current_year": 304234,
+    "percent_vs_previous_year": 0.127172
   },
   "region_stats": {
     "Burlington": {

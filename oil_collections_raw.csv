@@ -5734,6 +5734,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 605,Rhapsody Natural Foods,Cabot,Caledonia,2017-11-16,2017,2017-11,25,True,Cabot
 605,Rhapsody Natural Foods,Cabot,Caledonia,2017-05-17,2017,2017-05,100,True,Cabot
 605,Rhapsody Natural Foods,Cabot,Caledonia,2016-11-16,2016,2016-11,70,True,Cabot
+1404,ERICAS-Cambridge,Cambridge,Lamoille,2026-08-03,2026,2026-08,90,True,Cambridge
 1404,ERICAS-Cambridge,Cambridge,Lamoille,2026-06-25,2026,2026-06,75,True,Cambridge
 1404,ERICAS-Cambridge,Cambridge,Lamoille,2026-05-27,2026,2026-05,110,True,Cambridge
 1404,ERICAS-Cambridge,Cambridge,Lamoille,2026-04-15,2026,2026-04,55,True,Cambridge
@@ -7286,6 +7287,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1484,Sushiya-Hanover NH,Hanover,Out-of-State (NH),2026-06-02,2026,2026-06,50,True,
 1484,Sushiya-Hanover NH,Hanover,Out-of-State (NH),2026-04-01,2026,2026-04,100,True,
 1484,Sushiya-Hanover NH,Hanover,Out-of-State (NH),2026-01-26,2026,2026-01,110,True,
+1242,Caja Taqueria-Hardwick,Hardwick,Caledonia,2026-08-03,2026,2026-08,25,True,Hardwick
 1242,Caja Taqueria-Hardwick,Hardwick,Caledonia,2026-05-06,2026,2026-05,20,True,Hardwick
 1242,Caja Taqueria-Hardwick,Hardwick,Caledonia,2025-10-17,2025,2025-10,55,True,Hardwick
 1242,Caja Taqueria-Hardwick,Hardwick,Caledonia,2024-10-03,2024,2024-10,60,True,Hardwick
@@ -7294,6 +7296,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1242,Caja Taqueria-Hardwick,Hardwick,Caledonia,2024-02-07,2024,2024-02,30,True,Hardwick
 1242,Caja Taqueria-Hardwick,Hardwick,Caledonia,2023-09-22,2023,2023-09,20,True,Hardwick
 1242,Caja Taqueria-Hardwick,Hardwick,Caledonia,2023-06-23,2023,2023-06,20,True,Hardwick
+504,Cork & Fork/Scale House ~25%,Hardwick,Caledonia,2026-08-03,2026,2026-08,30,True,Hardwick
 504,Cork & Fork/Scale House ~25%,Hardwick,Caledonia,2026-07-09,2026,2026-07,15,True,Hardwick
 504,Cork & Fork/Scale House ~25%,Hardwick,Caledonia,2026-06-18,2026,2026-06,35,True,Hardwick
 504,Cork & Fork/Scale House ~25%,Hardwick,Caledonia,2026-05-22,2026,2026-05,10,True,Hardwick
@@ -7379,6 +7382,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 504,Cork & Fork/Scale House ~25%,Hardwick,Caledonia,2017-06-05,2017,2017-06,10,True,Hardwick
 504,Cork & Fork/Scale House ~25%,Hardwick,Caledonia,2016-10-30,2016,2016-10,20,True,Hardwick
 504,Cork & Fork/Scale House ~25%,Hardwick,Caledonia,2016-02-05,2016,2016-02,50,True,Hardwick
+503,Hardwick House of Pizza,Hardwick,Caledonia,2026-08-03,2026,2026-08,40,True,Hardwick
 503,Hardwick House of Pizza,Hardwick,Caledonia,2026-07-09,2026,2026-07,40,True,Hardwick
 503,Hardwick House of Pizza,Hardwick,Caledonia,2026-06-18,2026,2026-06,40,True,Hardwick
 503,Hardwick House of Pizza,Hardwick,Caledonia,2026-05-22,2026,2026-05,25,True,Hardwick
@@ -7564,6 +7568,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 505,M & M Beverage-Hardwick,Hardwick,Caledonia,2017-01-21,2017,2017-01,8,True,Hardwick
 505,M & M Beverage-Hardwick,Hardwick,Caledonia,2017-01-11,2017,2017-01,12,True,Hardwick
 505,M & M Beverage-Hardwick,Hardwick,Caledonia,2016-12-26,2016,2016-12,4,True,Hardwick
+501,Positive Pie 3 ~25%,Hardwick,Caledonia,2026-08-03,2026,2026-08,30,True,Hardwick
 501,Positive Pie 3 ~25%,Hardwick,Caledonia,2026-07-09,2026,2026-07,15,True,Hardwick
 501,Positive Pie 3 ~25%,Hardwick,Caledonia,2026-06-18,2026,2026-06,40,True,Hardwick
 501,Positive Pie 3 ~25%,Hardwick,Caledonia,2026-05-22,2026,2026-05,10,True,Hardwick
@@ -7704,6 +7709,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1504,Two Peas in A Pod-Hardwick,Hardwick,Caledonia,2026-06-18,2026,2026-06,50,True,Hardwick
 1504,Two Peas in A Pod-Hardwick,Hardwick,Caledonia,2026-06-10,2026,2026-06,50,True,Hardwick
 1504,Two Peas in A Pod-Hardwick,Hardwick,Caledonia,2026-05-27,2026,2026-05,45,True,Hardwick
+502,Village Restaurant-Hardwick~ 50%,Hardwick,Caledonia,2026-08-03,2026,2026-08,60,True,Hardwick
 502,Village Restaurant-Hardwick~ 50%,Hardwick,Caledonia,2026-07-09,2026,2026-07,30,True,Hardwick
 502,Village Restaurant-Hardwick~ 50%,Hardwick,Caledonia,2026-06-18,2026,2026-06,75,True,Hardwick
 502,Village Restaurant-Hardwick~ 50%,Hardwick,Caledonia,2026-05-22,2026,2026-05,20,True,Hardwick
@@ -7902,6 +7908,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1193,Phillip Ward- North Hyde Park,Hyde Park,Lamoille,2024-11-01,2024,2024-11,550,True,Hyde Park
 1193,Phillip Ward- North Hyde Park,Hyde Park,Lamoille,2023-10-02,2023,2023-10,1120,True,Hyde Park
 1193,Phillip Ward- North Hyde Park,Hyde Park,Lamoille,2022-11-14,2022,2022-11,1999,True,Hyde Park
+515,Two Sons Bakery/Fork and Gavel-HydePark,Hyde Park,Lamoille,2026-08-03,2026,2026-08,140,True,Hyde Park
 515,Two Sons Bakery/Fork and Gavel-HydePark,Hyde Park,Lamoille,2026-06-25,2026,2026-06,150,True,Hyde Park
 515,Two Sons Bakery/Fork and Gavel-HydePark,Hyde Park,Lamoille,2026-05-01,2026,2026-05,60,True,Hyde Park
 515,Two Sons Bakery/Fork and Gavel-HydePark,Hyde Park,Lamoille,2026-04-15,2026,2026-04,100,True,Hyde Park
@@ -8366,6 +8373,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 285,Jericho Country Store,Jericho Center,Chittenden,2018-05-03,2018,2018-05,65,True,Jericho
 285,Jericho Country Store,Jericho Center,Chittenden,2018-03-26,2018,2018-03,50,True,Jericho
 285,Jericho Country Store,Jericho Center,Chittenden,2018-01-17,2018,2018-01,70,True,Jericho
+1239,Jennas Coffee House- two sons bakehouse,Johnson,Lamoille,2026-08-03,2026,2026-08,40,True,Johnson
 1239,Jennas Coffee House- two sons bakehouse,Johnson,Lamoille,2026-05-27,2026,2026-05,50,True,Johnson
 1239,Jennas Coffee House- two sons bakehouse,Johnson,Lamoille,2026-02-05,2026,2026-02,25,True,Johnson
 1239,Jennas Coffee House- two sons bakehouse,Johnson,Lamoille,2025-11-24,2025,2025-11,30,True,Johnson
@@ -8394,6 +8402,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1430,Johnson General Store,Johnson,Lamoille,2026-02-05,2026,2026-02,40,True,Johnson
 1430,Johnson General Store,Johnson,Lamoille,2025-11-24,2025,2025-11,30,True,Johnson
 1430,Johnson General Store,Johnson,Lamoille,2025-09-11,2025,2025-09,40,True,Johnson
+544,Johnsons Chinese Kitchen 90%,Johnson,Lamoille,2026-08-03,2026,2026-08,70,True,Johnson
 544,Johnsons Chinese Kitchen 90%,Johnson,Lamoille,2026-05-27,2026,2026-05,60,True,Johnson
 544,Johnsons Chinese Kitchen 90%,Johnson,Lamoille,2026-04-15,2026,2026-04,150,True,Johnson
 544,Johnsons Chinese Kitchen 90%,Johnson,Lamoille,2026-02-05,2026,2026-02,60,True,Johnson
@@ -8448,6 +8457,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 542,Lamoille Valley Solid Waste Management District,Johnson,Lamoille,2019-10-15,2019,2019-10,50,True,Johnson
 542,Lamoille Valley Solid Waste Management District,Johnson,Lamoille,2019-03-18,2019,2019-03,35,True,Johnson
 542,Lamoille Valley Solid Waste Management District,Johnson,Lamoille,2018-04-04,2018,2018-04,40,True,Johnson
+543,Marsala Salsa/ Pizzeria -Johnson-10%,Johnson,Lamoille,2026-08-03,2026,2026-08,15,True,Johnson
 543,Marsala Salsa/ Pizzeria -Johnson-10%,Johnson,Lamoille,2026-05-27,2026,2026-05,10,True,Johnson
 543,Marsala Salsa/ Pizzeria -Johnson-10%,Johnson,Lamoille,2026-04-15,2026,2026-04,15,True,Johnson
 543,Marsala Salsa/ Pizzeria -Johnson-10%,Johnson,Lamoille,2026-02-05,2026,2026-02,10,True,Johnson
@@ -11210,6 +11220,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 510,10 Railroad Street,Morristown,Lamoille,2015-03-02,2015,2015-03,45,True,Morristown
 510,10 Railroad Street,Morristown,Lamoille,2015-01-30,2015,2015-01,40,True,Morristown
 510,10 Railroad Street,Morristown,Lamoille,2015-01-05,2015,2015-01,25,True,Morristown
+511,Black Diamond BBQ,Morristown,Lamoille,2026-08-03,2026,2026-08,75,True,Morristown
 511,Black Diamond BBQ,Morristown,Lamoille,2026-06-29,2026,2026-06,75,True,Morristown
 511,Black Diamond BBQ,Morristown,Lamoille,2026-05-27,2026,2026-05,85,True,Morristown
 511,Black Diamond BBQ,Morristown,Lamoille,2026-05-01,2026,2026-05,105,True,Morristown
@@ -11290,6 +11301,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 511,Black Diamond BBQ,Morristown,Lamoille,2017-04-01,2017,2017-04,25,True,Morristown
 511,Black Diamond BBQ,Morristown,Lamoille,2017-01-21,2017,2017-01,15,True,Morristown
 511,Black Diamond BBQ,Morristown,Lamoille,2016-12-26,2016,2016-12,30,True,Morristown
+1352,Gondola’s Downtown Morrisville,Morristown,Lamoille,2026-08-03,2026,2026-08,50,True,Morristown
 1352,Gondola’s Downtown Morrisville,Morristown,Lamoille,2026-06-29,2026,2026-06,35,True,Morristown
 1352,Gondola’s Downtown Morrisville,Morristown,Lamoille,2026-06-05,2026,2026-06,215,True,Morristown
 1352,Gondola’s Downtown Morrisville,Morristown,Lamoille,2026-05-27,2026,2026-05,85,True,Morristown
@@ -11309,6 +11321,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1352,Gondola’s Downtown Morrisville,Morristown,Lamoille,2024-08-14,2024,2024-08,15,True,Morristown
 1352,Gondola’s Downtown Morrisville,Morristown,Lamoille,2024-07-31,2024,2024-07,45,True,Morristown
 1352,Gondola’s Downtown Morrisville,Morristown,Lamoille,2024-07-08,2024,2024-07,30,True,Morristown
+509,Moogs Place- Morrisville,Morristown,Lamoille,2026-08-03,2026,2026-08,75,True,Morristown
 509,Moogs Place- Morrisville,Morristown,Lamoille,2026-06-29,2026,2026-06,70,True,Morristown
 509,Moogs Place- Morrisville,Morristown,Lamoille,2026-05-27,2026,2026-05,90,True,Morristown
 509,Moogs Place- Morrisville,Morristown,Lamoille,2026-05-01,2026,2026-05,10,True,Morristown
@@ -11423,8 +11436,10 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 509,Moogs Place- Morrisville,Morristown,Lamoille,2015-01-05,2015,2015-01,45,True,Morristown
 1460,Copley Hospital,Morrisville,Lamoille,2026-05-18,2026,2026-05,50,True,Morristown
 1460,Copley Hospital,Morrisville,Lamoille,2025-10-28,2025,2025-10,20,True,Morristown
+1497,Gondola Seasonal Snack Shack Route 15,Morrisville,Lamoille,2026-08-03,2026,2026-08,80,True,Morristown
 1497,Gondola Seasonal Snack Shack Route 15,Morrisville,Lamoille,2026-06-25,2026,2026-06,75,True,Morristown
 1497,Gondola Seasonal Snack Shack Route 15,Morrisville,Lamoille,2026-05-27,2026,2026-05,30,True,Morristown
+1181,Hannaford- Morrisville,Morrisville,Lamoille,2026-08-03,2026,2026-08,105,True,Morristown
 1181,Hannaford- Morrisville,Morrisville,Lamoille,2026-05-27,2026,2026-05,77,True,Morristown
 1181,Hannaford- Morrisville,Morrisville,Lamoille,2026-03-23,2026,2026-03,165,True,Morristown
 1181,Hannaford- Morrisville,Morrisville,Lamoille,2026-02-24,2026,2026-02,25,True,Morristown
@@ -11448,6 +11463,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1181,Hannaford- Morrisville,Morrisville,Lamoille,2022-11-21,2022,2022-11,35,True,Morristown
 1181,Hannaford- Morrisville,Morrisville,Lamoille,2022-10-27,2022,2022-10,40,True,Morristown
 1181,Hannaford- Morrisville,Morrisville,Lamoille,2022-09-21,2022,2022-09,104,True,Morristown
+1071,Lost Nation Brewery,Morrisville,Lamoille,2026-08-03,2026,2026-08,50,True,Morristown
 1071,Lost Nation Brewery,Morrisville,Lamoille,2026-06-29,2026,2026-06,50,True,Morristown
 1071,Lost Nation Brewery,Morrisville,Lamoille,2026-05-27,2026,2026-05,50,True,Morristown
 1071,Lost Nation Brewery,Morrisville,Lamoille,2026-05-01,2026,2026-05,45,True,Morristown
@@ -11489,6 +11505,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1071,Lost Nation Brewery,Morrisville,Lamoille,2022-03-16,2022,2022-03,15,True,Morristown
 1071,Lost Nation Brewery,Morrisville,Lamoille,2022-02-09,2022,2022-02,55,True,Morristown
 1071,Lost Nation Brewery,Morrisville,Lamoille,2021-10-18,2021,2021-10,125,True,Morristown
+512,North Country Donuts,Morrisville,Lamoille,2026-08-03,2026,2026-08,45,True,Morristown
 512,North Country Donuts,Morrisville,Lamoille,2026-06-29,2026,2026-06,50,True,Morristown
 512,North Country Donuts,Morrisville,Lamoille,2026-05-27,2026,2026-05,20,True,Morristown
 512,North Country Donuts,Morrisville,Lamoille,2026-05-01,2026,2026-05,95,True,Morristown
@@ -13119,6 +13136,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1136,Richford Country Club,Richford,Franklin,2023-08-22,2023,2023-08,85,True,Richford
 1136,Richford Country Club,Richford,Franklin,2023-05-11,2023,2023-05,40,True,Richford
 1136,Richford Country Club,Richford,Franklin,2022-08-24,2022,2022-08,45,True,Richford
+284,Big Spruce,Richmond,Chittenden,2026-08-03,2026,2026-08,30,True,Richmond
 284,Big Spruce,Richmond,Chittenden,2026-07-13,2026,2026-07,20,True,Richmond
 284,Big Spruce,Richmond,Chittenden,2026-06-26,2026,2026-06,35,True,Richmond
 284,Big Spruce,Richmond,Chittenden,2026-06-04,2026,2026-06,50,True,Richmond
@@ -13179,6 +13197,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 284,Big Spruce,Richmond,Chittenden,2021-01-25,2021,2021-01,65,True,Richmond
 284,Big Spruce,Richmond,Chittenden,2020-12-22,2020,2020-12,65,True,Richmond
 284,Big Spruce,Richmond,Chittenden,2020-12-01,2020,2020-12,50,True,Richmond
+282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2026-08-03,2026,2026-08,40,True,Richmond
 282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2026-07-13,2026,2026-07,40,True,Richmond
 282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2026-06-26,2026,2026-06,75,True,Richmond
 282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2025-04-04,2025,2025-04,7,True,Richmond
@@ -17331,6 +17350,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 836,Tunbridge Fair,Tunbridge,Windsor,2022-09-23,2022,2022-09,335,True,Tunbridge
 836,Tunbridge Fair,Tunbridge,Windsor,2018-09-26,2018,2018-09,50,True,Tunbridge
 836,Tunbridge Fair,Tunbridge,Windsor,2018-09-17,2018,2018-09,240,True,Tunbridge
+1479,Gerbers Joint -Underhill-Gerbers home,Underhill,Chittenden,2026-08-03,2026,2026-08,45,True,Underhill
 1479,Gerbers Joint -Underhill-Gerbers home,Underhill,Chittenden,2026-01-22,2026,2026-01,45,True,Underhill
 704,Addison Eagles Club,Vergennes,Addison,2025-10-23,2025,2025-10,20,True,Vergennes
 704,Addison Eagles Club,Vergennes,Addison,2025-01-31,2025,2025-01,13,True,Vergennes
@@ -21879,6 +21899,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1135,Waterworks-Winooski,Winooski,Chittenden,2022-08-25,2022,2022-08,100,True,Winooski
 1135,Waterworks-Winooski,Winooski,Chittenden,2022-07-25,2022,2022-07,50,True,Winooski
 1517,Zero Point Market-Winooski,Winooski,Chittenden,2026-07-17,2026,2026-07,50,True,Winooski
+500,Wolcott General Store,Wolcott,Lamoille,2026-08-03,2026,2026-08,55,True,Wolcott
 500,Wolcott General Store,Wolcott,Lamoille,2026-06-25,2026,2026-06,40,True,Wolcott
 500,Wolcott General Store,Wolcott,Lamoille,2026-05-27,2026,2026-05,40,True,Wolcott
 500,Wolcott General Store,Wolcott,Lamoille,2026-05-01,2026,2026-05,50,True,Wolcott
