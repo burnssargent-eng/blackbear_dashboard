@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-05T09:36:52.794079",
+  "last_updated": "2026-08-06T09:42:07.318601",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33003,9 +33003,33 @@
     },
     {
       "month": "2026-08",
+      "geo_town": "Barre Town",
+      "gallons": 130,
+      "city": "Barre Town"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Berlin",
+      "gallons": 100,
+      "city": "Berlin"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Burlington",
+      "gallons": 500,
+      "city": "Burlington"
+    },
+    {
+      "month": "2026-08",
       "geo_town": "Cambridge",
       "gallons": 90,
       "city": "Cambridge"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "East Montpelier",
+      "gallons": 40,
+      "city": "East Montpelier"
     },
     {
       "month": "2026-08",
@@ -33054,6 +33078,12 @@
       "geo_town": "Waterbury",
       "gallons": 285,
       "city": "Waterbury"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Williston",
+      "gallons": 20,
+      "city": "Williston"
     },
     {
       "month": "2026-08",
@@ -40621,7 +40651,7 @@
     {
       "month": "2026-08",
       "county": "Chittenden",
-      "gallons": 115
+      "gallons": 635
     },
     {
       "month": "2026-08",
@@ -40631,7 +40661,7 @@
     {
       "month": "2026-08",
       "county": "Washington",
-      "gallons": 285
+      "gallons": 555
     }
   ],
   "yearly_totals": [
@@ -40681,11 +40711,11 @@
     },
     {
       "year": 2026,
-      "gallons": 182416
+      "gallons": 183206
     }
   ],
-  "all_time_total": 2101183,
-  "current_year_total": 182416,
+  "all_time_total": 2101973,
+  "current_year_total": 183206,
   "customer_count": 794,
   "unmapped_total": 39081,
   "monthly_totals": [
@@ -41247,7 +41277,7 @@
     },
     {
       "month": "2026-08",
-      "gallons": 2500
+      "gallons": 3290
     }
   ],
   "monthly_by_region": [
@@ -48968,8 +48998,18 @@
     },
     {
       "month": "2026-08",
+      "region": "Burlington",
+      "gallons": 500
+    },
+    {
+      "month": "2026-08",
+      "region": "Central Vermont",
+      "gallons": 230
+    },
+    {
+      "month": "2026-08",
       "region": "Other",
-      "gallons": 1190
+      "gallons": 1250
     },
     {
       "month": "2026-08",
@@ -49681,12 +49721,12 @@
     {
       "year": 2026,
       "region": "Burlington",
-      "gallons": 27013
+      "gallons": 27513
     },
     {
       "year": 2026,
       "region": "Central Vermont",
-      "gallons": 16154
+      "gallons": 16384
     },
     {
       "year": 2026,
@@ -49716,7 +49756,7 @@
     {
       "year": 2026,
       "region": "Other",
-      "gallons": 78943
+      "gallons": 79003
     },
     {
       "year": 2026,
@@ -49765,20 +49805,20 @@
     "Burlington"
   ],
   "collections_file": "oil_collections.json",
-  "collections_count": 27000,
+  "collections_count": 27008,
   "out_of_state_total": 39081,
   "active_customer_count": 517,
   "projection": {
-    "latest_data_date": "2026-08-04",
+    "latest_data_date": "2026-08-05",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 182416,
+    "current_ytd": 183206,
     "previous_year_full": 269909,
     "previous_through_prior_month": 158242,
     "previous_same_month_total": 25119,
-    "previous_prorated_ytd": 161483.16,
-    "projected_current_year": 304897,
-    "percent_vs_previous_year": 0.129629
+    "previous_prorated_ytd": 162293.45,
+    "projected_current_year": 304688,
+    "percent_vs_previous_year": 0.128856
   },
   "region_stats": {
     "Burlington": {
@@ -49918,7 +49958,7 @@
     },
     {
       "year": 2026,
-      "places_serviced": 445,
+      "places_serviced": 446,
       "gained": 32,
       "lost": 7,
       "net": 25

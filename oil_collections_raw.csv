@@ -928,6 +928,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 125,The Quarry-Barre,Barre,Washington,2019-08-19,2019,2019-08,100,True,Barre City
 125,The Quarry-Barre,Barre,Washington,2019-07-30,2019,2019-07,80,True,Barre City
 125,The Quarry-Barre,Barre,Washington,2019-07-01,2019,2019-07,125,True,Barre City
+119,Thunder Road  4567,Barre,Washington,2026-08-05,2026,2026-08,130,True,Barre Town
 119,Thunder Road  4567,Barre,Washington,2026-07-20,2026,2026-07,65,True,Barre Town
 119,Thunder Road  4567,Barre,Washington,2026-06-25,2026,2026-06,120,True,Barre Town
 119,Thunder Road  4567,Barre,Washington,2025-10-10,2025,2025-10,145,True,Barre Town
@@ -1095,6 +1096,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 108,CVMC-Berlin Hospital,Berlin,Washington,2017-05-13,2017,2017-05,55,True,Berlin
 108,CVMC-Berlin Hospital,Berlin,Washington,2017-04-01,2017,2017-04,10,True,Berlin
 1444,Dan-Jockey Hollow 2025,Berlin,Washington,2025-08-21,2025,2025-08,85,True,Berlin
+107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2026-08-05,2026,2026-08,100,True,Berlin
 107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2026-07-10,2026,2026-07,20,True,Berlin
 107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2026-06-30,2026,2026-06,60,True,Berlin
 107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2026-06-17,2026,2026-06,85,True,Berlin
@@ -3063,6 +3065,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 351,FANCYS/PAUL Trom.../Cafe Mamajuana,Burlington,Chittenden,2021-06-22,2021,2021-06,50,True,Burlington
 351,FANCYS/PAUL Trom.../Cafe Mamajuana,Burlington,Chittenden,2021-05-11,2021,2021-05,50,True,Burlington
 351,FANCYS/PAUL Trom.../Cafe Mamajuana,Burlington,Chittenden,2021-01-17,2021,2021-01,80,True,Burlington
+361,Farmers & Foragers (Lauren food truck),Burlington,Chittenden,2026-08-05,2026,2026-08,95,True,Burlington
 361,Farmers & Foragers (Lauren food truck),Burlington,Chittenden,2026-06-26,2026,2026-06,75,True,Burlington
 361,Farmers & Foragers (Lauren food truck),Burlington,Chittenden,2025-11-04,2025,2025-11,46,True,Burlington
 361,Farmers & Foragers (Lauren food truck),Burlington,Chittenden,2025-08-26,2025,2025-08,55,True,Burlington
@@ -3479,6 +3482,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1336,Frankie’s/Old Penny Cluse,Burlington,Chittenden,2024-07-15,2024,2024-07,20,True,Burlington
 1336,Frankie’s/Old Penny Cluse,Burlington,Chittenden,2024-06-06,2024,2024-06,30,True,Burlington
 1336,Frankie’s/Old Penny Cluse,Burlington,Chittenden,2024-05-22,2024,2024-05,40,True,Burlington
+1464,Friendly Toast #3251,Burlington,Chittenden,2026-08-05,2026,2026-08,220,True,Burlington
 1464,Friendly Toast #3251,Burlington,Chittenden,2026-04-28,2026,2026-04,180,True,Burlington
 1464,Friendly Toast #3251,Burlington,Chittenden,2026-02-20,2026,2026-02,140,True,Burlington
 1464,Friendly Toast #3251,Burlington,Chittenden,2025-11-25,2025,2025-11,165,True,Burlington
@@ -4516,6 +4520,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 335,Pho Hong,Burlington,Chittenden,2015-10-06,2015,2015-10,15,True,Burlington
 335,Pho Hong,Burlington,Chittenden,2015-09-08,2015,2015-09,20,True,Burlington
 335,Pho Hong,Burlington,Chittenden,2015-07-08,2015,2015-07,25,True,Burlington
+439,Pingala Cafe- North Ave,Burlington,Chittenden,2026-08-05,2026,2026-08,70,True,Burlington
 439,Pingala Cafe- North Ave,Burlington,Chittenden,2026-05-15,2026,2026-05,30,True,Burlington
 439,Pingala Cafe- North Ave,Burlington,Chittenden,2025-08-19,2025,2025-08,30,True,Burlington
 439,Pingala Cafe- North Ave,Burlington,Chittenden,2025-04-29,2025,2025-04,10,True,Burlington
@@ -5128,6 +5133,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1350,Switchback,Burlington,Chittenden,2024-09-16,2024,2024-09,50,True,Burlington
 1350,Switchback,Burlington,Chittenden,2024-09-03,2024,2024-09,100,True,Burlington
 1350,Switchback,Burlington,Chittenden,2024-08-08,2024,2024-08,60,True,Burlington
+1029,The Beach House- NORTH BEACH,Burlington,Chittenden,2026-08-05,2026,2026-08,115,True,Burlington
 1029,The Beach House- NORTH BEACH,Burlington,Chittenden,2026-07-06,2026,2026-07,115,True,Burlington
 1029,The Beach House- NORTH BEACH,Burlington,Chittenden,2025-08-19,2025,2025-08,110,True,Burlington
 1029,The Beach House- NORTH BEACH,Burlington,Chittenden,2025-06-13,2025,2025-06,110,True,Burlington
@@ -6601,6 +6607,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1370,The Coffee Cabin,East Haven,Caledonia,2024-10-16,2024,2024-10,30,True,East Haven
 1011,Bernie Noe-East Montpelier,East Montpelier,Washington,2025-11-26,2025,2025-11,60,True,East Montpelier
 1011,Bernie Noe-East Montpelier,East Montpelier,Washington,2017-06-07,2017,2017-06,1167,True,East Montpelier
+1309,CUTLER,East Montpelier,Washington,2026-08-05,2026,2026-08,40,True,East Montpelier
 1309,CUTLER,East Montpelier,Washington,2025-03-24,2025,2025-03,55,True,East Montpelier
 1309,CUTLER,East Montpelier,Washington,2025-03-20,2025,2025-03,25,True,East Montpelier
 1309,CUTLER,East Montpelier,Washington,2024-07-17,2024,2024-07,45,True,East Montpelier
@@ -20966,6 +20973,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2021-10-22,2021,2021-10,65,True,Williston
 1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2021-10-13,2021,2021-10,50,True,Williston
 1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2021-10-05,2021,2021-10,150,True,Williston
+1211,Men at Wok,Williston,Chittenden,2026-08-05,2026,2026-08,20,True,Williston
 1211,Men at Wok,Williston,Chittenden,2026-06-23,2026,2026-06,20,True,Williston
 1211,Men at Wok,Williston,Chittenden,2026-06-04,2026,2026-06,40,True,Williston
 1211,Men at Wok,Williston,Chittenden,2026-05-14,2026,2026-05,15,True,Williston
