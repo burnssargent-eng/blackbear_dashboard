@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-06T09:42:07.318601",
+  "last_updated": "2026-08-07T08:16:06.610365",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33009,6 +33009,12 @@
     },
     {
       "month": "2026-08",
+      "geo_town": "Barton",
+      "gallons": 35,
+      "city": "Barton"
+    },
+    {
+      "month": "2026-08",
       "geo_town": "Berlin",
       "gallons": 100,
       "city": "Berlin"
@@ -33027,9 +33033,21 @@
     },
     {
       "month": "2026-08",
+      "geo_town": "Derby",
+      "gallons": 55,
+      "city": "Derby"
+    },
+    {
+      "month": "2026-08",
       "geo_town": "East Montpelier",
       "gallons": 40,
       "city": "East Montpelier"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Enosburgh",
+      "gallons": 240,
+      "city": "Enosburgh"
     },
     {
       "month": "2026-08",
@@ -33046,7 +33064,7 @@
     {
       "month": "2026-08",
       "geo_town": "Johnson",
-      "gallons": 125,
+      "gallons": 190,
       "city": "Johnson"
     },
     {
@@ -33054,6 +33072,18 @@
       "geo_town": "Morristown",
       "gallons": 480,
       "city": "Morristown"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Newport City",
+      "gallons": 488,
+      "city": "Newport City"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Richford",
+      "gallons": 70,
+      "city": "Richford"
     },
     {
       "month": "2026-08",
@@ -40655,8 +40685,18 @@
     },
     {
       "month": "2026-08",
+      "county": "Franklin",
+      "gallons": 70
+    },
+    {
+      "month": "2026-08",
       "county": "Lamoille",
-      "gallons": 1915
+      "gallons": 1980
+    },
+    {
+      "month": "2026-08",
+      "county": "Orleans",
+      "gallons": 818
     },
     {
       "month": "2026-08",
@@ -40711,11 +40751,11 @@
     },
     {
       "year": 2026,
-      "gallons": 183206
+      "gallons": 184159
     }
   ],
-  "all_time_total": 2101973,
-  "current_year_total": 183206,
+  "all_time_total": 2102926,
+  "current_year_total": 184159,
   "customer_count": 794,
   "unmapped_total": 39081,
   "monthly_totals": [
@@ -41277,7 +41317,7 @@
     },
     {
       "month": "2026-08",
-      "gallons": 3290
+      "gallons": 4243
     }
   ],
   "monthly_by_region": [
@@ -49009,7 +49049,7 @@
     {
       "month": "2026-08",
       "region": "Other",
-      "gallons": 1250
+      "gallons": 2203
     },
     {
       "month": "2026-08",
@@ -49756,7 +49796,7 @@
     {
       "year": 2026,
       "region": "Other",
-      "gallons": 79003
+      "gallons": 79956
     },
     {
       "year": 2026,
@@ -49805,20 +49845,20 @@
     "Burlington"
   ],
   "collections_file": "oil_collections.json",
-  "collections_count": 27008,
+  "collections_count": 27020,
   "out_of_state_total": 39081,
   "active_customer_count": 517,
   "projection": {
-    "latest_data_date": "2026-08-05",
+    "latest_data_date": "2026-08-06",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 183206,
+    "current_ytd": 184159,
     "previous_year_full": 269909,
     "previous_through_prior_month": 158242,
     "previous_same_month_total": 25119,
-    "previous_prorated_ytd": 162293.45,
-    "projected_current_year": 304688,
-    "percent_vs_previous_year": 0.128856
+    "previous_prorated_ytd": 163103.74,
+    "projected_current_year": 304752,
+    "percent_vs_previous_year": 0.129091
   },
   "region_stats": {
     "Burlington": {
@@ -49946,8 +49986,8 @@
       "year": 2024,
       "places_serviced": 451,
       "gained": 60,
-      "lost": 45,
-      "net": 15
+      "lost": 43,
+      "net": 17
     },
     {
       "year": 2025,
@@ -49958,7 +49998,7 @@
     },
     {
       "year": 2026,
-      "places_serviced": 446,
+      "places_serviced": 449,
       "gained": 32,
       "lost": 7,
       "net": 25

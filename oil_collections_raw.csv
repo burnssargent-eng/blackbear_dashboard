@@ -6500,6 +6500,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 611,Three Ponds,Danville,Caledonia,2017-09-03,2017,2017-09,30,True,Danville
 611,Three Ponds,Danville,Caledonia,2017-08-03,2017,2017-08,50,True,Danville
 611,Three Ponds,Danville,Caledonia,2017-06-07,2017,2017-06,60,True,Danville
+1473,Hoagies-Derby,Derby,Orleans,2026-08-06,2026,2026-08,55,True,Derby
 1473,Hoagies-Derby,Derby,Orleans,2026-05-22,2026,2026-05,25,True,Derby
 1473,Hoagies-Derby,Derby,Orleans,2026-04-29,2026,2026-04,25,True,Derby
 1473,Hoagies-Derby,Derby,Orleans,2026-03-17,2026,2026-03,50,True,Derby
@@ -6679,6 +6680,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 518,Bumble Bee/Parkside-Enosburgh,Enosburg Falls,Orleans,2018-12-14,2018,2018-12,100,True,Enosburgh
 518,Bumble Bee/Parkside-Enosburgh,Enosburg Falls,Orleans,2018-10-29,2018,2018-10,150,True,Enosburgh
 518,Bumble Bee/Parkside-Enosburgh,Enosburg Falls,Orleans,2018-08-08,2018,2018-08,275,True,Enosburgh
+519,Dairy Center-Enosburgh Falls,Enosburg Falls,Orleans,2026-08-06,2026,2026-08,70,True,Enosburgh
 519,Dairy Center-Enosburgh Falls,Enosburg Falls,Orleans,2026-06-11,2026,2026-06,60,True,Enosburgh
 519,Dairy Center-Enosburgh Falls,Enosburg Falls,Orleans,2026-04-21,2026,2026-04,135,True,Enosburgh
 519,Dairy Center-Enosburgh Falls,Enosburg Falls,Orleans,2026-02-05,2026,2026-02,130,True,Enosburgh
@@ -6729,6 +6731,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 519,Dairy Center-Enosburgh Falls,Enosburg Falls,Orleans,2018-08-08,2018,2018-08,75,True,Enosburgh
 519,Dairy Center-Enosburgh Falls,Enosburg Falls,Orleans,2018-04-04,2018,2018-04,30,True,Enosburgh
 519,Dairy Center-Enosburgh Falls,Enosburg Falls,Orleans,2018-03-12,2018,2018-03,125,True,Enosburgh
+517,Enosburgh Falls Country Club,Enosburg Falls,Orleans,2026-08-06,2026,2026-08,40,True,Enosburgh
 517,Enosburgh Falls Country Club,Enosburg Falls,Orleans,2025-10-01,2025,2025-10,30,True,Enosburgh
 517,Enosburgh Falls Country Club,Enosburg Falls,Orleans,2025-08-07,2025,2025-08,40,True,Enosburgh
 517,Enosburgh Falls Country Club,Enosburg Falls,Orleans,2025-06-17,2025,2025-06,20,True,Enosburgh
@@ -6741,6 +6744,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 517,Enosburgh Falls Country Club,Enosburg Falls,Orleans,2019-10-08,2019,2019-10,50,True,Enosburgh
 517,Enosburgh Falls Country Club,Enosburg Falls,Orleans,2019-07-09,2019,2019-07,25,True,Enosburgh
 517,Enosburgh Falls Country Club,Enosburg Falls,Orleans,2018-08-08,2018,2018-08,50,True,Enosburgh
+1149,Hannaford-Enosburg Falls,Enosburg Falls,Orleans,2026-08-06,2026,2026-08,130,True,Enosburgh
 1149,Hannaford-Enosburg Falls,Enosburg Falls,Orleans,2026-06-11,2026,2026-06,104,True,Enosburgh
 1149,Hannaford-Enosburg Falls,Enosburg Falls,Orleans,2026-04-21,2026,2026-04,86,True,Enosburgh
 1149,Hannaford-Enosburg Falls,Enosburg Falls,Orleans,2026-03-18,2026,2026-03,97,True,Enosburgh
@@ -8458,6 +8462,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 544,Johnsons Chinese Kitchen 90%,Johnson,Lamoille,2020-09-11,2020,2020-09,50,True,Johnson
 544,Johnsons Chinese Kitchen 90%,Johnson,Lamoille,2020-03-20,2020,2020-03,50,True,Johnson
 544,Johnsons Chinese Kitchen 90%,Johnson,Lamoille,2019-10-08,2019,2019-10,25,True,Johnson
+542,Lamoille Valley Solid Waste Management District,Johnson,Lamoille,2026-08-06,2026,2026-08,65,True,Johnson
 542,Lamoille Valley Solid Waste Management District,Johnson,Lamoille,2024-11-01,2024,2024-11,50,True,Johnson
 542,Lamoille Valley Solid Waste Management District,Johnson,Lamoille,2023-09-20,2023,2023-09,50,True,Johnson
 542,Lamoille Valley Solid Waste Management District,Johnson,Lamoille,2020-09-11,2020,2020-09,50,True,Johnson
@@ -11678,6 +11683,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 513,The Manor,Morrisville,Lamoille,2019-04-23,2019,2019-04,50,True,Morristown
 1496,Tourterelle -just north of MIDDLEBURY,Burlington,Chittenden,2026-07-06,2026,2026-07,100,True,Burlington
 1496,Tourterelle -just north of MIDDLEBURY,Burlington,Chittenden,2026-04-30,2026,2026-04,75,True,Burlington
+534,Dusit Thai,Newport,Orleans,2026-08-06,2026,2026-08,75,True,Newport City
 534,Dusit Thai,Newport,Orleans,2026-04-29,2026,2026-04,70,True,Newport City
 534,Dusit Thai,Newport,Orleans,2026-01-16,2026,2026-01,80,True,Newport City
 534,Dusit Thai,Newport,Orleans,2025-09-23,2025,2025-09,55,True,Newport City
@@ -11725,6 +11731,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 534,Dusit Thai,Newport,Orleans,2017-02-21,2017,2017-02,15,True,Newport City
 534,Dusit Thai,Newport,Orleans,2017-01-31,2017,2017-01,40,True,Newport City
 534,Dusit Thai,Newport,Orleans,2016-12-09,2016,2016-12,20,True,Newport City
+1171,Hoagies-Newport,Newport,Orleans,2026-08-06,2026,2026-08,180,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2026-07-24,2026,2026-07,230,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2026-07-02,2026,2026-07,300,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2026-06-12,2026,2026-06,180,True,Newport City
@@ -11779,6 +11786,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1171,Hoagies-Newport,Newport,Orleans,2022-12-22,2022,2022-12,135,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2022-11-01,2022,2022-11,115,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2022-09-07,2022,2022-09,525,True,Newport City
+1074,JumbleBite/Hilmers on Main,Newport,Orleans,2026-08-06,2026,2026-08,70,True,Newport City
 1074,JumbleBite/Hilmers on Main,Newport,Orleans,2026-07-02,2026,2026-07,120,True,Newport City
 1074,JumbleBite/Hilmers on Main,Newport,Orleans,2026-04-24,2026,2026-04,50,True,Newport City
 1074,JumbleBite/Hilmers on Main,Newport,Orleans,2026-03-17,2026,2026-03,150,True,Newport City
@@ -11798,6 +11806,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1074,JumbleBite/Hilmers on Main,Newport,Orleans,2022-07-14,2022,2022-07,25,True,Newport City
 1074,JumbleBite/Hilmers on Main,Newport,Orleans,2022-06-07,2022,2022-06,50,True,Newport City
 1074,JumbleBite/Hilmers on Main,Newport,Orleans,2021-10-14,2021,2021-10,30,True,Newport City
+533,Newport Country Club,Newport,Orleans,2026-08-06,2026,2026-08,20,True,Newport City
 533,Newport Country Club,Newport,Orleans,2026-07-24,2026,2026-07,70,True,Newport City
 533,Newport Country Club,Newport,Orleans,2026-06-12,2026,2026-06,25,True,Newport City
 533,Newport Country Club,Newport,Orleans,2026-04-29,2026,2026-04,75,True,Newport City
@@ -11866,6 +11875,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1072,The Warehouse/Cider,Newport,Orleans,2022-01-03,2022,2022-01,70,True,Newport City
 1072,The Warehouse/Cider,Newport,Orleans,2021-11-09,2021,2021-11,40,True,Newport City
 1072,The Warehouse/Cider,Newport,Orleans,2021-10-14,2021,2021-10,70,True,Newport City
+531,"Wal-mart,Newport",Newport,Orleans,2026-08-06,2026,2026-08,143,True,Newport City
 531,"Wal-mart,Newport",Newport,Orleans,2026-07-24,2026,2026-07,230,True,Newport City
 531,"Wal-mart,Newport",Newport,Orleans,2026-04-29,2026,2026-04,224,True,Newport City
 531,"Wal-mart,Newport",Newport,Orleans,2026-02-20,2026,2026-02,108,True,Newport City
@@ -12436,6 +12446,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 126,Don Giroux Recycling-Orange,Orange,Washington,2023-06-28,2023,2023-06,150,True,Orange
 126,Don Giroux Recycling-Orange,Orange,Washington,2022-06-21,2022,2022-06,110,True,Orange
 126,Don Giroux Recycling-Orange,Orange,Washington,2020-03-09,2020,2020-03,50,True,Orange
+1073,OLNEY  general store,Orleans,Orleans,2026-08-06,2026,2026-08,35,True,Barton
 1073,OLNEY  general store,Orleans,Orleans,2026-05-22,2026,2026-05,65,True,Barton
 1073,OLNEY  general store,Orleans,Orleans,2026-01-16,2026,2026-01,25,True,Barton
 1073,OLNEY  general store,Orleans,Orleans,2025-12-12,2025,2025-12,50,True,Barton
@@ -13138,6 +13149,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1058,Readsboro General Store,Readsboro,Windham,2023-10-16,2023,2023-10,110,True,Readsboro
 1058,Readsboro General Store,Readsboro,Windham,2022-09-02,2022,2022-09,80,True,Readsboro
 1058,Readsboro General Store,Readsboro,Windham,2021-09-22,2021,2021-09,50,True,Readsboro
+1136,Richford Country Club,Richford,Franklin,2026-08-06,2026,2026-08,70,True,Richford
 1136,Richford Country Club,Richford,Franklin,2024-09-12,2024,2024-09,60,True,Richford
 1136,Richford Country Club,Richford,Franklin,2024-05-21,2024,2024-05,75,True,Richford
 1136,Richford Country Club,Richford,Franklin,2023-08-22,2023,2023-08,85,True,Richford
