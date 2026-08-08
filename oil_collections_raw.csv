@@ -6642,6 +6642,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1276,Lake Eden Country Store,Eden Mills,Lamoille,2024-04-23,2024,2024-04,85,True,Eden
 1276,Lake Eden Country Store,Eden Mills,Lamoille,2023-12-28,2023,2023-12,80,True,Eden
 1276,Lake Eden Country Store,Eden Mills,Lamoille,2023-09-29,2023,2023-09,40,True,Eden
+518,Bumble Bee/Parkside-Enosburgh,Enosburg Falls,Orleans,2026-08-07,2026,2026-08,7,True,Enosburgh
 518,Bumble Bee/Parkside-Enosburgh,Enosburg Falls,Orleans,2026-06-11,2026,2026-06,90,True,Enosburgh
 518,Bumble Bee/Parkside-Enosburgh,Enosburg Falls,Orleans,2026-04-21,2026,2026-04,150,True,Enosburgh
 518,Bumble Bee/Parkside-Enosburgh,Enosburg Falls,Orleans,2026-02-05,2026,2026-02,50,True,Enosburgh
