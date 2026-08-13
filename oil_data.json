@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-11T08:12:32.008548",
+  "last_updated": "2026-08-13T08:19:56.565827",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33021,8 +33021,14 @@
     },
     {
       "month": "2026-08",
+      "geo_town": "Bolton",
+      "gallons": 250,
+      "city": "Bolton"
+    },
+    {
+      "month": "2026-08",
       "geo_town": "Burlington",
-      "gallons": 500,
+      "gallons": 1355,
       "city": "Burlington"
     },
     {
@@ -33030,6 +33036,12 @@
       "geo_town": "Cambridge",
       "gallons": 90,
       "city": "Cambridge"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Colchester",
+      "gallons": 70,
+      "city": "Colchester"
     },
     {
       "month": "2026-08",
@@ -33048,6 +33060,18 @@
       "geo_town": "Enosburgh",
       "gallons": 247,
       "city": "Enosburgh"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Essex",
+      "gallons": 50,
+      "city": "Essex"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Essex Junction",
+      "gallons": 90,
+      "city": "Essex Junction"
     },
     {
       "month": "2026-08",
@@ -33114,6 +33138,12 @@
       "geo_town": "Williston",
       "gallons": 20,
       "city": "Williston"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Winooski",
+      "gallons": 510,
+      "city": "Winooski"
     },
     {
       "month": "2026-08",
@@ -40681,7 +40711,7 @@
     {
       "month": "2026-08",
       "county": "Chittenden",
-      "gallons": 635
+      "gallons": 2460
     },
     {
       "month": "2026-08",
@@ -40751,11 +40781,11 @@
     },
     {
       "year": 2026,
-      "gallons": 184166
+      "gallons": 185991
     }
   ],
-  "all_time_total": 2102933,
-  "current_year_total": 184166,
+  "all_time_total": 2104758,
+  "current_year_total": 185991,
   "customer_count": 794,
   "unmapped_total": 39081,
   "monthly_totals": [
@@ -41317,7 +41347,7 @@
     },
     {
       "month": "2026-08",
-      "gallons": 4250
+      "gallons": 6075
     }
   ],
   "monthly_by_region": [
@@ -49039,7 +49069,7 @@
     {
       "month": "2026-08",
       "region": "Burlington",
-      "gallons": 500
+      "gallons": 1080
     },
     {
       "month": "2026-08",
@@ -49049,7 +49079,7 @@
     {
       "month": "2026-08",
       "region": "Other",
-      "gallons": 2210
+      "gallons": 2670
     },
     {
       "month": "2026-08",
@@ -49058,8 +49088,18 @@
     },
     {
       "month": "2026-08",
+      "region": "UVM",
+      "gallons": 275
+    },
+    {
+      "month": "2026-08",
       "region": "Waterbury",
       "gallons": 285
+    },
+    {
+      "month": "2026-08",
+      "region": "Winooski",
+      "gallons": 510
     }
   ],
   "yearly_by_region": [
@@ -49761,7 +49801,7 @@
     {
       "year": 2026,
       "region": "Burlington",
-      "gallons": 27513
+      "gallons": 28093
     },
     {
       "year": 2026,
@@ -49796,7 +49836,7 @@
     {
       "year": 2026,
       "region": "Other",
-      "gallons": 79963
+      "gallons": 80423
     },
     {
       "year": 2026,
@@ -49806,7 +49846,7 @@
     {
       "year": 2026,
       "region": "UVM",
-      "gallons": 2445
+      "gallons": 2720
     },
     {
       "year": 2026,
@@ -49821,7 +49861,7 @@
     {
       "year": 2026,
       "region": "Winooski",
-      "gallons": 5915
+      "gallons": 6425
     },
     {
       "year": 2026,
@@ -49845,20 +49885,20 @@
     "Burlington"
   ],
   "collections_file": "oil_collections.json",
-  "collections_count": 27021,
+  "collections_count": 27039,
   "out_of_state_total": 39081,
   "active_customer_count": 517,
   "projection": {
-    "latest_data_date": "2026-08-07",
+    "latest_data_date": "2026-08-12",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 184166,
+    "current_ytd": 185991,
     "previous_year_full": 269909,
     "previous_through_prior_month": 158242,
     "previous_same_month_total": 25119,
-    "previous_prorated_ytd": 163914.03,
-    "projected_current_year": 303257,
-    "percent_vs_previous_year": 0.123552
+    "previous_prorated_ytd": 167965.48,
+    "projected_current_year": 298875,
+    "percent_vs_previous_year": 0.107317
   },
   "region_stats": {
     "Burlington": {

@@ -1503,6 +1503,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 803,Toziers-,Bethel,Windsor,2016-08-03,2016,2016-08,25,True,Bethel
 803,Toziers-,Bethel,Windsor,2016-07-28,2016,2016-07,40,True,Bethel
 1506,NH State Penitentiary,Burlington,Chittenden,2026-07-21,2026,2026-07,145,True,Burlington
+279,Bolton Valley,Bolton Valley,Chittenden,2026-08-11,2026,2026-08,250,True,Bolton
 279,Bolton Valley,Bolton Valley,Chittenden,2026-03-17,2026,2026-03,300,True,Bolton
 279,Bolton Valley,Bolton Valley,Chittenden,2026-02-10,2026,2026-02,260,True,Bolton
 279,Bolton Valley,Bolton Valley,Chittenden,2026-01-06,2026,2026-01,265,True,Bolton
@@ -1980,6 +1981,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1273,BKK-inTheAlley 10%,Burlington,Chittenden,2023-11-16,2023,2023-11,20,True,Burlington
 1273,BKK-inTheAlley 10%,Burlington,Chittenden,2023-10-24,2023,2023-10,30,True,Burlington
 1273,BKK-inTheAlley 10%,Burlington,Chittenden,2023-07-28,2023,2023-07,100,True,Burlington
+300,Blue Bird BBQ - blue keychain in mack,Burlington,Chittenden,2026-08-11,2026,2026-08,160,True,Burlington
 300,Blue Bird BBQ - blue keychain in mack,Burlington,Chittenden,2026-07-08,2026,2026-07,80,True,Burlington
 300,Blue Bird BBQ - blue keychain in mack,Burlington,Chittenden,2026-06-17,2026,2026-06,90,True,Burlington
 300,Blue Bird BBQ - blue keychain in mack,Burlington,Chittenden,2026-05-15,2026,2026-05,160,True,Burlington
@@ -2768,6 +2770,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 345,City Market,Burlington,Chittenden,2020-01-30,2020,2020-01,30,True,Burlington
 1389,CK Dumplings House - North St.,Burlington,Chittenden,2026-04-24,2026,2026-04,30,True,Burlington
 1389,CK Dumplings House - North St.,Burlington,Chittenden,2025-05-06,2025,2025-05,50,True,Burlington
+1306,Crispy Burger- Jason (Volcano),Burlington,Chittenden,2026-08-11,2026,2026-08,150,True,Burlington
 1306,Crispy Burger- Jason (Volcano),Burlington,Chittenden,2026-07-29,2026,2026-07,130,True,Burlington
 1306,Crispy Burger- Jason (Volcano),Burlington,Chittenden,2026-07-08,2026,2026-07,75,True,Burlington
 1306,Crispy Burger- Jason (Volcano),Burlington,Chittenden,2026-06-26,2026,2026-06,140,True,Burlington
@@ -3036,6 +3039,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1202,DOMA/Paradiso Hifi,Burlington,Chittenden,2022-12-27,2022,2022-12,25,True,Burlington
 1440,East West Cafe,Burlington,Chittenden,2025-07-22,2025,2025-07,150,True,Burlington
 1502,ElksClub -Burlington,Burlington,Chittenden,2026-05-15,2026,2026-05,105,True,Burlington
+351,FANCYS/PAUL Trom.../Cafe Mamajuana,Burlington,Chittenden,2026-08-11,2026,2026-08,40,True,Burlington
 351,FANCYS/PAUL Trom.../Cafe Mamajuana,Burlington,Chittenden,2026-06-02,2026,2026-06,60,True,Burlington
 351,FANCYS/PAUL Trom.../Cafe Mamajuana,Burlington,Chittenden,2026-03-31,2026,2026-03,65,True,Burlington
 351,FANCYS/PAUL Trom.../Cafe Mamajuana,Burlington,Chittenden,2026-01-12,2026,2026-01,60,True,Burlington
@@ -4449,6 +4453,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 323,Pascolo 50% with Henrys,Burlington,Chittenden,2015-02-06,2015,2015-02,30,True,Burlington
 323,Pascolo 50% with Henrys,Burlington,Chittenden,2015-01-15,2015,2015-01,25,True,Burlington
 323,Pascolo 50% with Henrys,Burlington,Chittenden,2015-01-02,2015,2015-01,55,True,Burlington
+335,Pho Hong,Burlington,Chittenden,2026-08-12,2026,2026-08,60,True,Burlington
 335,Pho Hong,Burlington,Chittenden,2026-06-08,2026,2026-06,90,True,Burlington
 335,Pho Hong,Burlington,Chittenden,2026-03-05,2026,2026-03,60,True,Burlington
 335,Pho Hong,Burlington,Chittenden,2026-01-06,2026,2026-01,60,True,Burlington
@@ -5168,6 +5173,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1286,The PizzeriaVeritas50%,Burlington,Chittenden,2024-04-25,2024,2024-04,30,True,Burlington
 1286,The PizzeriaVeritas50%,Burlington,Chittenden,2024-04-03,2024,2024-04,10,True,Burlington
 1286,The PizzeriaVeritas50%,Burlington,Chittenden,2024-03-05,2024,2024-03,20,True,Burlington
+1394,The Wise Fool,Burlington,Chittenden,2026-08-12,2026,2026-08,170,True,Burlington
 1394,The Wise Fool,Burlington,Chittenden,2026-07-14,2026,2026-07,190,True,Burlington
 1394,The Wise Fool,Burlington,Chittenden,2026-06-08,2026,2026-06,70,True,Burlington
 1394,The Wise Fool,Burlington,Chittenden,2026-05-21,2026,2026-05,190,True,Burlington
@@ -5243,6 +5249,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 371,Union Jacks,Burlington,Chittenden,2015-09-23,2015,2015-09,25,True,Burlington
 371,Union Jacks,Burlington,Chittenden,2015-06-22,2015,2015-06,30,True,Burlington
 371,Union Jacks,Burlington,Chittenden,2015-04-06,2015,2015-04,40,True,Burlington
+356,UVM -Central. Residence,Burlington,Chittenden,2026-08-11,2026,2026-08,25,True,Burlington
 356,UVM -Central. Residence,Burlington,Chittenden,2026-05-15,2026,2026-05,90,True,Burlington
 356,UVM -Central. Residence,Burlington,Chittenden,2026-04-24,2026,2026-04,165,True,Burlington
 356,UVM -Central. Residence,Burlington,Chittenden,2026-03-23,2026,2026-03,180,True,Burlington
@@ -5383,6 +5390,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 353,UVM Harris-Milles,Burlington,Chittenden,2018-04-03,2018,2018-04,85,True,Burlington
 353,UVM Harris-Milles,Burlington,Chittenden,2018-03-16,2018,2018-03,60,True,Burlington
 353,UVM Harris-Milles,Burlington,Chittenden,2018-02-15,2018,2018-02,100,True,Burlington
+358,UVM- Davis Campus,Burlington,Chittenden,2026-08-11,2026,2026-08,190,True,Burlington
 358,UVM- Davis Campus,Burlington,Chittenden,2026-05-15,2026,2026-05,140,True,Burlington
 358,UVM- Davis Campus,Burlington,Chittenden,2026-04-24,2026,2026-04,200,True,Burlington
 358,UVM- Davis Campus,Burlington,Chittenden,2026-03-26,2026,2026-03,150,True,Burlington
@@ -5459,6 +5467,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 358,UVM- Davis Campus,Burlington,Chittenden,2018-02-27,2018,2018-02,100,True,Burlington
 358,UVM- Davis Campus,Burlington,Chittenden,2018-02-17,2018,2018-02,200,True,Burlington
 358,UVM- Davis Campus,Burlington,Chittenden,2018-02-13,2018,2018-02,200,True,Burlington
+354,UVM- Red Stone,Burlington,Chittenden,2026-08-11,2026,2026-08,60,True,Burlington
 354,UVM- Red Stone,Burlington,Chittenden,2026-05-15,2026,2026-05,80,True,Burlington
 354,UVM- Red Stone,Burlington,Chittenden,2026-04-24,2026,2026-04,115,True,Burlington
 354,UVM- Red Stone,Burlington,Chittenden,2026-03-26,2026,2026-03,90,True,Burlington
@@ -5950,6 +5959,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1139,Cloud 9 catering- Sarah-COOK-Food Truck,Colchester,Chittenden,2023-06-14,2023,2023-06,50,True,Colchester
 1139,Cloud 9 catering- Sarah-COOK-Food Truck,Colchester,Chittenden,2022-12-08,2022,2022-12,40,True,Colchester
 1139,Cloud 9 catering- Sarah-COOK-Food Truck,Colchester,Chittenden,2022-07-25,2022,2022-07,60,True,Colchester
+446,McGillicuddy's On The Green,Colchester,Chittenden,2026-08-11,2026,2026-08,70,True,Colchester
 446,McGillicuddy's On The Green,Colchester,Chittenden,2026-07-24,2026,2026-07,50,True,Colchester
 446,McGillicuddy's On The Green,Colchester,Chittenden,2026-07-06,2026,2026-07,130,True,Colchester
 446,McGillicuddy's On The Green,Colchester,Chittenden,2026-06-11,2026,2026-06,50,True,Colchester
@@ -6773,6 +6783,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1149,Hannaford-Enosburg Falls,Enosburg Falls,Orleans,2022-10-03,2022,2022-10,60,True,Enosburgh
 1149,Hannaford-Enosburg Falls,Enosburg Falls,Orleans,2022-08-31,2022,2022-08,50,True,Enosburgh
 1149,Hannaford-Enosburg Falls,Enosburg Falls,Orleans,2022-08-04,2022,2022-08,100,True,Enosburgh
+1426,AL’s FF food truck-ESSEX at Lowes,Essex,Chittenden,2026-08-11,2026,2026-08,50,True,Essex
 1426,AL’s FF food truck-ESSEX at Lowes,Essex,Chittenden,2026-07-13,2026,2026-07,55,True,Essex
 1426,AL’s FF food truck-ESSEX at Lowes,Essex,Chittenden,2025-10-01,2025,2025-10,90,True,Essex
 1426,AL’s FF food truck-ESSEX at Lowes,Essex,Chittenden,2025-09-16,2025,2025-09,85,True,Essex
@@ -6884,6 +6895,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 409,Mad Taco-Essex Jct,Essex Junction,Chittenden,2020-01-09,2020,2020-01,40,True,Essex Junction
 409,Mad Taco-Essex Jct,Essex Junction,Chittenden,2019-07-09,2019,2019-07,25,True,Essex Junction
 409,Mad Taco-Essex Jct,Essex Junction,Chittenden,2019-02-11,2019,2019-02,55,True,Essex Junction
+447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2026-08-11,2026,2026-08,50,True,Essex Junction
 447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2026-07-24,2026,2026-07,115,True,Essex Junction
 447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2026-07-06,2026,2026-07,40,True,Essex Junction
 447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2026-06-11,2026,2026-06,120,True,Essex Junction
@@ -7058,6 +7070,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1248,Sparky’s BBQ and Grill- 1977,Essex Junction,Chittenden,2025-01-16,2025,2025-01,55,True,Essex Junction
 1248,Sparky’s BBQ and Grill- 1977,Essex Junction,Chittenden,2023-10-20,2023,2023-10,55,True,Essex Junction
 1248,Sparky’s BBQ and Grill- 1977,Essex Junction,Chittenden,2023-07-21,2023,2023-07,90,True,Essex Junction
+411,Vespa Pizza,Essex Junction,Chittenden,2026-08-11,2026,2026-08,40,True,Essex Junction
 411,Vespa Pizza,Essex Junction,Chittenden,2026-07-13,2026,2026-07,35,True,Essex Junction
 411,Vespa Pizza,Essex Junction,Chittenden,2026-05-28,2026,2026-05,40,True,Essex Junction
 411,Vespa Pizza,Essex Junction,Chittenden,2026-05-01,2026,2026-05,40,True,Essex Junction
@@ -21108,6 +21121,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 905,Haystack Golf course,Wilmington,Windham,2020-12-02,2020,2020-12,150,True,Wilmington
 1129,Hog back Mountain country store,Wilmington,Windham,2025-07-23,2025,2025-07,50,True,Wilmington
 1129,Hog back Mountain country store,Wilmington,Windham,2024-07-16,2024,2024-07,60,True,Wilmington
+1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-08-11,2026,2026-08,80,True,Winooski
 1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-07-08,2026,2026-07,65,True,Winooski
 1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-06-17,2026,2026-06,60,True,Winooski
 1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-05-28,2026,2026-05,50,True,Winooski
@@ -21198,6 +21212,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 434,Asian Bistro-Winooski,Winooski,Chittenden,2018-03-16,2018,2018-03,30,True,Winooski
 434,Asian Bistro-Winooski,Winooski,Chittenden,2018-02-15,2018,2018-02,20,True,Winooski
 434,Asian Bistro-Winooski,Winooski,Chittenden,2018-01-27,2018,2018-01,100,True,Winooski
+445,Four Quarters-Winooski,Winooski,Chittenden,2026-08-11,2026,2026-08,65,True,Winooski
 445,Four Quarters-Winooski,Winooski,Chittenden,2026-07-08,2026,2026-07,70,True,Winooski
 445,Four Quarters-Winooski,Winooski,Chittenden,2026-05-28,2026,2026-05,40,True,Winooski
 445,Four Quarters-Winooski,Winooski,Chittenden,2026-04-27,2026,2026-04,30,True,Winooski
@@ -21395,6 +21410,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1207,Mountain Valley-Winooski,Winooski,Chittenden,2023-09-18,2023,2023-09,135,True,Winooski
 1207,Mountain Valley-Winooski,Winooski,Chittenden,2023-03-23,2023,2023-03,25,True,Winooski
 1207,Mountain Valley-Winooski,Winooski,Chittenden,2023-01-18,2023,2023-01,25,True,Winooski
+1168,Onion City Chicken and Oysters,Winooski,Chittenden,2026-08-11,2026,2026-08,150,True,Winooski
 1168,Onion City Chicken and Oysters,Winooski,Chittenden,2026-07-24,2026,2026-07,100,True,Winooski
 1168,Onion City Chicken and Oysters,Winooski,Chittenden,2026-07-08,2026,2026-07,110,True,Winooski
 1168,Onion City Chicken and Oysters,Winooski,Chittenden,2026-06-17,2026,2026-06,125,True,Winooski
@@ -21636,6 +21652,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1259,Test Kitchen winooski/Canoli,Winooski,Chittenden,2024-04-25,2024,2024-04,15,True,Winooski
 1259,Test Kitchen winooski/Canoli,Winooski,Chittenden,2024-04-16,2024,2024-04,45,True,Winooski
 1259,Test Kitchen winooski/Canoli,Winooski,Chittenden,2023-08-16,2023,2023-08,20,True,Winooski
+429,The Mule Bar 100pct!,Winooski,Chittenden,2026-08-11,2026,2026-08,140,True,Winooski
 429,The Mule Bar 100pct!,Winooski,Chittenden,2026-07-08,2026,2026-07,180,True,Winooski
 429,The Mule Bar 100pct!,Winooski,Chittenden,2026-05-14,2026,2026-05,60,True,Winooski
 429,The Mule Bar 100pct!,Winooski,Chittenden,2026-04-27,2026,2026-04,100,True,Winooski
@@ -21869,6 +21886,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 433,Tiny Thai,Winooski,Chittenden,2018-08-09,2018,2018-08,125,True,Winooski
 433,Tiny Thai,Winooski,Chittenden,2018-04-03,2018,2018-04,25,True,Winooski
 433,Tiny Thai,Winooski,Chittenden,2018-03-16,2018,2018-03,5,True,Winooski
+1135,Waterworks-Winooski,Winooski,Chittenden,2026-08-11,2026,2026-08,75,True,Winooski
 1135,Waterworks-Winooski,Winooski,Chittenden,2026-07-24,2026,2026-07,90,True,Winooski
 1135,Waterworks-Winooski,Winooski,Chittenden,2026-07-08,2026,2026-07,120,True,Winooski
 1135,Waterworks-Winooski,Winooski,Chittenden,2026-06-17,2026,2026-06,100,True,Winooski
