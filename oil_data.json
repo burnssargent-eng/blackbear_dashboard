@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-14T08:14:27.781122",
+  "last_updated": "2026-08-15T07:29:51.201414",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33093,6 +33093,12 @@
     },
     {
       "month": "2026-08",
+      "geo_town": "Montpelier",
+      "gallons": 365,
+      "city": "Montpelier"
+    },
+    {
+      "month": "2026-08",
       "geo_town": "Morristown",
       "gallons": 480,
       "city": "Morristown"
@@ -33102,6 +33108,12 @@
       "geo_town": "Newport City",
       "gallons": 488,
       "city": "Newport City"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Northfield",
+      "gallons": 60,
+      "city": "Northfield"
     },
     {
       "month": "2026-08",
@@ -40731,7 +40743,7 @@
     {
       "month": "2026-08",
       "county": "Washington",
-      "gallons": 555
+      "gallons": 980
     }
   ],
   "yearly_totals": [
@@ -40781,11 +40793,11 @@
     },
     {
       "year": 2026,
-      "gallons": 187131
+      "gallons": 187556
     }
   ],
-  "all_time_total": 2105898,
-  "current_year_total": 187131,
+  "all_time_total": 2106323,
+  "current_year_total": 187556,
   "customer_count": 794,
   "unmapped_total": 39081,
   "monthly_totals": [
@@ -41347,7 +41359,7 @@
     },
     {
       "month": "2026-08",
-      "gallons": 7215
+      "gallons": 7640
     }
   ],
   "monthly_by_region": [
@@ -49074,7 +49086,7 @@
     {
       "month": "2026-08",
       "region": "Central Vermont",
-      "gallons": 230
+      "gallons": 655
     },
     {
       "month": "2026-08",
@@ -49806,7 +49818,7 @@
     {
       "year": 2026,
       "region": "Central Vermont",
-      "gallons": 16384
+      "gallons": 16809
     },
     {
       "year": 2026,
@@ -49885,20 +49897,20 @@
     "Burlington"
   ],
   "collections_file": "oil_collections.json",
-  "collections_count": 27056,
+  "collections_count": 27065,
   "out_of_state_total": 39081,
   "active_customer_count": 517,
   "projection": {
-    "latest_data_date": "2026-08-13",
+    "latest_data_date": "2026-08-14",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 187131,
+    "current_ytd": 187556,
     "previous_year_full": 269909,
     "previous_through_prior_month": 158242,
     "previous_same_month_total": 25119,
-    "previous_prorated_ytd": 168775.77,
-    "projected_current_year": 299263,
-    "percent_vs_previous_year": 0.108755
+    "previous_prorated_ytd": 169586.06,
+    "projected_current_year": 298510,
+    "percent_vs_previous_year": 0.105964
   },
   "region_stats": {
     "Burlington": {
