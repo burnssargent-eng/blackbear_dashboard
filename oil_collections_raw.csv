@@ -3657,6 +3657,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1187,Hana-Japanese-Dorset,Burlington,Chittenden,2023-02-21,2023,2023-02,45,True,Burlington
 1187,Hana-Japanese-Dorset,Burlington,Chittenden,2023-01-23,2023,2023-01,70,True,Burlington
 1187,Hana-Japanese-Dorset,Burlington,Chittenden,2022-11-27,2022,2022-11,40,True,Burlington
+1157,Hannaford-217 Dorset St,Burlington,Chittenden,2026-08-17,2026,2026-08,165,True,Burlington
 1157,Hannaford-217 Dorset St,Burlington,Chittenden,2026-06-02,2026,2026-06,24,True,Burlington
 1157,Hannaford-217 Dorset St,Burlington,Chittenden,2026-04-20,2026,2026-04,96,True,Burlington
 1157,Hannaford-217 Dorset St,Burlington,Chittenden,2026-02-24,2026,2026-02,140,True,Burlington
@@ -11977,6 +11978,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1371,West Side Market and Deli,Newport,Orleans,2025-02-14,2025,2025-02,15,True,Newport City
 1371,West Side Market and Deli,Newport,Orleans,2025-01-10,2025,2025-01,45,True,Newport City
 1371,West Side Market and Deli,Newport,Orleans,2024-10-08,2024,2024-10,15,True,Newport City
+1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2026-08-17,2026,2026-08,70,True,North Hero
 1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2026-07-06,2026,2026-07,75,True,North Hero
 1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2025-08-22,2025,2025-08,35,True,North Hero
 1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2025-08-01,2025,2025-08,75,True,North Hero
@@ -11990,6 +11992,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2023-07-13,2023,2023-07,15,True,North Hero
 1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2022-10-27,2022,2022-10,25,True,North Hero
 1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2022-09-13,2022,2022-09,45,True,North Hero
+416,North Hero House,North Hero,Grand Isle,2026-08-17,2026,2026-08,85,True,North Hero
 416,North Hero House,North Hero,Grand Isle,2026-07-31,2026,2026-07,105,True,North Hero
 416,North Hero House,North Hero,Grand Isle,2026-07-06,2026,2026-07,160,True,North Hero
 416,North Hero House,North Hero,Grand Isle,2026-05-21,2026,2026-05,100,True,North Hero
@@ -12025,6 +12028,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 416,North Hero House,North Hero,Grand Isle,2020-06-30,2020,2020-06,150,True,North Hero
 416,North Hero House,North Hero,Grand Isle,2020-03-13,2020,2020-03,100,True,North Hero
 416,North Hero House,North Hero,Grand Isle,2018-08-08,2018,2018-08,175,True,North Hero
+1144,Shore Acres-North Hero,North Hero,Grand Isle,2026-08-17,2026,2026-08,25,True,North Hero
 1144,Shore Acres-North Hero,North Hero,Grand Isle,2026-07-06,2026,2026-07,70,True,North Hero
 1144,Shore Acres-North Hero,North Hero,Grand Isle,2025-08-22,2025,2025-08,15,True,North Hero
 1144,Shore Acres-North Hero,North Hero,Grand Isle,2025-08-01,2025,2025-08,75,True,North Hero
@@ -13611,6 +13615,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 700,Rustic Roots,Shelburne,Chittenden,2015-08-01,2015,2015-08,20,True,Shelburne
 700,Rustic Roots,Shelburne,Chittenden,2015-06-22,2015,2015-06,25,True,Shelburne
 700,Rustic Roots,Shelburne,Chittenden,2015-04-06,2015,2015-04,40,True,Shelburne
+1510,Folinos Pizza-South Burlington,South Burlington,Chittenden,2026-08-17,2026,2026-08,55,True,South Burlington
 1510,Folinos Pizza-South Burlington,South Burlington,Chittenden,2026-07-17,2026,2026-07,40,True,South Burlington
 1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,Chittenden,2026-07-28,2026,2026-07,150,True,South Burlington
 1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,Chittenden,2026-07-08,2026,2026-07,70,True,South Burlington
@@ -13648,6 +13653,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1418,Cairns Arena,South Burlington,Chittenden,2025-04-29,2025,2025-04,90,True,South Burlington
 1418,Cairns Arena,South Burlington,Chittenden,2025-04-18,2025,2025-04,90,True,South Burlington
 1418,Cairns Arena,South Burlington,Chittenden,2025-04-10,2025,2025-04,90,True,South Burlington
+1195,Chicken Charlies,South Burlington,Chittenden,2026-08-17,2026,2026-08,40,True,South Burlington
 1195,Chicken Charlies,South Burlington,Chittenden,2026-07-28,2026,2026-07,70,True,South Burlington
 1195,Chicken Charlies,South Burlington,Chittenden,2026-07-08,2026,2026-07,10,True,South Burlington
 1195,Chicken Charlies,South Burlington,Chittenden,2026-06-23,2026,2026-06,25,True,South Burlington
@@ -13954,6 +13960,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 365,Skinny Pancake- BTV airport,South Burlington,Chittenden,2019-03-29,2019,2019-03,105,True,South Burlington
 365,Skinny Pancake- BTV airport,South Burlington,Chittenden,2019-02-27,2019,2019-02,80,True,South Burlington
 365,Skinny Pancake- BTV airport,South Burlington,Chittenden,2019-02-05,2019,2019-02,60,True,South Burlington
+1188,Windjammer,South Burlington,Chittenden,2026-08-17,2026,2026-08,100,True,South Burlington
 1188,Windjammer,South Burlington,Chittenden,2026-07-28,2026,2026-07,130,True,South Burlington
 1188,Windjammer,South Burlington,Chittenden,2026-07-08,2026,2026-07,115,True,South Burlington
 1188,Windjammer,South Burlington,Chittenden,2026-06-23,2026,2026-06,80,True,South Burlington
@@ -14036,6 +14043,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1409,Pan’sPizza-South Hero,South Hero,Grand Isle,2025-08-22,2025,2025-08,15,True,South Hero
 1409,Pan’sPizza-South Hero,South Hero,Grand Isle,2025-06-06,2025,2025-06,15,True,South Hero
 1409,Pan’sPizza-South Hero,South Hero,Grand Isle,2025-04-01,2025,2025-04,35,True,South Hero
+1396,Sandbar Bar & Grill,South Hero,Grand Isle,2026-08-17,2026,2026-08,100,True,South Hero
 1396,Sandbar Bar & Grill,South Hero,Grand Isle,2026-07-28,2026,2026-07,125,True,South Hero
 1396,Sandbar Bar & Grill,South Hero,Grand Isle,2026-07-06,2026,2026-07,110,True,South Hero
 1396,Sandbar Bar & Grill,South Hero,Grand Isle,2026-06-11,2026,2026-06,75,True,South Hero
@@ -14059,6 +14067,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1471,Thai in Town-South Hero,South Hero,Grand Isle,2026-04-09,2026,2026-04,35,True,South Hero
 1471,Thai in Town-South Hero,South Hero,Grand Isle,2026-02-05,2026,2026-02,45,True,South Hero
 1471,Thai in Town-South Hero,South Hero,Grand Isle,2025-12-02,2025,2025-12,15,True,South Hero
+1319,Two Heros Public House,South Hero,Grand Isle,2026-08-17,2026,2026-08,20,True,South Hero
 1319,Two Heros Public House,South Hero,Grand Isle,2026-07-28,2026,2026-07,15,True,South Hero
 1319,Two Heros Public House,South Hero,Grand Isle,2026-07-06,2026,2026-07,40,True,South Hero
 1319,Two Heros Public House,South Hero,Grand Isle,2026-05-12,2026,2026-05,70,True,South Hero

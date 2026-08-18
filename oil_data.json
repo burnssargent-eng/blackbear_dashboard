@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-17T07:51:57.153971",
+  "last_updated": "2026-08-18T07:38:02.242476",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33028,7 +33028,7 @@
     {
       "month": "2026-08",
       "geo_town": "Burlington",
-      "gallons": 2495,
+      "gallons": 2660,
       "city": "Burlington"
     },
     {
@@ -33111,6 +33111,12 @@
     },
     {
       "month": "2026-08",
+      "geo_town": "North Hero",
+      "gallons": 180,
+      "city": "North Hero"
+    },
+    {
+      "month": "2026-08",
       "geo_town": "Northfield",
       "gallons": 60,
       "city": "Northfield"
@@ -33126,6 +33132,18 @@
       "geo_town": "Richmond",
       "gallons": 70,
       "city": "Richmond"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "South Burlington",
+      "gallons": 195,
+      "city": "South Burlington"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "South Hero",
+      "gallons": 120,
+      "city": "South Hero"
     },
     {
       "month": "2026-08",
@@ -40723,12 +40741,17 @@
     {
       "month": "2026-08",
       "county": "Chittenden",
-      "gallons": 3600
+      "gallons": 3960
     },
     {
       "month": "2026-08",
       "county": "Franklin",
       "gallons": 70
+    },
+    {
+      "month": "2026-08",
+      "county": "Grand Isle",
+      "gallons": 300
     },
     {
       "month": "2026-08",
@@ -40793,11 +40816,11 @@
     },
     {
       "year": 2026,
-      "gallons": 187556
+      "gallons": 188216
     }
   ],
-  "all_time_total": 2106323,
-  "current_year_total": 187556,
+  "all_time_total": 2106983,
+  "current_year_total": 188216,
   "customer_count": 794,
   "unmapped_total": 39081,
   "monthly_totals": [
@@ -41359,7 +41382,7 @@
     },
     {
       "month": "2026-08",
-      "gallons": 7640
+      "gallons": 8300
     }
   ],
   "monthly_by_region": [
@@ -49081,7 +49104,7 @@
     {
       "month": "2026-08",
       "region": "Burlington",
-      "gallons": 2220
+      "gallons": 2385
     },
     {
       "month": "2026-08",
@@ -49091,7 +49114,7 @@
     {
       "month": "2026-08",
       "region": "Other",
-      "gallons": 2670
+      "gallons": 3165
     },
     {
       "month": "2026-08",
@@ -49813,7 +49836,7 @@
     {
       "year": 2026,
       "region": "Burlington",
-      "gallons": 29233
+      "gallons": 29398
     },
     {
       "year": 2026,
@@ -49848,7 +49871,7 @@
     {
       "year": 2026,
       "region": "Other",
-      "gallons": 80423
+      "gallons": 80918
     },
     {
       "year": 2026,
@@ -49897,20 +49920,20 @@
     "Burlington"
   ],
   "collections_file": "oil_collections.json",
-  "collections_count": 27065,
+  "collections_count": 27074,
   "out_of_state_total": 39081,
   "active_customer_count": 517,
   "projection": {
-    "latest_data_date": "2026-08-14",
+    "latest_data_date": "2026-08-17",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 187556,
+    "current_ytd": 188216,
     "previous_year_full": 269909,
     "previous_through_prior_month": 158242,
     "previous_same_month_total": 25119,
-    "previous_prorated_ytd": 169586.06,
-    "projected_current_year": 298510,
-    "percent_vs_previous_year": 0.105964
+    "previous_prorated_ytd": 172016.94,
+    "projected_current_year": 295327,
+    "percent_vs_previous_year": 0.094171
   },
   "region_stats": {
     "Burlington": {
