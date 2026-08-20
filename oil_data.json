@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-18T07:38:02.242476",
+  "last_updated": "2026-08-20T07:40:52.052938",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33003,6 +33003,12 @@
     },
     {
       "month": "2026-08",
+      "geo_town": "Barre City",
+      "gallons": 377,
+      "city": "Barre City"
+    },
+    {
+      "month": "2026-08",
       "geo_town": "Barre Town",
       "gallons": 130,
       "city": "Barre Town"
@@ -33027,8 +33033,14 @@
     },
     {
       "month": "2026-08",
+      "geo_town": "Brighton",
+      "gallons": 220,
+      "city": "Brighton"
+    },
+    {
+      "month": "2026-08",
       "geo_town": "Burlington",
-      "gallons": 2660,
+      "gallons": 2715,
       "city": "Burlington"
     },
     {
@@ -33042,6 +33054,18 @@
       "geo_town": "Colchester",
       "gallons": 70,
       "city": "Colchester"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Concord",
+      "gallons": 70,
+      "city": "Concord"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Danville",
+      "gallons": 80,
+      "city": "Danville"
     },
     {
       "month": "2026-08",
@@ -33135,6 +33159,12 @@
     },
     {
       "month": "2026-08",
+      "geo_town": "Saint Johnsbury",
+      "gallons": 100,
+      "city": "Saint Johnsbury"
+    },
+    {
+      "month": "2026-08",
       "geo_town": "South Burlington",
       "gallons": 195,
       "city": "South Burlington"
@@ -33148,7 +33178,7 @@
     {
       "month": "2026-08",
       "geo_town": "Stowe",
-      "gallons": 1025,
+      "gallons": 2365,
       "city": "Stowe"
     },
     {
@@ -33159,8 +33189,20 @@
     },
     {
       "month": "2026-08",
+      "geo_town": "Waitsfield",
+      "gallons": 485,
+      "city": "Waitsfield"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Warren",
+      "gallons": 215,
+      "city": "Warren"
+    },
+    {
+      "month": "2026-08",
       "geo_town": "Waterbury",
-      "gallons": 285,
+      "gallons": 655,
       "city": "Waterbury"
     },
     {
@@ -40736,12 +40778,17 @@
     {
       "month": "2026-08",
       "county": "Caledonia",
-      "gallons": 185
+      "gallons": 435
     },
     {
       "month": "2026-08",
       "county": "Chittenden",
-      "gallons": 3960
+      "gallons": 4015
+    },
+    {
+      "month": "2026-08",
+      "county": "Essex",
+      "gallons": 220
     },
     {
       "month": "2026-08",
@@ -40756,7 +40803,7 @@
     {
       "month": "2026-08",
       "county": "Lamoille",
-      "gallons": 1980
+      "gallons": 3320
     },
     {
       "month": "2026-08",
@@ -40766,7 +40813,7 @@
     {
       "month": "2026-08",
       "county": "Washington",
-      "gallons": 980
+      "gallons": 2427
     }
   ],
   "yearly_totals": [
@@ -40816,11 +40863,11 @@
     },
     {
       "year": 2026,
-      "gallons": 188216
+      "gallons": 191528
     }
   ],
-  "all_time_total": 2106983,
-  "current_year_total": 188216,
+  "all_time_total": 2110295,
+  "current_year_total": 191528,
   "customer_count": 794,
   "unmapped_total": 39081,
   "monthly_totals": [
@@ -41382,7 +41429,7 @@
     },
     {
       "month": "2026-08",
-      "gallons": 8300
+      "gallons": 11612
     }
   ],
   "monthly_by_region": [
@@ -49104,22 +49151,22 @@
     {
       "month": "2026-08",
       "region": "Burlington",
-      "gallons": 2385
+      "gallons": 2440
     },
     {
       "month": "2026-08",
       "region": "Central Vermont",
-      "gallons": 655
+      "gallons": 1032
     },
     {
       "month": "2026-08",
       "region": "Other",
-      "gallons": 3165
+      "gallons": 3635
     },
     {
       "month": "2026-08",
       "region": "Stowe",
-      "gallons": 1025
+      "gallons": 2365
     },
     {
       "month": "2026-08",
@@ -49128,8 +49175,13 @@
     },
     {
       "month": "2026-08",
+      "region": "Warren+Waitsfield",
+      "gallons": 700
+    },
+    {
+      "month": "2026-08",
       "region": "Waterbury",
-      "gallons": 285
+      "gallons": 655
     },
     {
       "month": "2026-08",
@@ -49836,12 +49888,12 @@
     {
       "year": 2026,
       "region": "Burlington",
-      "gallons": 29398
+      "gallons": 29453
     },
     {
       "year": 2026,
       "region": "Central Vermont",
-      "gallons": 16809
+      "gallons": 17186
     },
     {
       "year": 2026,
@@ -49871,12 +49923,12 @@
     {
       "year": 2026,
       "region": "Other",
-      "gallons": 80918
+      "gallons": 81388
     },
     {
       "year": 2026,
       "region": "Stowe",
-      "gallons": 17355
+      "gallons": 18695
     },
     {
       "year": 2026,
@@ -49886,12 +49938,12 @@
     {
       "year": 2026,
       "region": "Warren+Waitsfield",
-      "gallons": 5965
+      "gallons": 6665
     },
     {
       "year": 2026,
       "region": "Waterbury",
-      "gallons": 6545
+      "gallons": 6915
     },
     {
       "year": 2026,
@@ -49920,25 +49972,25 @@
     "Burlington"
   ],
   "collections_file": "oil_collections.json",
-  "collections_count": 27074,
+  "collections_count": 27120,
   "out_of_state_total": 39081,
-  "active_customer_count": 517,
+  "active_customer_count": 518,
   "projection": {
-    "latest_data_date": "2026-08-17",
+    "latest_data_date": "2026-08-19",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 188216,
+    "current_ytd": 191528,
     "previous_year_full": 269909,
     "previous_through_prior_month": 158242,
     "previous_same_month_total": 25119,
-    "previous_prorated_ytd": 172016.94,
-    "projected_current_year": 295327,
-    "percent_vs_previous_year": 0.094171
+    "previous_prorated_ytd": 173637.52,
+    "projected_current_year": 297719,
+    "percent_vs_previous_year": 0.103034
   },
   "region_stats": {
     "Burlington": {
       "customers": 206,
-      "active": 67
+      "active": 68
     },
     "Central Vermont": {
       "customers": 84,
@@ -50075,8 +50127,8 @@
       "year": 2026,
       "places_serviced": 449,
       "gained": 32,
-      "lost": 7,
-      "net": 25
+      "lost": 6,
+      "net": 26
     }
   ],
   "dormant_cutoff": "2025-01-01",

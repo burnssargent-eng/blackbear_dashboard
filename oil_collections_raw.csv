@@ -65,6 +65,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1082,Arandas Mexican-Barre,Barre,Washington,2022-08-19,2022,2022-08,50,True,Barre City
 1082,Arandas Mexican-Barre,Barre,Washington,2022-04-06,2022,2022-04,40,True,Barre City
 1082,Arandas Mexican-Barre,Barre,Washington,2021-12-27,2021,2021-12,40,True,Barre City
+113,Asia Gourmet-Barre,Barre,Washington,2026-08-18,2026,2026-08,60,True,Barre City
 113,Asia Gourmet-Barre,Barre,Washington,2026-07-20,2026,2026-07,50,True,Barre City
 113,Asia Gourmet-Barre,Barre,Washington,2026-06-25,2026,2026-06,90,True,Barre City
 113,Asia Gourmet-Barre,Barre,Washington,2026-05-29,2026,2026-05,40,True,Barre City
@@ -325,12 +326,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2015-04-09,2015,2015-04,75,True,Barre City
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2015-02-20,2015,2015-02,60,True,Barre City
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2015-01-16,2015,2015-01,45,True,Barre City
-1387,Foxys Barre,Barre,Washington,2026-04-10,2026,2026-04,35,True,Barre City
-1387,Foxys Barre,Barre,Washington,2025-06-06,2025,2025-06,20,True,Barre City
-1387,Foxys Barre,Barre,Washington,2025-04-17,2025,2025-04,35,True,Barre City
-1387,Foxys Barre,Barre,Washington,2025-03-10,2025,2025-03,30,True,Barre City
-1387,Foxys Barre,Barre,Washington,2025-02-18,2025,2025-02,20,True,Barre City
-1387,Foxys Barre,Barre,Washington,2024-12-31,2024,2024-12,15,True,Barre City
 1363,GE-South Barre Gas Station,Barre,Washington,2026-06-25,2026,2026-06,40,True,Barre Town
 1363,GE-South Barre Gas Station,Barre,Washington,2026-05-08,2026,2026-05,55,True,Barre Town
 1363,GE-South Barre Gas Station,Barre,Washington,2026-03-10,2026,2026-03,35,True,Barre Town
@@ -418,6 +413,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1128,Hannaford-South Barre,Barre,Washington,2022-08-23,2022,2022-08,114,True,Barre Town
 1128,Hannaford-South Barre,Barre,Washington,2022-07-26,2022,2022-07,85,True,Barre Town
 1128,Hannaford-South Barre,Barre,Washington,2022-06-29,2022,2022-06,110,True,Barre Town
+117,Ladder 1-Barre,Barre,Washington,2026-08-18,2026,2026-08,40,True,Barre City
 117,Ladder 1-Barre,Barre,Washington,2026-07-20,2026,2026-07,40,True,Barre City
 117,Ladder 1-Barre,Barre,Washington,2026-06-25,2026,2026-06,40,True,Barre City
 117,Ladder 1-Barre,Barre,Washington,2026-05-29,2026,2026-05,40,True,Barre City
@@ -579,6 +575,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1380,Masonic Lodge-Barre,Barre,Washington,2025-06-06,2025,2025-06,35,True,Barre City
 1380,Masonic Lodge-Barre,Barre,Washington,2025-04-07,2025,2025-04,15,True,Barre City
 1380,Masonic Lodge-Barre,Barre,Washington,2025-01-11,2025,2025-01,35,True,Barre City
+112,Mulligans-Barre,Barre,Washington,2026-08-18,2026,2026-08,130,True,Barre City
 112,Mulligans-Barre,Barre,Washington,2026-07-30,2026,2026-07,100,True,Barre City
 112,Mulligans-Barre,Barre,Washington,2026-07-20,2026,2026-07,80,True,Barre City
 112,Mulligans-Barre,Barre,Washington,2026-07-10,2026,2026-07,130,True,Barre City
@@ -768,12 +765,19 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 112,Mulligans-Barre,Barre,Washington,2015-12-23,2015,2015-12,50,True,Barre City
 112,Mulligans-Barre,Barre,Washington,2015-11-23,2015,2015-11,30,True,Barre City
 112,Mulligans-Barre,Barre,Washington,2015-11-02,2015,2015-11,100,True,Barre City
+1387,SARKY’s/Foxys Barre,Barre,Washington,2026-04-10,2026,2026-04,35,True,Barre City
+1387,SARKY’s/Foxys Barre,Barre,Washington,2025-06-06,2025,2025-06,20,True,Barre City
+1387,SARKY’s/Foxys Barre,Barre,Washington,2025-04-17,2025,2025-04,35,True,Barre City
+1387,SARKY’s/Foxys Barre,Barre,Washington,2025-03-10,2025,2025-03,30,True,Barre City
+1387,SARKY’s/Foxys Barre,Barre,Washington,2025-02-18,2025,2025-02,20,True,Barre City
+1387,SARKY’s/Foxys Barre,Barre,Washington,2024-12-31,2024,2024-12,15,True,Barre City
 118,Spaulding High School,Barre,Washington,2025-08-18,2025,2025-08,35,True,Barre City
 118,Spaulding High School,Barre,Washington,2024-08-12,2024,2024-08,25,True,Barre City
 118,Spaulding High School,Barre,Washington,2017-07-08,2017,2017-07,60,True,Barre City
 118,Spaulding High School,Barre,Washington,2017-05-17,2017,2017-05,100,True,Barre City
 118,Spaulding High School,Barre,Washington,2016-06-27,2016,2016-06,30,True,Barre City
 118,Spaulding High School,Barre,Washington,2015-10-13,2015,2015-10,20,True,Barre City
+1401,Tasty Bites,Barre,Washington,2026-08-18,2026,2026-08,40,True,Barre City
 1401,Tasty Bites,Barre,Washington,2026-07-20,2026,2026-07,30,True,Barre City
 1401,Tasty Bites,Barre,Washington,2026-06-30,2026,2026-06,60,True,Barre City
 1401,Tasty Bites,Barre,Washington,2026-05-29,2026,2026-05,30,True,Barre City
@@ -794,6 +798,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1401,Tasty Bites,Barre,Washington,2025-04-17,2025,2025-04,35,True,Barre City
 1401,Tasty Bites,Barre,Washington,2025-03-21,2025,2025-03,40,True,Barre City
 1401,Tasty Bites,Barre,Washington,2025-03-11,2025,2025-03,45,True,Barre City
+127,The Meltdown-Barre,Barre,Washington,2026-08-18,2026,2026-08,80,True,Barre City
 127,The Meltdown-Barre,Barre,Washington,2026-06-23,2026,2026-06,120,True,Barre City
 127,The Meltdown-Barre,Barre,Washington,2026-04-03,2026,2026-04,85,True,Barre City
 127,The Meltdown-Barre,Barre,Washington,2026-02-03,2026,2026-02,55,True,Barre City
@@ -831,6 +836,8 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 127,The Meltdown-Barre,Barre,Washington,2021-05-04,2021,2021-05,65,True,Barre City
 127,The Meltdown-Barre,Barre,Washington,2021-01-13,2021,2021-01,25,True,Barre City
 127,The Meltdown-Barre,Barre,Washington,2020-11-12,2020,2020-11,60,True,Barre City
+125,The Quarry-Barre,Barre,Washington,2026-08-19,2026,2026-08,7,True,Barre City
+125,The Quarry-Barre,Barre,Washington,2026-08-18,2026,2026-08,20,True,Barre City
 125,The Quarry-Barre,Barre,Washington,2026-07-20,2026,2026-07,65,True,Barre City
 125,The Quarry-Barre,Barre,Washington,2026-06-25,2026,2026-06,45,True,Barre City
 125,The Quarry-Barre,Barre,Washington,2026-05-29,2026,2026-05,55,True,Barre City
@@ -4236,6 +4243,249 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 337,Lake Monsters,Burlington,Chittenden,2015-08-07,2015,2015-08,45,True,Burlington
 337,Lake Monsters,Burlington,Chittenden,2015-07-21,2015,2015-07,50,True,Burlington
 337,Lake Monsters,Burlington,Chittenden,2015-07-01,2015,2015-07,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2026-04-16,2026,2026-04,140,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2026-01-27,2026,2026-01,85,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2025-12-04,2025,2025-12,30,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2025-11-20,2025,2025-11,25,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2025-11-04,2025,2025-11,15,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2025-10-23,2025,2025-10,35,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2025-10-09,2025,2025-10,45,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2025-09-25,2025,2025-09,45,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2025-09-09,2025,2025-09,30,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2025-08-26,2025,2025-08,45,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2025-08-12,2025,2025-08,60,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2025-07-22,2025,2025-07,100,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2025-06-25,2025,2025-06,20,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2025-06-13,2025,2025-06,55,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2025-06-03,2025,2025-06,40,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2025-05-22,2025,2025-05,40,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2025-05-15,2025,2025-05,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2025-04-30,2025,2025-04,35,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2025-04-15,2025,2025-04,65,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2025-04-02,2025,2025-04,95,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2025-03-17,2025,2025-03,65,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2025-02-19,2025,2025-02,40,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2025-01-31,2025,2025-01,30,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2025-01-04,2025,2025-01,60,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2024-12-06,2024,2024-12,25,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2024-11-27,2024,2024-11,65,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2024-11-11,2024,2024-11,35,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2024-10-29,2024,2024-10,20,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2024-10-15,2024,2024-10,30,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2024-10-01,2024,2024-10,35,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2024-09-03,2024,2024-09,65,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2024-08-15,2024,2024-08,45,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2024-07-29,2024,2024-07,25,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2024-07-15,2024,2024-07,55,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2024-06-28,2024,2024-06,25,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2024-06-17,2024,2024-06,30,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2024-06-06,2024,2024-06,70,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2024-05-10,2024,2024-05,75,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2024-04-16,2024,2024-04,35,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2024-04-02,2024,2024-04,30,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2024-03-22,2024,2024-03,15,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2024-03-05,2024,2024-03,80,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2024-02-08,2024,2024-02,20,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2024-01-24,2024,2024-01,85,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2023-12-27,2023,2023-12,70,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2023-12-01,2023,2023-12,30,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2023-11-16,2023,2023-11,60,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2023-10-24,2023,2023-10,30,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2023-10-11,2023,2023-10,65,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2023-09-26,2023,2023-09,55,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2023-08-30,2023,2023-08,75,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2023-08-07,2023,2023-08,80,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2023-07-17,2023,2023-07,20,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2023-07-03,2023,2023-07,30,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2023-06-19,2023,2023-06,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2023-06-06,2023,2023-06,30,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2023-05-23,2023,2023-05,35,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2023-05-08,2023,2023-05,30,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2023-04-24,2023,2023-04,35,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2023-04-12,2023,2023-04,55,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2023-03-27,2023,2023-03,35,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2023-03-15,2023,2023-03,20,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2023-03-02,2023,2023-03,30,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2023-02-21,2023,2023-02,60,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2023-02-07,2023,2023-02,40,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2023-01-23,2023,2023-01,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2023-01-08,2023,2023-01,45,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2022-12-27,2022,2022-12,40,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2022-12-11,2022,2022-12,55,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2022-11-27,2022,2022-11,65,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2022-11-07,2022,2022-11,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2022-10-24,2022,2022-10,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2022-10-03,2022,2022-10,35,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2022-09-21,2022,2022-09,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2022-09-06,2022,2022-09,65,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2022-08-22,2022,2022-08,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2022-08-08,2022,2022-08,95,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2022-07-21,2022,2022-07,90,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2022-06-22,2022,2022-06,90,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2022-06-03,2022,2022-06,90,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2022-05-12,2022,2022-05,40,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2022-04-26,2022,2022-04,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2022-04-08,2022,2022-04,60,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2022-03-24,2022,2022-03,100,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2022-02-16,2022,2022-02,65,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2022-01-28,2022,2022-01,40,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2021-12-28,2021,2021-12,70,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2021-12-02,2021,2021-12,55,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2021-11-11,2021,2021-11,60,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2021-10-26,2021,2021-10,75,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2021-09-29,2021,2021-09,30,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2021-09-12,2021,2021-09,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2021-08-10,2021,2021-08,85,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2021-07-18,2021,2021-07,15,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2021-07-05,2021,2021-07,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2021-06-21,2021,2021-06,100,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2021-05-20,2021,2021-05,75,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2021-03-30,2021,2021-03,100,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2021-02-22,2021,2021-02,60,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2021-01-25,2021,2021-01,40,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2021-01-12,2021,2021-01,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2020-12-24,2020,2020-12,25,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2020-11-24,2020,2020-11,120,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2020-10-27,2020,2020-10,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2020-10-13,2020,2020-10,85,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2020-09-23,2020,2020-09,80,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2020-08-12,2020,2020-08,80,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2020-07-21,2020,2020-07,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2020-07-06,2020,2020-07,100,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2020-06-09,2020,2020-06,35,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2020-05-21,2020,2020-05,150,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2020-03-11,2020,2020-03,275,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2020-02-20,2020,2020-02,100,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2020-01-30,2020,2020-01,80,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2020-01-16,2020,2020-01,100,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2019-12-30,2019,2019-12,80,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2019-11-25,2019,2019-11,80,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2019-11-07,2019,2019-11,100,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2019-10-17,2019,2019-10,90,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2019-10-01,2019,2019-10,75,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2019-08-29,2019,2019-08,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2019-08-05,2019,2019-08,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2019-07-18,2019,2019-07,70,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2019-07-03,2019,2019-07,20,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2019-06-22,2019,2019-06,100,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2019-06-05,2019,2019-06,75,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2019-05-16,2019,2019-05,120,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2019-04-24,2019,2019-04,75,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2019-04-04,2019,2019-04,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2019-03-20,2019,2019-03,85,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2019-02-27,2019,2019-02,100,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2019-02-05,2019,2019-02,75,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2019-01-13,2019,2019-01,90,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2018-12-21,2018,2018-12,90,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2018-12-05,2018,2018-12,90,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2018-11-14,2018,2018-11,65,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2018-11-01,2018,2018-11,60,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2018-10-18,2018,2018-10,75,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2018-10-03,2018,2018-10,75,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2018-09-18,2018,2018-09,60,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2018-09-05,2018,2018-09,70,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2018-08-23,2018,2018-08,65,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2018-08-09,2018,2018-08,60,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2018-07-31,2018,2018-07,65,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2018-07-17,2018,2018-07,100,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2018-06-27,2018,2018-06,75,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2018-06-12,2018,2018-06,100,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2018-05-23,2018,2018-05,65,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2018-05-09,2018,2018-05,90,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2018-04-17,2018,2018-04,45,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2018-04-03,2018,2018-04,25,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2018-03-26,2018,2018-03,40,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2018-03-13,2018,2018-03,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2018-02-27,2018,2018-02,40,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2018-02-15,2018,2018-02,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2018-02-01,2018,2018-02,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2018-01-17,2018,2018-01,40,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2018-01-03,2018,2018-01,35,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-12-25,2017,2017-12,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-12-13,2017,2017-12,70,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-11-29,2017,2017-11,60,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-11-16,2017,2017-11,70,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-10-18,2017,2017-10,60,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-10-04,2017,2017-10,55,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-09-20,2017,2017-09,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-09-07,2017,2017-09,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-08-26,2017,2017-08,70,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-08-12,2017,2017-08,90,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-07-27,2017,2017-07,65,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-07-15,2017,2017-07,70,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-07-01,2017,2017-07,60,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-06-18,2017,2017-06,70,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-06-03,2017,2017-06,65,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-05-21,2017,2017-05,65,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-05-08,2017,2017-05,90,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-04-22,2017,2017-04,66,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-04-08,2017,2017-04,75,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-03-25,2017,2017-03,60,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-03-11,2017,2017-03,70,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-02-25,2017,2017-02,75,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-02-11,2017,2017-02,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-01-29,2017,2017-01,65,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-01-14,2017,2017-01,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2017-01-02,2017,2017-01,70,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-12-17,2016,2016-12,45,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-12-03,2016,2016-12,45,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-11-20,2016,2016-11,60,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-11-05,2016,2016-11,60,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-10-23,2016,2016-10,75,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-10-08,2016,2016-10,45,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-09-25,2016,2016-09,35,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-09-10,2016,2016-09,60,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-08-27,2016,2016-08,55,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-08-14,2016,2016-08,55,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-07-30,2016,2016-07,45,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-07-18,2016,2016-07,35,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-07-11,2016,2016-07,35,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-07-03,2016,2016-07,45,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-06-19,2016,2016-06,55,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-06-05,2016,2016-06,30,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-05-28,2016,2016-05,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-05-22,2016,2016-05,45,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-05-08,2016,2016-05,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-05-02,2016,2016-05,30,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-04-16,2016,2016-04,45,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-04-04,2016,2016-04,55,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-03-20,2016,2016-03,75,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-03-05,2016,2016-03,45,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-02-20,2016,2016-02,45,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-02-10,2016,2016-02,45,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-02-03,2016,2016-02,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-01-21,2016,2016-01,45,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2016-01-06,2016,2016-01,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-12-24,2015,2015-12,85,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-12-03,2015,2015-12,28,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-11-24,2015,2015-11,40,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-11-12,2015,2015-11,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-10-31,2015,2015-10,55,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-10-17,2015,2015-10,60,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-09-30,2015,2015-09,60,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-09-16,2015,2015-09,40,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-09-03,2015,2015-09,65,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-08-17,2015,2015-08,30,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-08-07,2015,2015-08,30,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-07-29,2015,2015-07,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-07-15,2015,2015-07,25,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-07-08,2015,2015-07,60,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-06-17,2015,2015-06,30,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-06-08,2015,2015-06,30,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-05-29,2015,2015-05,25,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-05-22,2015,2015-05,55,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-05-07,2015,2015-05,40,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-04-28,2015,2015-04,25,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-04-21,2015,2015-04,50,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-04-08,2015,2015-04,75,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-03-24,2015,2015-03,75,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-03-05,2015,2015-03,35,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-02-27,2015,2015-02,45,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-02-19,2015,2015-02,40,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-02-06,2015,2015-02,45,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-01-22,2015,2015-01,40,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-01-15,2015,2015-01,37,True,Burlington
+326,Leunigs Bistro,Burlington,Chittenden,2015-01-02,2015,2015-01,45,True,Burlington
 1133,May Day,Burlington,Chittenden,2026-07-29,2026,2026-07,50,True,Burlington
 1133,May Day,Burlington,Chittenden,2026-07-08,2026,2026-07,100,True,Burlington
 1133,May Day,Burlington,Chittenden,2026-05-26,2026,2026-05,80,True,Burlington
@@ -6246,6 +6496,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1433,Three Brothers Pizza-Colchester,Colchester,Chittenden,2025-09-16,2025,2025-09,50,True,Colchester
 1433,Three Brothers Pizza-Colchester,Colchester,Chittenden,2025-07-03,2025,2025-07,20,True,Colchester
 1433,Three Brothers Pizza-Colchester,Colchester,Chittenden,2025-05-30,2025,2025-05,85,True,Colchester
+1349,"Concord, Vt Gas Station",Concord,Caledonia,2026-08-18,2026,2026-08,70,True,Concord
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2026-07-21,2026,2026-07,50,True,Concord
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2026-06-19,2026,2026-06,60,True,Concord
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2026-05-04,2026,2026-05,60,True,Concord
@@ -6368,6 +6619,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 520,Sterling College - Craftsbury,Craftsbury Common,Caledonia,2020-12-14,2020,2020-12,50,True,Craftsbury
 520,Sterling College - Craftsbury,Craftsbury Common,Caledonia,2019-06-29,2019,2019-06,60,True,Craftsbury
 520,Sterling College - Craftsbury,Craftsbury Common,Caledonia,2018-08-24,2018,2018-08,100,True,Craftsbury
+610,GoodFellas-Danville,Danville,Caledonia,2026-08-18,2026,2026-08,40,True,Danville
 610,GoodFellas-Danville,Danville,Caledonia,2026-07-21,2026,2026-07,50,True,Danville
 610,GoodFellas-Danville,Danville,Caledonia,2026-06-19,2026,2026-06,50,True,Danville
 610,GoodFellas-Danville,Danville,Caledonia,2026-05-04,2026,2026-05,150,True,Danville
@@ -6465,6 +6717,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2022-05-16,2022,2022-05,60,True,Danville
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2022-02-23,2022,2022-02,25,True,Danville
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2022-01-03,2022,2022-01,30,True,Danville
+611,Three Ponds,Danville,Caledonia,2026-08-18,2026,2026-08,40,True,Danville
 611,Three Ponds,Danville,Caledonia,2026-07-21,2026,2026-07,40,True,Danville
 611,Three Ponds,Danville,Caledonia,2026-06-19,2026,2026-06,75,True,Danville
 611,Three Ponds,Danville,Caledonia,2026-05-04,2026,2026-05,40,True,Danville
@@ -8001,6 +8254,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 515,Two Sons Bakery/Fork and Gavel-HydePark,Hyde Park,Lamoille,2019-12-06,2019,2019-12,40,True,Hyde Park
 515,Two Sons Bakery/Fork and Gavel-HydePark,Hyde Park,Lamoille,2019-09-13,2019,2019-09,50,True,Hyde Park
 515,Two Sons Bakery/Fork and Gavel-HydePark,Hyde Park,Lamoille,2019-04-30,2019,2019-04,25,True,Hyde Park
+547,Essex House and Tavern,Island Pond,Essex,2026-08-18,2026,2026-08,220,True,Brighton
 547,Essex House and Tavern,Island Pond,Essex,2026-04-24,2026,2026-04,150,True,Brighton
 547,Essex House and Tavern,Island Pond,Essex,2026-02-20,2026,2026-02,185,True,Brighton
 547,Essex House and Tavern,Island Pond,Essex,2026-02-20,2026,2026-02,20,True,Brighton
@@ -14164,6 +14418,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1493,Pizza Hut-St Albans,St Albans,Franklin,2026-06-23,2026,2026-06,15,True,Saint Albans Town
 1493,Pizza Hut-St Albans,St Albans,Franklin,2026-06-02,2026,2026-06,20,True,Saint Albans Town
 1493,Pizza Hut-St Albans,St Albans,Franklin,2026-05-12,2026,2026-05,90,True,Saint Albans Town
+1507,St Johnsbury Country Club,Burlington,Chittenden,2026-08-18,2026,2026-08,55,True,Burlington
 1507,St Johnsbury Country Club,Burlington,Chittenden,2026-07-21,2026,2026-07,50,True,Burlington
 1507,St Johnsbury Country Club,Burlington,Chittenden,2026-06-19,2026,2026-06,40,True,Burlington
 1155,Hannafords-St Albans,St. Albans,Franklin,2026-06-02,2026,2026-06,64,True,Saint Albans City
@@ -14384,6 +14639,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 418,Nelly's,St. Albans City,Franklin,2019-01-22,2019,2019-01,50,True,Saint Albans City
 1429,Rail City Grill,St. Albans City,Franklin,2025-08-01,2025,2025-08,65,True,Saint Albans City
 1429,Rail City Grill,St. Albans City,Franklin,2025-07-11,2025,2025-07,85,True,Saint Albans City
+1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2026-08-18,2026,2026-08,100,True,Saint Johnsbury
 1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2026-07-21,2026,2026-07,105,True,Saint Johnsbury
 1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2026-05-22,2026,2026-05,30,True,Saint Johnsbury
 1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2026-05-04,2026,2026-05,95,True,Saint Johnsbury
@@ -14447,6 +14703,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1415,The Buttery,St. Johnsbury,Caledonia,2025-06-27,2025,2025-06,20,True,Saint Johnsbury
 1415,The Buttery,St. Johnsbury,Caledonia,2025-05-14,2025,2025-05,10,True,Saint Johnsbury
 1415,The Buttery,St. Johnsbury,Caledonia,2025-04-08,2025,2025-04,20,True,Saint Johnsbury
+1118,Aladdin,Stowe,Lamoille,2026-08-19,2026,2026-08,40,True,Stowe
 1118,Aladdin,Stowe,Lamoille,2026-04-29,2026,2026-04,20,True,Stowe
 1118,Aladdin,Stowe,Lamoille,2025-11-18,2025,2025-11,40,True,Stowe
 1118,Aladdin,Stowe,Lamoille,2025-09-03,2025,2025-09,145,True,Stowe
@@ -14464,6 +14721,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1118,Aladdin,Stowe,Lamoille,2022-11-17,2022,2022-11,70,True,Stowe
 1118,Aladdin,Stowe,Lamoille,2022-09-12,2022,2022-09,60,True,Stowe
 1118,Aladdin,Stowe,Lamoille,2022-06-13,2022,2022-06,20,True,Stowe
+1075,Alfies Wild rides,Stowe,Lamoille,2026-08-19,2026,2026-08,30,True,Stowe
 1075,Alfies Wild rides,Stowe,Lamoille,2026-06-22,2026,2026-06,10,True,Stowe
 1075,Alfies Wild rides,Stowe,Lamoille,2026-03-20,2026,2026-03,20,True,Stowe
 1075,Alfies Wild rides,Stowe,Lamoille,2026-03-03,2026,2026-03,20,True,Stowe
@@ -14521,6 +14779,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2025-07-24,2025,2025-07,60,True,Stowe
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2025-06-17,2025,2025-06,45,True,Stowe
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2025-04-15,2025,2025-04,35,True,Stowe
+287,Backyard Tavern 50%,Stowe,Lamoille,2026-08-19,2026,2026-08,65,True,Stowe
 287,Backyard Tavern 50%,Stowe,Lamoille,2026-07-23,2026,2026-07,30,True,Stowe
 287,Backyard Tavern 50%,Stowe,Lamoille,2026-07-07,2026,2026-07,70,True,Stowe
 287,Backyard Tavern 50%,Stowe,Lamoille,2026-06-22,2026,2026-06,35,True,Stowe
@@ -14641,6 +14900,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 287,Backyard Tavern 50%,Stowe,Lamoille,2021-08-12,2021,2021-08,25,True,Stowe
 287,Backyard Tavern 50%,Stowe,Lamoille,2021-08-01,2021,2021-08,50,True,Stowe
 287,Backyard Tavern 50%,Stowe,Lamoille,2021-06-23,2021,2021-06,43,True,Stowe
+273,BARBERIAN-Skinny Pancake-Stowe McCarthy's,Stowe,Lamoille,2026-08-19,2026,2026-08,125,True,Stowe
 273,BARBERIAN-Skinny Pancake-Stowe McCarthy's,Stowe,Lamoille,2026-07-07,2026,2026-07,45,True,Stowe
 273,BARBERIAN-Skinny Pancake-Stowe McCarthy's,Stowe,Lamoille,2026-06-09,2026,2026-06,25,True,Stowe
 273,BARBERIAN-Skinny Pancake-Stowe McCarthy's,Stowe,Lamoille,2025-09-17,2025,2025-09,65,True,Stowe
@@ -14666,6 +14926,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 273,BARBERIAN-Skinny Pancake-Stowe McCarthy's,Stowe,Lamoille,2019-10-07,2019,2019-10,25,True,Stowe
 273,BARBERIAN-Skinny Pancake-Stowe McCarthy's,Stowe,Lamoille,2019-09-10,2019,2019-09,25,True,Stowe
 273,BARBERIAN-Skinny Pancake-Stowe McCarthy's,Stowe,Lamoille,2019-08-13,2019,2019-08,50,True,Stowe
+1103,Burt’s Pub/old Blue Donkey,Stowe,Lamoille,2026-08-19,2026,2026-08,60,True,Stowe
 1103,Burt’s Pub/old Blue Donkey,Stowe,Lamoille,2026-06-09,2026,2026-06,20,True,Stowe
 1103,Burt’s Pub/old Blue Donkey,Stowe,Lamoille,2026-04-29,2026,2026-04,70,True,Stowe
 1103,Burt’s Pub/old Blue Donkey,Stowe,Lamoille,2026-03-03,2026,2026-03,40,True,Stowe
@@ -14797,6 +15058,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2016-07-11,2016,2016-07,30,True,Stowe
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2016-04-11,2016,2016-04,35,True,Stowe
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2015-12-04,2015,2015-12,20,True,Stowe
+247,Doc Ponds,Stowe,Lamoille,2026-08-19,2026,2026-08,130,True,Stowe
 247,Doc Ponds,Stowe,Lamoille,2026-08-04,2026,2026-08,100,True,Stowe
 247,Doc Ponds,Stowe,Lamoille,2026-07-23,2026,2026-07,220,True,Stowe
 247,Doc Ponds,Stowe,Lamoille,2026-07-07,2026,2026-07,100,True,Stowe
@@ -15160,6 +15422,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2022-04-07,2022,2022-04,90,True,Stowe
 1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2021-12-16,2021,2021-12,50,True,Stowe
 1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2021-09-30,2021,2021-09,75,True,Stowe
+262,Idletyme,Stowe,Lamoille,2026-08-19,2026,2026-08,115,True,Stowe
 262,Idletyme,Stowe,Lamoille,2026-08-04,2026,2026-08,120,True,Stowe
 262,Idletyme,Stowe,Lamoille,2026-07-23,2026,2026-07,140,True,Stowe
 262,Idletyme,Stowe,Lamoille,2026-07-07,2026,2026-07,140,True,Stowe
@@ -15403,6 +15666,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 262,Idletyme,Stowe,Lamoille,2015-02-13,2015,2015-02,45,True,Stowe
 262,Idletyme,Stowe,Lamoille,2015-01-28,2015,2015-01,45,True,Stowe
 262,Idletyme,Stowe,Lamoille,2015-01-08,2015,2015-01,50,True,Stowe
+278,Matterhorn,Stowe,Lamoille,2026-08-19,2026,2026-08,100,True,Stowe
 278,Matterhorn,Stowe,Lamoille,2026-07-23,2026,2026-07,50,True,Stowe
 278,Matterhorn,Stowe,Lamoille,2026-07-07,2026,2026-07,70,True,Stowe
 278,Matterhorn,Stowe,Lamoille,2026-06-09,2026,2026-06,25,True,Stowe
@@ -15511,6 +15775,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 278,Matterhorn,Stowe,Lamoille,2021-01-13,2021,2021-01,70,True,Stowe
 278,Matterhorn,Stowe,Lamoille,2020-12-24,2020,2020-12,70,True,Stowe
 278,Matterhorn,Stowe,Lamoille,2020-12-02,2020,2020-12,225,True,Stowe
+1361,Outbound Stowe,Stowe,Lamoille,2026-08-19,2026,2026-08,20,True,Stowe
 1361,Outbound Stowe,Stowe,Lamoille,2026-08-04,2026,2026-08,15,True,Stowe
 1361,Outbound Stowe,Stowe,Lamoille,2026-07-07,2026,2026-07,55,True,Stowe
 1361,Outbound Stowe,Stowe,Lamoille,2026-05-27,2026,2026-05,25,True,Stowe
@@ -15529,6 +15794,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1361,Outbound Stowe,Stowe,Lamoille,2025-01-14,2025,2025-01,40,True,Stowe
 1361,Outbound Stowe,Stowe,Lamoille,2024-11-18,2024,2024-11,35,True,Stowe
 1361,Outbound Stowe,Stowe,Lamoille,2024-09-30,2024,2024-09,20,True,Stowe
+261,Piecasso,Stowe,Lamoille,2026-08-19,2026,2026-08,115,True,Stowe
 261,Piecasso,Stowe,Lamoille,2026-08-04,2026,2026-08,120,True,Stowe
 261,Piecasso,Stowe,Lamoille,2026-07-23,2026,2026-07,130,True,Stowe
 261,Piecasso,Stowe,Lamoille,2026-07-07,2026,2026-07,120,True,Stowe
@@ -15816,6 +16082,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 276,RAJA- Umami,Stowe,Lamoille,2020-12-24,2020,2020-12,25,True,Stowe
 276,RAJA- Umami,Stowe,Lamoille,2020-12-02,2020,2020-12,40,True,Stowe
 276,RAJA- Umami,Stowe,Lamoille,2020-10-06,2020,2020-10,65,True,Stowe
+248,Ranch Camp 50%,Stowe,Lamoille,2026-08-19,2026,2026-08,65,True,Stowe
 248,Ranch Camp 50%,Stowe,Lamoille,2026-07-23,2026,2026-07,30,True,Stowe
 248,Ranch Camp 50%,Stowe,Lamoille,2026-07-07,2026,2026-07,70,True,Stowe
 248,Ranch Camp 50%,Stowe,Lamoille,2026-06-22,2026,2026-06,35,True,Stowe
@@ -15964,6 +16231,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 248,Ranch Camp 50%,Stowe,Lamoille,2019-03-30,2019,2019-03,30,True,Stowe
 248,Ranch Camp 50%,Stowe,Lamoille,2019-03-03,2019,2019-03,40,True,Stowe
 248,Ranch Camp 50%,Stowe,Lamoille,2019-02-03,2019,2019-02,90,True,Stowe
+249,Rim Rock-Stowe,Stowe,Lamoille,2026-08-19,2026,2026-08,25,True,Stowe
 249,Rim Rock-Stowe,Stowe,Lamoille,2026-08-04,2026,2026-08,30,True,Stowe
 249,Rim Rock-Stowe,Stowe,Lamoille,2026-07-23,2026,2026-07,40,True,Stowe
 249,Rim Rock-Stowe,Stowe,Lamoille,2026-07-07,2026,2026-07,30,True,Stowe
@@ -16144,6 +16412,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 250,Sanfo,Stowe,Lamoille,2019-11-30,2019,2019-11,15,True,Stowe
 250,Sanfo,Stowe,Lamoille,2019-05-01,2019,2019-05,50,True,Stowe
 250,Sanfo,Stowe,Lamoille,2018-11-04,2018,2018-11,40,True,Stowe
+270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-08-19,2026,2026-08,175,True,Stowe
 270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-08-04,2026,2026-08,190,True,Stowe
 270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-07-23,2026,2026-07,140,True,Stowe
 270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-07-07,2026,2026-07,160,True,Stowe
@@ -16508,6 +16777,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 254,Thai in the mountain (SaenSook)-Mountain Rd,Stowe,Lamoille,2016-09-19,2016,2016-09,30,True,Stowe
 254,Thai in the mountain (SaenSook)-Mountain Rd,Stowe,Lamoille,2016-08-08,2016,2016-08,32,True,Stowe
 254,Thai in the mountain (SaenSook)-Mountain Rd,Stowe,Lamoille,2016-07-11,2016,2016-07,30,True,Stowe
+252,The Bench,Stowe,Lamoille,2026-08-19,2026,2026-08,45,True,Stowe
 252,The Bench,Stowe,Lamoille,2026-08-04,2026,2026-08,40,True,Stowe
 252,The Bench,Stowe,Lamoille,2026-07-23,2026,2026-07,35,True,Stowe
 252,The Bench,Stowe,Lamoille,2026-07-07,2026,2026-07,45,True,Stowe
@@ -16805,6 +17075,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 246,The Stowe Inn Tavern,Stowe,Lamoille,2016-05-09,2016,2016-05,30,True,Stowe
 246,The Stowe Inn Tavern,Stowe,Lamoille,2015-12-04,2015,2015-12,20,True,Stowe
 246,The Stowe Inn Tavern,Stowe,Lamoille,2015-05-06,2015,2015-05,20,True,Stowe
+265,Topnotch (The Roost),Stowe,Lamoille,2026-08-19,2026,2026-08,100,True,Stowe
 265,Topnotch (The Roost),Stowe,Lamoille,2026-07-23,2026,2026-07,70,True,Stowe
 265,Topnotch (The Roost),Stowe,Lamoille,2026-07-07,2026,2026-07,115,True,Stowe
 265,Topnotch (The Roost),Stowe,Lamoille,2026-05-11,2026,2026-05,100,True,Stowe
@@ -16977,6 +17248,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 265,Topnotch (The Roost),Stowe,Lamoille,2015-02-25,2015,2015-02,40,True,Stowe
 265,Topnotch (The Roost),Stowe,Lamoille,2015-01-28,2015,2015-01,40,True,Stowe
 265,Topnotch (The Roost),Stowe,Lamoille,2015-01-08,2015,2015-01,70,True,Stowe
+1445,Trapp Family Lodge,Stowe,Lamoille,2026-08-19,2026,2026-08,50,True,Stowe
 1445,Trapp Family Lodge,Stowe,Lamoille,2026-07-23,2026,2026-07,25,True,Stowe
 1445,Trapp Family Lodge,Stowe,Lamoille,2026-07-07,2026,2026-07,40,True,Stowe
 1445,Trapp Family Lodge,Stowe,Lamoille,2026-06-09,2026,2026-06,15,True,Stowe
@@ -16991,6 +17263,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1445,Trapp Family Lodge,Stowe,Lamoille,2025-11-18,2025,2025-11,50,True,Stowe
 1445,Trapp Family Lodge,Stowe,Lamoille,2025-10-15,2025,2025-10,55,True,Stowe
 1445,Trapp Family Lodge,Stowe,Lamoille,2025-09-22,2025,2025-09,40,True,Stowe
+267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2026-08-19,2026,2026-08,80,True,Stowe
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2026-08-04,2026,2026-08,70,True,Stowe
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2026-07-23,2026,2026-07,65,True,Stowe
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2026-07-07,2026,2026-07,75,True,Stowe
@@ -17773,6 +18046,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1266,1824 House,Waitsfield,Washington,2025-04-23,2025,2025-04,40,True,Waitsfield
 1266,1824 House,Waitsfield,Washington,2024-06-07,2024,2024-06,45,True,Waitsfield
 1266,1824 House,Waitsfield,Washington,2023-06-16,2023,2023-06,50,True,Waitsfield
+211,Canteen Creemee Company,Waitsfield,Washington,2026-08-18,2026,2026-08,90,True,Waitsfield
 211,Canteen Creemee Company,Waitsfield,Washington,2026-07-16,2026,2026-07,170,True,Waitsfield
 211,Canteen Creemee Company,Waitsfield,Washington,2026-05-07,2026,2026-05,80,True,Waitsfield
 211,Canteen Creemee Company,Waitsfield,Washington,2026-03-02,2026,2026-03,80,True,Waitsfield
@@ -17951,6 +18225,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 210,Inn at Round Barn,Waitsfield,Washington,2020-08-20,2020,2020-08,50,True,Waitsfield
 210,Inn at Round Barn,Waitsfield,Washington,2019-10-14,2019,2019-10,80,True,Waitsfield
 210,Inn at Round Barn,Waitsfield,Washington,2016-07-28,2016,2016-07,10,True,Waitsfield
+1318,Irasville County Store,Waitsfield,Washington,2026-08-18,2026,2026-08,35,True,Waitsfield
 1318,Irasville County Store,Waitsfield,Washington,2026-07-16,2026,2026-07,50,True,Waitsfield
 1318,Irasville County Store,Waitsfield,Washington,2026-06-12,2026,2026-06,70,True,Waitsfield
 1318,Irasville County Store,Waitsfield,Washington,2026-05-01,2026,2026-05,95,True,Waitsfield
@@ -17981,6 +18256,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1318,Irasville County Store,Waitsfield,Washington,2024-04-26,2024,2024-04,45,True,Waitsfield
 1318,Irasville County Store,Waitsfield,Washington,2024-04-03,2024,2024-04,55,True,Waitsfield
 1318,Irasville County Store,Waitsfield,Washington,2024-02-28,2024,2024-02,65,True,Waitsfield
+208,Mad Moose/Blue Stone-Waitsfield,Waitsfield,Washington,2026-08-18,2026,2026-08,140,True,Waitsfield
 208,Mad Moose/Blue Stone-Waitsfield,Waitsfield,Washington,2026-07-16,2026,2026-07,110,True,Waitsfield
 208,Mad Moose/Blue Stone-Waitsfield,Waitsfield,Washington,2026-05-01,2026,2026-05,150,True,Waitsfield
 208,Mad Moose/Blue Stone-Waitsfield,Waitsfield,Washington,2026-02-05,2026,2026-02,100,True,Waitsfield
@@ -18081,6 +18357,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 208,Mad Moose/Blue Stone-Waitsfield,Waitsfield,Washington,2016-04-25,2016,2016-04,68,True,Waitsfield
 208,Mad Moose/Blue Stone-Waitsfield,Waitsfield,Washington,2016-03-29,2016,2016-03,45,True,Waitsfield
 208,Mad Moose/Blue Stone-Waitsfield,Waitsfield,Washington,2016-03-07,2016,2016-03,80,True,Waitsfield
+214,Mad River Barn,Waitsfield,Washington,2026-08-18,2026,2026-08,60,True,Waitsfield
 214,Mad River Barn,Waitsfield,Washington,2026-07-16,2026,2026-07,50,True,Waitsfield
 214,Mad River Barn,Waitsfield,Washington,2026-06-12,2026,2026-06,70,True,Waitsfield
 214,Mad River Barn,Waitsfield,Washington,2026-05-01,2026,2026-05,60,True,Waitsfield
@@ -18204,6 +18481,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 214,Mad River Barn,Waitsfield,Washington,2015-04-06,2015,2015-04,45,True,Waitsfield
 214,Mad River Barn,Waitsfield,Washington,2015-02-23,2015,2015-02,20,True,Waitsfield
 214,Mad River Barn,Waitsfield,Washington,2015-01-12,2015,2015-01,22,True,Waitsfield
+1219,Mad River Glen,Waitsfield,Washington,2026-08-18,2026,2026-08,90,True,Waitsfield
 1219,Mad River Glen,Waitsfield,Washington,2026-07-16,2026,2026-07,90,True,Waitsfield
 1219,Mad River Glen,Waitsfield,Washington,2026-06-12,2026,2026-06,80,True,Waitsfield
 1219,Mad River Glen,Waitsfield,Washington,2026-05-01,2026,2026-05,40,True,Waitsfield
@@ -18249,6 +18527,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1219,Mad River Glen,Waitsfield,Washington,2023-03-23,2023,2023-03,30,True,Waitsfield
 1219,Mad River Glen,Waitsfield,Washington,2023-03-10,2023,2023-03,90,True,Waitsfield
 1219,Mad River Glen,Waitsfield,Washington,2023-02-12,2023,2023-02,100,True,Waitsfield
+215,Mad Taco-Waitsfield,Waitsfield,Washington,2026-08-18,2026,2026-08,20,True,Waitsfield
 215,Mad Taco-Waitsfield,Waitsfield,Washington,2026-07-16,2026,2026-07,45,True,Waitsfield
 215,Mad Taco-Waitsfield,Waitsfield,Washington,2026-05-01,2026,2026-05,20,True,Waitsfield
 215,Mad Taco-Waitsfield,Waitsfield,Washington,2026-03-02,2026,2026-03,15,True,Waitsfield
@@ -18411,6 +18690,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-06-20,2019,2019-06,25,True,Waitsfield
 206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-03-12,2019,2019-03,20,True,Waitsfield
 206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-02-19,2019,2019-02,20,True,Waitsfield
+1269,Riders Outpost-Waitsfield,Waitsfield,Washington,2026-08-18,2026,2026-08,50,True,Waitsfield
 1269,Riders Outpost-Waitsfield,Waitsfield,Washington,2026-07-16,2026,2026-07,90,True,Waitsfield
 1269,Riders Outpost-Waitsfield,Waitsfield,Washington,2026-05-01,2026,2026-05,25,True,Waitsfield
 1269,Riders Outpost-Waitsfield,Waitsfield,Washington,2026-04-02,2026,2026-04,45,True,Waitsfield
@@ -18564,6 +18844,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 221,MotherStuffas,Warren,Washington,2018-04-29,2018,2018-04,50,True,Warren
 221,MotherStuffas,Warren,Washington,2018-04-17,2018,2018-04,50,True,Warren
 221,MotherStuffas,Warren,Washington,2017-09-21,2017,2017-09,115,True,Warren
+226,Paradise Provisions,Warren,Washington,2026-08-18,2026,2026-08,45,True,Warren
 226,Paradise Provisions,Warren,Washington,2026-06-12,2026,2026-06,45,True,Warren
 226,Paradise Provisions,Warren,Washington,2026-04-02,2026,2026-04,10,True,Warren
 226,Paradise Provisions,Warren,Washington,2026-01-23,2026,2026-01,15,True,Warren
@@ -18661,6 +18942,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 218,Sugarbush Inn / Fit to Be Thai’d,Warren,Washington,2019-04-22,2019,2019-04,30,True,Warren
 218,Sugarbush Inn / Fit to Be Thai’d,Warren,Washington,2018-11-19,2018,2018-11,20,True,Warren
 218,Sugarbush Inn / Fit to Be Thai’d,Warren,Washington,2018-09-26,2018,2018-09,25,True,Warren
+224,Sugarbush Resort,Warren,Washington,2026-08-18,2026,2026-08,125,True,Warren
 224,Sugarbush Resort,Warren,Washington,2026-07-16,2026,2026-07,110,True,Warren
 224,Sugarbush Resort,Warren,Washington,2026-05-01,2026,2026-05,185,True,Warren
 224,Sugarbush Resort,Warren,Washington,2026-04-02,2026,2026-04,270,True,Warren
@@ -18751,6 +19033,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 224,Sugarbush Resort,Warren,Washington,2016-02-11,2016,2016-02,230,True,Warren
 224,Sugarbush Resort,Warren,Washington,2016-01-03,2016,2016-01,120,True,Warren
 224,Sugarbush Resort,Warren,Washington,2015-11-30,2015,2015-11,70,True,Warren
+1059,Sugarbush Resort Golf Course,Warren,Washington,2026-08-18,2026,2026-08,45,True,Warren
 1059,Sugarbush Resort Golf Course,Warren,Washington,2026-07-16,2026,2026-07,45,True,Warren
 1059,Sugarbush Resort Golf Course,Warren,Washington,2025-08-27,2025,2025-08,45,True,Warren
 1059,Sugarbush Resort Golf Course,Warren,Washington,2024-10-30,2024,2024-10,25,True,Warren
@@ -18818,6 +19101,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1374,Arandas Mexican-Waterbury,Waterbury,Washington,2025-04-08,2025,2025-04,55,True,Waterbury
 1374,Arandas Mexican-Waterbury,Waterbury,Washington,2025-02-13,2025,2025-02,45,True,Waterbury
 1374,Arandas Mexican-Waterbury,Waterbury,Washington,2024-10-30,2024,2024-10,35,True,Waterbury
+232,Crossroads Deli,Waterbury,Washington,2026-08-18,2026,2026-08,30,True,Waterbury
 232,Crossroads Deli,Waterbury,Washington,2026-06-22,2026,2026-06,65,True,Waterbury
 232,Crossroads Deli,Waterbury,Washington,2026-04-27,2026,2026-04,20,True,Waterbury
 232,Crossroads Deli,Waterbury,Washington,2026-02-18,2026,2026-02,15,True,Waterbury
@@ -18883,6 +19167,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 232,Crossroads Deli,Waterbury,Washington,2015-10-14,2015,2015-10,20,True,Waterbury
 232,Crossroads Deli,Waterbury,Washington,2015-06-11,2015,2015-06,20,True,Waterbury
 232,Crossroads Deli,Waterbury,Washington,2015-04-15,2015,2015-04,50,True,Waterbury
+1345,Gallus-Waterbury,Waterbury,Washington,2026-08-18,2026,2026-08,150,True,Waterbury
 1345,Gallus-Waterbury,Waterbury,Washington,2026-07-22,2026,2026-07,65,True,Waterbury
 1345,Gallus-Waterbury,Waterbury,Washington,2026-07-09,2026,2026-07,45,True,Waterbury
 1345,Gallus-Waterbury,Waterbury,Washington,2026-06-22,2026,2026-06,120,True,Waterbury
@@ -18916,6 +19201,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1345,Gallus-Waterbury,Waterbury,Washington,2024-09-19,2024,2024-09,40,True,Waterbury
 1345,Gallus-Waterbury,Waterbury,Washington,2024-09-02,2024,2024-09,60,True,Waterbury
 1345,Gallus-Waterbury,Waterbury,Washington,2024-08-14,2024,2024-08,140,True,Waterbury
+234,Hen of the Wood-WATERBURY,Waterbury,Washington,2026-08-18,2026,2026-08,75,True,Waterbury
 234,Hen of the Wood-WATERBURY,Waterbury,Washington,2026-07-22,2026,2026-07,80,True,Waterbury
 234,Hen of the Wood-WATERBURY,Waterbury,Washington,2026-06-23,2026,2026-06,70,True,Waterbury
 234,Hen of the Wood-WATERBURY,Waterbury,Washington,2026-05-11,2026,2026-05,15,True,Waterbury
@@ -19070,6 +19356,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 240,JunipersFaire Food Truck (19 Commercial Ave.),Waterbury,Washington,2020-03-24,2020,2020-03,80,True,Waterbury
 240,JunipersFaire Food Truck (19 Commercial Ave.),Waterbury,Washington,2020-02-06,2020,2020-02,30,True,Waterbury
 240,JunipersFaire Food Truck (19 Commercial Ave.),Waterbury,Washington,2019-09-11,2019,2019-09,50,True,Waterbury
+233,Maxi's,Waterbury,Washington,2026-08-18,2026,2026-08,5,True,Waterbury
 233,Maxi's,Waterbury,Washington,2026-07-22,2026,2026-07,45,True,Waterbury
 233,Maxi's,Waterbury,Washington,2026-06-22,2026,2026-06,55,True,Waterbury
 233,Maxi's,Waterbury,Washington,2026-05-27,2026,2026-05,50,True,Waterbury
@@ -19185,6 +19472,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 233,Maxi's,Waterbury,Washington,2015-06-11,2015,2015-06,25,True,Waterbury
 233,Maxi's,Waterbury,Washington,2015-03-19,2015,2015-03,40,True,Waterbury
 233,Maxi's,Waterbury,Washington,2015-01-09,2015,2015-01,25,True,Waterbury
+241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2026-08-18,2026,2026-08,35,True,Waterbury
 241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2026-07-22,2026,2026-07,75,True,Waterbury
 241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2026-06-23,2026,2026-06,85,True,Waterbury
 241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2026-05-27,2026,2026-05,65,True,Waterbury
@@ -19446,6 +19734,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 239,Michael's on the Hill,Waterbury,Washington,2015-01-14,2015,2015-01,40,True,Waterbury
 1225,Old Stage Coach Inn,Waterbury,Washington,2023-08-02,2023,2023-08,10,True,Waterbury
 1225,Old Stage Coach Inn,Waterbury,Washington,2023-03-13,2023,2023-03,25,True,Waterbury
+229,Prohibition Pig,Waterbury,Washington,2026-08-18,2026,2026-08,75,True,Waterbury
 229,Prohibition Pig,Waterbury,Washington,2026-08-04,2026,2026-08,75,True,Waterbury
 229,Prohibition Pig,Waterbury,Washington,2026-07-22,2026,2026-07,80,True,Waterbury
 229,Prohibition Pig,Waterbury,Washington,2026-07-07,2026,2026-07,90,True,Waterbury
@@ -24167,249 +24456,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 309,Kountry Kart,Burlington,Chittenden,2018-02-15,2018,2018-02,75,False,Burlington
 1281,Lancaster NH Oil,Burlington,Chittenden,2023-09-27,2023,2023-09,75,False,Burlington
 1009,Larissa Reynolds (Richford),Burlington,Chittenden,2018-06-11,2018,2018-06,350,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2026-04-16,2026,2026-04,140,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2026-01-27,2026,2026-01,85,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2025-12-04,2025,2025-12,30,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2025-11-20,2025,2025-11,25,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2025-11-04,2025,2025-11,15,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2025-10-23,2025,2025-10,35,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2025-10-09,2025,2025-10,45,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2025-09-25,2025,2025-09,45,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2025-09-09,2025,2025-09,30,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2025-08-26,2025,2025-08,45,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2025-08-12,2025,2025-08,60,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2025-07-22,2025,2025-07,100,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2025-06-25,2025,2025-06,20,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2025-06-13,2025,2025-06,55,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2025-06-03,2025,2025-06,40,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2025-05-22,2025,2025-05,40,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2025-05-15,2025,2025-05,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2025-04-30,2025,2025-04,35,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2025-04-15,2025,2025-04,65,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2025-04-02,2025,2025-04,95,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2025-03-17,2025,2025-03,65,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2025-02-19,2025,2025-02,40,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2025-01-31,2025,2025-01,30,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2025-01-04,2025,2025-01,60,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2024-12-06,2024,2024-12,25,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2024-11-27,2024,2024-11,65,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2024-11-11,2024,2024-11,35,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2024-10-29,2024,2024-10,20,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2024-10-15,2024,2024-10,30,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2024-10-01,2024,2024-10,35,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2024-09-03,2024,2024-09,65,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2024-08-15,2024,2024-08,45,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2024-07-29,2024,2024-07,25,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2024-07-15,2024,2024-07,55,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2024-06-28,2024,2024-06,25,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2024-06-17,2024,2024-06,30,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2024-06-06,2024,2024-06,70,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2024-05-10,2024,2024-05,75,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2024-04-16,2024,2024-04,35,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2024-04-02,2024,2024-04,30,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2024-03-22,2024,2024-03,15,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2024-03-05,2024,2024-03,80,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2024-02-08,2024,2024-02,20,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2024-01-24,2024,2024-01,85,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2023-12-27,2023,2023-12,70,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2023-12-01,2023,2023-12,30,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2023-11-16,2023,2023-11,60,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2023-10-24,2023,2023-10,30,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2023-10-11,2023,2023-10,65,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2023-09-26,2023,2023-09,55,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2023-08-30,2023,2023-08,75,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2023-08-07,2023,2023-08,80,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2023-07-17,2023,2023-07,20,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2023-07-03,2023,2023-07,30,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2023-06-19,2023,2023-06,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2023-06-06,2023,2023-06,30,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2023-05-23,2023,2023-05,35,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2023-05-08,2023,2023-05,30,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2023-04-24,2023,2023-04,35,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2023-04-12,2023,2023-04,55,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2023-03-27,2023,2023-03,35,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2023-03-15,2023,2023-03,20,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2023-03-02,2023,2023-03,30,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2023-02-21,2023,2023-02,60,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2023-02-07,2023,2023-02,40,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2023-01-23,2023,2023-01,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2023-01-08,2023,2023-01,45,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2022-12-27,2022,2022-12,40,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2022-12-11,2022,2022-12,55,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2022-11-27,2022,2022-11,65,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2022-11-07,2022,2022-11,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2022-10-24,2022,2022-10,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2022-10-03,2022,2022-10,35,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2022-09-21,2022,2022-09,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2022-09-06,2022,2022-09,65,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2022-08-22,2022,2022-08,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2022-08-08,2022,2022-08,95,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2022-07-21,2022,2022-07,90,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2022-06-22,2022,2022-06,90,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2022-06-03,2022,2022-06,90,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2022-05-12,2022,2022-05,40,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2022-04-26,2022,2022-04,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2022-04-08,2022,2022-04,60,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2022-03-24,2022,2022-03,100,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2022-02-16,2022,2022-02,65,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2022-01-28,2022,2022-01,40,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2021-12-28,2021,2021-12,70,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2021-12-02,2021,2021-12,55,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2021-11-11,2021,2021-11,60,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2021-10-26,2021,2021-10,75,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2021-09-29,2021,2021-09,30,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2021-09-12,2021,2021-09,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2021-08-10,2021,2021-08,85,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2021-07-18,2021,2021-07,15,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2021-07-05,2021,2021-07,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2021-06-21,2021,2021-06,100,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2021-05-20,2021,2021-05,75,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2021-03-30,2021,2021-03,100,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2021-02-22,2021,2021-02,60,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2021-01-25,2021,2021-01,40,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2021-01-12,2021,2021-01,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2020-12-24,2020,2020-12,25,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2020-11-24,2020,2020-11,120,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2020-10-27,2020,2020-10,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2020-10-13,2020,2020-10,85,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2020-09-23,2020,2020-09,80,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2020-08-12,2020,2020-08,80,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2020-07-21,2020,2020-07,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2020-07-06,2020,2020-07,100,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2020-06-09,2020,2020-06,35,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2020-05-21,2020,2020-05,150,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2020-03-11,2020,2020-03,275,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2020-02-20,2020,2020-02,100,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2020-01-30,2020,2020-01,80,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2020-01-16,2020,2020-01,100,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2019-12-30,2019,2019-12,80,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2019-11-25,2019,2019-11,80,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2019-11-07,2019,2019-11,100,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2019-10-17,2019,2019-10,90,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2019-10-01,2019,2019-10,75,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2019-08-29,2019,2019-08,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2019-08-05,2019,2019-08,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2019-07-18,2019,2019-07,70,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2019-07-03,2019,2019-07,20,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2019-06-22,2019,2019-06,100,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2019-06-05,2019,2019-06,75,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2019-05-16,2019,2019-05,120,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2019-04-24,2019,2019-04,75,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2019-04-04,2019,2019-04,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2019-03-20,2019,2019-03,85,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2019-02-27,2019,2019-02,100,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2019-02-05,2019,2019-02,75,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2019-01-13,2019,2019-01,90,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2018-12-21,2018,2018-12,90,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2018-12-05,2018,2018-12,90,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2018-11-14,2018,2018-11,65,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2018-11-01,2018,2018-11,60,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2018-10-18,2018,2018-10,75,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2018-10-03,2018,2018-10,75,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2018-09-18,2018,2018-09,60,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2018-09-05,2018,2018-09,70,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2018-08-23,2018,2018-08,65,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2018-08-09,2018,2018-08,60,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2018-07-31,2018,2018-07,65,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2018-07-17,2018,2018-07,100,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2018-06-27,2018,2018-06,75,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2018-06-12,2018,2018-06,100,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2018-05-23,2018,2018-05,65,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2018-05-09,2018,2018-05,90,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2018-04-17,2018,2018-04,45,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2018-04-03,2018,2018-04,25,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2018-03-26,2018,2018-03,40,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2018-03-13,2018,2018-03,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2018-02-27,2018,2018-02,40,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2018-02-15,2018,2018-02,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2018-02-01,2018,2018-02,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2018-01-17,2018,2018-01,40,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2018-01-03,2018,2018-01,35,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-12-25,2017,2017-12,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-12-13,2017,2017-12,70,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-11-29,2017,2017-11,60,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-11-16,2017,2017-11,70,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-10-18,2017,2017-10,60,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-10-04,2017,2017-10,55,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-09-20,2017,2017-09,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-09-07,2017,2017-09,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-08-26,2017,2017-08,70,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-08-12,2017,2017-08,90,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-07-27,2017,2017-07,65,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-07-15,2017,2017-07,70,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-07-01,2017,2017-07,60,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-06-18,2017,2017-06,70,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-06-03,2017,2017-06,65,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-05-21,2017,2017-05,65,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-05-08,2017,2017-05,90,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-04-22,2017,2017-04,66,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-04-08,2017,2017-04,75,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-03-25,2017,2017-03,60,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-03-11,2017,2017-03,70,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-02-25,2017,2017-02,75,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-02-11,2017,2017-02,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-01-29,2017,2017-01,65,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-01-14,2017,2017-01,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2017-01-02,2017,2017-01,70,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-12-17,2016,2016-12,45,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-12-03,2016,2016-12,45,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-11-20,2016,2016-11,60,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-11-05,2016,2016-11,60,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-10-23,2016,2016-10,75,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-10-08,2016,2016-10,45,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-09-25,2016,2016-09,35,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-09-10,2016,2016-09,60,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-08-27,2016,2016-08,55,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-08-14,2016,2016-08,55,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-07-30,2016,2016-07,45,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-07-18,2016,2016-07,35,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-07-11,2016,2016-07,35,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-07-03,2016,2016-07,45,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-06-19,2016,2016-06,55,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-06-05,2016,2016-06,30,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-05-28,2016,2016-05,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-05-22,2016,2016-05,45,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-05-08,2016,2016-05,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-05-02,2016,2016-05,30,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-04-16,2016,2016-04,45,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-04-04,2016,2016-04,55,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-03-20,2016,2016-03,75,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-03-05,2016,2016-03,45,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-02-20,2016,2016-02,45,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-02-10,2016,2016-02,45,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-02-03,2016,2016-02,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-01-21,2016,2016-01,45,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2016-01-06,2016,2016-01,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-12-24,2015,2015-12,85,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-12-03,2015,2015-12,28,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-11-24,2015,2015-11,40,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-11-12,2015,2015-11,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-10-31,2015,2015-10,55,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-10-17,2015,2015-10,60,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-09-30,2015,2015-09,60,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-09-16,2015,2015-09,40,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-09-03,2015,2015-09,65,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-08-17,2015,2015-08,30,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-08-07,2015,2015-08,30,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-07-29,2015,2015-07,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-07-15,2015,2015-07,25,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-07-08,2015,2015-07,60,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-06-17,2015,2015-06,30,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-06-08,2015,2015-06,30,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-05-29,2015,2015-05,25,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-05-22,2015,2015-05,55,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-05-07,2015,2015-05,40,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-04-28,2015,2015-04,25,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-04-21,2015,2015-04,50,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-04-08,2015,2015-04,75,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-03-24,2015,2015-03,75,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-03-05,2015,2015-03,35,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-02-27,2015,2015-02,45,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-02-19,2015,2015-02,40,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-02-06,2015,2015-02,45,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-01-22,2015,2015-01,40,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-01-15,2015,2015-01,37,False,Burlington
-326,Leunigs Bistro,Burlington,Chittenden,2015-01-02,2015,2015-01,45,False,Burlington
 1467,Lyndonville Station Irving,Lyndonville,Caledonia,2025-11-21,2025,2025-11,50,False,Lyndon
 801,M and M,Burlington,Chittenden,2018-03-20,2018,2018-03,10,False,Burlington
 373,M-Saigon,Burlington,Chittenden,2022-03-17,2022,2022-03,20,False,Burlington
