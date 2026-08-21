@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-20T07:40:52.052938",
+  "last_updated": "2026-08-21T07:43:06.889276",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33010,7 +33010,7 @@
     {
       "month": "2026-08",
       "geo_town": "Barre Town",
-      "gallons": 130,
+      "gallons": 260,
       "city": "Barre Town"
     },
     {
@@ -33024,6 +33024,12 @@
       "geo_town": "Berlin",
       "gallons": 100,
       "city": "Berlin"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Bethel",
+      "gallons": 100,
+      "city": "Bethel"
     },
     {
       "month": "2026-08",
@@ -33105,15 +33111,33 @@
     },
     {
       "month": "2026-08",
+      "geo_town": "Hartford",
+      "gallons": 385,
+      "city": "Hartford"
+    },
+    {
+      "month": "2026-08",
       "geo_town": "Hyde Park",
       "gallons": 140,
       "city": "Hyde Park"
     },
     {
       "month": "2026-08",
+      "geo_town": "Jay",
+      "gallons": 65,
+      "city": "Jay"
+    },
+    {
+      "month": "2026-08",
       "geo_town": "Johnson",
       "gallons": 190,
       "city": "Johnson"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Manchester",
+      "gallons": 375,
+      "city": "Manchester"
     },
     {
       "month": "2026-08",
@@ -33130,7 +33154,7 @@
     {
       "month": "2026-08",
       "geo_town": "Newport City",
-      "gallons": 488,
+      "gallons": 678,
       "city": "Newport City"
     },
     {
@@ -33183,6 +33207,12 @@
     },
     {
       "month": "2026-08",
+      "geo_town": "Troy",
+      "gallons": 315,
+      "city": "Troy"
+    },
+    {
+      "month": "2026-08",
       "geo_town": "Underhill",
       "gallons": 45,
       "city": "Underhill"
@@ -33222,6 +33252,12 @@
       "geo_town": "Wolcott",
       "gallons": 55,
       "city": "Wolcott"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Woodstock",
+      "gallons": 270,
+      "city": "Woodstock"
     }
   ],
   "monthly_by_county": [
@@ -40777,6 +40813,11 @@
     },
     {
       "month": "2026-08",
+      "county": "Bennington",
+      "gallons": 375
+    },
+    {
+      "month": "2026-08",
       "county": "Caledonia",
       "gallons": 435
     },
@@ -40808,12 +40849,22 @@
     {
       "month": "2026-08",
       "county": "Orleans",
-      "gallons": 825
+      "gallons": 1395
+    },
+    {
+      "month": "2026-08",
+      "county": "Out-of-State (NH)",
+      "gallons": 201
     },
     {
       "month": "2026-08",
       "county": "Washington",
-      "gallons": 2427
+      "gallons": 2557
+    },
+    {
+      "month": "2026-08",
+      "county": "Windsor",
+      "gallons": 755
     }
   ],
   "yearly_totals": [
@@ -40863,13 +40914,13 @@
     },
     {
       "year": 2026,
-      "gallons": 191528
+      "gallons": 193559
     }
   ],
-  "all_time_total": 2110295,
-  "current_year_total": 191528,
+  "all_time_total": 2112326,
+  "current_year_total": 193559,
   "customer_count": 794,
-  "unmapped_total": 39081,
+  "unmapped_total": 39282,
   "monthly_totals": [
     {
       "month": "2015-01",
@@ -41429,7 +41480,7 @@
     },
     {
       "month": "2026-08",
-      "gallons": 11612
+      "gallons": 13643
     }
   ],
   "monthly_by_region": [
@@ -49156,12 +49207,22 @@
     {
       "month": "2026-08",
       "region": "Central Vermont",
-      "gallons": 1032
+      "gallons": 1162
+    },
+    {
+      "month": "2026-08",
+      "region": "Jay+Montgomery+Troy",
+      "gallons": 380
+    },
+    {
+      "month": "2026-08",
+      "region": "Manchester",
+      "gallons": 375
     },
     {
       "month": "2026-08",
       "region": "Other",
-      "gallons": 3635
+      "gallons": 4126
     },
     {
       "month": "2026-08",
@@ -49187,6 +49248,11 @@
       "month": "2026-08",
       "region": "Winooski",
       "gallons": 510
+    },
+    {
+      "month": "2026-08",
+      "region": "Woodstock+Quechee",
+      "gallons": 655
     }
   ],
   "yearly_by_region": [
@@ -49893,17 +49959,17 @@
     {
       "year": 2026,
       "region": "Central Vermont",
-      "gallons": 17186
+      "gallons": 17316
     },
     {
       "year": 2026,
       "region": "Jay+Montgomery+Troy",
-      "gallons": 5115
+      "gallons": 5495
     },
     {
       "year": 2026,
       "region": "Manchester",
-      "gallons": 1955
+      "gallons": 2330
     },
     {
       "year": 2026,
@@ -49923,7 +49989,7 @@
     {
       "year": 2026,
       "region": "Other",
-      "gallons": 81388
+      "gallons": 81879
     },
     {
       "year": 2026,
@@ -49953,7 +50019,7 @@
     {
       "year": 2026,
       "region": "Woodstock+Quechee",
-      "gallons": 4555
+      "gallons": 5210
     }
   ],
   "region_names": [
@@ -49972,20 +50038,20 @@
     "Burlington"
   ],
   "collections_file": "oil_collections.json",
-  "collections_count": 27120,
-  "out_of_state_total": 39081,
+  "collections_count": 27141,
+  "out_of_state_total": 39282,
   "active_customer_count": 518,
   "projection": {
-    "latest_data_date": "2026-08-19",
+    "latest_data_date": "2026-08-20",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 191528,
+    "current_ytd": 193559,
     "previous_year_full": 269909,
     "previous_through_prior_month": 158242,
     "previous_same_month_total": 25119,
-    "previous_prorated_ytd": 173637.52,
-    "projected_current_year": 297719,
-    "percent_vs_previous_year": 0.103034
+    "previous_prorated_ytd": 174447.81,
+    "projected_current_year": 299478,
+    "percent_vs_previous_year": 0.109553
   },
   "region_stats": {
     "Burlington": {

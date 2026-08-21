@@ -935,6 +935,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 125,The Quarry-Barre,Barre,Washington,2019-08-19,2019,2019-08,100,True,Barre City
 125,The Quarry-Barre,Barre,Washington,2019-07-30,2019,2019-07,80,True,Barre City
 125,The Quarry-Barre,Barre,Washington,2019-07-01,2019,2019-07,125,True,Barre City
+119,Thunder Road  4567,Barre,Washington,2026-08-20,2026,2026-08,130,True,Barre Town
 119,Thunder Road  4567,Barre,Washington,2026-08-05,2026,2026-08,130,True,Barre Town
 119,Thunder Road  4567,Barre,Washington,2026-07-20,2026,2026-07,65,True,Barre Town
 119,Thunder Road  4567,Barre,Washington,2026-06-25,2026,2026-06,120,True,Barre Town
@@ -1402,6 +1403,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 802,Creek House Diner,Bethel,Windsor,2015-04-20,2015,2015-04,25,True,Bethel
 802,Creek House Diner,Bethel,Windsor,2015-03-10,2015,2015-03,25,True,Bethel
 802,Creek House Diner,Bethel,Windsor,2015-01-29,2015,2015-01,25,True,Bethel
+803,Toziers-,Bethel,Windsor,2026-08-20,2026,2026-08,100,True,Bethel
 803,Toziers-,Bethel,Windsor,2026-07-30,2026,2026-07,180,True,Bethel
 803,Toziers-,Bethel,Windsor,2026-07-15,2026,2026-07,50,True,Bethel
 803,Toziers-,Bethel,Windsor,2026-07-10,2026,2026-07,120,True,Bethel
@@ -8512,6 +8514,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 526,Jay Peak-waterslide,Jay,Orleans,2015-04-16,2015,2015-04,1000,True,Jay
 526,Jay Peak-waterslide,Jay,Orleans,2015-04-07,2015,2015-04,250,True,Jay
 526,Jay Peak-waterslide,Jay,Orleans,2015-04-03,2015,2015-04,500,True,Jay
+530,Jay Village Inn,Jay,Orleans,2026-08-20,2026,2026-08,65,True,Jay
 530,Jay Village Inn,Jay,Orleans,2026-07-24,2026,2026-07,80,True,Jay
 530,Jay Village Inn,Jay,Orleans,2026-06-12,2026,2026-06,80,True,Jay
 530,Jay Village Inn,Jay,Orleans,2026-05-11,2026,2026-05,40,True,Jay
@@ -8907,6 +8910,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1465,Lyndonville Station Irving,Lyndonville,Caledonia,2026-02-09,2026,2026-02,15,True,Lyndon
 1465,Lyndonville Station Irving,Lyndonville,Caledonia,2026-01-02,2026,2026-01,20,True,Lyndon
 1465,Lyndonville Station Irving,Lyndonville,Caledonia,2025-11-17,2025,2025-11,50,True,Lyndon
+733,Copper Grouse,Manchester,Bennington,2026-08-20,2026,2026-08,120,True,Manchester
 733,Copper Grouse,Manchester,Bennington,2026-07-15,2026,2026-07,110,True,Manchester
 733,Copper Grouse,Manchester,Bennington,2026-06-15,2026,2026-06,40,True,Manchester
 733,Copper Grouse,Manchester,Bennington,2026-05-13,2026,2026-05,55,True,Manchester
@@ -8989,6 +8993,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 733,Copper Grouse,Manchester,Bennington,2017-06-05,2017,2017-06,230,True,Manchester
 733,Copper Grouse,Manchester,Bennington,2017-02-27,2017,2017-02,150,True,Manchester
 733,Copper Grouse,Manchester,Bennington,2017-01-31,2017,2017-01,130,True,Manchester
+1462,Lost Marble-Manchester,Manchester,Bennington,2026-08-20,2026,2026-08,100,True,Manchester
 1462,Lost Marble-Manchester,Manchester,Bennington,2026-07-15,2026,2026-07,65,True,Manchester
 1462,Lost Marble-Manchester,Manchester,Bennington,2026-06-15,2026,2026-06,80,True,Manchester
 1462,Lost Marble-Manchester,Manchester,Bennington,2026-05-13,2026,2026-05,75,True,Manchester
@@ -8998,6 +9003,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1462,Lost Marble-Manchester,Manchester,Bennington,2026-01-28,2026,2026-01,60,True,Manchester
 1462,Lost Marble-Manchester,Manchester,Bennington,2026-01-09,2026,2026-01,85,True,Manchester
 1462,Lost Marble-Manchester,Manchester,Bennington,2025-12-11,2025,2025-12,100,True,Manchester
+1234,Road Runner,Manchester,Bennington,2026-08-20,2026,2026-08,120,True,Manchester
 1234,Road Runner,Manchester,Bennington,2026-07-15,2026,2026-07,110,True,Manchester
 1234,Road Runner,Manchester,Bennington,2026-06-15,2026,2026-06,85,True,Manchester
 1234,Road Runner,Manchester,Bennington,2026-05-13,2026,2026-05,20,True,Manchester
@@ -9038,6 +9044,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1234,Road Runner,Manchester,Bennington,2023-05-03,2023,2023-05,20,True,Manchester
 1234,Road Runner,Manchester,Bennington,2023-04-06,2023,2023-04,75,True,Manchester
 1234,Road Runner,Manchester,Bennington,2023-03-08,2023,2023-03,60,True,Manchester
+1443,Lola Woodfired /Austin Poulin/ Sam's Wood Fired Pi,Manchester Center,Bennington,2026-08-20,2026,2026-08,35,True,Manchester
 1443,Lola Woodfired /Austin Poulin/ Sam's Wood Fired Pi,Manchester Center,Bennington,2026-07-15,2026,2026-07,30,True,Manchester
 1443,Lola Woodfired /Austin Poulin/ Sam's Wood Fired Pi,Manchester Center,Bennington,2026-06-15,2026,2026-06,50,True,Manchester
 1443,Lola Woodfired /Austin Poulin/ Sam's Wood Fired Pi,Manchester Center,Bennington,2026-04-16,2026,2026-04,25,True,Manchester
@@ -12024,6 +12031,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 534,Dusit Thai,Newport,Orleans,2017-02-21,2017,2017-02,15,True,Newport City
 534,Dusit Thai,Newport,Orleans,2017-01-31,2017,2017-01,40,True,Newport City
 534,Dusit Thai,Newport,Orleans,2016-12-09,2016,2016-12,20,True,Newport City
+1171,Hoagies-Newport,Newport,Orleans,2026-08-20,2026,2026-08,190,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2026-08-06,2026,2026-08,180,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2026-07-24,2026,2026-07,230,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2026-07-02,2026,2026-07,300,True,Newport City
@@ -12298,6 +12306,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1503,Way Out Wax,Burlington,Chittenden,2026-05-27,2026,2026-05,60,True,Burlington
 1500,802 Deli and Market,North Troy,Orleans,2026-07-24,2026,2026-07,80,True,Troy
 1500,802 Deli and Market,North Troy,Orleans,2026-06-12,2026,2026-06,100,True,Troy
+1314,Hoagies in North Troy,North Troy,Orleans,2026-08-20,2026,2026-08,65,True,Troy
 1314,Hoagies in North Troy,North Troy,Orleans,2026-07-24,2026,2026-07,130,True,Troy
 1314,Hoagies in North Troy,North Troy,Orleans,2026-06-12,2026,2026-06,80,True,Troy
 1314,Hoagies in North Troy,North Troy,Orleans,2026-04-13,2026,2026-04,180,True,Troy
@@ -12320,6 +12329,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1314,Hoagies in North Troy,North Troy,Orleans,2024-05-21,2024,2024-05,50,True,Troy
 1314,Hoagies in North Troy,North Troy,Orleans,2024-04-18,2024,2024-04,120,True,Troy
 1314,Hoagies in North Troy,North Troy,Orleans,2024-03-18,2024,2024-03,45,True,Troy
+1436,JNETME CONCESSIONS 50%-North Troy,North Troy,Orleans,2026-08-20,2026,2026-08,55,True,Troy
 1436,JNETME CONCESSIONS 50%-North Troy,North Troy,Orleans,2026-07-24,2026,2026-07,75,True,Troy
 1436,JNETME CONCESSIONS 50%-North Troy,North Troy,Orleans,2026-06-12,2026,2026-06,20,True,Troy
 1436,JNETME CONCESSIONS 50%-North Troy,North Troy,Orleans,2026-05-11,2026,2026-05,20,True,Troy
@@ -12328,6 +12338,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1436,JNETME CONCESSIONS 50%-North Troy,North Troy,Orleans,2026-01-29,2026,2026-01,45,True,Troy
 1436,JNETME CONCESSIONS 50%-North Troy,North Troy,Orleans,2025-07-24,2025,2025-07,20,True,Troy
 1436,JNETME CONCESSIONS 50%-North Troy,North Troy,Orleans,2025-06-17,2025,2025-06,50,True,Troy
+1246,Junction Restaurant-50%-North Troy,North Troy,Orleans,2026-08-20,2026,2026-08,60,True,Troy
 1246,Junction Restaurant-50%-North Troy,North Troy,Orleans,2026-07-24,2026,2026-07,75,True,Troy
 1246,Junction Restaurant-50%-North Troy,North Troy,Orleans,2026-06-12,2026,2026-06,20,True,Troy
 1246,Junction Restaurant-50%-North Troy,North Troy,Orleans,2026-05-11,2026,2026-05,20,True,Troy
@@ -12353,6 +12364,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1246,Junction Restaurant-50%-North Troy,North Troy,Orleans,2023-06-27,2023,2023-06,100,True,Troy
 1246,Junction Restaurant-50%-North Troy,North Troy,Orleans,2023-05-11,2023,2023-05,35,True,Troy
 1246,Junction Restaurant-50%-North Troy,North Troy,Orleans,2023-04-26,2023,2023-04,10,True,Troy
+1165,Toasted Bun-North Troy,North Troy,Orleans,2026-08-20,2026,2026-08,135,True,Troy
 1165,Toasted Bun-North Troy,North Troy,Orleans,2026-07-24,2026,2026-07,145,True,Troy
 1165,Toasted Bun-North Troy,North Troy,Orleans,2026-06-12,2026,2026-06,85,True,Troy
 1165,Toasted Bun-North Troy,North Troy,Orleans,2026-05-11,2026,2026-05,80,True,Troy
@@ -13040,6 +13052,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 829,Chef Brad Crazy Sides,Quechee,Windsor,2016-10-30,2016,2016-10,50,True,Hartford
 1463,Mobil Station,Quechee,Windsor,2025-11-14,2025,2025-11,7,True,Hartford
 1463,Mobil Station,Quechee,Windsor,2025-11-14,2025,2025-11,30,True,Hartford
+1056,Quechee Gorge Snack Bar,Quechee,Windsor,2026-08-20,2026,2026-08,250,True,Hartford
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2026-07-30,2026,2026-07,200,True,Hartford
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2026-07-10,2026,2026-07,120,True,Hartford
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2026-06-30,2026,2026-06,180,True,Hartford
@@ -13094,6 +13107,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2022-05-16,2022,2022-05,100,True,Hartford
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2021-12-13,2021,2021-12,20,True,Hartford
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2021-10-21,2021,2021-10,100,True,Hartford
+827,Simon Pearce~100%,Quechee,Windsor,2026-08-20,2026,2026-08,55,True,Hartford
 827,Simon Pearce~100%,Quechee,Windsor,2026-07-30,2026,2026-07,85,True,Hartford
 827,Simon Pearce~100%,Quechee,Windsor,2026-06-30,2026,2026-06,35,True,Hartford
 827,Simon Pearce~100%,Quechee,Windsor,2026-06-15,2026,2026-06,65,True,Hartford
@@ -13225,6 +13239,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 827,Simon Pearce~100%,Quechee,Windsor,2015-04-20,2015,2015-04,75,True,Hartford
 827,Simon Pearce~100%,Quechee,Windsor,2015-03-10,2015,2015-03,50,True,Hartford
 827,Simon Pearce~100%,Quechee,Windsor,2015-01-29,2015,2015-01,60,True,Hartford
+1233,Skinny Pancake- Quechee,Quechee,Windsor,2026-08-20,2026,2026-08,40,True,Hartford
 1233,Skinny Pancake- Quechee,Quechee,Windsor,2026-07-30,2026,2026-07,65,True,Hartford
 1233,Skinny Pancake- Quechee,Quechee,Windsor,2026-07-10,2026,2026-07,30,True,Hartford
 1233,Skinny Pancake- Quechee,Quechee,Windsor,2026-06-30,2026,2026-06,60,True,Hartford
@@ -13272,6 +13287,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1233,Skinny Pancake- Quechee,Quechee,Windsor,2023-05-16,2023,2023-05,70,True,Hartford
 1233,Skinny Pancake- Quechee,Quechee,Windsor,2023-04-06,2023,2023-04,50,True,Hartford
 1233,Skinny Pancake- Quechee,Quechee,Windsor,2023-03-08,2023,2023-03,40,True,Hartford
+923,Trail Break (Taco place),Quechee,Windsor,2026-08-20,2026,2026-08,40,True,Hartford
 923,Trail Break (Taco place),Quechee,Windsor,2026-07-30,2026,2026-07,55,True,Hartford
 923,Trail Break (Taco place),Quechee,Windsor,2026-06-30,2026,2026-06,20,True,Hartford
 923,Trail Break (Taco place),Quechee,Windsor,2026-06-15,2026,2026-06,50,True,Hartford
@@ -20488,6 +20504,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 537,Parker Pie- West Glover,West Glover,Orleans,2017-03-30,2017,2017-03,95,True,Glover
 537,Parker Pie- West Glover,West Glover,Orleans,2017-03-14,2017,2017-03,50,True,Glover
 537,Parker Pie- West Glover,West Glover,Orleans,2017-01-25,2017,2017-01,50,True,Glover
+928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2026-08-20,2026,2026-08,70,True,
 928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2026-07-30,2026,2026-07,65,True,
 928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2026-07-10,2026,2026-07,80,True,
 928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2026-06-15,2026,2026-06,65,True,
@@ -20611,6 +20628,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2016-09-03,2016,2016-09,75,True,
 928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2016-08-06,2016,2016-08,75,True,
 928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2016-07-10,2016,2016-07,150,True,
+1119,Hannaford-West Lebanon,West Lebanon,Out-of-State (NH),2026-08-20,2026,2026-08,131,True,
 1119,Hannaford-West Lebanon,West Lebanon,Out-of-State (NH),2026-07-30,2026,2026-07,134,True,
 1119,Hannaford-West Lebanon,West Lebanon,Out-of-State (NH),2026-07-10,2026,2026-07,156,True,
 1119,Hannaford-West Lebanon,West Lebanon,Out-of-State (NH),2026-06-15,2026,2026-06,134,True,
@@ -22391,6 +22409,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 500,Wolcott General Store,Wolcott,Lamoille,2015-06-02,2015,2015-06,25,True,Wolcott
 500,Wolcott General Store,Wolcott,Lamoille,2015-03-02,2015,2015-03,45,True,Wolcott
 500,Wolcott General Store,Wolcott,Lamoille,2015-01-05,2015,2015-01,50,True,Wolcott
+1455,Farmer and the Bell,Woodstock,Windsor,2026-08-20,2026,2026-08,70,True,Woodstock
 1455,Farmer and the Bell,Woodstock,Windsor,2026-07-30,2026,2026-07,20,True,Woodstock
 1455,Farmer and the Bell,Woodstock,Windsor,2026-07-10,2026,2026-07,20,True,Woodstock
 1455,Farmer and the Bell,Woodstock,Windsor,2026-06-30,2026,2026-06,40,True,Woodstock
@@ -22489,6 +22508,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 820,Sante-2022|dailey catch-Woodstock,Woodstock,Windsor,2019-03-16,2019,2019-03,125,True,Woodstock
 820,Sante-2022|dailey catch-Woodstock,Woodstock,Windsor,2019-02-13,2019,2019-02,60,True,Woodstock
 820,Sante-2022|dailey catch-Woodstock,Woodstock,Windsor,2018-12-06,2018,2018-12,50,True,Woodstock
+824,White Cottage,Woodstock,Windsor,2026-08-20,2026,2026-08,90,True,Woodstock
 824,White Cottage,Woodstock,Windsor,2026-07-30,2026,2026-07,150,True,Woodstock
 824,White Cottage,Woodstock,Windsor,2026-06-30,2026,2026-06,50,True,Woodstock
 824,White Cottage,Woodstock,Windsor,2026-06-15,2026,2026-06,100,True,Woodstock
@@ -22550,6 +22570,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 825,Woodstock Country Club,Woodstock,Windsor,2021-08-17,2021,2021-08,75,True,Woodstock
 825,Woodstock Country Club,Woodstock,Windsor,2019-12-05,2019,2019-12,50,True,Woodstock
 825,Woodstock Country Club,Woodstock,Windsor,2019-04-26,2019,2019-04,50,True,Woodstock
+823,Woodstock Inn,Woodstock,Windsor,2026-08-20,2026,2026-08,110,True,Woodstock
 823,Woodstock Inn,Woodstock,Windsor,2026-07-30,2026,2026-07,80,True,Woodstock
 823,Woodstock Inn,Woodstock,Windsor,2026-07-10,2026,2026-07,50,True,Woodstock
 823,Woodstock Inn,Woodstock,Windsor,2026-06-30,2026,2026-06,80,True,Woodstock
