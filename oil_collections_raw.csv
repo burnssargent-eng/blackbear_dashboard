@@ -6207,6 +6207,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1192,Hannaford-Claremont,Claremont,Out-of-State (NH),2022-11-08,2022,2022-11,165,True,
 1337,Adventure Diner,Colchester,Chittenden,2026-01-22,2026,2026-01,55,True,Colchester
 1337,Adventure Diner,Colchester,Chittenden,2025-03-18,2025,2025-03,55,True,Colchester
+1375,Cafe Mammajuana-Colchester2025,Colchester,Chittenden,2026-08-21,2026,2026-08,50,True,Colchester
 1375,Cafe Mammajuana-Colchester2025,Colchester,Chittenden,2026-07-28,2026,2026-07,40,True,Colchester
 1375,Cafe Mammajuana-Colchester2025,Colchester,Chittenden,2026-07-06,2026,2026-07,85,True,Colchester
 1375,Cafe Mammajuana-Colchester2025,Colchester,Chittenden,2026-05-12,2026,2026-05,15,True,Colchester
@@ -6229,6 +6230,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1139,Cloud 9 catering- Sarah-COOK-Food Truck,Colchester,Chittenden,2023-06-14,2023,2023-06,50,True,Colchester
 1139,Cloud 9 catering- Sarah-COOK-Food Truck,Colchester,Chittenden,2022-12-08,2022,2022-12,40,True,Colchester
 1139,Cloud 9 catering- Sarah-COOK-Food Truck,Colchester,Chittenden,2022-07-25,2022,2022-07,60,True,Colchester
+446,McGillicuddy's On The Green,Colchester,Chittenden,2026-08-21,2026,2026-08,20,True,Colchester
 446,McGillicuddy's On The Green,Colchester,Chittenden,2026-08-11,2026,2026-08,70,True,Colchester
 446,McGillicuddy's On The Green,Colchester,Chittenden,2026-07-24,2026,2026-07,50,True,Colchester
 446,McGillicuddy's On The Green,Colchester,Chittenden,2026-07-06,2026,2026-07,130,True,Colchester
@@ -6312,6 +6314,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 446,McGillicuddy's On The Green,Colchester,Chittenden,2021-09-14,2021,2021-09,125,True,Colchester
 446,McGillicuddy's On The Green,Colchester,Chittenden,2021-08-31,2021,2021-08,100,True,Colchester
 446,McGillicuddy's On The Green,Colchester,Chittenden,2021-08-19,2021,2021-08,75,True,Colchester
+1215,NY Oven Pizza 50%,Colchester,Chittenden,2026-08-21,2026,2026-08,45,True,Colchester
 1215,NY Oven Pizza 50%,Colchester,Chittenden,2026-07-28,2026,2026-07,40,True,Colchester
 1215,NY Oven Pizza 50%,Colchester,Chittenden,2026-07-06,2026,2026-07,65,True,Colchester
 1215,NY Oven Pizza 50%,Colchester,Chittenden,2026-06-02,2026,2026-06,35,True,Colchester
@@ -6435,6 +6438,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 425,Pickled Perch,Colchester,Chittenden,2019-05-31,2019,2019-05,50,True,Colchester
 425,Pickled Perch,Colchester,Chittenden,2019-04-10,2019,2019-04,100,True,Colchester
 425,Pickled Perch,Colchester,Chittenden,2018-10-05,2018,2018-10,60,True,Colchester
+1214,Pioneer Lakeshore Cafe 50%,Colchester,Chittenden,2026-08-21,2026,2026-08,45,True,Colchester
 1214,Pioneer Lakeshore Cafe 50%,Colchester,Chittenden,2026-07-28,2026,2026-07,40,True,Colchester
 1214,Pioneer Lakeshore Cafe 50%,Colchester,Chittenden,2026-07-06,2026,2026-07,65,True,Colchester
 1214,Pioneer Lakeshore Cafe 50%,Colchester,Chittenden,2026-06-02,2026,2026-06,35,True,Colchester
@@ -7168,6 +7172,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 409,Mad Taco-Essex Jct,Essex Junction,Chittenden,2020-01-09,2020,2020-01,40,True,Essex Junction
 409,Mad Taco-Essex Jct,Essex Junction,Chittenden,2019-07-09,2019,2019-07,25,True,Essex Junction
 409,Mad Taco-Essex Jct,Essex Junction,Chittenden,2019-02-11,2019,2019-02,55,True,Essex Junction
+447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2026-08-21,2026,2026-08,75,True,Essex Junction
 447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2026-08-11,2026,2026-08,50,True,Essex Junction
 447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2026-07-24,2026,2026-07,115,True,Essex Junction
 447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2026-07-06,2026,2026-07,40,True,Essex Junction
@@ -13887,6 +13892,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 700,Rustic Roots,Shelburne,Chittenden,2015-04-06,2015,2015-04,40,True,Shelburne
 1510,Folinos Pizza-South Burlington,South Burlington,Chittenden,2026-08-17,2026,2026-08,55,True,South Burlington
 1510,Folinos Pizza-South Burlington,South Burlington,Chittenden,2026-07-17,2026,2026-07,40,True,South Burlington
+1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,Chittenden,2026-08-21,2026,2026-08,150,True,South Burlington
 1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,Chittenden,2026-07-28,2026,2026-07,150,True,South Burlington
 1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,Chittenden,2026-07-08,2026,2026-07,70,True,South Burlington
 1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,Chittenden,2026-06-26,2026,2026-06,50,True,South Burlington
@@ -14061,6 +14067,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1177,Hannaford-Shelburne Rd,South Burlington,Chittenden,2022-10-24,2022,2022-10,21,True,South Burlington
 1177,Hannaford-Shelburne Rd,South Burlington,Chittenden,2022-10-03,2022,2022-10,29,True,South Burlington
 1177,Hannaford-Shelburne Rd,South Burlington,Chittenden,2022-09-13,2022,2022-09,83,True,South Burlington
+1458,Jersey Mike's-South Burlington,South Burlington,Chittenden,2026-08-21,2026,2026-08,45,True,South Burlington
 1458,Jersey Mike's-South Burlington,South Burlington,Chittenden,2026-07-17,2026,2026-07,50,True,South Burlington
 1458,Jersey Mike's-South Burlington,South Burlington,Chittenden,2026-06-02,2026,2026-06,55,True,South Burlington
 1458,Jersey Mike's-South Burlington,South Burlington,Chittenden,2026-04-28,2026,2026-04,255,True,South Burlington
@@ -14113,6 +14120,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1483,Mountain Valley -South Burlington,South Burlington,Chittenden,2026-07-13,2026,2026-07,20,True,South Burlington
 1483,Mountain Valley -South Burlington,South Burlington,Chittenden,2026-06-19,2026,2026-06,35,True,South Burlington
 1483,Mountain Valley -South Burlington,South Burlington,Chittenden,2026-04-09,2026,2026-04,50,True,South Burlington
+344,Parkway Diner,South Burlington,Chittenden,2026-08-21,2026,2026-08,70,True,South Burlington
 344,Parkway Diner,South Burlington,Chittenden,2026-07-08,2026,2026-07,25,True,South Burlington
 344,Parkway Diner,South Burlington,Chittenden,2026-05-28,2026,2026-05,15,True,South Burlington
 344,Parkway Diner,South Burlington,Chittenden,2026-04-28,2026,2026-04,60,True,South Burlington
@@ -14188,6 +14196,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 374,Pulcinella,South Burlington,Chittenden,2021-01-05,2021,2021-01,30,True,South Burlington
 374,Pulcinella,South Burlington,Chittenden,2020-12-01,2020,2020-12,125,True,South Burlington
 374,Pulcinella,South Burlington,Chittenden,2020-08-05,2020,2020-08,110,True,South Burlington
+365,Skinny Pancake- BTV airport,South Burlington,Chittenden,2026-08-21,2026,2026-08,90,True,South Burlington
 365,Skinny Pancake- BTV airport,South Burlington,Chittenden,2026-07-08,2026,2026-07,100,True,South Burlington
 365,Skinny Pancake- BTV airport,South Burlington,Chittenden,2026-05-28,2026,2026-05,65,True,South Burlington
 365,Skinny Pancake- BTV airport,South Burlington,Chittenden,2026-04-28,2026,2026-04,75,True,South Burlington
@@ -20927,6 +20936,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 406,Auryvedic spa,Williston,Chittenden,2022-08-17,2022,2022-08,50,True,Williston
 406,Auryvedic spa,Williston,Chittenden,2022-02-17,2022,2022-02,40,True,Williston
 406,Auryvedic spa,Williston,Chittenden,2020-09-29,2020,2020-09,55,True,Williston
+403,Bliss Bee -Williston-(300),Williston,Chittenden,2026-08-21,2026,2026-08,90,True,Williston
 403,Bliss Bee -Williston-(300),Williston,Chittenden,2026-07-17,2026,2026-07,90,True,Williston
 403,Bliss Bee -Williston-(300),Williston,Chittenden,2026-07-01,2026,2026-07,150,True,Williston
 403,Bliss Bee -Williston-(300),Williston,Chittenden,2026-06-08,2026,2026-06,180,True,Williston
@@ -21036,12 +21046,14 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1299,Cannoli,Williston,Chittenden,2024-04-25,2024,2024-04,55,True,Williston
 1299,Cannoli,Williston,Chittenden,2024-03-26,2024,2024-03,55,True,Williston
 1299,Cannoli,Williston,Chittenden,2024-02-26,2024,2024-02,35,True,Williston
+1495,Folinos-Williston,Williston,Chittenden,2026-08-21,2026,2026-08,80,True,Williston
 1495,Folinos-Williston,Williston,Chittenden,2026-07-31,2026,2026-07,50,True,Williston
 1495,Folinos-Williston,Williston,Chittenden,2026-07-08,2026,2026-07,60,True,Williston
 1495,Folinos-Williston,Williston,Chittenden,2026-06-23,2026,2026-06,60,True,Williston
 1495,Folinos-Williston,Williston,Chittenden,2026-06-04,2026,2026-06,100,True,Williston
 1495,Folinos-Williston,Williston,Chittenden,2026-05-14,2026,2026-05,50,True,Williston
 1495,Folinos-Williston,Williston,Chittenden,2026-05-01,2026,2026-05,40,True,Williston
+401,Grazers pc 1425- Williston Garage,Williston,Chittenden,2026-08-21,2026,2026-08,120,True,Williston
 401,Grazers pc 1425- Williston Garage,Williston,Chittenden,2026-07-31,2026,2026-07,120,True,Williston
 401,Grazers pc 1425- Williston Garage,Williston,Chittenden,2026-07-08,2026,2026-07,160,True,Williston
 401,Grazers pc 1425- Williston Garage,Williston,Chittenden,2026-06-04,2026,2026-06,180,True,Williston
@@ -21207,6 +21219,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 401,Grazers pc 1425- Williston Garage,Williston,Chittenden,2018-04-30,2018,2018-04,40,True,Williston
 401,Grazers pc 1425- Williston Garage,Williston,Chittenden,2018-04-11,2018,2018-04,300,True,Williston
 401,Grazers pc 1425- Williston Garage,Williston,Chittenden,2018-03-07,2018,2018-03,140,True,Williston
+1183,Hannaford- Williston,Williston,Chittenden,2026-08-21,2026,2026-08,22,True,Williston
 1183,Hannaford- Williston,Williston,Chittenden,2026-06-23,2026,2026-06,23,True,Williston
 1183,Hannaford- Williston,Williston,Chittenden,2026-04-24,2026,2026-04,67,True,Williston
 1183,Hannaford- Williston,Williston,Chittenden,2026-03-05,2026,2026-03,144,True,Williston
@@ -21231,12 +21244,14 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1183,Hannaford- Williston,Williston,Chittenden,2022-10-24,2022,2022-10,28,True,Williston
 1183,Hannaford- Williston,Williston,Chittenden,2022-10-03,2022,2022-10,23,True,Williston
 1183,Hannaford- Williston,Williston,Chittenden,2022-09-22,2022,2022-09,114,True,Williston
+1459,Jersey Mike's - Williston,Williston,Chittenden,2026-08-21,2026,2026-08,35,True,Williston
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-07-31,2026,2026-07,50,True,Williston
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-06-23,2026,2026-06,20,True,Williston
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-06-04,2026,2026-06,40,True,Williston
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-05-01,2026,2026-05,125,True,Williston
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-04-24,2026,2026-04,55,True,Williston
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-03-31,2026,2026-03,15,True,Williston
+1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2026-08-21,2026,2026-08,70,True,Williston
 1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2026-07-31,2026,2026-07,50,True,Williston
 1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2026-07-08,2026,2026-07,50,True,Williston
 1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2026-06-23,2026,2026-06,100,True,Williston

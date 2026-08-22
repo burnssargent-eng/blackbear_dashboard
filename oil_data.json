@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-21T07:43:06.889276",
+  "last_updated": "2026-08-22T07:30:43.371200",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33058,7 +33058,7 @@
     {
       "month": "2026-08",
       "geo_town": "Colchester",
-      "gallons": 70,
+      "gallons": 230,
       "city": "Colchester"
     },
     {
@@ -33100,7 +33100,7 @@
     {
       "month": "2026-08",
       "geo_town": "Essex Junction",
-      "gallons": 90,
+      "gallons": 165,
       "city": "Essex Junction"
     },
     {
@@ -33190,7 +33190,7 @@
     {
       "month": "2026-08",
       "geo_town": "South Burlington",
-      "gallons": 195,
+      "gallons": 550,
       "city": "South Burlington"
     },
     {
@@ -33238,7 +33238,7 @@
     {
       "month": "2026-08",
       "geo_town": "Williston",
-      "gallons": 20,
+      "gallons": 437,
       "city": "Williston"
     },
     {
@@ -40824,7 +40824,7 @@
     {
       "month": "2026-08",
       "county": "Chittenden",
-      "gallons": 4015
+      "gallons": 5022
     },
     {
       "month": "2026-08",
@@ -40914,11 +40914,11 @@
     },
     {
       "year": 2026,
-      "gallons": 193559
+      "gallons": 194566
     }
   ],
-  "all_time_total": 2112326,
-  "current_year_total": 193559,
+  "all_time_total": 2113333,
+  "current_year_total": 194566,
   "customer_count": 794,
   "unmapped_total": 39282,
   "monthly_totals": [
@@ -41480,7 +41480,7 @@
     },
     {
       "month": "2026-08",
-      "gallons": 13643
+      "gallons": 14650
     }
   ],
   "monthly_by_region": [
@@ -49222,7 +49222,7 @@
     {
       "month": "2026-08",
       "region": "Other",
-      "gallons": 4126
+      "gallons": 5133
     },
     {
       "month": "2026-08",
@@ -49989,7 +49989,7 @@
     {
       "year": 2026,
       "region": "Other",
-      "gallons": 81879
+      "gallons": 82886
     },
     {
       "year": 2026,
@@ -50038,20 +50038,20 @@
     "Burlington"
   ],
   "collections_file": "oil_collections.json",
-  "collections_count": 27141,
+  "collections_count": 27156,
   "out_of_state_total": 39282,
   "active_customer_count": 518,
   "projection": {
-    "latest_data_date": "2026-08-20",
+    "latest_data_date": "2026-08-21",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 193559,
+    "current_ytd": 194566,
     "previous_year_full": 269909,
     "previous_through_prior_month": 158242,
     "previous_same_month_total": 25119,
-    "previous_prorated_ytd": 174447.81,
-    "projected_current_year": 299478,
-    "percent_vs_previous_year": 0.109553
+    "previous_prorated_ytd": 175258.1,
+    "projected_current_year": 299644,
+    "percent_vs_previous_year": 0.110168
   },
   "region_stats": {
     "Burlington": {
