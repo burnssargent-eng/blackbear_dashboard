@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-24T07:57:47.000438",
+  "last_updated": "2026-08-25T07:45:55.198785",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33004,7 +33004,7 @@
     {
       "month": "2026-08",
       "geo_town": "Barre City",
-      "gallons": 377,
+      "gallons": 467,
       "city": "Barre City"
     },
     {
@@ -33028,7 +33028,7 @@
     {
       "month": "2026-08",
       "geo_town": "Bethel",
-      "gallons": 100,
+      "gallons": 320,
       "city": "Bethel"
     },
     {
@@ -33046,7 +33046,7 @@
     {
       "month": "2026-08",
       "geo_town": "Burlington",
-      "gallons": 2715,
+      "gallons": 2768,
       "city": "Burlington"
     },
     {
@@ -33141,6 +33141,12 @@
     },
     {
       "month": "2026-08",
+      "geo_town": "Middlebury",
+      "gallons": 470,
+      "city": "Middlebury"
+    },
+    {
+      "month": "2026-08",
       "geo_town": "Montpelier",
       "gallons": 365,
       "city": "Montpelier"
@@ -33216,6 +33222,12 @@
       "geo_town": "Underhill",
       "gallons": 45,
       "city": "Underhill"
+    },
+    {
+      "month": "2026-08",
+      "geo_town": "Vergennes",
+      "gallons": 270,
+      "city": "Vergennes"
     },
     {
       "month": "2026-08",
@@ -40813,6 +40825,11 @@
     },
     {
       "month": "2026-08",
+      "county": "Addison",
+      "gallons": 740
+    },
+    {
+      "month": "2026-08",
       "county": "Bennington",
       "gallons": 375
     },
@@ -40824,7 +40841,7 @@
     {
       "month": "2026-08",
       "county": "Chittenden",
-      "gallons": 5022
+      "gallons": 5075
     },
     {
       "month": "2026-08",
@@ -40859,12 +40876,12 @@
     {
       "month": "2026-08",
       "county": "Washington",
-      "gallons": 2557
+      "gallons": 2647
     },
     {
       "month": "2026-08",
       "county": "Windsor",
-      "gallons": 755
+      "gallons": 975
     }
   ],
   "yearly_totals": [
@@ -40914,11 +40931,11 @@
     },
     {
       "year": 2026,
-      "gallons": 194566
+      "gallons": 195669
     }
   ],
-  "all_time_total": 2113333,
-  "current_year_total": 194566,
+  "all_time_total": 2114436,
+  "current_year_total": 195669,
   "customer_count": 794,
   "unmapped_total": 39282,
   "monthly_totals": [
@@ -41480,7 +41497,7 @@
     },
     {
       "month": "2026-08",
-      "gallons": 14650
+      "gallons": 15753
     }
   ],
   "monthly_by_region": [
@@ -49202,12 +49219,12 @@
     {
       "month": "2026-08",
       "region": "Burlington",
-      "gallons": 2440
+      "gallons": 2493
     },
     {
       "month": "2026-08",
       "region": "Central Vermont",
-      "gallons": 1162
+      "gallons": 1252
     },
     {
       "month": "2026-08",
@@ -49221,8 +49238,13 @@
     },
     {
       "month": "2026-08",
+      "region": "Middlebury+Vergennes",
+      "gallons": 740
+    },
+    {
+      "month": "2026-08",
       "region": "Other",
-      "gallons": 5133
+      "gallons": 5353
     },
     {
       "month": "2026-08",
@@ -49954,12 +49976,12 @@
     {
       "year": 2026,
       "region": "Burlington",
-      "gallons": 29453
+      "gallons": 29506
     },
     {
       "year": 2026,
       "region": "Central Vermont",
-      "gallons": 17316
+      "gallons": 17406
     },
     {
       "year": 2026,
@@ -49974,7 +49996,7 @@
     {
       "year": 2026,
       "region": "Middlebury+Vergennes",
-      "gallons": 4886
+      "gallons": 5626
     },
     {
       "year": 2026,
@@ -49989,7 +50011,7 @@
     {
       "year": 2026,
       "region": "Other",
-      "gallons": 82886
+      "gallons": 83106
     },
     {
       "year": 2026,
@@ -50038,20 +50060,20 @@
     "Burlington"
   ],
   "collections_file": "oil_collections.json",
-  "collections_count": 27156,
+  "collections_count": 27169,
   "out_of_state_total": 39282,
   "active_customer_count": 518,
   "projection": {
-    "latest_data_date": "2026-08-21",
+    "latest_data_date": "2026-08-24",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 194566,
+    "current_ytd": 195669,
     "previous_year_full": 269909,
     "previous_through_prior_month": 158242,
     "previous_same_month_total": 25119,
-    "previous_prorated_ytd": 175258.1,
-    "projected_current_year": 299644,
-    "percent_vs_previous_year": 0.110168
+    "previous_prorated_ytd": 177688.97,
+    "projected_current_year": 297221,
+    "percent_vs_previous_year": 0.101188
   },
   "region_stats": {
     "Burlington": {
@@ -50191,7 +50213,7 @@
     },
     {
       "year": 2026,
-      "places_serviced": 449,
+      "places_serviced": 450,
       "gained": 32,
       "lost": 6,
       "net": 26
