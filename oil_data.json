@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-25T07:45:55.198785",
+  "last_updated": "2026-08-26T07:45:37.559844",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33022,7 +33022,7 @@
     {
       "month": "2026-08",
       "geo_town": "Berlin",
-      "gallons": 100,
+      "gallons": 240,
       "city": "Berlin"
     },
     {
@@ -33046,7 +33046,7 @@
     {
       "month": "2026-08",
       "geo_town": "Burlington",
-      "gallons": 2768,
+      "gallons": 3913,
       "city": "Burlington"
     },
     {
@@ -33244,7 +33244,7 @@
     {
       "month": "2026-08",
       "geo_town": "Waterbury",
-      "gallons": 655,
+      "gallons": 730,
       "city": "Waterbury"
     },
     {
@@ -40841,7 +40841,7 @@
     {
       "month": "2026-08",
       "county": "Chittenden",
-      "gallons": 5075
+      "gallons": 6220
     },
     {
       "month": "2026-08",
@@ -40876,7 +40876,7 @@
     {
       "month": "2026-08",
       "county": "Washington",
-      "gallons": 2647
+      "gallons": 2862
     },
     {
       "month": "2026-08",
@@ -40931,11 +40931,11 @@
     },
     {
       "year": 2026,
-      "gallons": 195669
+      "gallons": 197029
     }
   ],
-  "all_time_total": 2114436,
-  "current_year_total": 195669,
+  "all_time_total": 2115796,
+  "current_year_total": 197029,
   "customer_count": 794,
   "unmapped_total": 39282,
   "monthly_totals": [
@@ -41497,7 +41497,7 @@
     },
     {
       "month": "2026-08",
-      "gallons": 15753
+      "gallons": 17113
     }
   ],
   "monthly_by_region": [
@@ -49219,12 +49219,12 @@
     {
       "month": "2026-08",
       "region": "Burlington",
-      "gallons": 2493
+      "gallons": 3638
     },
     {
       "month": "2026-08",
       "region": "Central Vermont",
-      "gallons": 1252
+      "gallons": 1392
     },
     {
       "month": "2026-08",
@@ -49264,7 +49264,7 @@
     {
       "month": "2026-08",
       "region": "Waterbury",
-      "gallons": 655
+      "gallons": 730
     },
     {
       "month": "2026-08",
@@ -49976,12 +49976,12 @@
     {
       "year": 2026,
       "region": "Burlington",
-      "gallons": 29506
+      "gallons": 30651
     },
     {
       "year": 2026,
       "region": "Central Vermont",
-      "gallons": 17406
+      "gallons": 17546
     },
     {
       "year": 2026,
@@ -50031,7 +50031,7 @@
     {
       "year": 2026,
       "region": "Waterbury",
-      "gallons": 6915
+      "gallons": 6990
     },
     {
       "year": 2026,
@@ -50060,20 +50060,20 @@
     "Burlington"
   ],
   "collections_file": "oil_collections.json",
-  "collections_count": 27169,
+  "collections_count": 27194,
   "out_of_state_total": 39282,
-  "active_customer_count": 518,
+  "active_customer_count": 519,
   "projection": {
-    "latest_data_date": "2026-08-24",
+    "latest_data_date": "2026-08-25",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 195669,
+    "current_ytd": 197029,
     "previous_year_full": 269909,
     "previous_through_prior_month": 158242,
     "previous_same_month_total": 25119,
-    "previous_prorated_ytd": 177688.97,
-    "projected_current_year": 297221,
-    "percent_vs_previous_year": 0.101188
+    "previous_prorated_ytd": 178499.26,
+    "projected_current_year": 297928,
+    "percent_vs_previous_year": 0.103809
   },
   "region_stats": {
     "Burlington": {
@@ -50082,7 +50082,7 @@
     },
     "Central Vermont": {
       "customers": 84,
-      "active": 56
+      "active": 57
     },
     "Jay+Montgomery+Troy": {
       "customers": 14,
