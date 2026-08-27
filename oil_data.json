@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-26T07:45:37.559844",
+  "last_updated": "2026-08-27T18:07:19.880272",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33022,7 +33022,7 @@
     {
       "month": "2026-08",
       "geo_town": "Berlin",
-      "gallons": 240,
+      "gallons": 265,
       "city": "Berlin"
     },
     {
@@ -33105,8 +33105,14 @@
     },
     {
       "month": "2026-08",
+      "geo_town": "Greensboro",
+      "gallons": 55,
+      "city": "Greensboro"
+    },
+    {
+      "month": "2026-08",
       "geo_town": "Hardwick",
-      "gallons": 185,
+      "gallons": 560,
       "city": "Hardwick"
     },
     {
@@ -33148,13 +33154,13 @@
     {
       "month": "2026-08",
       "geo_town": "Montpelier",
-      "gallons": 365,
+      "gallons": 1045,
       "city": "Montpelier"
     },
     {
       "month": "2026-08",
       "geo_town": "Morristown",
-      "gallons": 480,
+      "gallons": 685,
       "city": "Morristown"
     },
     {
@@ -33172,7 +33178,7 @@
     {
       "month": "2026-08",
       "geo_town": "Northfield",
-      "gallons": 60,
+      "gallons": 225,
       "city": "Northfield"
     },
     {
@@ -33262,7 +33268,7 @@
     {
       "month": "2026-08",
       "geo_town": "Wolcott",
-      "gallons": 55,
+      "gallons": 80,
       "city": "Wolcott"
     },
     {
@@ -40836,7 +40842,7 @@
     {
       "month": "2026-08",
       "county": "Caledonia",
-      "gallons": 435
+      "gallons": 865
     },
     {
       "month": "2026-08",
@@ -40861,7 +40867,7 @@
     {
       "month": "2026-08",
       "county": "Lamoille",
-      "gallons": 3320
+      "gallons": 3550
     },
     {
       "month": "2026-08",
@@ -40876,7 +40882,7 @@
     {
       "month": "2026-08",
       "county": "Washington",
-      "gallons": 2862
+      "gallons": 3732
     },
     {
       "month": "2026-08",
@@ -40931,12 +40937,12 @@
     },
     {
       "year": 2026,
-      "gallons": 197029
+      "gallons": 198559
     }
   ],
-  "all_time_total": 2115796,
-  "current_year_total": 197029,
-  "customer_count": 794,
+  "all_time_total": 2117326,
+  "current_year_total": 198559,
+  "customer_count": 795,
   "unmapped_total": 39282,
   "monthly_totals": [
     {
@@ -41497,7 +41503,7 @@
     },
     {
       "month": "2026-08",
-      "gallons": 17113
+      "gallons": 18643
     }
   ],
   "monthly_by_region": [
@@ -49224,7 +49230,7 @@
     {
       "month": "2026-08",
       "region": "Central Vermont",
-      "gallons": 1392
+      "gallons": 2262
     },
     {
       "month": "2026-08",
@@ -49244,7 +49250,7 @@
     {
       "month": "2026-08",
       "region": "Other",
-      "gallons": 5353
+      "gallons": 6013
     },
     {
       "month": "2026-08",
@@ -49981,7 +49987,7 @@
     {
       "year": 2026,
       "region": "Central Vermont",
-      "gallons": 17546
+      "gallons": 18416
     },
     {
       "year": 2026,
@@ -50011,7 +50017,7 @@
     {
       "year": 2026,
       "region": "Other",
-      "gallons": 83106
+      "gallons": 83766
     },
     {
       "year": 2026,
@@ -50060,20 +50066,20 @@
     "Burlington"
   ],
   "collections_file": "oil_collections.json",
-  "collections_count": 27194,
+  "collections_count": 27225,
   "out_of_state_total": 39282,
-  "active_customer_count": 519,
+  "active_customer_count": 520,
   "projection": {
-    "latest_data_date": "2026-08-25",
+    "latest_data_date": "2026-08-27",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 197029,
+    "current_ytd": 198559,
     "previous_year_full": 269909,
     "previous_through_prior_month": 158242,
     "previous_same_month_total": 25119,
-    "previous_prorated_ytd": 178499.26,
-    "projected_current_year": 297928,
-    "percent_vs_previous_year": 0.103809
+    "previous_prorated_ytd": 180119.84,
+    "projected_current_year": 297540,
+    "percent_vs_previous_year": 0.102372
   },
   "region_stats": {
     "Burlington": {
@@ -50105,8 +50111,8 @@
       "active": 2
     },
     "Other": {
-      "customers": 311,
-      "active": 233
+      "customers": 312,
+      "active": 234
     },
     "Stowe": {
       "customers": 45,
@@ -50213,10 +50219,10 @@
     },
     {
       "year": 2026,
-      "places_serviced": 450,
-      "gained": 32,
+      "places_serviced": 451,
+      "gained": 33,
       "lost": 6,
-      "net": 26
+      "net": 27
     }
   ],
   "dormant_cutoff": "2025-01-01",
@@ -50887,7 +50893,8 @@
       1504,
       1505,
       1508,
-      1510
+      1510,
+      1513
     ],
     "Stowe": [
       242,

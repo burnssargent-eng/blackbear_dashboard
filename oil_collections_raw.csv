@@ -1241,6 +1241,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2019-05-09,2019,2019-05,75,True,Berlin
 107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2019-04-11,2019,2019-04,150,True,Berlin
 107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2019-03-15,2019,2019-03,110,True,Berlin
+1492,Pizza Hut Berlin,Berlin,Washington,2026-08-27,2026,2026-08,25,True,Berlin
 1492,Pizza Hut Berlin,Berlin,Washington,2026-07-15,2026,2026-07,30,True,Berlin
 1492,Pizza Hut Berlin,Berlin,Washington,2026-05-08,2026,2026-05,25,True,Berlin
 1492,Pizza Hut Berlin,Berlin,Washington,2026-03-31,2026,2026-03,200,True,Berlin
@@ -7604,6 +7605,8 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 124,Graniteville General,Graniteville,Washington,2018-12-18,2018,2018-12,20,True,Barre Town
 124,Graniteville General,Graniteville,Washington,2018-10-16,2018,2018-10,50,True,Barre Town
 124,Graniteville General,Graniteville,Washington,2018-10-03,2018,2018-10,50,True,Barre Town
+1513,Circus Smirkus,Greensboro,Caledonia,2026-08-26,2026,2026-08,15,True,Greensboro
+550,Highland Lodge- Elsa,Greensboro,Caledonia,2026-08-26,2026,2026-08,40,True,Greensboro
 550,Highland Lodge- Elsa,Greensboro,Caledonia,2026-05-27,2026,2026-05,35,True,Greensboro
 550,Highland Lodge- Elsa,Greensboro,Caledonia,2025-09-18,2025,2025-09,45,True,Greensboro
 550,Highland Lodge- Elsa,Greensboro,Caledonia,2025-05-09,2025,2025-05,40,True,Greensboro
@@ -7626,6 +7629,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1242,Caja Taqueria-Hardwick,Hardwick,Caledonia,2024-02-07,2024,2024-02,30,True,Hardwick
 1242,Caja Taqueria-Hardwick,Hardwick,Caledonia,2023-09-22,2023,2023-09,20,True,Hardwick
 1242,Caja Taqueria-Hardwick,Hardwick,Caledonia,2023-06-23,2023,2023-06,20,True,Hardwick
+504,Cork & Fork/Scale House ~25%,Hardwick,Caledonia,2026-08-26,2026,2026-08,30,True,Hardwick
 504,Cork & Fork/Scale House ~25%,Hardwick,Caledonia,2026-08-03,2026,2026-08,30,True,Hardwick
 504,Cork & Fork/Scale House ~25%,Hardwick,Caledonia,2026-07-09,2026,2026-07,15,True,Hardwick
 504,Cork & Fork/Scale House ~25%,Hardwick,Caledonia,2026-06-18,2026,2026-06,35,True,Hardwick
@@ -7712,6 +7716,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 504,Cork & Fork/Scale House ~25%,Hardwick,Caledonia,2017-06-05,2017,2017-06,10,True,Hardwick
 504,Cork & Fork/Scale House ~25%,Hardwick,Caledonia,2016-10-30,2016,2016-10,20,True,Hardwick
 504,Cork & Fork/Scale House ~25%,Hardwick,Caledonia,2016-02-05,2016,2016-02,50,True,Hardwick
+503,Hardwick House of Pizza,Hardwick,Caledonia,2026-08-26,2026,2026-08,40,True,Hardwick
 503,Hardwick House of Pizza,Hardwick,Caledonia,2026-08-03,2026,2026-08,40,True,Hardwick
 503,Hardwick House of Pizza,Hardwick,Caledonia,2026-07-09,2026,2026-07,40,True,Hardwick
 503,Hardwick House of Pizza,Hardwick,Caledonia,2026-06-18,2026,2026-06,40,True,Hardwick
@@ -7809,6 +7814,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 503,Hardwick House of Pizza,Hardwick,Caledonia,2018-05-20,2018,2018-05,30,True,Hardwick
 503,Hardwick House of Pizza,Hardwick,Caledonia,2018-03-25,2018,2018-03,70,True,Hardwick
 503,Hardwick House of Pizza,Hardwick,Caledonia,2018-01-31,2018,2018-01,125,True,Hardwick
+1085,Hardwick kwik stop and deli,Hardwick,Caledonia,2026-08-26,2026,2026-08,75,True,Hardwick
 1085,Hardwick kwik stop and deli,Hardwick,Caledonia,2026-07-09,2026,2026-07,175,True,Hardwick
 1085,Hardwick kwik stop and deli,Hardwick,Caledonia,2026-04-17,2026,2026-04,35,True,Hardwick
 1085,Hardwick kwik stop and deli,Hardwick,Caledonia,2026-03-19,2026,2026-03,110,True,Hardwick
@@ -7898,6 +7904,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 505,M & M Beverage-Hardwick,Hardwick,Caledonia,2017-01-21,2017,2017-01,8,True,Hardwick
 505,M & M Beverage-Hardwick,Hardwick,Caledonia,2017-01-11,2017,2017-01,12,True,Hardwick
 505,M & M Beverage-Hardwick,Hardwick,Caledonia,2016-12-26,2016,2016-12,4,True,Hardwick
+501,Positive Pie 3 ~25%,Hardwick,Caledonia,2026-08-26,2026,2026-08,35,True,Hardwick
 501,Positive Pie 3 ~25%,Hardwick,Caledonia,2026-08-03,2026,2026-08,30,True,Hardwick
 501,Positive Pie 3 ~25%,Hardwick,Caledonia,2026-07-09,2026,2026-07,15,True,Hardwick
 501,Positive Pie 3 ~25%,Hardwick,Caledonia,2026-06-18,2026,2026-06,40,True,Hardwick
@@ -8034,11 +8041,13 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 501,Positive Pie 3 ~25%,Hardwick,Caledonia,2015-03-02,2015,2015-03,35,True,Hardwick
 501,Positive Pie 3 ~25%,Hardwick,Caledonia,2015-01-30,2015,2015-01,30,True,Hardwick
 501,Positive Pie 3 ~25%,Hardwick,Caledonia,2015-01-05,2015,2015-01,45,True,Hardwick
+1504,Two Peas in A Pod-Hardwick,Hardwick,Caledonia,2026-08-26,2026,2026-08,130,True,Hardwick
 1504,Two Peas in A Pod-Hardwick,Hardwick,Caledonia,2026-07-27,2026,2026-07,110,True,Hardwick
 1504,Two Peas in A Pod-Hardwick,Hardwick,Caledonia,2026-06-29,2026,2026-06,55,True,Hardwick
 1504,Two Peas in A Pod-Hardwick,Hardwick,Caledonia,2026-06-18,2026,2026-06,50,True,Hardwick
 1504,Two Peas in A Pod-Hardwick,Hardwick,Caledonia,2026-06-10,2026,2026-06,50,True,Hardwick
 1504,Two Peas in A Pod-Hardwick,Hardwick,Caledonia,2026-05-27,2026,2026-05,45,True,Hardwick
+502,Village Restaurant-Hardwick~ 50%,Hardwick,Caledonia,2026-08-26,2026,2026-08,65,True,Hardwick
 502,Village Restaurant-Hardwick~ 50%,Hardwick,Caledonia,2026-08-03,2026,2026-08,60,True,Hardwick
 502,Village Restaurant-Hardwick~ 50%,Hardwick,Caledonia,2026-07-09,2026,2026-07,30,True,Hardwick
 502,Village Restaurant-Hardwick~ 50%,Hardwick,Caledonia,2026-06-18,2026,2026-06,75,True,Hardwick
@@ -10065,6 +10074,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 523,The Inn-Montgomery,Montgomery Center,Orleans,2015-08-17,2015,2015-08,45,True,Montgomery
 523,The Inn-Montgomery,Montgomery Center,Orleans,2015-05-12,2015,2015-05,30,True,Montgomery
 523,The Inn-Montgomery,Montgomery Center,Orleans,2015-03-04,2015,2015-03,35,True,Montgomery
+1376,Arandas-Montpelier,Montpelier,Washington,2026-08-27,2026,2026-08,55,True,Montpelier
 1376,Arandas-Montpelier,Montpelier,Washington,2026-06-29,2026,2026-06,20,True,Montpelier
 1376,Arandas-Montpelier,Montpelier,Washington,2026-05-29,2026,2026-05,25,True,Montpelier
 1376,Arandas-Montpelier,Montpelier,Washington,2026-04-29,2026,2026-04,25,True,Montpelier
@@ -10079,11 +10089,13 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1376,Arandas-Montpelier,Montpelier,Washington,2025-03-26,2025,2025-03,70,True,Montpelier
 1376,Arandas-Montpelier,Montpelier,Washington,2024-12-13,2024,2024-12,30,True,Montpelier
 1376,Arandas-Montpelier,Montpelier,Washington,2024-11-14,2024,2024-11,30,True,Montpelier
+1489,Barr Hill -OIL collection,Montpelier,Washington,2026-08-27,2026,2026-08,55,True,Montpelier
 1489,Barr Hill -OIL collection,Montpelier,Washington,2026-07-22,2026,2026-07,30,True,Montpelier
 1489,Barr Hill -OIL collection,Montpelier,Washington,2026-06-26,2026,2026-06,50,True,Montpelier
 1489,Barr Hill -OIL collection,Montpelier,Washington,2026-05-29,2026,2026-05,40,True,Montpelier
 1489,Barr Hill -OIL collection,Montpelier,Washington,2026-05-07,2026,2026-05,35,True,Montpelier
 1489,Barr Hill -OIL collection,Montpelier,Washington,2026-04-20,2026,2026-04,50,True,Montpelier
+147,Buddy's Famous Burgers,Montpelier,Washington,2026-08-27,2026,2026-08,180,True,Montpelier
 147,Buddy's Famous Burgers,Montpelier,Washington,2026-07-22,2026,2026-07,75,True,Montpelier
 147,Buddy's Famous Burgers,Montpelier,Washington,2026-06-29,2026,2026-06,120,True,Montpelier
 147,Buddy's Famous Burgers,Montpelier,Washington,2026-05-29,2026,2026-05,30,True,Montpelier
@@ -10178,6 +10190,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 147,Buddy's Famous Burgers,Montpelier,Washington,2018-05-15,2018,2018-05,150,True,Montpelier
 147,Buddy's Famous Burgers,Montpelier,Washington,2018-04-02,2018,2018-04,75,True,Montpelier
 147,Buddy's Famous Burgers,Montpelier,Washington,2018-03-05,2018,2018-03,75,True,Montpelier
+1315,CHICOS MontP/The Filibuster Cafe,Montpelier,Washington,2026-08-27,2026,2026-08,15,True,Montpelier
 1315,CHICOS MontP/The Filibuster Cafe,Montpelier,Washington,2026-07-22,2026,2026-07,15,True,Montpelier
 1315,CHICOS MontP/The Filibuster Cafe,Montpelier,Washington,2026-06-29,2026,2026-06,20,True,Montpelier
 1315,CHICOS MontP/The Filibuster Cafe,Montpelier,Washington,2026-05-29,2026,2026-05,10,True,Montpelier
@@ -10207,6 +10220,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1191,GREENWAY INSTITUTE/Vermont College of Fine Arts,Montpelier,Washington,2023-12-06,2023,2023-12,35,True,Montpelier
 1191,GREENWAY INSTITUTE/Vermont College of Fine Arts,Montpelier,Washington,2023-03-02,2023,2023-03,50,True,Montpelier
 1191,GREENWAY INSTITUTE/Vermont College of Fine Arts,Montpelier,Washington,2022-10-28,2022,2022-10,110,True,Montpelier
+151,House of Tang,Montpelier,Washington,2026-08-27,2026,2026-08,30,True,Montpelier
 151,House of Tang,Montpelier,Washington,2026-05-01,2026,2026-05,50,True,Montpelier
 151,House of Tang,Montpelier,Washington,2026-03-25,2026,2026-03,65,True,Montpelier
 151,House of Tang,Montpelier,Washington,2026-02-02,2026,2026-02,40,True,Montpelier
@@ -10259,6 +10273,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 151,House of Tang,Montpelier,Washington,2018-04-18,2018,2018-04,25,True,Montpelier
 151,House of Tang,Montpelier,Washington,2018-03-06,2018,2018-03,25,True,Montpelier
 151,House of Tang,Montpelier,Washington,2018-02-15,2018,2018-02,10,True,Montpelier
+1100,Hugo’s ~,Montpelier,Washington,2026-08-27,2026,2026-08,20,True,Montpelier
 1100,Hugo’s ~,Montpelier,Washington,2026-06-29,2026,2026-06,30,True,Montpelier
 1100,Hugo’s ~,Montpelier,Washington,2026-05-12,2026,2026-05,40,True,Montpelier
 1100,Hugo’s ~,Montpelier,Washington,2026-03-25,2026,2026-03,40,True,Montpelier
@@ -10305,6 +10320,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1100,Hugo’s ~,Montpelier,Washington,2022-03-22,2022,2022-03,60,True,Montpelier
 1100,Hugo’s ~,Montpelier,Washington,2022-03-09,2022,2022-03,55,True,Montpelier
 1100,Hugo’s ~,Montpelier,Washington,2022-02-24,2022,2022-02,40,True,Montpelier
+1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2026-08-27,2026,2026-08,60,True,Montpelier
 1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2026-07-22,2026,2026-07,50,True,Montpelier
 1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2026-06-29,2026,2026-06,50,True,Montpelier
 1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2026-06-12,2026,2026-06,70,True,Montpelier
@@ -10529,6 +10545,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1209,MJH Massage,Montpelier,Washington,2024-09-24,2024,2024-09,10,True,Montpelier
 1209,MJH Massage,Montpelier,Washington,2023-08-09,2023,2023-08,10,True,Montpelier
 1209,MJH Massage,Montpelier,Washington,2023-01-18,2023,2023-01,7,True,Montpelier
+131,Namaste ~ 33%,Montpelier,Washington,2026-08-27,2026,2026-08,45,True,Montpelier
 131,Namaste ~ 33%,Montpelier,Washington,2026-08-14,2026,2026-08,75,True,Montpelier
 131,Namaste ~ 33%,Montpelier,Washington,2026-07-22,2026,2026-07,80,True,Montpelier
 131,Namaste ~ 33%,Montpelier,Washington,2026-06-29,2026,2026-06,90,True,Montpelier
@@ -10699,6 +10716,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 153,Parkers Quick Stop,Montpelier,Washington,2022-09-08,2022,2022-09,45,True,Montpelier
 153,Parkers Quick Stop,Montpelier,Washington,2017-04-25,2017,2017-04,10,True,Montpelier
 153,Parkers Quick Stop,Montpelier,Washington,2017-04-06,2017,2017-04,5,True,Montpelier
+145,Pho Capital,Montpelier,Washington,2026-08-27,2026,2026-08,35,True,Montpelier
 145,Pho Capital,Montpelier,Washington,2026-07-22,2026,2026-07,15,True,Montpelier
 145,Pho Capital,Montpelier,Washington,2026-06-29,2026,2026-06,15,True,Montpelier
 145,Pho Capital,Montpelier,Washington,2026-06-12,2026,2026-06,30,True,Montpelier
@@ -10805,6 +10823,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 145,Pho Capital,Montpelier,Washington,2015-07-15,2015,2015-07,30,True,Montpelier
 145,Pho Capital,Montpelier,Washington,2015-05-06,2015,2015-05,25,True,Montpelier
 145,Pho Capital,Montpelier,Washington,2015-01-05,2015,2015-01,40,True,Montpelier
+140,Positive Pie 2-Montpelier,Montpelier,Washington,2026-08-27,2026,2026-08,40,True,Montpelier
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2026-08-14,2026,2026-08,20,True,Montpelier
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2026-07-22,2026,2026-07,70,True,Montpelier
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2026-06-29,2026,2026-06,80,True,Montpelier
@@ -10992,6 +11011,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 137,Royal Orchid,Montpelier,Washington,2016-05-01,2016,2016-05,20,True,Montpelier
 137,Royal Orchid,Montpelier,Washington,2015-06-22,2015,2015-06,16,True,Montpelier
 137,Royal Orchid,Montpelier,Washington,2015-03-12,2015,2015-03,12,True,Montpelier
+146,Sarduccis,Montpelier,Washington,2026-08-27,2026,2026-08,50,True,Montpelier
 146,Sarduccis,Montpelier,Washington,2026-08-14,2026,2026-08,60,True,Montpelier
 146,Sarduccis,Montpelier,Washington,2026-07-22,2026,2026-07,40,True,Montpelier
 146,Sarduccis,Montpelier,Washington,2026-06-29,2026,2026-06,50,True,Montpelier
@@ -11238,6 +11258,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 157,State House,Montpelier,Washington,2023-05-18,2023,2023-05,45,True,Montpelier
 157,State House,Montpelier,Washington,2023-01-04,2023,2023-01,50,True,Montpelier
 157,State House,Montpelier,Washington,2020-04-29,2020,2020-04,50,True,Montpelier
+130,Three Penny Taproom 67%,Montpelier,Washington,2026-08-27,2026,2026-08,95,True,Montpelier
 130,Three Penny Taproom 67%,Montpelier,Washington,2026-08-14,2026,2026-08,150,True,Montpelier
 130,Three Penny Taproom 67%,Montpelier,Washington,2026-07-22,2026,2026-07,170,True,Montpelier
 130,Three Penny Taproom 67%,Montpelier,Washington,2026-06-29,2026,2026-06,180,True,Montpelier
@@ -11569,6 +11590,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 510,10 Railroad Street,Morristown,Lamoille,2015-03-02,2015,2015-03,45,True,Morristown
 510,10 Railroad Street,Morristown,Lamoille,2015-01-30,2015,2015-01,40,True,Morristown
 510,10 Railroad Street,Morristown,Lamoille,2015-01-05,2015,2015-01,25,True,Morristown
+511,Black Diamond BBQ,Morristown,Lamoille,2026-08-26,2026,2026-08,50,True,Morristown
 511,Black Diamond BBQ,Morristown,Lamoille,2026-08-03,2026,2026-08,75,True,Morristown
 511,Black Diamond BBQ,Morristown,Lamoille,2026-06-29,2026,2026-06,75,True,Morristown
 511,Black Diamond BBQ,Morristown,Lamoille,2026-05-27,2026,2026-05,85,True,Morristown
@@ -11650,6 +11672,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 511,Black Diamond BBQ,Morristown,Lamoille,2017-04-01,2017,2017-04,25,True,Morristown
 511,Black Diamond BBQ,Morristown,Lamoille,2017-01-21,2017,2017-01,15,True,Morristown
 511,Black Diamond BBQ,Morristown,Lamoille,2016-12-26,2016,2016-12,30,True,Morristown
+1352,Gondola’s Downtown Morrisville,Morristown,Lamoille,2026-08-26,2026,2026-08,35,True,Morristown
 1352,Gondola’s Downtown Morrisville,Morristown,Lamoille,2026-08-03,2026,2026-08,50,True,Morristown
 1352,Gondola’s Downtown Morrisville,Morristown,Lamoille,2026-06-29,2026,2026-06,35,True,Morristown
 1352,Gondola’s Downtown Morrisville,Morristown,Lamoille,2026-06-05,2026,2026-06,215,True,Morristown
@@ -11670,6 +11693,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1352,Gondola’s Downtown Morrisville,Morristown,Lamoille,2024-08-14,2024,2024-08,15,True,Morristown
 1352,Gondola’s Downtown Morrisville,Morristown,Lamoille,2024-07-31,2024,2024-07,45,True,Morristown
 1352,Gondola’s Downtown Morrisville,Morristown,Lamoille,2024-07-08,2024,2024-07,30,True,Morristown
+509,Moogs Place- Morrisville,Morristown,Lamoille,2026-08-26,2026,2026-08,40,True,Morristown
 509,Moogs Place- Morrisville,Morristown,Lamoille,2026-08-03,2026,2026-08,75,True,Morristown
 509,Moogs Place- Morrisville,Morristown,Lamoille,2026-06-29,2026,2026-06,70,True,Morristown
 509,Moogs Place- Morrisville,Morristown,Lamoille,2026-05-27,2026,2026-05,90,True,Morristown
@@ -11785,6 +11809,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 509,Moogs Place- Morrisville,Morristown,Lamoille,2015-01-05,2015,2015-01,45,True,Morristown
 1460,Copley Hospital,Morrisville,Lamoille,2026-05-18,2026,2026-05,50,True,Morristown
 1460,Copley Hospital,Morrisville,Lamoille,2025-10-28,2025,2025-10,20,True,Morristown
+1497,Gondola Seasonal Snack Shack Route 15,Morrisville,Lamoille,2026-08-26,2026,2026-08,45,True,Morristown
 1497,Gondola Seasonal Snack Shack Route 15,Morrisville,Lamoille,2026-08-03,2026,2026-08,80,True,Morristown
 1497,Gondola Seasonal Snack Shack Route 15,Morrisville,Lamoille,2026-06-25,2026,2026-06,75,True,Morristown
 1497,Gondola Seasonal Snack Shack Route 15,Morrisville,Lamoille,2026-05-27,2026,2026-05,30,True,Morristown
@@ -11812,6 +11837,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1181,Hannaford- Morrisville,Morrisville,Lamoille,2022-11-21,2022,2022-11,35,True,Morristown
 1181,Hannaford- Morrisville,Morrisville,Lamoille,2022-10-27,2022,2022-10,40,True,Morristown
 1181,Hannaford- Morrisville,Morrisville,Lamoille,2022-09-21,2022,2022-09,104,True,Morristown
+1071,Lost Nation Brewery,Morrisville,Lamoille,2026-08-26,2026,2026-08,35,True,Morristown
 1071,Lost Nation Brewery,Morrisville,Lamoille,2026-08-03,2026,2026-08,50,True,Morristown
 1071,Lost Nation Brewery,Morrisville,Lamoille,2026-06-29,2026,2026-06,50,True,Morristown
 1071,Lost Nation Brewery,Morrisville,Lamoille,2026-05-27,2026,2026-05,50,True,Morristown
@@ -12446,6 +12472,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1390,Folignos Pizza-Northfield,Northfield,Washington,2025-03-14,2025,2025-03,30,True,Northfield
 1390,Folignos Pizza-Northfield,Northfield,Washington,2025-02-18,2025,2025-02,20,True,Northfield
 1390,Folignos Pizza-Northfield,Northfield,Washington,2025-01-29,2025,2025-01,10,True,Northfield
+161,GOOD MEASURE!!!!-(1980),Northfield,Washington,2026-08-27,2026,2026-08,80,True,Northfield
 161,GOOD MEASURE!!!!-(1980),Northfield,Washington,2026-08-14,2026,2026-08,10,True,Northfield
 161,GOOD MEASURE!!!!-(1980),Northfield,Washington,2026-07-20,2026,2026-07,80,True,Northfield
 161,GOOD MEASURE!!!!-(1980),Northfield,Washington,2026-07-06,2026,2026-07,150,True,Northfield
@@ -12593,6 +12620,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 161,GOOD MEASURE!!!!-(1980),Northfield,Washington,2016-05-23,2016,2016-05,35,True,Northfield
 161,GOOD MEASURE!!!!-(1980),Northfield,Washington,2016-04-30,2016,2016-04,50,True,Northfield
 161,GOOD MEASURE!!!!-(1980),Northfield,Washington,2016-04-02,2016,2016-04,50,True,Northfield
+159,Northfield Pizza/ Depot Square 50%,Northfield,Washington,2026-08-27,2026,2026-08,20,True,Northfield
 159,Northfield Pizza/ Depot Square 50%,Northfield,Washington,2026-07-20,2026,2026-07,25,True,Northfield
 159,Northfield Pizza/ Depot Square 50%,Northfield,Washington,2026-06-17,2026,2026-06,30,True,Northfield
 159,Northfield Pizza/ Depot Square 50%,Northfield,Washington,2026-05-27,2026,2026-05,20,True,Northfield
@@ -12650,6 +12678,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 159,Northfield Pizza/ Depot Square 50%,Northfield,Washington,2018-06-01,2018,2018-06,25,True,Northfield
 159,Northfield Pizza/ Depot Square 50%,Northfield,Washington,2018-03-28,2018,2018-03,50,True,Northfield
 159,Northfield Pizza/ Depot Square 50%,Northfield,Washington,2017-11-02,2017,2017-11,20,True,Northfield
+162,O'Maddis 50%,Northfield,Washington,2026-08-27,2026,2026-08,20,True,Northfield
 162,O'Maddis 50%,Northfield,Washington,2026-07-20,2026,2026-07,25,True,Northfield
 162,O'Maddis 50%,Northfield,Washington,2026-06-17,2026,2026-06,30,True,Northfield
 162,O'Maddis 50%,Northfield,Washington,2026-05-27,2026,2026-05,20,True,Northfield
@@ -12784,6 +12813,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 158,South Village Mobile (Convience Plus),Northfield,Washington,2020-01-22,2020,2020-01,50,True,Northfield
 158,South Village Mobile (Convience Plus),Northfield,Washington,2019-04-24,2019,2019-04,25,True,Northfield
 158,South Village Mobile (Convience Plus),Northfield,Washington,2015-02-10,2015,2015-02,8,True,Northfield
+1419,THE STIC// old RUSTIC-Northfield,Northfield,Washington,2026-08-27,2026,2026-08,45,True,Northfield
 1419,THE STIC// old RUSTIC-Northfield,Northfield,Washington,2026-07-20,2026,2026-07,65,True,Northfield
 1419,THE STIC// old RUSTIC-Northfield,Northfield,Washington,2026-06-12,2026,2026-06,85,True,Northfield
 1419,THE STIC// old RUSTIC-Northfield,Northfield,Washington,2026-06-04,2026,2026-06,55,True,Northfield
@@ -22356,6 +22386,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1135,Waterworks-Winooski,Winooski,Chittenden,2022-08-25,2022,2022-08,100,True,Winooski
 1135,Waterworks-Winooski,Winooski,Chittenden,2022-07-25,2022,2022-07,50,True,Winooski
 1517,Zero Point Market-Winooski,Winooski,Chittenden,2026-07-17,2026,2026-07,50,True,Winooski
+500,Wolcott General Store,Wolcott,Lamoille,2026-08-26,2026,2026-08,25,True,Wolcott
 500,Wolcott General Store,Wolcott,Lamoille,2026-08-03,2026,2026-08,55,True,Wolcott
 500,Wolcott General Store,Wolcott,Lamoille,2026-06-25,2026,2026-06,40,True,Wolcott
 500,Wolcott General Store,Wolcott,Lamoille,2026-05-27,2026,2026-05,40,True,Wolcott
