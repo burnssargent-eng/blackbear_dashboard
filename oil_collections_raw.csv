@@ -3713,6 +3713,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1157,Hannaford-217 Dorset St,Burlington,Chittenden,2022-10-24,2022,2022-10,57,True,Burlington
 1157,Hannaford-217 Dorset St,Burlington,Chittenden,2022-09-16,2022,2022-09,50,True,Burlington
 1157,Hannaford-217 Dorset St,Burlington,Chittenden,2022-08-17,2022,2022-08,65,True,Burlington
+1122,Hannaford-Burlington North Ave,Burlington,Chittenden,2026-08-28,2026,2026-08,124,True,Burlington
 1122,Hannaford-Burlington North Ave,Burlington,Chittenden,2026-07-28,2026,2026-07,111,True,Burlington
 1122,Hannaford-Burlington North Ave,Burlington,Chittenden,2026-07-01,2026,2026-07,160,True,Burlington
 1122,Hannaford-Burlington North Ave,Burlington,Chittenden,2026-05-14,2026,2026-05,101,True,Burlington
@@ -4552,6 +4553,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1133,May Day,Burlington,Chittenden,2022-11-09,2022,2022-11,35,True,Burlington
 1133,May Day,Burlington,Chittenden,2022-09-22,2022,2022-09,50,True,Burlington
 1133,May Day,Burlington,Chittenden,2022-07-27,2022,2022-07,50,True,Burlington
+1457,Mr. Creemee,Burlington,Chittenden,2026-08-28,2026,2026-08,60,True,Burlington
 1457,Mr. Creemee,Burlington,Chittenden,2025-11-25,2025,2025-11,10,True,Burlington
 1220,Nectars,Burlington,Chittenden,2025-03-24,2025,2025-03,150,True,Burlington
 1220,Nectars,Burlington,Chittenden,2024-10-29,2024,2024-10,40,True,Burlington
@@ -5434,6 +5436,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1350,Switchback,Burlington,Chittenden,2024-09-16,2024,2024-09,50,True,Burlington
 1350,Switchback,Burlington,Chittenden,2024-09-03,2024,2024-09,100,True,Burlington
 1350,Switchback,Burlington,Chittenden,2024-08-08,2024,2024-08,60,True,Burlington
+1029,The Beach House- NORTH BEACH,Burlington,Chittenden,2026-08-28,2026,2026-08,45,True,Burlington
 1029,The Beach House- NORTH BEACH,Burlington,Chittenden,2026-08-05,2026,2026-08,115,True,Burlington
 1029,The Beach House- NORTH BEACH,Burlington,Chittenden,2026-07-06,2026,2026-07,115,True,Burlington
 1029,The Beach House- NORTH BEACH,Burlington,Chittenden,2025-08-19,2025,2025-08,110,True,Burlington
@@ -7513,26 +7516,26 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1461,Arandas-Fairlee,Fairlee,Orange,2026-07-24,2026,2026-07,60,True,Fairlee
 1461,Arandas-Fairlee,Fairlee,Orange,2026-04-01,2026,2026-04,35,True,Fairlee
 1461,Arandas-Fairlee,Fairlee,Orange,2026-01-20,2026,2026-01,35,True,Fairlee
-1268,Broken Hearts Burger,Fairlee,Orange,2026-07-24,2026,2026-07,80,True,Fairlee
-1268,Broken Hearts Burger,Fairlee,Orange,2026-01-20,2026,2026-01,60,True,Fairlee
-1268,Broken Hearts Burger,Fairlee,Orange,2025-10-30,2025,2025-10,70,True,Fairlee
-1268,Broken Hearts Burger,Fairlee,Orange,2025-08-18,2025,2025-08,55,True,Fairlee
-1268,Broken Hearts Burger,Fairlee,Orange,2025-06-12,2025,2025-06,40,True,Fairlee
-1268,Broken Hearts Burger,Fairlee,Orange,2025-04-21,2025,2025-04,50,True,Fairlee
-1268,Broken Hearts Burger,Fairlee,Orange,2024-12-19,2024,2024-12,50,True,Fairlee
-1268,Broken Hearts Burger,Fairlee,Orange,2024-10-28,2024,2024-10,100,True,Fairlee
-1268,Broken Hearts Burger,Fairlee,Orange,2024-09-02,2024,2024-09,55,True,Fairlee
-1268,Broken Hearts Burger,Fairlee,Orange,2024-08-05,2024,2024-08,110,True,Fairlee
-1268,Broken Hearts Burger,Fairlee,Orange,2024-06-25,2024,2024-06,45,True,Fairlee
-1268,Broken Hearts Burger,Fairlee,Orange,2024-05-30,2024,2024-05,50,True,Fairlee
-1268,Broken Hearts Burger,Fairlee,Orange,2024-04-22,2024,2024-04,20,True,Fairlee
-1268,Broken Hearts Burger,Fairlee,Orange,2024-04-01,2024,2024-04,15,True,Fairlee
-1268,Broken Hearts Burger,Fairlee,Orange,2024-03-12,2024,2024-03,40,True,Fairlee
-1268,Broken Hearts Burger,Fairlee,Orange,2024-02-06,2024,2024-02,45,True,Fairlee
-1268,Broken Hearts Burger,Fairlee,Orange,2024-01-05,2024,2024-01,90,True,Fairlee
-1268,Broken Hearts Burger,Fairlee,Orange,2023-10-16,2023,2023-10,85,True,Fairlee
-1268,Broken Hearts Burger,Fairlee,Orange,2023-09-05,2023,2023-09,100,True,Fairlee
-1268,Broken Hearts Burger,Fairlee,Orange,2023-08-03,2023,2023-08,90,True,Fairlee
+1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2026-07-24,2026,2026-07,80,True,Fairlee
+1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2026-01-20,2026,2026-01,60,True,Fairlee
+1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2025-10-30,2025,2025-10,70,True,Fairlee
+1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2025-08-18,2025,2025-08,55,True,Fairlee
+1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2025-06-12,2025,2025-06,40,True,Fairlee
+1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2025-04-21,2025,2025-04,50,True,Fairlee
+1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2024-12-19,2024,2024-12,50,True,Fairlee
+1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2024-10-28,2024,2024-10,100,True,Fairlee
+1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2024-09-02,2024,2024-09,55,True,Fairlee
+1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2024-08-05,2024,2024-08,110,True,Fairlee
+1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2024-06-25,2024,2024-06,45,True,Fairlee
+1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2024-05-30,2024,2024-05,50,True,Fairlee
+1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2024-04-22,2024,2024-04,20,True,Fairlee
+1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2024-04-01,2024,2024-04,15,True,Fairlee
+1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2024-03-12,2024,2024-03,40,True,Fairlee
+1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2024-02-06,2024,2024-02,45,True,Fairlee
+1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2024-01-05,2024,2024-01,90,True,Fairlee
+1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2023-10-16,2023,2023-10,85,True,Fairlee
+1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2023-09-05,2023,2023-09,100,True,Fairlee
+1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2023-08-03,2023,2023-08,90,True,Fairlee
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2026-07-24,2026,2026-07,110,True,Fairlee
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2026-04-01,2026,2026-04,65,True,Fairlee
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2026-01-20,2026,2026-01,330,True,Fairlee
@@ -8196,6 +8199,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 502,Village Restaurant-Hardwick~ 50%,Hardwick,Caledonia,2015-03-02,2015,2015-03,45,True,Hardwick
 502,Village Restaurant-Hardwick~ 50%,Hardwick,Caledonia,2015-01-30,2015,2015-01,20,True,Hardwick
 502,Village Restaurant-Hardwick~ 50%,Hardwick,Caledonia,2015-01-05,2015,2015-01,30,True,Hardwick
+1480,Papa Nicks-Hinesburg,Hinesburg,Chittenden,2026-08-28,2026,2026-08,100,True,Hinesburg
 1480,Papa Nicks-Hinesburg,Hinesburg,Chittenden,2026-07-13,2026,2026-07,130,True,Hinesburg
 1480,Papa Nicks-Hinesburg,Hinesburg,Chittenden,2026-05-26,2026,2026-05,55,True,Hinesburg
 1480,Papa Nicks-Hinesburg,Hinesburg,Chittenden,2026-05-07,2026,2026-05,70,True,Hinesburg
@@ -8206,6 +8210,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1480,Papa Nicks-Hinesburg,Hinesburg,Chittenden,2026-01-12,2026,2026-01,55,True,Hinesburg
 1351,Bushel Market,Hinesburgh,Chittenden,2025-09-08,2025,2025-09,90,True,Hinesburg
 1351,Bushel Market,Hinesburgh,Chittenden,2024-07-08,2024,2024-07,70,True,Hinesburg
+1030,Hinesburg Public House,Hinesburgh,Chittenden,2026-08-28,2026,2026-08,30,True,Hinesburg
 1030,Hinesburg Public House,Hinesburgh,Chittenden,2026-07-27,2026,2026-07,15,True,Hinesburg
 1030,Hinesburg Public House,Hinesburgh,Chittenden,2026-07-13,2026,2026-07,80,True,Hinesburg
 1030,Hinesburg Public House,Hinesburgh,Chittenden,2026-05-26,2026,2026-05,90,True,Hinesburg
@@ -12986,6 +12991,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 603,HAYBARN-Goddard College- 7532,Plainfield,Washington,2016-06-27,2016,2016-06,45,True,Plainfield
 603,HAYBARN-Goddard College- 7532,Plainfield,Washington,2015-11-24,2015,2015-11,38,True,Plainfield
 603,HAYBARN-Goddard College- 7532,Plainfield,Washington,2015-07-09,2015,2015-07,45,True,Plainfield
+600,Positive Pie-Plainfield,Plainfield,Washington,2026-08-28,2026,2026-08,65,True,Plainfield
 600,Positive Pie-Plainfield,Plainfield,Washington,2026-07-15,2026,2026-07,55,True,Plainfield
 600,Positive Pie-Plainfield,Plainfield,Washington,2026-06-19,2026,2026-06,20,True,Plainfield
 600,Positive Pie-Plainfield,Plainfield,Washington,2026-06-04,2026,2026-06,100,True,Plainfield
@@ -13542,6 +13548,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1136,Richford Country Club,Richford,Franklin,2023-08-22,2023,2023-08,85,True,Richford
 1136,Richford Country Club,Richford,Franklin,2023-05-11,2023,2023-05,40,True,Richford
 1136,Richford Country Club,Richford,Franklin,2022-08-24,2022,2022-08,45,True,Richford
+284,Big Spruce,Richmond,Chittenden,2026-08-28,2026,2026-08,45,True,Richmond
 284,Big Spruce,Richmond,Chittenden,2026-08-03,2026,2026-08,30,True,Richmond
 284,Big Spruce,Richmond,Chittenden,2026-07-13,2026,2026-07,20,True,Richmond
 284,Big Spruce,Richmond,Chittenden,2026-06-26,2026,2026-06,35,True,Richmond
@@ -13603,6 +13610,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 284,Big Spruce,Richmond,Chittenden,2021-01-25,2021,2021-01,65,True,Richmond
 284,Big Spruce,Richmond,Chittenden,2020-12-22,2020,2020-12,65,True,Richmond
 284,Big Spruce,Richmond,Chittenden,2020-12-01,2020,2020-12,50,True,Richmond
+282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2026-08-28,2026,2026-08,50,True,Richmond
 282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2026-08-03,2026,2026-08,40,True,Richmond
 282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2026-07-13,2026,2026-07,40,True,Richmond
 282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2026-06-26,2026,2026-06,75,True,Richmond
@@ -13859,6 +13867,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 123,Ricky's (Indian food gas station),S. Barre,Washington,2017-09-02,2017,2017-09,50,True,Barre Town
 123,Ricky's (Indian food gas station),S. Barre,Washington,2016-03-27,2016,2016-03,25,True,Barre Town
 1442,Maple Grove Farms of Vermont,Saint Johnsbury,Caledonia,2025-08-07,2025,2025-08,275,True,Saint Johnsbury
+1377,Chef Leu -Shelburne,Shelburne,Chittenden,2026-08-28,2026,2026-08,25,True,Shelburne
 1377,Chef Leu -Shelburne,Shelburne,Chittenden,2026-07-13,2026,2026-07,15,True,Shelburne
 1377,Chef Leu -Shelburne,Shelburne,Chittenden,2026-06-19,2026,2026-06,30,True,Shelburne
 1377,Chef Leu -Shelburne,Shelburne,Chittenden,2026-05-08,2026,2026-05,10,True,Shelburne
@@ -13883,6 +13892,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1298,Electras-Shelburne,Shelburne,Chittenden,2024-04-12,2024,2024-04,75,True,Shelburne
 1298,Electras-Shelburne,Shelburne,Chittenden,2024-02-19,2024,2024-02,25,True,Shelburne
 1298,Electras-Shelburne,Shelburne,Chittenden,2024-01-17,2024,2024-01,70,True,Shelburne
+1422,Folignos Pizza-Shelburne,Shelburne,Chittenden,2026-08-28,2026,2026-08,30,True,Shelburne
 1422,Folignos Pizza-Shelburne,Shelburne,Chittenden,2026-07-13,2026,2026-07,130,True,Shelburne
 1422,Folignos Pizza-Shelburne,Shelburne,Chittenden,2026-05-08,2026,2026-05,60,True,Shelburne
 1422,Folignos Pizza-Shelburne,Shelburne,Chittenden,2026-04-10,2026,2026-04,100,True,Shelburne
@@ -14090,6 +14100,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1195,Chicken Charlies,South Burlington,Chittenden,2022-12-29,2022,2022-12,50,True,South Burlington
 1195,Chicken Charlies,South Burlington,Chittenden,2022-12-15,2022,2022-12,75,True,South Burlington
 1195,Chicken Charlies,South Burlington,Chittenden,2022-11-27,2022,2022-11,300,True,South Burlington
+1448,Good Times Cafe,South Burlington,Chittenden,2026-08-28,2026,2026-08,45,True,South Burlington
 1448,Good Times Cafe,South Burlington,Chittenden,2026-07-13,2026,2026-07,20,True,South Burlington
 1448,Good Times Cafe,South Burlington,Chittenden,2026-06-19,2026,2026-06,25,True,South Burlington
 1448,Good Times Cafe,South Burlington,Chittenden,2026-06-02,2026,2026-06,30,True,South Burlington
@@ -14097,6 +14108,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1448,Good Times Cafe,South Burlington,Chittenden,2026-02-10,2026,2026-02,40,True,South Burlington
 1448,Good Times Cafe,South Burlington,Chittenden,2026-01-08,2026,2026-01,50,True,South Burlington
 1448,Good Times Cafe,South Burlington,Chittenden,2025-10-23,2025,2025-10,25,True,South Burlington
+1177,Hannaford-Shelburne Rd,South Burlington,Chittenden,2026-08-28,2026,2026-08,26,True,South Burlington
 1177,Hannaford-Shelburne Rd,South Burlington,Chittenden,2026-04-28,2026,2026-04,21,True,South Burlington
 1177,Hannaford-Shelburne Rd,South Burlington,Chittenden,2026-03-31,2026,2026-03,50,True,South Burlington
 1177,Hannaford-Shelburne Rd,South Burlington,Chittenden,2026-02-10,2026,2026-02,38,True,South Burlington
@@ -14139,6 +14151,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1458,Jersey Mike's-South Burlington,South Burlington,Chittenden,2026-07-17,2026,2026-07,50,True,South Burlington
 1458,Jersey Mike's-South Burlington,South Burlington,Chittenden,2026-06-02,2026,2026-06,55,True,South Burlington
 1458,Jersey Mike's-South Burlington,South Burlington,Chittenden,2026-04-28,2026,2026-04,255,True,South Burlington
+1216,Koto,South Burlington,Chittenden,2026-08-28,2026,2026-08,40,True,South Burlington
 1216,Koto,South Burlington,Chittenden,2026-06-19,2026,2026-06,25,True,South Burlington
 1216,Koto,South Burlington,Chittenden,2026-04-28,2026,2026-04,20,True,South Burlington
 1216,Koto,South Burlington,Chittenden,2026-02-10,2026,2026-02,30,True,South Burlington
@@ -14185,6 +14198,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 318,Mirabelles-South Burlington,South Burlington,Chittenden,2015-08-17,2015,2015-08,20,True,South Burlington
 318,Mirabelles-South Burlington,South Burlington,Chittenden,2015-06-17,2015,2015-06,35,True,South Burlington
 318,Mirabelles-South Burlington,South Burlington,Chittenden,2015-03-05,2015,2015-03,45,True,South Burlington
+1483,Mountain Valley -South Burlington,South Burlington,Chittenden,2026-08-28,2026,2026-08,35,True,South Burlington
 1483,Mountain Valley -South Burlington,South Burlington,Chittenden,2026-07-13,2026,2026-07,20,True,South Burlington
 1483,Mountain Valley -South Burlington,South Burlington,Chittenden,2026-06-19,2026,2026-06,35,True,South Burlington
 1483,Mountain Valley -South Burlington,South Burlington,Chittenden,2026-04-09,2026,2026-04,50,True,South Burlington
@@ -14221,6 +14235,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 344,Parkway Diner,South Burlington,Chittenden,2019-12-13,2019,2019-12,60,True,South Burlington
 344,Parkway Diner,South Burlington,Chittenden,2019-09-27,2019,2019-09,50,True,South Burlington
 344,Parkway Diner,South Burlington,Chittenden,2019-07-27,2019,2019-07,40,True,South Burlington
+374,Pulcinella,South Burlington,Chittenden,2026-08-28,2026,2026-08,20,True,South Burlington
 374,Pulcinella,South Burlington,Chittenden,2026-07-13,2026,2026-07,20,True,South Burlington
 374,Pulcinella,South Burlington,Chittenden,2026-05-08,2026,2026-05,20,True,South Burlington
 374,Pulcinella,South Burlington,Chittenden,2026-04-10,2026,2026-04,25,True,South Burlington
