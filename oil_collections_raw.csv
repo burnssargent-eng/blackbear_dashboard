@@ -15416,6 +15416,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 247,Doc Ponds,Stowe,Lamoille,2015-09-29,2015,2015-09,50,True,Stowe
 247,Doc Ponds,Stowe,Lamoille,2015-09-15,2015,2015-09,40,True,Stowe
 247,Doc Ponds,Stowe,Lamoille,2015-08-29,2015,2015-08,30,True,Stowe
+263,Edson Hill Manor,Stowe,Lamoille,2026-08-31,2026,2026-08,40,True,Stowe
 263,Edson Hill Manor,Stowe,Lamoille,2026-08-04,2026,2026-08,35,True,Stowe
 263,Edson Hill Manor,Stowe,Lamoille,2026-07-07,2026,2026-07,20,True,Stowe
 263,Edson Hill Manor,Stowe,Lamoille,2026-06-22,2026,2026-06,40,True,Stowe
@@ -16520,6 +16521,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 250,Sanfo,Stowe,Lamoille,2019-11-30,2019,2019-11,15,True,Stowe
 250,Sanfo,Stowe,Lamoille,2019-05-01,2019,2019-05,50,True,Stowe
 250,Sanfo,Stowe,Lamoille,2018-11-04,2018,2018-11,40,True,Stowe
+270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-08-31,2026,2026-08,110,True,Stowe
 270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-08-19,2026,2026-08,175,True,Stowe
 270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-08-04,2026,2026-08,190,True,Stowe
 270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-07-23,2026,2026-07,140,True,Stowe
@@ -17371,6 +17373,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1445,Trapp Family Lodge,Stowe,Lamoille,2025-11-18,2025,2025-11,50,True,Stowe
 1445,Trapp Family Lodge,Stowe,Lamoille,2025-10-15,2025,2025-10,55,True,Stowe
 1445,Trapp Family Lodge,Stowe,Lamoille,2025-09-22,2025,2025-09,40,True,Stowe
+267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2026-08-31,2026,2026-08,70,True,Stowe
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2026-08-19,2026,2026-08,80,True,Stowe
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2026-08-04,2026,2026-08,70,True,Stowe
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2026-07-23,2026,2026-07,65,True,Stowe

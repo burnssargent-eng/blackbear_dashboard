@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-30T12:35:31.534311",
+  "last_updated": "2026-08-31T14:48:16.968725",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33232,7 +33232,7 @@
     {
       "month": "2026-08",
       "geo_town": "Stowe",
-      "gallons": 2365,
+      "gallons": 2585,
       "city": "Stowe"
     },
     {
@@ -40885,7 +40885,7 @@
     {
       "month": "2026-08",
       "county": "Lamoille",
-      "gallons": 3550
+      "gallons": 3770
     },
     {
       "month": "2026-08",
@@ -40955,11 +40955,11 @@
     },
     {
       "year": 2026,
-      "gallons": 199299
+      "gallons": 199519
     }
   ],
-  "all_time_total": 2118066,
-  "current_year_total": 199299,
+  "all_time_total": 2118286,
+  "current_year_total": 199519,
   "customer_count": 795,
   "unmapped_total": 39282,
   "monthly_totals": [
@@ -41521,7 +41521,7 @@
     },
     {
       "month": "2026-08",
-      "gallons": 19383
+      "gallons": 19603
     }
   ],
   "monthly_by_region": [
@@ -49273,7 +49273,7 @@
     {
       "month": "2026-08",
       "region": "Stowe",
-      "gallons": 2365
+      "gallons": 2585
     },
     {
       "month": "2026-08",
@@ -50040,7 +50040,7 @@
     {
       "year": 2026,
       "region": "Stowe",
-      "gallons": 18695
+      "gallons": 18915
     },
     {
       "year": 2026,
@@ -50084,20 +50084,20 @@
     "Burlington"
   ],
   "collections_file": "oil_collections.json",
-  "collections_count": 27240,
+  "collections_count": 27243,
   "out_of_state_total": 39282,
   "active_customer_count": 520,
   "projection": {
-    "latest_data_date": "2026-08-28",
+    "latest_data_date": "2026-08-31",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 199299,
+    "current_ytd": 199519,
     "previous_year_full": 269909,
     "previous_through_prior_month": 158242,
     "previous_same_month_total": 25119,
-    "previous_prorated_ytd": 180930.13,
-    "projected_current_year": 297311,
-    "percent_vs_previous_year": 0.101525
+    "previous_prorated_ytd": 183361.0,
+    "projected_current_year": 293694,
+    "percent_vs_previous_year": 0.088121
   },
   "region_stats": {
     "Burlington": {
