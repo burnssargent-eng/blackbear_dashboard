@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-31T14:48:16.968725",
+  "last_updated": "2026-09-01T12:22:52.849490",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33003,6 +33003,12 @@
     },
     {
       "month": "2026-08",
+      "geo_town": "Albany",
+      "gallons": 145,
+      "city": "Albany"
+    },
+    {
+      "month": "2026-08",
       "geo_town": "Barre City",
       "gallons": 467,
       "city": "Barre City"
@@ -33087,6 +33093,12 @@
     },
     {
       "month": "2026-08",
+      "geo_town": "Eden",
+      "gallons": 60,
+      "city": "Eden"
+    },
+    {
+      "month": "2026-08",
       "geo_town": "Enosburgh",
       "gallons": 247,
       "city": "Enosburgh"
@@ -33136,7 +33148,7 @@
     {
       "month": "2026-08",
       "geo_town": "Jay",
-      "gallons": 65,
+      "gallons": 290,
       "city": "Jay"
     },
     {
@@ -33159,6 +33171,12 @@
     },
     {
       "month": "2026-08",
+      "geo_town": "Montgomery",
+      "gallons": 105,
+      "city": "Montgomery"
+    },
+    {
+      "month": "2026-08",
       "geo_town": "Montpelier",
       "gallons": 1045,
       "city": "Montpelier"
@@ -33172,7 +33190,7 @@
     {
       "month": "2026-08",
       "geo_town": "Newport City",
-      "gallons": 678,
+      "gallons": 848,
       "city": "Newport City"
     },
     {
@@ -33232,7 +33250,7 @@
     {
       "month": "2026-08",
       "geo_town": "Stowe",
-      "gallons": 2585,
+      "gallons": 3385,
       "city": "Stowe"
     },
     {
@@ -33268,7 +33286,7 @@
     {
       "month": "2026-08",
       "geo_town": "Waterbury",
-      "gallons": 730,
+      "gallons": 1045,
       "city": "Waterbury"
     },
     {
@@ -40885,12 +40903,12 @@
     {
       "month": "2026-08",
       "county": "Lamoille",
-      "gallons": 3770
+      "gallons": 4630
     },
     {
       "month": "2026-08",
       "county": "Orleans",
-      "gallons": 1395
+      "gallons": 2040
     },
     {
       "month": "2026-08",
@@ -40900,7 +40918,7 @@
     {
       "month": "2026-08",
       "county": "Washington",
-      "gallons": 3797
+      "gallons": 4112
     },
     {
       "month": "2026-08",
@@ -40955,11 +40973,11 @@
     },
     {
       "year": 2026,
-      "gallons": 199519
+      "gallons": 201339
     }
   ],
-  "all_time_total": 2118286,
-  "current_year_total": 199519,
+  "all_time_total": 2120106,
+  "current_year_total": 201339,
   "customer_count": 795,
   "unmapped_total": 39282,
   "monthly_totals": [
@@ -41521,7 +41539,7 @@
     },
     {
       "month": "2026-08",
-      "gallons": 19603
+      "gallons": 21423
     }
   ],
   "monthly_by_region": [
@@ -49253,7 +49271,7 @@
     {
       "month": "2026-08",
       "region": "Jay+Montgomery+Troy",
-      "gallons": 380
+      "gallons": 710
     },
     {
       "month": "2026-08",
@@ -49268,12 +49286,12 @@
     {
       "month": "2026-08",
       "region": "Other",
-      "gallons": 6524
+      "gallons": 6899
     },
     {
       "month": "2026-08",
       "region": "Stowe",
-      "gallons": 2585
+      "gallons": 3385
     },
     {
       "month": "2026-08",
@@ -49288,7 +49306,7 @@
     {
       "month": "2026-08",
       "region": "Waterbury",
-      "gallons": 730
+      "gallons": 1045
     },
     {
       "month": "2026-08",
@@ -50010,7 +50028,7 @@
     {
       "year": 2026,
       "region": "Jay+Montgomery+Troy",
-      "gallons": 5495
+      "gallons": 5825
     },
     {
       "year": 2026,
@@ -50035,12 +50053,12 @@
     {
       "year": 2026,
       "region": "Other",
-      "gallons": 84277
+      "gallons": 84652
     },
     {
       "year": 2026,
       "region": "Stowe",
-      "gallons": 18915
+      "gallons": 19715
     },
     {
       "year": 2026,
@@ -50055,7 +50073,7 @@
     {
       "year": 2026,
       "region": "Waterbury",
-      "gallons": 6990
+      "gallons": 7305
     },
     {
       "year": 2026,
@@ -50084,20 +50102,20 @@
     "Burlington"
   ],
   "collections_file": "oil_collections.json",
-  "collections_count": 27243,
+  "collections_count": 27269,
   "out_of_state_total": 39282,
   "active_customer_count": 520,
   "projection": {
     "latest_data_date": "2026-08-31",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 199519,
+    "current_ytd": 201339,
     "previous_year_full": 269909,
     "previous_through_prior_month": 158242,
     "previous_same_month_total": 25119,
     "previous_prorated_ytd": 183361.0,
-    "projected_current_year": 293694,
-    "percent_vs_previous_year": 0.088121
+    "projected_current_year": 296373,
+    "percent_vs_previous_year": 0.098047
   },
   "region_stats": {
     "Burlington": {

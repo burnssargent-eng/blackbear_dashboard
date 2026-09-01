@@ -1,6 +1,7 @@
 customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1498,Barre Country Club-Plainfield,Burlington,Chittenden,2026-07-29,2026,2026-07,150,True,Burlington
 1509,"Champlain Valley Fairgrounds, Lot P",Burlington,Chittenden,2026-06-13,2026,2026-06,2700,True,Burlington
+551,The Genny- Albany General Store,Albany,Orleans,2026-08-31,2026,2026-08,145,True,Albany
 551,The Genny- Albany General Store,Albany,Orleans,2026-07-05,2026,2026-07,165,True,Albany
 551,The Genny- Albany General Store,Albany,Orleans,2026-04-15,2026,2026-04,95,True,Albany
 551,The Genny- Albany General Store,Albany,Orleans,2026-02-25,2026,2026-02,85,True,Albany
@@ -6935,6 +6936,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1309,CUTLER,East Montpelier,Washington,2024-01-22,2024,2024-01,25,True,East Montpelier
 1407,Fox Market-East Montpelier,East Montpelier,Washington,2025-04-22,2025,2025-04,30,True,East Montpelier
 1407,Fox Market-East Montpelier,East Montpelier,Washington,2025-03-10,2025,2025-03,35,True,East Montpelier
+1364,Snake and Apple,Eden,Lamoille,2026-08-31,2026,2026-08,30,True,Eden
 1364,Snake and Apple,Eden,Lamoille,2026-07-09,2026,2026-07,95,True,Eden
 1364,Snake and Apple,Eden,Lamoille,2026-05-11,2026,2026-05,60,True,Eden
 1364,Snake and Apple,Eden,Lamoille,2026-04-03,2026,2026-04,80,True,Eden
@@ -6944,6 +6946,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1364,Snake and Apple,Eden,Lamoille,2025-06-17,2025,2025-06,80,True,Eden
 1364,Snake and Apple,Eden,Lamoille,2025-04-18,2025,2025-04,50,True,Eden
 1364,Snake and Apple,Eden,Lamoille,2024-12-28,2024,2024-12,55,True,Eden
+1276,Lake Eden Country Store,Eden Mills,Lamoille,2026-08-31,2026,2026-08,30,True,Eden
 1276,Lake Eden Country Store,Eden Mills,Lamoille,2026-07-09,2026,2026-07,50,True,Eden
 1276,Lake Eden Country Store,Eden Mills,Lamoille,2026-06-12,2026,2026-06,80,True,Eden
 1276,Lake Eden Country Store,Eden Mills,Lamoille,2026-05-11,2026,2026-05,25,True,Eden
@@ -8362,6 +8365,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1300,Jacksonville General Store,Jacksonville,Windham,2024-10-14,2024,2024-10,40,True,Whitingham
 1300,Jacksonville General Store,Jacksonville,Windham,2024-08-15,2024,2024-08,90,True,Whitingham
 1300,Jacksonville General Store,Jacksonville,Windham,2024-03-25,2024,2024-03,70,True,Whitingham
+528,Jay Peak- Golf Course,Jay,Orleans,2026-08-31,2026,2026-08,130,True,Jay
 528,Jay Peak- Golf Course,Jay,Orleans,2026-07-09,2026,2026-07,140,True,Jay
 528,Jay Peak- Golf Course,Jay,Orleans,2026-04-13,2026,2026-04,10,True,Jay
 528,Jay Peak- Golf Course,Jay,Orleans,2026-02-25,2026,2026-02,60,True,Jay
@@ -8393,6 +8397,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 528,Jay Peak- Golf Course,Jay,Orleans,2016-07-07,2016,2016-07,50,True,Jay
 528,Jay Peak- Golf Course,Jay,Orleans,2016-05-29,2016,2016-05,50,True,Jay
 528,Jay Peak- Golf Course,Jay,Orleans,2015-08-17,2015,2015-08,80,True,Jay
+527,Jay Peak- Hotel Jay -OutsideNow,Jay,Orleans,2026-08-31,2026,2026-08,25,True,Jay
 527,Jay Peak- Hotel Jay -OutsideNow,Jay,Orleans,2026-05-11,2026,2026-05,120,True,Jay
 527,Jay Peak- Hotel Jay -OutsideNow,Jay,Orleans,2026-04-13,2026,2026-04,300,True,Jay
 527,Jay Peak- Hotel Jay -OutsideNow,Jay,Orleans,2026-02-25,2026,2026-02,150,True,Jay
@@ -8470,6 +8475,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 529,Jay Peak-Stateside (loading dock),Jay,Orleans,2016-08-18,2016,2016-08,30,True,Jay
 529,Jay Peak-Stateside (loading dock),Jay,Orleans,2016-07-07,2016,2016-07,80,True,Jay
 529,Jay Peak-Stateside (loading dock),Jay,Orleans,2015-02-09,2015,2015-02,70,True,Jay
+526,Jay Peak-waterslide,Jay,Orleans,2026-08-31,2026,2026-08,70,True,Jay
 526,Jay Peak-waterslide,Jay,Orleans,2026-07-09,2026,2026-07,150,True,Jay
 526,Jay Peak-waterslide,Jay,Orleans,2026-05-11,2026,2026-05,130,True,Jay
 526,Jay Peak-waterslide,Jay,Orleans,2026-04-13,2026,2026-04,390,True,Jay
@@ -9929,6 +9935,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 524,OMAKASE/Big Jay Tavern,Montgomery,Orleans,2015-09-28,2015,2015-09,60,True,Montgomery
 524,OMAKASE/Big Jay Tavern,Montgomery,Orleans,2015-04-07,2015,2015-04,20,True,Montgomery
 524,OMAKASE/Big Jay Tavern,Montgomery,Orleans,2015-02-09,2015,2015-02,27,True,Montgomery
+522,Snow Shoe Lodge-Montgomery,Montgomery Center,Orleans,2026-08-31,2026,2026-08,90,True,Montgomery
 522,Snow Shoe Lodge-Montgomery,Montgomery Center,Orleans,2026-07-09,2026,2026-07,70,True,Montgomery
 522,Snow Shoe Lodge-Montgomery,Montgomery Center,Orleans,2026-05-11,2026,2026-05,105,True,Montgomery
 522,Snow Shoe Lodge-Montgomery,Montgomery Center,Orleans,2026-03-18,2026,2026-03,110,True,Montgomery
@@ -10020,6 +10027,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 522,Snow Shoe Lodge-Montgomery,Montgomery Center,Orleans,2015-09-09,2015,2015-09,20,True,Montgomery
 522,Snow Shoe Lodge-Montgomery,Montgomery Center,Orleans,2015-08-17,2015,2015-08,35,True,Montgomery
 522,Snow Shoe Lodge-Montgomery,Montgomery Center,Orleans,2015-05-12,2015,2015-05,25,True,Montgomery
+523,The Inn-Montgomery,Montgomery Center,Orleans,2026-08-31,2026,2026-08,15,True,Montgomery
 523,The Inn-Montgomery,Montgomery Center,Orleans,2026-07-09,2026,2026-07,25,True,Montgomery
 523,The Inn-Montgomery,Montgomery Center,Orleans,2026-05-11,2026,2026-05,10,True,Montgomery
 523,The Inn-Montgomery,Montgomery Center,Orleans,2026-03-18,2026,2026-03,25,True,Montgomery
@@ -12100,6 +12108,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 534,Dusit Thai,Newport,Orleans,2017-02-21,2017,2017-02,15,True,Newport City
 534,Dusit Thai,Newport,Orleans,2017-01-31,2017,2017-01,40,True,Newport City
 534,Dusit Thai,Newport,Orleans,2016-12-09,2016,2016-12,20,True,Newport City
+1171,Hoagies-Newport,Newport,Orleans,2026-08-31,2026,2026-08,140,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2026-08-20,2026,2026-08,190,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2026-08-06,2026,2026-08,180,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2026-07-24,2026,2026-07,230,True,Newport City
@@ -12176,6 +12185,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1074,JumbleBite/Hilmers on Main,Newport,Orleans,2022-07-14,2022,2022-07,25,True,Newport City
 1074,JumbleBite/Hilmers on Main,Newport,Orleans,2022-06-07,2022,2022-06,50,True,Newport City
 1074,JumbleBite/Hilmers on Main,Newport,Orleans,2021-10-14,2021,2021-10,30,True,Newport City
+533,Newport Country Club,Newport,Orleans,2026-08-31,2026,2026-08,30,True,Newport City
 533,Newport Country Club,Newport,Orleans,2026-08-06,2026,2026-08,20,True,Newport City
 533,Newport Country Club,Newport,Orleans,2026-07-24,2026,2026-07,70,True,Newport City
 533,Newport Country Club,Newport,Orleans,2026-06-12,2026,2026-06,25,True,Newport City
@@ -14887,6 +14897,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2025-07-24,2025,2025-07,60,True,Stowe
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2025-06-17,2025,2025-06,45,True,Stowe
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2025-04-15,2025,2025-04,35,True,Stowe
+287,Backyard Tavern 50%,Stowe,Lamoille,2026-08-31,2026,2026-08,40,True,Stowe
 287,Backyard Tavern 50%,Stowe,Lamoille,2026-08-19,2026,2026-08,65,True,Stowe
 287,Backyard Tavern 50%,Stowe,Lamoille,2026-07-23,2026,2026-07,30,True,Stowe
 287,Backyard Tavern 50%,Stowe,Lamoille,2026-07-07,2026,2026-07,70,True,Stowe
@@ -15070,6 +15081,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1103,Burt’s Pub/old Blue Donkey,Stowe,Lamoille,2022-05-13,2022,2022-05,20,True,Stowe
 1103,Burt’s Pub/old Blue Donkey,Stowe,Lamoille,2022-03-16,2022,2022-03,15,True,Stowe
 1103,Burt’s Pub/old Blue Donkey,Stowe,Lamoille,2022-03-02,2022,2022-03,20,True,Stowe
+242,Cork Wine Bar-Stowe,Stowe,Lamoille,2026-08-31,2026,2026-08,35,True,Stowe
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2026-07-09,2026,2026-07,15,True,Stowe
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2026-05-27,2026,2026-05,20,True,Stowe
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2026-04-29,2026,2026-04,20,True,Stowe
@@ -15166,6 +15178,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2016-07-11,2016,2016-07,30,True,Stowe
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2016-04-11,2016,2016-04,35,True,Stowe
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2015-12-04,2015,2015-12,20,True,Stowe
+247,Doc Ponds,Stowe,Lamoille,2026-08-31,2026,2026-08,120,True,Stowe
 247,Doc Ponds,Stowe,Lamoille,2026-08-19,2026,2026-08,130,True,Stowe
 247,Doc Ponds,Stowe,Lamoille,2026-08-04,2026,2026-08,100,True,Stowe
 247,Doc Ponds,Stowe,Lamoille,2026-07-23,2026,2026-07,220,True,Stowe
@@ -15480,6 +15493,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 263,Edson Hill Manor,Stowe,Lamoille,2019-02-17,2019,2019-02,50,True,Stowe
 263,Edson Hill Manor,Stowe,Lamoille,2018-10-21,2018,2018-10,25,True,Stowe
 263,Edson Hill Manor,Stowe,Lamoille,2018-02-21,2018,2018-02,50,True,Stowe
+1116,GreenGoddess,Stowe,Lamoille,2026-08-31,2026,2026-08,45,True,Stowe
 1116,GreenGoddess,Stowe,Lamoille,2026-06-09,2026,2026-06,50,True,Stowe
 1116,GreenGoddess,Stowe,Lamoille,2026-03-20,2026,2026-03,20,True,Stowe
 1116,GreenGoddess,Stowe,Lamoille,2026-01-12,2026,2026-01,30,True,Stowe
@@ -15531,6 +15545,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2022-04-07,2022,2022-04,90,True,Stowe
 1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2021-12-16,2021,2021-12,50,True,Stowe
 1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2021-09-30,2021,2021-09,75,True,Stowe
+262,Idletyme,Stowe,Lamoille,2026-08-31,2026,2026-08,100,True,Stowe
 262,Idletyme,Stowe,Lamoille,2026-08-19,2026,2026-08,115,True,Stowe
 262,Idletyme,Stowe,Lamoille,2026-08-04,2026,2026-08,120,True,Stowe
 262,Idletyme,Stowe,Lamoille,2026-07-23,2026,2026-07,140,True,Stowe
@@ -15903,6 +15918,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1361,Outbound Stowe,Stowe,Lamoille,2025-01-14,2025,2025-01,40,True,Stowe
 1361,Outbound Stowe,Stowe,Lamoille,2024-11-18,2024,2024-11,35,True,Stowe
 1361,Outbound Stowe,Stowe,Lamoille,2024-09-30,2024,2024-09,20,True,Stowe
+261,Piecasso,Stowe,Lamoille,2026-08-31,2026,2026-08,110,True,Stowe
 261,Piecasso,Stowe,Lamoille,2026-08-19,2026,2026-08,115,True,Stowe
 261,Piecasso,Stowe,Lamoille,2026-08-04,2026,2026-08,120,True,Stowe
 261,Piecasso,Stowe,Lamoille,2026-07-23,2026,2026-07,130,True,Stowe
@@ -16191,6 +16207,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 276,RAJA- Umami,Stowe,Lamoille,2020-12-24,2020,2020-12,25,True,Stowe
 276,RAJA- Umami,Stowe,Lamoille,2020-12-02,2020,2020-12,40,True,Stowe
 276,RAJA- Umami,Stowe,Lamoille,2020-10-06,2020,2020-10,65,True,Stowe
+248,Ranch Camp 50%,Stowe,Lamoille,2026-08-31,2026,2026-08,40,True,Stowe
 248,Ranch Camp 50%,Stowe,Lamoille,2026-08-19,2026,2026-08,65,True,Stowe
 248,Ranch Camp 50%,Stowe,Lamoille,2026-07-23,2026,2026-07,30,True,Stowe
 248,Ranch Camp 50%,Stowe,Lamoille,2026-07-07,2026,2026-07,70,True,Stowe
@@ -16340,6 +16357,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 248,Ranch Camp 50%,Stowe,Lamoille,2019-03-30,2019,2019-03,30,True,Stowe
 248,Ranch Camp 50%,Stowe,Lamoille,2019-03-03,2019,2019-03,40,True,Stowe
 248,Ranch Camp 50%,Stowe,Lamoille,2019-02-03,2019,2019-02,90,True,Stowe
+249,Rim Rock-Stowe,Stowe,Lamoille,2026-08-31,2026,2026-08,30,True,Stowe
 249,Rim Rock-Stowe,Stowe,Lamoille,2026-08-19,2026,2026-08,25,True,Stowe
 249,Rim Rock-Stowe,Stowe,Lamoille,2026-08-04,2026,2026-08,30,True,Stowe
 249,Rim Rock-Stowe,Stowe,Lamoille,2026-07-23,2026,2026-07,40,True,Stowe
@@ -16521,7 +16539,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 250,Sanfo,Stowe,Lamoille,2019-11-30,2019,2019-11,15,True,Stowe
 250,Sanfo,Stowe,Lamoille,2019-05-01,2019,2019-05,50,True,Stowe
 250,Sanfo,Stowe,Lamoille,2018-11-04,2018,2018-11,40,True,Stowe
-270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-08-31,2026,2026-08,110,True,Stowe
+270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-08-31,2026,2026-08,120,True,Stowe
 270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-08-19,2026,2026-08,175,True,Stowe
 270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-08-04,2026,2026-08,190,True,Stowe
 270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-07-23,2026,2026-07,140,True,Stowe
@@ -16675,6 +16693,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 275,Stowe Transfer Station,Stowe,Lamoille,2021-09-30,2021,2021-09,15,True,Stowe
 275,Stowe Transfer Station,Stowe,Lamoille,2021-03-18,2021,2021-03,20,True,Stowe
 275,Stowe Transfer Station,Stowe,Lamoille,2020-10-01,2020,2020-10,100,True,Stowe
+258,Stowebowl,Stowe,Lamoille,2026-08-31,2026,2026-08,50,True,Stowe
 258,Stowebowl,Stowe,Lamoille,2026-08-04,2026,2026-08,40,True,Stowe
 258,Stowebowl,Stowe,Lamoille,2026-07-07,2026,2026-07,70,True,Stowe
 258,Stowebowl,Stowe,Lamoille,2026-04-29,2026,2026-04,65,True,Stowe
@@ -16774,6 +16793,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 258,Stowebowl,Stowe,Lamoille,2016-04-11,2016,2016-04,30,True,Stowe
 258,Stowebowl,Stowe,Lamoille,2016-03-19,2016,2016-03,30,True,Stowe
 258,Stowebowl,Stowe,Lamoille,2016-02-27,2016,2016-02,25,True,Stowe
+1223,StoweCider-Shakedown,Stowe,Lamoille,2026-08-31,2026,2026-08,40,True,Stowe
 1223,StoweCider-Shakedown,Stowe,Lamoille,2026-08-04,2026,2026-08,80,True,Stowe
 1223,StoweCider-Shakedown,Stowe,Lamoille,2026-07-07,2026,2026-07,20,True,Stowe
 1223,StoweCider-Shakedown,Stowe,Lamoille,2026-06-25,2026,2026-06,60,True,Stowe
@@ -16887,6 +16907,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 254,Thai in the mountain (SaenSook)-Mountain Rd,Stowe,Lamoille,2016-09-19,2016,2016-09,30,True,Stowe
 254,Thai in the mountain (SaenSook)-Mountain Rd,Stowe,Lamoille,2016-08-08,2016,2016-08,32,True,Stowe
 254,Thai in the mountain (SaenSook)-Mountain Rd,Stowe,Lamoille,2016-07-11,2016,2016-07,30,True,Stowe
+252,The Bench,Stowe,Lamoille,2026-08-31,2026,2026-08,40,True,Stowe
 252,The Bench,Stowe,Lamoille,2026-08-19,2026,2026-08,45,True,Stowe
 252,The Bench,Stowe,Lamoille,2026-08-04,2026,2026-08,40,True,Stowe
 252,The Bench,Stowe,Lamoille,2026-07-23,2026,2026-07,35,True,Stowe
@@ -17144,6 +17165,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 255,The Butchery,Stowe,Lamoille,2018-11-04,2018,2018-11,35,True,Stowe
 255,The Butchery,Stowe,Lamoille,2018-06-17,2018,2018-06,25,True,Stowe
 255,The Butchery,Stowe,Lamoille,2018-04-21,2018,2018-04,25,True,Stowe
+246,The Stowe Inn Tavern,Stowe,Lamoille,2026-08-31,2026,2026-08,40,True,Stowe
 246,The Stowe Inn Tavern,Stowe,Lamoille,2026-07-23,2026,2026-07,15,True,Stowe
 246,The Stowe Inn Tavern,Stowe,Lamoille,2026-07-09,2026,2026-07,50,True,Stowe
 246,The Stowe Inn Tavern,Stowe,Lamoille,2026-06-09,2026,2026-06,40,True,Stowe
@@ -17602,6 +17624,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2015-03-18,2015,2015-03,35,True,Stowe
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2015-02-25,2015,2015-02,40,True,Stowe
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2015-01-14,2015,2015-01,45,True,Stowe
+244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2026-08-31,2026,2026-08,100,True,Stowe
 244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2026-08-04,2026,2026-08,100,True,Stowe
 244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2026-07-09,2026,2026-07,70,True,Stowe
 244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2026-06-22,2026,2026-06,70,True,Stowe
@@ -18161,6 +18184,29 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1266,1824 House,Waitsfield,Washington,2025-04-23,2025,2025-04,40,True,Waitsfield
 1266,1824 House,Waitsfield,Washington,2024-06-07,2024,2024-06,45,True,Waitsfield
 1266,1824 House,Waitsfield,Washington,2023-06-16,2023,2023-06,50,True,Waitsfield
+206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2026-07-16,2026,2026-07,20,True,Waitsfield
+206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2026-05-01,2026,2026-05,50,True,Waitsfield
+206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2026-03-02,2026,2026-03,35,True,Waitsfield
+206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2026-01-05,2026,2026-01,20,True,Waitsfield
+206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2025-12-16,2025,2025-12,20,True,Waitsfield
+206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2025-11-14,2025,2025-11,45,True,Waitsfield
+206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2025-10-02,2025,2025-10,50,True,Waitsfield
+206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2025-08-05,2025,2025-08,55,True,Waitsfield
+206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2025-06-16,2025,2025-06,10,True,Waitsfield
+206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2025-05-29,2025,2025-05,45,True,Waitsfield
+206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2025-04-23,2025,2025-04,30,True,Waitsfield
+206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2025-03-05,2025,2025-03,40,True,Waitsfield
+206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2023-09-29,2023,2023-09,7,True,Waitsfield
+206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2022-03-04,2022,2022-03,30,True,Waitsfield
+206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2021-10-28,2021,2021-10,115,True,Waitsfield
+206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2020-03-17,2020,2020-03,25,True,Waitsfield
+206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2020-03-03,2020,2020-03,40,True,Waitsfield
+206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2020-01-11,2020,2020-01,25,True,Waitsfield
+206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-11-21,2019,2019-11,35,True,Waitsfield
+206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-10-08,2019,2019-10,75,True,Waitsfield
+206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-06-20,2019,2019-06,25,True,Waitsfield
+206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-03-12,2019,2019-03,20,True,Waitsfield
+206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-02-19,2019,2019-02,20,True,Waitsfield
 211,Canteen Creemee Company,Waitsfield,Washington,2026-08-18,2026,2026-08,90,True,Waitsfield
 211,Canteen Creemee Company,Waitsfield,Washington,2026-07-16,2026,2026-07,170,True,Waitsfield
 211,Canteen Creemee Company,Waitsfield,Washington,2026-05-07,2026,2026-05,80,True,Waitsfield
@@ -18782,29 +18828,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1321,MRD-KYLE,Waitsfield,Washington,2026-03-02,2026,2026-03,55,True,Waitsfield
 1321,MRD-KYLE,Waitsfield,Washington,2025-11-25,2025,2025-11,50,True,Waitsfield
 1321,MRD-KYLE,Waitsfield,Washington,2025-03-06,2025,2025-03,55,True,Waitsfield
-206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2026-07-16,2026,2026-07,20,True,Waitsfield
-206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2026-05-01,2026,2026-05,50,True,Waitsfield
-206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2026-03-02,2026,2026-03,35,True,Waitsfield
-206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2026-01-05,2026,2026-01,20,True,Waitsfield
-206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2025-12-16,2025,2025-12,20,True,Waitsfield
-206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2025-11-14,2025,2025-11,45,True,Waitsfield
-206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2025-10-02,2025,2025-10,50,True,Waitsfield
-206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2025-08-05,2025,2025-08,55,True,Waitsfield
-206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2025-06-16,2025,2025-06,10,True,Waitsfield
-206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2025-05-29,2025,2025-05,45,True,Waitsfield
-206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2025-04-23,2025,2025-04,30,True,Waitsfield
-206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2025-03-05,2025,2025-03,40,True,Waitsfield
-206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2023-09-29,2023,2023-09,7,True,Waitsfield
-206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2022-03-04,2022,2022-03,30,True,Waitsfield
-206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2021-10-28,2021,2021-10,115,True,Waitsfield
-206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2020-03-17,2020,2020-03,25,True,Waitsfield
-206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2020-03-03,2020,2020-03,40,True,Waitsfield
-206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2020-01-11,2020,2020-01,25,True,Waitsfield
-206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-11-21,2019,2019-11,35,True,Waitsfield
-206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-10-08,2019,2019-10,75,True,Waitsfield
-206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-06-20,2019,2019-06,25,True,Waitsfield
-206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-03-12,2019,2019-03,20,True,Waitsfield
-206,PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-02-19,2019,2019-02,20,True,Waitsfield
 1269,Riders Outpost-Waitsfield,Waitsfield,Washington,2026-08-18,2026,2026-08,50,True,Waitsfield
 1269,Riders Outpost-Waitsfield,Waitsfield,Washington,2026-07-16,2026,2026-07,90,True,Waitsfield
 1269,Riders Outpost-Waitsfield,Waitsfield,Washington,2026-05-01,2026,2026-05,25,True,Waitsfield
@@ -19282,6 +19305,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 232,Crossroads Deli,Waterbury,Washington,2015-10-14,2015,2015-10,20,True,Waterbury
 232,Crossroads Deli,Waterbury,Washington,2015-06-11,2015,2015-06,20,True,Waterbury
 232,Crossroads Deli,Waterbury,Washington,2015-04-15,2015,2015-04,50,True,Waterbury
+1345,Gallus-Waterbury,Waterbury,Washington,2026-08-31,2026,2026-08,75,True,Waterbury
 1345,Gallus-Waterbury,Waterbury,Washington,2026-08-18,2026,2026-08,150,True,Waterbury
 1345,Gallus-Waterbury,Waterbury,Washington,2026-07-22,2026,2026-07,65,True,Waterbury
 1345,Gallus-Waterbury,Waterbury,Washington,2026-07-09,2026,2026-07,45,True,Waterbury
@@ -19587,6 +19611,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 233,Maxi's,Waterbury,Washington,2015-06-11,2015,2015-06,25,True,Waterbury
 233,Maxi's,Waterbury,Washington,2015-03-19,2015,2015-03,40,True,Waterbury
 233,Maxi's,Waterbury,Washington,2015-01-09,2015,2015-01,25,True,Waterbury
+241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2026-08-31,2026,2026-08,60,True,Waterbury
 241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2026-08-18,2026,2026-08,35,True,Waterbury
 241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2026-07-22,2026,2026-07,75,True,Waterbury
 241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2026-06-23,2026,2026-06,85,True,Waterbury
@@ -20075,6 +20100,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 229,Prohibition Pig,Waterbury,Washington,2015-02-25,2015,2015-02,40,True,Waterbury
 229,Prohibition Pig,Waterbury,Washington,2015-02-09,2015,2015-02,50,True,Waterbury
 229,Prohibition Pig,Waterbury,Washington,2015-01-14,2015,2015-01,50,True,Waterbury
+227,The Reservoir-Waterbury,Waterbury,Washington,2026-08-31,2026,2026-08,180,True,Waterbury
 227,The Reservoir-Waterbury,Waterbury,Washington,2026-08-04,2026,2026-08,180,True,Waterbury
 227,The Reservoir-Waterbury,Waterbury,Washington,2026-07-09,2026,2026-07,60,True,Waterbury
 227,The Reservoir-Waterbury,Waterbury,Washington,2026-06-22,2026,2026-06,160,True,Waterbury
