@@ -4233,6 +4233,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1354,Kismet Mediterranean - 22222#,Burlington,Chittenden,2024-11-06,2024,2024-11,35,True,Burlington
 1481,Kountry Kart,Burlington,Chittenden,2026-02-20,2026,2026-02,140,True,Burlington
 1481,Kountry Kart,Burlington,Chittenden,2026-01-29,2026,2026-01,100,True,Burlington
+337,Lake Monsters,Burlington,Chittenden,2026-09-01,2026,2026-09,70,True,Burlington
 337,Lake Monsters,Burlington,Chittenden,2026-07-24,2026,2026-07,275,True,Burlington
 337,Lake Monsters,Burlington,Chittenden,2025-08-22,2025,2025-08,200,True,Burlington
 337,Lake Monsters,Burlington,Chittenden,2025-07-15,2025,2025-07,200,True,Burlington
@@ -7119,6 +7120,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1247,Bramble,Essex Junction,Chittenden,2024-06-18,2024,2024-06,50,True,Essex Junction
 1247,Bramble,Essex Junction,Chittenden,2024-01-14,2024,2024-01,20,True,Essex Junction
 1247,Bramble,Essex Junction,Chittenden,2023-08-07,2023,2023-08,5,True,Essex Junction
+413,Champlain Valley Expo,Essex Junction,Chittenden,2026-09-01,2026,2026-09,440,True,Essex Junction
 413,Champlain Valley Expo,Essex Junction,Chittenden,2026-07-24,2026,2026-07,435,True,Essex Junction
 413,Champlain Valley Expo,Essex Junction,Chittenden,2025-10-09,2025,2025-10,640,True,Essex Junction
 413,Champlain Valley Expo,Essex Junction,Chittenden,2025-09-12,2025,2025-09,585,True,Essex Junction
@@ -12333,6 +12335,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2023-07-13,2023,2023-07,15,True,North Hero
 1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2022-10-27,2022,2022-10,25,True,North Hero
 1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2022-09-13,2022,2022-09,45,True,North Hero
+416,North Hero House,North Hero,Grand Isle,2026-09-01,2026,2026-09,70,True,North Hero
 416,North Hero House,North Hero,Grand Isle,2026-08-17,2026,2026-08,85,True,North Hero
 416,North Hero House,North Hero,Grand Isle,2026-07-31,2026,2026-07,105,True,North Hero
 416,North Hero House,North Hero,Grand Isle,2026-07-06,2026,2026-07,160,True,North Hero
@@ -13086,6 +13089,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1360,Tony’s Homemade Donut’s,Plainfield,Washington,2026-03-23,2026,2026-03,25,True,Plainfield
 1360,Tony’s Homemade Donut’s,Plainfield,Washington,2024-07-17,2024,2024-07,15,True,Plainfield
 1450,Anthony’s Restaurant -Plattsburgh,Plattsburgh,Out-of-State (NY),2025-09-11,2025,2025-09,300,True,
+1173,Hannaford-Plattsburgh,Plattsburgh,Out-of-State (NY),2026-09-01,2026,2026-09,134,True,
 1173,Hannaford-Plattsburgh,Plattsburgh,Out-of-State (NY),2026-07-31,2026,2026-07,139,True,
 1173,Hannaford-Plattsburgh,Plattsburgh,Out-of-State (NY),2026-06-23,2026,2026-06,142,True,
 1173,Hannaford-Plattsburgh,Plattsburgh,Out-of-State (NY),2026-05-21,2026,2026-05,138,True,
@@ -14017,6 +14021,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1418,Cairns Arena,South Burlington,Chittenden,2025-04-29,2025,2025-04,90,True,South Burlington
 1418,Cairns Arena,South Burlington,Chittenden,2025-04-18,2025,2025-04,90,True,South Burlington
 1418,Cairns Arena,South Burlington,Chittenden,2025-04-10,2025,2025-04,90,True,South Burlington
+1195,Chicken Charlies,South Burlington,Chittenden,2026-09-01,2026,2026-09,40,True,South Burlington
 1195,Chicken Charlies,South Burlington,Chittenden,2026-08-17,2026,2026-08,40,True,South Burlington
 1195,Chicken Charlies,South Burlington,Chittenden,2026-07-28,2026,2026-07,70,True,South Burlington
 1195,Chicken Charlies,South Burlington,Chittenden,2026-07-08,2026,2026-07,10,True,South Burlington
@@ -14332,6 +14337,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 365,Skinny Pancake- BTV airport,South Burlington,Chittenden,2019-03-29,2019,2019-03,105,True,South Burlington
 365,Skinny Pancake- BTV airport,South Burlington,Chittenden,2019-02-27,2019,2019-02,80,True,South Burlington
 365,Skinny Pancake- BTV airport,South Burlington,Chittenden,2019-02-05,2019,2019-02,60,True,South Burlington
+1188,Windjammer,South Burlington,Chittenden,2026-09-01,2026,2026-09,100,True,South Burlington
 1188,Windjammer,South Burlington,Chittenden,2026-08-17,2026,2026-08,100,True,South Burlington
 1188,Windjammer,South Burlington,Chittenden,2026-07-28,2026,2026-07,130,True,South Burlington
 1188,Windjammer,South Burlington,Chittenden,2026-07-08,2026,2026-07,115,True,South Burlington
@@ -14415,6 +14421,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1409,Pan’sPizza-South Hero,South Hero,Grand Isle,2025-08-22,2025,2025-08,15,True,South Hero
 1409,Pan’sPizza-South Hero,South Hero,Grand Isle,2025-06-06,2025,2025-06,15,True,South Hero
 1409,Pan’sPizza-South Hero,South Hero,Grand Isle,2025-04-01,2025,2025-04,35,True,South Hero
+1396,Sandbar Bar & Grill,South Hero,Grand Isle,2026-09-01,2026,2026-09,100,True,South Hero
 1396,Sandbar Bar & Grill,South Hero,Grand Isle,2026-08-17,2026,2026-08,100,True,South Hero
 1396,Sandbar Bar & Grill,South Hero,Grand Isle,2026-07-28,2026,2026-07,125,True,South Hero
 1396,Sandbar Bar & Grill,South Hero,Grand Isle,2026-07-06,2026,2026-07,110,True,South Hero
@@ -14434,6 +14441,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1396,Sandbar Bar & Grill,South Hero,Grand Isle,2025-08-01,2025,2025-08,130,True,South Hero
 1396,Sandbar Bar & Grill,South Hero,Grand Isle,2025-07-07,2025,2025-07,110,True,South Hero
 1396,Sandbar Bar & Grill,South Hero,Grand Isle,2025-06-06,2025,2025-06,60,True,South Hero
+1471,Thai in Town-South Hero,South Hero,Grand Isle,2026-09-01,2026,2026-09,20,True,South Hero
 1471,Thai in Town-South Hero,South Hero,Grand Isle,2026-07-06,2026,2026-07,30,True,South Hero
 1471,Thai in Town-South Hero,South Hero,Grand Isle,2026-05-21,2026,2026-05,40,True,South Hero
 1471,Thai in Town-South Hero,South Hero,Grand Isle,2026-04-09,2026,2026-04,35,True,South Hero
@@ -14536,9 +14544,9 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1493,Pizza Hut-St Albans,St Albans,Franklin,2026-06-23,2026,2026-06,15,True,Saint Albans Town
 1493,Pizza Hut-St Albans,St Albans,Franklin,2026-06-02,2026,2026-06,20,True,Saint Albans Town
 1493,Pizza Hut-St Albans,St Albans,Franklin,2026-05-12,2026,2026-05,90,True,Saint Albans Town
-1507,St Johnsbury Country Club,Burlington,Chittenden,2026-08-18,2026,2026-08,55,True,Burlington
-1507,St Johnsbury Country Club,Burlington,Chittenden,2026-07-21,2026,2026-07,50,True,Burlington
-1507,St Johnsbury Country Club,Burlington,Chittenden,2026-06-19,2026,2026-06,40,True,Burlington
+1507,St.Johnsbury Country Club,Burlington,Chittenden,2026-08-18,2026,2026-08,55,True,Burlington
+1507,St.Johnsbury Country Club,Burlington,Chittenden,2026-07-21,2026,2026-07,50,True,Burlington
+1507,St.Johnsbury Country Club,Burlington,Chittenden,2026-06-19,2026,2026-06,40,True,Burlington
 1155,Hannafords-St Albans,St. Albans,Franklin,2026-06-02,2026,2026-06,64,True,Saint Albans City
 1155,Hannafords-St Albans,St. Albans,Franklin,2026-04-09,2026,2026-04,126,True,Saint Albans City
 1155,Hannafords-St Albans,St. Albans,Franklin,2025-12-15,2025,2025-12,62,True,Saint Albans City
@@ -14564,6 +14572,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1086,Nutra Blend-John,St. Albans,Franklin,2021-11-23,2021,2021-11,1100,True,Saint Albans City
 1086,Nutra Blend-John,St. Albans,Franklin,2021-11-22,2021,2021-11,1350,True,Saint Albans City
 1086,Nutra Blend-John,St. Albans,Franklin,2021-11-17,2021,2021-11,1375,True,Saint Albans City
+417,Bayside Pavilion,St. Albans City,Franklin,2026-09-01,2026,2026-09,150,True,Saint Albans Town
 417,Bayside Pavilion,St. Albans City,Franklin,2026-06-23,2026,2026-06,90,True,Saint Albans Town
 417,Bayside Pavilion,St. Albans City,Franklin,2026-05-12,2026,2026-05,90,True,Saint Albans Town
 417,Bayside Pavilion,St. Albans City,Franklin,2026-03-18,2026,2026-03,100,True,Saint Albans Town
@@ -14615,6 +14624,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 417,Bayside Pavilion,St. Albans City,Franklin,2018-10-17,2018,2018-10,125,True,Saint Albans Town
 417,Bayside Pavilion,St. Albans City,Franklin,2018-05-11,2018,2018-05,100,True,Saint Albans Town
 417,Bayside Pavilion,St. Albans City,Franklin,2018-02-27,2018,2018-02,100,True,Saint Albans Town
+421,BLACK RADISH/14thStar-Saint Albans-14th Star,St. Albans City,Franklin,2026-09-01,2026,2026-09,135,True,Saint Albans City
 421,BLACK RADISH/14thStar-Saint Albans-14th Star,St. Albans City,Franklin,2026-07-31,2026,2026-07,200,True,Saint Albans City
 421,BLACK RADISH/14thStar-Saint Albans-14th Star,St. Albans City,Franklin,2026-06-23,2026,2026-06,100,True,Saint Albans City
 421,BLACK RADISH/14thStar-Saint Albans-14th Star,St. Albans City,Franklin,2026-06-02,2026,2026-06,60,True,Saint Albans City
@@ -14696,6 +14706,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1138,Kaiju Kitchen-St Albans,St. Albans City,Franklin,2023-02-12,2023,2023-02,30,True,Saint Albans City
 1138,Kaiju Kitchen-St Albans,St. Albans City,Franklin,2022-12-08,2022,2022-12,30,True,Saint Albans City
 1138,Kaiju Kitchen-St Albans,St. Albans City,Franklin,2022-08-31,2022,2022-08,15,True,Saint Albans City
+418,Nelly's,St. Albans City,Franklin,2026-09-01,2026,2026-09,150,True,Saint Albans City
 418,Nelly's,St. Albans City,Franklin,2026-07-31,2026,2026-07,200,True,Saint Albans City
 418,Nelly's,St. Albans City,Franklin,2026-06-23,2026,2026-06,110,True,Saint Albans City
 418,Nelly's,St. Albans City,Franklin,2026-06-02,2026,2026-06,90,True,Saint Albans City
@@ -19874,6 +19885,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 239,Michael's on the Hill,Waterbury,Washington,2015-01-14,2015,2015-01,40,True,Waterbury
 1225,Old Stage Coach Inn,Waterbury,Washington,2023-08-02,2023,2023-08,10,True,Waterbury
 1225,Old Stage Coach Inn,Waterbury,Washington,2023-03-13,2023,2023-03,25,True,Waterbury
+229,Prohibition Pig,Waterbury,Washington,2026-09-01,2026,2026-09,80,True,Waterbury
 229,Prohibition Pig,Waterbury,Washington,2026-08-18,2026,2026-08,75,True,Waterbury
 229,Prohibition Pig,Waterbury,Washington,2026-08-04,2026,2026-08,75,True,Waterbury
 229,Prohibition Pig,Waterbury,Washington,2026-07-22,2026,2026-07,80,True,Waterbury

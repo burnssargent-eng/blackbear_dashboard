@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-01T12:22:52.849490",
+  "last_updated": "2026-09-02T11:59:43.145848",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33312,6 +33312,54 @@
       "geo_town": "Woodstock",
       "gallons": 270,
       "city": "Woodstock"
+    },
+    {
+      "month": "2026-09",
+      "geo_town": "Burlington",
+      "gallons": 70,
+      "city": "Burlington"
+    },
+    {
+      "month": "2026-09",
+      "geo_town": "Essex Junction",
+      "gallons": 440,
+      "city": "Essex Junction"
+    },
+    {
+      "month": "2026-09",
+      "geo_town": "North Hero",
+      "gallons": 70,
+      "city": "North Hero"
+    },
+    {
+      "month": "2026-09",
+      "geo_town": "Saint Albans City",
+      "gallons": 285,
+      "city": "Saint Albans City"
+    },
+    {
+      "month": "2026-09",
+      "geo_town": "Saint Albans Town",
+      "gallons": 150,
+      "city": "Saint Albans Town"
+    },
+    {
+      "month": "2026-09",
+      "geo_town": "South Burlington",
+      "gallons": 140,
+      "city": "South Burlington"
+    },
+    {
+      "month": "2026-09",
+      "geo_town": "South Hero",
+      "gallons": 120,
+      "city": "South Hero"
+    },
+    {
+      "month": "2026-09",
+      "geo_town": "Waterbury",
+      "gallons": 80,
+      "city": "Waterbury"
     }
   ],
   "monthly_by_county": [
@@ -40924,6 +40972,31 @@
       "month": "2026-08",
       "county": "Windsor",
       "gallons": 975
+    },
+    {
+      "month": "2026-09",
+      "county": "Chittenden",
+      "gallons": 650
+    },
+    {
+      "month": "2026-09",
+      "county": "Franklin",
+      "gallons": 435
+    },
+    {
+      "month": "2026-09",
+      "county": "Grand Isle",
+      "gallons": 190
+    },
+    {
+      "month": "2026-09",
+      "county": "Out-of-State (NY)",
+      "gallons": 134
+    },
+    {
+      "month": "2026-09",
+      "county": "Washington",
+      "gallons": 80
     }
   ],
   "yearly_totals": [
@@ -40973,13 +41046,13 @@
     },
     {
       "year": 2026,
-      "gallons": 201339
+      "gallons": 202828
     }
   ],
-  "all_time_total": 2120106,
-  "current_year_total": 201339,
+  "all_time_total": 2121595,
+  "current_year_total": 202828,
   "customer_count": 795,
-  "unmapped_total": 39282,
+  "unmapped_total": 39416,
   "monthly_totals": [
     {
       "month": "2015-01",
@@ -41540,6 +41613,10 @@
     {
       "month": "2026-08",
       "gallons": 21423
+    },
+    {
+      "month": "2026-09",
+      "gallons": 1489
     }
   ],
   "monthly_by_region": [
@@ -49317,6 +49394,21 @@
       "month": "2026-08",
       "region": "Woodstock+Quechee",
       "gallons": 655
+    },
+    {
+      "month": "2026-09",
+      "region": "Burlington",
+      "gallons": 70
+    },
+    {
+      "month": "2026-09",
+      "region": "Other",
+      "gallons": 1339
+    },
+    {
+      "month": "2026-09",
+      "region": "Waterbury",
+      "gallons": 80
     }
   ],
   "yearly_by_region": [
@@ -50018,7 +50110,7 @@
     {
       "year": 2026,
       "region": "Burlington",
-      "gallons": 30880
+      "gallons": 30950
     },
     {
       "year": 2026,
@@ -50053,7 +50145,7 @@
     {
       "year": 2026,
       "region": "Other",
-      "gallons": 84652
+      "gallons": 85991
     },
     {
       "year": 2026,
@@ -50073,7 +50165,7 @@
     {
       "year": 2026,
       "region": "Waterbury",
-      "gallons": 7305
+      "gallons": 7385
     },
     {
       "year": 2026,
@@ -50102,20 +50194,20 @@
     "Burlington"
   ],
   "collections_file": "oil_collections.json",
-  "collections_count": 27269,
-  "out_of_state_total": 39282,
+  "collections_count": 27281,
+  "out_of_state_total": 39416,
   "active_customer_count": 520,
   "projection": {
-    "latest_data_date": "2026-08-31",
+    "latest_data_date": "2026-09-01",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 201339,
+    "current_ytd": 202828,
     "previous_year_full": 269909,
-    "previous_through_prior_month": 158242,
-    "previous_same_month_total": 25119,
-    "previous_prorated_ytd": 183361.0,
-    "projected_current_year": 296373,
-    "percent_vs_previous_year": 0.098047
+    "previous_through_prior_month": 183361,
+    "previous_same_month_total": 25498,
+    "previous_prorated_ytd": 184210.93,
+    "projected_current_year": 297187,
+    "percent_vs_previous_year": 0.101064
   },
   "region_stats": {
     "Burlington": {
