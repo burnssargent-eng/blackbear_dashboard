@@ -6038,6 +6038,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1134,Willows Bagels,Burlington,Chittenden,2022-11-09,2022,2022-11,40,True,Burlington
 1134,Willows Bagels,Burlington,Chittenden,2022-09-16,2022,2022-09,45,True,Burlington
 606,Cabot Village Store,Cabot,Caledonia,2017-03-30,2017,2017-03,15,True,Cabot
+1280,JETS BRUNCH/Headwaters-Cabot,Cabot,Caledonia,2026-09-02,2026,2026-09,20,True,Cabot
 1280,JETS BRUNCH/Headwaters-Cabot,Cabot,Caledonia,2026-07-21,2026,2026-07,50,True,Cabot
 1280,JETS BRUNCH/Headwaters-Cabot,Cabot,Caledonia,2026-05-04,2026,2026-05,65,True,Cabot
 1280,JETS BRUNCH/Headwaters-Cabot,Cabot,Caledonia,2024-02-21,2024,2024-02,40,True,Cabot
@@ -6535,6 +6536,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1433,Three Brothers Pizza-Colchester,Colchester,Chittenden,2025-09-16,2025,2025-09,50,True,Colchester
 1433,Three Brothers Pizza-Colchester,Colchester,Chittenden,2025-07-03,2025,2025-07,20,True,Colchester
 1433,Three Brothers Pizza-Colchester,Colchester,Chittenden,2025-05-30,2025,2025-05,85,True,Colchester
+1349,"Concord, Vt Gas Station",Concord,Caledonia,2026-09-02,2026,2026-09,30,True,Concord
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2026-08-18,2026,2026-08,70,True,Concord
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2026-07-21,2026,2026-07,50,True,Concord
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2026-06-19,2026,2026-06,60,True,Concord
@@ -6551,6 +6553,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2024-12-14,2024,2024-12,30,True,Concord
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2024-11-07,2024,2024-11,85,True,Concord
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2024-08-21,2024,2024-08,50,True,Concord
+617,Moose Look Diner,Concord,Caledonia,2026-09-02,2026,2026-09,100,True,Concord
 617,Moose Look Diner,Concord,Caledonia,2026-07-21,2026,2026-07,60,True,Concord
 617,Moose Look Diner,Concord,Caledonia,2026-06-19,2026,2026-06,110,True,Concord
 617,Moose Look Diner,Concord,Caledonia,2026-05-04,2026,2026-05,90,True,Concord
@@ -6904,6 +6907,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 904,TCs,Dover,Windham,2020-03-27,2020,2020-03,175,True,Dover
 904,TCs,Dover,Windham,2020-02-21,2020,2020-02,150,True,Dover
 1485,ROLANDS-Lifecycle,East Barre,Washington,2026-01-23,2026,2026-01,10,True,Barre Town
+1142,Burke Academy,East Burke,Caledonia,2026-09-02,2026,2026-09,50,True,Burke
 1142,Burke Academy,East Burke,Caledonia,2026-04-24,2026,2026-04,125,True,Burke
 1142,Burke Academy,East Burke,Caledonia,2026-01-20,2026,2026-01,10,True,Burke
 1142,Burke Academy,East Burke,Caledonia,2025-11-10,2025,2025-11,35,True,Burke
@@ -7521,6 +7525,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1461,Arandas-Fairlee,Fairlee,Orange,2026-07-24,2026,2026-07,60,True,Fairlee
 1461,Arandas-Fairlee,Fairlee,Orange,2026-04-01,2026,2026-04,35,True,Fairlee
 1461,Arandas-Fairlee,Fairlee,Orange,2026-01-20,2026,2026-01,35,True,Fairlee
+1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2026-09-02,2026,2026-09,45,True,Fairlee
 1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2026-07-24,2026,2026-07,80,True,Fairlee
 1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2026-01-20,2026,2026-01,60,True,Fairlee
 1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2025-10-30,2025,2025-10,70,True,Fairlee
@@ -7552,6 +7557,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2024-05-30,2024,2024-05,50,True,Fairlee
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2024-03-12,2024,2024-03,50,True,Fairlee
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2024-01-05,2024,2024-01,40,True,Fairlee
+1304,Lake Morley Resort,Fairlee,Orange,2026-09-02,2026,2026-09,90,True,Fairlee
 1304,Lake Morley Resort,Fairlee,Orange,2026-07-24,2026,2026-07,110,True,Fairlee
 1304,Lake Morley Resort,Fairlee,Orange,2026-04-01,2026,2026-04,65,True,Fairlee
 1304,Lake Morley Resort,Fairlee,Orange,2026-01-20,2026,2026-01,60,True,Fairlee
@@ -7566,6 +7572,18 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1304,Lake Morley Resort,Fairlee,Orange,2024-05-30,2024,2024-05,60,True,Fairlee
 1304,Lake Morley Resort,Fairlee,Orange,2024-03-12,2024,2024-03,50,True,Fairlee
 1304,Lake Morley Resort,Fairlee,Orange,2024-01-05,2024,2024-01,200,True,Fairlee
+622,Samurai Soul Food,Fairlee,Orange,2018-06-13,2018,2018-06,25,True,Fairlee
+622,Samurai Soul Food,Fairlee,Orange,2018-06-04,2018,2018-06,5,True,Fairlee
+622,Samurai Soul Food,Fairlee,Orange,2018-03-24,2018,2018-03,5,True,Fairlee
+622,Samurai Soul Food,Fairlee,Orange,2018-02-08,2018,2018-02,50,True,Fairlee
+622,Samurai Soul Food,Fairlee,Orange,2017-12-19,2017,2017-12,100,True,Fairlee
+622,Samurai Soul Food,Fairlee,Orange,2017-09-06,2017,2017-09,75,True,Fairlee
+622,Samurai Soul Food,Fairlee,Orange,2017-08-18,2017,2017-08,100,True,Fairlee
+622,Samurai Soul Food,Fairlee,Orange,2017-07-26,2017,2017-07,100,True,Fairlee
+622,Samurai Soul Food,Fairlee,Orange,2017-06-28,2017,2017-06,100,True,Fairlee
+622,Samurai Soul Food,Fairlee,Orange,2017-06-05,2017,2017-06,70,True,Fairlee
+622,Samurai Soul Food,Fairlee,Orange,2017-05-08,2017,2017-05,110,True,Fairlee
+622,Samurai Soul Food,Fairlee,Orange,2017-04-11,2017,2017-04,75,True,Fairlee
 124,Graniteville General,Graniteville,Washington,2026-07-20,2026,2026-07,30,True,Barre Town
 124,Graniteville General,Graniteville,Washington,2026-06-25,2026,2026-06,30,True,Barre Town
 124,Graniteville General,Graniteville,Washington,2026-05-08,2026,2026-05,65,True,Barre Town
@@ -14544,6 +14562,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1493,Pizza Hut-St Albans,St Albans,Franklin,2026-06-23,2026,2026-06,15,True,Saint Albans Town
 1493,Pizza Hut-St Albans,St Albans,Franklin,2026-06-02,2026,2026-06,20,True,Saint Albans Town
 1493,Pizza Hut-St Albans,St Albans,Franklin,2026-05-12,2026,2026-05,90,True,Saint Albans Town
+1507,St.Johnsbury Country Club,Burlington,Chittenden,2026-09-02,2026,2026-09,30,True,Burlington
 1507,St.Johnsbury Country Club,Burlington,Chittenden,2026-08-18,2026,2026-08,55,True,Burlington
 1507,St.Johnsbury Country Club,Burlington,Chittenden,2026-07-21,2026,2026-07,50,True,Burlington
 1507,St.Johnsbury Country Club,Burlington,Chittenden,2026-06-19,2026,2026-06,40,True,Burlington
@@ -14768,6 +14787,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 418,Nelly's,St. Albans City,Franklin,2019-01-22,2019,2019-01,50,True,Saint Albans City
 1429,Rail City Grill,St. Albans City,Franklin,2025-08-01,2025,2025-08,65,True,Saint Albans City
 1429,Rail City Grill,St. Albans City,Franklin,2025-07-11,2025,2025-07,85,True,Saint Albans City
+1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2026-09-02,2026,2026-09,40,True,Saint Johnsbury
 1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2026-08-18,2026,2026-08,100,True,Saint Johnsbury
 1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2026-07-21,2026,2026-07,105,True,Saint Johnsbury
 1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2026-05-22,2026,2026-05,30,True,Saint Johnsbury
@@ -14806,6 +14826,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2023-08-21,2023,2023-08,30,True,Saint Johnsbury
 1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2023-08-01,2023,2023-08,90,True,Saint Johnsbury
 1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2023-06-27,2023,2023-06,65,True,Saint Johnsbury
+1293,Center Tower - St. J,St. Johnsbury,Caledonia,2026-09-02,2026,2026-09,85,True,Saint Johnsbury
 1293,Center Tower - St. J,St. Johnsbury,Caledonia,2026-06-19,2026,2026-06,35,True,Saint Johnsbury
 1293,Center Tower - St. J,St. Johnsbury,Caledonia,2026-05-22,2026,2026-05,70,True,Saint Johnsbury
 1293,Center Tower - St. J,St. Johnsbury,Caledonia,2026-03-19,2026,2026-03,50,True,Saint Johnsbury
@@ -25951,18 +25972,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 167,Sambel's,Northfield,Washington,2015-08-15,2015,2015-08,15,False,Northfield
 167,Sambel's,Northfield,Washington,2015-07-22,2015,2015-07,8,False,Northfield
 167,Sambel's,Northfield,Washington,2015-06-26,2015,2015-06,105,False,Northfield
-622,Samurai Soul Food,Burlington,Chittenden,2018-06-13,2018,2018-06,25,False,Burlington
-622,Samurai Soul Food,Burlington,Chittenden,2018-06-04,2018,2018-06,5,False,Burlington
-622,Samurai Soul Food,Burlington,Chittenden,2018-03-24,2018,2018-03,5,False,Burlington
-622,Samurai Soul Food,Burlington,Chittenden,2018-02-08,2018,2018-02,50,False,Burlington
-622,Samurai Soul Food,Burlington,Chittenden,2017-12-19,2017,2017-12,100,False,Burlington
-622,Samurai Soul Food,Burlington,Chittenden,2017-09-06,2017,2017-09,75,False,Burlington
-622,Samurai Soul Food,Burlington,Chittenden,2017-08-18,2017,2017-08,100,False,Burlington
-622,Samurai Soul Food,Burlington,Chittenden,2017-07-26,2017,2017-07,100,False,Burlington
-622,Samurai Soul Food,Burlington,Chittenden,2017-06-28,2017,2017-06,100,False,Burlington
-622,Samurai Soul Food,Burlington,Chittenden,2017-06-05,2017,2017-06,70,False,Burlington
-622,Samurai Soul Food,Burlington,Chittenden,2017-05-08,2017,2017-05,110,False,Burlington
-622,Samurai Soul Food,Burlington,Chittenden,2017-04-11,2017,2017-04,75,False,Burlington
 835,Sandy's,Burlington,Chittenden,2020-06-18,2020,2020-06,50,False,Burlington
 835,Sandy's,Burlington,Chittenden,2020-05-28,2020,2020-05,150,False,Burlington
 835,Sandy's,Burlington,Chittenden,2020-05-12,2020,2020-05,125,False,Burlington
