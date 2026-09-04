@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-03T11:58:23.646353",
+  "last_updated": "2026-09-04T12:01:04.533168",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33382,7 +33382,7 @@
     {
       "month": "2026-09",
       "geo_town": "Burlington",
-      "gallons": 100,
+      "gallons": 885,
       "city": "Burlington"
     },
     {
@@ -33408,6 +33408,12 @@
       "geo_town": "Fairlee",
       "gallons": 135,
       "city": "Fairlee"
+    },
+    {
+      "month": "2026-09",
+      "geo_town": "Montpelier",
+      "gallons": 55,
+      "city": "Montpelier"
     },
     {
       "month": "2026-09",
@@ -33450,6 +33456,12 @@
       "geo_town": "Waterbury",
       "gallons": 80,
       "city": "Waterbury"
+    },
+    {
+      "month": "2026-09",
+      "geo_town": "Winooski",
+      "gallons": 475,
+      "city": "Winooski"
     }
   ],
   "monthly_by_county": [
@@ -41121,7 +41133,7 @@
     {
       "month": "2026-09",
       "county": "Chittenden",
-      "gallons": 680
+      "gallons": 1940
     },
     {
       "month": "2026-09",
@@ -41146,7 +41158,7 @@
     {
       "month": "2026-09",
       "county": "Washington",
-      "gallons": 80
+      "gallons": 135
     }
   ],
   "yearly_totals": [
@@ -41196,12 +41208,12 @@
     },
     {
       "year": 2026,
-      "gallons": 203318
+      "gallons": 204633
     }
   ],
-  "all_time_total": 2122085,
-  "current_year_total": 203318,
-  "customer_count": 795,
+  "all_time_total": 2123400,
+  "current_year_total": 204633,
+  "customer_count": 796,
   "unmapped_total": 39416,
   "monthly_totals": [
     {
@@ -41766,7 +41778,7 @@
     },
     {
       "month": "2026-09",
-      "gallons": 1979
+      "gallons": 3294
     }
   ],
   "monthly_by_region": [
@@ -49548,7 +49560,12 @@
     {
       "month": "2026-09",
       "region": "Burlington",
-      "gallons": 100
+      "gallons": 875
+    },
+    {
+      "month": "2026-09",
+      "region": "Central Vermont",
+      "gallons": 55
     },
     {
       "month": "2026-09",
@@ -49557,8 +49574,18 @@
     },
     {
       "month": "2026-09",
+      "region": "UVM",
+      "gallons": 10
+    },
+    {
+      "month": "2026-09",
       "region": "Waterbury",
       "gallons": 80
+    },
+    {
+      "month": "2026-09",
+      "region": "Winooski",
+      "gallons": 475
     }
   ],
   "yearly_by_region": [
@@ -50260,12 +50287,12 @@
     {
       "year": 2026,
       "region": "Burlington",
-      "gallons": 30980
+      "gallons": 31755
     },
     {
       "year": 2026,
       "region": "Central Vermont",
-      "gallons": 18416
+      "gallons": 18471
     },
     {
       "year": 2026,
@@ -50305,7 +50332,7 @@
     {
       "year": 2026,
       "region": "UVM",
-      "gallons": 2720
+      "gallons": 2730
     },
     {
       "year": 2026,
@@ -50320,7 +50347,7 @@
     {
       "year": 2026,
       "region": "Winooski",
-      "gallons": 6425
+      "gallons": 6900
     },
     {
       "year": 2026,
@@ -50344,25 +50371,25 @@
     "Burlington"
   ],
   "collections_file": "oil_collections.json",
-  "collections_count": 27290,
+  "collections_count": 27303,
   "out_of_state_total": 39416,
-  "active_customer_count": 521,
+  "active_customer_count": 522,
   "projection": {
-    "latest_data_date": "2026-09-02",
+    "latest_data_date": "2026-09-03",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 203318,
+    "current_ytd": 204633,
     "previous_year_full": 269909,
     "previous_through_prior_month": 183361,
     "previous_same_month_total": 25498,
-    "previous_prorated_ytd": 185060.87,
-    "projected_current_year": 296537,
-    "percent_vs_previous_year": 0.098655
+    "previous_prorated_ytd": 185910.8,
+    "projected_current_year": 297090,
+    "percent_vs_previous_year": 0.100705
   },
   "region_stats": {
     "Burlington": {
-      "customers": 205,
-      "active": 68
+      "customers": 206,
+      "active": 69
     },
     "Central Vermont": {
       "customers": 84,
@@ -50497,10 +50524,10 @@
     },
     {
       "year": 2026,
-      "places_serviced": 452,
-      "gained": 33,
+      "places_serviced": 453,
+      "gained": 34,
       "lost": 6,
-      "net": 27
+      "net": 28
     }
   ],
   "dormant_cutoff": "2025-01-01",
@@ -50710,7 +50737,8 @@
       1503,
       1506,
       1507,
-      1509
+      1509,
+      1529
     ],
     "Central Vermont": [
       106,
