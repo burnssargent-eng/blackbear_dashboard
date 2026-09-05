@@ -577,6 +577,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1380,Masonic Lodge-Barre,Barre,Washington,2025-06-06,2025,2025-06,35,True,Barre City
 1380,Masonic Lodge-Barre,Barre,Washington,2025-04-07,2025,2025-04,15,True,Barre City
 1380,Masonic Lodge-Barre,Barre,Washington,2025-01-11,2025,2025-01,35,True,Barre City
+112,Mulligans-Barre,Barre,Washington,2026-09-04,2026,2026-09,140,True,Barre City
 112,Mulligans-Barre,Barre,Washington,2026-08-18,2026,2026-08,130,True,Barre City
 112,Mulligans-Barre,Barre,Washington,2026-07-30,2026,2026-07,100,True,Barre City
 112,Mulligans-Barre,Barre,Washington,2026-07-20,2026,2026-07,80,True,Barre City
@@ -1329,6 +1330,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1093,Bethel Sandwhich Shop,Bethel,Windsor,2023-05-01,2023,2023-05,40,True,Bethel
 1093,Bethel Sandwhich Shop,Bethel,Windsor,2022-10-28,2022,2022-10,40,True,Bethel
 1093,Bethel Sandwhich Shop,Bethel,Windsor,2021-12-22,2021,2021-12,40,True,Bethel
+802,Creek House Diner,Bethel,Windsor,2026-09-04,2026,2026-09,25,True,Bethel
 802,Creek House Diner,Bethel,Windsor,2026-07-30,2026,2026-07,35,True,Bethel
 802,Creek House Diner,Bethel,Windsor,2026-04-30,2026,2026-04,20,True,Bethel
 802,Creek House Diner,Bethel,Windsor,2026-04-02,2026,2026-04,40,True,Bethel
@@ -1407,6 +1409,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 802,Creek House Diner,Bethel,Windsor,2015-04-20,2015,2015-04,25,True,Bethel
 802,Creek House Diner,Bethel,Windsor,2015-03-10,2015,2015-03,25,True,Bethel
 802,Creek House Diner,Bethel,Windsor,2015-01-29,2015,2015-01,25,True,Bethel
+803,Toziers-,Bethel,Windsor,2026-09-04,2026,2026-09,120,True,Bethel
 803,Toziers-,Bethel,Windsor,2026-08-24,2026,2026-08,220,True,Bethel
 803,Toziers-,Bethel,Windsor,2026-08-20,2026,2026-08,100,True,Bethel
 803,Toziers-,Bethel,Windsor,2026-07-30,2026,2026-07,180,True,Bethel
@@ -13171,6 +13174,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 829,Chef Brad Crazy Sides,Quechee,Windsor,2016-10-30,2016,2016-10,50,True,Hartford
 1463,Mobil Station,Quechee,Windsor,2025-11-14,2025,2025-11,7,True,Hartford
 1463,Mobil Station,Quechee,Windsor,2025-11-14,2025,2025-11,30,True,Hartford
+1056,Quechee Gorge Snack Bar,Quechee,Windsor,2026-09-04,2026,2026-09,190,True,Hartford
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2026-08-20,2026,2026-08,250,True,Hartford
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2026-07-30,2026,2026-07,200,True,Hartford
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2026-07-10,2026,2026-07,120,True,Hartford
@@ -13226,6 +13230,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2022-05-16,2022,2022-05,100,True,Hartford
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2021-12-13,2021,2021-12,20,True,Hartford
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2021-10-21,2021,2021-10,100,True,Hartford
+827,Simon Pearce~100%,Quechee,Windsor,2026-09-04,2026,2026-09,50,True,Hartford
 827,Simon Pearce~100%,Quechee,Windsor,2026-08-20,2026,2026-08,55,True,Hartford
 827,Simon Pearce~100%,Quechee,Windsor,2026-07-30,2026,2026-07,85,True,Hartford
 827,Simon Pearce~100%,Quechee,Windsor,2026-06-30,2026,2026-06,35,True,Hartford
@@ -13358,6 +13363,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 827,Simon Pearce~100%,Quechee,Windsor,2015-04-20,2015,2015-04,75,True,Hartford
 827,Simon Pearce~100%,Quechee,Windsor,2015-03-10,2015,2015-03,50,True,Hartford
 827,Simon Pearce~100%,Quechee,Windsor,2015-01-29,2015,2015-01,60,True,Hartford
+1233,Skinny Pancake- Quechee,Quechee,Windsor,2026-09-04,2026,2026-09,45,True,Hartford
 1233,Skinny Pancake- Quechee,Quechee,Windsor,2026-08-20,2026,2026-08,40,True,Hartford
 1233,Skinny Pancake- Quechee,Quechee,Windsor,2026-07-30,2026,2026-07,65,True,Hartford
 1233,Skinny Pancake- Quechee,Quechee,Windsor,2026-07-10,2026,2026-07,30,True,Hartford
@@ -13406,6 +13412,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1233,Skinny Pancake- Quechee,Quechee,Windsor,2023-05-16,2023,2023-05,70,True,Hartford
 1233,Skinny Pancake- Quechee,Quechee,Windsor,2023-04-06,2023,2023-04,50,True,Hartford
 1233,Skinny Pancake- Quechee,Quechee,Windsor,2023-03-08,2023,2023-03,40,True,Hartford
+923,Trail Break (Taco place),Quechee,Windsor,2026-09-04,2026,2026-09,15,True,Hartford
 923,Trail Break (Taco place),Quechee,Windsor,2026-08-20,2026,2026-08,40,True,Hartford
 923,Trail Break (Taco place),Quechee,Windsor,2026-07-30,2026,2026-07,55,True,Hartford
 923,Trail Break (Taco place),Quechee,Windsor,2026-06-30,2026,2026-06,20,True,Hartford
@@ -13528,6 +13535,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1161,The NEW Forge-Randolph,Randolph,Windsor,2023-01-31,2023,2023-01,65,True,Randolph
 1161,The NEW Forge-Randolph,Randolph,Windsor,2022-11-28,2022,2022-11,50,True,Randolph
 1161,The NEW Forge-Randolph,Randolph,Windsor,2022-09-23,2022,2022-09,130,True,Randolph
+834,Gifford Retirement (Morgan Orchard),Randolph Center,Windsor,2026-09-04,2026,2026-09,25,True,Randolph
 834,Gifford Retirement (Morgan Orchard),Randolph Center,Windsor,2026-07-30,2026,2026-07,20,True,Randolph
 834,Gifford Retirement (Morgan Orchard),Randolph Center,Windsor,2026-06-17,2026,2026-06,45,True,Randolph
 834,Gifford Retirement (Morgan Orchard),Randolph Center,Windsor,2026-04-30,2026,2026-04,35,True,Randolph
@@ -20893,6 +20901,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1416,Tata,Whiting,Addison,2025-05-15,2025,2025-05,300,True,Whiting
 1416,Tata,Whiting,Addison,2025-04-24,2025,2025-04,275,True,Whiting
 1416,Tata,Whiting,Addison,2025-04-09,2025,2025-04,1950,True,Whiting
+102,The Den/Roadhouse-Williamstown,Williamstown,Washington,2026-09-04,2026,2026-09,85,True,Williamstown
 102,The Den/Roadhouse-Williamstown,Williamstown,Washington,2026-07-20,2026,2026-07,90,True,Williamstown
 102,The Den/Roadhouse-Williamstown,Williamstown,Washington,2026-05-19,2026,2026-05,80,True,Williamstown
 102,The Den/Roadhouse-Williamstown,Williamstown,Washington,2026-03-20,2026,2026-03,80,True,Williamstown
@@ -20931,6 +20940,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 102,The Den/Roadhouse-Williamstown,Williamstown,Washington,2021-09-13,2021,2021-09,50,True,Williamstown
 102,The Den/Roadhouse-Williamstown,Williamstown,Washington,2021-07-13,2021,2021-07,75,True,Williamstown
 102,The Den/Roadhouse-Williamstown,Williamstown,Washington,2021-05-18,2021,2021-05,25,True,Williamstown
+101,The Pub-Williamstown,Williamstown,Washington,2026-09-04,2026,2026-09,75,True,Williamstown
 101,The Pub-Williamstown,Williamstown,Washington,2026-07-20,2026,2026-07,110,True,Williamstown
 101,The Pub-Williamstown,Williamstown,Washington,2026-05-19,2026,2026-05,85,True,Williamstown
 101,The Pub-Williamstown,Williamstown,Washington,2026-03-20,2026,2026-03,120,True,Williamstown
@@ -22588,6 +22598,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 500,Wolcott General Store,Wolcott,Lamoille,2015-06-02,2015,2015-06,25,True,Wolcott
 500,Wolcott General Store,Wolcott,Lamoille,2015-03-02,2015,2015-03,45,True,Wolcott
 500,Wolcott General Store,Wolcott,Lamoille,2015-01-05,2015,2015-01,50,True,Wolcott
+1455,Farmer and the Bell,Woodstock,Windsor,2026-09-04,2026,2026-09,25,True,Woodstock
 1455,Farmer and the Bell,Woodstock,Windsor,2026-08-20,2026,2026-08,70,True,Woodstock
 1455,Farmer and the Bell,Woodstock,Windsor,2026-07-30,2026,2026-07,20,True,Woodstock
 1455,Farmer and the Bell,Woodstock,Windsor,2026-07-10,2026,2026-07,20,True,Woodstock
@@ -22604,6 +22615,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1455,Farmer and the Bell,Woodstock,Windsor,2025-11-03,2025,2025-11,90,True,Woodstock
 1027,Lincoln Inn & Covered Bridge,Woodstock,Windsor,2023-11-20,2023,2023-11,40,True,Woodstock
 1027,Lincoln Inn & Covered Bridge,Woodstock,Windsor,2022-11-18,2022,2022-11,45,True,Woodstock
+822,Mon Vert Café,Woodstock,Windsor,2026-09-04,2026,2026-09,65,True,Woodstock
 822,Mon Vert Café,Woodstock,Windsor,2025-10-10,2025,2025-10,95,True,Woodstock
 822,Mon Vert Café,Woodstock,Windsor,2024-10-22,2024,2024-10,70,True,Woodstock
 822,Mon Vert Café,Woodstock,Windsor,2024-06-25,2024,2024-06,105,True,Woodstock
@@ -22620,6 +22632,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 826,Mountain Creamery,Woodstock,Windsor,2019-12-05,2019,2019-12,150,True,Woodstock
 826,Mountain Creamery,Woodstock,Windsor,2019-07-26,2019,2019-07,150,True,Woodstock
 826,Mountain Creamery,Woodstock,Windsor,2018-09-17,2018,2018-09,150,True,Woodstock
+1438,Oakes and Evelyn- WOODSTOCK,Woodstock,Windsor,2026-09-04,2026,2026-09,35,True,Woodstock
 1438,Oakes and Evelyn- WOODSTOCK,Woodstock,Windsor,2026-06-30,2026,2026-06,20,True,Woodstock
 1438,Oakes and Evelyn- WOODSTOCK,Woodstock,Windsor,2026-04-30,2026,2026-04,45,True,Woodstock
 1438,Oakes and Evelyn- WOODSTOCK,Woodstock,Windsor,2026-01-20,2026,2026-01,40,True,Woodstock
@@ -22667,6 +22680,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 819,Prince & The Pauper,Woodstock,Windsor,2015-05-20,2015,2015-05,20,True,Woodstock
 819,Prince & The Pauper,Woodstock,Windsor,2015-04-20,2015,2015-04,35,True,Woodstock
 819,Prince & The Pauper,Woodstock,Windsor,2015-01-29,2015,2015-01,25,True,Woodstock
+820,Sante-2022|dailey catch-Woodstock,Woodstock,Windsor,2026-09-04,2026,2026-09,200,True,Woodstock
 820,Sante-2022|dailey catch-Woodstock,Woodstock,Windsor,2025-11-21,2025,2025-11,100,True,Woodstock
 820,Sante-2022|dailey catch-Woodstock,Woodstock,Windsor,2025-07-01,2025,2025-07,100,True,Woodstock
 820,Sante-2022|dailey catch-Woodstock,Woodstock,Windsor,2025-03-28,2025,2025-03,130,True,Woodstock
@@ -22687,6 +22701,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 820,Sante-2022|dailey catch-Woodstock,Woodstock,Windsor,2019-03-16,2019,2019-03,125,True,Woodstock
 820,Sante-2022|dailey catch-Woodstock,Woodstock,Windsor,2019-02-13,2019,2019-02,60,True,Woodstock
 820,Sante-2022|dailey catch-Woodstock,Woodstock,Windsor,2018-12-06,2018,2018-12,50,True,Woodstock
+824,White Cottage,Woodstock,Windsor,2026-09-04,2026,2026-09,30,True,Woodstock
 824,White Cottage,Woodstock,Windsor,2026-08-20,2026,2026-08,90,True,Woodstock
 824,White Cottage,Woodstock,Windsor,2026-07-30,2026,2026-07,150,True,Woodstock
 824,White Cottage,Woodstock,Windsor,2026-06-30,2026,2026-06,50,True,Woodstock
@@ -22735,6 +22750,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 824,White Cottage,Woodstock,Windsor,2019-06-09,2019,2019-06,50,True,Woodstock
 824,White Cottage,Woodstock,Windsor,2019-05-17,2019,2019-05,40,True,Woodstock
 824,White Cottage,Woodstock,Windsor,2019-05-04,2019,2019-05,100,True,Woodstock
+825,Woodstock Country Club,Woodstock,Windsor,2026-09-04,2026,2026-09,25,True,Woodstock
 825,Woodstock Country Club,Woodstock,Windsor,2026-07-30,2026,2026-07,35,True,Woodstock
 825,Woodstock Country Club,Woodstock,Windsor,2026-06-15,2026,2026-06,60,True,Woodstock
 825,Woodstock Country Club,Woodstock,Windsor,2025-09-10,2025,2025-09,10,True,Woodstock
@@ -22749,6 +22765,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 825,Woodstock Country Club,Woodstock,Windsor,2021-08-17,2021,2021-08,75,True,Woodstock
 825,Woodstock Country Club,Woodstock,Windsor,2019-12-05,2019,2019-12,50,True,Woodstock
 825,Woodstock Country Club,Woodstock,Windsor,2019-04-26,2019,2019-04,50,True,Woodstock
+823,Woodstock Inn,Woodstock,Windsor,2026-09-04,2026,2026-09,70,True,Woodstock
 823,Woodstock Inn,Woodstock,Windsor,2026-08-20,2026,2026-08,110,True,Woodstock
 823,Woodstock Inn,Woodstock,Windsor,2026-07-30,2026,2026-07,80,True,Woodstock
 823,Woodstock Inn,Woodstock,Windsor,2026-07-10,2026,2026-07,50,True,Woodstock

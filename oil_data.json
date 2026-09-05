@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-04T12:01:04.533168",
+  "last_updated": "2026-09-05T11:11:22.839830",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33375,6 +33375,18 @@
     },
     {
       "month": "2026-09",
+      "geo_town": "Barre City",
+      "gallons": 140,
+      "city": "Barre City"
+    },
+    {
+      "month": "2026-09",
+      "geo_town": "Bethel",
+      "gallons": 145,
+      "city": "Bethel"
+    },
+    {
+      "month": "2026-09",
       "geo_town": "Burke",
       "gallons": 50,
       "city": "Burke"
@@ -33411,6 +33423,12 @@
     },
     {
       "month": "2026-09",
+      "geo_town": "Hartford",
+      "gallons": 300,
+      "city": "Hartford"
+    },
+    {
+      "month": "2026-09",
       "geo_town": "Montpelier",
       "gallons": 55,
       "city": "Montpelier"
@@ -33420,6 +33438,12 @@
       "geo_town": "North Hero",
       "gallons": 70,
       "city": "North Hero"
+    },
+    {
+      "month": "2026-09",
+      "geo_town": "Randolph",
+      "gallons": 25,
+      "city": "Randolph"
     },
     {
       "month": "2026-09",
@@ -33459,9 +33483,21 @@
     },
     {
       "month": "2026-09",
+      "geo_town": "Williamstown",
+      "gallons": 160,
+      "city": "Williamstown"
+    },
+    {
+      "month": "2026-09",
       "geo_town": "Winooski",
       "gallons": 475,
       "city": "Winooski"
+    },
+    {
+      "month": "2026-09",
+      "geo_town": "Woodstock",
+      "gallons": 450,
+      "city": "Woodstock"
     }
   ],
   "monthly_by_county": [
@@ -41158,7 +41194,12 @@
     {
       "month": "2026-09",
       "county": "Washington",
-      "gallons": 135
+      "gallons": 435
+    },
+    {
+      "month": "2026-09",
+      "county": "Windsor",
+      "gallons": 920
     }
   ],
   "yearly_totals": [
@@ -41208,11 +41249,11 @@
     },
     {
       "year": 2026,
-      "gallons": 204633
+      "gallons": 205853
     }
   ],
-  "all_time_total": 2123400,
-  "current_year_total": 204633,
+  "all_time_total": 2124620,
+  "current_year_total": 205853,
   "customer_count": 796,
   "unmapped_total": 39416,
   "monthly_totals": [
@@ -41778,7 +41819,7 @@
     },
     {
       "month": "2026-09",
-      "gallons": 3294
+      "gallons": 4514
     }
   ],
   "monthly_by_region": [
@@ -49565,12 +49606,12 @@
     {
       "month": "2026-09",
       "region": "Central Vermont",
-      "gallons": 55
+      "gallons": 195
     },
     {
       "month": "2026-09",
       "region": "Other",
-      "gallons": 1799
+      "gallons": 2129
     },
     {
       "month": "2026-09",
@@ -49586,6 +49627,11 @@
       "month": "2026-09",
       "region": "Winooski",
       "gallons": 475
+    },
+    {
+      "month": "2026-09",
+      "region": "Woodstock+Quechee",
+      "gallons": 750
     }
   ],
   "yearly_by_region": [
@@ -50292,7 +50338,7 @@
     {
       "year": 2026,
       "region": "Central Vermont",
-      "gallons": 18471
+      "gallons": 18611
     },
     {
       "year": 2026,
@@ -50322,7 +50368,7 @@
     {
       "year": 2026,
       "region": "Other",
-      "gallons": 86451
+      "gallons": 86781
     },
     {
       "year": 2026,
@@ -50352,7 +50398,7 @@
     {
       "year": 2026,
       "region": "Woodstock+Quechee",
-      "gallons": 5210
+      "gallons": 5960
     }
   ],
   "region_names": [
@@ -50371,20 +50417,20 @@
     "Burlington"
   ],
   "collections_file": "oil_collections.json",
-  "collections_count": 27303,
+  "collections_count": 27320,
   "out_of_state_total": 39416,
   "active_customer_count": 522,
   "projection": {
-    "latest_data_date": "2026-09-03",
+    "latest_data_date": "2026-09-04",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 204633,
+    "current_ytd": 205853,
     "previous_year_full": 269909,
     "previous_through_prior_month": 183361,
     "previous_same_month_total": 25498,
-    "previous_prorated_ytd": 185910.8,
-    "projected_current_year": 297090,
-    "percent_vs_previous_year": 0.100705
+    "previous_prorated_ytd": 186760.73,
+    "projected_current_year": 297501,
+    "percent_vs_previous_year": 0.102228
   },
   "region_stats": {
     "Burlington": {
@@ -50524,7 +50570,7 @@
     },
     {
       "year": 2026,
-      "places_serviced": 453,
+      "places_serviced": 455,
       "gained": 34,
       "lost": 6,
       "net": 28
