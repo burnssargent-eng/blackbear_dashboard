@@ -1686,6 +1686,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1055,Tulip Bar and Cafe 50%-LOCK,Brattleboro,Windham,2022-06-10,2022,2022-06,35,True,Brattleboro
 1055,Tulip Bar and Cafe 50%-LOCK,Brattleboro,Windham,2022-05-11,2022,2022-05,130,True,Brattleboro
 1055,Tulip Bar and Cafe 50%-LOCK,Brattleboro,Windham,2021-12-22,2021,2021-12,50,True,Brattleboro
+711,Bobcat Brewery,Bristol,Addison,2026-09-05,2026,2026-09,25,True,Bristol
 711,Bobcat Brewery,Bristol,Addison,2026-07-17,2026,2026-07,30,True,Bristol
 711,Bobcat Brewery,Bristol,Addison,2026-06-12,2026,2026-06,35,True,Bristol
 711,Bobcat Brewery,Bristol,Addison,2026-05-07,2026,2026-05,35,True,Bristol
@@ -1751,6 +1752,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 711,Bobcat Brewery,Bristol,Addison,2018-06-28,2018,2018-06,75,True,Bristol
 711,Bobcat Brewery,Bristol,Addison,2018-05-24,2018,2018-05,60,True,Bristol
 711,Bobcat Brewery,Bristol,Addison,2018-03-28,2018,2018-03,125,True,Bristol
+1109,Cubbers,Bristol,Addison,2026-09-05,2026,2026-09,90,True,Bristol
 1109,Cubbers,Bristol,Addison,2026-07-17,2026,2026-07,65,True,Bristol
 1109,Cubbers,Bristol,Addison,2026-06-12,2026,2026-06,50,True,Bristol
 1109,Cubbers,Bristol,Addison,2026-05-07,2026,2026-05,70,True,Bristol
@@ -1797,6 +1799,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1109,Cubbers,Bristol,Addison,2022-06-15,2022,2022-06,120,True,Bristol
 1109,Cubbers,Bristol,Addison,2022-05-05,2022,2022-05,40,True,Bristol
 1109,Cubbers,Bristol,Addison,2022-04-05,2022,2022-04,140,True,Bristol
+1382,South Mountain Tavern,Bristol,Addison,2026-09-05,2026,2026-09,30,True,Bristol
 1382,South Mountain Tavern,Bristol,Addison,2026-07-17,2026,2026-07,40,True,Bristol
 1382,South Mountain Tavern,Bristol,Addison,2026-06-12,2026,2026-06,25,True,Bristol
 1382,South Mountain Tavern,Bristol,Addison,2026-05-07,2026,2026-05,75,True,Bristol
@@ -18255,6 +18258,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-06-20,2019,2019-06,25,True,Waitsfield
 206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-03-12,2019,2019-03,20,True,Waitsfield
 206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-02-19,2019,2019-02,20,True,Waitsfield
+211,Canteen Creemee Company,Waitsfield,Washington,2026-09-05,2026,2026-09,65,True,Waitsfield
 211,Canteen Creemee Company,Waitsfield,Washington,2026-08-18,2026,2026-08,90,True,Waitsfield
 211,Canteen Creemee Company,Waitsfield,Washington,2026-07-16,2026,2026-07,170,True,Waitsfield
 211,Canteen Creemee Company,Waitsfield,Washington,2026-05-07,2026,2026-05,80,True,Waitsfield
@@ -18434,6 +18438,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 210,Inn at Round Barn,Waitsfield,Washington,2020-08-20,2020,2020-08,50,True,Waitsfield
 210,Inn at Round Barn,Waitsfield,Washington,2019-10-14,2019,2019-10,80,True,Waitsfield
 210,Inn at Round Barn,Waitsfield,Washington,2016-07-28,2016,2016-07,10,True,Waitsfield
+1318,Irasville County Store,Waitsfield,Washington,2026-09-05,2026,2026-09,35,True,Waitsfield
 1318,Irasville County Store,Waitsfield,Washington,2026-08-18,2026,2026-08,35,True,Waitsfield
 1318,Irasville County Store,Waitsfield,Washington,2026-07-16,2026,2026-07,50,True,Waitsfield
 1318,Irasville County Store,Waitsfield,Washington,2026-06-12,2026,2026-06,70,True,Waitsfield
@@ -18465,6 +18470,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1318,Irasville County Store,Waitsfield,Washington,2024-04-26,2024,2024-04,45,True,Waitsfield
 1318,Irasville County Store,Waitsfield,Washington,2024-04-03,2024,2024-04,55,True,Waitsfield
 1318,Irasville County Store,Waitsfield,Washington,2024-02-28,2024,2024-02,65,True,Waitsfield
+208,Mad Moose/Blue Stone-Waitsfield,Waitsfield,Washington,2026-09-05,2026,2026-09,65,True,Waitsfield
 208,Mad Moose/Blue Stone-Waitsfield,Waitsfield,Washington,2026-08-18,2026,2026-08,140,True,Waitsfield
 208,Mad Moose/Blue Stone-Waitsfield,Waitsfield,Washington,2026-07-16,2026,2026-07,110,True,Waitsfield
 208,Mad Moose/Blue Stone-Waitsfield,Waitsfield,Washington,2026-05-01,2026,2026-05,150,True,Waitsfield
@@ -18566,6 +18572,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 208,Mad Moose/Blue Stone-Waitsfield,Waitsfield,Washington,2016-04-25,2016,2016-04,68,True,Waitsfield
 208,Mad Moose/Blue Stone-Waitsfield,Waitsfield,Washington,2016-03-29,2016,2016-03,45,True,Waitsfield
 208,Mad Moose/Blue Stone-Waitsfield,Waitsfield,Washington,2016-03-07,2016,2016-03,80,True,Waitsfield
+214,Mad River Barn,Waitsfield,Washington,2026-09-05,2026,2026-09,30,True,Waitsfield
 214,Mad River Barn,Waitsfield,Washington,2026-08-18,2026,2026-08,60,True,Waitsfield
 214,Mad River Barn,Waitsfield,Washington,2026-07-16,2026,2026-07,50,True,Waitsfield
 214,Mad River Barn,Waitsfield,Washington,2026-06-12,2026,2026-06,70,True,Waitsfield
@@ -18690,6 +18697,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 214,Mad River Barn,Waitsfield,Washington,2015-04-06,2015,2015-04,45,True,Waitsfield
 214,Mad River Barn,Waitsfield,Washington,2015-02-23,2015,2015-02,20,True,Waitsfield
 214,Mad River Barn,Waitsfield,Washington,2015-01-12,2015,2015-01,22,True,Waitsfield
+1219,Mad River Glen,Waitsfield,Washington,2026-09-05,2026,2026-09,100,True,Waitsfield
 1219,Mad River Glen,Waitsfield,Washington,2026-08-18,2026,2026-08,90,True,Waitsfield
 1219,Mad River Glen,Waitsfield,Washington,2026-07-16,2026,2026-07,90,True,Waitsfield
 1219,Mad River Glen,Waitsfield,Washington,2026-06-12,2026,2026-06,80,True,Waitsfield
@@ -18907,6 +18915,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1269,Riders Outpost-Waitsfield,Waitsfield,Washington,2023-10-12,2023,2023-10,45,True,Waitsfield
 1269,Riders Outpost-Waitsfield,Waitsfield,Washington,2023-08-30,2023,2023-08,20,True,Waitsfield
 1269,Riders Outpost-Waitsfield,Waitsfield,Washington,2023-08-17,2023,2023-08,40,True,Waitsfield
+1267,Scrag and Row 2025/The Great Eddy-Waitsfield,Waitsfield,Washington,2026-09-05,2026,2026-09,90,True,Waitsfield
 1267,Scrag and Row 2025/The Great Eddy-Waitsfield,Waitsfield,Washington,2026-05-07,2026,2026-05,65,True,Waitsfield
 1267,Scrag and Row 2025/The Great Eddy-Waitsfield,Waitsfield,Washington,2025-12-03,2025,2025-12,150,True,Waitsfield
 1267,Scrag and Row 2025/The Great Eddy-Waitsfield,Waitsfield,Washington,2024-06-17,2024,2024-06,45,True,Waitsfield
@@ -18919,6 +18928,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1081,Toast and Eggs,Waitsfield,Washington,2024-06-25,2024,2024-06,45,True,Waitsfield
 1081,Toast and Eggs,Waitsfield,Washington,2022-10-13,2022,2022-10,45,True,Waitsfield
 1081,Toast and Eggs,Waitsfield,Washington,2021-11-10,2021,2021-11,45,True,Waitsfield
+204,Village Grocery,Waitsfield,Washington,2026-09-05,2026,2026-09,30,True,Waitsfield
 204,Village Grocery,Waitsfield,Washington,2026-07-16,2026,2026-07,40,True,Waitsfield
 204,Village Grocery,Waitsfield,Washington,2026-05-15,2026,2026-05,5,True,Waitsfield
 204,Village Grocery,Waitsfield,Washington,2026-05-01,2026,2026-05,10,True,Waitsfield
@@ -18960,6 +18970,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 204,Village Grocery,Waitsfield,Washington,2017-05-05,2017,2017-05,40,True,Waitsfield
 204,Village Grocery,Waitsfield,Washington,2016-10-18,2016,2016-10,6,True,Waitsfield
 204,Village Grocery,Waitsfield,Washington,2016-09-05,2016,2016-09,45,True,Waitsfield
+213,Hostel Tevere,Warren,Washington,2026-09-05,2026,2026-09,35,True,Warren
 213,Hostel Tevere,Warren,Washington,2026-07-16,2026,2026-07,40,True,Warren
 213,Hostel Tevere,Warren,Washington,2026-06-12,2026,2026-06,40,True,Warren
 213,Hostel Tevere,Warren,Washington,2026-04-02,2026,2026-04,45,True,Warren
@@ -19128,6 +19139,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 218,Sugarbush Inn / Fit to Be Thai’d,Warren,Washington,2019-04-22,2019,2019-04,30,True,Warren
 218,Sugarbush Inn / Fit to Be Thai’d,Warren,Washington,2018-11-19,2018,2018-11,20,True,Warren
 218,Sugarbush Inn / Fit to Be Thai’d,Warren,Washington,2018-09-26,2018,2018-09,25,True,Warren
+224,Sugarbush Resort,Warren,Washington,2026-09-05,2026,2026-09,75,True,Warren
 224,Sugarbush Resort,Warren,Washington,2026-08-18,2026,2026-08,125,True,Warren
 224,Sugarbush Resort,Warren,Washington,2026-07-16,2026,2026-07,110,True,Warren
 224,Sugarbush Resort,Warren,Washington,2026-05-01,2026,2026-05,185,True,Warren

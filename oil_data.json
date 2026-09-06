@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-05T11:11:22.839830",
+  "last_updated": "2026-09-06T11:34:46.329055",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33387,6 +33387,12 @@
     },
     {
       "month": "2026-09",
+      "geo_town": "Bristol",
+      "gallons": 145,
+      "city": "Bristol"
+    },
+    {
+      "month": "2026-09",
       "geo_town": "Burke",
       "gallons": 50,
       "city": "Burke"
@@ -33474,6 +33480,18 @@
       "geo_town": "South Hero",
       "gallons": 120,
       "city": "South Hero"
+    },
+    {
+      "month": "2026-09",
+      "geo_town": "Waitsfield",
+      "gallons": 415,
+      "city": "Waitsfield"
+    },
+    {
+      "month": "2026-09",
+      "geo_town": "Warren",
+      "gallons": 110,
+      "city": "Warren"
     },
     {
       "month": "2026-09",
@@ -41163,6 +41181,11 @@
     },
     {
       "month": "2026-09",
+      "county": "Addison",
+      "gallons": 145
+    },
+    {
+      "month": "2026-09",
       "county": "Caledonia",
       "gallons": 325
     },
@@ -41194,7 +41217,7 @@
     {
       "month": "2026-09",
       "county": "Washington",
-      "gallons": 435
+      "gallons": 960
     },
     {
       "month": "2026-09",
@@ -41249,11 +41272,11 @@
     },
     {
       "year": 2026,
-      "gallons": 205853
+      "gallons": 206523
     }
   ],
-  "all_time_total": 2124620,
-  "current_year_total": 205853,
+  "all_time_total": 2125290,
+  "current_year_total": 206523,
   "customer_count": 796,
   "unmapped_total": 39416,
   "monthly_totals": [
@@ -41819,7 +41842,7 @@
     },
     {
       "month": "2026-09",
-      "gallons": 4514
+      "gallons": 5184
     }
   ],
   "monthly_by_region": [
@@ -49611,12 +49634,17 @@
     {
       "month": "2026-09",
       "region": "Other",
-      "gallons": 2129
+      "gallons": 2274
     },
     {
       "month": "2026-09",
       "region": "UVM",
       "gallons": 10
+    },
+    {
+      "month": "2026-09",
+      "region": "Warren+Waitsfield",
+      "gallons": 525
     },
     {
       "month": "2026-09",
@@ -50368,7 +50396,7 @@
     {
       "year": 2026,
       "region": "Other",
-      "gallons": 86781
+      "gallons": 86926
     },
     {
       "year": 2026,
@@ -50383,7 +50411,7 @@
     {
       "year": 2026,
       "region": "Warren+Waitsfield",
-      "gallons": 6665
+      "gallons": 7190
     },
     {
       "year": 2026,
@@ -50417,20 +50445,20 @@
     "Burlington"
   ],
   "collections_file": "oil_collections.json",
-  "collections_count": 27320,
+  "collections_count": 27332,
   "out_of_state_total": 39416,
   "active_customer_count": 522,
   "projection": {
-    "latest_data_date": "2026-09-04",
+    "latest_data_date": "2026-09-05",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 205853,
+    "current_ytd": 206523,
     "previous_year_full": 269909,
     "previous_through_prior_month": 183361,
     "previous_same_month_total": 25498,
-    "previous_prorated_ytd": 186760.73,
-    "projected_current_year": 297501,
-    "percent_vs_previous_year": 0.102228
+    "previous_prorated_ytd": 187610.67,
+    "projected_current_year": 297118,
+    "percent_vs_previous_year": 0.100806
   },
   "region_stats": {
     "Burlington": {
