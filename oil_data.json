@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-09T23:26:03.461173",
+  "last_updated": "2026-09-10T12:05:44.857900",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33376,8 +33376,14 @@
     {
       "month": "2026-09",
       "geo_town": "Barre City",
-      "gallons": 140,
+      "gallons": 330,
       "city": "Barre City"
+    },
+    {
+      "month": "2026-09",
+      "geo_town": "Barre Town",
+      "gallons": 416,
+      "city": "Barre Town"
     },
     {
       "month": "2026-09",
@@ -33436,7 +33442,7 @@
     {
       "month": "2026-09",
       "geo_town": "Montpelier",
-      "gallons": 55,
+      "gallons": 310,
       "city": "Montpelier"
     },
     {
@@ -41217,7 +41223,7 @@
     {
       "month": "2026-09",
       "county": "Washington",
-      "gallons": 960
+      "gallons": 1821
     },
     {
       "month": "2026-09",
@@ -41272,11 +41278,11 @@
     },
     {
       "year": 2026,
-      "gallons": 207438
+      "gallons": 208299
     }
   ],
-  "all_time_total": 2126205,
-  "current_year_total": 207438,
+  "all_time_total": 2127066,
+  "current_year_total": 208299,
   "customer_count": 796,
   "unmapped_total": 39416,
   "monthly_totals": [
@@ -41842,7 +41848,7 @@
     },
     {
       "month": "2026-09",
-      "gallons": 6099
+      "gallons": 6960
     }
   ],
   "monthly_by_region": [
@@ -51044,7 +51050,7 @@
     {
       "month": "2026-09",
       "region": "Central",
-      "gallons": 195
+      "gallons": 1056
     },
     {
       "month": "2026-09",
@@ -51901,7 +51907,7 @@
     {
       "year": 2026,
       "region": "Central",
-      "gallons": 18791
+      "gallons": 19652
     },
     {
       "year": 2026,
@@ -51998,20 +52004,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 27349,
+  "collections_count": 27365,
   "out_of_state_total": 39416,
   "active_customer_count": 522,
   "projection": {
-    "latest_data_date": "2026-09-08",
+    "latest_data_date": "2026-09-09",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 207438,
+    "current_ytd": 208299,
     "previous_year_full": 269909,
     "previous_through_prior_month": 183361,
     "previous_same_month_total": 25498,
-    "previous_prorated_ytd": 190160.47,
-    "projected_current_year": 294432,
-    "percent_vs_previous_year": 0.090858
+    "previous_prorated_ytd": 191010.4,
+    "projected_current_year": 294339,
+    "percent_vs_previous_year": 0.090511
   },
   "region_stats": {
     "Burlington / South Burlington": {

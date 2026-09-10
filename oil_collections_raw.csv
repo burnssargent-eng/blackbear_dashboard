@@ -66,6 +66,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1082,Arandas Mexican-Barre,Barre,Washington,2022-08-19,2022,2022-08,50,True,Barre City
 1082,Arandas Mexican-Barre,Barre,Washington,2022-04-06,2022,2022-04,40,True,Barre City
 1082,Arandas Mexican-Barre,Barre,Washington,2021-12-27,2021,2021-12,40,True,Barre City
+113,Asia Gourmet-Barre,Barre,Washington,2026-09-09,2026,2026-09,60,True,Barre City
 113,Asia Gourmet-Barre,Barre,Washington,2026-08-18,2026,2026-08,60,True,Barre City
 113,Asia Gourmet-Barre,Barre,Washington,2026-07-20,2026,2026-07,50,True,Barre City
 113,Asia Gourmet-Barre,Barre,Washington,2026-06-25,2026,2026-06,90,True,Barre City
@@ -328,6 +329,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2015-04-09,2015,2015-04,75,True,Barre City
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2015-02-20,2015,2015-02,60,True,Barre City
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2015-01-16,2015,2015-01,45,True,Barre City
+1363,GE-South Barre Gas Station,Barre,Washington,2026-09-09,2026,2026-09,90,True,Barre Town
 1363,GE-South Barre Gas Station,Barre,Washington,2026-06-25,2026,2026-06,40,True,Barre Town
 1363,GE-South Barre Gas Station,Barre,Washington,2026-05-08,2026,2026-05,55,True,Barre Town
 1363,GE-South Barre Gas Station,Barre,Washington,2026-03-10,2026,2026-03,35,True,Barre Town
@@ -345,6 +347,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1363,GE-South Barre Gas Station,Barre,Washington,2024-09-24,2024,2024-09,20,True,Barre Town
 1363,GE-South Barre Gas Station,Barre,Washington,2024-09-05,2024,2024-09,60,True,Barre Town
 1363,GE-South Barre Gas Station,Barre,Washington,2024-08-01,2024,2024-08,200,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2026-09-09,2026,2026-09,80,True,Barre Town
 111,Gunner Brook (Brookside Mkt),Barre,Washington,2026-07-31,2026,2026-07,65,True,Barre Town
 111,Gunner Brook (Brookside Mkt),Barre,Washington,2026-06-25,2026,2026-06,85,True,Barre Town
 111,Gunner Brook (Brookside Mkt),Barre,Washington,2026-05-22,2026,2026-05,80,True,Barre Town
@@ -379,6 +382,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 111,Gunner Brook (Brookside Mkt),Barre,Washington,2015-09-02,2015,2015-09,25,True,Barre Town
 111,Gunner Brook (Brookside Mkt),Barre,Washington,2015-06-26,2015,2015-06,25,True,Barre Town
 111,Gunner Brook (Brookside Mkt),Barre,Washington,2015-04-20,2015,2015-04,40,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2026-09-09,2026,2026-09,96,True,Barre Town
 1128,Hannaford-South Barre,Barre,Washington,2026-06-25,2026,2026-06,32,True,Barre Town
 1128,Hannaford-South Barre,Barre,Washington,2026-05-08,2026,2026-05,32,True,Barre Town
 1128,Hannaford-South Barre,Barre,Washington,2026-03-10,2026,2026-03,128,True,Barre Town
@@ -415,6 +419,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1128,Hannaford-South Barre,Barre,Washington,2022-08-23,2022,2022-08,114,True,Barre Town
 1128,Hannaford-South Barre,Barre,Washington,2022-07-26,2022,2022-07,85,True,Barre Town
 1128,Hannaford-South Barre,Barre,Washington,2022-06-29,2022,2022-06,110,True,Barre Town
+117,Ladder 1-Barre,Barre,Washington,2026-09-09,2026,2026-09,30,True,Barre City
 117,Ladder 1-Barre,Barre,Washington,2026-08-18,2026,2026-08,40,True,Barre City
 117,Ladder 1-Barre,Barre,Washington,2026-07-20,2026,2026-07,40,True,Barre City
 117,Ladder 1-Barre,Barre,Washington,2026-06-25,2026,2026-06,40,True,Barre City
@@ -768,6 +773,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 112,Mulligans-Barre,Barre,Washington,2015-12-23,2015,2015-12,50,True,Barre City
 112,Mulligans-Barre,Barre,Washington,2015-11-23,2015,2015-11,30,True,Barre City
 112,Mulligans-Barre,Barre,Washington,2015-11-02,2015,2015-11,100,True,Barre City
+1387,SARKY’s/Foxys Barre,Barre,Washington,2026-09-09,2026,2026-09,15,True,Barre City
 1387,SARKY’s/Foxys Barre,Barre,Washington,2026-04-10,2026,2026-04,35,True,Barre City
 1387,SARKY’s/Foxys Barre,Barre,Washington,2025-06-06,2025,2025-06,20,True,Barre City
 1387,SARKY’s/Foxys Barre,Barre,Washington,2025-04-17,2025,2025-04,35,True,Barre City
@@ -780,6 +786,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 118,Spaulding High School,Barre,Washington,2017-05-17,2017,2017-05,100,True,Barre City
 118,Spaulding High School,Barre,Washington,2016-06-27,2016,2016-06,30,True,Barre City
 118,Spaulding High School,Barre,Washington,2015-10-13,2015,2015-10,20,True,Barre City
+1401,Tasty Bites,Barre,Washington,2026-09-09,2026,2026-09,40,True,Barre City
 1401,Tasty Bites,Barre,Washington,2026-08-18,2026,2026-08,40,True,Barre City
 1401,Tasty Bites,Barre,Washington,2026-07-20,2026,2026-07,30,True,Barre City
 1401,Tasty Bites,Barre,Washington,2026-06-30,2026,2026-06,60,True,Barre City
@@ -938,6 +945,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 125,The Quarry-Barre,Barre,Washington,2019-08-19,2019,2019-08,100,True,Barre City
 125,The Quarry-Barre,Barre,Washington,2019-07-30,2019,2019-07,80,True,Barre City
 125,The Quarry-Barre,Barre,Washington,2019-07-01,2019,2019-07,125,True,Barre City
+119,Thunder Road  4567,Barre,Washington,2026-09-09,2026,2026-09,115,True,Barre Town
 119,Thunder Road  4567,Barre,Washington,2026-08-20,2026,2026-08,130,True,Barre Town
 119,Thunder Road  4567,Barre,Washington,2026-08-05,2026,2026-08,130,True,Barre Town
 119,Thunder Road  4567,Barre,Washington,2026-07-20,2026,2026-07,65,True,Barre Town
@@ -983,6 +991,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 119,Thunder Road  4567,Barre,Washington,2016-06-27,2016,2016-06,50,True,Barre Town
 119,Thunder Road  4567,Barre,Washington,2015-09-02,2015,2015-09,50,True,Barre Town
 119,Thunder Road  4567,Barre,Washington,2015-05-07,2015,2015-05,75,True,Barre Town
+1294,Warren Miller-Jamaican food truck,Barre,Washington,2026-09-09,2026,2026-09,45,True,Barre City
 1294,Warren Miller-Jamaican food truck,Barre,Washington,2026-07-15,2026,2026-07,35,True,Barre City
 1294,Warren Miller-Jamaican food truck,Barre,Washington,2026-04-10,2026,2026-04,40,True,Barre City
 1294,Warren Miller-Jamaican food truck,Barre,Washington,2025-11-14,2025,2025-11,40,True,Barre City
@@ -7614,6 +7623,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 622,Samurai Soul Food,Fairlee,Orange,2017-06-05,2017,2017-06,70,True,Fairlee
 622,Samurai Soul Food,Fairlee,Orange,2017-05-08,2017,2017-05,110,True,Fairlee
 622,Samurai Soul Food,Fairlee,Orange,2017-04-11,2017,2017-04,75,True,Fairlee
+124,Graniteville General,Graniteville,Washington,2026-09-09,2026,2026-09,35,True,Barre Town
 124,Graniteville General,Graniteville,Washington,2026-07-20,2026,2026-07,30,True,Barre Town
 124,Graniteville General,Graniteville,Washington,2026-06-25,2026,2026-06,30,True,Barre Town
 124,Graniteville General,Graniteville,Washington,2026-05-08,2026,2026-05,65,True,Barre Town
@@ -10406,6 +10416,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2025-01-29,2025,2025-01,55,True,Montpelier
 1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2024-12-31,2024,2024-12,55,True,Montpelier
 1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2024-11-26,2024,2024-11,100,True,Montpelier
+143,Julio's-67%,Montpelier,Washington,2026-09-09,2026,2026-09,55,True,Montpelier
 143,Julio's-67%,Montpelier,Washington,2026-08-14,2026,2026-08,10,True,Montpelier
 143,Julio's-67%,Montpelier,Washington,2026-06-29,2026,2026-06,45,True,Montpelier
 143,Julio's-67%,Montpelier,Washington,2026-05-29,2026,2026-05,35,True,Montpelier
@@ -10608,6 +10619,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1209,MJH Massage,Montpelier,Washington,2024-09-24,2024,2024-09,10,True,Montpelier
 1209,MJH Massage,Montpelier,Washington,2023-08-09,2023,2023-08,10,True,Montpelier
 1209,MJH Massage,Montpelier,Washington,2023-01-18,2023,2023-01,7,True,Montpelier
+131,Namaste ~ 33%,Montpelier,Washington,2026-09-09,2026,2026-09,30,True,Montpelier
 131,Namaste ~ 33%,Montpelier,Washington,2026-08-27,2026,2026-08,45,True,Montpelier
 131,Namaste ~ 33%,Montpelier,Washington,2026-08-14,2026,2026-08,75,True,Montpelier
 131,Namaste ~ 33%,Montpelier,Washington,2026-07-22,2026,2026-07,80,True,Montpelier
@@ -10723,6 +10735,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 149,National Life,Montpelier,Washington,2015-09-03,2015,2015-09,55,True,Montpelier
 149,National Life,Montpelier,Washington,2015-05-06,2015,2015-05,15,True,Montpelier
 149,National Life,Montpelier,Washington,2015-04-02,2015,2015-04,20,True,Montpelier
+169,Oakes and Evelyn-33%,Montpelier,Washington,2026-09-09,2026,2026-09,25,True,Montpelier
 169,Oakes and Evelyn-33%,Montpelier,Washington,2026-08-14,2026,2026-08,5,True,Montpelier
 169,Oakes and Evelyn-33%,Montpelier,Washington,2026-06-29,2026,2026-06,25,True,Montpelier
 169,Oakes and Evelyn-33%,Montpelier,Washington,2026-05-29,2026,2026-05,20,True,Montpelier
@@ -10766,6 +10779,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 169,Oakes and Evelyn-33%,Montpelier,Washington,2022-04-06,2022,2022-04,45,True,Montpelier
 169,Oakes and Evelyn-33%,Montpelier,Washington,2022-01-05,2022,2022-01,50,True,Montpelier
 169,Oakes and Evelyn-33%,Montpelier,Washington,2021-09-14,2021,2021-09,75,True,Montpelier
+1313,Ondis,Montpelier,Washington,2026-09-09,2026,2026-09,40,True,Montpelier
 1313,Ondis,Montpelier,Washington,2026-03-25,2026,2026-03,20,True,Montpelier
 1313,Ondis,Montpelier,Washington,2025-09-15,2025,2025-09,15,True,Montpelier
 1313,Ondis,Montpelier,Washington,2025-06-07,2025,2025-06,10,True,Montpelier
@@ -10887,6 +10901,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 145,Pho Capital,Montpelier,Washington,2015-07-15,2015,2015-07,30,True,Montpelier
 145,Pho Capital,Montpelier,Washington,2015-05-06,2015,2015-05,25,True,Montpelier
 145,Pho Capital,Montpelier,Washington,2015-01-05,2015,2015-01,40,True,Montpelier
+140,Positive Pie 2-Montpelier,Montpelier,Washington,2026-09-09,2026,2026-09,45,True,Montpelier
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2026-08-27,2026,2026-08,40,True,Montpelier
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2026-08-14,2026,2026-08,20,True,Montpelier
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2026-07-22,2026,2026-07,70,True,Montpelier
@@ -11322,6 +11337,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 157,State House,Montpelier,Washington,2023-05-18,2023,2023-05,45,True,Montpelier
 157,State House,Montpelier,Washington,2023-01-04,2023,2023-01,50,True,Montpelier
 157,State House,Montpelier,Washington,2020-04-29,2020,2020-04,50,True,Montpelier
+130,Three Penny Taproom 67%,Montpelier,Washington,2026-09-09,2026,2026-09,60,True,Montpelier
 130,Three Penny Taproom 67%,Montpelier,Washington,2026-08-27,2026,2026-08,95,True,Montpelier
 130,Three Penny Taproom 67%,Montpelier,Washington,2026-08-14,2026,2026-08,150,True,Montpelier
 130,Three Penny Taproom 67%,Montpelier,Washington,2026-07-22,2026,2026-07,170,True,Montpelier
