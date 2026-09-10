@@ -59,66 +59,79 @@ const COLOR_MONTPELIER = "#d3a04a";
 /*
  * Rough physical equivalents for the headline total, so a seven-figure gallon
  * count means something. PRESENTATION ONLY — these never feed a stored figure
- * and are deliberately hedged with "about" in the copy.
+ * and are deliberately hedged with "roughly" and "about" in the copy.
  *
  * Every value is derived from combined_total at render time, so the panel
  * follows the workbook rather than needing its own numbers kept in step.
+ *
+ * Tanker trucks were tried here and dropped: a truck is a routine unit for this
+ * business, so it made the total read as ordinary rather than large.
  */
 const EQUIV = {
-  TANKER_GALLONS: 7500,        // a full road tanker
-  BARREL_GALLONS: 55,          // standard steel barrel
-  TOTE_GALLONS: 275,           // standard IBC tote
+  DRUM_GALLONS: 55,            // standard steel drum
   OLYMPIC_POOL_GALLONS: 660000,
-  TRUCKS_PER_ICON: 25,         // one drawn truck stands for this many
-  MAX_ICONS: 40                // a guard, not a limit we expect to reach
+  DRUMS_PER_BLOCK: 1000,       // one drawn drum stands for this many
+  MAX_BLOCKS: 80,              // a guard, not a limit we expect to reach
+
+  // American football playing area, 360 ft x 160 ft, and the volume conversion.
+  FIELD_SQ_FT: 57600,
+  GALLONS_PER_CUBIC_FOOT: 7.48052
 };
 
 /**
  * Translate a gallon total into the equivalents shown under the hero number.
  * Returns null when the total is missing or not a positive number, so the
- * caller can leave the panel out rather than render "0 tanker trucks".
+ * caller can leave the panel out rather than render "0 drums".
  */
 function equivalents(totalGallons) {
   const total = Number(totalGallons);
   if (!Number.isFinite(total) || total <= 0) return null;
 
-  const trucks = Math.round(total / EQUIV.TANKER_GALLONS);
-  const icons = Math.max(
+  const drums = Math.round(total / EQUIV.DRUM_GALLONS);
+  const blocks = Math.max(
     1,
-    Math.min(EQUIV.MAX_ICONS, Math.round(trucks / EQUIV.TRUCKS_PER_ICON))
+    Math.min(EQUIV.MAX_BLOCKS, Math.round(drums / EQUIV.DRUMS_PER_BLOCK))
   );
 
-  // Derived from the icons actually drawn, not from TRUCKS_PER_ICON, so the
-  // caption stays true if MAX_ICONS ever clamps the row. At today's total the
-  // two agree at 25.
-  const trucksPerIcon = Math.max(1, Math.round(trucks / icons));
+  // Normally the caption states the design ratio: "about 1,000" is honest for
+  // 994 and reads far better. Only if MAX_BLOCKS actually clamps the wall does
+  // the stated ratio stop being true, and then it falls back to the real one.
+  const clamped =
+    Math.round(drums / EQUIV.DRUMS_PER_BLOCK) > EQUIV.MAX_BLOCKS;
+  const drumsPerBlock = clamped
+    ? Math.max(1, Math.round(drums / blocks))
+    : EQUIV.DRUMS_PER_BLOCK;
+
+  // Depth if the whole total were poured over a football field.
+  const fieldDepthFt =
+    total / (EQUIV.FIELD_SQ_FT * EQUIV.GALLONS_PER_CUBIC_FOOT);
 
   return {
     total,
-    trucks,
-    icons,
-    trucksPerIcon,
-    barrels: Math.round(total / EQUIV.BARREL_GALLONS),
-    totes: Math.round(total / EQUIV.TOTE_GALLONS),
-    // One decimal: a whole number would overstate the precision of a pool.
-    pools: (total / EQUIV.OLYMPIC_POOL_GALLONS).toFixed(1)
+    drums,
+    blocks,
+    drumsPerBlock,
+    // One decimal on both: whole numbers would overstate the precision.
+    pools: (total / EQUIV.OLYMPIC_POOL_GALLONS).toFixed(1),
+    fieldDepthFt: fieldDepthFt.toFixed(1),
+    // Hedged form for prose, so the sentence never implies survey accuracy.
+    fieldDepthWords: fieldDepthFt >= 1
+      ? `more than ${Math.floor(fieldDepthFt)} feet`
+      : "less than a foot"
   };
 }
 
 /*
- * A side-on tanker truck. The first inline SVG in this codebase, so it is kept
- * deliberately plain to match the hard-edged legend swatches used elsewhere:
- * no gradients, no strokes, and fill via currentColor so the colour lives in
- * dashboard.css rather than here.
+ * A steel drum, drawn as three stacked bands so the gaps between them read as
+ * the rolling hoops. Built from currentColor alone with no background fill, so
+ * it cannot fall out of step with the panel colour behind it.
  */
-const TRUCK_SVG = `
-  <svg class="equiv-truck" viewBox="0 0 48 24" width="48" height="24"
+const DRUM_SVG = `
+  <svg class="equiv-drum" viewBox="0 0 14 20" width="14" height="20"
        aria-hidden="true" focusable="false">
-    <rect x="15" y="5" width="25" height="11" rx="2.5" fill="currentColor"/>
-    <path d="M2 8h8l5 5v3H2z" fill="currentColor"/>
-    <circle cx="8" cy="19" r="3" fill="currentColor"/>
-    <circle cx="29" cy="19" r="3" fill="currentColor"/>
-    <circle cx="37" cy="19" r="3" fill="currentColor"/>
+    <rect x="0" y="0" width="14" height="5" rx="1.5" fill="currentColor"/>
+    <rect x="0" y="6.5" width="14" height="6" rx="1.5" fill="currentColor"/>
+    <rect x="0" y="14" width="14" height="6" rx="1.5" fill="currentColor"/>
   </svg>`;
 
 async function init() {
@@ -213,44 +226,40 @@ function render(page, data) {
 
       <div class="equiv-lead">
         <div class="equiv-callout">
-          <div class="equiv-callout-val">≈ ${formatNumber(eq.trucks)}</div>
-          <div class="equiv-callout-label">tanker trucks</div>
+          <div class="equiv-callout-val">${formatNumber(eq.drums)}</div>
+          <div class="equiv-callout-label">standard 55-gallon drums</div>
         </div>
 
-        <div class="equiv-convoy-wrap">
-          <div class="equiv-convoy">
-            ${TRUCK_SVG.repeat(eq.icons)}
+        <div class="equiv-wall-wrap">
+          <div class="equiv-wall">
+            ${DRUM_SVG.repeat(eq.blocks)}
           </div>
           <div class="equiv-caption">
-            Each truck represents about ${formatNumber(eq.trucksPerIcon)}
-            full tanker trucks, at ${formatNumber(EQUIV.TANKER_GALLONS)} gallons each.
+            Each block represents about ${formatNumber(eq.drumsPerBlock)} drums.
           </div>
         </div>
       </div>
 
       <div class="equiv-cards">
         <div class="equiv-card">
-          <div class="equiv-card-val">${formatNumber(eq.barrels)}</div>
-          <div class="equiv-card-label">standard barrels</div>
-          <div class="equiv-card-sub">${formatNumber(EQUIV.BARREL_GALLONS)} gallons each</div>
-        </div>
-        <div class="equiv-card">
-          <div class="equiv-card-val">${formatNumber(eq.totes)}</div>
-          <div class="equiv-card-label">totes</div>
-          <div class="equiv-card-sub">${formatNumber(EQUIV.TOTE_GALLONS)} gallons each</div>
-        </div>
-        <div class="equiv-card">
           <div class="equiv-card-val">${escapeHtml(eq.pools)}</div>
-          <div class="equiv-card-label">Olympic pools</div>
-          <div class="equiv-card-sub">${formatNumber(EQUIV.OLYMPIC_POOL_GALLONS)} gallons each</div>
+          <div class="equiv-card-label">Olympic-size swimming pools</div>
+          <div class="equiv-card-sub">Based on roughly
+            ${formatNumber(EQUIV.OLYMPIC_POOL_GALLONS)} gallons per pool.</div>
+        </div>
+        <div class="equiv-card">
+          <div class="equiv-card-val">${escapeHtml(eq.fieldDepthFt)} ft</div>
+          <div class="equiv-card-label">deep over a football field</div>
+          <div class="equiv-card-sub">A physical-scale comparison, over a
+            360 × 160 ft playing area.</div>
         </div>
       </div>
 
       <div class="equiv-summary">
-        ${formatNumber(eq.total)} gallons of waste displaced — roughly equivalent
-        to ${formatNumber(eq.trucks)} full tanker trucks,
-        ${formatNumber(eq.barrels)} standard barrels, or
-        ${formatNumber(eq.totes)} ${formatNumber(EQUIV.TOTE_GALLONS)}-gallon totes.
+        ${formatNumber(eq.total)} gallons of waste displaced — enough to fill
+        roughly ${formatNumber(eq.drums)} standard 55-gallon drums,
+        ${escapeHtml(eq.pools)} Olympic-size pools, or cover a football field
+        ${escapeHtml(eq.fieldDepthWords)} deep.
       </div>
     </div>` : ""}
 
