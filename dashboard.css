@@ -455,20 +455,22 @@ select:disabled {
   margin-top: 4px;
 }
 
-.equiv-convoy-wrap {
-  flex: 1 1 320px;
+.equiv-wall-wrap {
+  flex: 1 1 340px;
   min-width: 0;
 }
 
-.equiv-convoy {
+/* A dense block of drums. The gap is deliberately tight so the group reads as
+   one mass rather than a row of separate icons. */
+.equiv-wall {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 5px;
   color: #3fb950;
 }
 
 /* currentColor on the SVG fills means the colour is set here, once. */
-.equiv-truck {
+.equiv-drum {
   display: block;
   flex: 0 0 auto;
   opacity: 0.9;
@@ -485,7 +487,7 @@ select:disabled {
   display: grid;
   /* Deliberately not .stats-bar: that is pinned to two columns at 520px, which
      would orphan the third card onto a row of its own. */
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1px;
   background: #30363d;
   border: 1px solid #30363d;
