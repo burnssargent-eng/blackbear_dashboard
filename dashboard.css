@@ -8,7 +8,8 @@
  *
  *   background   #0d1117      panels    #161b22
  *   borders      #30363d      text      #e6edf3
- *   muted text   #8b949e      accent    #3fb950
+ *   muted text   #a3adb8      accent    #3fb950
+ *   dim text     #8b949e      (secondary lines under a stat label)
  */
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -71,14 +72,14 @@ header h1 {
 
 .subtitle {
   font-size: 13px;
-  color: #8b949e;
+  color: #a3adb8;
   margin-bottom: 3px;
 }
 
 .last-updated {
   margin-left: auto;
   font-size: 12px;
-  color: #8b949e;
+  color: #a3adb8;
   white-space: nowrap;
 }
 
@@ -103,6 +104,8 @@ header h1 {
    defined inline in index.html, so those lines rendered unstyled until now. */
 .stat-sub {
   font-size: 12px;
+  /* Deliberately the darker grey. The card label above uses the lighter muted
+     tone, so this secondary line stays subordinate. */
   color: #8b949e;
   margin-top: 6px;
   min-height: 15px;
@@ -127,7 +130,7 @@ header h1 {
 }
 
 .main-nav a {
-  color: #8b949e;
+  color: #a3adb8;
   text-decoration: none;
   font-size: 15px;
   padding: 3px 0;
@@ -171,7 +174,7 @@ header h1 {
 
 .stat-label {
   font-size: 12px;
-  color: #8b949e;
+  color: #a3adb8;
   margin-top: 4px;
 }
 
@@ -190,7 +193,7 @@ header h1 {
 
 .page-subtitle {
   font-size: 13px;
-  color: #8b949e;
+  color: #a3adb8;
   margin-bottom: 18px;
 }
 
@@ -212,7 +215,7 @@ header h1 {
 
 .chart-title,
 .section-title {
-  color: #8b949e;
+  color: #a3adb8;
   font-size: 13px;
   margin-bottom: 8px;
 }
@@ -220,7 +223,7 @@ header h1 {
 /* Explains what a chart is showing. Must stay quieter than .chart-title above
    it — without this rule it inherits body text and shouts over the heading. */
 .tab-caption {
-  color: #8b949e;
+  color: #a3adb8;
   font-size: 11px;
   line-height: 1.5;
   margin: -4px 0 8px;
@@ -258,7 +261,7 @@ header h1 {
 
 .controls label {
   font-size: 12px;
-  color: #8b949e;
+  color: #a3adb8;
 }
 
 button, select {
@@ -313,7 +316,7 @@ select:disabled {
 .data-table th {
   text-align: left;
   padding: 10px 14px;
-  color: #8b949e;
+  color: #a3adb8;
   font-size: 12px;
   font-weight: bold;
   background: #0d1117;
@@ -347,7 +350,7 @@ select:disabled {
 }
 
 .data-table .rank {
-  color: #8b949e;
+  color: #a3adb8;
   text-align: right;
   width: 48px;
 }
@@ -389,7 +392,7 @@ select:disabled {
 
 .hero-label {
   font-size: 13px;
-  color: #8b949e;
+  color: #a3adb8;
   margin-top: 6px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -401,7 +404,7 @@ select:disabled {
 
 /* Short definition line under a section title, above the longer footnote. */
 .section-caption {
-  color: #8b949e;
+  color: #a3adb8;
   font-size: 12px;
   line-height: 1.6;
   margin: -2px 0 10px;
@@ -417,7 +420,7 @@ select:disabled {
 
 .list-count {
   font-size: 12px;
-  color: #8b949e;
+  color: #a3adb8;
 }
 
 .jump-link {
@@ -448,7 +451,7 @@ select:disabled {
 
 .group-row td {
   background: #0d1117;
-  color: #8b949e;
+  color: #a3adb8;
   font-size: 11px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -473,7 +476,7 @@ select:disabled {
 }
 
 .status-inactive {
-  color: #8b949e;
+  color: #a3adb8;
   border-color: #30363d;
   background: #21262d;
 }
@@ -489,6 +492,39 @@ select:disabled {
 /* The green left edge is purely cosmetic — it separates explanatory notes from
    data panels against the dark background. Padding trimmed slightly here as
    part of the Phase 5 vertical-space pass. */
+/*
+ * "Includes: ..." contents line in the region page filter bar. It sits to the
+ * right of the Region dropdown on wide screens and wraps onto its own line when
+ * the bar runs out of room, so the bar never grows taller than it has to.
+ */
+.region-includes {
+  margin-left: auto;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.region-includes-label {
+  color: #a3adb8;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
+.region-includes-label::after { content: ":"; }
+
+.region-includes-list {
+  color: #adbac7;
+  border-left: 2px solid #3fb950;
+  padding-left: 8px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
 .note {
   background: #161b22;
   border: 1px solid #30363d;
@@ -496,7 +532,7 @@ select:disabled {
   border-radius: 6px;
   padding: 10px 16px;
   font-size: 12px;
-  color: #8b949e;
+  color: #a3adb8;
   line-height: 1.6;
   margin-bottom: 16px;
 }
@@ -518,7 +554,7 @@ select:disabled {
 
 .state-detail {
   font-size: 13px;
-  color: #8b949e;
+  color: #a3adb8;
   margin-bottom: 16px;
 }
 
@@ -577,6 +613,8 @@ select:disabled {
   .chart-grid { grid-template-columns: 1fr; }
   .stats-bar { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }
   .controls { gap: 8px; }
+  /* Always below the dropdown once the bar is narrow. */
+  .region-includes { margin-left: 0; flex-basis: 100%; }
 }
 
 @media (max-width: 520px) {

@@ -39,7 +39,7 @@ import re
 import sys
 
 from check_town_mismatches import load_geojson_towns
-from oil_scraper import COUNTY_MAP, OUT_OF_STATE_CITIES, REGION_NAMES
+from oil_scraper import COUNTY_MAP, OUT_OF_STATE_CITIES, REGION_NAMES  # noqa: F401
 
 DATA_PATH = "oil_data.json"
 GEOJSON_PATH = "vermont_towns.geojson"
@@ -966,6 +966,237 @@ def check_regions(report, data):
 
 
 # ─────────────────────────────────────────────
+# Region taxonomy (Jim's revision)
+# ─────────────────────────────────────────────
+# Region names Jim replaced. Any of these surviving as a REGION name means a
+# rename or merge did not take: the solos folded into "Waterbury / Stowe",
+# "Woodstock" grew into "Central South", and the two carried-forward regions
+# were restyled to the slash convention. Note "Woodstock" remains a valid TOWN
+# inside Central South — only the region by that name is retired.
+RETIRED_REGIONS = {
+    "Stowe",
+    "Waterbury",
+    "Woodstock",
+    "Warren+Waitsfield",
+    "Jay+Montgomery+Troy",
+}
+
+# The regions Jim named. UVM and the two carried-forward regions are not
+# asserted here — they are kept for coverage, not mandated by the taxonomy.
+REQUIRED_REGIONS = [
+    "Route 7",
+    "Waterbury / Stowe",
+    "Southern Ski Slopes",
+    "South",
+    "Central",
+    "Outer Burlington",
+    "Northwest",
+    "Burlington / South Burlington",
+    "Route 15",
+    "Central South",
+    "Route 2 East",
+]
+
+# Towns that must land in a specific region, as "town -> region".
+REQUIRED_TOWN_REGION = {
+    "Shelburne": "Route 7",
+    "Stowe": "Waterbury / Stowe",
+    "Waterbury": "Waterbury / Stowe",
+    "Woodstock": "Central South",
+    "Pomfret": "Central South",
+    "Hartford": "Central South",
+    "Bethel": "Central South",
+    "Randolph": "Central South",
+    "West Lebanon": "Central South",
+}
+
+# Towns that must NOT land in a given region.
+FORBIDDEN_TOWN_REGION = {
+    "Shelburne": "Burlington / South Burlington",
+}
+
+
+def check_region_taxonomy(report, data, coll):
+    report.section("R3", "Region taxonomy")
+
+    from oil_scraper import (
+        REGION_TOWNS,
+        REGION_NAMES as CONFIG_NAMES,
+        SELF_DESCRIBING_REGIONS,
+        current_calendar_year,
+        region_descriptions,
+        region_sheet_names,
+    )
+
+    names = data.get("region_names") or []
+
+    # 1. Retired region names must be gone.
+    survivors = sorted(RETIRED_REGIONS & set(names))
+    if survivors:
+        report.fail(f"Retired region name(s) still exported: {survivors}")
+    else:
+        report.ok("Retired region names are gone (solos, Woodstock, '+' names).")
+
+    # 2. Every region Jim named must exist.
+    missing = [r for r in REQUIRED_REGIONS if r not in names]
+    if missing:
+        report.fail(f"{len(missing)} required region(s) missing: {missing}")
+    else:
+        report.ok(f"All {len(REQUIRED_REGIONS)} required regions exported.")
+
+    # 3. Display-name convention: multi-place names join with " / ", not "+".
+    plus = sorted(n for n in names if "+" in n)
+    if plus:
+        report.fail(f"Region name(s) still using '+' instead of ' / ': {plus}")
+    else:
+        report.ok("All multi-place region names use the ' / ' convention.")
+
+    # 4. The exported names must be the config's, no more and no less. Order is
+    #    data-driven now, so compare as sets and check the ordering separately.
+    if set(names) != set(CONFIG_NAMES):
+        only_json = sorted(set(names) - set(CONFIG_NAMES))
+        only_cfg = sorted(set(CONFIG_NAMES) - set(names))
+        report.fail("region_names does not match REGION_TOWNS in oil_scraper.py "
+                    f"— the JSON is stale. Only in JSON: {only_json}. "
+                    f"Only in config: {only_cfg}. Re-run oil_scraper.py.")
+    else:
+        report.ok("region_names matches the oil_scraper.py config.")
+
+    if len(names) != len(set(names)):
+        report.fail("Duplicate region name(s) exported.")
+
+    # 5. region_names must be sorted by current-year gallons, highest first.
+    year = current_calendar_year()
+    cur = {}
+    for row in data.get("monthly_by_region") or []:
+        if str(row.get("month", "")).startswith(f"{year}-"):
+            cur[row["region"]] = cur.get(row["region"], 0) + row["gallons"]
+    actual = [(n, cur.get(n, 0)) for n in names]
+    expected = sorted(names, key=lambda n: (-cur.get(n, 0), n))
+    if names != expected:
+        report.fail(f"region_names is not ordered by {year} gallons descending.")
+        report.detail(f"exported: {[n for n, _ in actual]}")
+        report.detail(f"expected: {expected}")
+    else:
+        report.ok(f"region_names is ordered by {year} gallons, highest first "
+                  f"(leads with {names[0]}).")
+
+    if "Other" in names:
+        report.fail("'Other' must not appear in region_names — it is the "
+                    "catch-all and region.html appends it last on its own.")
+    else:
+        report.ok("'Other' is excluded from region_names and stays last in the UI.")
+
+    # 6. Regions that need an "Includes:" line must have one, and regions whose
+    #    own name already lists their contents must NOT carry a redundant one.
+    desc = data.get("region_descriptions")
+    if not desc:
+        report.fail("region_descriptions missing from oil_data.json — the region "
+                    "page cannot say what a region includes. Re-run oil_scraper.py.")
+    else:
+        needs = [n for n in names if n not in SELF_DESCRIBING_REGIONS]
+        blank = [n for n in needs + ["Other"]
+                 if not str(desc.get(n, "")).strip()]
+        if blank:
+            report.fail(f"No region description for: {blank}")
+        else:
+            report.ok(f"All {len(needs)} regions needing an 'Includes' line have "
+                      "one, plus 'Other'.")
+
+        redundant = sorted(n for n in SELF_DESCRIBING_REGIONS if desc.get(n))
+        if redundant:
+            report.fail("Region(s) whose name already lists their contents still "
+                        f"carry a redundant 'Includes' line: {redundant}")
+        else:
+            report.ok(f"{len(SELF_DESCRIBING_REGIONS)} self-describing region(s) "
+                      "carry no redundant 'Includes' line.")
+
+        # Exact comparison catches both drifted text and a stale JSON.
+        fresh = region_descriptions()
+        if desc != fresh:
+            only_json = sorted(set(desc) - set(fresh))
+            only_cfg = sorted(set(fresh) - set(desc))
+            changed = sorted(n for n in set(desc) & set(fresh)
+                             if desc[n] != fresh[n])
+            report.fail("region_descriptions disagree with the oil_scraper.py "
+                        f"config — only in JSON: {only_json}; only in config: "
+                        f"{only_cfg}; different text: {changed}. "
+                        "Re-run oil_scraper.py.")
+        else:
+            report.ok("region_descriptions match the oil_scraper.py config exactly.")
+
+    # 7. Town placements Jim specified.
+    for town, region in sorted(REQUIRED_TOWN_REGION.items()):
+        if town in REGION_TOWNS.get(region, set()):
+            report.ok(f"{town} is in {region}.")
+        else:
+            report.fail(f"{town} is NOT in {region}.")
+
+    for town, region in sorted(FORBIDDEN_TOWN_REGION.items()):
+        if town in REGION_TOWNS.get(region, set()):
+            report.fail(f"{town} is in {region} — Jim moved it out.")
+        else:
+            report.ok(f"{town} is not in {region}.")
+
+    # 7. A town in two regions is legal but worth naming, since it is what makes
+    #    region totals non-additive.
+    seen_towns = {}
+    for region, towns in REGION_TOWNS.items():
+        for town in towns:
+            seen_towns.setdefault(town, []).append(region)
+    shared = {t: rs for t, rs in seen_towns.items() if len(rs) > 1}
+    if shared:
+        report.info(f"Town(s) in more than one region: {shared}")
+    else:
+        report.ok("No town is claimed by two regions.")
+
+    # 8. Excel sheet titles must be legal, short enough and unique, or
+    #    build_reports raises InvalidWorksheetName and no workbook is written.
+    titles = region_sheet_names()
+    bad = {n: t for n, t in titles.items()
+           if len(t) > 31 or any(c in "[]:*?/\\" for c in t)}
+    if bad:
+        report.fail(f"Illegal Excel sheet title(s): {bad}")
+    elif len(set(titles.values())) != len(titles):
+        report.fail("Excel sheet titles collide after sanitizing.")
+    else:
+        report.ok(f"All {len(titles)} Excel sheet titles are legal and unique.")
+
+    # 9. Every configured town should actually appear in the data. A town that
+    #    matches nothing is usually a typo; report it rather than fail, since a
+    #    town can legitimately be configured ahead of its first customer.
+    seen = set()
+    for row in coll or []:
+        town = (row.get("geo_town") or "").strip()
+        seen.add(town or (row.get("city") or "").strip())
+
+    unmatched = sorted(
+        f"{region}:{town}"
+        for region, towns in REGION_TOWNS.items()
+        for town in towns
+        if town not in seen
+    )
+    if unmatched:
+        report.warn(f"{len(unmatched)} configured town(s) match no collection: "
+                    f"{unmatched}")
+        report.detail("Not an error on its own — a town can be configured before "
+                      "its first customer — but check for a spelling change.")
+    else:
+        report.ok("Every configured town matches at least one collection.")
+
+    # 10. Coverage: how much of the business actually lands in a named region.
+    stats = data.get("region_stats") or {}
+    other = stats.get("Other") or {}
+    if other:
+        total = data.get("customer_count") or 0
+        n = other.get("customers") or 0
+        pct = (n / total * 100) if total else 0
+        report.info(f"{n} of {total} customers ({pct:.1f}%) are unassigned "
+                    f"('Other'), {other.get('active')} of them active.")
+        report.info("Every stop should eventually have a region — send the "
+                    "unassigned towns to Jim for a follow-up pass.")
+
+# ─────────────────────────────────────────────
 # Main
 # ─────────────────────────────────────────────
 
@@ -1013,6 +1244,7 @@ def main():
     check_schmootz_isolation(report, data)
     check_reconciliation(report, data)
     check_regions(report, data)
+    check_region_taxonomy(report, data, coll)
 
     print(f"\n{'=' * 74}")
     print("SUMMARY")

@@ -78,14 +78,14 @@
 
     .subtitle {
       font-size: 13px;
-      color: #8b949e;
+      color: #a3adb8;
       margin-bottom: 3px;
     }
 
     .last-updated {
       margin-left: auto;
       font-size: 12px;
-      color: #8b949e;
+      color: #a3adb8;
       white-space: nowrap;
     }
 
@@ -100,7 +100,7 @@
     }
 
     .main-nav a {
-      color: #8b949e;
+      color: #a3adb8;
       text-decoration: none;
       font-size: 15px;
       padding: 3px 0;
@@ -136,7 +136,7 @@
 
     .stat-label {
       font-size: 12px;
-      color: #8b949e;
+      color: #a3adb8;
       margin-top: 4px;
     }
 
@@ -145,6 +145,8 @@
        is unchanged. */
     .stat-sub {
       font-size: 12px;
+      /* Deliberately the darker grey. The card label above uses the
+         lighter muted tone, so this secondary line stays subordinate. */
       color: #8b949e;
       margin-top: 5px;
       min-height: 15px;
@@ -243,7 +245,7 @@
     }
 
     .legend-title {
-      color: #8b949e;
+      color: #a3adb8;
       font-weight: bold;
       margin-bottom: 8px;
     }
@@ -276,7 +278,7 @@
       flex: 1;
       padding: 12px;
       text-align: center;
-      color: #8b949e;
+      color: #a3adb8;
       cursor: pointer;
       border-bottom: 2px solid transparent;
     }
@@ -296,7 +298,7 @@
     }
 
     .chart-title {
-      color: #8b949e;
+      color: #a3adb8;
       font-size: 13px;
       margin-bottom: 8px;
     }
@@ -304,7 +306,7 @@
     /* Explains what a chart is showing, so a normalized chart is not mistaken
        for raw gallons. */
     .tab-caption {
-      color: #8b949e;
+      color: #a3adb8;
       font-size: 11px;
       line-height: 1.5;
       margin: -4px 0 8px;
@@ -484,6 +486,7 @@
   <div class="stat">
     <div class="stat-val" id="stat-alltime">—</div>
     <div class="stat-label">All-Time Gallons</div>
+    <div class="stat-sub" id="stat-pickups"></div>
   </div>
   <div class="stat">
     <div class="stat-val" id="stat-year">—</div>
@@ -493,6 +496,7 @@
   <div class="stat">
     <div class="stat-val" id="stat-month">—</div>
     <div class="stat-label">Selected Period</div>
+    <div class="stat-sub" id="stat-period"></div>
   </div>
   <div class="stat">
     <div class="stat-val" id="stat-customers">—</div>
@@ -912,6 +916,7 @@ async function loadAll() {
 
   renderProjection(allData.projection);
   renderActiveCustomers(allData.active_customer_count);
+  renderAllTimePickups(allData.collections_count);
 
   // Point the nav at real values from the data rather than hardcoding them.
   const latestYear = months.length ? months[months.length - 1].slice(0, 4) : "";
@@ -975,6 +980,29 @@ function renderActiveCustomers(count) {
 
   el.innerHTML =
     `Active: <span class="stat-sub-value">${formatNumber(count)}</span>`;
+}
+
+/**
+ * Secondary line inside the "All-Time Gallons" card.
+ *
+ * collections_count is len(df) after EMPTY_QTYS is applied, so it is the count
+ * of QUALIFYING pickups — the same set of records the gallons above are summed
+ * from. Quantities 0-3 are already excluded; 4 is counted as a real 4-gallon
+ * pickup.
+ */
+function renderAllTimePickups(count) {
+  const el = document.getElementById("stat-pickups");
+  if (!el) return;
+
+  // Same explicit null/undefined test as renderActiveCustomers: Number(null)
+  // is 0, which is finite, so a plain isFinite check would render "Pickups: 0".
+  if (count === null || count === undefined || !Number.isFinite(Number(count))) {
+    el.textContent = "Pickup count unavailable";
+    return;
+  }
+
+  el.innerHTML =
+    `Pickups: <span class="stat-sub-value">${formatNumber(count)}</span>`;
 }
 
 /**
@@ -1110,6 +1138,41 @@ function periodLabel(mode, idx) {
   }
 }
 
+/**
+ * Which period the "Selected Period" card is reporting, spelled out.
+ *
+ * Deliberately separate from periodLabel above, which titles the MAP and uses a
+ * compact range form ("Jan-Sep 2026"). This one names the period the way the
+ * mode menu does, so the card reads as a plain sentence. Both are driven by the
+ * same (mode, idx), so they can describe the period differently but can never
+ * describe different periods.
+ */
+function periodSubtitle(mode, idx) {
+  if (!months.length) return "";
+
+  const selected = months[idx];
+  const [year, mo] = selected.split("-");
+  const longMonth = new Date(year, Number(mo) - 1)
+    .toLocaleString("default", { month: "long", year: "numeric" });
+
+  switch (mode) {
+    case "month":
+      return longMonth;
+    case "ytd":
+      return `${year} to Date`;
+    case "year":
+      return `Full Year ${year}`;
+    case "alltime_todate":
+      // The map label beside it carries the through-month, so this stays short
+      // and the four stat cards keep their heights.
+      return "All Time to Date";
+    case "alltime":
+      return "All Time";
+    default:
+      return longMonth;
+  }
+}
+
 function renderMap(idx) {
   if (!months.length || !geoData) return;
 
@@ -1120,6 +1183,11 @@ function renderMap(idx) {
   document.getElementById("month-label").textContent = periodLabel(mode, idx);
   document.getElementById("stat-month").textContent =
     formatNumber(periodTotal(periodMonths));
+  // Wrapped in .stat-sub-value so it reads as white and bold, matching the
+  // numbers after "Pickups:" and "Active:" on the neighbouring cards. This card
+  // has no "Label:" prefix — the period name is itself the value.
+  document.getElementById("stat-period").innerHTML =
+    `<span class="stat-sub-value">${escapeHtml(periodSubtitle(mode, idx))}</span>`;
 
   // Rescale the colors to whatever is on screen right now, then rebuild the
   // legend from the same bins so the two can never drift apart.
@@ -1275,8 +1343,8 @@ function buildCharts() {
       maintainAspectRatio: false,
       plugins: { legend: { display: false } },
       scales: {
-        x: { ticks: { color: "#8b949e", maxTicksLimit: 8 }, grid: { color: "#21262d" } },
-        y: { ticks: { color: "#8b949e" }, grid: { color: "#21262d" } }
+        x: { ticks: { color: "#a3adb8", maxTicksLimit: 8 }, grid: { color: "#21262d" } },
+        y: { ticks: { color: "#a3adb8" }, grid: { color: "#21262d" } }
       }
     }
   });
@@ -1297,8 +1365,8 @@ function buildCharts() {
       maintainAspectRatio: false,
       plugins: { legend: { display: false } },
       scales: {
-        x: { ticks: { color: "#8b949e" }, grid: { color: "#21262d" } },
-        y: { ticks: { color: "#8b949e" }, grid: { color: "#21262d" } }
+        x: { ticks: { color: "#a3adb8" }, grid: { color: "#21262d" } },
+        y: { ticks: { color: "#a3adb8" }, grid: { color: "#21262d" } }
       },
       // Clicking a bar opens that year's detail page. Data, colors and scales
       // above are untouched.
@@ -1486,8 +1554,8 @@ function buildSeasonalityChart(byYear, presentYears) {
         }
       },
       scales: {
-        x: { ticks: { color: "#8b949e" }, grid: { color: "#21262d" } },
-        y: { ticks: { color: "#8b949e" }, grid: { color: "#21262d" } }
+        x: { ticks: { color: "#a3adb8" }, grid: { color: "#21262d" } },
+        y: { ticks: { color: "#a3adb8" }, grid: { color: "#21262d" } }
       }
     }
   });
