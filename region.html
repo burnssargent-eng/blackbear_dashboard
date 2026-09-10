@@ -180,9 +180,15 @@ function render(page, region, options, monthly, yearly, named, regionStats,
   const seasonality = seasonalityProfile(
     monthTotals,
     latestDataDate,
-    regionProjection(monthTotals, latestDataDate)
+    (regionProjection(monthTotals, latestDataDate) || {}).projected
   );
   const highlights = seasonalityHighlights(seasonality);
+
+  // Secondary lines for the stat cards, matching the homepage treatment.
+  const projection = regionProjection(monthTotals, latestDataDate);
+  const priorMonth = priorMonthGallons(monthTotals, latestMonth, months[0]);
+  const collectedThisYear =
+    activeCollectedThisYear(regionRecords, Number(currentYear));
 
   regionMonthTotals = monthTotals;
   regionMonths = months;
@@ -224,23 +230,43 @@ function render(page, region, options, monthly, yearly, named, regionStats,
       <div class="stat">
         <div class="stat-val">${formatNumber(allTime)}</div>
         <div class="stat-label">All-Time Gallons</div>
+        <div class="stat-sub">Pickups:
+          <span class="stat-sub-value">${formatNumber(regionRecords.length)}</span>
+        </div>
       </div>
       <div class="stat">
         <div class="stat-val">${formatNumber(yearTotals[currentYear])}</div>
         <div class="stat-label">${escapeHtml(currentYear)} Gallons</div>
+        <div class="stat-sub">${projection ? `Projected:
+          <span class="stat-sub-value">${formatNumber(Math.round(projection.projected))}</span>
+          <span class="${projection.percent >= 0 ? "up" : "down"}">(${projection.percent >= 0 ? "+" : ""}${(projection.percent * 100).toFixed(1)}%
+          vs ${escapeHtml(String(projection.previousYear))})</span>`
+          : "Projection unavailable"}</div>
       </div>
       <div class="stat">
         <div class="stat-val">${formatNumber(monthTotals[latestMonth])}</div>
         <div class="stat-label">${escapeHtml(formatMonth(latestMonth))}</div>
+        <!-- Gallons only, never a percentage: the month above may be partial,
+             so a comparison against it would flatter or punish it unfairly. -->
+        <div class="stat-sub">${priorMonth
+          ? `${escapeHtml(formatMonth(priorMonth.month))}:
+             <span class="stat-sub-value">${formatNumber(priorMonth.gallons)}</span>`
+          : "Prior month unavailable"}</div>
       </div>
       <div class="stat">
         <div class="stat-val">${formatNumber(avgMonthly)}</div>
         <div class="stat-label">Avg Monthly Gallons</div>
-        <div class="stat-sub">last ${formatNumber(avgMonthsUsed)} months with data</div>
+        <div class="stat-sub">based on
+          <span class="stat-sub-value">${formatNumber(avgMonthsUsed)}</span>
+          of the last 24 months</div>
       </div>
       <div class="stat">
         <div class="stat-val">${activeDisplay}</div>
         <div class="stat-label">Active Customers</div>
+        <div class="stat-sub">${Number.isFinite(Number(activeCount))
+          ? `<span class="stat-sub-value">${formatNumber(collectedThisYear)}</span>
+             collected in ${escapeHtml(currentYear)}`
+          : ""}</div>
       </div>
     </div>
 
@@ -480,6 +506,9 @@ const MIN_COMPLETE_YEARS = 2;
  *
  * KEEP IN STEP with oil_scraper.py:926 if that formula ever changes.
  *
+ * Returns { projected, previousFull, previousYear, percent }, or null when
+ * there is nothing usable to compare against.
+ *
  * Anchored to the dataset's latest collection date, never to the region's own
  * last month: a region with no August pickups collected zero in August, which
  * is real data, not a gap.
@@ -506,7 +535,16 @@ function regionProjection(monthTotals, latestDataDate) {
   const prevProrated = prevPrior + fraction * gallons(prev, month);
 
   if (prevProrated <= 0 || prevFull <= 0 || currentYtd <= 0) return null;
-  return prevFull * (currentYtd / prevProrated);
+
+  const projected = prevFull * (currentYtd / prevProrated);
+  return {
+    projected,
+    previousFull: prevFull,
+    previousYear: prev,
+    // Same expression as percent_vs_previous_year in oil_scraper.py. prevFull
+    // is guarded above, so this can never divide by zero.
+    percent: projected / prevFull - 1
+  };
 }
 
 /**
@@ -612,6 +650,54 @@ function seasonalityHighlights(profile) {
     multiple,
     winterShare: WINTER_MONTHS.reduce((sum, i) => sum + shares[i], 0)
   };
+}
+
+/**
+ * Active customers in this region who have actually collected this year.
+ *
+ * Two independent conditions, deliberately: the source site's is_active flag
+ * says the account is live, and a current-year record says it produced. Neither
+ * is inferred from the other, and recency is never used to guess active status.
+ *
+ * Counted against regionRecords, which is the retained counted-pickup set, so
+ * every record is already a qualifying pickup.
+ */
+function activeCollectedThisYear(records, currentYear) {
+  const seen = new Set();
+  (records || []).forEach(r => {
+    if (r.is_active === true && Number(r.year) === currentYear) {
+      seen.add(r.customer_id);
+    }
+  });
+  return seen.size;
+}
+
+/**
+ * The calendar month before a "YYYY-MM", rolling back a year at January.
+ *
+ * Distinguishes two kinds of absence. A month missing from inside the region's
+ * own history collected nothing — a month with no pickups produces no row at
+ * all — so it reports zero. A month before the region's first ever data is
+ * genuinely unknown and reports nothing, letting the caller say so.
+ */
+function priorMonthGallons(monthTotals, month, firstMonth) {
+  if (!month) return null;
+
+  const year = Number(month.slice(0, 4));
+  const index = Number(month.slice(5));
+  if (!year || !index) return null;
+
+  const key = index === 1
+    ? `${year - 1}-12`
+    : `${year}-${MONTH_KEYS[index - 2]}`;
+
+  const value = monthTotals[key];
+  if (value !== undefined && value !== null) {
+    return { month: key, gallons: Number(value) || 0 };
+  }
+  // Inside the region's history but unrecorded means nothing was collected.
+  if (firstMonth && key >= firstMonth) return { month: key, gallons: 0 };
+  return null;
 }
 
 /** Switch the customer sort and repaint, mirroring the customers page. */
