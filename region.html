@@ -133,11 +133,12 @@ async function init() {
   const regionDescription = (data.region_descriptions || {})[region] || "";
 
   render(page, region, options, monthly, yearly, named,
-         (data.region_stats || {})[region], regionDescription);
+         (data.region_stats || {})[region], regionDescription,
+         (data.projection || {}).latest_data_date);
 }
 
 function render(page, region, options, monthly, yearly, named, regionStats,
-                regionDescription) {
+                regionDescription, latestDataDate) {
   renderPageName(`${region} Region`);
 
   const monthTotals = {};
@@ -174,6 +175,14 @@ function render(page, region, options, monthly, yearly, named, regionStats,
   // monthly_by_region figures the charts use means the period denominator in the
   // note can never disagree with the numbers above it, and the pickers can never
   // offer a period this region has no data for.
+  // Seasonal shape for this region, scaled to its own projected current year.
+  // oil_data.json only carries a company-wide projection, so it is derived here.
+  const seasonality = seasonalityProfile(
+    monthTotals,
+    latestDataDate,
+    regionProjection(monthTotals, latestDataDate)
+  );
+
   regionMonthTotals = monthTotals;
   regionMonths = months;
   regionYears = years;
@@ -255,6 +264,31 @@ function render(page, region, options, monthly, yearly, named, regionStats,
         <div class="chart-title">Yearly Totals</div>
         <div class="chart-container"><canvas id="chart-yearly"></canvas></div>
       </div>
+    </div>
+
+    <div class="section">
+      <div class="chart-title">Seasonality-Adjusted Monthly Profile</div>
+      ${seasonality ? `
+        <div class="tab-caption">
+          Each year is normalized by its annual total, so this shows seasonal
+          shape rather than growth. Weighted toward recent years
+          (${escapeHtml(String(seasonality.currentYear))} 40%,
+          ${escapeHtml(String(seasonality.currentYear - 1))} 30%,
+          ${escapeHtml(String(seasonality.currentYear - 2))} 20%,
+          ${escapeHtml(String(seasonality.currentYear - 3))} 10%).
+          ${seasonality.usedCurrent ? `${escapeHtml(String(seasonality.currentYear))}
+            contributes only its completed months, so
+            ${escapeHtml(MONTH_LABELS[seasonality.fullyElapsed] || "later months")}
+            onward is averaged over the earlier years.` : ""}
+          Scaled to this region's projected
+          ${escapeHtml(String(seasonality.currentYear))} total of
+          ${formatNumber(Math.round(seasonality.scale))} gallons.
+        </div>
+        <div class="chart-container"><canvas id="chart-seasonality"></canvas></div>
+      ` : `
+        <div class="note">
+          Not enough complete years to calculate a seasonality profile.
+        </div>`}
     </div>
 
     <div class="section">
@@ -359,9 +393,161 @@ function render(page, region, options, monthly, yearly, named, regionStats,
     barChartConfig(years, years.map(y => yearTotals[y]))
   );
 
+  if (seasonality) {
+    // barChartConfig's shared tooltip prints gallons only; this chart needs the
+    // share alongside them, so the callback is overridden on the way past.
+    const config = barChartConfig(
+      MONTH_LABELS,
+      seasonality.gallons.map(g => Math.round(g))
+    );
+    config.options.plugins.tooltip.callbacks.label = ctx =>
+      `${formatNumber(ctx.parsed.y)} gal ` +
+      `(${(seasonality.shares[ctx.dataIndex] * 100).toFixed(1)}% of a year)`;
+
+    new Chart(document.getElementById("chart-seasonality"), config);
+  }
+
   document.getElementById("region-select").addEventListener("change", function () {
     window.location.href = `region.html?region=${encodeURIComponent(this.value)}`;
   });
+}
+
+/* ─────────────────────────────────────────────
+ * Seasonality-adjusted monthly profile
+ *
+ * Separates seasonal SHAPE from growth: each year's months are divided by that
+ * year's own annual total, the years are averaged with recent ones weighted
+ * heavier, and the resulting shares are scaled back to gallons.
+ *
+ * NOTE ON DIVERGENCE: index.html has a chart of the same name that uses a plain
+ * unweighted average and drops partial years entirely. This one is weighted and
+ * folds in the current year's completed months. The two will not agree; the
+ * caption below states this one's method so the difference is visible.
+ * ───────────────────────────────────────────── */
+
+const MONTH_KEYS = Array.from({ length: 12 },
+  (_, i) => String(i + 1).padStart(2, "0"));
+const MONTH_LABELS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+// Recent years count for more. The current year leads because it is the best
+// evidence of how this region behaves now, but it only ever contributes the
+// months it has actually completed — see seasonalityProfile.
+const SEASONALITY_WEIGHTS = { 0: 0.40, 1: 0.30, 2: 0.20, 3: 0.10 };  // offset from current year
+const MIN_COMPLETE_YEARS = 2;
+
+/**
+ * This region's projected current-year gallons.
+ *
+ * Deliberately the same method as compute_projection() in oil_scraper.py:
+ * compare year-to-date against the previous year prorated to the same point in
+ * the calendar, then apply that ratio to the previous year's full total.
+ * oil_data.json exports a projection for the business as a whole only, so a
+ * per-region figure has to be derived here.
+ *
+ * KEEP IN STEP with oil_scraper.py:926 if that formula ever changes.
+ *
+ * Anchored to the dataset's latest collection date, never to the region's own
+ * last month: a region with no August pickups collected zero in August, which
+ * is real data, not a gap.
+ */
+function regionProjection(monthTotals, latestDataDate) {
+  if (!latestDataDate) return null;
+
+  const [yStr, mStr, dStr] = String(latestDataDate).split("-");
+  const year = Number(yStr), month = Number(mStr), day = Number(dStr);
+  if (!year || !month || !day) return null;
+
+  const prev = year - 1;
+  const daysInMonth = new Date(prev, month, 0).getDate();
+  const fraction = day / daysInMonth;
+
+  const gallons = (y, m) => Number(monthTotals[`${y}-${MONTH_KEYS[m - 1]}`]) || 0;
+
+  let currentYtd = 0, prevFull = 0, prevPrior = 0;
+  for (let m = 1; m <= 12; m++) {
+    currentYtd += gallons(year, m);
+    prevFull += gallons(prev, m);
+    if (m < month) prevPrior += gallons(prev, m);
+  }
+  const prevProrated = prevPrior + fraction * gallons(prev, month);
+
+  if (prevProrated <= 0 || prevFull <= 0 || currentYtd <= 0) return null;
+  return prevFull * (currentYtd / prevProrated);
+}
+
+/**
+ * Average share of the annual total falling in each month, scaled to gallons.
+ *
+ * The current year is normalized by its PROJECTED annual rather than its
+ * year-to-date, so its shares sit on the same twelve-month basis as the
+ * complete years. Dividing by a part-year total would inflate every one of its
+ * months, which is the very distortion this chart exists to remove.
+ *
+ * It also contributes only months that have fully elapsed. Where it is absent
+ * its weight is dropped and the remaining years are renormalized, so every
+ * month is an average of whatever years genuinely have it.
+ *
+ * Returns null when there is too little history to average.
+ */
+function seasonalityProfile(monthTotals, latestDataDate, projected) {
+  if (!latestDataDate) return null;
+  const [yStr, mStr] = String(latestDataDate).split("-");
+  const currentYear = Number(yStr);
+  const latestMonth = Number(mStr);
+  if (!currentYear || !latestMonth) return null;
+
+  // The latest month is still in progress, so the one before it is the last
+  // that can be compared against a full month in another year.
+  const fullyElapsed = latestMonth - 1;
+
+  const annual = {};
+  for (const offset of Object.keys(SEASONALITY_WEIGHTS).map(Number)) {
+    const y = currentYear - offset;
+    let total = 0;
+    for (let m = 1; m <= 12; m++) {
+      total += Number(monthTotals[`${y}-${MONTH_KEYS[m - 1]}`]) || 0;
+    }
+    annual[y] = (y === currentYear) ? projected : total;
+  }
+
+  const completeYears = Object.keys(SEASONALITY_WEIGHTS).map(Number)
+    .map(o => currentYear - o)
+    .filter(y => y !== currentYear && annual[y] > 0);
+  if (completeYears.length < MIN_COMPLETE_YEARS) return null;
+
+  const shares = MONTH_KEYS.map((key, i) => {
+    let weighted = 0, weight = 0;
+    for (const [offsetStr, w] of Object.entries(SEASONALITY_WEIGHTS)) {
+      const y = currentYear - Number(offsetStr);
+      if (!annual[y] || annual[y] <= 0) continue;
+      if (y === currentYear && (i + 1) > fullyElapsed) continue;
+      weighted += w * ((Number(monthTotals[`${y}-${key}`]) || 0) / annual[y]);
+      weight += w;
+    }
+    return weight ? weighted / weight : 0;
+  });
+
+  // Renormalize so the twelve shares sum to 1 and the gallons below therefore
+  // sum to the scale exactly.
+  const total = shares.reduce((a, b) => a + b, 0);
+  if (!(total > 0)) return null;
+  const normalized = shares.map(s => s / total);
+
+  const usedCurrent = fullyElapsed >= 1 && annual[currentYear] > 0;
+  const scale = projected > 0
+    ? projected
+    : completeYears.reduce((a, y) => a + annual[y], 0) / completeYears.length;
+
+  return {
+    shares: normalized,
+    gallons: normalized.map(s => s * scale),
+    scale,
+    completeYears: completeYears.slice().sort(),
+    currentYear,
+    usedCurrent,
+    fullyElapsed
+  };
 }
 
 /** Switch the customer sort and repaint, mirroring the customers page. */
