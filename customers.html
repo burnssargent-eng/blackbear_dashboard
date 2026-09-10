@@ -176,7 +176,8 @@ function buildShell(page) {
     <div class="controls">
       <label for="mode-select">Period</label>
       <select id="mode-select">
-        ${VIEW_MODES.map(m => `<option value="${m.value}">${m.label}</option>`).join("")}
+        ${VIEW_MODES.map(m =>
+          `<option value="${m.value}"${m.value === "alltime" ? " selected" : ""}>${m.label}</option>`).join("")}
       </select>
 
       <!-- Only one of these is shown at a time, depending on the period.
@@ -232,21 +233,19 @@ function setSort(mode) {
 
 function update() {
   const mode = document.getElementById("mode-select").value;
-  const picker = pickerForMode(mode);
 
-  // Show only the control the selected period actually needs.
   const monthSel = document.getElementById("month-select");
   const yearSel = document.getElementById("year-select");
-  const monthLabel = document.getElementById("month-label");
-  const yearLabel = document.getElementById("year-label");
 
-  const showMonth = picker === "month";
+  // Show only the control the selected period actually needs. Shared with the
+  // region page's customer filter so the two bars behave identically.
+  const picker = applyPeriodPickers(mode, {
+    monthSelect: monthSel,
+    monthLabel: document.getElementById("month-label"),
+    yearSelect: yearSel,
+    yearLabel: document.getElementById("year-label")
+  });
   const showYear = picker === "year";
-
-  monthSel.style.display = showMonth ? "" : "none";
-  monthLabel.style.display = showMonth ? "" : "none";
-  yearSel.style.display = showYear ? "" : "none";
-  yearLabel.style.display = showYear ? "" : "none";
 
   // Yearly works off the year dropdown, so the month it hands downstream is
   // any month inside that year — getMonthsForMode expands it to the full year.
