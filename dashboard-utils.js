@@ -254,8 +254,9 @@ function sortCustomersByGallons(customers) {
  * ───────────────────────────────────────────── */
 
 /*
- * Used by customers.html only. The homepage keeps its own hardcoded <option>
- * list and its own periodLabel(), so nothing here affects the map.
+ * Used by customers.html and by the Top Producing Customers list on region.html.
+ * The homepage keeps its own hardcoded <option> list and its own periodLabel(),
+ * so nothing here affects the map.
  *
  * `picker` says which secondary control the mode needs:
  *   "month" — a specific month, or a month-to-date cutoff
@@ -274,6 +275,31 @@ const VIEW_MODES = [
 function pickerForMode(mode) {
   const entry = VIEW_MODES.find(m => m.value === mode);
   return entry ? entry.picker : "month";
+}
+
+/**
+ * Show only the date control the selected period actually needs, and return the
+ * picker kind. Monthly, Year to Date and All Time To Date need a month; Yearly
+ * needs a whole calendar year; All Time needs neither.
+ *
+ * `els` carries the four elements: { monthSelect, monthLabel, yearSelect,
+ * yearLabel }. Any of them may be missing, so a page with only one picker can
+ * still call this.
+ */
+function applyPeriodPickers(mode, els) {
+  const picker = pickerForMode(mode);
+  const parts = els || {};
+
+  const show = (el, on) => {
+    if (el) el.style.display = on ? "" : "none";
+  };
+
+  show(parts.monthSelect, picker === "month");
+  show(parts.monthLabel, picker === "month");
+  show(parts.yearSelect, picker === "year");
+  show(parts.yearLabel, picker === "year");
+
+  return picker;
 }
 
 /**

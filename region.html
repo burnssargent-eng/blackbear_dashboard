@@ -35,16 +35,33 @@
 <script src="dashboard-utils.js"></script>
 <script>
 /*
- * This page reads oil_data.json ONLY.
+ * This page reads oil_data.json for the region aggregates, and the records in
+ * oil_collections.json for the per-customer list.
  *
- * Regions are defined by CUSTOM_REGIONS in oil_scraper.py and are exported as
- * monthly and yearly aggregates. Which customers belong to a region is not
- * exported, so there is deliberately no customer table here — inventing one
- * would mean re-implementing the region matchers in the browser and risking
- * disagreement with the Excel report. Phase 4C added region_customers to
- * oil_data.json, so the customer table below uses that exported membership
- * rather than deriving anything client-side.
+ * Regions are defined by REGION_TOWNS in oil_scraper.py and exported as monthly
+ * and yearly aggregates. Which customers belong to a region is NOT re-derived
+ * here — doing that would mean re-implementing the region matchers in the
+ * browser and risking disagreement with the Excel report. Membership comes from
+ * the exported region_customers map, and the period filter below only ever
+ * narrows that set by month. Records carry no region of their own, so
+ * intersecting them with the exported member ids is what keeps this page and
+ * the Excel report in agreement.
  */
+
+/* ─────────────────────────────────────────────
+ * State for the Top Producing Customers filter.
+ *
+ * render() writes the whole page in one innerHTML pass and builds two Chart
+ * instances that are never destroyed, so it must run exactly once. The filter
+ * therefore re-renders only the customer section, and the values it needs live
+ * out here rather than in render()'s locals.
+ * ───────────────────────────────────────────── */
+let regionRecords = [];      // pickup rows for this region's members only
+let regionMonths = [];       // ascending "YYYY-MM" this region has data in
+let regionYears = [];        // ascending calendar years, from regionMonths
+let regionMonthTotals = {};  // month -> gallons, for the period denominator
+let regionMemberCount = 0;   // how many customers the region has in total
+let customerSortMode = "gallons";
 
 async function init() {
   const page = document.getElementById("page");
@@ -97,16 +114,17 @@ async function init() {
   // Regions are NOT exclusive: a customer matching two regions appears in both.
   const memberIds = new Set((data.region_customers || {})[region] || []);
 
-  let regionCustomers = [];
+  regionMemberCount = memberIds.size;
+
   if (memberIds.size) {
     try {
-      const lifecycle = await loadCustomerLifecycle(data);
-      regionCustomers = lifecycle
-        .filter(c => memberIds.has(c.customer_id))
-        .sort((a, b) => b.gallons - a.gallons);
+      // Same cached payload loadCustomerLifecycle uses, so this is not a second
+      // fetch — the records were already downloaded and parsed, just unused.
+      const records = await loadCollections(data);
+      regionRecords = records.filter(r => memberIds.has(r.customer_id));
     } catch (err) {
       // The summary above still renders; only the customer table is missing.
-      regionCustomers = [];
+      regionRecords = [];
     }
   }
 
@@ -115,11 +133,11 @@ async function init() {
   const regionDescription = (data.region_descriptions || {})[region] || "";
 
   render(page, region, options, monthly, yearly, named,
-         (data.region_stats || {})[region], regionCustomers, regionDescription);
+         (data.region_stats || {})[region], regionDescription);
 }
 
 function render(page, region, options, monthly, yearly, named, regionStats,
-                regionCustomers, regionDescription) {
+                regionDescription) {
   renderPageName(`${region} Region`);
 
   const monthTotals = {};
@@ -152,11 +170,13 @@ function render(page, region, options, monthly, yearly, named, regionStats,
     ? Math.round(recentMonths.reduce((sum, m) => sum + monthTotals[m], 0) / avgMonthsUsed)
     : 0;
 
-  // Already sorted by gallons descending in init(). The list renders 50 rows
-  // with an expand control; the note below reports the whole region's share.
-  const topCustomers = regionCustomers || [];
-  const shownGallons = topCustomers
-    .reduce((sum, c) => sum + (Number(c.gallons) || 0), 0);
+  // Hand the customer filter the region's own months and totals. Using the same
+  // monthly_by_region figures the charts use means the period denominator in the
+  // note can never disagree with the numbers above it, and the pickers can never
+  // offer a period this region has no data for.
+  regionMonthTotals = monthTotals;
+  regionMonths = months;
+  regionYears = years;
 
   // Source-site active customers in this region. Exported by oil_scraper.py so
   // the region matchers stay in one place. Never inferred from pickup recency.
@@ -240,15 +260,41 @@ function render(page, region, options, monthly, yearly, named, regionStats,
     <div class="section">
       <div class="section-title">
         Top Producing Customers — ${escapeHtml(region)}
-        (${formatNumber(topCustomers.length)} in this region)
+        <span id="region-customer-count"></span>
       </div>
-      ${topCustomers.length ? `
-        <div class="note">
-          Ranked by all-time qualifying gallons, totalling
-          ${formatNumber(shownGallons)} of the region's ${formatNumber(allTime)}.
-          Status comes from the source site's active and inactive lists, not from
-          how recently a customer had a pickup.
+      ${regionRecords.length ? `
+        <div class="controls">
+          <label for="cust-mode-select">Period</label>
+          <select id="cust-mode-select">
+            ${VIEW_MODES.map(m => `
+              <option value="${escapeHtml(m.value)}"${m.value === "alltime" ? " selected" : ""}>
+                ${escapeHtml(m.label)}
+              </option>`).join("")}
+          </select>
+
+          <!-- Only one of these shows at a time; applyPeriodPickers decides
+               which, exactly as it does on the customers page. -->
+          <label id="cust-month-label" for="cust-month-select">Month</label>
+          <select id="cust-month-select">
+            ${months.slice().reverse().map(m => `
+              <option value="${escapeHtml(m)}"${m === latestMonth ? " selected" : ""}>
+                ${escapeHtml(formatMonth(m))}
+              </option>`).join("")}
+          </select>
+
+          <label id="cust-year-label" for="cust-year-select">Year</label>
+          <select id="cust-year-select">
+            ${years.slice().reverse().map(y => `
+              <option value="${escapeHtml(y)}"${y === currentYear ? " selected" : ""}>
+                ${escapeHtml(y)}
+              </option>`).join("")}
+          </select>
+
+          <label>Sort</label>
+          <button id="cust-sort-gallons" class="active">Top producers</button>
+          <button id="cust-sort-status">Active first</button>
         </div>
+        <div class="note" id="region-customer-note"></div>
         <div id="region-customer-list"></div>
       ` : `<div class="note">No customer-level detail is available for this region.</div>`}
     </div>
@@ -288,11 +334,20 @@ function render(page, region, options, monthly, yearly, named, regionStats,
     </div>
   `;
 
-  renderExpandableCustomerList(
-    document.getElementById("region-customer-list"),
-    topCustomers,
-    subset => customerTableHtml(subset, { town: true, dates: false })
-  );
+  if (regionRecords.length) {
+    document.getElementById("cust-mode-select")
+      .addEventListener("change", updateRegionCustomers);
+    document.getElementById("cust-month-select")
+      .addEventListener("change", updateRegionCustomers);
+    document.getElementById("cust-year-select")
+      .addEventListener("change", updateRegionCustomers);
+    document.getElementById("cust-sort-gallons")
+      .addEventListener("click", () => setCustomerSort("gallons"));
+    document.getElementById("cust-sort-status")
+      .addEventListener("click", () => setCustomerSort("status"));
+
+    updateRegionCustomers();
+  }
 
   new Chart(
     document.getElementById("chart-monthly"),
@@ -307,6 +362,93 @@ function render(page, region, options, monthly, yearly, named, regionStats,
   document.getElementById("region-select").addEventListener("change", function () {
     window.location.href = `region.html?region=${encodeURIComponent(this.value)}`;
   });
+}
+
+/** Switch the customer sort and repaint, mirroring the customers page. */
+function setCustomerSort(mode) {
+  customerSortMode = mode;
+  document.getElementById("cust-sort-gallons")
+    .classList.toggle("active", mode === "gallons");
+  document.getElementById("cust-sort-status")
+    .classList.toggle("active", mode === "status");
+  updateRegionCustomers();
+}
+
+/**
+ * Repaint the Top Producing Customers section for the selected period and sort.
+ *
+ * Deliberately narrow: it writes the count, the note and the list, and nothing
+ * else. The stats bar, both charts and the monthly/yearly tables are untouched,
+ * which is what keeps the never-destroyed Chart instances safe — this must
+ * never grow into a call to render().
+ */
+function updateRegionCustomers() {
+  const list = document.getElementById("region-customer-list");
+  if (!list) return;
+
+  const mode = document.getElementById("cust-mode-select").value;
+  const monthSel = document.getElementById("cust-month-select");
+  const yearSel = document.getElementById("cust-year-select");
+
+  const picker = applyPeriodPickers(mode, {
+    monthSelect: monthSel,
+    monthLabel: document.getElementById("cust-month-label"),
+    yearSelect: yearSel,
+    yearLabel: document.getElementById("cust-year-label")
+  });
+
+  // Yearly works off the year dropdown, so the month handed downstream is any
+  // month inside that year — getMonthsForMode expands it to the whole year.
+  const selectedMonth = picker === "year"
+    ? (regionMonths.filter(m => m.startsWith(yearSel.value)).pop()
+       || regionMonths[regionMonths.length - 1])
+    : monthSel.value;
+
+  const periodMonths = new Set(getMonthsForMode(mode, regionMonths, selectedMonth));
+
+  // Records carry no region, so membership is the exported region_customers set
+  // that regionRecords was already filtered to. This only narrows it by month.
+  const rows = regionRecords.filter(r => periodMonths.has(r.month));
+
+  const aggregated = aggregateCustomers(rows);
+  const customers = customerSortMode === "status"
+    ? sortCustomersByStatusThenGallons(aggregated)
+    : sortCustomersByGallons(aggregated);
+
+  const label = periodLabel(mode, regionMonths, selectedMonth);
+  const note = document.getElementById("region-customer-note");
+
+  // Customers with a pickup in this period, against total membership, so a
+  // filtered view never reads as though the region itself shrank.
+  document.getElementById("region-customer-count").textContent =
+    `(${formatNumber(customers.length)} of ${formatNumber(regionMemberCount)} in this region)`;
+
+  // A new period starts from the top rather than keeping a previous expansion.
+  list.dataset.expanded = "false";
+
+  if (!customers.length) {
+    note.innerHTML =
+      `No customer in this region had a qualifying pickup in ` +
+      `<strong>${escapeHtml(label)}</strong>.`;
+    list.innerHTML = "";
+    return;
+  }
+
+  const allTimeGallons = Object.values(regionMonthTotals)
+    .reduce((a, b) => a + b, 0);
+
+  note.innerHTML =
+    `Ranked by qualifying gallons in <strong>${escapeHtml(label)}</strong>, ` +
+    `totalling ${formatNumber(sumGallons(rows))} of the region's ` +
+    `${formatNumber(allTimeGallons)} all-time. Status comes from the source ` +
+    `site's active and inactive lists, not from how recently a customer had ` +
+    `a pickup.`;
+
+  renderExpandableCustomerList(
+    list,
+    customers,
+    subset => customerTableHtml(subset, { town: true, dates: false })
+  );
 }
 
 init();
