@@ -56,6 +56,71 @@ const SOURCE_ORDER = [KEY_BARR_GEBBIE, KEY_SHOP_GEBBIE, KEY_BARR_MONTPELIER];
 const COLOR_GEBBIE = "#3fb950";
 const COLOR_MONTPELIER = "#d3a04a";
 
+/*
+ * Rough physical equivalents for the headline total, so a seven-figure gallon
+ * count means something. PRESENTATION ONLY — these never feed a stored figure
+ * and are deliberately hedged with "about" in the copy.
+ *
+ * Every value is derived from combined_total at render time, so the panel
+ * follows the workbook rather than needing its own numbers kept in step.
+ */
+const EQUIV = {
+  TANKER_GALLONS: 7500,        // a full road tanker
+  BARREL_GALLONS: 55,          // standard steel barrel
+  TOTE_GALLONS: 275,           // standard IBC tote
+  OLYMPIC_POOL_GALLONS: 660000,
+  TRUCKS_PER_ICON: 25,         // one drawn truck stands for this many
+  MAX_ICONS: 40                // a guard, not a limit we expect to reach
+};
+
+/**
+ * Translate a gallon total into the equivalents shown under the hero number.
+ * Returns null when the total is missing or not a positive number, so the
+ * caller can leave the panel out rather than render "0 tanker trucks".
+ */
+function equivalents(totalGallons) {
+  const total = Number(totalGallons);
+  if (!Number.isFinite(total) || total <= 0) return null;
+
+  const trucks = Math.round(total / EQUIV.TANKER_GALLONS);
+  const icons = Math.max(
+    1,
+    Math.min(EQUIV.MAX_ICONS, Math.round(trucks / EQUIV.TRUCKS_PER_ICON))
+  );
+
+  // Derived from the icons actually drawn, not from TRUCKS_PER_ICON, so the
+  // caption stays true if MAX_ICONS ever clamps the row. At today's total the
+  // two agree at 25.
+  const trucksPerIcon = Math.max(1, Math.round(trucks / icons));
+
+  return {
+    total,
+    trucks,
+    icons,
+    trucksPerIcon,
+    barrels: Math.round(total / EQUIV.BARREL_GALLONS),
+    totes: Math.round(total / EQUIV.TOTE_GALLONS),
+    // One decimal: a whole number would overstate the precision of a pool.
+    pools: (total / EQUIV.OLYMPIC_POOL_GALLONS).toFixed(1)
+  };
+}
+
+/*
+ * A side-on tanker truck. The first inline SVG in this codebase, so it is kept
+ * deliberately plain to match the hard-edged legend swatches used elsewhere:
+ * no gradients, no strokes, and fill via currentColor so the colour lives in
+ * dashboard.css rather than here.
+ */
+const TRUCK_SVG = `
+  <svg class="equiv-truck" viewBox="0 0 48 24" width="48" height="24"
+       aria-hidden="true" focusable="false">
+    <rect x="15" y="5" width="25" height="11" rx="2.5" fill="currentColor"/>
+    <path d="M2 8h8l5 5v3H2z" fill="currentColor"/>
+    <circle cx="8" cy="19" r="3" fill="currentColor"/>
+    <circle cx="29" cy="19" r="3" fill="currentColor"/>
+    <circle cx="37" cy="19" r="3" fill="currentColor"/>
+  </svg>`;
+
 async function init() {
   const page = document.getElementById("page");
   renderPageName("Schmootz");
@@ -130,6 +195,10 @@ function render(page, data) {
     return v === undefined || v === null ? "—" : formatNumber(v);
   };
 
+  // Tangible equivalents for the hero number. null when the total is unusable,
+  // which leaves the panel out entirely rather than showing zeros.
+  const eq = equivalents(data.combined_total);
+
   page.innerHTML = `
     <a class="back-link" href="index.html">← Back to the dashboard</a>
 
@@ -137,6 +206,53 @@ function render(page, data) {
       <div class="hero-value">${formatNumber(data.combined_total)}</div>
       <div class="hero-label">Total Waste Displaced (gallons)</div>
     </div>
+
+    ${eq ? `
+    <div class="equiv-panel">
+      <div class="equiv-title">Waste Displaced in Real Terms</div>
+
+      <div class="equiv-lead">
+        <div class="equiv-callout">
+          <div class="equiv-callout-val">≈ ${formatNumber(eq.trucks)}</div>
+          <div class="equiv-callout-label">tanker trucks</div>
+        </div>
+
+        <div class="equiv-convoy-wrap">
+          <div class="equiv-convoy">
+            ${TRUCK_SVG.repeat(eq.icons)}
+          </div>
+          <div class="equiv-caption">
+            Each truck represents about ${formatNumber(eq.trucksPerIcon)}
+            full tanker trucks, at ${formatNumber(EQUIV.TANKER_GALLONS)} gallons each.
+          </div>
+        </div>
+      </div>
+
+      <div class="equiv-cards">
+        <div class="equiv-card">
+          <div class="equiv-card-val">${formatNumber(eq.barrels)}</div>
+          <div class="equiv-card-label">standard barrels</div>
+          <div class="equiv-card-sub">${formatNumber(EQUIV.BARREL_GALLONS)} gallons each</div>
+        </div>
+        <div class="equiv-card">
+          <div class="equiv-card-val">${formatNumber(eq.totes)}</div>
+          <div class="equiv-card-label">totes</div>
+          <div class="equiv-card-sub">${formatNumber(EQUIV.TOTE_GALLONS)} gallons each</div>
+        </div>
+        <div class="equiv-card">
+          <div class="equiv-card-val">${escapeHtml(eq.pools)}</div>
+          <div class="equiv-card-label">Olympic pools</div>
+          <div class="equiv-card-sub">${formatNumber(EQUIV.OLYMPIC_POOL_GALLONS)} gallons each</div>
+        </div>
+      </div>
+
+      <div class="equiv-summary">
+        ${formatNumber(eq.total)} gallons of waste displaced — roughly equivalent
+        to ${formatNumber(eq.trucks)} full tanker trucks,
+        ${formatNumber(eq.barrels)} standard barrels, or
+        ${formatNumber(eq.totes)} ${formatNumber(EQUIV.TOTE_GALLONS)}-gallon totes.
+      </div>
+    </div>` : ""}
 
     <div class="stats-bar">
       ${blocks.map(b => `
