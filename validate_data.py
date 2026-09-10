@@ -810,9 +810,14 @@ def check_schmootz(report):
     # These come from the workbook audit and must not drift. Barr Hill →
     # Montpelier Facility was added in Phase 5 from the green-highlighted
     # columns, restricted to 2025–2026.
+    #
+    # Updated when July 2026 was added to the workbook: Barr Hill → Gebbie
+    # +16,800 and BBB Shop → Gebbie +4,300. Montpelier has no July row, so it
+    # is unchanged. Bump these deliberately whenever the workbook gains a month
+    # — an unexplained change here means the exporter drifted, not the data.
     expected = {
-        "total_barr_hill_to_gebbie": 2_134_668,
-        "total_bbb_shop_to_gebbie": 133_475,
+        "total_barr_hill_to_gebbie": 2_151_468,
+        "total_bbb_shop_to_gebbie": 137_775,
         "total_barr_hill_to_montpelier": 117_212,
     }
     for field, want in expected.items():
@@ -825,7 +830,7 @@ def check_schmootz(report):
 
     combined = data.get("combined_total")
     parts = sum(data.get(f) or 0 for f in expected)
-    if combined == parts == 2_385_355:
+    if combined == parts == 2_406_455:
         report.ok(f"combined_total = {combined:,} = the sum of all three sources.")
     elif combined == parts:
         report.fail(f"combined_total {combined:,} is self-consistent but is not "

@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-29T01:46:15",
+  "generated_at": "2026-09-10T09:40:44",
   "source_file": "Schmootz.xlsx",
   "source_sheet": "Schmootz",
-  "total_barr_hill_to_gebbie": 2134668,
-  "total_bbb_shop_to_gebbie": 133475,
+  "total_barr_hill_to_gebbie": 2151468,
+  "total_bbb_shop_to_gebbie": 137775,
   "total_barr_hill_to_montpelier": 117212,
-  "combined_total": 2385355,
+  "combined_total": 2406455,
   "first_year": 2020,
   "last_year": 2026,
   "years": [
@@ -17,7 +17,7 @@
     2025,
     2026
   ],
-  "record_count": 135,
+  "record_count": 137,
   "blocks": [
     {
       "key": "barr_hill_to_gebbie",
@@ -35,9 +35,9 @@
       ],
       "first_year": 2020,
       "last_year": 2026,
-      "total_gallons": 2134668,
-      "record_count": 78,
-      "months_with_data": 78,
+      "total_gallons": 2151468,
+      "record_count": 79,
+      "months_with_data": 79,
       "by_year": [
         {
           "year": 2020,
@@ -65,7 +65,7 @@
         },
         {
           "year": 2026,
-          "gallons": 156938
+          "gallons": 173738
         }
       ],
       "by_month_name": [
@@ -95,7 +95,7 @@
         },
         {
           "month_name": "July",
-          "gallons": 159100
+          "gallons": 175900
         },
         {
           "month_name": "August",
@@ -408,6 +408,12 @@
           "gallons": 25450
         },
         {
+          "year": 2026,
+          "month": "2026-07",
+          "month_name": "July",
+          "gallons": 16800
+        },
+        {
           "year": 2020,
           "month": "2020-08",
           "month_name": "August",
@@ -602,9 +608,9 @@
       ],
       "first_year": 2023,
       "last_year": 2026,
-      "total_gallons": 133475,
-      "record_count": 39,
-      "months_with_data": 39,
+      "total_gallons": 137775,
+      "record_count": 40,
+      "months_with_data": 40,
       "by_year": [
         {
           "year": 2023,
@@ -620,7 +626,7 @@
         },
         {
           "year": 2026,
-          "gallons": 17250
+          "gallons": 21550
         }
       ],
       "by_month_name": [
@@ -650,7 +656,7 @@
         },
         {
           "month_name": "July",
-          "gallons": 11700
+          "gallons": 16000
         },
         {
           "month_name": "August",
@@ -817,6 +823,12 @@
           "month": "2025-07",
           "month_name": "July",
           "gallons": 4550
+        },
+        {
+          "year": 2026,
+          "month": "2026-07",
+          "month_name": "July",
+          "gallons": 4300
         },
         {
           "year": 2023,
@@ -1141,10 +1153,10 @@
     },
     {
       "year": 2026,
-      "barr_hill_to_gebbie": 156938,
-      "bbb_shop_to_gebbie": 17250,
+      "barr_hill_to_gebbie": 173738,
+      "bbb_shop_to_gebbie": 21550,
       "barr_hill_to_montpelier": 32904,
-      "combined": 207092
+      "combined": 228192
     }
   ]
 }
