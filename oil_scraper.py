@@ -353,25 +353,207 @@ def prepare_dataframe(df):
 # ─────────────────────────────────────────────
 # CUSTOM SUBREGION DEFINITIONS
 # ─────────────────────────────────────────────
+# Region membership is CONFIGURATION, not code. Add a town to a set below and
+# every consumer follows: the Excel report, the five region keys in
+# oil_data.json, region.html, and the homepage Top Regions list.
+#
+# Towns are matched on the NORMALIZED geo_town from normalize_geo_town, falling
+# back to the raw city when geo_town is empty. That fallback is what reaches
+# out-of-state places such as Plattsburgh, which deliberately have no Vermont
+# town. Matching on geo_town also inherits every village spelling already in
+# GEO_TOWN_NAME_MAP for free — "West Dover" reaches Dover, "Jericho Center"
+# reaches Jericho, "Morrisville" reaches Morristown — so a new village variant
+# only ever has to be added in one place.
+#
+# Regions are deliberately NOT mutually exclusive; see assign_region_labels.
+
 UVM_IDS = {353, 354, 355, 356, 358}
 
-CUSTOM_REGIONS = [
-    ("Stowe", lambda r: r["city"] == "Stowe"),
-    ("Waterbury", lambda r: r["city"] == "Waterbury"),
-    ("Warren+Waitsfield", lambda r: r["city"] in ("Warren", "Waitsfield")),
-    ("Middlebury+Vergennes", lambda r: r["city"] in ("Middlebury", "Vergennes")),
-    ("Jay+Montgomery+Troy", lambda r: r["city"] in ("Jay", "Montgomery", "Montgomery Center", "North Troy")),
-    ("Winooski", lambda r: r["city"] == "Winooski"),
-    ("UVM", lambda r: r["customer_id"] in UVM_IDS),
-    ("Woodstock+Quechee", lambda r: r["city"] in ("Woodstock", "Quechee")),
-    ("Mt. Snow", lambda r: any(x in str(r["name"]).lower() for x in ("mt. snow", "mt snow", "mount snow"))),
-    ("Manchester", lambda r: r["city"] in ("Manchester", "Manchester Center")),
-    ("Okemo", lambda r: "okemo" in str(r["name"]).lower()),
-    ("Central Vermont", lambda r: r["city"] in ("Montpelier", "Barre", "Berlin", "Northfield")),
-    ("Burlington", lambda r: r["city"] == "Burlington" and r["customer_id"] not in UVM_IDS),
-]
+# Region name -> official town names. This order is the display order, and the
+# first entry becomes region_names[0], which drives the default Regions nav link.
+# Town order inside each region is the order the website lists them in, so keep
+# these tuples readable — they are user-facing as well as functional.
+REGION_TOWNS = {
+    "Route 7": (
+        "Middlebury", "Vergennes", "Bristol", "Charlotte", "Hinesburg",
+        "New Haven", "Shelburne",
+    ),
+    "Waterbury / Stowe": ("Waterbury", "Stowe"),
+    # Dover covers West Dover and every Mt. Snow entity; Ludlow covers Okemo.
+    # Town matching alone reaches all of them, including TCs in Dover, which the
+    # old customer-name matcher missed. Do NOT add name matching back:
+    # "Snow Shoe Lodge-Montgomery" is a false positive for any "snow" rule, and
+    # "Killington Diner" is addressed in Burlington.
+    "Southern Ski Slopes": ("Dover", "Ludlow", "Killington"),
+    "South": ("Bennington", "Brattleboro", "Manchester", "Sunderland"),
+    # Vermont splits Barre into a City and a Town; both belong here.
+    "Central": ("Berlin", "Barre City", "Barre Town", "Northfield", "Montpelier"),
+    # Essex and Essex Junction are two separate municipalities.
+    "Outer Burlington": (
+        "Winooski", "Essex", "Essex Junction", "Williston", "Richmond",
+        "Jericho",
+    ),
+    # Plattsburgh NY has no geo_town and is reached by the raw-city fallback.
+    "Northwest": (
+        "Plattsburgh", "Enosburgh", "North Hero", "South Hero", "Colchester",
+        "Milton",
+    ),
+    "Burlington / South Burlington": ("Burlington", "South Burlington"),
+    "Route 15": (
+        "Hardwick", "Wolcott", "Johnson", "Hyde Park", "Morristown",
+        "Cambridge",
+    ),
+    # Jim: "Quechee and Woodstock and Bethel & Randolph and West Leb".
+    # Hartford is the official town for Quechee, and Pomfret rides with
+    # Woodstock. West Lebanon is in New Hampshire, so it has no geo_town and is
+    # reached by the raw-city fallback in region_key.
+    "Central South": (
+        "Hartford", "Woodstock", "Pomfret", "Bethel", "Randolph",
+        "West Lebanon",
+    ),
+    "Route 2 East": (
+        "Cabot", "Plainfield", "Danville", "Saint Johnsbury", "Concord",
+    ),
+    "Warren / Waitsfield": ("Warren", "Waitsfield"),
+    "Jay / Montgomery / Troy": ("Jay", "Montgomery", "Troy"),
+}
+
+# Regions keyed on customer id rather than town. UVM overlaps
+# Burlington / South Burlington on purpose: those five customers count in both,
+# which keeps the Burlington figure a true town total.
+REGION_CUSTOMER_IDS = {
+    "UVM": UVM_IDS,
+}
+
+# Some towns are better known by a village name than by their official one.
+# DISPLAY ONLY — membership still matches on the official town above.
+TOWN_DISPLAY_NAMES = {
+    "Hartford": "Hartford/Quechee",
+}
+
+# Regions that need no "Includes:" line: their own name already lists their
+# contents, so repeating it under the dropdown is noise. UVM is here too — the
+# name is self-evident to the business.
+SELF_DESCRIBING_REGIONS = {
+    "Burlington / South Burlington",
+    "Warren / Waitsfield",
+    "Jay / Montgomery / Troy",
+    "Waterbury / Stowe",
+    "UVM",
+}
+
+# The catch-all. Not a named region, but region.html offers it in the dropdown,
+# so it needs a description too.
+OTHER_REGION_DESCRIPTION = "customers not assigned to a named region"
+
+
+def region_key(row):
+    """
+    The value a region's town set is matched against.
+
+    The normalized official town, falling back to the raw scraped city when
+    normalize_geo_town returned nothing — which it does for out-of-state places.
+    Non-string values (a NaN from a CSV reload) are treated as absent.
+    """
+    town = row.get("geo_town")
+    town = town.strip() if isinstance(town, str) else ""
+    if town:
+        return town
+    city = row.get("city")
+    return city.strip() if isinstance(city, str) else ""
+
+
+def _town_matcher(towns):
+    return lambda r: region_key(r) in towns
+
+
+def _customer_matcher(ids):
+    return lambda r: r["customer_id"] in ids
+
+
+CUSTOM_REGIONS = (
+    [(name, _town_matcher(towns)) for name, towns in REGION_TOWNS.items()]
+    + [(name, _customer_matcher(ids)) for name, ids in REGION_CUSTOMER_IDS.items()]
+)
 
 REGION_NAMES = [name for name, _ in CUSTOM_REGIONS]
+
+# Excel forbids  [ ] : * ? / \  in a sheet title and caps it at 31 characters,
+# so a display name like "Waterbury / Stowe" cannot be used as one directly.
+# oil_data.json and the website keep the real names; only the workbook uses these.
+_EXCEL_ILLEGAL = set("[]:*?/\\")
+
+
+def excel_sheet_name(name, taken=None):
+    """Sanitize a region name into a legal — and optionally unique — sheet title."""
+    clean = "".join("-" if c in _EXCEL_ILLEGAL else c for c in name)
+    clean = " ".join(clean.split()).strip(" -") or "Region"
+    clean = clean[:31]
+    if taken is None:
+        return clean
+    candidate, n = clean, 2
+    while candidate in taken:
+        suffix = f" {n}"
+        candidate = clean[:31 - len(suffix)].rstrip() + suffix
+        n += 1
+    taken.add(candidate)
+    return candidate
+
+
+def region_sheet_names():
+    """Region display name -> workbook sheet title, collision-free."""
+    taken = set()
+    return {name: excel_sheet_name(name, taken) for name in REGION_NAMES}
+
+
+def region_descriptions():
+    """
+    Human-readable contents for each region — the website's "Includes:" line.
+
+    Derived from the same REGION_TOWNS that decides membership, so the label a
+    user reads cannot drift from the rule that produced the number. Town order
+    follows the config, and a few towns are shown under a better-known village
+    name. Regions whose name already lists their contents are omitted, so the
+    page simply shows no line for them. "Other" is included even though it is
+    not a named region.
+    """
+    out = {}
+    for name in REGION_NAMES:
+        if name in SELF_DESCRIBING_REGIONS:
+            continue
+        towns = REGION_TOWNS.get(name, ())
+        if not towns:
+            continue
+        out[name] = ", ".join(TOWN_DISPLAY_NAMES.get(t, t) for t in towns)
+    out["Other"] = OTHER_REGION_DESCRIPTION
+    return out
+
+
+def current_calendar_year():
+    """
+    The year the site treats as "current".
+
+    Kept in one place so the region display order and current_year_total are
+    always computed on the same basis.
+    """
+    return datetime.today().year
+
+
+def region_display_order(df_region, current_year=None):
+    """
+    Named regions ordered by current-year gallons, highest first.
+
+    The order is data-driven rather than declaration order, so the site leads
+    with the regions carrying this year's volume. Ties break alphabetically so
+    the output is stable between runs. "Other" is deliberately absent: it is a
+    catch-all rather than a place, and region.html appends it after the named
+    regions on its own.
+    """
+    if current_year is None:
+        current_year = current_calendar_year()
+    current = df_region[df_region["year"] == current_year]
+    gallons = current.groupby("region")["gallons"].sum()
+    return sorted(REGION_NAMES, key=lambda name: (-int(gallons.get(name, 0)), name))
 
 # ─────────────────────────────────────────────
 # SCRAPING HELPERS
@@ -665,6 +847,9 @@ def build_reports(df):
     df_region = assign_region_labels(df)
     df_region_named = df_region[df_region["region"].isin(REGION_NAMES)].copy()
 
+    # Same order the website uses: current-year gallons, highest first.
+    ordered_regions = region_display_order(df_region)
+
     with pd.ExcelWriter("oil_collection_report.xlsx", engine="openpyxl") as writer:
         make_pivot(df, "month", "city").to_excel(writer, sheet_name="Monthly by Town")
         make_pivot(df, "month", "county").to_excel(writer, sheet_name="Monthly by County")
@@ -677,19 +862,24 @@ def build_reports(df):
         # Per-calendar-year sheets: monthly x REGION (not county)
         for year in sorted(df["year"].unique()):
             ydf = df_region_named[df_region_named["year"] == year]
-            make_pivot(ydf, "month", "region", columns=REGION_NAMES).to_excel(
+            make_pivot(ydf, "month", "region", columns=ordered_regions).to_excel(
                 writer,
                 sheet_name=str(year),
             )
 
-        # Individual subregion detail sheets
-        for sheet_name, matcher in CUSTOM_REGIONS:
-            mask = df.apply(matcher, axis=1)
+        # Individual subregion detail sheets. Region display names may contain
+        # characters Excel rejects in a sheet title, so the workbook uses the
+        # sanitized names while the JSON and the website keep the real ones.
+        sheet_titles = region_sheet_names()
+        matchers = dict(CUSTOM_REGIONS)
+        for region_name in ordered_regions:
+            mask = df.apply(matchers[region_name], axis=1)
             sub = df[mask]
             if sub.empty:
-                print(f"  WARNING: no data matched for '{sheet_name}'")
+                print(f"  WARNING: no data matched for '{region_name}'")
                 continue
 
+            sheet_name = sheet_titles[region_name]
             monthly, yearly = make_subregion_tables(sub)
             monthly.to_excel(writer, sheet_name=sheet_name, index=False, startrow=0)
             yearly.to_excel(writer, sheet_name=sheet_name, index=False, startrow=len(monthly) + 2)
@@ -1006,7 +1196,7 @@ def export_json(df):
     customers = compute_customer_lifecycle(df)
 
     # Current year month-by-month
-    current_year = datetime.today().year
+    current_year = current_calendar_year()
     current = df[df["year"] == current_year]
 
     output = {
@@ -1025,9 +1215,13 @@ def export_json(df):
         "monthly_totals":    records(monthly_totals),
         "monthly_by_region": records(monthly_region),
         "yearly_by_region":  records(yearly_region),
-        # The 13 named regions, in report order. Excludes the "Other" bucket,
-        # which still appears in the region summaries above.
-        "region_names":      list(REGION_NAMES),
+        # The named regions, ordered by current-year gallons, highest first.
+        # Excludes the "Other" bucket, which still appears in the region
+        # summaries above and is appended after these by region.html.
+        "region_names":      region_display_order(df_region, current_year),
+        # What each region contains, for the "Includes:" line on region.html.
+        # Built from REGION_TOWNS so the page cannot drift from the matchers.
+        "region_descriptions": region_descriptions(),
         # Per-record detail lives in its own file so the homepage does not have
         # to download ~4.7 MB it never reads. Fetch it only when a page needs it.
         "collections_file":  COLLECTIONS_JSON,

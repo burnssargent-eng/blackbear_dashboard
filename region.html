@@ -70,8 +70,9 @@ async function init() {
     return;
   }
 
-  // region_names holds the 13 named regions. "Other" also appears in the data
-  // as the catch-all for records matching no region, so it is offered last.
+  // region_names holds the named regions, already ordered by current-year
+  // gallons. "Other" also appears in the data as the catch-all for records
+  // matching no region, so it is offered last.
   const named = data.region_names || [];
   const present = Array.from(new Set(monthlyRows.map(r => r.region)));
   const extras = present.filter(r => !named.includes(r)).sort();
@@ -109,12 +110,16 @@ async function init() {
     }
   }
 
+  // What this region contains, exported by oil_scraper.py from the same config
+  // that decides membership, so the label cannot drift from the matchers.
+  const regionDescription = (data.region_descriptions || {})[region] || "";
+
   render(page, region, options, monthly, yearly, named,
-         (data.region_stats || {})[region], regionCustomers);
+         (data.region_stats || {})[region], regionCustomers, regionDescription);
 }
 
 function render(page, region, options, monthly, yearly, named, regionStats,
-                regionCustomers) {
+                regionCustomers, regionDescription) {
   renderPageName(`${region} Region`);
 
   const monthTotals = {};
@@ -178,6 +183,11 @@ function render(page, region, options, monthly, yearly, named, regionStats,
             ${escapeHtml(r)}${named.includes(r) ? "" : " (unassigned)"}
           </option>`).join("")}
       </select>
+      ${regionDescription ? `
+      <div class="region-includes">
+        <span class="region-includes-label">Includes</span>
+        <span class="region-includes-list">${escapeHtml(regionDescription)}</span>
+      </div>` : ""}
     </div>
 
     <div class="stats-bar">

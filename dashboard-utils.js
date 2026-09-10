@@ -418,7 +418,7 @@ function renderState(el, kind, message, detail) {
  */
 function navHtml(current, latestYear, defaultRegion) {
   const year = latestYear || new Date().getFullYear();
-  const region = defaultRegion || "Stowe";
+  const region = defaultRegion || "Burlington / South Burlington";
 
   const links = [
     { key: "dashboard", href: "index.html", label: "Dashboard" },
