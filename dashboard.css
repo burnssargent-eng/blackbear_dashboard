@@ -544,6 +544,69 @@ select:disabled {
   margin-top: 12px;
 }
 
+/* ── Seasonality profile row (region.html) ──────────────────
+ *
+ * The chart was full-bleed across a 1300px page, which spread twelve bars so
+ * far apart that month-to-month differences were hard to compare. Constraining
+ * it to two thirds and putting the interpretation beside it makes both easier
+ * to read than either was alone.
+ *
+ * Prefixed, like every addition here: this file is shared by five pages.
+ */
+.seasonality-row {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.seasonality-highlights {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 14px 16px;
+  /* Matches .chart-container's fixed height so the two read as one row. */
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.seasonality-highlights-title {
+  font-size: 11px;
+  color: #a3adb8;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.seasonality-metric {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  /* Share the card's height evenly so it fills the chart's 240px rather than
+     bunching at the top with dead space beneath. */
+  flex: 1;
+  min-height: 0;
+  border-bottom: 1px solid #21262d;
+  font-size: 12px;
+}
+
+.seasonality-metric:last-child {
+  border-bottom: none;
+}
+
+.seasonality-metric span {
+  color: #8b949e;
+}
+
+.seasonality-metric strong {
+  color: #e6edf3;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
 /* Short definition line under a section title, above the longer footnote. */
 .section-caption {
   color: #a3adb8;
@@ -724,6 +787,11 @@ select:disabled {
 
 @media (max-width: 860px) {
   .page { padding: 16px; }
+
+  /* Highlights drop below the chart, which keeps its full width. */
+  .seasonality-row { grid-template-columns: minmax(0, 1fr); }
+  .seasonality-highlights { height: auto; }
+  .seasonality-metric { flex: 0 0 auto; padding: 8px 0; }
 
   /* The absolutely-centred header block would overlap the logo on a narrow
      screen, so it returns to normal flow underneath the brand. */

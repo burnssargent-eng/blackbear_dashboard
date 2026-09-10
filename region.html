@@ -182,6 +182,7 @@ function render(page, region, options, monthly, yearly, named, regionStats,
     latestDataDate,
     regionProjection(monthTotals, latestDataDate)
   );
+  const highlights = seasonalityHighlights(seasonality);
 
   regionMonthTotals = monthTotals;
   regionMonths = months;
@@ -284,7 +285,31 @@ function render(page, region, options, monthly, yearly, named, regionStats,
           ${escapeHtml(String(seasonality.currentYear))} total of
           ${formatNumber(Math.round(seasonality.scale))} gallons.
         </div>
-        <div class="chart-container"><canvas id="chart-seasonality"></canvas></div>
+        <div class="seasonality-row">
+          <div class="chart-container"><canvas id="chart-seasonality"></canvas></div>
+          ${highlights ? `
+            <div class="seasonality-highlights">
+              <div class="seasonality-highlights-title">Seasonality Highlights</div>
+              <div class="seasonality-metric">
+                <span>Peak month</span>
+                <strong>${escapeHtml(highlights.peakMonth)}</strong>
+              </div>
+              <div class="seasonality-metric">
+                <span>Low month</span>
+                <strong>${escapeHtml(highlights.lowMonth)}</strong>
+              </div>
+              <div class="seasonality-metric">
+                <span>Peak vs low</span>
+                <strong>${highlights.multiple
+                  ? escapeHtml(highlights.multiple.toFixed(1)) + "×"
+                  : "—"}</strong>
+              </div>
+              <div class="seasonality-metric">
+                <span>Nov–Mar share</span>
+                <strong>${escapeHtml((highlights.winterShare * 100).toFixed(0))}%</strong>
+              </div>
+            </div>` : ""}
+        </div>
       ` : `
         <div class="note">
           Not enough complete years to calculate a seasonality profile.
@@ -429,6 +454,14 @@ const MONTH_KEYS = Array.from({ length: 12 },
   (_, i) => String(i + 1).padStart(2, "0"));
 const MONTH_LABELS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
                       "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const MONTH_NAMES = ["January", "February", "March", "April", "May", "June",
+                     "July", "August", "September", "October", "November",
+                     "December"];
+
+// Nov-Mar. Deliberately named for the months it covers rather than "winter":
+// the concentration it measures is a heating-season pattern in some regions and
+// an academic calendar in others, so naming a season would overclaim.
+const WINTER_MONTHS = [10, 11, 0, 1, 2];
 
 // Recent years count for more. The current year leads because it is the best
 // evidence of how this region behaves now, but it only ever contributes the
@@ -547,6 +580,37 @@ function seasonalityProfile(monthTotals, latestDataDate, projected) {
     currentYear,
     usedCurrent,
     fullyElapsed
+  };
+}
+
+/**
+ * Interpretive read-outs for the profile, taken from the very same shares the
+ * chart plots so the card and the bars can never disagree.
+ *
+ * The peak-to-low multiple is the honest headline: it separates a genuinely
+ * seasonal region from a flat one far faster than reading twelve bars.
+ */
+function seasonalityHighlights(profile) {
+  if (!profile || !profile.shares || profile.shares.length !== 12) return null;
+
+  const shares = profile.shares;
+  let hi = 0, lo = 0;
+  shares.forEach((s, i) => {
+    if (s > shares[hi]) hi = i;
+    if (s < shares[lo]) lo = i;
+  });
+
+  // A month can legitimately be zero in a region that shuts down seasonally,
+  // and the ratio is then undefined rather than infinite.
+  const multiple = shares[lo] > 0 ? shares[hi] / shares[lo] : null;
+
+  return {
+    peakMonth: MONTH_NAMES[hi],
+    peakShare: shares[hi],
+    lowMonth: MONTH_NAMES[lo],
+    lowShare: shares[lo],
+    multiple,
+    winterShare: WINTER_MONTHS.reduce((sum, i) => sum + shares[i], 0)
   };
 }
 
