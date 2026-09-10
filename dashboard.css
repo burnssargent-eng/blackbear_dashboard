@@ -416,7 +416,7 @@ select:disabled {
   background: #161b22;
   border: 1px solid #30363d;
   border-radius: 10px;
-  padding: 18px 24px 20px;
+  padding: 16px 22px 18px;
   margin-bottom: 1px;
 }
 
@@ -425,15 +425,15 @@ select:disabled {
   color: #a3adb8;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
-/* Callout and convoy sit side by side while there is room, so the panel stays
-   short and the charts below it are not pushed far down. */
+/* The count and the drum grid read as one unit: number on the left as the
+   dominant equivalent, its evidence immediately beside it. */
 .equiv-lead {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 26px;
   flex-wrap: wrap;
 }
 
@@ -442,38 +442,43 @@ select:disabled {
 }
 
 .equiv-callout-val {
-  font-size: 30px;
+  font-size: 36px;
   font-weight: bold;
   color: #3fb950;
-  line-height: 1.1;
+  line-height: 1.05;
   white-space: nowrap;
 }
 
 .equiv-callout-label {
   font-size: 12px;
   color: #a3adb8;
-  margin-top: 4px;
+  margin-top: 5px;
+  max-width: 180px;
 }
 
-.equiv-wall-wrap {
-  flex: 1 1 340px;
+.equiv-grid-wrap {
+  flex: 1 1 300px;
   min-width: 0;
 }
 
-/* A dense block of drums. The gap is deliberately tight so the group reads as
-   one mass rather than a row of separate icons. */
-.equiv-wall {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
+/* A block of drums rather than one long strip: fixed columns keep the rows
+   even, so 44 icons land as a tidy 4 x 11 rectangle instead of ragged wrap. */
+.equiv-grid {
+  display: grid;
+  /* 22 columns lands 44 drums as two full rows. A wide, shallow wall fills the
+     panel rather than leaving it half empty, and keeps the block short enough
+     that the source cards below stay near the top of the page. */
+  grid-template-columns: repeat(22, minmax(0, 1fr));
+  gap: 8px 7px;
+  max-width: 900px;
   color: #3fb950;
 }
 
-/* currentColor on the SVG fills means the colour is set here, once. */
+/* Sized by its grid cell; the viewBox keeps the drum's proportions. */
 .equiv-drum {
   display: block;
-  flex: 0 0 auto;
-  opacity: 0.9;
+  width: 100%;
+  height: auto;
 }
 
 .equiv-caption {
@@ -481,25 +486,37 @@ select:disabled {
   color: #8b949e;
   line-height: 1.5;
   margin-top: 10px;
+  max-width: 900px;
 }
 
 .equiv-cards {
   display: grid;
   /* Deliberately not .stats-bar: that is pinned to two columns at 520px, which
-     would orphan the third card onto a row of its own. */
+     would orphan an odd card onto a row of its own. */
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1px;
   background: #30363d;
   border: 1px solid #30363d;
   border-radius: 8px;
   overflow: hidden;
-  margin-top: 18px;
+  margin-top: 14px;
 }
 
 .equiv-card {
   background: #161b22;
-  padding: 12px 14px;
+  padding: 12px 14px 13px;
   text-align: center;
+}
+
+/* Small supporting pictogram above each card's figure. Muted so it frames the
+   number rather than competing with the green headline above. */
+.equiv-card-icon {
+  display: block;
+  width: 40px;
+  height: auto;
+  margin: 0 auto 7px;
+  color: #3fb950;
+  opacity: 0.75;
 }
 
 .equiv-card-val {
@@ -524,7 +541,7 @@ select:disabled {
   font-size: 12px;
   color: #a3adb8;
   line-height: 1.6;
-  margin-top: 14px;
+  margin-top: 12px;
 }
 
 /* Short definition line under a section title, above the longer footnote. */
@@ -699,6 +716,12 @@ select:disabled {
 
 /* Responsive pass. Verified in headless Chrome at 390px; not yet checked on a
    real handset — see the TODO in the project notes. */
+/* The 22-column wall needs real width to keep each drum legible: below about
+   1100px the cells fall under 20px, so the grid halves to 11 columns first. */
+@media (max-width: 1100px) {
+  .equiv-grid { grid-template-columns: repeat(11, minmax(0, 1fr)); max-width: 420px; }
+}
+
 @media (max-width: 860px) {
   .page { padding: 16px; }
 
@@ -740,15 +763,17 @@ select:disabled {
   .controls { gap: 8px; }
   /* Always below the dropdown once the bar is narrow. */
   .region-includes { margin-left: 0; flex-basis: 100%; }
+
 }
 
 @media (max-width: 520px) {
   .page { padding: 12px; }
   .hero-value { font-size: 34px; }
   /* Scales with the hero above it, which is resized at this breakpoint too. */
-  .equiv-callout-val { font-size: 24px; }
-  .equiv-panel { padding: 16px; }
-  .equiv-lead { gap: 16px; }
+  .equiv-callout-val { font-size: 28px; }
+  .equiv-panel { padding: 14px; }
+  .equiv-lead { gap: 14px; }
+  .equiv-grid { grid-template-columns: repeat(8, minmax(0, 1fr)); max-width: 260px; }
   .stat-val { font-size: 22px; }
   .stats-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .main-nav { gap: 12px; }
