@@ -14,20 +14,28 @@ predicted gallons at x = rate × (date(x) − date(x-1))
 
 — and they differ only in how the rate is estimated.
 
-## Decision (2026-09-11)
+## Where it stands (2026-09-11)
 
-**Last 6 pickups** is the preceding-rate estimate for now:
+**Last 6 pickups** was the first pick —
 
 ```
 rate = gallons at x-6 … x-1  ÷  days from x-7 to x-1
 ```
 
-It is a safe default from a flat field, not a clear winner:
+— chosen from a flat field: windows of 3 to 7 pickups all score 22.9–23.0%
+WAPE, the previous-year rate ties at 22.8%, and 1 or 2 pickups are worse.
 
-- windows of 3 to 7 pickups all score 22.9–23.0% WAPE
-- the previous-year rate ties it too: 22.8% against 22.9%, and the bootstrap
-  interval on the difference (−1.1 to +1.0 points) straddles zero
-- 2 pickups is slightly worse, and 1 pickup is clearly worse
+Later rounds, [below](#seasonal-customers-and-the-routing-rule), point to
+routing each customer to a rate by its seasonality:
+
+| Customer | Rate | Evidence |
+|---|---|---|
+| Default | **50/50 last 6 + previous year** | −0.8 points WAPE vs last 6 on the steady 11 (interval −1.3 to −0.3). Beats the seasonal blend on 90 of 103 held-out customers. |
+| Repeatable seasonal pattern (repeatability ≥ 0.6) | **seasonal blend** | −13.8 points vs last 6 on 6 seasonal customers. On 7 held-out ones, −1.6 vs 50/50 with an interval of −5.7 to +1.8: inconclusive. |
+| Closes for part of the year | **unsolved** | No rate works across a closure (79–185% WAPE). Needs a reopening rule. |
+
+Not yet adopted: the seasonal branch is unproven out of sample, and its
+threshold is not settled.
 
 ## Results
 
@@ -83,6 +91,65 @@ up. Rates here are always total gallons ÷ total days.
   previous-year rate against +1% for last 6. Because the two go wrong at
   different times, a blend of the two may beat either. Untested.
 
+## Seasonal customers and the routing rule
+
+**Seasonality score** (`seasonality_score.py` → `seasonality_scores.md`). Each
+customer's production by month over 2023–25, spreading each pickup's gallons
+over the days since the previous pickup:
+
+- **amplitude** — how far a typical month sits from the annual average
+- **repeatability** — whether the same months are high every year
+
+Seasonal means amplitude ≥ 0.25 and repeatability ≥ 0.6. Of the 59 customers
+averaging 1,000+ gallons a year, 10 are seasonal, 4 erratic (big swings that do
+not repeat) and 45 steady. Most of the hand-picked steady 11 score at the very
+bottom.
+
+**Four models** (`backtest_seasonal_models.py` → `seasonal_models.md`), WAPE on
+every pickup, all four scored on the same pickups:
+
+| Group | last 6 | 50/50 | seasonal blend | ratio |
+|---|---:|---:|---:|---:|
+| Steady (11 customers) | 22.9% | **22.1%** | 22.2% | 25.7% |
+| Seasonal, open all year (6) | 49.7% | 46.5% | **36.0%** | 37.5% |
+| Closes seasonally (3) | 185% | 166% | **79%** | 166% |
+
+- **50/50** — the average of last 6 and the previous-year rate.
+- **Seasonal blend** — equal weight on the recent rate (the last *n* pickups,
+  *n* = pickups in the last 60 days, at most 6, at least 3) and last year's
+  rate around the same date (the 3 pickups either side of date − 365). With
+  fewer than 3 recent pickups it uses last year's rate alone, which is the
+  usual case for customers collected every 3–6 weeks.
+- **Ratio** — last 6 scaled by last year's seasonal change. Dropped: dividing
+  one noisy rate by another amplifies the noise.
+
+**Out-of-sample test** (`test_routing_rule.py` → `routing_rule_test.md`). The
+rule was fixed first, then scored on 117 customers averaging 500+ gallons a
+year that played no part in finding it:
+
+| Approach — 110 customers, 4,925 pickups | WAPE | Rule minus this (95% interval) |
+|---|---:|---|
+| routing rule | 38.1% | — |
+| last 6 for everyone | 38.7% | −0.6 (−1.3 to +0.1) |
+| 50/50 for everyone | 38.2% | −0.1 (−0.3 to +0.1) |
+| seasonal blend for everyone | 44.6% | −6.5 (−10.5 to −3.9) |
+
+- **The 50/50 branch is right.** 90 of 103 customers do better on 50/50 than on
+  the blend.
+- **The blend branch is unproven.** 7 customers, 4 better on the blend. The
+  three most repeatable (0.78–0.88) gain 6–12 points over 50/50; the two just
+  over 0.6 lose 6–8. Raising the threshold on this evidence would fit it to the
+  holdout, so it stays at 0.6 until more seasonal customers can be tested.
+- **So far the rule is roughly 50/50 for everyone.** Only 5% of held-out
+  pickups route to the blend.
+- **Closers** (7 held out) sit at 66–138% WAPE on every model.
+- Holdout WAPE runs higher across the board because these are smaller
+  customers.
+
+**Caveat:** a customer's score is computed from the same years its pickups are
+scored on. A production version would score from history before each
+prediction.
+
 ## Scope and data rules
 
 - **11 hand-picked customers**, pinned by `customer_id` in `SAMPLE` at the top of
@@ -101,8 +168,11 @@ up. Rates here are always total gallons ÷ total days.
 | `compare_models.py` | Every model on the same pickups, with a paired bootstrap for last 6 vs previous year. Writes `model_comparison.md` |
 | `model_comparison.md` | The side-by-side tables the decision rests on |
 | `backtest_steady_rate_*_report.md` | One report per run: method, per-customer table, largest misses |
+| `seasonality_score.py` → `seasonality_scores.md` | Seasonality score and class for the 59 customers averaging 1,000+ gallons a year |
+| `backtest_seasonal_models.py` → `seasonal_models.md` | Last 6, 50/50, seasonal blend and ratio on the steady, seasonal and closing groups |
+| `test_routing_rule.py` → `routing_rule_test.md` | The routing rule scored on 117 held-out customers |
 
-The CSVs (per-pickup detail and summaries) are gitignored. Both scripts are
+The CSVs (per-pickup detail and summaries) are gitignored. Every script is
 deterministic, so rerunning regenerates them byte for byte.
 
 ## Rerun
@@ -115,6 +185,9 @@ python3 analysis/backtest_steady_rate.py --window 6 --sample all        # last 6
 python3 analysis/backtest_steady_rate.py --prev-year --sample all       # previous year
 python3 analysis/backtest_steady_rate.py --window 3 --sample 50 --full  # any window, sampled
 python3 analysis/backtest_steady_rate.py --around 45 --rate pooled --sample 50   # benchmark
+python3 analysis/seasonality_score.py                                   # seasonality scores
+python3 analysis/backtest_seasonal_models.py                            # four models by group
+python3 analysis/test_routing_rule.py                                   # held-out rule test
 ```
 
 The nightly scrape adds pickups, so figures will drift slightly from those
