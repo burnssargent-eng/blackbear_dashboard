@@ -8,3 +8,7 @@ __pycache__/
 /Schmootz.xlsx
 /data/Schmootz.xlsx
 /data/*.xlsx
+
+# Backtest outputs regenerate identically from the scripts in analysis/. Only
+# the markdown reports are committed.
+analysis/*.csv
