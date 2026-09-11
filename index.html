@@ -72,20 +72,22 @@
       margin-right: 18px;
     }
 
-    /* Jim, in the gap between the nav and the timestamp. Needs his own class
-       because the bare `header img` rule above belongs to the brand logo. */
-    .header-jim {
-      height: 52px;
+    /* The team, in the gap between the nav and the timestamp. Needs its own
+       class because the bare `header img` rule above belongs to the brand logo. */
+    .header-team {
+      height: 60px;
       width: auto;
       margin-left: auto;
-      margin-right: 117px;
+      /* Centres the image in the gap: right margin = 134 - width/2, and the
+         4:3 group art is 80px wide at this height (Jim was 34px at 117px). */
+      margin-right: 94px;
       align-self: center;
     }
 
-    /* The timestamp normally pushes itself right with margin-left:auto. Jim
-       now does that, so a second auto would split the free space between
-       them and drag him back into the nav. */
-    .header-jim + .last-updated { margin-left: 0; }
+    /* The timestamp normally pushes itself right with margin-left:auto. The
+       image now does that, so a second auto would split the free space
+       between them and drag it back into the nav. */
+    .header-team + .last-updated { margin-left: 0; }
 
     header h1 {
       font-size: 24px;
@@ -494,7 +496,7 @@
     <a href="schmootz.html">Schmootz</a>
     </nav>
   </div>
-  <img class="header-jim" src="jim.png" alt="Jim"
+  <img class="header-team" src="team.png" alt="The Black Bear Biodiesel team"
        onerror="this.style.display='none'">
   <div class="last-updated" id="last-updated">Loading...</div>
 </header>
