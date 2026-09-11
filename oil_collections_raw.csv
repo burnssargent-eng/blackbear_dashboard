@@ -31,6 +31,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 551,The Genny- Albany General Store,Albany,Orleans,2021-12-09,2021,2021-12,100,True,Albany
 551,The Genny- Albany General Store,Albany,Orleans,2021-11-05,2021,2021-11,75,True,Albany
 551,The Genny- Albany General Store,Albany,Orleans,2021-10-14,2021,2021-10,80,True,Albany
+1137,Arlington Dairy Bar,Arlington,Windham,2026-09-10,2026,2026-09,60,True,Arlington
 1137,Arlington Dairy Bar,Arlington,Windham,2026-07-15,2026,2026-07,60,True,Arlington
 1137,Arlington Dairy Bar,Arlington,Windham,2025-10-24,2025,2025-10,65,True,Arlington
 1137,Arlington Dairy Bar,Arlington,Windham,2025-09-10,2025,2025-09,60,True,Arlington
@@ -1046,6 +1047,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 911,The Mojo Cafe-Belmont,Belmont,Rutland,2017-07-11,2017,2017-07,50,True,Mount Holly
 911,The Mojo Cafe-Belmont,Belmont,Rutland,2017-05-11,2017,2017-05,15,True,Mount Holly
 911,The Mojo Cafe-Belmont,Belmont,Rutland,2017-02-27,2017,2017-02,15,True,Mount Holly
+1296,Burger King- Bennington/Mahoney,Bennington,Bennington,2026-09-10,2026,2026-09,150,True,Bennington
 1296,Burger King- Bennington/Mahoney,Bennington,Bennington,2026-07-15,2026,2026-07,160,True,Bennington
 1296,Burger King- Bennington/Mahoney,Bennington,Bennington,2026-05-13,2026,2026-05,145,True,Bennington
 1296,Burger King- Bennington/Mahoney,Bennington,Bennington,2026-03-30,2026,2026-03,95,True,Bennington
@@ -1418,6 +1420,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 802,Creek House Diner,Bethel,Windsor,2015-04-20,2015,2015-04,25,True,Bethel
 802,Creek House Diner,Bethel,Windsor,2015-03-10,2015,2015-03,25,True,Bethel
 802,Creek House Diner,Bethel,Windsor,2015-01-29,2015,2015-01,25,True,Bethel
+803,Toziers-,Bethel,Windsor,2026-09-10,2026,2026-09,80,True,Bethel
 803,Toziers-,Bethel,Windsor,2026-09-04,2026,2026-09,120,True,Bethel
 803,Toziers-,Bethel,Windsor,2026-08-24,2026,2026-08,220,True,Bethel
 803,Toziers-,Bethel,Windsor,2026-08-20,2026,2026-08,100,True,Bethel
@@ -9022,6 +9025,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1465,Lyndonville Station Irving,Lyndonville,Caledonia,2026-02-09,2026,2026-02,15,True,Lyndon
 1465,Lyndonville Station Irving,Lyndonville,Caledonia,2026-01-02,2026,2026-01,20,True,Lyndon
 1465,Lyndonville Station Irving,Lyndonville,Caledonia,2025-11-17,2025,2025-11,50,True,Lyndon
+733,Copper Grouse,Manchester,Bennington,2026-09-10,2026,2026-09,90,True,Manchester
 733,Copper Grouse,Manchester,Bennington,2026-08-20,2026,2026-08,120,True,Manchester
 733,Copper Grouse,Manchester,Bennington,2026-07-15,2026,2026-07,110,True,Manchester
 733,Copper Grouse,Manchester,Bennington,2026-06-15,2026,2026-06,40,True,Manchester
@@ -9105,6 +9109,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 733,Copper Grouse,Manchester,Bennington,2017-06-05,2017,2017-06,230,True,Manchester
 733,Copper Grouse,Manchester,Bennington,2017-02-27,2017,2017-02,150,True,Manchester
 733,Copper Grouse,Manchester,Bennington,2017-01-31,2017,2017-01,130,True,Manchester
+1462,Lost Marble-Manchester,Manchester,Bennington,2026-09-10,2026,2026-09,70,True,Manchester
 1462,Lost Marble-Manchester,Manchester,Bennington,2026-08-20,2026,2026-08,100,True,Manchester
 1462,Lost Marble-Manchester,Manchester,Bennington,2026-07-15,2026,2026-07,65,True,Manchester
 1462,Lost Marble-Manchester,Manchester,Bennington,2026-06-15,2026,2026-06,80,True,Manchester
@@ -9115,6 +9120,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1462,Lost Marble-Manchester,Manchester,Bennington,2026-01-28,2026,2026-01,60,True,Manchester
 1462,Lost Marble-Manchester,Manchester,Bennington,2026-01-09,2026,2026-01,85,True,Manchester
 1462,Lost Marble-Manchester,Manchester,Bennington,2025-12-11,2025,2025-12,100,True,Manchester
+1234,Road Runner,Manchester,Bennington,2026-09-10,2026,2026-09,75,True,Manchester
 1234,Road Runner,Manchester,Bennington,2026-08-20,2026,2026-08,120,True,Manchester
 1234,Road Runner,Manchester,Bennington,2026-07-15,2026,2026-07,110,True,Manchester
 1234,Road Runner,Manchester,Bennington,2026-06-15,2026,2026-06,85,True,Manchester
@@ -9156,6 +9162,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1234,Road Runner,Manchester,Bennington,2023-05-03,2023,2023-05,20,True,Manchester
 1234,Road Runner,Manchester,Bennington,2023-04-06,2023,2023-04,75,True,Manchester
 1234,Road Runner,Manchester,Bennington,2023-03-08,2023,2023-03,60,True,Manchester
+1443,Lola Woodfired /Austin Poulin/ Sam's Wood Fired Pi,Manchester Center,Bennington,2026-09-10,2026,2026-09,25,True,Manchester
 1443,Lola Woodfired /Austin Poulin/ Sam's Wood Fired Pi,Manchester Center,Bennington,2026-08-20,2026,2026-08,35,True,Manchester
 1443,Lola Woodfired /Austin Poulin/ Sam's Wood Fired Pi,Manchester Center,Bennington,2026-07-15,2026,2026-07,30,True,Manchester
 1443,Lola Woodfired /Austin Poulin/ Sam's Wood Fired Pi,Manchester Center,Bennington,2026-06-15,2026,2026-06,50,True,Manchester
@@ -12941,6 +12948,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 809,Weathersfield Inn,Perkinsville,Windsor,2019-06-09,2019,2019-06,50,True,Weathersfield
 809,Weathersfield Inn,Perkinsville,Windsor,2017-06-05,2017,2017-06,50,True,Weathersfield
 809,Weathersfield Inn,Perkinsville,Windsor,2016-07-10,2016,2016-07,35,True,Weathersfield
+806,Riverside Farm,Pittsfield,Rutland,2026-09-10,2026,2026-09,55,True,Pittsfield
 806,Riverside Farm,Pittsfield,Rutland,2025-09-10,2025,2025-09,55,True,Pittsfield
 806,Riverside Farm,Pittsfield,Rutland,2024-08-15,2024,2024-08,100,True,Pittsfield
 806,Riverside Farm,Pittsfield,Rutland,2023-10-16,2023,2023-10,60,True,Pittsfield
@@ -12951,6 +12959,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 806,Riverside Farm,Pittsfield,Rutland,2019-04-25,2019,2019-04,65,True,Pittsfield
 806,Riverside Farm,Pittsfield,Rutland,2018-09-13,2018,2018-09,50,True,Pittsfield
 806,Riverside Farm,Pittsfield,Rutland,2017-11-06,2017,2017-11,100,True,Pittsfield
+807,The Original - Pittsfield General Store,Pittsfield,Rutland,2026-09-10,2026,2026-09,40,True,Pittsfield
 807,The Original - Pittsfield General Store,Pittsfield,Rutland,2026-05-19,2026,2026-05,70,True,Pittsfield
 807,The Original - Pittsfield General Store,Pittsfield,Rutland,2025-05-29,2025,2025-05,40,True,Pittsfield
 807,The Original - Pittsfield General Store,Pittsfield,Rutland,2024-10-14,2024,2024-10,75,True,Pittsfield
@@ -14595,6 +14604,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 804,IRVING/EXIT 3 Jockey Hollow Rest area,South Royalton,Windsor,2020-11-12,2020,2020-11,70,True,Royalton
 804,IRVING/EXIT 3 Jockey Hollow Rest area,South Royalton,Windsor,2020-09-09,2020,2020-09,75,True,Royalton
 804,IRVING/EXIT 3 Jockey Hollow Rest area,South Royalton,Windsor,2020-05-12,2020,2020-05,100,True,Royalton
+1106,Vermont Law School-South Royalton,South Royalton,Windsor,2026-09-10,2026,2026-09,40,True,Royalton
 1106,Vermont Law School-South Royalton,South Royalton,Windsor,2026-05-13,2026,2026-05,45,True,Royalton
 1106,Vermont Law School-South Royalton,South Royalton,Windsor,2025-12-15,2025,2025-12,40,True,Royalton
 1106,Vermont Law School-South Royalton,South Royalton,Windsor,2025-07-18,2025,2025-07,40,True,Royalton
@@ -17883,6 +17893,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2015-03-09,2015,2015-03,80,True,Stowe
 244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2015-02-18,2015,2015-02,50,True,Stowe
 244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2015-01-28,2015,2015-01,85,True,Stowe
+1162,Grange at Hill Farm-Sunderland,Sunderland,Windham,2026-09-10,2026,2026-09,45,True,Sunderland
 1162,Grange at Hill Farm-Sunderland,Sunderland,Windham,2026-07-15,2026,2026-07,95,True,Sunderland
 1162,Grange at Hill Farm-Sunderland,Sunderland,Windham,2026-02-19,2026,2026-02,30,True,Sunderland
 1162,Grange at Hill Farm-Sunderland,Sunderland,Windham,2025-12-11,2025,2025-12,25,True,Sunderland
@@ -20724,6 +20735,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 537,Parker Pie- West Glover,West Glover,Orleans,2017-03-30,2017,2017-03,95,True,Glover
 537,Parker Pie- West Glover,West Glover,Orleans,2017-03-14,2017,2017-03,50,True,Glover
 537,Parker Pie- West Glover,West Glover,Orleans,2017-01-25,2017,2017-01,50,True,Glover
+928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2026-09-10,2026,2026-09,95,True,
 928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2026-08-20,2026,2026-08,70,True,
 928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2026-07-30,2026,2026-07,65,True,
 928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2026-07-10,2026,2026-07,80,True,
@@ -20848,6 +20860,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2016-09-03,2016,2016-09,75,True,
 928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2016-08-06,2016,2016-08,75,True,
 928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2016-07-10,2016,2016-07,150,True,
+1119,Hannaford-West Lebanon,West Lebanon,Out-of-State (NH),2026-09-10,2026,2026-09,114,True,
 1119,Hannaford-West Lebanon,West Lebanon,Out-of-State (NH),2026-08-20,2026,2026-08,131,True,
 1119,Hannaford-West Lebanon,West Lebanon,Out-of-State (NH),2026-07-30,2026,2026-07,134,True,
 1119,Hannaford-West Lebanon,West Lebanon,Out-of-State (NH),2026-07-10,2026,2026-07,156,True,

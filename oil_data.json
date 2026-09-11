@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-10T12:05:44.857900",
+  "last_updated": "2026-09-11T12:04:10.568863",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33375,6 +33375,12 @@
     },
     {
       "month": "2026-09",
+      "geo_town": "Arlington",
+      "gallons": 60,
+      "city": "Arlington"
+    },
+    {
+      "month": "2026-09",
       "geo_town": "Barre City",
       "gallons": 330,
       "city": "Barre City"
@@ -33387,8 +33393,14 @@
     },
     {
       "month": "2026-09",
+      "geo_town": "Bennington",
+      "gallons": 150,
+      "city": "Bennington"
+    },
+    {
+      "month": "2026-09",
       "geo_town": "Bethel",
-      "gallons": 145,
+      "gallons": 225,
       "city": "Bethel"
     },
     {
@@ -33441,6 +33453,12 @@
     },
     {
       "month": "2026-09",
+      "geo_town": "Manchester",
+      "gallons": 260,
+      "city": "Manchester"
+    },
+    {
+      "month": "2026-09",
       "geo_town": "Montpelier",
       "gallons": 310,
       "city": "Montpelier"
@@ -33453,9 +33471,21 @@
     },
     {
       "month": "2026-09",
+      "geo_town": "Pittsfield",
+      "gallons": 95,
+      "city": "Pittsfield"
+    },
+    {
+      "month": "2026-09",
       "geo_town": "Randolph",
       "gallons": 25,
       "city": "Randolph"
+    },
+    {
+      "month": "2026-09",
+      "geo_town": "Royalton",
+      "gallons": 40,
+      "city": "Royalton"
     },
     {
       "month": "2026-09",
@@ -33486,6 +33516,12 @@
       "geo_town": "South Hero",
       "gallons": 120,
       "city": "South Hero"
+    },
+    {
+      "month": "2026-09",
+      "geo_town": "Sunderland",
+      "gallons": 45,
+      "city": "Sunderland"
     },
     {
       "month": "2026-09",
@@ -41192,6 +41228,11 @@
     },
     {
       "month": "2026-09",
+      "county": "Bennington",
+      "gallons": 410
+    },
+    {
+      "month": "2026-09",
       "county": "Caledonia",
       "gallons": 325
     },
@@ -41217,8 +41258,18 @@
     },
     {
       "month": "2026-09",
+      "county": "Out-of-State (NH)",
+      "gallons": 209
+    },
+    {
+      "month": "2026-09",
       "county": "Out-of-State (NY)",
       "gallons": 134
+    },
+    {
+      "month": "2026-09",
+      "county": "Rutland",
+      "gallons": 95
     },
     {
       "month": "2026-09",
@@ -41227,8 +41278,13 @@
     },
     {
       "month": "2026-09",
+      "county": "Windham",
+      "gallons": 105
+    },
+    {
+      "month": "2026-09",
       "county": "Windsor",
-      "gallons": 920
+      "gallons": 1040
     }
   ],
   "yearly_totals": [
@@ -41278,13 +41334,13 @@
     },
     {
       "year": 2026,
-      "gallons": 208299
+      "gallons": 209238
     }
   ],
-  "all_time_total": 2127066,
-  "current_year_total": 208299,
+  "all_time_total": 2128005,
+  "current_year_total": 209238,
   "customer_count": 796,
-  "unmapped_total": 39416,
+  "unmapped_total": 39625,
   "monthly_totals": [
     {
       "month": "2015-01",
@@ -41848,7 +41904,7 @@
     },
     {
       "month": "2026-09",
-      "gallons": 6960
+      "gallons": 7899
     }
   ],
   "monthly_by_region": [
@@ -51055,7 +51111,7 @@
     {
       "month": "2026-09",
       "region": "Central South",
-      "gallons": 920
+      "gallons": 1209
     },
     {
       "month": "2026-09",
@@ -51065,7 +51121,7 @@
     {
       "month": "2026-09",
       "region": "Other",
-      "gallons": 780
+      "gallons": 975
     },
     {
       "month": "2026-09",
@@ -51081,6 +51137,11 @@
       "month": "2026-09",
       "region": "Route 7",
       "gallons": 145
+    },
+    {
+      "month": "2026-09",
+      "region": "South",
+      "gallons": 455
     },
     {
       "month": "2026-09",
@@ -51912,7 +51973,7 @@
     {
       "year": 2026,
       "region": "Central South",
-      "gallons": 10965
+      "gallons": 11254
     },
     {
       "year": 2026,
@@ -51927,7 +51988,7 @@
     {
       "year": 2026,
       "region": "Other",
-      "gallons": 17338
+      "gallons": 17533
     },
     {
       "year": 2026,
@@ -51952,7 +52013,7 @@
     {
       "year": 2026,
       "region": "South",
-      "gallons": 3120
+      "gallons": 3575
     },
     {
       "year": 2026,
@@ -52004,20 +52065,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 27365,
-  "out_of_state_total": 39416,
+  "collections_count": 27378,
+  "out_of_state_total": 39625,
   "active_customer_count": 522,
   "projection": {
-    "latest_data_date": "2026-09-09",
+    "latest_data_date": "2026-09-10",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 208299,
+    "current_ytd": 209238,
     "previous_year_full": 269909,
     "previous_through_prior_month": 183361,
     "previous_same_month_total": 25498,
-    "previous_prorated_ytd": 191010.4,
-    "projected_current_year": 294339,
-    "percent_vs_previous_year": 0.090511
+    "previous_prorated_ytd": 191860.33,
+    "projected_current_year": 294356,
+    "percent_vs_previous_year": 0.090575
   },
   "region_stats": {
     "Burlington / South Burlington": {
@@ -52161,7 +52222,7 @@
     },
     {
       "year": 2026,
-      "places_serviced": 455,
+      "places_serviced": 456,
       "gained": 34,
       "lost": 6,
       "net": 28
