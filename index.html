@@ -72,6 +72,21 @@
       margin-right: 18px;
     }
 
+    /* Jim, in the gap between the nav and the timestamp. Needs his own class
+       because the bare `header img` rule above belongs to the brand logo. */
+    .header-jim {
+      height: 52px;
+      width: auto;
+      margin-left: auto;
+      margin-right: 117px;
+      align-self: center;
+    }
+
+    /* The timestamp normally pushes itself right with margin-left:auto. Jim
+       now does that, so a second auto would split the free space between
+       them and drag him back into the nav. */
+    .header-jim + .last-updated { margin-left: 0; }
+
     header h1 {
       font-size: 24px;
     }
@@ -479,6 +494,8 @@
     <a href="schmootz.html">Schmootz</a>
     </nav>
   </div>
+  <img class="header-jim" src="jim.png" alt="Jim"
+       onerror="this.style.display='none'">
   <div class="last-updated" id="last-updated">Loading...</div>
 </header>
 
