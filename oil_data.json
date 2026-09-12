@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-11T12:04:10.568863",
+  "last_updated": "2026-09-12T11:30:24.434425",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -28533,14 +28533,8 @@
     },
     {
       "month": "2025-06",
-      "geo_town": "Essex",
-      "gallons": 35,
-      "city": "Essex"
-    },
-    {
-      "month": "2025-06",
       "geo_town": "Essex Junction",
-      "gallons": 495,
+      "gallons": 530,
       "city": "Essex Junction"
     },
     {
@@ -29211,14 +29205,8 @@
     },
     {
       "month": "2025-08",
-      "geo_town": "Essex",
-      "gallons": 100,
-      "city": "Essex"
-    },
-    {
-      "month": "2025-08",
       "geo_town": "Essex Junction",
-      "gallons": 1401,
+      "gallons": 1501,
       "city": "Essex Junction"
     },
     {
@@ -29547,14 +29535,8 @@
     },
     {
       "month": "2025-09",
-      "geo_town": "Essex",
-      "gallons": 85,
-      "city": "Essex"
-    },
-    {
-      "month": "2025-09",
       "geo_town": "Essex Junction",
-      "gallons": 1100,
+      "gallons": 1185,
       "city": "Essex Junction"
     },
     {
@@ -29907,14 +29889,8 @@
     },
     {
       "month": "2025-10",
-      "geo_town": "Essex",
-      "gallons": 90,
-      "city": "Essex"
-    },
-    {
-      "month": "2025-10",
       "geo_town": "Essex Junction",
-      "gallons": 1306,
+      "gallons": 1396,
       "city": "Essex Junction"
     },
     {
@@ -32823,14 +32799,8 @@
     },
     {
       "month": "2026-07",
-      "geo_town": "Essex",
-      "gallons": 55,
-      "city": "Essex"
-    },
-    {
-      "month": "2026-07",
       "geo_town": "Essex Junction",
-      "gallons": 746,
+      "gallons": 801,
       "city": "Essex Junction"
     },
     {
@@ -33165,14 +33135,8 @@
     },
     {
       "month": "2026-08",
-      "geo_town": "Essex",
-      "gallons": 50,
-      "city": "Essex"
-    },
-    {
-      "month": "2026-08",
       "geo_town": "Essex Junction",
-      "gallons": 165,
+      "gallons": 215,
       "city": "Essex Junction"
     },
     {
@@ -33436,7 +33400,7 @@
     {
       "month": "2026-09",
       "geo_town": "Essex Junction",
-      "gallons": 440,
+      "gallons": 1735,
       "city": "Essex Junction"
     },
     {
@@ -33550,7 +33514,7 @@
     {
       "month": "2026-09",
       "geo_town": "Winooski",
-      "gallons": 475,
+      "gallons": 520,
       "city": "Winooski"
     },
     {
@@ -41239,7 +41203,7 @@
     {
       "month": "2026-09",
       "county": "Chittenden",
-      "gallons": 2855
+      "gallons": 4195
     },
     {
       "month": "2026-09",
@@ -41334,11 +41298,11 @@
     },
     {
       "year": 2026,
-      "gallons": 209238
+      "gallons": 210578
     }
   ],
-  "all_time_total": 2128005,
-  "current_year_total": 209238,
+  "all_time_total": 2129345,
+  "current_year_total": 210578,
   "customer_count": 796,
   "unmapped_total": 39625,
   "monthly_totals": [
@@ -41904,7 +41868,7 @@
     },
     {
       "month": "2026-09",
-      "gallons": 7899
+      "gallons": 9239
     }
   ],
   "monthly_by_region": [
@@ -51126,7 +51090,7 @@
     {
       "month": "2026-09",
       "region": "Outer Burlington",
-      "gallons": 915
+      "gallons": 2255
     },
     {
       "month": "2026-09",
@@ -51993,7 +51957,7 @@
     {
       "year": 2026,
       "region": "Outer Burlington",
-      "gallons": 17223
+      "gallons": 18563
     },
     {
       "year": 2026,
@@ -52065,20 +52029,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 27378,
+  "collections_count": 27381,
   "out_of_state_total": 39625,
   "active_customer_count": 522,
   "projection": {
-    "latest_data_date": "2026-09-10",
+    "latest_data_date": "2026-09-11",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 209238,
+    "current_ytd": 210578,
     "previous_year_full": 269909,
     "previous_through_prior_month": 183361,
     "previous_same_month_total": 25498,
-    "previous_prorated_ytd": 191860.33,
-    "projected_current_year": 294356,
-    "percent_vs_previous_year": 0.090575
+    "previous_prorated_ytd": 192710.27,
+    "projected_current_year": 294934,
+    "percent_vs_previous_year": 0.092718
   },
   "region_stats": {
     "Burlington / South Burlington": {

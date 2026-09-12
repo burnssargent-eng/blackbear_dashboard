@@ -7141,12 +7141,13 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1149,Hannaford-Enosburg Falls,Enosburg Falls,Orleans,2022-10-03,2022,2022-10,60,True,Enosburgh
 1149,Hannaford-Enosburg Falls,Enosburg Falls,Orleans,2022-08-31,2022,2022-08,50,True,Enosburgh
 1149,Hannaford-Enosburg Falls,Enosburg Falls,Orleans,2022-08-04,2022,2022-08,100,True,Enosburgh
-1426,AL’s FF food truck-ESSEX at Lowes,Essex,Chittenden,2026-08-11,2026,2026-08,50,True,Essex
-1426,AL’s FF food truck-ESSEX at Lowes,Essex,Chittenden,2026-07-13,2026,2026-07,55,True,Essex
-1426,AL’s FF food truck-ESSEX at Lowes,Essex,Chittenden,2025-10-01,2025,2025-10,90,True,Essex
-1426,AL’s FF food truck-ESSEX at Lowes,Essex,Chittenden,2025-09-16,2025,2025-09,85,True,Essex
-1426,AL’s FF food truck-ESSEX at Lowes,Essex,Chittenden,2025-08-07,2025,2025-08,100,True,Essex
-1426,AL’s FF food truck-ESSEX at Lowes,Essex,Chittenden,2025-06-11,2025,2025-06,35,True,Essex
+1426,AL’s FF food truck-ESSEX at Lowes,Essex Junction,Chittenden,2026-09-11,2026,2026-09,45,True,Essex Junction
+1426,AL’s FF food truck-ESSEX at Lowes,Essex Junction,Chittenden,2026-08-11,2026,2026-08,50,True,Essex Junction
+1426,AL’s FF food truck-ESSEX at Lowes,Essex Junction,Chittenden,2026-07-13,2026,2026-07,55,True,Essex Junction
+1426,AL’s FF food truck-ESSEX at Lowes,Essex Junction,Chittenden,2025-10-01,2025,2025-10,90,True,Essex Junction
+1426,AL’s FF food truck-ESSEX at Lowes,Essex Junction,Chittenden,2025-09-16,2025,2025-09,85,True,Essex Junction
+1426,AL’s FF food truck-ESSEX at Lowes,Essex Junction,Chittenden,2025-08-07,2025,2025-08,100,True,Essex Junction
+1426,AL’s FF food truck-ESSEX at Lowes,Essex Junction,Chittenden,2025-06-11,2025,2025-06,35,True,Essex Junction
 415,Blodgett ovens,Essex Junction,Chittenden,2026-06-19,2026,2026-06,65,True,Essex Junction
 415,Blodgett ovens,Essex Junction,Chittenden,2024-06-18,2024,2024-06,60,True,Essex Junction
 415,Blodgett ovens,Essex Junction,Chittenden,2023-12-21,2023,2023-12,40,True,Essex Junction
@@ -7166,6 +7167,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1247,Bramble,Essex Junction,Chittenden,2024-06-18,2024,2024-06,50,True,Essex Junction
 1247,Bramble,Essex Junction,Chittenden,2024-01-14,2024,2024-01,20,True,Essex Junction
 1247,Bramble,Essex Junction,Chittenden,2023-08-07,2023,2023-08,5,True,Essex Junction
+413,Champlain Valley Expo,Essex Junction,Chittenden,2026-09-11,2026,2026-09,1250,True,Essex Junction
 413,Champlain Valley Expo,Essex Junction,Chittenden,2026-09-01,2026,2026-09,440,True,Essex Junction
 413,Champlain Valley Expo,Essex Junction,Chittenden,2026-07-24,2026,2026-07,435,True,Essex Junction
 413,Champlain Valley Expo,Essex Junction,Chittenden,2025-10-09,2025,2025-10,640,True,Essex Junction
@@ -21729,6 +21731,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2025-05-20,2025,2025-05,80,True,Winooski
 1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2025-04-28,2025,2025-04,50,True,Winooski
 1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2025-04-15,2025,2025-04,80,True,Winooski
+434,Asian Bistro-Winooski,Winooski,Chittenden,2026-09-11,2026,2026-09,45,True,Winooski
 434,Asian Bistro-Winooski,Winooski,Chittenden,2026-07-17,2026,2026-07,70,True,Winooski
 434,Asian Bistro-Winooski,Winooski,Chittenden,2026-05-01,2026,2026-05,40,True,Winooski
 434,Asian Bistro-Winooski,Winooski,Chittenden,2026-03-19,2026,2026-03,60,True,Winooski
