@@ -31,19 +31,24 @@ ok(Math.abs(cp.percent-d.projection.percent_vs_previous_year)<1e-6,`percent ${(c
 ok(cp.previousYear===CY-1,`previousYear = ${cp.previousYear}`);
 ok(Math.abs(cp.percent-(cp.projected/cp.previousFull-1))<1e-12,'percent == projected/previousFull - 1');
 
-console.log('\n2. All 14 regions');
+console.log(`\n2. All ${d.region_names.length} regions`);
 const bad=[];
 for(const reg of d.region_names){
+  // region_names is config-derived; region_stats and region_customers are
+  // data-derived. A name with neither means that region matched no record —
+  // report it rather than throwing on a missing property.
+  const st=d.region_stats[reg], ids=d.region_customers[reg];
+  if(!st||!ids){bad.push(reg+':no-stats-or-members');continue}
   const t=totals(reg), rs=recsFor(reg);
   const p=api.regionProjection(t,LDD);
   const months=Object.keys(t).sort();
   const pm=api.priorMonthGallons(t,months[months.length-1],months[0]);
   const act=api.activeCollectedThisYear(rs,CY);
-  const cardActive=d.region_stats[reg].active;
+  const cardActive=st.active;   // null when a scrape never captured status
   // independent recomputation
   const indep=new Set(rs.filter(r=>r.is_active===true&&r.year===CY).map(r=>r.customer_id)).size;
   if(act!==indep) bad.push(reg+':active-mismatch');
-  if(act>cardActive) bad.push(reg+':active>card');
+  if(cardActive!=null&&act>cardActive) bad.push(reg+':active>card');
   if(p&&!Number.isFinite(p.percent)) bad.push(reg+':percent-not-finite');
   if(p&&!Number.isFinite(p.projected)) bad.push(reg+':proj-not-finite');
   if(pm&&!Number.isFinite(pm.gallons)) bad.push(reg+':prior-not-finite');
