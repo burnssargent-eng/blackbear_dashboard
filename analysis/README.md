@@ -37,6 +37,11 @@ routing each customer to a rate by its seasonality:
 Not yet adopted: the seasonal branch is unproven out of sample, and its
 threshold is not settled.
 
+**Customer month and quarter factors were tested on top of this and rejected**
+for steady and erratic customers — the baseline already carries their season, so
+a factor double-counts it. They remain worth having only inside the seasonal
+branch. See [below](#do-customer-month-factors-add-anything-2026-09-15).
+
 ## Results
 
 Every eligible pickup from 2023 on, scored by every model — 962 pickups, no
@@ -150,6 +155,47 @@ year that played no part in finding it:
 scored on. A production version would score from history before each
 prediction.
 
+## Do customer month factors add anything? (2026-09-15)
+
+`customer_factors.py` → `customer_cyclicality.md`,
+`backtest_customer_factors.py` → `customer_factor_model_test.md`.
+
+**No, not as a blanket adjustment — and the reason is double-counting.** last6
+spans a median of 131 days against the 21-day gap it predicts, so it already
+carries a third of a year of season; the previous-year rate carries the same
+season a year earlier. Multiplying that baseline by a month index applies the
+swing twice.
+
+Measured directly: the **residual** factor (actual ÷ baseline prediction, by
+customer and month, built only from earlier pickups) has a median of **exactly
+1.000** for steady, seasonal and erratic customers. There is no leftover
+monthly bias for a factor to correct.
+
+WAPE on 5,492 held-out pickups from 104 open customers, everything
+no-lookahead:
+
+| Model | All open | Steady (73) | Seasonal (12) | Erratic (19) | Closers (10) |
+|---|---:|---:|---:|---:|---:|
+| 50/50 baseline | **37.3%** | **25.1%** | 45.9% | 75.6% | 138.3% |
+| season-free level × month index | 40.2% | 32.1% | **31.4%** | 75.4% | **62.7%** |
+| baseline × month index (naive) | 40.4% | 30.5% | 38.4% | 77.3% | 112.7% |
+| baseline × residual month factor, w=0.5 | 39.4% | 26.1% | 41.4% | 86.3% | 136.5% |
+| baseline × residual quarter factor, w=0.25 | 37.2% | 25.1% | 42.6% | 77.0% | 221.3% |
+
+- **Steady and erratic customers:** nothing beats the plain baseline. The best
+  model chosen on 2023–24 came back at +0.1 points on 2025–26 — a null.
+- **Seasonal customers:** the explicit model wins hugely, −16.9 points on the
+  confirm period (interval −22.3 to −12.0). This is the same routing answer as
+  the seasonal blend, reached a different way.
+- **Closers:** −82.6 points, but still 54% WAPE. Better, not usable.
+- **Raw factors overfit as expected:** every shrinkage step from 0.25 to 1.00
+  makes the residual models worse (37.2% → 39.5% quarterly, 38.1% → 43.3%
+  monthly), and caps only limit the damage rather than producing a win.
+- **Quarterly is the safer of the two for open customers** — roughly neutral
+  where monthly actively hurts — but neutral is not a reason to add a term, and
+  on closers it is the worse of the two by a wide margin (221% against the
+  baseline's 138%).
+
 ## Scope and data rules
 
 - **11 hand-picked customers**, pinned by `customer_id` in `SAMPLE` at the top of
@@ -171,6 +217,8 @@ prediction.
 | `seasonality_score.py` → `seasonality_scores.md` | Seasonality score and class for the 59 customers averaging 1,000+ gallons a year |
 | `backtest_seasonal_models.py` → `seasonal_models.md` | Last 6, 50/50, seasonal blend and ratio on the steady, seasonal and closing groups |
 | `test_routing_rule.py` → `routing_rule_test.md` | The routing rule scored on 117 held-out customers |
+| `customer_factors.py` → `customer_cyclicality.md` | Per-customer monthly/quarterly factors and the screen of who has a repeating pattern |
+| `backtest_customer_factors.py` → `customer_factor_model_test.md` | Whether those factors beat the 50/50 baseline — explicit, naive and residual forms |
 
 The CSVs (per-pickup detail and summaries) are gitignored. Every script is
 deterministic, so rerunning regenerates them byte for byte.
@@ -188,6 +236,8 @@ python3 analysis/backtest_steady_rate.py --around 45 --rate pooled --sample 50  
 python3 analysis/seasonality_score.py                                   # seasonality scores
 python3 analysis/backtest_seasonal_models.py                            # four models by group
 python3 analysis/test_routing_rule.py                                   # held-out rule test
+python3 analysis/customer_factors.py                                    # per-customer factors
+python3 analysis/backtest_customer_factors.py                           # do the factors help?
 ```
 
 The nightly scrape adds pickups, so figures will drift slightly from those
