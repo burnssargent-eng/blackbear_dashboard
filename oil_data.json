@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-14T13:38:59.422876",
+  "last_updated": "2026-09-15T12:29:50.710167",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33382,7 +33382,7 @@
     {
       "month": "2026-09",
       "geo_town": "Burlington",
-      "gallons": 1800,
+      "gallons": 1815,
       "city": "Burlington"
     },
     {
@@ -33423,6 +33423,12 @@
     },
     {
       "month": "2026-09",
+      "geo_town": "Middlebury",
+      "gallons": 449,
+      "city": "Middlebury"
+    },
+    {
+      "month": "2026-09",
       "geo_town": "Montpelier",
       "gallons": 310,
       "city": "Montpelier"
@@ -33438,6 +33444,12 @@
       "geo_town": "Pittsfield",
       "gallons": 95,
       "city": "Pittsfield"
+    },
+    {
+      "month": "2026-09",
+      "geo_town": "Plainfield",
+      "gallons": 25,
+      "city": "Plainfield"
     },
     {
       "month": "2026-09",
@@ -33486,6 +33498,12 @@
       "geo_town": "Sunderland",
       "gallons": 45,
       "city": "Sunderland"
+    },
+    {
+      "month": "2026-09",
+      "geo_town": "Vergennes",
+      "gallons": 295,
+      "city": "Vergennes"
     },
     {
       "month": "2026-09",
@@ -41188,7 +41206,7 @@
     {
       "month": "2026-09",
       "county": "Addison",
-      "gallons": 145
+      "gallons": 889
     },
     {
       "month": "2026-09",
@@ -41203,7 +41221,7 @@
     {
       "month": "2026-09",
       "county": "Chittenden",
-      "gallons": 4195
+      "gallons": 4210
     },
     {
       "month": "2026-09",
@@ -41238,7 +41256,7 @@
     {
       "month": "2026-09",
       "county": "Washington",
-      "gallons": 1821
+      "gallons": 1846
     },
     {
       "month": "2026-09",
@@ -41298,11 +41316,11 @@
     },
     {
       "year": 2026,
-      "gallons": 210578
+      "gallons": 211362
     }
   ],
-  "all_time_total": 2129345,
-  "current_year_total": 210578,
+  "all_time_total": 2130129,
+  "current_year_total": 211362,
   "customer_count": 796,
   "unmapped_total": 39625,
   "monthly_totals": [
@@ -41868,7 +41886,7 @@
     },
     {
       "month": "2026-09",
-      "gallons": 9239
+      "gallons": 10023
     }
   ],
   "monthly_by_region": [
@@ -51065,7 +51083,7 @@
     {
       "month": "2026-09",
       "region": "Burlington / South Burlington",
-      "gallons": 1940
+      "gallons": 1955
     },
     {
       "month": "2026-09",
@@ -51095,12 +51113,12 @@
     {
       "month": "2026-09",
       "region": "Route 2 East",
-      "gallons": 275
+      "gallons": 300
     },
     {
       "month": "2026-09",
       "region": "Route 7",
-      "gallons": 145
+      "gallons": 889
     },
     {
       "month": "2026-09",
@@ -51927,7 +51945,7 @@
     {
       "year": 2026,
       "region": "Burlington / South Burlington",
-      "gallons": 41532
+      "gallons": 41547
     },
     {
       "year": 2026,
@@ -51967,12 +51985,12 @@
     {
       "year": 2026,
       "region": "Route 2 East",
-      "gallons": 6120
+      "gallons": 6145
     },
     {
       "year": 2026,
       "region": "Route 7",
-      "gallons": 8621
+      "gallons": 9365
     },
     {
       "year": 2026,
@@ -52007,8 +52025,8 @@
     "Central",
     "Outer Burlington",
     "Central South",
-    "Route 15",
     "Route 7",
+    "Route 15",
     "Warren / Waitsfield",
     "Route 2 East",
     "Southern Ski Slopes",
@@ -52029,20 +52047,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 27381,
+  "collections_count": 27396,
   "out_of_state_total": 39625,
   "active_customer_count": 522,
   "projection": {
-    "latest_data_date": "2026-09-11",
+    "latest_data_date": "2026-09-14",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 210578,
+    "current_ytd": 211362,
     "previous_year_full": 269909,
     "previous_through_prior_month": 183361,
     "previous_same_month_total": 25498,
-    "previous_prorated_ytd": 192710.27,
-    "projected_current_year": 294934,
-    "percent_vs_previous_year": 0.092718
+    "previous_prorated_ytd": 195260.07,
+    "projected_current_year": 292167,
+    "percent_vs_previous_year": 0.082464
   },
   "region_stats": {
     "Burlington / South Burlington": {

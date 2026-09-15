@@ -9232,6 +9232,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 710,Addison County Solid Waste Management District,Middlebury,Addison,2018-05-24,2018,2018-05,50,True,Middlebury
 710,Addison County Solid Waste Management District,Middlebury,Addison,2017-09-07,2017,2017-09,50,True,Middlebury
 710,Addison County Solid Waste Management District,Middlebury,Addison,2016-10-18,2016,2016-10,100,True,Middlebury
+1346,Cravens Food Truck-Middlebury,Middlebury,Addison,2026-09-14,2026,2026-09,100,True,Middlebury
 1346,Cravens Food Truck-Middlebury,Middlebury,Addison,2026-08-24,2026,2026-08,110,True,Middlebury
 1346,Cravens Food Truck-Middlebury,Middlebury,Addison,2026-07-17,2026,2026-07,85,True,Middlebury
 1346,Cravens Food Truck-Middlebury,Middlebury,Addison,2026-06-12,2026,2026-06,75,True,Middlebury
@@ -9249,6 +9250,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1346,Cravens Food Truck-Middlebury,Middlebury,Addison,2024-08-01,2024,2024-08,50,True,Middlebury
 1346,Cravens Food Truck-Middlebury,Middlebury,Addison,2024-07-08,2024,2024-07,40,True,Middlebury
 1346,Cravens Food Truck-Middlebury,Middlebury,Addison,2024-06-07,2024,2024-06,35,True,Middlebury
+717,Green Peppers,Middlebury,Addison,2026-09-14,2026,2026-09,50,True,Middlebury
 717,Green Peppers,Middlebury,Addison,2026-07-27,2026,2026-07,55,True,Middlebury
 717,Green Peppers,Middlebury,Addison,2026-05-26,2026,2026-05,50,True,Middlebury
 717,Green Peppers,Middlebury,Addison,2026-04-10,2026,2026-04,100,True,Middlebury
@@ -9341,6 +9343,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 717,Green Peppers,Middlebury,Addison,2016-12-15,2016,2016-12,25,True,Middlebury
 717,Green Peppers,Middlebury,Addison,2016-11-09,2016,2016-11,40,True,Middlebury
 717,Green Peppers,Middlebury,Addison,2016-10-18,2016,2016-10,75,True,Middlebury
+1160,Hannaford-Middlebury,Middlebury,Addison,2026-09-14,2026,2026-09,84,True,Middlebury
 1160,Hannaford-Middlebury,Middlebury,Addison,2026-07-27,2026,2026-07,50,True,Middlebury
 1160,Hannaford-Middlebury,Middlebury,Addison,2026-05-26,2026,2026-05,150,True,Middlebury
 1160,Hannaford-Middlebury,Middlebury,Addison,2026-03-10,2026,2026-03,164,True,Middlebury
@@ -9373,6 +9376,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1160,Hannaford-Middlebury,Middlebury,Addison,2022-09-26,2022,2022-09,49,True,Middlebury
 1160,Hannaford-Middlebury,Middlebury,Addison,2022-09-09,2022,2022-09,50,True,Middlebury
 1160,Hannaford-Middlebury,Middlebury,Addison,2022-08-23,2022,2022-08,155,True,Middlebury
+715,Haymaker Buns,Middlebury,Addison,2026-09-14,2026,2026-09,30,True,Middlebury
 715,Haymaker Buns,Middlebury,Addison,2026-08-24,2026,2026-08,30,True,Middlebury
 715,Haymaker Buns,Middlebury,Addison,2026-07-27,2026,2026-07,70,True,Middlebury
 715,Haymaker Buns,Middlebury,Addison,2026-05-26,2026,2026-05,40,True,Middlebury
@@ -9431,6 +9435,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 715,Haymaker Buns,Middlebury,Addison,2019-07-08,2019,2019-07,25,True,Middlebury
 715,Haymaker Buns,Middlebury,Addison,2019-04-25,2019,2019-04,30,True,Middlebury
 715,Haymaker Buns,Middlebury,Addison,2018-12-06,2018,2018-12,5,True,Middlebury
+724,Mad Taco-Middlebury,Middlebury,Addison,2026-09-14,2026,2026-09,15,True,Middlebury
 724,Mad Taco-Middlebury,Middlebury,Addison,2026-07-27,2026,2026-07,70,True,Middlebury
 724,Mad Taco-Middlebury,Middlebury,Addison,2026-04-10,2026,2026-04,70,True,Middlebury
 724,Mad Taco-Middlebury,Middlebury,Addison,2025-09-29,2025,2025-09,20,True,Middlebury
@@ -9512,6 +9517,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 723,Marriott,Middlebury,Addison,2019-09-12,2019,2019-09,50,True,Middlebury
 723,Marriott,Middlebury,Addison,2019-07-08,2019,2019-07,60,True,Middlebury
 723,Marriott,Middlebury,Addison,2019-04-24,2019,2019-04,40,True,Middlebury
+720,Otter Creek/Residence Inn,Middlebury,Addison,2026-09-14,2026,2026-09,60,True,Middlebury
 720,Otter Creek/Residence Inn,Middlebury,Addison,2026-07-06,2026,2026-07,165,True,Middlebury
 720,Otter Creek/Residence Inn,Middlebury,Addison,2026-02-03,2026,2026-02,10,True,Middlebury
 720,Otter Creek/Residence Inn,Middlebury,Addison,2026-01-13,2026,2026-01,10,True,Middlebury
@@ -9603,6 +9609,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 732,Ross Conrad,Middlebury,Addison,2017-03-30,2017,2017-03,325,True,Middlebury
 732,Ross Conrad,Middlebury,Addison,2016-12-07,2016,2016-12,305,True,Middlebury
 732,Ross Conrad,Middlebury,Addison,2016-04-23,2016,2016-04,50,True,Middlebury
+714,Two Brothers Tavern,Middlebury,Addison,2026-09-14,2026,2026-09,110,True,Middlebury
 714,Two Brothers Tavern,Middlebury,Addison,2026-08-24,2026,2026-08,150,True,Middlebury
 714,Two Brothers Tavern,Middlebury,Addison,2026-07-27,2026,2026-07,120,True,Middlebury
 714,Two Brothers Tavern,Middlebury,Addison,2026-07-06,2026,2026-07,160,True,Middlebury
@@ -12133,6 +12140,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 508,Pizza on Main -Morrisville,Morrisville,Lamoille,2015-03-30,2015,2015-03,45,True,Morristown
 513,The Manor,Morrisville,Lamoille,2025-09-12,2025,2025-09,7,True,Morristown
 513,The Manor,Morrisville,Lamoille,2019-04-23,2019,2019-04,50,True,Morristown
+1496,Tourterelle -just north of MIDDLEBURY,Burlington,Chittenden,2026-09-14,2026,2026-09,15,True,Burlington
 1496,Tourterelle -just north of MIDDLEBURY,Burlington,Chittenden,2026-08-24,2026,2026-08,20,True,Burlington
 1496,Tourterelle -just north of MIDDLEBURY,Burlington,Chittenden,2026-07-06,2026,2026-07,100,True,Burlington
 1496,Tourterelle -just north of MIDDLEBURY,Burlington,Chittenden,2026-04-30,2026,2026-04,75,True,Burlington
@@ -12992,6 +13000,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1090,Proctor-Pittsford Country Club,Pittsford,Rutland,2022-09-09,2022,2022-09,100,True,Pittsford
 1090,Proctor-Pittsford Country Club,Pittsford,Rutland,2022-07-26,2022,2022-07,110,True,Pittsford
 1090,Proctor-Pittsford Country Club,Pittsford,Rutland,2022-06-10,2022,2022-06,100,True,Pittsford
+1078,BBB- Pump oil @ Shop,Plainfield,Washington,2026-09-14,2026,2026-09,25,True,Plainfield
 1078,BBB- Pump oil @ Shop,Plainfield,Washington,2026-07-14,2026,2026-07,125,True,Plainfield
 1078,BBB- Pump oil @ Shop,Plainfield,Washington,2026-07-03,2026,2026-07,400,True,Plainfield
 1078,BBB- Pump oil @ Shop,Plainfield,Washington,2026-06-29,2026,2026-06,300,True,Plainfield
@@ -17966,6 +17975,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 707,Black Sheep Bistro,Vergennes,Addison,2021-07-19,2021,2021-07,75,True,Vergennes
 707,Black Sheep Bistro,Vergennes,Addison,2020-03-03,2020,2020-03,25,True,Vergennes
 707,Black Sheep Bistro,Vergennes,Addison,2020-01-14,2020,2020-01,235,True,Vergennes
+708,Collins AreospacePlace,Vergennes,Addison,2026-09-14,2026,2026-09,40,True,Vergennes
 708,Collins AreospacePlace,Vergennes,Addison,2026-07-17,2026,2026-07,40,True,Vergennes
 708,Collins AreospacePlace,Vergennes,Addison,2026-05-07,2026,2026-05,25,True,Vergennes
 708,Collins AreospacePlace,Vergennes,Addison,2026-04-02,2026,2026-04,35,True,Vergennes
@@ -18006,6 +18016,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 708,Collins AreospacePlace,Vergennes,Addison,2022-01-31,2022,2022-01,60,True,Vergennes
 708,Collins AreospacePlace,Vergennes,Addison,2020-07-03,2020,2020-07,50,True,Vergennes
 708,Collins AreospacePlace,Vergennes,Addison,2020-06-18,2020,2020-06,100,True,Vergennes
+709,Goodies Snack Bar,Vergennes,Addison,2026-09-14,2026,2026-09,130,True,Vergennes
 709,Goodies Snack Bar,Vergennes,Addison,2026-07-06,2026,2026-07,100,True,Vergennes
 709,Goodies Snack Bar,Vergennes,Addison,2025-10-23,2025,2025-10,40,True,Vergennes
 709,Goodies Snack Bar,Vergennes,Addison,2025-09-08,2025,2025-09,50,True,Vergennes
@@ -18052,10 +18063,12 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1393,Northlands Job Corp,Vergennes,Addison,2025-08-12,2025,2025-08,45,True,Vergennes
 1393,Northlands Job Corp,Vergennes,Addison,2025-05-29,2025,2025-05,15,True,Vergennes
 1393,Northlands Job Corp,Vergennes,Addison,2025-04-02,2025,2025-04,90,True,Vergennes
+1441,Olsens Ice Cream,Vergennes,Addison,2026-09-14,2026,2026-09,20,True,Vergennes
 1441,Olsens Ice Cream,Vergennes,Addison,2026-07-17,2026,2026-07,25,True,Vergennes
 1441,Olsens Ice Cream,Vergennes,Addison,2025-10-23,2025,2025-10,7,True,Vergennes
 1441,Olsens Ice Cream,Vergennes,Addison,2025-10-23,2025,2025-10,20,True,Vergennes
 1441,Olsens Ice Cream,Vergennes,Addison,2025-08-12,2025,2025-08,20,True,Vergennes
+706,Park Squeeze,Vergennes,Addison,2026-09-14,2026,2026-09,15,True,Vergennes
 706,Park Squeeze,Vergennes,Addison,2026-08-24,2026,2026-08,40,True,Vergennes
 706,Park Squeeze,Vergennes,Addison,2026-07-17,2026,2026-07,35,True,Vergennes
 706,Park Squeeze,Vergennes,Addison,2026-06-12,2026,2026-06,35,True,Vergennes
@@ -18145,6 +18158,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 706,Park Squeeze,Vergennes,Addison,2018-04-24,2018,2018-04,25,True,Vergennes
 706,Park Squeeze,Vergennes,Addison,2018-03-28,2018,2018-03,30,True,Vergennes
 706,Park Squeeze,Vergennes,Addison,2018-03-05,2018,2018-03,100,True,Vergennes
+1164,Rockers Pizzeria-1028,Vergennes,Addison,2026-09-14,2026,2026-09,40,True,Vergennes
 1164,Rockers Pizzeria-1028,Vergennes,Addison,2026-08-24,2026,2026-08,100,True,Vergennes
 1164,Rockers Pizzeria-1028,Vergennes,Addison,2026-07-17,2026,2026-07,90,True,Vergennes
 1164,Rockers Pizzeria-1028,Vergennes,Addison,2026-06-12,2026,2026-06,80,True,Vergennes
@@ -18195,6 +18209,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1164,Rockers Pizzeria-1028,Vergennes,Addison,2022-09-26,2022,2022-09,55,True,Vergennes
 1164,Rockers Pizzeria-1028,Vergennes,Addison,2022-09-09,2022,2022-09,50,True,Vergennes
 1164,Rockers Pizzeria-1028,Vergennes,Addison,2022-08-25,2022,2022-08,200,True,Vergennes
+705,Three Squares,Vergennes,Addison,2026-09-14,2026,2026-09,50,True,Vergennes
 705,Three Squares,Vergennes,Addison,2026-08-24,2026,2026-08,90,True,Vergennes
 705,Three Squares,Vergennes,Addison,2026-07-17,2026,2026-07,100,True,Vergennes
 705,Three Squares,Vergennes,Addison,2026-06-12,2026,2026-06,75,True,Vergennes
