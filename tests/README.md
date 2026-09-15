@@ -32,7 +32,7 @@ a browser, not by these.
 
 | Suite | Covers |
 |---|---|
-| `seasonality_test.js` | Region seasonality profile: the 40/30/20/10 weighting, the 5/3 renormalisation for months the current year has not reached, and that the per-region projection reproduces `compute_projection` in `oil_scraper.py` exactly. Asserts shares sum to 1 and gallons sum to the projection, for all 14 regions. |
+| `seasonality_test.js` | Region seasonality profile: the 40/30/20/10 weighting, the 5/3 renormalisation for months the current year has not reached, and that the per-region projection reproduces `compute_projection` in `oil_scraper.py` exactly. Asserts shares sum to 1 and gallons sum to the projection, for every region. |
 | `subline_test.js` | Region stat-card context lines: pickup counts, projection and percent, prior-month resolution including the January rollback, and active-customers-with-a-current-year-pickup. Guards against `Infinity` from a zero previous year. |
 | `region_filter_test.js` | Top Producing Customers period filter: month sets per mode, picker visibility, both sorts, and that All Time reproduces the pre-filter list exactly. |
 | `equiv_test.js` | Schmootz "real terms" panel: drum / pool / football-field equivalents, the block-count cap, and that the panel is omitted rather than showing zeros when the total is unusable. |

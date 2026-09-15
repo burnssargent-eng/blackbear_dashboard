@@ -1087,14 +1087,18 @@ function sumCountyMonths(monthList) {
  *
  * Regions are NOT exclusive — a customer matching two regions counts in both —
  * so these do not sum to the period total. That mirrors the Excel report.
- * "Other" is dropped because it is a catch-all rather than a place.
+ * "Other" is dropped because it is a catch-all rather than a place, and the
+ * theme regions are dropped because they are overlays drawn from the same
+ * customers as the geography: ranking "South / Ski Combined" beside the two
+ * regions it is built from would double-count in plain sight.
  */
 function sumRegionMonths(monthList) {
   const totals = {};
+  const themeRegions = new Set((allData && allData.theme_regions) || []);
 
   monthList.forEach(m => {
     Object.entries(monthlyByRegion[m] || {}).forEach(([region, gal]) => {
-      if (region === "Other") return;
+      if (region === "Other" || themeRegions.has(region)) return;
       totals[region] = (totals[region] || 0) + gal;
     });
   });

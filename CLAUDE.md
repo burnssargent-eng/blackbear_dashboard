@@ -47,9 +47,19 @@ shuts down in summer. Never use "has 12 months of rows" as a completeness test;
 use "is a past calendar year".
 
 **Regions overlap and are not exhaustive.** Region totals sum to MORE than
-`all_time_total` (UVM double-counts into Burlington) while also excluding the
-`Other` bucket. Both are intentional and asserted in `validate_data.py`. Do not
-"fix" it.
+`all_time_total` while also excluding the `Other` bucket. Three things cause the
+overlap, all deliberate: Newport City belongs to both Northwest and
+North-Northeast, the three **theme regions** (`Ski Slopes`,
+`South / Ski Combined`, `Summer Snack Stops`) are overlays drawn from
+customers who also sit in their own geography, and `South / Ski Combined` is
+built from the South and Southern Ski Slopes rules. All are asserted in
+`validate_data.py`. Do not "fix" it.
+
+**Theme regions are not places.** They are listed in `THEME_REGIONS`, exported as
+`theme_regions`, pinned after every geographic region in the display order, and
+left out of the homepage's Top Regions — where they would rank beside the
+regions they are drawn from. Membership is by customer id, never by name match:
+"Winooski" contains "ski" and "Blodgett" contains "lodge".
 
 **Region membership is config, not code.** `REGION_TOWNS` in `oil_scraper.py`
 maps a region to official town names, matched on the normalised `geo_town` with
@@ -83,8 +93,8 @@ python3 check_town_mismatches.py  # town names vs the GeoJSON; exits non-zero on
 node tests/run_all.js             # six front-end suites; see tests/README.md
 ```
 
-The one standing warning is `Route 7:New Haven` — a town configured with no
-customers yet. Expected.
+Three standing warnings, all towns configured ahead of their first customer:
+`Route 7:New Haven`, `Northwest:Alburgh` and `Northwest:Waterville`. Expected.
 
 **The tests cannot see layout.** They evaluate the real functions and templates
 against real JSON, which catches broken maths and markup, but every layout

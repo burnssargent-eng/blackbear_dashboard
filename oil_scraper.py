@@ -256,6 +256,12 @@ GEO_TOWN_NAME_MAP = {
     "St. Albans":        "Saint Albans City",
     "St Albans":         "Saint Albans City",
     "St. Albans City":   "Saint Albans City",
+
+    # --- spellings with no customers yet --------------------------------------
+    # Alburgh is configured in Northwest ahead of its first pickup. The town is
+    # spelled with the h; without this entry a row saying "Alburg" would pass
+    # through unchanged and silently never match the region.
+    "Alburg":            "Alburgh",
 }
 
 # Places that are genuinely not in Vermont. These are kept in the raw data and
@@ -367,12 +373,10 @@ def prepare_dataframe(df):
 #
 # Regions are deliberately NOT mutually exclusive; see assign_region_labels.
 
-UVM_IDS = {353, 354, 355, 356, 358}
-
-# Region name -> official town names. This order is the display order, and the
-# first entry becomes region_names[0], which drives the default Regions nav link.
-# Town order inside each region is the order the website lists them in, so keep
-# these tuples readable — they are user-facing as well as functional.
+# Region name -> official town names. Declaration order is NOT display order:
+# region_display_order sorts by current-year gallons. Town order inside each
+# region is the order the website lists them in, so keep these tuples readable —
+# they are user-facing as well as functional.
 REGION_TOWNS = {
     "Route 7": (
         "Middlebury", "Vergennes", "Bristol", "Charlotte", "Hinesburg",
@@ -385,7 +389,10 @@ REGION_TOWNS = {
     # "Snow Shoe Lodge-Montgomery" is a false positive for any "snow" rule, and
     # "Killington Diner" is addressed in Burlington.
     "Southern Ski Slopes": ("Dover", "Ludlow", "Killington"),
-    "South": ("Bennington", "Brattleboro", "Manchester", "Sunderland"),
+    "South": (
+        "Bennington", "Brattleboro", "Manchester", "Sunderland", "Readsboro",
+        "Wilmington",
+    ),
     # Vermont splits Barre into a City and a Town; both belong here.
     "Central": ("Berlin", "Barre City", "Barre Town", "Northfield", "Montpelier"),
     # Essex and Essex Junction are two separate municipalities.
@@ -394,9 +401,13 @@ REGION_TOWNS = {
         "Jericho",
     ),
     # Plattsburgh NY has no geo_town and is reached by the raw-city fallback.
+    # Newport City is deliberately in North-Northeast too — Jim wants it in both
+    # for now, which is one of the reasons region totals overlap. Alburgh and
+    # Waterville have no customers yet; validate_data.py reports them as a
+    # warning until their first pickup.
     "Northwest": (
         "Plattsburgh", "Enosburgh", "North Hero", "South Hero", "Colchester",
-        "Milton",
+        "Milton", "Fairfax", "Swanton", "Newport City", "Alburgh", "Waterville",
     ),
     "Burlington / South Burlington": ("Burlington", "South Burlington"),
     "Route 15": (
@@ -411,19 +422,64 @@ REGION_TOWNS = {
         "Hartford", "Woodstock", "Pomfret", "Bethel", "Randolph",
         "West Lebanon",
     ),
+    # Brighton is the official town for Island Pond, Lyndon for Lyndonville and
+    # Burke for East Burke. The village names match nothing on their own.
     "Route 2 East": (
         "Cabot", "Plainfield", "Danville", "Saint Johnsbury", "Concord",
+        "Brighton", "Lyndon", "Burke", "East Haven", "Marshfield",
     ),
     "Warren / Waitsfield": ("Warren", "Waitsfield"),
-    "Jay / Montgomery / Troy": ("Jay", "Montgomery", "Troy"),
+    # Was "Jay / Montgomery / Troy" until Jim widened it across the Northeast
+    # Kingdom. Glover is the official town for West Glover, Barton for Orleans
+    # and Newport City for Newport.
+    "North-Northeast": (
+        "Jay", "Montgomery", "Troy", "Glover", "Eden", "Barton", "Newport City",
+        "Derby", "Albany", "Craftsbury",
+    ),
 }
 
-# Regions keyed on customer id rather than town. UVM overlaps
-# Burlington / South Burlington on purpose: those five customers count in both,
-# which keeps the Burlington figure a true town total.
-REGION_CUSTOMER_IDS = {
-    "UVM": UVM_IDS,
+# Regions keyed on customer id rather than town. A ski slope and a snack stand
+# are a kind of stop, not a place, so town matching cannot express them: only a
+# handful of the customers in Stowe are on the mountain. Ids, never names —
+# "Winooski" contains "ski" and "Blodgett" contains "lodge".
+SKI_SLOPE_IDS = {
+    526, 527, 529,               # Jay Peak: waterslide, Hotel Jay, Stateside
+    270, 1262,                   # Stowe Mountain: Spruce Peak, workers' dorm
+    224, 225, 1219,              # Sugarbush, Mount Ellen, Mad River Glen
+    900, 901, 902, 903, 1205,    # Mt. Snow: Grand Summit, Main, Carinthia, Cousins, Sundance
+    934, 1388,                   # Okemo: Jackson Gore Inn, Mountain Resort
+    279,                         # Bolton Valley
+    817, 1194,                   # Suicide 6 / Saskadena, and the Fox Farm stop it shares
+    1142,                        # Burke Mountain Academy
 }
+
+# Seasonal stops: snack bars, fairgrounds and golf courses. Resort golf counts
+# here rather than as a ski slope — it is the summer side of the same mountain.
+# Year-round businesses stay out even when the name suggests otherwise: Canteen
+# Creemee and the Dairy Center collect in all twelve months.
+SNACK_STOP_IDS = {
+    803, 1056, 709, 830, 361, 1029, 1137, 1346, 1426, 240, 1497, 1117, 1441,
+    1457, 1508,                  # snack bars, food trucks, creemee stands, a summer camp
+    413, 1509,                   # Champlain Valley Expo and its Lot P stop
+    528, 1059, 1169,             # resort golf: Jay Peak, Sugarbush, Mount Snow
+    533, 1076, 905, 825, 602, 517, 1090, 1146, 1136, 375,    # the other golf courses
+}
+
+REGION_CUSTOMER_IDS = {
+    "Ski Slopes": SKI_SLOPE_IDS,
+    "Summer Snack Stops": SNACK_STOP_IDS,
+}
+
+# Theme regions are overlays on the map rather than places on it: they are
+# pinned after every geographic region in the display order and left out of the
+# homepage's Top Regions ranking, where they would sit alongside the regions
+# they are drawn from. Exported as theme_regions so the front end and
+# validate_data.py can tell the two kinds apart without hardcoding a name.
+THEME_REGIONS = (
+    "Ski Slopes",
+    "South / Ski Combined",
+    "Summer Snack Stops",
+)
 
 # Some towns are better known by a village name than by their official one.
 # DISPLAY ONLY — membership still matches on the official town above.
@@ -432,19 +488,31 @@ TOWN_DISPLAY_NAMES = {
 }
 
 # Regions that need no "Includes:" line: their own name already lists their
-# contents, so repeating it under the dropdown is noise. UVM is here too — the
-# name is self-evident to the business.
+# contents, so repeating it under the dropdown is noise. North-Northeast is
+# deliberately NOT here — a compass label says nothing about which towns it
+# covers, so it keeps its town list.
 SELF_DESCRIBING_REGIONS = {
     "Burlington / South Burlington",
     "Warren / Waitsfield",
-    "Jay / Montgomery / Troy",
     "Waterbury / Stowe",
-    "UVM",
 }
 
 # The catch-all. Not a named region, but region.html offers it in the dropdown,
 # so it needs a description too.
 OTHER_REGION_DESCRIPTION = "customers not assigned to a named region"
+
+# Regions defined by customer id have no town list to derive an "Includes:" line
+# from, so it is written here. Describe the CONTENTS rather than the idea: this
+# is the only thing on the page telling a reader what the number covers, and
+# validate_data.py compares it to the exported JSON exactly.
+STATIC_REGION_DESCRIPTIONS = {
+    "Ski Slopes":
+        "on-mountain and resort stops statewide, from Jay Peak to Mount Snow",
+    "South / Ski Combined":
+        "every stop in South, plus the southern mountains",
+    "Summer Snack Stops":
+        "seasonal snack bars, food trucks, fairgrounds and golf courses",
+}
 
 
 def region_key(row):
@@ -471,10 +539,30 @@ def _customer_matcher(ids):
     return lambda r: r["customer_id"] in ids
 
 
+def _any_matcher(*matchers):
+    return lambda r: any(match(r) for match in matchers)
+
+
+# Regions built from other regions' rules rather than their own. Reading
+# REGION_TOWNS at build time means adding a town to South or to Southern Ski
+# Slopes widens this too, so the combined view can never drift from its parts.
+COMPOSITE_REGIONS = {
+    "South / Ski Combined": _any_matcher(
+        _town_matcher(REGION_TOWNS["South"]),
+        _town_matcher(REGION_TOWNS["Southern Ski Slopes"]),
+    ),
+}
+
 CUSTOM_REGIONS = (
     [(name, _town_matcher(towns)) for name, towns in REGION_TOWNS.items()]
     + [(name, _customer_matcher(ids)) for name, ids in REGION_CUSTOMER_IDS.items()]
+    + list(COMPOSITE_REGIONS.items())
 )
+
+# build_reports turns this into a dict, which would silently keep the last
+# matcher if two entries ever shared a name, leaving the workbook disagreeing
+# with the JSON for that region.
+assert len(dict(CUSTOM_REGIONS)) == len(CUSTOM_REGIONS), "duplicate region name"
 
 REGION_NAMES = [name for name, _ in CUSTOM_REGIONS]
 
@@ -515,11 +603,15 @@ def region_descriptions():
     follows the config, and a few towns are shown under a better-known village
     name. Regions whose name already lists their contents are omitted, so the
     page simply shows no line for them. "Other" is included even though it is
-    not a named region.
+    not a named region, and the id-based theme regions take their text from
+    STATIC_REGION_DESCRIPTIONS, having no towns to derive it from.
     """
     out = {}
     for name in REGION_NAMES:
         if name in SELF_DESCRIBING_REGIONS:
+            continue
+        if name in STATIC_REGION_DESCRIPTIONS:
+            out[name] = STATIC_REGION_DESCRIPTIONS[name]
             continue
         towns = REGION_TOWNS.get(name, ())
         if not towns:
@@ -541,19 +633,26 @@ def current_calendar_year():
 
 def region_display_order(df_region, current_year=None):
     """
-    Named regions ordered by current-year gallons, highest first.
+    Named regions ordered by current-year gallons, highest first, with the
+    theme regions pinned after every geographic one.
 
     The order is data-driven rather than declaration order, so the site leads
     with the regions carrying this year's volume. Ties break alphabetically so
-    the output is stable between runs. "Other" is deliberately absent: it is a
-    catch-all rather than a place, and region.html appends it after the named
-    regions on its own.
+    the output is stable between runs. Theme regions are overlays drawn from the
+    same customers as the geography, so they are held back rather than ranked
+    among places. "Other" is deliberately absent: it is a catch-all rather than a
+    place, and region.html appends it after the named regions on its own.
     """
     if current_year is None:
         current_year = current_calendar_year()
     current = df_region[df_region["year"] == current_year]
     gallons = current.groupby("region")["gallons"].sum()
-    return sorted(REGION_NAMES, key=lambda name: (-int(gallons.get(name, 0)), name))
+    # False sorts before True, so geography keeps the gallons order and the
+    # theme overlays follow it.
+    return sorted(
+        REGION_NAMES,
+        key=lambda name: (name in THEME_REGIONS, -int(gallons.get(name, 0)), name),
+    )
 
 # ─────────────────────────────────────────────
 # SCRAPING HELPERS
@@ -1219,6 +1318,10 @@ def export_json(df):
         # Excludes the "Other" bucket, which still appears in the region
         # summaries above and is appended after these by region.html.
         "region_names":      region_display_order(df_region, current_year),
+        # Which of those names are theme overlays rather than places. Exported so
+        # the homepage can leave them out of Top Regions — where they would rank
+        # beside the regions they are drawn from — without hardcoding a name.
+        "theme_regions":     list(THEME_REGIONS),
         # What each region contains, for the "Includes:" line on region.html.
         # Built from REGION_TOWNS so the page cannot drift from the matchers.
         "region_descriptions": region_descriptions(),

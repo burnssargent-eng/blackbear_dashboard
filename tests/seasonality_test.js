@@ -41,10 +41,19 @@ ok(JSON.stringify(gotGal)===JSON.stringify(expectGal),`gallons match plan: ${got
 ok(ss.fullyElapsed===8,`2026 contributes through month ${ss.fullyElapsed} (Aug)`);
 
 console.log('\n3. Invariants hold for ALL regions');
-let bad=[];
+let bad=[]; const noProfile=[];
+const completeYears=t=>{const cy=Number(LDD.slice(0,4));
+  return new Set(Object.keys(t).map(m=>Number(m.slice(0,4))).filter(y=>y<cy)).size;};
 for(const reg of data.region_names){
   const t=totalsFor(reg); const pj=(api.regionProjection(t,LDD)||{}).projected; const p=api.seasonalityProfile(t,LDD,pj);
-  if(!p){bad.push(reg+':null');continue}
+  // A null profile is correct below MIN_COMPLETE_YEARS and a bug above it.
+  // Prove which from the region's own months instead of failing on sight.
+  if(!p){
+    const yrs=completeYears(t);
+    if(yrs>=api.MIN_COMPLETE_YEARS) bad.push(reg+':null-despite-'+yrs+'-complete-years');
+    else noProfile.push(`${reg} (${yrs})`);
+    continue;
+  }
   const sumShares=p.shares.reduce((a,b)=>a+b,0);
   const sumGal=p.gallons.reduce((a,b)=>a+b,0);
   if(Math.abs(sumShares-1)>1e-9) bad.push(reg+':shares='+sumShares);
@@ -52,6 +61,7 @@ for(const reg of data.region_names){
   if(p.shares.some(s=>!Number.isFinite(s)||s<0)) bad.push(reg+':bad share');
 }
 ok(bad.length===0,`all ${data.region_names.length} regions: shares sum to 1 and gallons sum to scale ${bad.length?'-- '+bad.join(', '):''}`);
+console.log(`   no profile, fewer than ${api.MIN_COMPLETE_YEARS} complete years: ${noProfile.join(', ')||'none'}`);
 
 console.log('\n4. Per-month weight renormalization (the 5/3 rule)');
 const W=api.SEASONALITY_WEIGHTS;
@@ -87,7 +97,9 @@ ok(api.WINTER_MONTHS.join()==='10,11,0,1,2','Nov-Mar = months 10,11,0,1,2');
 let hbad=[];
 for(const reg of data.region_names){
   const t=totalsFor(reg); const p2=api.seasonalityProfile(t,LDD,(api.regionProjection(t,LDD)||{}).projected);
-  const h=api.seasonalityHighlights(p2); if(!h){hbad.push(reg);continue}
+  // No profile means no highlights, which section 3 already accounted for;
+  // highlights missing when a profile DOES exist is a real failure.
+  const h=api.seasonalityHighlights(p2); if(!h){if(p2) hbad.push(reg+':no-highlights');continue}
   if(!(h.winterShare>=0&&h.winterShare<=1)) hbad.push(reg+':winter');
   if(h.multiple!==null&&!(h.multiple>=1)) hbad.push(reg+':mult');
   if(!api.MONTH_NAMES.includes(h.peakMonth)) hbad.push(reg+':peak');

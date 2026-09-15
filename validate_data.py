@@ -975,19 +975,25 @@ def check_regions(report, data):
 # ─────────────────────────────────────────────
 # Region names Jim replaced. Any of these surviving as a REGION name means a
 # rename or merge did not take: the solos folded into "Waterbury / Stowe",
-# "Woodstock" grew into "Central South", and the two carried-forward regions
-# were restyled to the slash convention. Note "Woodstock" remains a valid TOWN
-# inside Central South — only the region by that name is retired.
+# "Woodstock" grew into "Central South", the two carried-forward regions were
+# restyled to the slash convention, "Jay / Montgomery / Troy" widened into
+# "North-Northeast", and the UVM overlay was retired once its customers were
+# counted in Burlington / South Burlington on their own. Note "Woodstock"
+# remains a valid TOWN inside Central South — only the region by that name is
+# retired.
 RETIRED_REGIONS = {
     "Stowe",
     "Waterbury",
     "Woodstock",
     "Warren+Waitsfield",
     "Jay+Montgomery+Troy",
+    "Jay / Montgomery / Troy",
+    "UVM",
 }
 
-# The regions Jim named. UVM and the two carried-forward regions are not
-# asserted here — they are kept for coverage, not mandated by the taxonomy.
+# The regions Jim named, including the three theme regions that cut across
+# geography. The two carried-forward regions are not asserted here — they are
+# kept for coverage, not mandated by the taxonomy.
 REQUIRED_REGIONS = [
     "Route 7",
     "Waterbury / Stowe",
@@ -1000,9 +1006,16 @@ REQUIRED_REGIONS = [
     "Route 15",
     "Central South",
     "Route 2 East",
+    "North-Northeast",
+    "Ski Slopes",
+    "South / Ski Combined",
+    "Summer Snack Stops",
 ]
 
-# Towns that must land in a specific region, as "town -> region".
+# Towns that must land in a specific region, as "town -> region(s)". A town may
+# name more than one region: Newport City is deliberately in both Northwest and
+# North-Northeast, and without asserting both, a later tidy-up could quietly
+# drop one of them.
 REQUIRED_TOWN_REGION = {
     "Shelburne": "Route 7",
     "Stowe": "Waterbury / Stowe",
@@ -1013,6 +1026,17 @@ REQUIRED_TOWN_REGION = {
     "Bethel": "Central South",
     "Randolph": "Central South",
     "West Lebanon": "Central South",
+    "Jay": "North-Northeast",
+    "Newport City": ("Northwest", "North-Northeast"),
+    "Brighton": "Route 2 East",
+    "Readsboro": "South",
+}
+
+# Towns knowingly claimed by two regions. Anything shared but absent from here
+# is an accident rather than a decision, so it warns instead of reading as an
+# intentional overlap.
+EXPECTED_SHARED_TOWNS = {
+    "Newport City": {"Northwest", "North-Northeast"},
 }
 
 # Towns that must NOT land in a given region.
@@ -1028,6 +1052,7 @@ def check_region_taxonomy(report, data, coll):
         REGION_TOWNS,
         REGION_NAMES as CONFIG_NAMES,
         SELF_DESCRIBING_REGIONS,
+        THEME_REGIONS,
         current_calendar_year,
         region_descriptions,
         region_sheet_names,
@@ -1076,15 +1101,42 @@ def check_region_taxonomy(report, data, coll):
     for row in data.get("monthly_by_region") or []:
         if str(row.get("month", "")).startswith(f"{year}-"):
             cur[row["region"]] = cur.get(row["region"], 0) + row["gallons"]
-    actual = [(n, cur.get(n, 0)) for n in names]
-    expected = sorted(names, key=lambda n: (-cur.get(n, 0), n))
+    # The rule is restated here rather than imported from oil_scraper, so this
+    # still catches both a stale JSON and a wrong sort. Geography ranks by
+    # gallons; the theme overlays are pinned after it.
+    themes = set(THEME_REGIONS)
+    by_gallons = lambda group: sorted(group, key=lambda n: (-cur.get(n, 0), n))
+    geo = [n for n in names if n not in themes]
+    theme = [n for n in names if n in themes]
+    expected = by_gallons(geo) + by_gallons(theme)
     if names != expected:
-        report.fail(f"region_names is not ordered by {year} gallons descending.")
-        report.detail(f"exported: {[n for n, _ in actual]}")
+        report.fail(f"region_names is not ordered by {year} gallons descending "
+                    "within the geographic block, with theme regions pinned last.")
+        report.detail(f"exported: {names}")
         report.detail(f"expected: {expected}")
     else:
-        report.ok(f"region_names is ordered by {year} gallons, highest first "
-                  f"(leads with {names[0]}).")
+        report.ok(f"region_names: {len(geo)} geographic regions by {year} gallons "
+                  f"(leads with {names[0]}), then {len(theme)} theme region(s) "
+                  "pinned last.")
+
+    exported_themes = data.get("theme_regions") or []
+    if set(exported_themes) != themes:
+        report.fail("theme_regions in the JSON disagrees with THEME_REGIONS in "
+                    f"oil_scraper.py — exported {sorted(exported_themes)}, config "
+                    f"has {sorted(themes)}. Re-run oil_scraper.py.")
+    else:
+        report.ok(f"theme_regions matches the config: {sorted(themes)}.")
+
+    # The pin only means something if a theme region would otherwise outrank a
+    # place; say so either way rather than letting a no-op look like a rule.
+    floor = min((cur.get(n, 0) for n in geo), default=0)
+    outranking = [n for n in theme if cur.get(n, 0) > floor]
+    if outranking:
+        report.info(f"The pin is load-bearing: {outranking} outrank a geographic "
+                    "region on gallons and are held back deliberately.")
+    else:
+        report.info("Theme regions would sort last on gallons anyway this year; "
+                    "the pin is not currently observable.")
 
     if "Other" in names:
         report.fail("'Other' must not appear in region_names — it is the "
@@ -1130,12 +1182,13 @@ def check_region_taxonomy(report, data, coll):
         else:
             report.ok("region_descriptions match the oil_scraper.py config exactly.")
 
-    # 7. Town placements Jim specified.
-    for town, region in sorted(REQUIRED_TOWN_REGION.items()):
-        if town in REGION_TOWNS.get(region, set()):
-            report.ok(f"{town} is in {region}.")
-        else:
-            report.fail(f"{town} is NOT in {region}.")
+    # 7. Town placements Jim specified. A value may name one region or several.
+    for town, regions in sorted(REQUIRED_TOWN_REGION.items()):
+        for region in ((regions,) if isinstance(regions, str) else regions):
+            if town in REGION_TOWNS.get(region, set()):
+                report.ok(f"{town} is in {region}.")
+            else:
+                report.fail(f"{town} is NOT in {region}.")
 
     for town, region in sorted(FORBIDDEN_TOWN_REGION.items()):
         if town in REGION_TOWNS.get(region, set()):
@@ -1150,8 +1203,16 @@ def check_region_taxonomy(report, data, coll):
         for town in towns:
             seen_towns.setdefault(town, []).append(region)
     shared = {t: rs for t, rs in seen_towns.items() if len(rs) > 1}
-    if shared:
-        report.info(f"Town(s) in more than one region: {shared}")
+    unexpected = {t: rs for t, rs in shared.items()
+                  if set(rs) != EXPECTED_SHARED_TOWNS.get(t, set())}
+    if unexpected:
+        report.warn(f"Town(s) in more than one region without being listed as a "
+                    f"deliberate overlap: {unexpected}")
+        report.detail("Add it to EXPECTED_SHARED_TOWNS if it is intended, or fix "
+                      "the region config. Shared towns make region totals "
+                      "non-additive.")
+    elif shared:
+        report.ok(f"Only the expected town overlap(s): {shared}")
     else:
         report.ok("No town is claimed by two regions.")
 

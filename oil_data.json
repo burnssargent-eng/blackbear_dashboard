@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-15T12:29:50.710167",
+  "last_updated": "2026-09-15T17:35:54.489344",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -41947,7 +41947,7 @@
     },
     {
       "month": "2015-02",
-      "region": "Jay / Montgomery / Troy",
+      "region": "North-Northeast",
       "gallons": 97
     },
     {
@@ -41964,6 +41964,11 @@
       "month": "2015-02",
       "region": "Route 7",
       "gallons": 120
+    },
+    {
+      "month": "2015-02",
+      "region": "Ski Slopes",
+      "gallons": 70
     },
     {
       "month": "2015-02",
@@ -41992,7 +41997,7 @@
     },
     {
       "month": "2015-03",
-      "region": "Jay / Montgomery / Troy",
+      "region": "North-Northeast",
       "gallons": 35
     },
     {
@@ -42037,7 +42042,7 @@
     },
     {
       "month": "2015-04",
-      "region": "Jay / Montgomery / Troy",
+      "region": "North-Northeast",
       "gallons": 1770
     },
     {
@@ -42067,6 +42072,11 @@
     },
     {
       "month": "2015-04",
+      "region": "Ski Slopes",
+      "gallons": 1750
+    },
+    {
+      "month": "2015-04",
       "region": "Warren / Waitsfield",
       "gallons": 45
     },
@@ -42092,7 +42102,7 @@
     },
     {
       "month": "2015-05",
-      "region": "Jay / Montgomery / Troy",
+      "region": "North-Northeast",
       "gallons": 805
     },
     {
@@ -42127,6 +42137,11 @@
     },
     {
       "month": "2015-05",
+      "region": "Ski Slopes",
+      "gallons": 750
+    },
+    {
+      "month": "2015-05",
       "region": "Warren / Waitsfield",
       "gallons": 40
     },
@@ -42153,7 +42168,7 @@
     {
       "month": "2015-06",
       "region": "Other",
-      "gallons": 125
+      "gallons": 75
     },
     {
       "month": "2015-06",
@@ -42169,6 +42184,11 @@
       "month": "2015-06",
       "region": "Route 7",
       "gallons": 100
+    },
+    {
+      "month": "2015-06",
+      "region": "Summer Snack Stops",
+      "gallons": 50
     },
     {
       "month": "2015-06",
@@ -42203,7 +42223,7 @@
     {
       "month": "2015-07",
       "region": "Other",
-      "gallons": 83
+      "gallons": 33
     },
     {
       "month": "2015-07",
@@ -42218,7 +42238,12 @@
     {
       "month": "2015-07",
       "region": "Route 2 East",
-      "gallons": 130
+      "gallons": 180
+    },
+    {
+      "month": "2015-07",
+      "region": "Summer Snack Stops",
+      "gallons": 25
     },
     {
       "month": "2015-07",
@@ -42237,7 +42262,7 @@
     },
     {
       "month": "2015-08",
-      "region": "Jay / Montgomery / Troy",
+      "region": "North-Northeast",
       "gallons": 482
     },
     {
@@ -42248,7 +42273,7 @@
     {
       "month": "2015-08",
       "region": "Other",
-      "gallons": 120
+      "gallons": 70
     },
     {
       "month": "2015-08",
@@ -42269,6 +42294,16 @@
       "month": "2015-08",
       "region": "Route 7",
       "gallons": 125
+    },
+    {
+      "month": "2015-08",
+      "region": "Ski Slopes",
+      "gallons": 322
+    },
+    {
+      "month": "2015-08",
+      "region": "Summer Snack Stops",
+      "gallons": 130
     },
     {
       "month": "2015-08",
@@ -42297,13 +42332,13 @@
     },
     {
       "month": "2015-09",
-      "region": "Jay / Montgomery / Troy",
+      "region": "North-Northeast",
       "gallons": 280
     },
     {
       "month": "2015-09",
       "region": "Other",
-      "gallons": 90
+      "gallons": 40
     },
     {
       "month": "2015-09",
@@ -42319,6 +42354,16 @@
       "month": "2015-09",
       "region": "Route 7",
       "gallons": 160
+    },
+    {
+      "month": "2015-09",
+      "region": "Ski Slopes",
+      "gallons": 200
+    },
+    {
+      "month": "2015-09",
+      "region": "Summer Snack Stops",
+      "gallons": 50
     },
     {
       "month": "2015-09",
@@ -42377,8 +42422,18 @@
     },
     {
       "month": "2015-10",
+      "region": "South / Ski Combined",
+      "gallons": 50
+    },
+    {
+      "month": "2015-10",
       "region": "Southern Ski Slopes",
       "gallons": 50
+    },
+    {
+      "month": "2015-10",
+      "region": "Summer Snack Stops",
+      "gallons": 30
     },
     {
       "month": "2015-10",
@@ -42407,13 +42462,18 @@
     },
     {
       "month": "2015-11",
-      "region": "Jay / Montgomery / Troy",
+      "region": "North-Northeast",
       "gallons": 435
     },
     {
       "month": "2015-11",
+      "region": "Northwest",
+      "gallons": 90
+    },
+    {
+      "month": "2015-11",
       "region": "Other",
-      "gallons": 229
+      "gallons": 64
     },
     {
       "month": "2015-11",
@@ -42428,12 +42488,27 @@
     {
       "month": "2015-11",
       "region": "Route 2 East",
-      "gallons": 113
+      "gallons": 163
+    },
+    {
+      "month": "2015-11",
+      "region": "Ski Slopes",
+      "gallons": 455
+    },
+    {
+      "month": "2015-11",
+      "region": "South / Ski Combined",
+      "gallons": 12
     },
     {
       "month": "2015-11",
       "region": "Southern Ski Slopes",
       "gallons": 12
+    },
+    {
+      "month": "2015-11",
+      "region": "Summer Snack Stops",
+      "gallons": 25
     },
     {
       "month": "2015-11",
@@ -42462,7 +42537,7 @@
     },
     {
       "month": "2015-12",
-      "region": "Jay / Montgomery / Troy",
+      "region": "North-Northeast",
       "gallons": 393
     },
     {
@@ -42492,6 +42567,11 @@
     },
     {
       "month": "2015-12",
+      "region": "Ski Slopes",
+      "gallons": 300
+    },
+    {
+      "month": "2015-12",
       "region": "Waterbury / Stowe",
       "gallons": 1230
     },
@@ -42512,7 +42592,7 @@
     },
     {
       "month": "2016-01",
-      "region": "Jay / Montgomery / Troy",
+      "region": "North-Northeast",
       "gallons": 210
     },
     {
@@ -42534,6 +42614,16 @@
       "month": "2016-01",
       "region": "Route 7",
       "gallons": 150
+    },
+    {
+      "month": "2016-01",
+      "region": "Ski Slopes",
+      "gallons": 270
+    },
+    {
+      "month": "2016-01",
+      "region": "South / Ski Combined",
+      "gallons": 25
     },
     {
       "month": "2016-01",
@@ -42567,7 +42657,7 @@
     },
     {
       "month": "2016-02",
-      "region": "Jay / Montgomery / Troy",
+      "region": "North-Northeast",
       "gallons": 560
     },
     {
@@ -42594,6 +42684,11 @@
       "month": "2016-02",
       "region": "Route 7",
       "gallons": 40
+    },
+    {
+      "month": "2016-02",
+      "region": "Ski Slopes",
+      "gallons": 835
     },
     {
       "month": "2016-02",
@@ -42642,6 +42737,16 @@
     },
     {
       "month": "2016-03",
+      "region": "Ski Slopes",
+      "gallons": 350
+    },
+    {
+      "month": "2016-03",
+      "region": "South / Ski Combined",
+      "gallons": 20
+    },
+    {
+      "month": "2016-03",
       "region": "Southern Ski Slopes",
       "gallons": 20
     },
@@ -42672,7 +42777,7 @@
     },
     {
       "month": "2016-04",
-      "region": "Jay / Montgomery / Troy",
+      "region": "North-Northeast",
       "gallons": 990
     },
     {
@@ -42702,6 +42807,16 @@
     },
     {
       "month": "2016-04",
+      "region": "Ski Slopes",
+      "gallons": 970
+    },
+    {
+      "month": "2016-04",
+      "region": "Summer Snack Stops",
+      "gallons": 230
+    },
+    {
+      "month": "2016-04",
       "region": "Warren / Waitsfield",
       "gallons": 158
     },
@@ -42722,7 +42837,7 @@
     },
     {
       "month": "2016-05",
-      "region": "Jay / Montgomery / Troy",
+      "region": "North-Northeast",
       "gallons": 255
     },
     {
@@ -42744,6 +42859,16 @@
       "month": "2016-05",
       "region": "Route 7",
       "gallons": 125
+    },
+    {
+      "month": "2016-05",
+      "region": "Ski Slopes",
+      "gallons": 130
+    },
+    {
+      "month": "2016-05",
+      "region": "Summer Snack Stops",
+      "gallons": 50
     },
     {
       "month": "2016-05",
@@ -42773,7 +42898,7 @@
     {
       "month": "2016-06",
       "region": "Other",
-      "gallons": 198
+      "gallons": 163
     },
     {
       "month": "2016-06",
@@ -42794,6 +42919,16 @@
       "month": "2016-06",
       "region": "Route 7",
       "gallons": 300
+    },
+    {
+      "month": "2016-06",
+      "region": "Ski Slopes",
+      "gallons": 70
+    },
+    {
+      "month": "2016-06",
+      "region": "Summer Snack Stops",
+      "gallons": 135
     },
     {
       "month": "2016-06",
@@ -42822,18 +42957,18 @@
     },
     {
       "month": "2016-07",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 795
+      "region": "North-Northeast",
+      "gallons": 875
     },
     {
       "month": "2016-07",
       "region": "Northwest",
-      "gallons": 1100
+      "gallons": 1180
     },
     {
       "month": "2016-07",
       "region": "Other",
-      "gallons": 340
+      "gallons": 260
     },
     {
       "month": "2016-07",
@@ -42854,6 +42989,16 @@
       "month": "2016-07",
       "region": "Route 7",
       "gallons": 120
+    },
+    {
+      "month": "2016-07",
+      "region": "Ski Slopes",
+      "gallons": 710
+    },
+    {
+      "month": "2016-07",
+      "region": "Summer Snack Stops",
+      "gallons": 225
     },
     {
       "month": "2016-07",
@@ -42882,13 +43027,18 @@
     },
     {
       "month": "2016-08",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 900
+      "region": "North-Northeast",
+      "gallons": 1010
+    },
+    {
+      "month": "2016-08",
+      "region": "Northwest",
+      "gallons": 110
     },
     {
       "month": "2016-08",
       "region": "Other",
-      "gallons": 440
+      "gallons": 290
     },
     {
       "month": "2016-08",
@@ -42912,8 +43062,23 @@
     },
     {
       "month": "2016-08",
+      "region": "Ski Slopes",
+      "gallons": 690
+    },
+    {
+      "month": "2016-08",
+      "region": "South / Ski Combined",
+      "gallons": 25
+    },
+    {
+      "month": "2016-08",
       "region": "Southern Ski Slopes",
       "gallons": 25
+    },
+    {
+      "month": "2016-08",
+      "region": "Summer Snack Stops",
+      "gallons": 360
     },
     {
       "month": "2016-08",
@@ -42943,12 +43108,12 @@
     {
       "month": "2016-09",
       "region": "Northwest",
-      "gallons": 750
+      "gallons": 850
     },
     {
       "month": "2016-09",
       "region": "Other",
-      "gallons": 605
+      "gallons": 505
     },
     {
       "month": "2016-09",
@@ -42969,6 +43134,16 @@
       "month": "2016-09",
       "region": "Route 7",
       "gallons": 305
+    },
+    {
+      "month": "2016-09",
+      "region": "Ski Slopes",
+      "gallons": 190
+    },
+    {
+      "month": "2016-09",
+      "region": "Summer Snack Stops",
+      "gallons": 340
     },
     {
       "month": "2016-09",
@@ -42997,7 +43172,7 @@
     },
     {
       "month": "2016-10",
-      "region": "Jay / Montgomery / Troy",
+      "region": "North-Northeast",
       "gallons": 75
     },
     {
@@ -43008,7 +43183,7 @@
     {
       "month": "2016-10",
       "region": "Other",
-      "gallons": 350
+      "gallons": 300
     },
     {
       "month": "2016-10",
@@ -43029,6 +43204,16 @@
       "month": "2016-10",
       "region": "Route 7",
       "gallons": 310
+    },
+    {
+      "month": "2016-10",
+      "region": "Ski Slopes",
+      "gallons": 50
+    },
+    {
+      "month": "2016-10",
+      "region": "Summer Snack Stops",
+      "gallons": 90
     },
     {
       "month": "2016-10",
@@ -43057,18 +43242,18 @@
     },
     {
       "month": "2016-11",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 160
+      "region": "North-Northeast",
+      "gallons": 310
     },
     {
       "month": "2016-11",
       "region": "Northwest",
-      "gallons": 500
+      "gallons": 650
     },
     {
       "month": "2016-11",
       "region": "Other",
-      "gallons": 475
+      "gallons": 325
     },
     {
       "month": "2016-11",
@@ -43089,6 +43274,11 @@
       "month": "2016-11",
       "region": "Route 7",
       "gallons": 260
+    },
+    {
+      "month": "2016-11",
+      "region": "Summer Snack Stops",
+      "gallons": 85
     },
     {
       "month": "2016-11",
@@ -43117,8 +43307,18 @@
     },
     {
       "month": "2016-12",
+      "region": "North-Northeast",
+      "gallons": 50
+    },
+    {
+      "month": "2016-12",
+      "region": "Northwest",
+      "gallons": 50
+    },
+    {
+      "month": "2016-12",
       "region": "Other",
-      "gallons": 325
+      "gallons": 275
     },
     {
       "month": "2016-12",
@@ -43137,8 +43337,18 @@
     },
     {
       "month": "2016-12",
+      "region": "South / Ski Combined",
+      "gallons": 25
+    },
+    {
+      "month": "2016-12",
       "region": "Southern Ski Slopes",
       "gallons": 25
+    },
+    {
+      "month": "2016-12",
+      "region": "Summer Snack Stops",
+      "gallons": 45
     },
     {
       "month": "2016-12",
@@ -43167,13 +43377,18 @@
     },
     {
       "month": "2017-01",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 835
+      "region": "North-Northeast",
+      "gallons": 955
+    },
+    {
+      "month": "2017-01",
+      "region": "Northwest",
+      "gallons": 195
     },
     {
       "month": "2017-01",
       "region": "Other",
-      "gallons": 690
+      "gallons": 445
     },
     {
       "month": "2017-01",
@@ -43197,8 +43412,18 @@
     },
     {
       "month": "2017-01",
+      "region": "Ski Slopes",
+      "gallons": 825
+    },
+    {
+      "month": "2017-01",
       "region": "South",
       "gallons": 130
+    },
+    {
+      "month": "2017-01",
+      "region": "South / Ski Combined",
+      "gallons": 285
     },
     {
       "month": "2017-01",
@@ -43232,8 +43457,18 @@
     },
     {
       "month": "2017-02",
+      "region": "North-Northeast",
+      "gallons": 390
+    },
+    {
+      "month": "2017-02",
+      "region": "Northwest",
+      "gallons": 390
+    },
+    {
+      "month": "2017-02",
       "region": "Other",
-      "gallons": 840
+      "gallons": 450
     },
     {
       "month": "2017-02",
@@ -43252,8 +43487,18 @@
     },
     {
       "month": "2017-02",
+      "region": "Ski Slopes",
+      "gallons": 385
+    },
+    {
+      "month": "2017-02",
       "region": "South",
       "gallons": 150
+    },
+    {
+      "month": "2017-02",
+      "region": "South / Ski Combined",
+      "gallons": 340
     },
     {
       "month": "2017-02",
@@ -43287,13 +43532,18 @@
     },
     {
       "month": "2017-03",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 1240
+      "region": "North-Northeast",
+      "gallons": 1653
+    },
+    {
+      "month": "2017-03",
+      "region": "Northwest",
+      "gallons": 168
     },
     {
       "month": "2017-03",
       "region": "Other",
-      "gallons": 718
+      "gallons": 305
     },
     {
       "month": "2017-03",
@@ -43314,6 +43564,16 @@
       "month": "2017-03",
       "region": "Route 7",
       "gallons": 355
+    },
+    {
+      "month": "2017-03",
+      "region": "Ski Slopes",
+      "gallons": 1310
+    },
+    {
+      "month": "2017-03",
+      "region": "South / Ski Combined",
+      "gallons": 75
     },
     {
       "month": "2017-03",
@@ -43387,18 +43647,18 @@
     },
     {
       "month": "2017-05",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 80
+      "region": "North-Northeast",
+      "gallons": 270
     },
     {
       "month": "2017-05",
       "region": "Northwest",
-      "gallons": 1005
+      "gallons": 1095
     },
     {
       "month": "2017-05",
       "region": "Other",
-      "gallons": 590
+      "gallons": 400
     },
     {
       "month": "2017-05",
@@ -43422,8 +43682,23 @@
     },
     {
       "month": "2017-05",
+      "region": "Ski Slopes",
+      "gallons": 250
+    },
+    {
+      "month": "2017-05",
+      "region": "South / Ski Combined",
+      "gallons": 145
+    },
+    {
+      "month": "2017-05",
       "region": "Southern Ski Slopes",
       "gallons": 145
+    },
+    {
+      "month": "2017-05",
+      "region": "Summer Snack Stops",
+      "gallons": 195
     },
     {
       "month": "2017-05",
@@ -43452,13 +43727,18 @@
     },
     {
       "month": "2017-06",
+      "region": "North-Northeast",
+      "gallons": 340
+    },
+    {
+      "month": "2017-06",
       "region": "Northwest",
-      "gallons": 710
+      "gallons": 930
     },
     {
       "month": "2017-06",
       "region": "Other",
-      "gallons": 2172
+      "gallons": 1792
     },
     {
       "month": "2017-06",
@@ -43482,13 +43762,28 @@
     },
     {
       "month": "2017-06",
+      "region": "Ski Slopes",
+      "gallons": 75
+    },
+    {
+      "month": "2017-06",
       "region": "South",
       "gallons": 230
     },
     {
       "month": "2017-06",
+      "region": "South / Ski Combined",
+      "gallons": 270
+    },
+    {
+      "month": "2017-06",
       "region": "Southern Ski Slopes",
       "gallons": 40
+    },
+    {
+      "month": "2017-06",
+      "region": "Summer Snack Stops",
+      "gallons": 180
     },
     {
       "month": "2017-06",
@@ -43517,18 +43812,18 @@
     },
     {
       "month": "2017-07",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 790
+      "region": "North-Northeast",
+      "gallons": 1280
     },
     {
       "month": "2017-07",
       "region": "Northwest",
-      "gallons": 750
+      "gallons": 1040
     },
     {
       "month": "2017-07",
       "region": "Other",
-      "gallons": 1080
+      "gallons": 555
     },
     {
       "month": "2017-07",
@@ -43552,13 +43847,28 @@
     },
     {
       "month": "2017-07",
+      "region": "Ski Slopes",
+      "gallons": 690
+    },
+    {
+      "month": "2017-07",
       "region": "South",
       "gallons": 150
     },
     {
       "month": "2017-07",
+      "region": "South / Ski Combined",
+      "gallons": 190
+    },
+    {
+      "month": "2017-07",
       "region": "Southern Ski Slopes",
       "gallons": 40
+    },
+    {
+      "month": "2017-07",
+      "region": "Summer Snack Stops",
+      "gallons": 378
     },
     {
       "month": "2017-07",
@@ -43587,7 +43897,7 @@
     },
     {
       "month": "2017-08",
-      "region": "Jay / Montgomery / Troy",
+      "region": "North-Northeast",
       "gallons": 325
     },
     {
@@ -43598,7 +43908,7 @@
     {
       "month": "2017-08",
       "region": "Other",
-      "gallons": 650
+      "gallons": 605
     },
     {
       "month": "2017-08",
@@ -43622,13 +43932,28 @@
     },
     {
       "month": "2017-08",
+      "region": "Ski Slopes",
+      "gallons": 375
+    },
+    {
+      "month": "2017-08",
       "region": "South",
       "gallons": 140
     },
     {
       "month": "2017-08",
+      "region": "South / Ski Combined",
+      "gallons": 190
+    },
+    {
+      "month": "2017-08",
       "region": "Southern Ski Slopes",
       "gallons": 50
+    },
+    {
+      "month": "2017-08",
+      "region": "Summer Snack Stops",
+      "gallons": 420
     },
     {
       "month": "2017-08",
@@ -43657,18 +43982,18 @@
     },
     {
       "month": "2017-09",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 250
+      "region": "North-Northeast",
+      "gallons": 720
     },
     {
       "month": "2017-09",
       "region": "Northwest",
-      "gallons": 810
+      "gallons": 1005
     },
     {
       "month": "2017-09",
       "region": "Other",
-      "gallons": 1000
+      "gallons": 505
     },
     {
       "month": "2017-09",
@@ -43692,13 +44017,28 @@
     },
     {
       "month": "2017-09",
+      "region": "Ski Slopes",
+      "gallons": 265
+    },
+    {
+      "month": "2017-09",
       "region": "South",
       "gallons": 185
     },
     {
       "month": "2017-09",
+      "region": "South / Ski Combined",
+      "gallons": 310
+    },
+    {
+      "month": "2017-09",
       "region": "Southern Ski Slopes",
       "gallons": 125
+    },
+    {
+      "month": "2017-09",
+      "region": "Summer Snack Stops",
+      "gallons": 330
     },
     {
       "month": "2017-09",
@@ -43727,18 +44067,18 @@
     },
     {
       "month": "2017-10",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 200
+      "region": "North-Northeast",
+      "gallons": 300
     },
     {
       "month": "2017-10",
       "region": "Northwest",
-      "gallons": 700
+      "gallons": 800
     },
     {
       "month": "2017-10",
       "region": "Other",
-      "gallons": 275
+      "gallons": 175
     },
     {
       "month": "2017-10",
@@ -43757,8 +44097,23 @@
     },
     {
       "month": "2017-10",
+      "region": "Ski Slopes",
+      "gallons": 150
+    },
+    {
+      "month": "2017-10",
       "region": "South",
       "gallons": 100
+    },
+    {
+      "month": "2017-10",
+      "region": "South / Ski Combined",
+      "gallons": 100
+    },
+    {
+      "month": "2017-10",
+      "region": "Summer Snack Stops",
+      "gallons": 25
     },
     {
       "month": "2017-10",
@@ -43787,13 +44142,18 @@
     },
     {
       "month": "2017-11",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 140
+      "region": "North-Northeast",
+      "gallons": 385
+    },
+    {
+      "month": "2017-11",
+      "region": "Northwest",
+      "gallons": 80
     },
     {
       "month": "2017-11",
       "region": "Other",
-      "gallons": 965
+      "gallons": 620
     },
     {
       "month": "2017-11",
@@ -43808,12 +44168,27 @@
     {
       "month": "2017-11",
       "region": "Route 2 East",
-      "gallons": 25
+      "gallons": 125
+    },
+    {
+      "month": "2017-11",
+      "region": "Ski Slopes",
+      "gallons": 100
+    },
+    {
+      "month": "2017-11",
+      "region": "South / Ski Combined",
+      "gallons": 95
     },
     {
       "month": "2017-11",
       "region": "Southern Ski Slopes",
       "gallons": 95
+    },
+    {
+      "month": "2017-11",
+      "region": "Summer Snack Stops",
+      "gallons": 195
     },
     {
       "month": "2017-11",
@@ -43837,13 +44212,18 @@
     },
     {
       "month": "2017-12",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 340
+      "region": "North-Northeast",
+      "gallons": 815
+    },
+    {
+      "month": "2017-12",
+      "region": "Northwest",
+      "gallons": 350
     },
     {
       "month": "2017-12",
       "region": "Other",
-      "gallons": 830
+      "gallons": 355
     },
     {
       "month": "2017-12",
@@ -43864,6 +44244,11 @@
       "month": "2017-12",
       "region": "Route 7",
       "gallons": 375
+    },
+    {
+      "month": "2017-12",
+      "region": "Ski Slopes",
+      "gallons": 320
     },
     {
       "month": "2017-12",
@@ -43892,7 +44277,7 @@
     },
     {
       "month": "2018-01",
-      "region": "Jay / Montgomery / Troy",
+      "region": "North-Northeast",
       "gallons": 250
     },
     {
@@ -43917,8 +44302,18 @@
     },
     {
       "month": "2018-01",
+      "region": "Ski Slopes",
+      "gallons": 950
+    },
+    {
+      "month": "2018-01",
       "region": "South",
       "gallons": 250
+    },
+    {
+      "month": "2018-01",
+      "region": "South / Ski Combined",
+      "gallons": 1085
     },
     {
       "month": "2018-01",
@@ -43952,13 +44347,18 @@
     },
     {
       "month": "2018-02",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 485
+      "region": "North-Northeast",
+      "gallons": 960
+    },
+    {
+      "month": "2018-02",
+      "region": "Northwest",
+      "gallons": 325
     },
     {
       "month": "2018-02",
       "region": "Other",
-      "gallons": 900
+      "gallons": 425
     },
     {
       "month": "2018-02",
@@ -43982,18 +44382,23 @@
     },
     {
       "month": "2018-02",
+      "region": "Ski Slopes",
+      "gallons": 1275
+    },
+    {
+      "month": "2018-02",
       "region": "South",
       "gallons": 125
     },
     {
       "month": "2018-02",
-      "region": "Southern Ski Slopes",
-      "gallons": 875
+      "region": "South / Ski Combined",
+      "gallons": 1000
     },
     {
       "month": "2018-02",
-      "region": "UVM",
-      "gallons": 825
+      "region": "Southern Ski Slopes",
+      "gallons": 875
     },
     {
       "month": "2018-02",
@@ -44022,8 +44427,8 @@
     },
     {
       "month": "2018-03",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 700
+      "region": "North-Northeast",
+      "gallons": 850
     },
     {
       "month": "2018-03",
@@ -44033,7 +44438,7 @@
     {
       "month": "2018-03",
       "region": "Other",
-      "gallons": 845
+      "gallons": 395
     },
     {
       "month": "2018-03",
@@ -44052,18 +44457,23 @@
     },
     {
       "month": "2018-03",
+      "region": "Ski Slopes",
+      "gallons": 1215
+    },
+    {
+      "month": "2018-03",
       "region": "South",
       "gallons": 150
     },
     {
       "month": "2018-03",
-      "region": "Southern Ski Slopes",
-      "gallons": 300
+      "region": "South / Ski Combined",
+      "gallons": 450
     },
     {
       "month": "2018-03",
-      "region": "UVM",
-      "gallons": 60
+      "region": "Southern Ski Slopes",
+      "gallons": 300
     },
     {
       "month": "2018-03",
@@ -44092,18 +44502,18 @@
     },
     {
       "month": "2018-04",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 575
+      "region": "North-Northeast",
+      "gallons": 815
     },
     {
       "month": "2018-04",
       "region": "Northwest",
-      "gallons": 30
+      "gallons": 145
     },
     {
       "month": "2018-04",
       "region": "Other",
-      "gallons": 915
+      "gallons": 450
     },
     {
       "month": "2018-04",
@@ -44127,13 +44537,23 @@
     },
     {
       "month": "2018-04",
+      "region": "Ski Slopes",
+      "gallons": 1015
+    },
+    {
+      "month": "2018-04",
+      "region": "South / Ski Combined",
+      "gallons": 470
+    },
+    {
+      "month": "2018-04",
       "region": "Southern Ski Slopes",
       "gallons": 470
     },
     {
       "month": "2018-04",
-      "region": "UVM",
-      "gallons": 420
+      "region": "Summer Snack Stops",
+      "gallons": 100
     },
     {
       "month": "2018-04",
@@ -44162,18 +44582,18 @@
     },
     {
       "month": "2018-05",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 325
+      "region": "North-Northeast",
+      "gallons": 550
     },
     {
       "month": "2018-05",
       "region": "Northwest",
-      "gallons": 2650
+      "gallons": 2725
     },
     {
       "month": "2018-05",
       "region": "Other",
-      "gallons": 975
+      "gallons": 600
     },
     {
       "month": "2018-05",
@@ -44188,7 +44608,7 @@
     {
       "month": "2018-05",
       "region": "Route 2 East",
-      "gallons": 125
+      "gallons": 275
     },
     {
       "month": "2018-05",
@@ -44197,8 +44617,18 @@
     },
     {
       "month": "2018-05",
+      "region": "Ski Slopes",
+      "gallons": 200
+    },
+    {
+      "month": "2018-05",
       "region": "South",
       "gallons": 200
+    },
+    {
+      "month": "2018-05",
+      "region": "South / Ski Combined",
+      "gallons": 375
     },
     {
       "month": "2018-05",
@@ -44207,8 +44637,8 @@
     },
     {
       "month": "2018-05",
-      "region": "UVM",
-      "gallons": 400
+      "region": "Summer Snack Stops",
+      "gallons": 300
     },
     {
       "month": "2018-05",
@@ -44237,18 +44667,18 @@
     },
     {
       "month": "2018-06",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 150
+      "region": "North-Northeast",
+      "gallons": 550
     },
     {
       "month": "2018-06",
       "region": "Northwest",
-      "gallons": 1150
+      "gallons": 1550
     },
     {
       "month": "2018-06",
       "region": "Other",
-      "gallons": 855
+      "gallons": 455
     },
     {
       "month": "2018-06",
@@ -44272,8 +44702,13 @@
     },
     {
       "month": "2018-06",
-      "region": "UVM",
-      "gallons": 55
+      "region": "Ski Slopes",
+      "gallons": 100
+    },
+    {
+      "month": "2018-06",
+      "region": "Summer Snack Stops",
+      "gallons": 440
     },
     {
       "month": "2018-06",
@@ -44302,18 +44737,18 @@
     },
     {
       "month": "2018-07",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 200
+      "region": "North-Northeast",
+      "gallons": 350
     },
     {
       "month": "2018-07",
       "region": "Northwest",
-      "gallons": 1800
+      "gallons": 1825
     },
     {
       "month": "2018-07",
       "region": "Other",
-      "gallons": 510
+      "gallons": 260
     },
     {
       "month": "2018-07",
@@ -44328,7 +44763,7 @@
     {
       "month": "2018-07",
       "region": "Route 2 East",
-      "gallons": 125
+      "gallons": 225
     },
     {
       "month": "2018-07",
@@ -44337,8 +44772,23 @@
     },
     {
       "month": "2018-07",
+      "region": "Ski Slopes",
+      "gallons": 150
+    },
+    {
+      "month": "2018-07",
       "region": "South",
       "gallons": 225
+    },
+    {
+      "month": "2018-07",
+      "region": "South / Ski Combined",
+      "gallons": 225
+    },
+    {
+      "month": "2018-07",
+      "region": "Summer Snack Stops",
+      "gallons": 850
     },
     {
       "month": "2018-07",
@@ -44362,18 +44812,18 @@
     },
     {
       "month": "2018-08",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 535
+      "region": "North-Northeast",
+      "gallons": 1110
     },
     {
       "month": "2018-08",
       "region": "Northwest",
-      "gallons": 1325
+      "gallons": 1750
     },
     {
       "month": "2018-08",
       "region": "Other",
-      "gallons": 1260
+      "gallons": 535
     },
     {
       "month": "2018-08",
@@ -44397,8 +44847,23 @@
     },
     {
       "month": "2018-08",
+      "region": "Ski Slopes",
+      "gallons": 275
+    },
+    {
+      "month": "2018-08",
+      "region": "South / Ski Combined",
+      "gallons": 50
+    },
+    {
+      "month": "2018-08",
       "region": "Southern Ski Slopes",
       "gallons": 50
+    },
+    {
+      "month": "2018-08",
+      "region": "Summer Snack Stops",
+      "gallons": 705
     },
     {
       "month": "2018-08",
@@ -44428,7 +44893,7 @@
     {
       "month": "2018-09",
       "region": "Other",
-      "gallons": 955
+      "gallons": 865
     },
     {
       "month": "2018-09",
@@ -44443,7 +44908,7 @@
     {
       "month": "2018-09",
       "region": "Route 2 East",
-      "gallons": 125
+      "gallons": 175
     },
     {
       "month": "2018-09",
@@ -44457,13 +44922,18 @@
     },
     {
       "month": "2018-09",
+      "region": "South / Ski Combined",
+      "gallons": 380
+    },
+    {
+      "month": "2018-09",
       "region": "Southern Ski Slopes",
       "gallons": 130
     },
     {
       "month": "2018-09",
-      "region": "UVM",
-      "gallons": 320
+      "region": "Summer Snack Stops",
+      "gallons": 1615
     },
     {
       "month": "2018-09",
@@ -44492,18 +44962,18 @@
     },
     {
       "month": "2018-10",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 440
+      "region": "North-Northeast",
+      "gallons": 800
     },
     {
       "month": "2018-10",
       "region": "Northwest",
-      "gallons": 585
+      "gallons": 760
     },
     {
       "month": "2018-10",
       "region": "Other",
-      "gallons": 990
+      "gallons": 505
     },
     {
       "month": "2018-10",
@@ -44518,7 +44988,7 @@
     {
       "month": "2018-10",
       "region": "Route 2 East",
-      "gallons": 365
+      "gallons": 490
     },
     {
       "month": "2018-10",
@@ -44527,8 +44997,18 @@
     },
     {
       "month": "2018-10",
+      "region": "Ski Slopes",
+      "gallons": 175
+    },
+    {
+      "month": "2018-10",
       "region": "South",
       "gallons": 175
+    },
+    {
+      "month": "2018-10",
+      "region": "South / Ski Combined",
+      "gallons": 210
     },
     {
       "month": "2018-10",
@@ -44537,8 +45017,8 @@
     },
     {
       "month": "2018-10",
-      "region": "UVM",
-      "gallons": 560
+      "region": "Summer Snack Stops",
+      "gallons": 650
     },
     {
       "month": "2018-10",
@@ -44567,18 +45047,18 @@
     },
     {
       "month": "2018-11",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 275
+      "region": "North-Northeast",
+      "gallons": 365
     },
     {
       "month": "2018-11",
       "region": "Northwest",
-      "gallons": 900
+      "gallons": 990
     },
     {
       "month": "2018-11",
       "region": "Other",
-      "gallons": 490
+      "gallons": 400
     },
     {
       "month": "2018-11",
@@ -44602,13 +45082,18 @@
     },
     {
       "month": "2018-11",
-      "region": "Southern Ski Slopes",
+      "region": "Ski Slopes",
+      "gallons": 400
+    },
+    {
+      "month": "2018-11",
+      "region": "South / Ski Combined",
       "gallons": 200
     },
     {
       "month": "2018-11",
-      "region": "UVM",
-      "gallons": 620
+      "region": "Southern Ski Slopes",
+      "gallons": 200
     },
     {
       "month": "2018-11",
@@ -44637,18 +45122,18 @@
     },
     {
       "month": "2018-12",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 345
+      "region": "North-Northeast",
+      "gallons": 490
     },
     {
       "month": "2018-12",
       "region": "Northwest",
-      "gallons": 300
+      "gallons": 445
     },
     {
       "month": "2018-12",
       "region": "Other",
-      "gallons": 455
+      "gallons": 310
     },
     {
       "month": "2018-12",
@@ -44672,8 +45157,18 @@
     },
     {
       "month": "2018-12",
+      "region": "Ski Slopes",
+      "gallons": 685
+    },
+    {
+      "month": "2018-12",
       "region": "South",
       "gallons": 150
+    },
+    {
+      "month": "2018-12",
+      "region": "South / Ski Combined",
+      "gallons": 525
     },
     {
       "month": "2018-12",
@@ -44682,8 +45177,8 @@
     },
     {
       "month": "2018-12",
-      "region": "UVM",
-      "gallons": 295
+      "region": "Summer Snack Stops",
+      "gallons": 140
     },
     {
       "month": "2018-12",
@@ -44712,18 +45207,18 @@
     },
     {
       "month": "2019-01",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 1055
+      "region": "North-Northeast",
+      "gallons": 1085
     },
     {
       "month": "2019-01",
       "region": "Northwest",
-      "gallons": 126
+      "gallons": 156
     },
     {
       "month": "2019-01",
       "region": "Other",
-      "gallons": 405
+      "gallons": 375
     },
     {
       "month": "2019-01",
@@ -44747,8 +45242,18 @@
     },
     {
       "month": "2019-01",
+      "region": "Ski Slopes",
+      "gallons": 1350
+    },
+    {
+      "month": "2019-01",
       "region": "South",
       "gallons": 100
+    },
+    {
+      "month": "2019-01",
+      "region": "South / Ski Combined",
+      "gallons": 675
     },
     {
       "month": "2019-01",
@@ -44757,8 +45262,8 @@
     },
     {
       "month": "2019-01",
-      "region": "UVM",
-      "gallons": 155
+      "region": "Summer Snack Stops",
+      "gallons": 25
     },
     {
       "month": "2019-01",
@@ -44787,18 +45292,18 @@
     },
     {
       "month": "2019-02",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 395
+      "region": "North-Northeast",
+      "gallons": 820
     },
     {
       "month": "2019-02",
       "region": "Northwest",
-      "gallons": 750
+      "gallons": 1000
     },
     {
       "month": "2019-02",
       "region": "Other",
-      "gallons": 1200
+      "gallons": 445
     },
     {
       "month": "2019-02",
@@ -44822,13 +45327,18 @@
     },
     {
       "month": "2019-02",
-      "region": "Southern Ski Slopes",
+      "region": "Ski Slopes",
+      "gallons": 1400
+    },
+    {
+      "month": "2019-02",
+      "region": "South / Ski Combined",
       "gallons": 965
     },
     {
       "month": "2019-02",
-      "region": "UVM",
-      "gallons": 275
+      "region": "Southern Ski Slopes",
+      "gallons": 965
     },
     {
       "month": "2019-02",
@@ -44857,7 +45367,7 @@
     },
     {
       "month": "2019-03",
-      "region": "Jay / Montgomery / Troy",
+      "region": "North-Northeast",
       "gallons": 1010
     },
     {
@@ -44868,7 +45378,7 @@
     {
       "month": "2019-03",
       "region": "Other",
-      "gallons": 350
+      "gallons": 275
     },
     {
       "month": "2019-03",
@@ -44892,13 +45402,23 @@
     },
     {
       "month": "2019-03",
+      "region": "Ski Slopes",
+      "gallons": 775
+    },
+    {
+      "month": "2019-03",
       "region": "South",
       "gallons": 150
     },
     {
       "month": "2019-03",
-      "region": "UVM",
-      "gallons": 665
+      "region": "South / Ski Combined",
+      "gallons": 150
+    },
+    {
+      "month": "2019-03",
+      "region": "Summer Snack Stops",
+      "gallons": 50
     },
     {
       "month": "2019-03",
@@ -44927,18 +45447,18 @@
     },
     {
       "month": "2019-04",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 150
+      "region": "North-Northeast",
+      "gallons": 900
     },
     {
       "month": "2019-04",
       "region": "Northwest",
-      "gallons": 1150
+      "gallons": 1400
     },
     {
       "month": "2019-04",
       "region": "Other",
-      "gallons": 1375
+      "gallons": 425
     },
     {
       "month": "2019-04",
@@ -44962,13 +45482,23 @@
     },
     {
       "month": "2019-04",
+      "region": "Ski Slopes",
+      "gallons": 1000
+    },
+    {
+      "month": "2019-04",
+      "region": "South / Ski Combined",
+      "gallons": 850
+    },
+    {
+      "month": "2019-04",
       "region": "Southern Ski Slopes",
       "gallons": 850
     },
     {
       "month": "2019-04",
-      "region": "UVM",
-      "gallons": 580
+      "region": "Summer Snack Stops",
+      "gallons": 150
     },
     {
       "month": "2019-04",
@@ -44997,18 +45527,18 @@
     },
     {
       "month": "2019-05",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 660
+      "region": "North-Northeast",
+      "gallons": 935
     },
     {
       "month": "2019-05",
       "region": "Northwest",
-      "gallons": 1850
+      "gallons": 1925
     },
     {
       "month": "2019-05",
       "region": "Other",
-      "gallons": 1565
+      "gallons": 900
     },
     {
       "month": "2019-05",
@@ -45023,7 +45553,7 @@
     {
       "month": "2019-05",
       "region": "Route 2 East",
-      "gallons": 410
+      "gallons": 500
     },
     {
       "month": "2019-05",
@@ -45032,8 +45562,18 @@
     },
     {
       "month": "2019-05",
+      "region": "Ski Slopes",
+      "gallons": 650
+    },
+    {
+      "month": "2019-05",
       "region": "South",
       "gallons": 175
+    },
+    {
+      "month": "2019-05",
+      "region": "South / Ski Combined",
+      "gallons": 255
     },
     {
       "month": "2019-05",
@@ -45042,8 +45582,8 @@
     },
     {
       "month": "2019-05",
-      "region": "UVM",
-      "gallons": 290
+      "region": "Summer Snack Stops",
+      "gallons": 50
     },
     {
       "month": "2019-05",
@@ -45067,18 +45607,18 @@
     },
     {
       "month": "2019-06",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 390
+      "region": "North-Northeast",
+      "gallons": 875
     },
     {
       "month": "2019-06",
       "region": "Northwest",
-      "gallons": 1300
+      "gallons": 1550
     },
     {
       "month": "2019-06",
       "region": "Other",
-      "gallons": 1000
+      "gallons": 515
     },
     {
       "month": "2019-06",
@@ -45102,8 +45642,23 @@
     },
     {
       "month": "2019-06",
+      "region": "Ski Slopes",
+      "gallons": 325
+    },
+    {
+      "month": "2019-06",
+      "region": "South / Ski Combined",
+      "gallons": 40
+    },
+    {
+      "month": "2019-06",
       "region": "Southern Ski Slopes",
       "gallons": 40
+    },
+    {
+      "month": "2019-06",
+      "region": "Summer Snack Stops",
+      "gallons": 545
     },
     {
       "month": "2019-06",
@@ -45132,18 +45687,18 @@
     },
     {
       "month": "2019-07",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 1090
+      "region": "North-Northeast",
+      "gallons": 1365
     },
     {
       "month": "2019-07",
       "region": "Northwest",
-      "gallons": 600
+      "gallons": 675
     },
     {
       "month": "2019-07",
       "region": "Other",
-      "gallons": 1075
+      "gallons": 750
     },
     {
       "month": "2019-07",
@@ -45158,7 +45713,7 @@
     {
       "month": "2019-07",
       "region": "Route 2 East",
-      "gallons": 200
+      "gallons": 250
     },
     {
       "month": "2019-07",
@@ -45167,8 +45722,18 @@
     },
     {
       "month": "2019-07",
+      "region": "Ski Slopes",
+      "gallons": 1200
+    },
+    {
+      "month": "2019-07",
       "region": "South",
       "gallons": 225
+    },
+    {
+      "month": "2019-07",
+      "region": "South / Ski Combined",
+      "gallons": 625
     },
     {
       "month": "2019-07",
@@ -45177,8 +45742,8 @@
     },
     {
       "month": "2019-07",
-      "region": "UVM",
-      "gallons": 75
+      "region": "Summer Snack Stops",
+      "gallons": 475
     },
     {
       "month": "2019-07",
@@ -45207,7 +45772,7 @@
     },
     {
       "month": "2019-08",
-      "region": "Jay / Montgomery / Troy",
+      "region": "North-Northeast",
       "gallons": 60
     },
     {
@@ -45218,7 +45783,7 @@
     {
       "month": "2019-08",
       "region": "Other",
-      "gallons": 565
+      "gallons": 515
     },
     {
       "month": "2019-08",
@@ -45237,13 +45802,23 @@
     },
     {
       "month": "2019-08",
+      "region": "Ski Slopes",
+      "gallons": 190
+    },
+    {
+      "month": "2019-08",
+      "region": "South / Ski Combined",
+      "gallons": 100
+    },
+    {
+      "month": "2019-08",
       "region": "Southern Ski Slopes",
       "gallons": 100
     },
     {
       "month": "2019-08",
-      "region": "UVM",
-      "gallons": 390
+      "region": "Summer Snack Stops",
+      "gallons": 1035
     },
     {
       "month": "2019-08",
@@ -45272,18 +45847,18 @@
     },
     {
       "month": "2019-09",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 175
+      "region": "North-Northeast",
+      "gallons": 725
     },
     {
       "month": "2019-09",
       "region": "Northwest",
-      "gallons": 800
+      "gallons": 1400
     },
     {
       "month": "2019-09",
       "region": "Other",
-      "gallons": 1200
+      "gallons": 450
     },
     {
       "month": "2019-09",
@@ -45307,8 +45882,18 @@
     },
     {
       "month": "2019-09",
+      "region": "Ski Slopes",
+      "gallons": 500
+    },
+    {
+      "month": "2019-09",
       "region": "South",
       "gallons": 200
+    },
+    {
+      "month": "2019-09",
+      "region": "South / Ski Combined",
+      "gallons": 225
     },
     {
       "month": "2019-09",
@@ -45317,8 +45902,8 @@
     },
     {
       "month": "2019-09",
-      "region": "UVM",
-      "gallons": 100
+      "region": "Summer Snack Stops",
+      "gallons": 1925
     },
     {
       "month": "2019-09",
@@ -45347,18 +45932,18 @@
     },
     {
       "month": "2019-10",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 725
+      "region": "North-Northeast",
+      "gallons": 925
     },
     {
       "month": "2019-10",
       "region": "Northwest",
-      "gallons": 1375
+      "gallons": 1475
     },
     {
       "month": "2019-10",
       "region": "Other",
-      "gallons": 1075
+      "gallons": 875
     },
     {
       "month": "2019-10",
@@ -45382,13 +45967,23 @@
     },
     {
       "month": "2019-10",
+      "region": "Ski Slopes",
+      "gallons": 750
+    },
+    {
+      "month": "2019-10",
+      "region": "South / Ski Combined",
+      "gallons": 250
+    },
+    {
+      "month": "2019-10",
       "region": "Southern Ski Slopes",
       "gallons": 250
     },
     {
       "month": "2019-10",
-      "region": "UVM",
-      "gallons": 575
+      "region": "Summer Snack Stops",
+      "gallons": 860
     },
     {
       "month": "2019-10",
@@ -45417,7 +46012,7 @@
     },
     {
       "month": "2019-11",
-      "region": "Jay / Montgomery / Troy",
+      "region": "North-Northeast",
       "gallons": 80
     },
     {
@@ -45442,13 +46037,23 @@
     },
     {
       "month": "2019-11",
+      "region": "Ski Slopes",
+      "gallons": 450
+    },
+    {
+      "month": "2019-11",
       "region": "South",
       "gallons": 150
     },
     {
       "month": "2019-11",
-      "region": "UVM",
-      "gallons": 625
+      "region": "South / Ski Combined",
+      "gallons": 150
+    },
+    {
+      "month": "2019-11",
+      "region": "Summer Snack Stops",
+      "gallons": 290
     },
     {
       "month": "2019-11",
@@ -45477,18 +46082,18 @@
     },
     {
       "month": "2019-12",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 690
+      "region": "North-Northeast",
+      "gallons": 1230
     },
     {
       "month": "2019-12",
       "region": "Northwest",
-      "gallons": 675
+      "gallons": 1005
     },
     {
       "month": "2019-12",
       "region": "Other",
-      "gallons": 1140
+      "gallons": 500
     },
     {
       "month": "2019-12",
@@ -45512,8 +46117,23 @@
     },
     {
       "month": "2019-12",
+      "region": "Ski Slopes",
+      "gallons": 1580
+    },
+    {
+      "month": "2019-12",
+      "region": "South / Ski Combined",
+      "gallons": 830
+    },
+    {
+      "month": "2019-12",
       "region": "Southern Ski Slopes",
       "gallons": 830
+    },
+    {
+      "month": "2019-12",
+      "region": "Summer Snack Stops",
+      "gallons": 50
     },
     {
       "month": "2019-12",
@@ -45537,18 +46157,18 @@
     },
     {
       "month": "2020-01",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 535
+      "region": "North-Northeast",
+      "gallons": 785
     },
     {
       "month": "2020-01",
       "region": "Northwest",
-      "gallons": 750
+      "gallons": 850
     },
     {
       "month": "2020-01",
       "region": "Other",
-      "gallons": 475
+      "gallons": 225
     },
     {
       "month": "2020-01",
@@ -45572,18 +46192,23 @@
     },
     {
       "month": "2020-01",
+      "region": "Ski Slopes",
+      "gallons": 925
+    },
+    {
+      "month": "2020-01",
       "region": "South",
       "gallons": 130
     },
     {
       "month": "2020-01",
-      "region": "Southern Ski Slopes",
-      "gallons": 135
+      "region": "South / Ski Combined",
+      "gallons": 265
     },
     {
       "month": "2020-01",
-      "region": "UVM",
-      "gallons": 500
+      "region": "Southern Ski Slopes",
+      "gallons": 135
     },
     {
       "month": "2020-01",
@@ -45612,7 +46237,7 @@
     },
     {
       "month": "2020-02",
-      "region": "Jay / Montgomery / Troy",
+      "region": "North-Northeast",
       "gallons": 100
     },
     {
@@ -45623,7 +46248,7 @@
     {
       "month": "2020-02",
       "region": "Other",
-      "gallons": 1110
+      "gallons": 960
     },
     {
       "month": "2020-02",
@@ -45642,13 +46267,23 @@
     },
     {
       "month": "2020-02",
+      "region": "Ski Slopes",
+      "gallons": 1725
+    },
+    {
+      "month": "2020-02",
+      "region": "South / Ski Combined",
+      "gallons": 825
+    },
+    {
+      "month": "2020-02",
       "region": "Southern Ski Slopes",
       "gallons": 825
     },
     {
       "month": "2020-02",
-      "region": "UVM",
-      "gallons": 730
+      "region": "Summer Snack Stops",
+      "gallons": 105
     },
     {
       "month": "2020-02",
@@ -45677,13 +46312,18 @@
     },
     {
       "month": "2020-03",
+      "region": "North-Northeast",
+      "gallons": 75
+    },
+    {
+      "month": "2020-03",
       "region": "Northwest",
       "gallons": 525
     },
     {
       "month": "2020-03",
       "region": "Other",
-      "gallons": 950
+      "gallons": 575
     },
     {
       "month": "2020-03",
@@ -45698,7 +46338,7 @@
     {
       "month": "2020-03",
       "region": "Route 2 East",
-      "gallons": 600
+      "gallons": 750
     },
     {
       "month": "2020-03",
@@ -45707,8 +46347,23 @@
     },
     {
       "month": "2020-03",
+      "region": "Ski Slopes",
+      "gallons": 1875
+    },
+    {
+      "month": "2020-03",
+      "region": "South / Ski Combined",
+      "gallons": 1215
+    },
+    {
+      "month": "2020-03",
       "region": "Southern Ski Slopes",
       "gallons": 1215
+    },
+    {
+      "month": "2020-03",
+      "region": "Summer Snack Stops",
+      "gallons": 80
     },
     {
       "month": "2020-03",
@@ -45737,18 +46392,18 @@
     },
     {
       "month": "2020-04",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 600
+      "region": "North-Northeast",
+      "gallons": 1125
     },
     {
       "month": "2020-04",
       "region": "Northwest",
-      "gallons": 6720
+      "gallons": 6970
     },
     {
       "month": "2020-04",
       "region": "Other",
-      "gallons": 990
+      "gallons": 465
     },
     {
       "month": "2020-04",
@@ -45772,13 +46427,23 @@
     },
     {
       "month": "2020-04",
+      "region": "Ski Slopes",
+      "gallons": 350
+    },
+    {
+      "month": "2020-04",
       "region": "South",
       "gallons": 175
     },
     {
       "month": "2020-04",
-      "region": "UVM",
-      "gallons": 440
+      "region": "South / Ski Combined",
+      "gallons": 175
+    },
+    {
+      "month": "2020-04",
+      "region": "Summer Snack Stops",
+      "gallons": 15
     },
     {
       "month": "2020-04",
@@ -45822,6 +46487,16 @@
     },
     {
       "month": "2020-05",
+      "region": "Ski Slopes",
+      "gallons": 150
+    },
+    {
+      "month": "2020-05",
+      "region": "Summer Snack Stops",
+      "gallons": 150
+    },
+    {
+      "month": "2020-05",
       "region": "Warren / Waitsfield",
       "gallons": 150
     },
@@ -45853,7 +46528,7 @@
     {
       "month": "2020-06",
       "region": "Other",
-      "gallons": 1025
+      "gallons": 725
     },
     {
       "month": "2020-06",
@@ -45872,8 +46547,23 @@
     },
     {
       "month": "2020-06",
+      "region": "Ski Slopes",
+      "gallons": 475
+    },
+    {
+      "month": "2020-06",
+      "region": "South / Ski Combined",
+      "gallons": 100
+    },
+    {
+      "month": "2020-06",
       "region": "Southern Ski Slopes",
       "gallons": 100
+    },
+    {
+      "month": "2020-06",
+      "region": "Summer Snack Stops",
+      "gallons": 355
     },
     {
       "month": "2020-06",
@@ -45902,18 +46592,18 @@
     },
     {
       "month": "2020-07",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 50
+      "region": "North-Northeast",
+      "gallons": 600
     },
     {
       "month": "2020-07",
       "region": "Northwest",
-      "gallons": 1650
+      "gallons": 1850
     },
     {
       "month": "2020-07",
       "region": "Other",
-      "gallons": 825
+      "gallons": 275
     },
     {
       "month": "2020-07",
@@ -45937,8 +46627,23 @@
     },
     {
       "month": "2020-07",
+      "region": "Ski Slopes",
+      "gallons": 160
+    },
+    {
+      "month": "2020-07",
       "region": "South",
       "gallons": 125
+    },
+    {
+      "month": "2020-07",
+      "region": "South / Ski Combined",
+      "gallons": 125
+    },
+    {
+      "month": "2020-07",
+      "region": "Summer Snack Stops",
+      "gallons": 505
     },
     {
       "month": "2020-07",
@@ -45967,7 +46672,7 @@
     },
     {
       "month": "2020-08",
-      "region": "Jay / Montgomery / Troy",
+      "region": "North-Northeast",
       "gallons": 200
     },
     {
@@ -45997,6 +46702,16 @@
     },
     {
       "month": "2020-08",
+      "region": "Ski Slopes",
+      "gallons": 150
+    },
+    {
+      "month": "2020-08",
+      "region": "Summer Snack Stops",
+      "gallons": 980
+    },
+    {
+      "month": "2020-08",
       "region": "Warren / Waitsfield",
       "gallons": 275
     },
@@ -46022,18 +46737,18 @@
     },
     {
       "month": "2020-09",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 150
+      "region": "North-Northeast",
+      "gallons": 550
     },
     {
       "month": "2020-09",
       "region": "Northwest",
-      "gallons": 50
+      "gallons": 450
     },
     {
       "month": "2020-09",
       "region": "Other",
-      "gallons": 1070
+      "gallons": 670
     },
     {
       "month": "2020-09",
@@ -46057,13 +46772,18 @@
     },
     {
       "month": "2020-09",
+      "region": "South / Ski Combined",
+      "gallons": 220
+    },
+    {
+      "month": "2020-09",
       "region": "Southern Ski Slopes",
       "gallons": 220
     },
     {
       "month": "2020-09",
-      "region": "UVM",
-      "gallons": 325
+      "region": "Summer Snack Stops",
+      "gallons": 595
     },
     {
       "month": "2020-09",
@@ -46092,8 +46812,8 @@
     },
     {
       "month": "2020-10",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 125
+      "region": "North-Northeast",
+      "gallons": 550
     },
     {
       "month": "2020-10",
@@ -46103,7 +46823,7 @@
     {
       "month": "2020-10",
       "region": "Other",
-      "gallons": 1090
+      "gallons": 665
     },
     {
       "month": "2020-10",
@@ -46127,13 +46847,28 @@
     },
     {
       "month": "2020-10",
+      "region": "Ski Slopes",
+      "gallons": 225
+    },
+    {
+      "month": "2020-10",
       "region": "South",
       "gallons": 175
     },
     {
       "month": "2020-10",
+      "region": "South / Ski Combined",
+      "gallons": 490
+    },
+    {
+      "month": "2020-10",
       "region": "Southern Ski Slopes",
       "gallons": 315
+    },
+    {
+      "month": "2020-10",
+      "region": "Summer Snack Stops",
+      "gallons": 335
     },
     {
       "month": "2020-10",
@@ -46162,7 +46897,7 @@
     },
     {
       "month": "2020-11",
-      "region": "Jay / Montgomery / Troy",
+      "region": "North-Northeast",
       "gallons": 695
     },
     {
@@ -46192,13 +46927,23 @@
     },
     {
       "month": "2020-11",
+      "region": "Ski Slopes",
+      "gallons": 835
+    },
+    {
+      "month": "2020-11",
+      "region": "South / Ski Combined",
+      "gallons": 460
+    },
+    {
+      "month": "2020-11",
       "region": "Southern Ski Slopes",
       "gallons": 460
     },
     {
       "month": "2020-11",
-      "region": "UVM",
-      "gallons": 250
+      "region": "Summer Snack Stops",
+      "gallons": 480
     },
     {
       "month": "2020-11",
@@ -46227,8 +46972,8 @@
     },
     {
       "month": "2020-12",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 230
+      "region": "North-Northeast",
+      "gallons": 565
     },
     {
       "month": "2020-12",
@@ -46238,7 +46983,7 @@
     {
       "month": "2020-12",
       "region": "Other",
-      "gallons": 1070
+      "gallons": 585
     },
     {
       "month": "2020-12",
@@ -46262,8 +47007,18 @@
     },
     {
       "month": "2020-12",
+      "region": "Ski Slopes",
+      "gallons": 525
+    },
+    {
+      "month": "2020-12",
       "region": "South",
-      "gallons": 125
+      "gallons": 275
+    },
+    {
+      "month": "2020-12",
+      "region": "South / Ski Combined",
+      "gallons": 375
     },
     {
       "month": "2020-12",
@@ -46272,8 +47027,8 @@
     },
     {
       "month": "2020-12",
-      "region": "UVM",
-      "gallons": 375
+      "region": "Summer Snack Stops",
+      "gallons": 185
     },
     {
       "month": "2020-12",
@@ -46302,13 +47057,18 @@
     },
     {
       "month": "2021-01",
+      "region": "North-Northeast",
+      "gallons": 525
+    },
+    {
+      "month": "2021-01",
       "region": "Northwest",
-      "gallons": 600
+      "gallons": 975
     },
     {
       "month": "2021-01",
       "region": "Other",
-      "gallons": 800
+      "gallons": 275
     },
     {
       "month": "2021-01",
@@ -46332,13 +47092,18 @@
     },
     {
       "month": "2021-01",
-      "region": "Southern Ski Slopes",
+      "region": "Ski Slopes",
+      "gallons": 975
+    },
+    {
+      "month": "2021-01",
+      "region": "South / Ski Combined",
       "gallons": 560
     },
     {
       "month": "2021-01",
-      "region": "UVM",
-      "gallons": 50
+      "region": "Southern Ski Slopes",
+      "gallons": 560
     },
     {
       "month": "2021-01",
@@ -46367,7 +47132,7 @@
     },
     {
       "month": "2021-02",
-      "region": "Jay / Montgomery / Troy",
+      "region": "North-Northeast",
       "gallons": 580
     },
     {
@@ -46397,13 +47162,18 @@
     },
     {
       "month": "2021-02",
-      "region": "Southern Ski Slopes",
+      "region": "Ski Slopes",
+      "gallons": 1115
+    },
+    {
+      "month": "2021-02",
+      "region": "South / Ski Combined",
       "gallons": 535
     },
     {
       "month": "2021-02",
-      "region": "UVM",
-      "gallons": 260
+      "region": "Southern Ski Slopes",
+      "gallons": 535
     },
     {
       "month": "2021-02",
@@ -46432,13 +47202,18 @@
     },
     {
       "month": "2021-03",
+      "region": "North-Northeast",
+      "gallons": 250
+    },
+    {
+      "month": "2021-03",
       "region": "Northwest",
-      "gallons": 650
+      "gallons": 800
     },
     {
       "month": "2021-03",
       "region": "Other",
-      "gallons": 1305
+      "gallons": 775
     },
     {
       "month": "2021-03",
@@ -46457,18 +47232,23 @@
     },
     {
       "month": "2021-03",
+      "region": "Ski Slopes",
+      "gallons": 1010
+    },
+    {
+      "month": "2021-03",
       "region": "South",
       "gallons": 200
     },
     {
       "month": "2021-03",
-      "region": "Southern Ski Slopes",
-      "gallons": 400
+      "region": "South / Ski Combined",
+      "gallons": 600
     },
     {
       "month": "2021-03",
-      "region": "UVM",
-      "gallons": 365
+      "region": "Southern Ski Slopes",
+      "gallons": 400
     },
     {
       "month": "2021-03",
@@ -46497,8 +47277,8 @@
     },
     {
       "month": "2021-04",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 450
+      "region": "North-Northeast",
+      "gallons": 520
     },
     {
       "month": "2021-04",
@@ -46508,7 +47288,7 @@
     {
       "month": "2021-04",
       "region": "Other",
-      "gallons": 120
+      "gallons": 50
     },
     {
       "month": "2021-04",
@@ -46532,13 +47312,23 @@
     },
     {
       "month": "2021-04",
+      "region": "Ski Slopes",
+      "gallons": 1670
+    },
+    {
+      "month": "2021-04",
+      "region": "South / Ski Combined",
+      "gallons": 775
+    },
+    {
+      "month": "2021-04",
       "region": "Southern Ski Slopes",
       "gallons": 775
     },
     {
       "month": "2021-04",
-      "region": "UVM",
-      "gallons": 570
+      "region": "Summer Snack Stops",
+      "gallons": 50
     },
     {
       "month": "2021-04",
@@ -46567,8 +47357,8 @@
     },
     {
       "month": "2021-05",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 375
+      "region": "North-Northeast",
+      "gallons": 675
     },
     {
       "month": "2021-05",
@@ -46578,7 +47368,7 @@
     {
       "month": "2021-05",
       "region": "Other",
-      "gallons": 1150
+      "gallons": 850
     },
     {
       "month": "2021-05",
@@ -46602,8 +47392,23 @@
     },
     {
       "month": "2021-05",
+      "region": "Ski Slopes",
+      "gallons": 450
+    },
+    {
+      "month": "2021-05",
+      "region": "South / Ski Combined",
+      "gallons": 150
+    },
+    {
+      "month": "2021-05",
       "region": "Southern Ski Slopes",
       "gallons": 150
+    },
+    {
+      "month": "2021-05",
+      "region": "Summer Snack Stops",
+      "gallons": 300
     },
     {
       "month": "2021-05",
@@ -46627,18 +47432,18 @@
     },
     {
       "month": "2021-06",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 275
+      "region": "North-Northeast",
+      "gallons": 950
     },
     {
       "month": "2021-06",
       "region": "Northwest",
-      "gallons": 2150
+      "gallons": 2850
     },
     {
       "month": "2021-06",
       "region": "Other",
-      "gallons": 1225
+      "gallons": 425
     },
     {
       "month": "2021-06",
@@ -46662,8 +47467,23 @@
     },
     {
       "month": "2021-06",
+      "region": "Ski Slopes",
+      "gallons": 230
+    },
+    {
+      "month": "2021-06",
       "region": "South",
       "gallons": 175
+    },
+    {
+      "month": "2021-06",
+      "region": "South / Ski Combined",
+      "gallons": 175
+    },
+    {
+      "month": "2021-06",
+      "region": "Summer Snack Stops",
+      "gallons": 605
     },
     {
       "month": "2021-06",
@@ -46687,8 +47507,8 @@
     },
     {
       "month": "2021-07",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 70
+      "region": "North-Northeast",
+      "gallons": 385
     },
     {
       "month": "2021-07",
@@ -46698,7 +47518,7 @@
     {
       "month": "2021-07",
       "region": "Other",
-      "gallons": 1380
+      "gallons": 630
     },
     {
       "month": "2021-07",
@@ -46713,7 +47533,7 @@
     {
       "month": "2021-07",
       "region": "Route 2 East",
-      "gallons": 550
+      "gallons": 985
     },
     {
       "month": "2021-07",
@@ -46722,13 +47542,23 @@
     },
     {
       "month": "2021-07",
+      "region": "Ski Slopes",
+      "gallons": 475
+    },
+    {
+      "month": "2021-07",
+      "region": "South / Ski Combined",
+      "gallons": 400
+    },
+    {
+      "month": "2021-07",
       "region": "Southern Ski Slopes",
       "gallons": 400
     },
     {
       "month": "2021-07",
-      "region": "UVM",
-      "gallons": 495
+      "region": "Summer Snack Stops",
+      "gallons": 600
     },
     {
       "month": "2021-07",
@@ -46757,18 +47587,18 @@
     },
     {
       "month": "2021-08",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 500
+      "region": "North-Northeast",
+      "gallons": 940
     },
     {
       "month": "2021-08",
       "region": "Northwest",
-      "gallons": 1720
+      "gallons": 2010
     },
     {
       "month": "2021-08",
       "region": "Other",
-      "gallons": 1695
+      "gallons": 740
     },
     {
       "month": "2021-08",
@@ -46783,7 +47613,7 @@
     {
       "month": "2021-08",
       "region": "Route 2 East",
-      "gallons": 525
+      "gallons": 840
     },
     {
       "month": "2021-08",
@@ -46792,13 +47622,28 @@
     },
     {
       "month": "2021-08",
+      "region": "Ski Slopes",
+      "gallons": 825
+    },
+    {
+      "month": "2021-08",
       "region": "South",
-      "gallons": 150
+      "gallons": 250
+    },
+    {
+      "month": "2021-08",
+      "region": "South / Ski Combined",
+      "gallons": 900
     },
     {
       "month": "2021-08",
       "region": "Southern Ski Slopes",
       "gallons": 650
+    },
+    {
+      "month": "2021-08",
+      "region": "Summer Snack Stops",
+      "gallons": 1060
     },
     {
       "month": "2021-08",
@@ -46833,7 +47678,7 @@
     {
       "month": "2021-09",
       "region": "Other",
-      "gallons": 600
+      "gallons": 395
     },
     {
       "month": "2021-09",
@@ -46857,13 +47702,28 @@
     },
     {
       "month": "2021-09",
+      "region": "Ski Slopes",
+      "gallons": 565
+    },
+    {
+      "month": "2021-09",
       "region": "South",
-      "gallons": 110
+      "gallons": 315
+    },
+    {
+      "month": "2021-09",
+      "region": "South / Ski Combined",
+      "gallons": 730
     },
     {
       "month": "2021-09",
       "region": "Southern Ski Slopes",
       "gallons": 415
+    },
+    {
+      "month": "2021-09",
+      "region": "Summer Snack Stops",
+      "gallons": 1415
     },
     {
       "month": "2021-09",
@@ -46892,18 +47752,18 @@
     },
     {
       "month": "2021-10",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 500
+      "region": "North-Northeast",
+      "gallons": 880
     },
     {
       "month": "2021-10",
       "region": "Northwest",
-      "gallons": 755
+      "gallons": 970
     },
     {
       "month": "2021-10",
       "region": "Other",
-      "gallons": 900
+      "gallons": 520
     },
     {
       "month": "2021-10",
@@ -46922,8 +47782,13 @@
     },
     {
       "month": "2021-10",
-      "region": "UVM",
-      "gallons": 150
+      "region": "Ski Slopes",
+      "gallons": 75
+    },
+    {
+      "month": "2021-10",
+      "region": "Summer Snack Stops",
+      "gallons": 630
     },
     {
       "month": "2021-10",
@@ -46952,13 +47817,18 @@
     },
     {
       "month": "2021-11",
+      "region": "North-Northeast",
+      "gallons": 295
+    },
+    {
+      "month": "2021-11",
       "region": "Northwest",
-      "gallons": 750
+      "gallons": 875
     },
     {
       "month": "2021-11",
       "region": "Other",
-      "gallons": 5050
+      "gallons": 4460
     },
     {
       "month": "2021-11",
@@ -46973,7 +47843,7 @@
     {
       "month": "2021-11",
       "region": "Route 2 East",
-      "gallons": 534
+      "gallons": 829
     },
     {
       "month": "2021-11",
@@ -46982,8 +47852,18 @@
     },
     {
       "month": "2021-11",
+      "region": "Ski Slopes",
+      "gallons": 260
+    },
+    {
+      "month": "2021-11",
       "region": "South",
       "gallons": 150
+    },
+    {
+      "month": "2021-11",
+      "region": "South / Ski Combined",
+      "gallons": 315
     },
     {
       "month": "2021-11",
@@ -46992,8 +47872,8 @@
     },
     {
       "month": "2021-11",
-      "region": "UVM",
-      "gallons": 470
+      "region": "Summer Snack Stops",
+      "gallons": 145
     },
     {
       "month": "2021-11",
@@ -47022,8 +47902,8 @@
     },
     {
       "month": "2021-12",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 365
+      "region": "North-Northeast",
+      "gallons": 661
     },
     {
       "month": "2021-12",
@@ -47033,7 +47913,7 @@
     {
       "month": "2021-12",
       "region": "Other",
-      "gallons": 1302
+      "gallons": 725
     },
     {
       "month": "2021-12",
@@ -47047,13 +47927,28 @@
     },
     {
       "month": "2021-12",
+      "region": "Route 2 East",
+      "gallons": 141
+    },
+    {
+      "month": "2021-12",
       "region": "Route 7",
       "gallons": 850
     },
     {
       "month": "2021-12",
+      "region": "Ski Slopes",
+      "gallons": 1210
+    },
+    {
+      "month": "2021-12",
       "region": "South",
-      "gallons": 225
+      "gallons": 270
+    },
+    {
+      "month": "2021-12",
+      "region": "South / Ski Combined",
+      "gallons": 1175
     },
     {
       "month": "2021-12",
@@ -47062,8 +47957,8 @@
     },
     {
       "month": "2021-12",
-      "region": "UVM",
-      "gallons": 375
+      "region": "Summer Snack Stops",
+      "gallons": 80
     },
     {
       "month": "2021-12",
@@ -47092,18 +47987,18 @@
     },
     {
       "month": "2022-01",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 310
+      "region": "North-Northeast",
+      "gallons": 547
     },
     {
       "month": "2022-01",
       "region": "Northwest",
-      "gallons": 55
+      "gallons": 292
     },
     {
       "month": "2022-01",
       "region": "Other",
-      "gallons": 385
+      "gallons": 148
     },
     {
       "month": "2022-01",
@@ -47127,8 +48022,13 @@
     },
     {
       "month": "2022-01",
-      "region": "UVM",
-      "gallons": 20
+      "region": "Ski Slopes",
+      "gallons": 800
+    },
+    {
+      "month": "2022-01",
+      "region": "Summer Snack Stops",
+      "gallons": 25
     },
     {
       "month": "2022-01",
@@ -47157,18 +48057,18 @@
     },
     {
       "month": "2022-02",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 910
+      "region": "North-Northeast",
+      "gallons": 1245
     },
     {
       "month": "2022-02",
       "region": "Northwest",
-      "gallons": 1145
+      "gallons": 1285
     },
     {
       "month": "2022-02",
       "region": "Other",
-      "gallons": 1415
+      "gallons": 555
     },
     {
       "month": "2022-02",
@@ -47183,7 +48083,7 @@
     {
       "month": "2022-02",
       "region": "Route 2 East",
-      "gallons": 140
+      "gallons": 380
     },
     {
       "month": "2022-02",
@@ -47192,18 +48092,23 @@
     },
     {
       "month": "2022-02",
+      "region": "Ski Slopes",
+      "gallons": 2055
+    },
+    {
+      "month": "2022-02",
       "region": "South",
       "gallons": 20
     },
     {
       "month": "2022-02",
-      "region": "Southern Ski Slopes",
-      "gallons": 1040
+      "region": "South / Ski Combined",
+      "gallons": 1060
     },
     {
       "month": "2022-02",
-      "region": "UVM",
-      "gallons": 335
+      "region": "Southern Ski Slopes",
+      "gallons": 1040
     },
     {
       "month": "2022-02",
@@ -47232,13 +48137,18 @@
     },
     {
       "month": "2022-03",
+      "region": "North-Northeast",
+      "gallons": 100
+    },
+    {
+      "month": "2022-03",
       "region": "Northwest",
       "gallons": 5865
     },
     {
       "month": "2022-03",
       "region": "Other",
-      "gallons": 945
+      "gallons": 815
     },
     {
       "month": "2022-03",
@@ -47262,18 +48172,23 @@
     },
     {
       "month": "2022-03",
+      "region": "Ski Slopes",
+      "gallons": 1065
+    },
+    {
+      "month": "2022-03",
       "region": "South",
-      "gallons": 120
+      "gallons": 150
+    },
+    {
+      "month": "2022-03",
+      "region": "South / Ski Combined",
+      "gallons": 965
     },
     {
       "month": "2022-03",
       "region": "Southern Ski Slopes",
       "gallons": 815
-    },
-    {
-      "month": "2022-03",
-      "region": "UVM",
-      "gallons": 355
     },
     {
       "month": "2022-03",
@@ -47302,18 +48217,18 @@
     },
     {
       "month": "2022-04",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 970
+      "region": "North-Northeast",
+      "gallons": 1840
     },
     {
       "month": "2022-04",
       "region": "Northwest",
-      "gallons": 1220
+      "gallons": 1560
     },
     {
       "month": "2022-04",
       "region": "Other",
-      "gallons": 1725
+      "gallons": 510
     },
     {
       "month": "2022-04",
@@ -47328,7 +48243,7 @@
     {
       "month": "2022-04",
       "region": "Route 2 East",
-      "gallons": 1155
+      "gallons": 1500
     },
     {
       "month": "2022-04",
@@ -47337,8 +48252,18 @@
     },
     {
       "month": "2022-04",
+      "region": "Ski Slopes",
+      "gallons": 1600
+    },
+    {
+      "month": "2022-04",
       "region": "South",
       "gallons": 130
+    },
+    {
+      "month": "2022-04",
+      "region": "South / Ski Combined",
+      "gallons": 415
     },
     {
       "month": "2022-04",
@@ -47347,8 +48272,8 @@
     },
     {
       "month": "2022-04",
-      "region": "UVM",
-      "gallons": 450
+      "region": "Summer Snack Stops",
+      "gallons": 140
     },
     {
       "month": "2022-04",
@@ -47377,13 +48302,18 @@
     },
     {
       "month": "2022-05",
+      "region": "North-Northeast",
+      "gallons": 120
+    },
+    {
+      "month": "2022-05",
       "region": "Northwest",
       "gallons": 2625
     },
     {
       "month": "2022-05",
       "region": "Other",
-      "gallons": 1170
+      "gallons": 825
     },
     {
       "month": "2022-05",
@@ -47398,7 +48328,7 @@
     {
       "month": "2022-05",
       "region": "Route 2 East",
-      "gallons": 835
+      "gallons": 1060
     },
     {
       "month": "2022-05",
@@ -47407,8 +48337,18 @@
     },
     {
       "month": "2022-05",
+      "region": "Ski Slopes",
+      "gallons": 650
+    },
+    {
+      "month": "2022-05",
       "region": "South",
       "gallons": 395
+    },
+    {
+      "month": "2022-05",
+      "region": "South / Ski Combined",
+      "gallons": 1015
     },
     {
       "month": "2022-05",
@@ -47417,8 +48357,8 @@
     },
     {
       "month": "2022-05",
-      "region": "UVM",
-      "gallons": 490
+      "region": "Summer Snack Stops",
+      "gallons": 365
     },
     {
       "month": "2022-05",
@@ -47447,18 +48387,18 @@
     },
     {
       "month": "2022-06",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 390
+      "region": "North-Northeast",
+      "gallons": 930
     },
     {
       "month": "2022-06",
       "region": "Northwest",
-      "gallons": 1025
+      "gallons": 1220
     },
     {
       "month": "2022-06",
       "region": "Other",
-      "gallons": 1565
+      "gallons": 380
     },
     {
       "month": "2022-06",
@@ -47473,7 +48413,7 @@
     {
       "month": "2022-06",
       "region": "Route 2 East",
-      "gallons": 765
+      "gallons": 890
     },
     {
       "month": "2022-06",
@@ -47482,13 +48422,28 @@
     },
     {
       "month": "2022-06",
+      "region": "Ski Slopes",
+      "gallons": 580
+    },
+    {
+      "month": "2022-06",
       "region": "South",
-      "gallons": 210
+      "gallons": 355
+    },
+    {
+      "month": "2022-06",
+      "region": "South / Ski Combined",
+      "gallons": 600
     },
     {
       "month": "2022-06",
       "region": "Southern Ski Slopes",
       "gallons": 245
+    },
+    {
+      "month": "2022-06",
+      "region": "Summer Snack Stops",
+      "gallons": 1030
     },
     {
       "month": "2022-06",
@@ -47517,18 +48472,18 @@
     },
     {
       "month": "2022-07",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 100
+      "region": "North-Northeast",
+      "gallons": 518
     },
     {
       "month": "2022-07",
       "region": "Northwest",
-      "gallons": 3935
+      "gallons": 4238
     },
     {
       "month": "2022-07",
       "region": "Other",
-      "gallons": 1968
+      "gallons": 960
     },
     {
       "month": "2022-07",
@@ -47543,7 +48498,7 @@
     {
       "month": "2022-07",
       "region": "Route 2 East",
-      "gallons": 415
+      "gallons": 720
     },
     {
       "month": "2022-07",
@@ -47557,8 +48512,18 @@
     },
     {
       "month": "2022-07",
+      "region": "South / Ski Combined",
+      "gallons": 380
+    },
+    {
+      "month": "2022-07",
       "region": "Southern Ski Slopes",
       "gallons": 255
+    },
+    {
+      "month": "2022-07",
+      "region": "Summer Snack Stops",
+      "gallons": 1170
     },
     {
       "month": "2022-07",
@@ -47582,18 +48547,18 @@
     },
     {
       "month": "2022-08",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 650
+      "region": "North-Northeast",
+      "gallons": 1200
     },
     {
       "month": "2022-08",
       "region": "Northwest",
-      "gallons": 2207
+      "gallons": 2322
     },
     {
       "month": "2022-08",
       "region": "Other",
-      "gallons": 1549
+      "gallons": 674
     },
     {
       "month": "2022-08",
@@ -47608,7 +48573,7 @@
     {
       "month": "2022-08",
       "region": "Route 2 East",
-      "gallons": 1155
+      "gallons": 1365
     },
     {
       "month": "2022-08",
@@ -47617,8 +48582,13 @@
     },
     {
       "month": "2022-08",
-      "region": "UVM",
-      "gallons": 500
+      "region": "Ski Slopes",
+      "gallons": 620
+    },
+    {
+      "month": "2022-08",
+      "region": "Summer Snack Stops",
+      "gallons": 1625
     },
     {
       "month": "2022-08",
@@ -47647,18 +48617,18 @@
     },
     {
       "month": "2022-09",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 395
+      "region": "North-Northeast",
+      "gallons": 1247
     },
     {
       "month": "2022-09",
       "region": "Northwest",
-      "gallons": 1624
+      "gallons": 2498
     },
     {
       "month": "2022-09",
       "region": "Other",
-      "gallons": 2928
+      "gallons": 1459
     },
     {
       "month": "2022-09",
@@ -47682,8 +48652,18 @@
     },
     {
       "month": "2022-09",
+      "region": "Ski Slopes",
+      "gallons": 560
+    },
+    {
+      "month": "2022-09",
       "region": "South",
-      "gallons": 380
+      "gallons": 645
+    },
+    {
+      "month": "2022-09",
+      "region": "South / Ski Combined",
+      "gallons": 1210
     },
     {
       "month": "2022-09",
@@ -47692,8 +48672,8 @@
     },
     {
       "month": "2022-09",
-      "region": "UVM",
-      "gallons": 365
+      "region": "Summer Snack Stops",
+      "gallons": 2575
     },
     {
       "month": "2022-09",
@@ -47722,13 +48702,18 @@
     },
     {
       "month": "2022-10",
+      "region": "North-Northeast",
+      "gallons": 115
+    },
+    {
+      "month": "2022-10",
       "region": "Northwest",
-      "gallons": 5366
+      "gallons": 5408
     },
     {
       "month": "2022-10",
       "region": "Other",
-      "gallons": 1503
+      "gallons": 991
     },
     {
       "month": "2022-10",
@@ -47743,7 +48728,7 @@
     {
       "month": "2022-10",
       "region": "Route 2 East",
-      "gallons": 465
+      "gallons": 820
     },
     {
       "month": "2022-10",
@@ -47752,13 +48737,23 @@
     },
     {
       "month": "2022-10",
+      "region": "Ski Slopes",
+      "gallons": 285
+    },
+    {
+      "month": "2022-10",
+      "region": "South / Ski Combined",
+      "gallons": 90
+    },
+    {
+      "month": "2022-10",
       "region": "Southern Ski Slopes",
       "gallons": 90
     },
     {
       "month": "2022-10",
-      "region": "UVM",
-      "gallons": 70
+      "region": "Summer Snack Stops",
+      "gallons": 620
     },
     {
       "month": "2022-10",
@@ -47787,18 +48782,18 @@
     },
     {
       "month": "2022-11",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 675
+      "region": "North-Northeast",
+      "gallons": 1350
     },
     {
       "month": "2022-11",
       "region": "Northwest",
-      "gallons": 265
+      "gallons": 610
     },
     {
       "month": "2022-11",
       "region": "Other",
-      "gallons": 1795
+      "gallons": 895
     },
     {
       "month": "2022-11",
@@ -47822,8 +48817,18 @@
     },
     {
       "month": "2022-11",
+      "region": "Ski Slopes",
+      "gallons": 715
+    },
+    {
+      "month": "2022-11",
       "region": "South",
-      "gallons": 170
+      "gallons": 270
+    },
+    {
+      "month": "2022-11",
+      "region": "South / Ski Combined",
+      "gallons": 420
     },
     {
       "month": "2022-11",
@@ -47832,8 +48837,8 @@
     },
     {
       "month": "2022-11",
-      "region": "UVM",
-      "gallons": 570
+      "region": "Summer Snack Stops",
+      "gallons": 250
     },
     {
       "month": "2022-11",
@@ -47862,18 +48867,18 @@
     },
     {
       "month": "2022-12",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 345
+      "region": "North-Northeast",
+      "gallons": 700
     },
     {
       "month": "2022-12",
       "region": "Northwest",
-      "gallons": 590
+      "gallons": 766
     },
     {
       "month": "2022-12",
       "region": "Other",
-      "gallons": 3718
+      "gallons": 2897
     },
     {
       "month": "2022-12",
@@ -47888,7 +48893,7 @@
     {
       "month": "2022-12",
       "region": "Route 2 East",
-      "gallons": 210
+      "gallons": 530
     },
     {
       "month": "2022-12",
@@ -47897,8 +48902,18 @@
     },
     {
       "month": "2022-12",
+      "region": "Ski Slopes",
+      "gallons": 955
+    },
+    {
+      "month": "2022-12",
       "region": "South",
-      "gallons": 65
+      "gallons": 125
+    },
+    {
+      "month": "2022-12",
+      "region": "South / Ski Combined",
+      "gallons": 671
     },
     {
       "month": "2022-12",
@@ -47907,8 +48922,8 @@
     },
     {
       "month": "2022-12",
-      "region": "UVM",
-      "gallons": 435
+      "region": "Summer Snack Stops",
+      "gallons": 220
     },
     {
       "month": "2022-12",
@@ -47937,13 +48952,18 @@
     },
     {
       "month": "2023-01",
+      "region": "North-Northeast",
+      "gallons": 140
+    },
+    {
+      "month": "2023-01",
       "region": "Northwest",
       "gallons": 370
     },
     {
       "month": "2023-01",
       "region": "Other",
-      "gallons": 1128
+      "gallons": 868
     },
     {
       "month": "2023-01",
@@ -47967,18 +48987,23 @@
     },
     {
       "month": "2023-01",
+      "region": "Ski Slopes",
+      "gallons": 1615
+    },
+    {
+      "month": "2023-01",
       "region": "South",
       "gallons": 245
     },
     {
       "month": "2023-01",
-      "region": "Southern Ski Slopes",
-      "gallons": 1245
+      "region": "South / Ski Combined",
+      "gallons": 1490
     },
     {
       "month": "2023-01",
-      "region": "UVM",
-      "gallons": 390
+      "region": "Southern Ski Slopes",
+      "gallons": 1245
     },
     {
       "month": "2023-01",
@@ -48007,18 +49032,18 @@
     },
     {
       "month": "2023-02",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 940
+      "region": "North-Northeast",
+      "gallons": 1816
     },
     {
       "month": "2023-02",
       "region": "Northwest",
-      "gallons": 733
+      "gallons": 1424
     },
     {
       "month": "2023-02",
       "region": "Other",
-      "gallons": 1679
+      "gallons": 498
     },
     {
       "month": "2023-02",
@@ -48033,7 +49058,7 @@
     {
       "month": "2023-02",
       "region": "Route 2 East",
-      "gallons": 225
+      "gallons": 430
     },
     {
       "month": "2023-02",
@@ -48042,8 +49067,8 @@
     },
     {
       "month": "2023-02",
-      "region": "UVM",
-      "gallons": 385
+      "region": "Ski Slopes",
+      "gallons": 1790
     },
     {
       "month": "2023-02",
@@ -48072,18 +49097,18 @@
     },
     {
       "month": "2023-03",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 925
+      "region": "North-Northeast",
+      "gallons": 975
     },
     {
       "month": "2023-03",
       "region": "Northwest",
-      "gallons": 762
+      "gallons": 1077
     },
     {
       "month": "2023-03",
       "region": "Other",
-      "gallons": 1767
+      "gallons": 1302
     },
     {
       "month": "2023-03",
@@ -48107,18 +49132,23 @@
     },
     {
       "month": "2023-03",
+      "region": "Ski Slopes",
+      "gallons": 2595
+    },
+    {
+      "month": "2023-03",
       "region": "South",
       "gallons": 510
     },
     {
       "month": "2023-03",
-      "region": "Southern Ski Slopes",
-      "gallons": 1190
+      "region": "South / Ski Combined",
+      "gallons": 1700
     },
     {
       "month": "2023-03",
-      "region": "UVM",
-      "gallons": 435
+      "region": "Southern Ski Slopes",
+      "gallons": 1190
     },
     {
       "month": "2023-03",
@@ -48147,18 +49177,18 @@
     },
     {
       "month": "2023-04",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 215
+      "region": "North-Northeast",
+      "gallons": 815
     },
     {
       "month": "2023-04",
       "region": "Northwest",
-      "gallons": 2699
+      "gallons": 3189
     },
     {
       "month": "2023-04",
       "region": "Other",
-      "gallons": 1761
+      "gallons": 831
     },
     {
       "month": "2023-04",
@@ -48173,7 +49203,7 @@
     {
       "month": "2023-04",
       "region": "Route 2 East",
-      "gallons": 160
+      "gallons": 340
     },
     {
       "month": "2023-04",
@@ -48182,18 +49212,23 @@
     },
     {
       "month": "2023-04",
+      "region": "Ski Slopes",
+      "gallons": 565
+    },
+    {
+      "month": "2023-04",
       "region": "South",
       "gallons": 225
     },
     {
       "month": "2023-04",
-      "region": "Southern Ski Slopes",
-      "gallons": 85
+      "region": "South / Ski Combined",
+      "gallons": 310
     },
     {
       "month": "2023-04",
-      "region": "UVM",
-      "gallons": 605
+      "region": "Southern Ski Slopes",
+      "gallons": 85
     },
     {
       "month": "2023-04",
@@ -48222,18 +49257,18 @@
     },
     {
       "month": "2023-05",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 370
+      "region": "North-Northeast",
+      "gallons": 825
     },
     {
       "month": "2023-05",
       "region": "Northwest",
-      "gallons": 3028
+      "gallons": 3383
     },
     {
       "month": "2023-05",
       "region": "Other",
-      "gallons": 2768
+      "gallons": 1593
     },
     {
       "month": "2023-05",
@@ -48248,7 +49283,7 @@
     {
       "month": "2023-05",
       "region": "Route 2 East",
-      "gallons": 360
+      "gallons": 645
     },
     {
       "month": "2023-05",
@@ -48257,13 +49292,28 @@
     },
     {
       "month": "2023-05",
+      "region": "Ski Slopes",
+      "gallons": 780
+    },
+    {
+      "month": "2023-05",
       "region": "South",
-      "gallons": 920
+      "gallons": 945
+    },
+    {
+      "month": "2023-05",
+      "region": "South / Ski Combined",
+      "gallons": 1455
     },
     {
       "month": "2023-05",
       "region": "Southern Ski Slopes",
       "gallons": 510
+    },
+    {
+      "month": "2023-05",
+      "region": "Summer Snack Stops",
+      "gallons": 795
     },
     {
       "month": "2023-05",
@@ -48292,18 +49342,18 @@
     },
     {
       "month": "2023-06",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 930
+      "region": "North-Northeast",
+      "gallons": 1671
     },
     {
       "month": "2023-06",
       "region": "Northwest",
-      "gallons": 2567
+      "gallons": 3530
     },
     {
       "month": "2023-06",
       "region": "Other",
-      "gallons": 2597
+      "gallons": 1445
     },
     {
       "month": "2023-06",
@@ -48318,7 +49368,7 @@
     {
       "month": "2023-06",
       "region": "Route 2 East",
-      "gallons": 710
+      "gallons": 807
     },
     {
       "month": "2023-06",
@@ -48327,8 +49377,18 @@
     },
     {
       "month": "2023-06",
+      "region": "Ski Slopes",
+      "gallons": 540
+    },
+    {
+      "month": "2023-06",
       "region": "South",
       "gallons": 245
+    },
+    {
+      "month": "2023-06",
+      "region": "South / Ski Combined",
+      "gallons": 480
     },
     {
       "month": "2023-06",
@@ -48337,8 +49397,8 @@
     },
     {
       "month": "2023-06",
-      "region": "UVM",
-      "gallons": 295
+      "region": "Summer Snack Stops",
+      "gallons": 1115
     },
     {
       "month": "2023-06",
@@ -48368,12 +49428,12 @@
     {
       "month": "2023-07",
       "region": "Northwest",
-      "gallons": 2665
+      "gallons": 2880
     },
     {
       "month": "2023-07",
       "region": "Other",
-      "gallons": 886
+      "gallons": 451
     },
     {
       "month": "2023-07",
@@ -48397,8 +49457,18 @@
     },
     {
       "month": "2023-07",
+      "region": "Ski Slopes",
+      "gallons": 605
+    },
+    {
+      "month": "2023-07",
       "region": "South",
-      "gallons": 595
+      "gallons": 725
+    },
+    {
+      "month": "2023-07",
+      "region": "South / Ski Combined",
+      "gallons": 985
     },
     {
       "month": "2023-07",
@@ -48407,8 +49477,8 @@
     },
     {
       "month": "2023-07",
-      "region": "UVM",
-      "gallons": 185
+      "region": "Summer Snack Stops",
+      "gallons": 1003
     },
     {
       "month": "2023-07",
@@ -48437,18 +49507,18 @@
     },
     {
       "month": "2023-08",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 715
+      "region": "North-Northeast",
+      "gallons": 1390
     },
     {
       "month": "2023-08",
       "region": "Northwest",
-      "gallons": 1287
+      "gallons": 1877
     },
     {
       "month": "2023-08",
       "region": "Other",
-      "gallons": 2461
+      "gallons": 1086
     },
     {
       "month": "2023-08",
@@ -48472,8 +49542,18 @@
     },
     {
       "month": "2023-08",
+      "region": "Ski Slopes",
+      "gallons": 750
+    },
+    {
+      "month": "2023-08",
       "region": "South",
       "gallons": 400
+    },
+    {
+      "month": "2023-08",
+      "region": "South / Ski Combined",
+      "gallons": 615
     },
     {
       "month": "2023-08",
@@ -48482,8 +49562,8 @@
     },
     {
       "month": "2023-08",
-      "region": "UVM",
-      "gallons": 245
+      "region": "Summer Snack Stops",
+      "gallons": 1500
     },
     {
       "month": "2023-08",
@@ -48512,13 +49592,18 @@
     },
     {
       "month": "2023-09",
+      "region": "North-Northeast",
+      "gallons": 952
+    },
+    {
+      "month": "2023-09",
       "region": "Northwest",
-      "gallons": 1008
+      "gallons": 1580
     },
     {
       "month": "2023-09",
       "region": "Other",
-      "gallons": 2217
+      "gallons": 940
     },
     {
       "month": "2023-09",
@@ -48533,7 +49618,7 @@
     {
       "month": "2023-09",
       "region": "Route 2 East",
-      "gallons": 525
+      "gallons": 850
     },
     {
       "month": "2023-09",
@@ -48542,13 +49627,23 @@
     },
     {
       "month": "2023-09",
+      "region": "Ski Slopes",
+      "gallons": 160
+    },
+    {
+      "month": "2023-09",
+      "region": "South / Ski Combined",
+      "gallons": 100
+    },
+    {
+      "month": "2023-09",
       "region": "Southern Ski Slopes",
       "gallons": 100
     },
     {
       "month": "2023-09",
-      "region": "UVM",
-      "gallons": 520
+      "region": "Summer Snack Stops",
+      "gallons": 2090
     },
     {
       "month": "2023-09",
@@ -48577,18 +49672,18 @@
     },
     {
       "month": "2023-10",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 355
+      "region": "North-Northeast",
+      "gallons": 405
     },
     {
       "month": "2023-10",
       "region": "Northwest",
-      "gallons": 1548
+      "gallons": 2005
     },
     {
       "month": "2023-10",
       "region": "Other",
-      "gallons": 3557
+      "gallons": 2940
     },
     {
       "month": "2023-10",
@@ -48612,8 +49707,18 @@
     },
     {
       "month": "2023-10",
+      "region": "Ski Slopes",
+      "gallons": 375
+    },
+    {
+      "month": "2023-10",
       "region": "South",
-      "gallons": 760
+      "gallons": 870
+    },
+    {
+      "month": "2023-10",
+      "region": "South / Ski Combined",
+      "gallons": 877
     },
     {
       "month": "2023-10",
@@ -48622,8 +49727,8 @@
     },
     {
       "month": "2023-10",
-      "region": "UVM",
-      "gallons": 60
+      "region": "Summer Snack Stops",
+      "gallons": 968
     },
     {
       "month": "2023-10",
@@ -48652,18 +49757,18 @@
     },
     {
       "month": "2023-11",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 530
+      "region": "North-Northeast",
+      "gallons": 1015
     },
     {
       "month": "2023-11",
       "region": "Northwest",
-      "gallons": 1442
+      "gallons": 1897
     },
     {
       "month": "2023-11",
       "region": "Other",
-      "gallons": 1818
+      "gallons": 1018
     },
     {
       "month": "2023-11",
@@ -48678,7 +49783,7 @@
     {
       "month": "2023-11",
       "region": "Route 2 East",
-      "gallons": 357
+      "gallons": 522
     },
     {
       "month": "2023-11",
@@ -48687,8 +49792,18 @@
     },
     {
       "month": "2023-11",
+      "region": "Ski Slopes",
+      "gallons": 890
+    },
+    {
+      "month": "2023-11",
       "region": "South",
       "gallons": 217
+    },
+    {
+      "month": "2023-11",
+      "region": "South / Ski Combined",
+      "gallons": 677
     },
     {
       "month": "2023-11",
@@ -48697,8 +49812,8 @@
     },
     {
       "month": "2023-11",
-      "region": "UVM",
-      "gallons": 950
+      "region": "Summer Snack Stops",
+      "gallons": 15
     },
     {
       "month": "2023-11",
@@ -48727,18 +49842,18 @@
     },
     {
       "month": "2023-12",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 880
+      "region": "North-Northeast",
+      "gallons": 1651
     },
     {
       "month": "2023-12",
       "region": "Northwest",
-      "gallons": 722
+      "gallons": 1358
     },
     {
       "month": "2023-12",
       "region": "Other",
-      "gallons": 1103
+      "gallons": 217
     },
     {
       "month": "2023-12",
@@ -48762,13 +49877,23 @@
     },
     {
       "month": "2023-12",
+      "region": "Ski Slopes",
+      "gallons": 880
+    },
+    {
+      "month": "2023-12",
       "region": "South",
       "gallons": 315
     },
     {
       "month": "2023-12",
-      "region": "UVM",
-      "gallons": 260
+      "region": "South / Ski Combined",
+      "gallons": 315
+    },
+    {
+      "month": "2023-12",
+      "region": "Summer Snack Stops",
+      "gallons": 90
     },
     {
       "month": "2023-12",
@@ -48797,13 +49922,18 @@
     },
     {
       "month": "2024-01",
+      "region": "North-Northeast",
+      "gallons": 110
+    },
+    {
+      "month": "2024-01",
       "region": "Northwest",
-      "gallons": 408
+      "gallons": 613
     },
     {
       "month": "2024-01",
       "region": "Other",
-      "gallons": 2264
+      "gallons": 1554
     },
     {
       "month": "2024-01",
@@ -48818,7 +49948,7 @@
     {
       "month": "2024-01",
       "region": "Route 2 East",
-      "gallons": 220
+      "gallons": 360
     },
     {
       "month": "2024-01",
@@ -48827,8 +49957,18 @@
     },
     {
       "month": "2024-01",
+      "region": "Ski Slopes",
+      "gallons": 2025
+    },
+    {
+      "month": "2024-01",
       "region": "South",
       "gallons": 665
+    },
+    {
+      "month": "2024-01",
+      "region": "South / Ski Combined",
+      "gallons": 1380
     },
     {
       "month": "2024-01",
@@ -48837,8 +49977,8 @@
     },
     {
       "month": "2024-01",
-      "region": "UVM",
-      "gallons": 160
+      "region": "Summer Snack Stops",
+      "gallons": 55
     },
     {
       "month": "2024-01",
@@ -48867,18 +50007,18 @@
     },
     {
       "month": "2024-02",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 885
+      "region": "North-Northeast",
+      "gallons": 1792
     },
     {
       "month": "2024-02",
       "region": "Northwest",
-      "gallons": 1051
+      "gallons": 1798
     },
     {
       "month": "2024-02",
       "region": "Other",
-      "gallons": 1559
+      "gallons": 482
     },
     {
       "month": "2024-02",
@@ -48893,7 +50033,7 @@
     {
       "month": "2024-02",
       "region": "Route 2 East",
-      "gallons": 460
+      "gallons": 550
     },
     {
       "month": "2024-02",
@@ -48902,8 +50042,18 @@
     },
     {
       "month": "2024-02",
+      "region": "Ski Slopes",
+      "gallons": 2400
+    },
+    {
+      "month": "2024-02",
       "region": "South",
       "gallons": 210
+    },
+    {
+      "month": "2024-02",
+      "region": "South / Ski Combined",
+      "gallons": 1055
     },
     {
       "month": "2024-02",
@@ -48912,8 +50062,8 @@
     },
     {
       "month": "2024-02",
-      "region": "UVM",
-      "gallons": 830
+      "region": "Summer Snack Stops",
+      "gallons": 50
     },
     {
       "month": "2024-02",
@@ -48942,18 +50092,18 @@
     },
     {
       "month": "2024-03",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 1055
+      "region": "North-Northeast",
+      "gallons": 1250
     },
     {
       "month": "2024-03",
       "region": "Northwest",
-      "gallons": 320
+      "gallons": 815
     },
     {
       "month": "2024-03",
       "region": "Other",
-      "gallons": 1875
+      "gallons": 1330
     },
     {
       "month": "2024-03",
@@ -48977,8 +50127,18 @@
     },
     {
       "month": "2024-03",
+      "region": "Ski Slopes",
+      "gallons": 2565
+    },
+    {
+      "month": "2024-03",
       "region": "South",
       "gallons": 600
+    },
+    {
+      "month": "2024-03",
+      "region": "South / Ski Combined",
+      "gallons": 1720
     },
     {
       "month": "2024-03",
@@ -48987,8 +50147,8 @@
     },
     {
       "month": "2024-03",
-      "region": "UVM",
-      "gallons": 315
+      "region": "Summer Snack Stops",
+      "gallons": 125
     },
     {
       "month": "2024-03",
@@ -49017,18 +50177,18 @@
     },
     {
       "month": "2024-04",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 1040
+      "region": "North-Northeast",
+      "gallons": 1430
     },
     {
       "month": "2024-04",
       "region": "Northwest",
-      "gallons": 2636
+      "gallons": 3272
     },
     {
       "month": "2024-04",
       "region": "Other",
-      "gallons": 2437
+      "gallons": 1271
     },
     {
       "month": "2024-04",
@@ -49043,7 +50203,7 @@
     {
       "month": "2024-04",
       "region": "Route 2 East",
-      "gallons": 465
+      "gallons": 580
     },
     {
       "month": "2024-04",
@@ -49052,8 +50212,18 @@
     },
     {
       "month": "2024-04",
+      "region": "Ski Slopes",
+      "gallons": 1715
+    },
+    {
+      "month": "2024-04",
       "region": "South",
       "gallons": 460
+    },
+    {
+      "month": "2024-04",
+      "region": "South / Ski Combined",
+      "gallons": 730
     },
     {
       "month": "2024-04",
@@ -49062,8 +50232,8 @@
     },
     {
       "month": "2024-04",
-      "region": "UVM",
-      "gallons": 610
+      "region": "Summer Snack Stops",
+      "gallons": 195
     },
     {
       "month": "2024-04",
@@ -49092,18 +50262,18 @@
     },
     {
       "month": "2024-05",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 220
+      "region": "North-Northeast",
+      "gallons": 930
     },
     {
       "month": "2024-05",
       "region": "Northwest",
-      "gallons": 3609
+      "gallons": 4294
     },
     {
       "month": "2024-05",
       "region": "Other",
-      "gallons": 2135
+      "gallons": 1000
     },
     {
       "month": "2024-05",
@@ -49118,7 +50288,7 @@
     {
       "month": "2024-05",
       "region": "Route 2 East",
-      "gallons": 412
+      "gallons": 462
     },
     {
       "month": "2024-05",
@@ -49127,8 +50297,18 @@
     },
     {
       "month": "2024-05",
+      "region": "Ski Slopes",
+      "gallons": 505
+    },
+    {
+      "month": "2024-05",
       "region": "South",
-      "gallons": 370
+      "gallons": 420
+    },
+    {
+      "month": "2024-05",
+      "region": "South / Ski Combined",
+      "gallons": 815
     },
     {
       "month": "2024-05",
@@ -49137,8 +50317,8 @@
     },
     {
       "month": "2024-05",
-      "region": "UVM",
-      "gallons": 455
+      "region": "Summer Snack Stops",
+      "gallons": 765
     },
     {
       "month": "2024-05",
@@ -49167,18 +50347,18 @@
     },
     {
       "month": "2024-06",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 560
+      "region": "North-Northeast",
+      "gallons": 1110
     },
     {
       "month": "2024-06",
       "region": "Northwest",
-      "gallons": 826
+      "gallons": 1110
     },
     {
       "month": "2024-06",
       "region": "Other",
-      "gallons": 1782
+      "gallons": 908
     },
     {
       "month": "2024-06",
@@ -49193,7 +50373,7 @@
     {
       "month": "2024-06",
       "region": "Route 2 East",
-      "gallons": 616
+      "gallons": 696
     },
     {
       "month": "2024-06",
@@ -49202,8 +50382,23 @@
     },
     {
       "month": "2024-06",
+      "region": "Ski Slopes",
+      "gallons": 665
+    },
+    {
+      "month": "2024-06",
       "region": "South",
       "gallons": 900
+    },
+    {
+      "month": "2024-06",
+      "region": "South / Ski Combined",
+      "gallons": 900
+    },
+    {
+      "month": "2024-06",
+      "region": "Summer Snack Stops",
+      "gallons": 1310
     },
     {
       "month": "2024-06",
@@ -49232,18 +50427,18 @@
     },
     {
       "month": "2024-07",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 570
+      "region": "North-Northeast",
+      "gallons": 1240
     },
     {
       "month": "2024-07",
       "region": "Northwest",
-      "gallons": 795
+      "gallons": 1640
     },
     {
       "month": "2024-07",
       "region": "Other",
-      "gallons": 1979
+      "gallons": 682
     },
     {
       "month": "2024-07",
@@ -49258,7 +50453,7 @@
     {
       "month": "2024-07",
       "region": "Route 2 East",
-      "gallons": 100
+      "gallons": 207
     },
     {
       "month": "2024-07",
@@ -49267,13 +50462,23 @@
     },
     {
       "month": "2024-07",
-      "region": "South",
-      "gallons": 185
+      "region": "Ski Slopes",
+      "gallons": 510
     },
     {
       "month": "2024-07",
-      "region": "UVM",
-      "gallons": 280
+      "region": "South",
+      "gallons": 385
+    },
+    {
+      "month": "2024-07",
+      "region": "South / Ski Combined",
+      "gallons": 385
+    },
+    {
+      "month": "2024-07",
+      "region": "Summer Snack Stops",
+      "gallons": 1545
     },
     {
       "month": "2024-07",
@@ -49302,18 +50507,18 @@
     },
     {
       "month": "2024-08",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 655
+      "region": "North-Northeast",
+      "gallons": 1195
     },
     {
       "month": "2024-08",
       "region": "Northwest",
-      "gallons": 876
+      "gallons": 1071
     },
     {
       "month": "2024-08",
       "region": "Other",
-      "gallons": 1882
+      "gallons": 997
     },
     {
       "month": "2024-08",
@@ -49337,8 +50542,23 @@
     },
     {
       "month": "2024-08",
+      "region": "Ski Slopes",
+      "gallons": 805
+    },
+    {
+      "month": "2024-08",
       "region": "South",
       "gallons": 1120
+    },
+    {
+      "month": "2024-08",
+      "region": "South / Ski Combined",
+      "gallons": 1120
+    },
+    {
+      "month": "2024-08",
+      "region": "Summer Snack Stops",
+      "gallons": 1800
     },
     {
       "month": "2024-08",
@@ -49367,18 +50587,18 @@
     },
     {
       "month": "2024-09",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 65
+      "region": "North-Northeast",
+      "gallons": 645
     },
     {
       "month": "2024-09",
       "region": "Northwest",
-      "gallons": 1278
+      "gallons": 1748
     },
     {
       "month": "2024-09",
       "region": "Other",
-      "gallons": 2554
+      "gallons": 1694
     },
     {
       "month": "2024-09",
@@ -49393,7 +50613,7 @@
     {
       "month": "2024-09",
       "region": "Route 2 East",
-      "gallons": 431
+      "gallons": 456
     },
     {
       "month": "2024-09",
@@ -49402,8 +50622,18 @@
     },
     {
       "month": "2024-09",
+      "region": "Ski Slopes",
+      "gallons": 455
+    },
+    {
+      "month": "2024-09",
       "region": "South",
       "gallons": 675
+    },
+    {
+      "month": "2024-09",
+      "region": "South / Ski Combined",
+      "gallons": 805
     },
     {
       "month": "2024-09",
@@ -49412,8 +50642,8 @@
     },
     {
       "month": "2024-09",
-      "region": "UVM",
-      "gallons": 500
+      "region": "Summer Snack Stops",
+      "gallons": 2425
     },
     {
       "month": "2024-09",
@@ -49442,18 +50672,18 @@
     },
     {
       "month": "2024-10",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 645
+      "region": "North-Northeast",
+      "gallons": 1215
     },
     {
       "month": "2024-10",
       "region": "Northwest",
-      "gallons": 2954
+      "gallons": 3376
     },
     {
       "month": "2024-10",
       "region": "Other",
-      "gallons": 1855
+      "gallons": 963
     },
     {
       "month": "2024-10",
@@ -49468,7 +50698,7 @@
     {
       "month": "2024-10",
       "region": "Route 2 East",
-      "gallons": 445
+      "gallons": 655
     },
     {
       "month": "2024-10",
@@ -49477,8 +50707,18 @@
     },
     {
       "month": "2024-10",
+      "region": "Ski Slopes",
+      "gallons": 590
+    },
+    {
+      "month": "2024-10",
       "region": "South",
-      "gallons": 285
+      "gallons": 325
+    },
+    {
+      "month": "2024-10",
+      "region": "South / Ski Combined",
+      "gallons": 515
     },
     {
       "month": "2024-10",
@@ -49487,8 +50727,8 @@
     },
     {
       "month": "2024-10",
-      "region": "UVM",
-      "gallons": 550
+      "region": "Summer Snack Stops",
+      "gallons": 790
     },
     {
       "month": "2024-10",
@@ -49517,13 +50757,18 @@
     },
     {
       "month": "2024-11",
+      "region": "North-Northeast",
+      "gallons": 410
+    },
+    {
+      "month": "2024-11",
       "region": "Northwest",
-      "gallons": 1832
+      "gallons": 2132
     },
     {
       "month": "2024-11",
       "region": "Other",
-      "gallons": 1653
+      "gallons": 1243
     },
     {
       "month": "2024-11",
@@ -49547,13 +50792,23 @@
     },
     {
       "month": "2024-11",
+      "region": "Ski Slopes",
+      "gallons": 385
+    },
+    {
+      "month": "2024-11",
       "region": "South",
       "gallons": 415
     },
     {
       "month": "2024-11",
-      "region": "UVM",
-      "gallons": 1045
+      "region": "South / Ski Combined",
+      "gallons": 415
+    },
+    {
+      "month": "2024-11",
+      "region": "Summer Snack Stops",
+      "gallons": 230
     },
     {
       "month": "2024-11",
@@ -49582,18 +50837,18 @@
     },
     {
       "month": "2024-12",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 795
+      "region": "North-Northeast",
+      "gallons": 1545
     },
     {
       "month": "2024-12",
       "region": "Northwest",
-      "gallons": 1659
+      "gallons": 2079
     },
     {
       "month": "2024-12",
       "region": "Other",
-      "gallons": 1865
+      "gallons": 950
     },
     {
       "month": "2024-12",
@@ -49608,7 +50863,7 @@
     {
       "month": "2024-12",
       "region": "Route 2 East",
-      "gallons": 660
+      "gallons": 785
     },
     {
       "month": "2024-12",
@@ -49617,8 +50872,18 @@
     },
     {
       "month": "2024-12",
+      "region": "Ski Slopes",
+      "gallons": 805
+    },
+    {
+      "month": "2024-12",
       "region": "South",
       "gallons": 309
+    },
+    {
+      "month": "2024-12",
+      "region": "South / Ski Combined",
+      "gallons": 619
     },
     {
       "month": "2024-12",
@@ -49627,8 +50892,8 @@
     },
     {
       "month": "2024-12",
-      "region": "UVM",
-      "gallons": 230
+      "region": "Summer Snack Stops",
+      "gallons": 85
     },
     {
       "month": "2024-12",
@@ -49657,18 +50922,18 @@
     },
     {
       "month": "2025-01",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 990
+      "region": "North-Northeast",
+      "gallons": 1495
     },
     {
       "month": "2025-01",
       "region": "Northwest",
-      "gallons": 341
+      "gallons": 846
     },
     {
       "month": "2025-01",
       "region": "Other",
-      "gallons": 1501
+      "gallons": 776
     },
     {
       "month": "2025-01",
@@ -49687,18 +50952,23 @@
     },
     {
       "month": "2025-01",
+      "region": "Ski Slopes",
+      "gallons": 3875
+    },
+    {
+      "month": "2025-01",
       "region": "South",
       "gallons": 260
     },
     {
       "month": "2025-01",
-      "region": "Southern Ski Slopes",
-      "gallons": 1970
+      "region": "South / Ski Combined",
+      "gallons": 2230
     },
     {
       "month": "2025-01",
-      "region": "UVM",
-      "gallons": 110
+      "region": "Southern Ski Slopes",
+      "gallons": 1970
     },
     {
       "month": "2025-01",
@@ -49727,18 +50997,18 @@
     },
     {
       "month": "2025-02",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 945
+      "region": "North-Northeast",
+      "gallons": 1335
     },
     {
       "month": "2025-02",
       "region": "Northwest",
-      "gallons": 1580
+      "gallons": 1820
     },
     {
       "month": "2025-02",
       "region": "Other",
-      "gallons": 755
+      "gallons": 365
     },
     {
       "month": "2025-02",
@@ -49757,18 +51027,23 @@
     },
     {
       "month": "2025-02",
+      "region": "Ski Slopes",
+      "gallons": 2625
+    },
+    {
+      "month": "2025-02",
       "region": "South",
       "gallons": 427
     },
     {
       "month": "2025-02",
-      "region": "Southern Ski Slopes",
-      "gallons": 1415
+      "region": "South / Ski Combined",
+      "gallons": 1842
     },
     {
       "month": "2025-02",
-      "region": "UVM",
-      "gallons": 345
+      "region": "Southern Ski Slopes",
+      "gallons": 1415
     },
     {
       "month": "2025-02",
@@ -49797,18 +51072,18 @@
     },
     {
       "month": "2025-03",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 1355
+      "region": "North-Northeast",
+      "gallons": 2475
     },
     {
       "month": "2025-03",
       "region": "Northwest",
-      "gallons": 2816
+      "gallons": 3636
     },
     {
       "month": "2025-03",
       "region": "Other",
-      "gallons": 2403
+      "gallons": 868
     },
     {
       "month": "2025-03",
@@ -49823,7 +51098,7 @@
     {
       "month": "2025-03",
       "region": "Route 2 East",
-      "gallons": 850
+      "gallons": 1065
     },
     {
       "month": "2025-03",
@@ -49832,8 +51107,18 @@
     },
     {
       "month": "2025-03",
+      "region": "Ski Slopes",
+      "gallons": 3720
+    },
+    {
+      "month": "2025-03",
       "region": "South",
       "gallons": 335
+    },
+    {
+      "month": "2025-03",
+      "region": "South / Ski Combined",
+      "gallons": 1735
     },
     {
       "month": "2025-03",
@@ -49842,8 +51127,8 @@
     },
     {
       "month": "2025-03",
-      "region": "UVM",
-      "gallons": 580
+      "region": "Summer Snack Stops",
+      "gallons": 180
     },
     {
       "month": "2025-03",
@@ -49872,18 +51157,18 @@
     },
     {
       "month": "2025-04",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 80
+      "region": "North-Northeast",
+      "gallons": 410
     },
     {
       "month": "2025-04",
       "region": "Northwest",
-      "gallons": 1504
+      "gallons": 1858
     },
     {
       "month": "2025-04",
       "region": "Other",
-      "gallons": 4581
+      "gallons": 3727
     },
     {
       "month": "2025-04",
@@ -49898,7 +51183,7 @@
     {
       "month": "2025-04",
       "region": "Route 2 East",
-      "gallons": 925
+      "gallons": 980
     },
     {
       "month": "2025-04",
@@ -49907,18 +51192,23 @@
     },
     {
       "month": "2025-04",
+      "region": "Ski Slopes",
+      "gallons": 1560
+    },
+    {
+      "month": "2025-04",
       "region": "South",
       "gallons": 570
     },
     {
       "month": "2025-04",
-      "region": "Southern Ski Slopes",
-      "gallons": 570
+      "region": "South / Ski Combined",
+      "gallons": 1140
     },
     {
       "month": "2025-04",
-      "region": "UVM",
-      "gallons": 605
+      "region": "Southern Ski Slopes",
+      "gallons": 570
     },
     {
       "month": "2025-04",
@@ -49947,18 +51237,18 @@
     },
     {
       "month": "2025-05",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 685
+      "region": "North-Northeast",
+      "gallons": 1155
     },
     {
       "month": "2025-05",
       "region": "Northwest",
-      "gallons": 2260
+      "gallons": 2450
     },
     {
       "month": "2025-05",
       "region": "Other",
-      "gallons": 1373
+      "gallons": 683
     },
     {
       "month": "2025-05",
@@ -49973,7 +51263,7 @@
     {
       "month": "2025-05",
       "region": "Route 2 East",
-      "gallons": 420
+      "gallons": 585
     },
     {
       "month": "2025-05",
@@ -49982,8 +51272,18 @@
     },
     {
       "month": "2025-05",
+      "region": "Ski Slopes",
+      "gallons": 830
+    },
+    {
+      "month": "2025-05",
       "region": "South",
       "gallons": 310
+    },
+    {
+      "month": "2025-05",
+      "region": "South / Ski Combined",
+      "gallons": 480
     },
     {
       "month": "2025-05",
@@ -49992,8 +51292,8 @@
     },
     {
       "month": "2025-05",
-      "region": "UVM",
-      "gallons": 695
+      "region": "Summer Snack Stops",
+      "gallons": 825
     },
     {
       "month": "2025-05",
@@ -50022,18 +51322,18 @@
     },
     {
       "month": "2025-06",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 575
+      "region": "North-Northeast",
+      "gallons": 1503
     },
     {
       "month": "2025-06",
       "region": "Northwest",
-      "gallons": 1807
+      "gallons": 2435
     },
     {
       "month": "2025-06",
       "region": "Other",
-      "gallons": 2442
+      "gallons": 1184
     },
     {
       "month": "2025-06",
@@ -50048,7 +51348,7 @@
     {
       "month": "2025-06",
       "region": "Route 2 East",
-      "gallons": 690
+      "gallons": 805
     },
     {
       "month": "2025-06",
@@ -50057,13 +51357,23 @@
     },
     {
       "month": "2025-06",
-      "region": "South",
-      "gallons": 640
+      "region": "Ski Slopes",
+      "gallons": 315
     },
     {
       "month": "2025-06",
-      "region": "UVM",
-      "gallons": 45
+      "region": "South",
+      "gallons": 770
+    },
+    {
+      "month": "2025-06",
+      "region": "South / Ski Combined",
+      "gallons": 770
+    },
+    {
+      "month": "2025-06",
+      "region": "Summer Snack Stops",
+      "gallons": 1400
     },
     {
       "month": "2025-06",
@@ -50092,18 +51402,18 @@
     },
     {
       "month": "2025-07",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 755
+      "region": "North-Northeast",
+      "gallons": 1035
     },
     {
       "month": "2025-07",
       "region": "Northwest",
-      "gallons": 2923
+      "gallons": 3038
     },
     {
       "month": "2025-07",
       "region": "Other",
-      "gallons": 1345
+      "gallons": 960
     },
     {
       "month": "2025-07",
@@ -50127,13 +51437,28 @@
     },
     {
       "month": "2025-07",
+      "region": "Ski Slopes",
+      "gallons": 610
+    },
+    {
+      "month": "2025-07",
       "region": "South",
-      "gallons": 325
+      "gallons": 410
+    },
+    {
+      "month": "2025-07",
+      "region": "South / Ski Combined",
+      "gallons": 670
     },
     {
       "month": "2025-07",
       "region": "Southern Ski Slopes",
       "gallons": 260
+    },
+    {
+      "month": "2025-07",
+      "region": "Summer Snack Stops",
+      "gallons": 2120
     },
     {
       "month": "2025-07",
@@ -50162,18 +51487,18 @@
     },
     {
       "month": "2025-08",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 180
+      "region": "North-Northeast",
+      "gallons": 866
     },
     {
       "month": "2025-08",
       "region": "Northwest",
-      "gallons": 1708
+      "gallons": 2369
     },
     {
       "month": "2025-08",
       "region": "Other",
-      "gallons": 2166
+      "gallons": 1055
     },
     {
       "month": "2025-08",
@@ -50188,7 +51513,7 @@
     {
       "month": "2025-08",
       "region": "Route 2 East",
-      "gallons": 1230
+      "gallons": 1440
     },
     {
       "month": "2025-08",
@@ -50197,13 +51522,23 @@
     },
     {
       "month": "2025-08",
+      "region": "Ski Slopes",
+      "gallons": 805
+    },
+    {
+      "month": "2025-08",
+      "region": "South / Ski Combined",
+      "gallons": 130
+    },
+    {
+      "month": "2025-08",
       "region": "Southern Ski Slopes",
       "gallons": 130
     },
     {
       "month": "2025-08",
-      "region": "UVM",
-      "gallons": 265
+      "region": "Summer Snack Stops",
+      "gallons": 2360
     },
     {
       "month": "2025-08",
@@ -50232,18 +51567,18 @@
     },
     {
       "month": "2025-09",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 630
+      "region": "North-Northeast",
+      "gallons": 1445
     },
     {
       "month": "2025-09",
       "region": "Northwest",
-      "gallons": 1644
+      "gallons": 2269
     },
     {
       "month": "2025-09",
       "region": "Other",
-      "gallons": 2291
+      "gallons": 1366
     },
     {
       "month": "2025-09",
@@ -50267,13 +51602,23 @@
     },
     {
       "month": "2025-09",
-      "region": "South",
-      "gallons": 605
+      "region": "Ski Slopes",
+      "gallons": 755
     },
     {
       "month": "2025-09",
-      "region": "UVM",
-      "gallons": 510
+      "region": "South",
+      "gallons": 655
+    },
+    {
+      "month": "2025-09",
+      "region": "South / Ski Combined",
+      "gallons": 655
+    },
+    {
+      "month": "2025-09",
+      "region": "Summer Snack Stops",
+      "gallons": 1835
     },
     {
       "month": "2025-09",
@@ -50302,18 +51647,18 @@
     },
     {
       "month": "2025-10",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 580
+      "region": "North-Northeast",
+      "gallons": 1685
     },
     {
       "month": "2025-10",
       "region": "Northwest",
-      "gallons": 1463
+      "gallons": 2193
     },
     {
       "month": "2025-10",
       "region": "Other",
-      "gallons": 2844
+      "gallons": 1444
     },
     {
       "month": "2025-10",
@@ -50328,7 +51673,7 @@
     {
       "month": "2025-10",
       "region": "Route 2 East",
-      "gallons": 90
+      "gallons": 155
     },
     {
       "month": "2025-10",
@@ -50337,8 +51682,18 @@
     },
     {
       "month": "2025-10",
+      "region": "Ski Slopes",
+      "gallons": 305
+    },
+    {
+      "month": "2025-10",
       "region": "South",
       "gallons": 390
+    },
+    {
+      "month": "2025-10",
+      "region": "South / Ski Combined",
+      "gallons": 430
     },
     {
       "month": "2025-10",
@@ -50347,8 +51702,8 @@
     },
     {
       "month": "2025-10",
-      "region": "UVM",
-      "gallons": 560
+      "region": "Summer Snack Stops",
+      "gallons": 1732
     },
     {
       "month": "2025-10",
@@ -50377,18 +51732,18 @@
     },
     {
       "month": "2025-11",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 450
+      "region": "North-Northeast",
+      "gallons": 985
     },
     {
       "month": "2025-11",
       "region": "Northwest",
-      "gallons": 1344
+      "gallons": 1759
     },
     {
       "month": "2025-11",
       "region": "Other",
-      "gallons": 1772
+      "gallons": 907
     },
     {
       "month": "2025-11",
@@ -50403,7 +51758,7 @@
     {
       "month": "2025-11",
       "region": "Route 2 East",
-      "gallons": 525
+      "gallons": 855
     },
     {
       "month": "2025-11",
@@ -50412,8 +51767,13 @@
     },
     {
       "month": "2025-11",
-      "region": "UVM",
-      "gallons": 965
+      "region": "Ski Slopes",
+      "gallons": 615
+    },
+    {
+      "month": "2025-11",
+      "region": "Summer Snack Stops",
+      "gallons": 216
     },
     {
       "month": "2025-11",
@@ -50442,18 +51802,18 @@
     },
     {
       "month": "2025-12",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 735
+      "region": "North-Northeast",
+      "gallons": 1630
     },
     {
       "month": "2025-12",
       "region": "Northwest",
-      "gallons": 682
+      "gallons": 1473
     },
     {
       "month": "2025-12",
       "region": "Other",
-      "gallons": 1573
+      "gallons": 532
     },
     {
       "month": "2025-12",
@@ -50477,8 +51837,18 @@
     },
     {
       "month": "2025-12",
+      "region": "Ski Slopes",
+      "gallons": 2335
+    },
+    {
+      "month": "2025-12",
       "region": "South",
       "gallons": 515
+    },
+    {
+      "month": "2025-12",
+      "region": "South / Ski Combined",
+      "gallons": 1610
     },
     {
       "month": "2025-12",
@@ -50512,18 +51882,18 @@
     },
     {
       "month": "2026-01",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 825
+      "region": "North-Northeast",
+      "gallons": 1510
     },
     {
       "month": "2026-01",
       "region": "Northwest",
-      "gallons": 1395
+      "gallons": 1850
     },
     {
       "month": "2026-01",
       "region": "Other",
-      "gallons": 1883
+      "gallons": 903
     },
     {
       "month": "2026-01",
@@ -50538,7 +51908,7 @@
     {
       "month": "2026-01",
       "region": "Route 2 East",
-      "gallons": 735
+      "gallons": 765
     },
     {
       "month": "2026-01",
@@ -50547,18 +51917,23 @@
     },
     {
       "month": "2026-01",
+      "region": "Ski Slopes",
+      "gallons": 3325
+    },
+    {
+      "month": "2026-01",
       "region": "South",
       "gallons": 555
     },
     {
       "month": "2026-01",
-      "region": "Southern Ski Slopes",
-      "gallons": 1500
+      "region": "South / Ski Combined",
+      "gallons": 2055
     },
     {
       "month": "2026-01",
-      "region": "UVM",
-      "gallons": 460
+      "region": "Southern Ski Slopes",
+      "gallons": 1500
     },
     {
       "month": "2026-01",
@@ -50587,18 +51962,18 @@
     },
     {
       "month": "2026-02",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 805
+      "region": "North-Northeast",
+      "gallons": 1453
     },
     {
       "month": "2026-02",
       "region": "Northwest",
-      "gallons": 2522
+      "gallons": 3005
     },
     {
       "month": "2026-02",
       "region": "Other",
-      "gallons": 2004
+      "gallons": 876
     },
     {
       "month": "2026-02",
@@ -50613,7 +51988,7 @@
     {
       "month": "2026-02",
       "region": "Route 2 East",
-      "gallons": 275
+      "gallons": 495
     },
     {
       "month": "2026-02",
@@ -50622,8 +51997,18 @@
     },
     {
       "month": "2026-02",
+      "region": "Ski Slopes",
+      "gallons": 3365
+    },
+    {
+      "month": "2026-02",
       "region": "South",
       "gallons": 360
+    },
+    {
+      "month": "2026-02",
+      "region": "South / Ski Combined",
+      "gallons": 2170
     },
     {
       "month": "2026-02",
@@ -50632,8 +52017,8 @@
     },
     {
       "month": "2026-02",
-      "region": "UVM",
-      "gallons": 400
+      "region": "Summer Snack Stops",
+      "gallons": 130
     },
     {
       "month": "2026-02",
@@ -50662,18 +52047,18 @@
     },
     {
       "month": "2026-03",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 170
+      "region": "North-Northeast",
+      "gallons": 820
     },
     {
       "month": "2026-03",
       "region": "Northwest",
-      "gallons": 2586
+      "gallons": 3036
     },
     {
       "month": "2026-03",
       "region": "Other",
-      "gallons": 1640
+      "gallons": 660
     },
     {
       "month": "2026-03",
@@ -50688,7 +52073,7 @@
     {
       "month": "2026-03",
       "region": "Route 2 East",
-      "gallons": 825
+      "gallons": 855
     },
     {
       "month": "2026-03",
@@ -50697,18 +52082,23 @@
     },
     {
       "month": "2026-03",
+      "region": "Ski Slopes",
+      "gallons": 3540
+    },
+    {
+      "month": "2026-03",
       "region": "South",
       "gallons": 535
     },
     {
       "month": "2026-03",
-      "region": "Southern Ski Slopes",
-      "gallons": 1980
+      "region": "South / Ski Combined",
+      "gallons": 2515
     },
     {
       "month": "2026-03",
-      "region": "UVM",
-      "gallons": 505
+      "region": "Southern Ski Slopes",
+      "gallons": 1980
     },
     {
       "month": "2026-03",
@@ -50737,18 +52127,18 @@
     },
     {
       "month": "2026-04",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 1340
+      "region": "North-Northeast",
+      "gallons": 2769
     },
     {
       "month": "2026-04",
       "region": "Northwest",
-      "gallons": 2245
+      "gallons": 3382
     },
     {
       "month": "2026-04",
       "region": "Other",
-      "gallons": 3677
+      "gallons": 1815
     },
     {
       "month": "2026-04",
@@ -50763,7 +52153,7 @@
     {
       "month": "2026-04",
       "region": "Route 2 East",
-      "gallons": 645
+      "gallons": 920
     },
     {
       "month": "2026-04",
@@ -50772,8 +52162,18 @@
     },
     {
       "month": "2026-04",
+      "region": "Ski Slopes",
+      "gallons": 2105
+    },
+    {
+      "month": "2026-04",
       "region": "South",
       "gallons": 160
+    },
+    {
+      "month": "2026-04",
+      "region": "South / Ski Combined",
+      "gallons": 605
     },
     {
       "month": "2026-04",
@@ -50782,8 +52182,8 @@
     },
     {
       "month": "2026-04",
-      "region": "UVM",
-      "gallons": 645
+      "region": "Summer Snack Stops",
+      "gallons": 325
     },
     {
       "month": "2026-04",
@@ -50812,18 +52212,18 @@
     },
     {
       "month": "2026-05",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 580
+      "region": "North-Northeast",
+      "gallons": 1045
     },
     {
       "month": "2026-05",
       "region": "Northwest",
-      "gallons": 1132
+      "gallons": 1422
     },
     {
       "month": "2026-05",
       "region": "Other",
-      "gallons": 1205
+      "gallons": 740
     },
     {
       "month": "2026-05",
@@ -50847,8 +52247,18 @@
     },
     {
       "month": "2026-05",
+      "region": "Ski Slopes",
+      "gallons": 745
+    },
+    {
+      "month": "2026-05",
       "region": "South",
       "gallons": 310
+    },
+    {
+      "month": "2026-05",
+      "region": "South / Ski Combined",
+      "gallons": 420
     },
     {
       "month": "2026-05",
@@ -50857,8 +52267,8 @@
     },
     {
       "month": "2026-05",
-      "region": "UVM",
-      "gallons": 435
+      "region": "Summer Snack Stops",
+      "gallons": 665
     },
     {
       "month": "2026-05",
@@ -50887,18 +52297,18 @@
     },
     {
       "month": "2026-06",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 385
+      "region": "North-Northeast",
+      "gallons": 690
     },
     {
       "month": "2026-06",
       "region": "Northwest",
-      "gallons": 14145
+      "gallons": 14530
     },
     {
       "month": "2026-06",
       "region": "Other",
-      "gallons": 1469
+      "gallons": 994
     },
     {
       "month": "2026-06",
@@ -50913,7 +52323,7 @@
     {
       "month": "2026-06",
       "region": "Route 2 East",
-      "gallons": 1050
+      "gallons": 1060
     },
     {
       "month": "2026-06",
@@ -50922,13 +52332,28 @@
     },
     {
       "month": "2026-06",
+      "region": "Ski Slopes",
+      "gallons": 255
+    },
+    {
+      "month": "2026-06",
       "region": "South",
       "gallons": 255
     },
     {
       "month": "2026-06",
+      "region": "South / Ski Combined",
+      "gallons": 405
+    },
+    {
+      "month": "2026-06",
       "region": "Southern Ski Slopes",
       "gallons": 150
+    },
+    {
+      "month": "2026-06",
+      "region": "Summer Snack Stops",
+      "gallons": 3880
     },
     {
       "month": "2026-06",
@@ -50957,18 +52382,18 @@
     },
     {
       "month": "2026-07",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 1010
+      "region": "North-Northeast",
+      "gallons": 2500
     },
     {
       "month": "2026-07",
       "region": "Northwest",
-      "gallons": 3373
+      "gallons": 4323
     },
     {
       "month": "2026-07",
       "region": "Other",
-      "gallons": 2857
+      "gallons": 1257
     },
     {
       "month": "2026-07",
@@ -50983,7 +52408,7 @@
     {
       "month": "2026-07",
       "region": "Route 2 East",
-      "gallons": 1010
+      "gallons": 1060
     },
     {
       "month": "2026-07",
@@ -50992,13 +52417,28 @@
     },
     {
       "month": "2026-07",
+      "region": "Ski Slopes",
+      "gallons": 650
+    },
+    {
+      "month": "2026-07",
       "region": "South",
       "gallons": 570
     },
     {
       "month": "2026-07",
+      "region": "South / Ski Combined",
+      "gallons": 630
+    },
+    {
+      "month": "2026-07",
       "region": "Southern Ski Slopes",
       "gallons": 60
+    },
+    {
+      "month": "2026-07",
+      "region": "Summer Snack Stops",
+      "gallons": 1995
     },
     {
       "month": "2026-07",
@@ -51027,18 +52467,18 @@
     },
     {
       "month": "2026-08",
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 710
+      "region": "North-Northeast",
+      "gallons": 1853
     },
     {
       "month": "2026-08",
       "region": "Northwest",
-      "gallons": 777
+      "gallons": 1625
     },
     {
       "month": "2026-08",
       "region": "Other",
-      "gallons": 1823
+      "gallons": 140
     },
     {
       "month": "2026-08",
@@ -51053,7 +52493,7 @@
     {
       "month": "2026-08",
       "region": "Route 2 East",
-      "gallons": 315
+      "gallons": 535
     },
     {
       "month": "2026-08",
@@ -51062,13 +52502,23 @@
     },
     {
       "month": "2026-08",
+      "region": "Ski Slopes",
+      "gallons": 1045
+    },
+    {
+      "month": "2026-08",
       "region": "South",
       "gallons": 375
     },
     {
       "month": "2026-08",
-      "region": "UVM",
-      "gallons": 275
+      "region": "South / Ski Combined",
+      "gallons": 375
+    },
+    {
+      "month": "2026-08",
+      "region": "Summer Snack Stops",
+      "gallons": 1610
     },
     {
       "month": "2026-08",
@@ -51103,7 +52553,7 @@
     {
       "month": "2026-09",
       "region": "Other",
-      "gallons": 975
+      "gallons": 865
     },
     {
       "month": "2026-09",
@@ -51113,7 +52563,7 @@
     {
       "month": "2026-09",
       "region": "Route 2 East",
-      "gallons": 300
+      "gallons": 350
     },
     {
       "month": "2026-09",
@@ -51122,13 +52572,23 @@
     },
     {
       "month": "2026-09",
+      "region": "Ski Slopes",
+      "gallons": 225
+    },
+    {
+      "month": "2026-09",
       "region": "South",
       "gallons": 455
     },
     {
       "month": "2026-09",
-      "region": "UVM",
-      "gallons": 10
+      "region": "South / Ski Combined",
+      "gallons": 455
+    },
+    {
+      "month": "2026-09",
+      "region": "Summer Snack Stops",
+      "gallons": 2510
     },
     {
       "month": "2026-09",
@@ -51159,18 +52619,18 @@
     },
     {
       "year": 2015,
-      "region": "Jay / Montgomery / Troy",
+      "region": "North-Northeast",
       "gallons": 4297
     },
     {
       "year": 2015,
       "region": "Northwest",
-      "gallons": 107
+      "gallons": 197
     },
     {
       "year": 2015,
       "region": "Other",
-      "gallons": 1185
+      "gallons": 820
     },
     {
       "year": 2015,
@@ -51185,7 +52645,7 @@
     {
       "year": 2015,
       "region": "Route 2 East",
-      "gallons": 633
+      "gallons": 733
     },
     {
       "year": 2015,
@@ -51194,8 +52654,23 @@
     },
     {
       "year": 2015,
+      "region": "Ski Slopes",
+      "gallons": 3847
+    },
+    {
+      "year": 2015,
+      "region": "South / Ski Combined",
+      "gallons": 62
+    },
+    {
+      "year": 2015,
       "region": "Southern Ski Slopes",
       "gallons": 62
+    },
+    {
+      "year": 2015,
+      "region": "Summer Snack Stops",
+      "gallons": 310
     },
     {
       "year": 2015,
@@ -51224,18 +52699,18 @@
     },
     {
       "year": 2016,
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 3945
+      "region": "North-Northeast",
+      "gallons": 4335
     },
     {
       "year": 2016,
       "region": "Northwest",
-      "gallons": 2720
+      "gallons": 3210
     },
     {
       "year": 2016,
       "region": "Other",
-      "gallons": 3410
+      "gallons": 2795
     },
     {
       "year": 2016,
@@ -51259,8 +52734,23 @@
     },
     {
       "year": 2016,
+      "region": "Ski Slopes",
+      "gallons": 4265
+    },
+    {
+      "year": 2016,
+      "region": "South / Ski Combined",
+      "gallons": 95
+    },
+    {
+      "year": 2016,
       "region": "Southern Ski Slopes",
       "gallons": 95
+    },
+    {
+      "year": 2016,
+      "region": "Summer Snack Stops",
+      "gallons": 1560
     },
     {
       "year": 2016,
@@ -51289,18 +52779,18 @@
     },
     {
       "year": 2017,
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 4200
+      "region": "North-Northeast",
+      "gallons": 7433
     },
     {
       "year": 2017,
       "region": "Northwest",
-      "gallons": 4525
+      "gallons": 6603
     },
     {
       "year": 2017,
       "region": "Other",
-      "gallons": 10210
+      "gallons": 6607
     },
     {
       "year": 2017,
@@ -51315,7 +52805,7 @@
     {
       "year": 2017,
       "region": "Route 2 East",
-      "gallons": 1250
+      "gallons": 1350
     },
     {
       "year": 2017,
@@ -51324,13 +52814,28 @@
     },
     {
       "year": 2017,
+      "region": "Ski Slopes",
+      "gallons": 4745
+    },
+    {
+      "year": 2017,
       "region": "South",
       "gallons": 1085
     },
     {
       "year": 2017,
+      "region": "South / Ski Combined",
+      "gallons": 2000
+    },
+    {
+      "year": 2017,
       "region": "Southern Ski Slopes",
       "gallons": 915
+    },
+    {
+      "year": 2017,
+      "region": "Summer Snack Stops",
+      "gallons": 1723
     },
     {
       "year": 2017,
@@ -51359,18 +52864,18 @@
     },
     {
       "year": 2018,
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 4280
+      "region": "North-Northeast",
+      "gallons": 7090
     },
     {
       "year": 2018,
       "region": "Northwest",
-      "gallons": 8865
+      "gallons": 10640
     },
     {
       "year": 2018,
       "region": "Other",
-      "gallons": 9568
+      "gallons": 5618
     },
     {
       "year": 2018,
@@ -51385,7 +52890,7 @@
     {
       "year": 2018,
       "region": "Route 2 East",
-      "gallons": 1761
+      "gallons": 2186
     },
     {
       "year": 2018,
@@ -51394,8 +52899,18 @@
     },
     {
       "year": 2018,
+      "region": "Ski Slopes",
+      "gallons": 6440
+    },
+    {
+      "year": 2018,
       "region": "South",
       "gallons": 1525
+    },
+    {
+      "year": 2018,
+      "region": "South / Ski Combined",
+      "gallons": 4970
     },
     {
       "year": 2018,
@@ -51404,8 +52919,8 @@
     },
     {
       "year": 2018,
-      "region": "UVM",
-      "gallons": 3555
+      "region": "Summer Snack Stops",
+      "gallons": 4800
     },
     {
       "year": 2018,
@@ -51434,18 +52949,18 @@
     },
     {
       "year": 2019,
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 6480
+      "region": "North-Northeast",
+      "gallons": 10010
     },
     {
       "year": 2019,
       "region": "Northwest",
-      "gallons": 12291
+      "gallons": 14251
     },
     {
       "year": 2019,
       "region": "Other",
-      "gallons": 11690
+      "gallons": 6765
     },
     {
       "year": 2019,
@@ -51460,7 +52975,7 @@
     {
       "year": 2019,
       "region": "Route 2 East",
-      "gallons": 2431
+      "gallons": 2571
     },
     {
       "year": 2019,
@@ -51469,8 +52984,18 @@
     },
     {
       "year": 2019,
+      "region": "Ski Slopes",
+      "gallons": 10170
+    },
+    {
+      "year": 2019,
       "region": "South",
       "gallons": 1000
+    },
+    {
+      "year": 2019,
+      "region": "South / Ski Combined",
+      "gallons": 5115
     },
     {
       "year": 2019,
@@ -51479,8 +53004,8 @@
     },
     {
       "year": 2019,
-      "region": "UVM",
-      "gallons": 3730
+      "region": "Summer Snack Stops",
+      "gallons": 5455
     },
     {
       "year": 2019,
@@ -51509,18 +53034,18 @@
     },
     {
       "year": 2020,
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 2685
+      "region": "North-Northeast",
+      "gallons": 5245
     },
     {
       "year": 2020,
       "region": "Northwest",
-      "gallons": 14770
+      "gallons": 15720
     },
     {
       "year": 2020,
       "region": "Other",
-      "gallons": 9250
+      "gallons": 5790
     },
     {
       "year": 2020,
@@ -51535,7 +53060,7 @@
     {
       "year": 2020,
       "region": "Route 2 East",
-      "gallons": 5303
+      "gallons": 5453
     },
     {
       "year": 2020,
@@ -51544,8 +53069,18 @@
     },
     {
       "year": 2020,
+      "region": "Ski Slopes",
+      "gallons": 7395
+    },
+    {
+      "year": 2020,
       "region": "South",
-      "gallons": 730
+      "gallons": 880
+    },
+    {
+      "year": 2020,
+      "region": "South / Ski Combined",
+      "gallons": 4250
     },
     {
       "year": 2020,
@@ -51554,8 +53089,8 @@
     },
     {
       "year": 2020,
-      "region": "UVM",
-      "gallons": 2620
+      "region": "Summer Snack Stops",
+      "gallons": 3785
     },
     {
       "year": 2020,
@@ -51584,18 +53119,18 @@
     },
     {
       "year": 2021,
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 3115
+      "region": "North-Northeast",
+      "gallons": 6661
     },
     {
       "year": 2021,
       "region": "Northwest",
-      "gallons": 11730
+      "gallons": 13585
     },
     {
       "year": 2021,
       "region": "Other",
-      "gallons": 15527
+      "gallons": 9845
     },
     {
       "year": 2021,
@@ -51610,7 +53145,7 @@
     {
       "year": 2021,
       "region": "Route 2 East",
-      "gallons": 3919
+      "gallons": 5105
     },
     {
       "year": 2021,
@@ -51619,8 +53154,18 @@
     },
     {
       "year": 2021,
+      "region": "Ski Slopes",
+      "gallons": 8860
+    },
+    {
+      "year": 2021,
       "region": "South",
-      "gallons": 1010
+      "gallons": 1360
+    },
+    {
+      "year": 2021,
+      "region": "South / Ski Combined",
+      "gallons": 6315
     },
     {
       "year": 2021,
@@ -51629,8 +53174,8 @@
     },
     {
       "year": 2021,
-      "region": "UVM",
-      "gallons": 2735
+      "region": "Summer Snack Stops",
+      "gallons": 4885
     },
     {
       "year": 2021,
@@ -51659,18 +53204,18 @@
     },
     {
       "year": 2022,
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 4745
+      "region": "North-Northeast",
+      "gallons": 9912
     },
     {
       "year": 2022,
       "region": "Northwest",
-      "gallons": 25922
+      "gallons": 28689
     },
     {
       "year": 2022,
       "region": "Other",
-      "gallons": 20666
+      "gallons": 11109
     },
     {
       "year": 2022,
@@ -51685,7 +53230,7 @@
     {
       "year": 2022,
       "region": "Route 2 East",
-      "gallons": 6595
+      "gallons": 8720
     },
     {
       "year": 2022,
@@ -51694,8 +53239,18 @@
     },
     {
       "year": 2022,
+      "region": "Ski Slopes",
+      "gallons": 9885
+    },
+    {
+      "year": 2022,
       "region": "South",
-      "gallons": 1615
+      "gallons": 2215
+    },
+    {
+      "year": 2022,
+      "region": "South / Ski Combined",
+      "gallons": 6826
     },
     {
       "year": 2022,
@@ -51704,8 +53259,8 @@
     },
     {
       "year": 2022,
-      "region": "UVM",
-      "gallons": 3590
+      "region": "Summer Snack Stops",
+      "gallons": 8020
     },
     {
       "year": 2022,
@@ -51734,18 +53289,18 @@
     },
     {
       "year": 2023,
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 5860
+      "region": "North-Northeast",
+      "gallons": 11655
     },
     {
       "year": 2023,
       "region": "Northwest",
-      "gallons": 18831
+      "gallons": 24570
     },
     {
       "year": 2023,
       "region": "Other",
-      "gallons": 23742
+      "gallons": 13189
     },
     {
       "year": 2023,
@@ -51760,7 +53315,7 @@
     {
       "year": 2023,
       "region": "Route 2 East",
-      "gallons": 4921
+      "gallons": 6178
     },
     {
       "year": 2023,
@@ -51769,8 +53324,18 @@
     },
     {
       "year": 2023,
+      "region": "Ski Slopes",
+      "gallons": 11545
+    },
+    {
+      "year": 2023,
       "region": "South",
-      "gallons": 4432
+      "gallons": 4697
+    },
+    {
+      "year": 2023,
+      "region": "South / Ski Combined",
+      "gallons": 9004
     },
     {
       "year": 2023,
@@ -51779,8 +53344,8 @@
     },
     {
       "year": 2023,
-      "region": "UVM",
-      "gallons": 4330
+      "region": "Summer Snack Stops",
+      "gallons": 7576
     },
     {
       "year": 2023,
@@ -51809,18 +53374,18 @@
     },
     {
       "year": 2024,
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 6490
+      "region": "North-Northeast",
+      "gallons": 12872
     },
     {
       "year": 2024,
       "region": "Northwest",
-      "gallons": 18244
+      "gallons": 23948
     },
     {
       "year": 2024,
       "region": "Other",
-      "gallons": 23840
+      "gallons": 13074
     },
     {
       "year": 2024,
@@ -51835,7 +53400,7 @@
     {
       "year": 2024,
       "region": "Route 2 East",
-      "gallons": 5428
+      "gallons": 6370
     },
     {
       "year": 2024,
@@ -51844,8 +53409,18 @@
     },
     {
       "year": 2024,
+      "region": "Ski Slopes",
+      "gallons": 13425
+    },
+    {
+      "year": 2024,
       "region": "South",
-      "gallons": 6194
+      "gallons": 6484
+    },
+    {
+      "year": 2024,
+      "region": "South / Ski Combined",
+      "gallons": 10459
     },
     {
       "year": 2024,
@@ -51854,8 +53429,8 @@
     },
     {
       "year": 2024,
-      "region": "UVM",
-      "gallons": 4975
+      "region": "Summer Snack Stops",
+      "gallons": 9375
     },
     {
       "year": 2024,
@@ -51884,18 +53459,18 @@
     },
     {
       "year": 2025,
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 7960
+      "region": "North-Northeast",
+      "gallons": 16019
     },
     {
       "year": 2025,
       "region": "Northwest",
-      "gallons": 20072
+      "gallons": 26146
     },
     {
       "year": 2025,
       "region": "Other",
-      "gallons": 25046
+      "gallons": 13867
     },
     {
       "year": 2025,
@@ -51910,7 +53485,7 @@
     {
       "year": 2025,
       "region": "Route 2 East",
-      "gallons": 7199
+      "gallons": 8354
     },
     {
       "year": 2025,
@@ -51919,8 +53494,18 @@
     },
     {
       "year": 2025,
+      "region": "Ski Slopes",
+      "gallons": 18350
+    },
+    {
+      "year": 2025,
       "region": "South",
-      "gallons": 4377
+      "gallons": 4642
+    },
+    {
+      "year": 2025,
+      "region": "South / Ski Combined",
+      "gallons": 11692
     },
     {
       "year": 2025,
@@ -51929,8 +53514,8 @@
     },
     {
       "year": 2025,
-      "region": "UVM",
-      "gallons": 4680
+      "region": "Summer Snack Stops",
+      "gallons": 10668
     },
     {
       "year": 2025,
@@ -51959,18 +53544,18 @@
     },
     {
       "year": 2026,
-      "region": "Jay / Montgomery / Troy",
-      "gallons": 5825
+      "region": "North-Northeast",
+      "gallons": 12640
     },
     {
       "year": 2026,
       "region": "Northwest",
-      "gallons": 28499
+      "gallons": 33497
     },
     {
       "year": 2026,
       "region": "Other",
-      "gallons": 17533
+      "gallons": 8250
     },
     {
       "year": 2026,
@@ -51985,7 +53570,7 @@
     {
       "year": 2026,
       "region": "Route 2 East",
-      "gallons": 6145
+      "gallons": 7030
     },
     {
       "year": 2026,
@@ -51994,8 +53579,18 @@
     },
     {
       "year": 2026,
+      "region": "Ski Slopes",
+      "gallons": 15255
+    },
+    {
+      "year": 2026,
       "region": "South",
       "gallons": 3575
+    },
+    {
+      "year": 2026,
+      "region": "South / Ski Combined",
+      "gallons": 9630
     },
     {
       "year": 2026,
@@ -52004,8 +53599,8 @@
     },
     {
       "year": 2026,
-      "region": "UVM",
-      "gallons": 2730
+      "region": "Summer Snack Stops",
+      "gallons": 11115
     },
     {
       "year": 2026,
@@ -52024,26 +53619,37 @@
     "Waterbury / Stowe",
     "Central",
     "Outer Burlington",
+    "North-Northeast",
     "Central South",
     "Route 7",
     "Route 15",
     "Warren / Waitsfield",
     "Route 2 East",
     "Southern Ski Slopes",
-    "Jay / Montgomery / Troy",
     "South",
-    "UVM"
+    "Ski Slopes",
+    "Summer Snack Stops",
+    "South / Ski Combined"
+  ],
+  "theme_regions": [
+    "Ski Slopes",
+    "South / Ski Combined",
+    "Summer Snack Stops"
   ],
   "region_descriptions": {
     "Route 7": "Middlebury, Vergennes, Bristol, Charlotte, Hinesburg, New Haven, Shelburne",
     "Southern Ski Slopes": "Dover, Ludlow, Killington",
-    "South": "Bennington, Brattleboro, Manchester, Sunderland",
+    "South": "Bennington, Brattleboro, Manchester, Sunderland, Readsboro, Wilmington",
     "Central": "Berlin, Barre City, Barre Town, Northfield, Montpelier",
     "Outer Burlington": "Winooski, Essex, Essex Junction, Williston, Richmond, Jericho",
-    "Northwest": "Plattsburgh, Enosburgh, North Hero, South Hero, Colchester, Milton",
+    "Northwest": "Plattsburgh, Enosburgh, North Hero, South Hero, Colchester, Milton, Fairfax, Swanton, Newport City, Alburgh, Waterville",
     "Route 15": "Hardwick, Wolcott, Johnson, Hyde Park, Morristown, Cambridge",
     "Central South": "Hartford/Quechee, Woodstock, Pomfret, Bethel, Randolph, West Lebanon",
-    "Route 2 East": "Cabot, Plainfield, Danville, Saint Johnsbury, Concord",
+    "Route 2 East": "Cabot, Plainfield, Danville, Saint Johnsbury, Concord, Brighton, Lyndon, Burke, East Haven, Marshfield",
+    "North-Northeast": "Jay, Montgomery, Troy, Glover, Eden, Barton, Newport City, Derby, Albany, Craftsbury",
+    "Ski Slopes": "on-mountain and resort stops statewide, from Jay Peak to Mount Snow",
+    "Summer Snack Stops": "seasonal snack bars, food trucks, fairgrounds and golf courses",
+    "South / Ski Combined": "every stop in South, plus the southern mountains",
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
@@ -52075,17 +53681,17 @@
       "customers": 35,
       "active": 28
     },
-    "Jay / Montgomery / Troy": {
-      "customers": 14,
-      "active": 14
+    "North-Northeast": {
+      "customers": 32,
+      "active": 30
     },
     "Northwest": {
-      "customers": 36,
-      "active": 27
+      "customers": 47,
+      "active": 36
     },
     "Other": {
-      "customers": 110,
-      "active": 83
+      "customers": 65,
+      "active": 48
     },
     "Outer Burlington": {
       "customers": 58,
@@ -52096,24 +53702,32 @@
       "active": 29
     },
     "Route 2 East": {
-      "customers": 22,
-      "active": 17
+      "customers": 35,
+      "active": 25
     },
     "Route 7": {
       "customers": 39,
       "active": 34
     },
+    "Ski Slopes": {
+      "customers": 19,
+      "active": 19
+    },
     "South": {
-      "customers": 12,
-      "active": 10
+      "customers": 16,
+      "active": 13
+    },
+    "South / Ski Combined": {
+      "customers": 34,
+      "active": 25
     },
     "Southern Ski Slopes": {
       "customers": 18,
       "active": 12
     },
-    "UVM": {
-      "customers": 5,
-      "active": 5
+    "Summer Snack Stops": {
+      "customers": 30,
+      "active": 27
     },
     "Warren / Waitsfield": {
       "customers": 30,
@@ -52579,7 +54193,9 @@
       1455,
       1463
     ],
-    "Jay / Montgomery / Troy": [
+    "North-Northeast": [
+      520,
+      521,
       522,
       523,
       524,
@@ -52589,14 +54205,31 @@
       528,
       529,
       530,
+      531,
+      533,
+      534,
+      536,
+      537,
+      538,
+      551,
+      1072,
+      1073,
+      1074,
       1165,
+      1171,
+      1189,
       1246,
+      1276,
       1314,
+      1364,
+      1371,
       1436,
+      1473,
       1500
     ],
     "Northwest": [
       416,
+      422,
       423,
       425,
       426,
@@ -52605,17 +54238,26 @@
       517,
       518,
       519,
+      531,
+      533,
+      534,
+      536,
+      1072,
+      1074,
       1115,
       1139,
       1144,
       1147,
       1149,
+      1171,
       1172,
       1173,
       1175,
+      1176,
       1180,
       1214,
       1215,
+      1227,
       1235,
       1236,
       1319,
@@ -52624,6 +54266,7 @@
       1337,
       1355,
       1357,
+      1371,
       1375,
       1396,
       1409,
@@ -52639,30 +54282,12 @@
       103,
       126,
       201,
-      279,
       417,
       418,
       419,
       420,
       421,
-      422,
-      520,
-      521,
-      531,
-      533,
-      534,
-      536,
-      537,
-      538,
-      547,
-      548,
-      549,
       550,
-      551,
-      602,
-      607,
-      608,
-      618,
       620,
       622,
       623,
@@ -52676,48 +54301,28 @@
       809,
       836,
       837,
-      905,
       911,
       931,
       932,
       1011,
       1040,
-      1058,
-      1060,
-      1072,
-      1073,
-      1074,
       1086,
-      1090,
       1095,
       1097,
       1106,
-      1117,
       1120,
       1124,
-      1129,
-      1136,
-      1137,
       1138,
-      1142,
-      1146,
       1148,
       1155,
-      1171,
-      1176,
       1178,
       1182,
-      1186,
-      1189,
       1192,
       1206,
       1218,
-      1227,
       1258,
       1268,
       1275,
-      1276,
-      1284,
       1300,
       1304,
       1305,
@@ -52725,21 +54330,14 @@
       1325,
       1333,
       1334,
-      1364,
-      1370,
-      1371,
       1378,
       1407,
       1416,
       1429,
       1434,
       1439,
-      1453,
       1456,
       1461,
-      1465,
-      1467,
-      1473,
       1479,
       1484,
       1493,
@@ -52840,10 +54438,15 @@
       1504
     ],
     "Route 2 East": [
+      547,
+      548,
+      549,
       600,
       603,
       605,
       606,
+      607,
+      608,
       610,
       611,
       612,
@@ -52851,17 +54454,25 @@
       615,
       616,
       617,
+      618,
       1078,
       1080,
       1094,
+      1142,
+      1186,
       1249,
       1264,
       1280,
+      1284,
       1293,
       1349,
       1360,
+      1370,
       1415,
-      1442
+      1442,
+      1453,
+      1465,
+      1467
     ],
     "Route 7": [
       370,
@@ -52904,17 +54515,78 @@
       1472,
       1480
     ],
+    "Ski Slopes": [
+      224,
+      225,
+      270,
+      279,
+      526,
+      527,
+      529,
+      817,
+      900,
+      901,
+      902,
+      903,
+      934,
+      1142,
+      1194,
+      1205,
+      1219,
+      1262,
+      1388
+    ],
     "South": [
       733,
       734,
+      905,
       1054,
       1055,
+      1058,
+      1060,
       1096,
+      1129,
       1162,
       1185,
       1234,
       1252,
       1296,
+      1443,
+      1462
+    ],
+    "South / Ski Combined": [
+      733,
+      734,
+      810,
+      815,
+      816,
+      900,
+      901,
+      902,
+      903,
+      904,
+      905,
+      909,
+      910,
+      912,
+      913,
+      934,
+      1054,
+      1055,
+      1058,
+      1060,
+      1079,
+      1096,
+      1129,
+      1162,
+      1169,
+      1185,
+      1205,
+      1234,
+      1252,
+      1296,
+      1388,
+      1391,
       1443,
       1462
     ],
@@ -52938,12 +54610,37 @@
       1388,
       1391
     ],
-    "UVM": [
-      353,
-      354,
-      355,
-      356,
-      358
+    "Summer Snack Stops": [
+      240,
+      361,
+      375,
+      413,
+      517,
+      528,
+      533,
+      602,
+      709,
+      803,
+      825,
+      830,
+      905,
+      1029,
+      1056,
+      1059,
+      1076,
+      1090,
+      1117,
+      1136,
+      1137,
+      1146,
+      1169,
+      1346,
+      1426,
+      1441,
+      1457,
+      1497,
+      1508,
+      1509
     ],
     "Warren / Waitsfield": [
       204,
