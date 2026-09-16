@@ -110,6 +110,25 @@ onto `main`, so re-check the branch before the next commit.
 A new file and whatever references it belong in the same commit; the data files
 and the config that generated them likewise.
 
+**Stage explicitly, and verify the staged set in a separate step.** `git checkout
+<branch> -- <paths>` and `git rm` both leave their changes STAGED, so a later
+`git add` for a different commit silently inherits them and one commit swallows
+the other's files. Check `git diff --cached --name-only` before committing, in
+its own command — printing it inside the same chain as the commit is too late.
+
+## Open follow-ups
+
+Raised by the data, not yet decided by Jim:
+
+- **Bolton Valley** (customer 279) is active — 6,040 gallons all-time, 1,075 in
+  2026 — and belongs to NO geographic region, because Bolton is in no
+  `REGION_TOWNS` entry. It sits in the Ski Slopes theme and otherwise falls to
+  `Other`.
+- **Saint Albans City + Saint Albans Town** are the largest unassigned cluster
+  left: 12 customers, roughly 28,400 gallons. A natural Northwest addition if
+  Jim agrees. (`CITY_TOWN_BY_CUSTOMER` already corrects City vs Town for
+  individual customers.)
+
 ## People
 
 **Jim** sets business direction, including the regional taxonomy. His groupings
