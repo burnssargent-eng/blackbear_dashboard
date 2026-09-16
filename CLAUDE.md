@@ -90,11 +90,11 @@ five, so prefix new classes distinctly.
 ```
 python3 validate_data.py          # ~82 checks on the generated data
 python3 check_town_mismatches.py  # town names vs the GeoJSON; exits non-zero on a real mismatch
-node tests/run_all.js             # six front-end suites; see tests/README.md
+node tests/run_all.js             # five front-end suites; see tests/README.md
 ```
 
-Three standing warnings, all towns configured ahead of their first customer:
-`Route 7:New Haven`, `Northwest:Alburgh` and `Northwest:Waterville`. Expected.
+Two standing warnings, both towns configured ahead of their first customer:
+`Route 7:New Haven` and `Northwest:Alburgh`. Expected.
 
 **The tests cannot see layout.** They evaluate the real functions and templates
 against real JSON, which catches broken maths and markup, but every layout
