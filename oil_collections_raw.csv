@@ -6983,6 +6983,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1309,CUTLER,East Montpelier,Washington,2024-01-22,2024,2024-01,25,True,East Montpelier
 1407,Fox Market-East Montpelier,East Montpelier,Washington,2025-04-22,2025,2025-04,30,True,East Montpelier
 1407,Fox Market-East Montpelier,East Montpelier,Washington,2025-03-10,2025,2025-03,35,True,East Montpelier
+1364,Snake and Apple,Eden,Lamoille,2026-09-15,2026,2026-09,70,True,Eden
 1364,Snake and Apple,Eden,Lamoille,2026-08-31,2026,2026-08,30,True,Eden
 1364,Snake and Apple,Eden,Lamoille,2026-07-09,2026,2026-07,95,True,Eden
 1364,Snake and Apple,Eden,Lamoille,2026-05-11,2026,2026-05,60,True,Eden
@@ -8320,6 +8321,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1193,Phillip Ward- North Hyde Park,Hyde Park,Lamoille,2024-11-01,2024,2024-11,550,True,Hyde Park
 1193,Phillip Ward- North Hyde Park,Hyde Park,Lamoille,2023-10-02,2023,2023-10,1120,True,Hyde Park
 1193,Phillip Ward- North Hyde Park,Hyde Park,Lamoille,2022-11-14,2022,2022-11,1999,True,Hyde Park
+515,Two Sons Bakery/Fork and Gavel-HydePark,Hyde Park,Lamoille,2026-09-15,2026,2026-09,110,True,Hyde Park
 515,Two Sons Bakery/Fork and Gavel-HydePark,Hyde Park,Lamoille,2026-08-03,2026,2026-08,140,True,Hyde Park
 515,Two Sons Bakery/Fork and Gavel-HydePark,Hyde Park,Lamoille,2026-06-25,2026,2026-06,150,True,Hyde Park
 515,Two Sons Bakery/Fork and Gavel-HydePark,Hyde Park,Lamoille,2026-05-01,2026,2026-05,60,True,Hyde Park
@@ -12192,6 +12194,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 534,Dusit Thai,Newport,Orleans,2017-02-21,2017,2017-02,15,True,Newport City
 534,Dusit Thai,Newport,Orleans,2017-01-31,2017,2017-01,40,True,Newport City
 534,Dusit Thai,Newport,Orleans,2016-12-09,2016,2016-12,20,True,Newport City
+1171,Hoagies-Newport,Newport,Orleans,2026-09-15,2026,2026-09,165,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2026-08-31,2026,2026-08,140,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2026-08-20,2026,2026-08,190,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2026-08-06,2026,2026-08,180,True,Newport City
@@ -12249,6 +12252,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1171,Hoagies-Newport,Newport,Orleans,2022-12-22,2022,2022-12,135,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2022-11-01,2022,2022-11,115,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2022-09-07,2022,2022-09,525,True,Newport City
+1074,JumbleBite/Hilmers on Main,Newport,Orleans,2026-09-15,2026,2026-09,35,True,Newport City
 1074,JumbleBite/Hilmers on Main,Newport,Orleans,2026-08-06,2026,2026-08,70,True,Newport City
 1074,JumbleBite/Hilmers on Main,Newport,Orleans,2026-07-02,2026,2026-07,120,True,Newport City
 1074,JumbleBite/Hilmers on Main,Newport,Orleans,2026-04-24,2026,2026-04,50,True,Newport City
@@ -12468,6 +12472,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1144,Shore Acres-North Hero,North Hero,Grand Isle,2022-09-13,2022,2022-09,25,True,North Hero
 1144,Shore Acres-North Hero,North Hero,Grand Isle,2022-08-12,2022,2022-08,25,True,North Hero
 1503,Way Out Wax,Burlington,Chittenden,2026-05-27,2026,2026-05,60,True,Burlington
+1500,802 Deli and Market,North Troy,Orleans,2026-09-15,2026,2026-09,40,True,Troy
 1500,802 Deli and Market,North Troy,Orleans,2026-07-24,2026,2026-07,80,True,Troy
 1500,802 Deli and Market,North Troy,Orleans,2026-06-12,2026,2026-06,100,True,Troy
 1314,Hoagies in North Troy,North Troy,Orleans,2026-08-20,2026,2026-08,65,True,Troy
@@ -12493,6 +12498,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1314,Hoagies in North Troy,North Troy,Orleans,2024-05-21,2024,2024-05,50,True,Troy
 1314,Hoagies in North Troy,North Troy,Orleans,2024-04-18,2024,2024-04,120,True,Troy
 1314,Hoagies in North Troy,North Troy,Orleans,2024-03-18,2024,2024-03,45,True,Troy
+1436,JNETME CONCESSIONS 50%-North Troy,North Troy,Orleans,2026-09-15,2026,2026-09,15,True,Troy
 1436,JNETME CONCESSIONS 50%-North Troy,North Troy,Orleans,2026-08-20,2026,2026-08,55,True,Troy
 1436,JNETME CONCESSIONS 50%-North Troy,North Troy,Orleans,2026-07-24,2026,2026-07,75,True,Troy
 1436,JNETME CONCESSIONS 50%-North Troy,North Troy,Orleans,2026-06-12,2026,2026-06,20,True,Troy
@@ -12502,6 +12508,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1436,JNETME CONCESSIONS 50%-North Troy,North Troy,Orleans,2026-01-29,2026,2026-01,45,True,Troy
 1436,JNETME CONCESSIONS 50%-North Troy,North Troy,Orleans,2025-07-24,2025,2025-07,20,True,Troy
 1436,JNETME CONCESSIONS 50%-North Troy,North Troy,Orleans,2025-06-17,2025,2025-06,50,True,Troy
+1246,Junction Restaurant-50%-North Troy,North Troy,Orleans,2026-09-15,2026,2026-09,15,True,Troy
 1246,Junction Restaurant-50%-North Troy,North Troy,Orleans,2026-08-20,2026,2026-08,60,True,Troy
 1246,Junction Restaurant-50%-North Troy,North Troy,Orleans,2026-07-24,2026,2026-07,75,True,Troy
 1246,Junction Restaurant-50%-North Troy,North Troy,Orleans,2026-06-12,2026,2026-06,20,True,Troy
@@ -12528,6 +12535,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1246,Junction Restaurant-50%-North Troy,North Troy,Orleans,2023-06-27,2023,2023-06,100,True,Troy
 1246,Junction Restaurant-50%-North Troy,North Troy,Orleans,2023-05-11,2023,2023-05,35,True,Troy
 1246,Junction Restaurant-50%-North Troy,North Troy,Orleans,2023-04-26,2023,2023-04,10,True,Troy
+1165,Toasted Bun-North Troy,North Troy,Orleans,2026-09-15,2026,2026-09,80,True,Troy
 1165,Toasted Bun-North Troy,North Troy,Orleans,2026-08-20,2026,2026-08,135,True,Troy
 1165,Toasted Bun-North Troy,North Troy,Orleans,2026-07-24,2026,2026-07,145,True,Troy
 1165,Toasted Bun-North Troy,North Troy,Orleans,2026-06-12,2026,2026-06,85,True,Troy
@@ -14944,6 +14952,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1118,Aladdin,Stowe,Lamoille,2022-11-17,2022,2022-11,70,True,Stowe
 1118,Aladdin,Stowe,Lamoille,2022-09-12,2022,2022-09,60,True,Stowe
 1118,Aladdin,Stowe,Lamoille,2022-06-13,2022,2022-06,20,True,Stowe
+1075,Alfies Wild rides,Stowe,Lamoille,2026-09-15,2026,2026-09,15,True,Stowe
 1075,Alfies Wild rides,Stowe,Lamoille,2026-08-19,2026,2026-08,30,True,Stowe
 1075,Alfies Wild rides,Stowe,Lamoille,2026-06-22,2026,2026-06,10,True,Stowe
 1075,Alfies Wild rides,Stowe,Lamoille,2026-03-20,2026,2026-03,20,True,Stowe
@@ -15002,6 +15011,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2025-07-24,2025,2025-07,60,True,Stowe
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2025-06-17,2025,2025-06,45,True,Stowe
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2025-04-15,2025,2025-04,35,True,Stowe
+287,Backyard Tavern 50%,Stowe,Lamoille,2026-09-15,2026,2026-09,25,True,Stowe
 287,Backyard Tavern 50%,Stowe,Lamoille,2026-08-31,2026,2026-08,40,True,Stowe
 287,Backyard Tavern 50%,Stowe,Lamoille,2026-08-19,2026,2026-08,65,True,Stowe
 287,Backyard Tavern 50%,Stowe,Lamoille,2026-07-23,2026,2026-07,30,True,Stowe
@@ -15124,6 +15134,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 287,Backyard Tavern 50%,Stowe,Lamoille,2021-08-12,2021,2021-08,25,True,Stowe
 287,Backyard Tavern 50%,Stowe,Lamoille,2021-08-01,2021,2021-08,50,True,Stowe
 287,Backyard Tavern 50%,Stowe,Lamoille,2021-06-23,2021,2021-06,43,True,Stowe
+273,BARBERIAN-Skinny Pancake-Stowe McCarthy's,Stowe,Lamoille,2026-09-15,2026,2026-09,115,True,Stowe
 273,BARBERIAN-Skinny Pancake-Stowe McCarthy's,Stowe,Lamoille,2026-08-19,2026,2026-08,125,True,Stowe
 273,BARBERIAN-Skinny Pancake-Stowe McCarthy's,Stowe,Lamoille,2026-07-07,2026,2026-07,45,True,Stowe
 273,BARBERIAN-Skinny Pancake-Stowe McCarthy's,Stowe,Lamoille,2026-06-09,2026,2026-06,25,True,Stowe
@@ -15283,6 +15294,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2016-07-11,2016,2016-07,30,True,Stowe
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2016-04-11,2016,2016-04,35,True,Stowe
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2015-12-04,2015,2015-12,20,True,Stowe
+247,Doc Ponds,Stowe,Lamoille,2026-09-15,2026,2026-09,150,True,Stowe
 247,Doc Ponds,Stowe,Lamoille,2026-08-31,2026,2026-08,120,True,Stowe
 247,Doc Ponds,Stowe,Lamoille,2026-08-19,2026,2026-08,130,True,Stowe
 247,Doc Ponds,Stowe,Lamoille,2026-08-04,2026,2026-08,100,True,Stowe
@@ -15650,6 +15662,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2022-04-07,2022,2022-04,90,True,Stowe
 1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2021-12-16,2021,2021-12,50,True,Stowe
 1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2021-09-30,2021,2021-09,75,True,Stowe
+262,Idletyme,Stowe,Lamoille,2026-09-15,2026,2026-09,140,True,Stowe
 262,Idletyme,Stowe,Lamoille,2026-08-31,2026,2026-08,100,True,Stowe
 262,Idletyme,Stowe,Lamoille,2026-08-19,2026,2026-08,115,True,Stowe
 262,Idletyme,Stowe,Lamoille,2026-08-04,2026,2026-08,120,True,Stowe
@@ -15895,6 +15908,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 262,Idletyme,Stowe,Lamoille,2015-02-13,2015,2015-02,45,True,Stowe
 262,Idletyme,Stowe,Lamoille,2015-01-28,2015,2015-01,45,True,Stowe
 262,Idletyme,Stowe,Lamoille,2015-01-08,2015,2015-01,50,True,Stowe
+278,Matterhorn,Stowe,Lamoille,2026-09-15,2026,2026-09,90,True,Stowe
 278,Matterhorn,Stowe,Lamoille,2026-08-19,2026,2026-08,100,True,Stowe
 278,Matterhorn,Stowe,Lamoille,2026-07-23,2026,2026-07,50,True,Stowe
 278,Matterhorn,Stowe,Lamoille,2026-07-07,2026,2026-07,70,True,Stowe
@@ -16004,6 +16018,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 278,Matterhorn,Stowe,Lamoille,2021-01-13,2021,2021-01,70,True,Stowe
 278,Matterhorn,Stowe,Lamoille,2020-12-24,2020,2020-12,70,True,Stowe
 278,Matterhorn,Stowe,Lamoille,2020-12-02,2020,2020-12,225,True,Stowe
+1361,Outbound Stowe,Stowe,Lamoille,2026-09-15,2026,2026-09,40,True,Stowe
 1361,Outbound Stowe,Stowe,Lamoille,2026-08-19,2026,2026-08,20,True,Stowe
 1361,Outbound Stowe,Stowe,Lamoille,2026-08-04,2026,2026-08,15,True,Stowe
 1361,Outbound Stowe,Stowe,Lamoille,2026-07-07,2026,2026-07,55,True,Stowe
@@ -16023,6 +16038,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1361,Outbound Stowe,Stowe,Lamoille,2025-01-14,2025,2025-01,40,True,Stowe
 1361,Outbound Stowe,Stowe,Lamoille,2024-11-18,2024,2024-11,35,True,Stowe
 1361,Outbound Stowe,Stowe,Lamoille,2024-09-30,2024,2024-09,20,True,Stowe
+261,Piecasso,Stowe,Lamoille,2026-09-15,2026,2026-09,140,True,Stowe
 261,Piecasso,Stowe,Lamoille,2026-08-31,2026,2026-08,110,True,Stowe
 261,Piecasso,Stowe,Lamoille,2026-08-19,2026,2026-08,115,True,Stowe
 261,Piecasso,Stowe,Lamoille,2026-08-04,2026,2026-08,120,True,Stowe
@@ -16312,6 +16328,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 276,RAJA- Umami,Stowe,Lamoille,2020-12-24,2020,2020-12,25,True,Stowe
 276,RAJA- Umami,Stowe,Lamoille,2020-12-02,2020,2020-12,40,True,Stowe
 276,RAJA- Umami,Stowe,Lamoille,2020-10-06,2020,2020-10,65,True,Stowe
+248,Ranch Camp 50%,Stowe,Lamoille,2026-09-15,2026,2026-09,25,True,Stowe
 248,Ranch Camp 50%,Stowe,Lamoille,2026-08-31,2026,2026-08,40,True,Stowe
 248,Ranch Camp 50%,Stowe,Lamoille,2026-08-19,2026,2026-08,65,True,Stowe
 248,Ranch Camp 50%,Stowe,Lamoille,2026-07-23,2026,2026-07,30,True,Stowe
@@ -16462,6 +16479,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 248,Ranch Camp 50%,Stowe,Lamoille,2019-03-30,2019,2019-03,30,True,Stowe
 248,Ranch Camp 50%,Stowe,Lamoille,2019-03-03,2019,2019-03,40,True,Stowe
 248,Ranch Camp 50%,Stowe,Lamoille,2019-02-03,2019,2019-02,90,True,Stowe
+249,Rim Rock-Stowe,Stowe,Lamoille,2026-09-15,2026,2026-09,30,True,Stowe
 249,Rim Rock-Stowe,Stowe,Lamoille,2026-08-31,2026,2026-08,30,True,Stowe
 249,Rim Rock-Stowe,Stowe,Lamoille,2026-08-19,2026,2026-08,25,True,Stowe
 249,Rim Rock-Stowe,Stowe,Lamoille,2026-08-04,2026,2026-08,30,True,Stowe
@@ -16599,6 +16617,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 249,Rim Rock-Stowe,Stowe,Lamoille,2018-02-21,2018,2018-02,75,True,Stowe
 249,Rim Rock-Stowe,Stowe,Lamoille,2018-01-31,2018,2018-01,10,True,Stowe
 249,Rim Rock-Stowe,Stowe,Lamoille,2018-01-19,2018,2018-01,75,True,Stowe
+250,Sanfo,Stowe,Lamoille,2026-09-15,2026,2026-09,45,True,Stowe
 250,Sanfo,Stowe,Lamoille,2026-07-23,2026,2026-07,45,True,Stowe
 250,Sanfo,Stowe,Lamoille,2026-05-27,2026,2026-05,25,True,Stowe
 250,Sanfo,Stowe,Lamoille,2026-04-15,2026,2026-04,25,True,Stowe
@@ -16644,6 +16663,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 250,Sanfo,Stowe,Lamoille,2019-11-30,2019,2019-11,15,True,Stowe
 250,Sanfo,Stowe,Lamoille,2019-05-01,2019,2019-05,50,True,Stowe
 250,Sanfo,Stowe,Lamoille,2018-11-04,2018,2018-11,40,True,Stowe
+270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-09-15,2026,2026-09,170,True,Stowe
 270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-08-31,2026,2026-08,120,True,Stowe
 270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-08-19,2026,2026-08,175,True,Stowe
 270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-08-04,2026,2026-08,190,True,Stowe
@@ -17012,6 +17032,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 254,Thai in the mountain (SaenSook)-Mountain Rd,Stowe,Lamoille,2016-09-19,2016,2016-09,30,True,Stowe
 254,Thai in the mountain (SaenSook)-Mountain Rd,Stowe,Lamoille,2016-08-08,2016,2016-08,32,True,Stowe
 254,Thai in the mountain (SaenSook)-Mountain Rd,Stowe,Lamoille,2016-07-11,2016,2016-07,30,True,Stowe
+252,The Bench,Stowe,Lamoille,2026-09-15,2026,2026-09,40,True,Stowe
 252,The Bench,Stowe,Lamoille,2026-08-31,2026,2026-08,40,True,Stowe
 252,The Bench,Stowe,Lamoille,2026-08-19,2026,2026-08,45,True,Stowe
 252,The Bench,Stowe,Lamoille,2026-08-04,2026,2026-08,40,True,Stowe
@@ -17312,6 +17333,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 246,The Stowe Inn Tavern,Stowe,Lamoille,2016-05-09,2016,2016-05,30,True,Stowe
 246,The Stowe Inn Tavern,Stowe,Lamoille,2015-12-04,2015,2015-12,20,True,Stowe
 246,The Stowe Inn Tavern,Stowe,Lamoille,2015-05-06,2015,2015-05,20,True,Stowe
+265,Topnotch (The Roost),Stowe,Lamoille,2026-09-15,2026,2026-09,70,True,Stowe
 265,Topnotch (The Roost),Stowe,Lamoille,2026-08-19,2026,2026-08,100,True,Stowe
 265,Topnotch (The Roost),Stowe,Lamoille,2026-07-23,2026,2026-07,70,True,Stowe
 265,Topnotch (The Roost),Stowe,Lamoille,2026-07-07,2026,2026-07,115,True,Stowe
@@ -17485,6 +17507,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 265,Topnotch (The Roost),Stowe,Lamoille,2015-02-25,2015,2015-02,40,True,Stowe
 265,Topnotch (The Roost),Stowe,Lamoille,2015-01-28,2015,2015-01,40,True,Stowe
 265,Topnotch (The Roost),Stowe,Lamoille,2015-01-08,2015,2015-01,70,True,Stowe
+1445,Trapp Family Lodge,Stowe,Lamoille,2026-09-15,2026,2026-09,60,True,Stowe
 1445,Trapp Family Lodge,Stowe,Lamoille,2026-08-19,2026,2026-08,50,True,Stowe
 1445,Trapp Family Lodge,Stowe,Lamoille,2026-07-23,2026,2026-07,25,True,Stowe
 1445,Trapp Family Lodge,Stowe,Lamoille,2026-07-07,2026,2026-07,40,True,Stowe
@@ -17500,6 +17523,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1445,Trapp Family Lodge,Stowe,Lamoille,2025-11-18,2025,2025-11,50,True,Stowe
 1445,Trapp Family Lodge,Stowe,Lamoille,2025-10-15,2025,2025-10,55,True,Stowe
 1445,Trapp Family Lodge,Stowe,Lamoille,2025-09-22,2025,2025-09,40,True,Stowe
+267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2026-09-15,2026,2026-09,85,True,Stowe
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2026-08-31,2026,2026-08,70,True,Stowe
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2026-08-19,2026,2026-08,80,True,Stowe
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2026-08-04,2026,2026-08,70,True,Stowe
@@ -20420,6 +20444,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 227,The Reservoir-Waterbury,Waterbury,Washington,2015-02-18,2015,2015-02,90,True,Waterbury
 227,The Reservoir-Waterbury,Waterbury,Washington,2015-01-28,2015,2015-01,40,True,Waterbury
 227,The Reservoir-Waterbury,Waterbury,Washington,2015-01-09,2015,2015-01,155,True,Waterbury
+1076,Vermont Country Club-Waterbury,Waterbury,Washington,2026-09-15,2026,2026-09,35,True,Waterbury
 1076,Vermont Country Club-Waterbury,Waterbury,Washington,2026-08-25,2026,2026-08,75,True,Waterbury
 1076,Vermont Country Club-Waterbury,Waterbury,Washington,2026-08-04,2026,2026-08,30,True,Waterbury
 1076,Vermont Country Club-Waterbury,Waterbury,Washington,2026-07-22,2026,2026-07,35,True,Waterbury
@@ -20443,6 +20468,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1076,Vermont Country Club-Waterbury,Waterbury,Washington,2022-11-03,2022,2022-11,50,True,Waterbury
 1076,Vermont Country Club-Waterbury,Waterbury,Washington,2022-08-23,2022,2022-08,60,True,Waterbury
 1076,Vermont Country Club-Waterbury,Waterbury,Washington,2022-06-13,2022,2022-06,60,True,Waterbury
+238,Zen Barn,Waterbury,Washington,2026-09-15,2026,2026-09,45,True,Waterbury
 238,Zen Barn,Waterbury,Washington,2026-07-22,2026,2026-07,90,True,Waterbury
 238,Zen Barn,Waterbury,Washington,2026-05-11,2026,2026-05,30,True,Waterbury
 238,Zen Barn,Waterbury,Washington,2026-04-15,2026,2026-04,35,True,Waterbury
@@ -20679,6 +20705,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1205,Sundance-(Mount Snow),West Dover,Windham,2025-02-20,2025,2025-02,100,True,Dover
 1205,Sundance-(Mount Snow),West Dover,Windham,2023-11-29,2023,2023-11,50,True,Dover
 1205,Sundance-(Mount Snow),West Dover,Windham,2023-01-30,2023,2023-01,30,True,Dover
+537,Parker Pie- West Glover,West Glover,Orleans,2026-09-15,2026,2026-09,150,True,Glover
 537,Parker Pie- West Glover,West Glover,Orleans,2026-07-24,2026,2026-07,230,True,Glover
 537,Parker Pie- West Glover,West Glover,Orleans,2026-04-29,2026,2026-04,250,True,Glover
 537,Parker Pie- West Glover,West Glover,Orleans,2026-02-20,2026,2026-02,60,True,Glover
@@ -21649,49 +21676,49 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1211,Men at Wok,Williston,Chittenden,2023-04-27,2023,2023-04,10,True,Williston
 1211,Men at Wok,Williston,Chittenden,2023-04-17,2023,2023-04,90,True,Williston
 1211,Men at Wok,Williston,Chittenden,2023-04-12,2023,2023-04,30,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2026-07-08,2026,2026-07,95,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2026-06-04,2026,2026-06,100,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2026-04-24,2026,2026-04,100,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2026-03-05,2026,2026-03,80,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2026-01-06,2026,2026-01,130,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2025-10-21,2025,2025-10,100,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2025-08-26,2025,2025-08,75,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2025-07-31,2025,2025-07,140,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2025-06-11,2025,2025-06,95,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2025-05-06,2025,2025-05,115,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2025-02-28,2025,2025-02,50,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2024-09-24,2024,2024-09,30,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2024-07-09,2024,2024-07,80,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2024-05-28,2024,2024-05,45,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2024-04-25,2024,2024-04,25,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2024-04-05,2024,2024-04,70,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2024-03-05,2024,2024-03,70,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2024-02-08,2024,2024-02,60,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2024-01-08,2024,2024-01,25,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2023-12-18,2023,2023-12,50,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2023-11-27,2023,2023-11,70,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2023-10-11,2023,2023-10,85,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2023-09-06,2023,2023-09,50,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2023-08-01,2023,2023-08,50,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2023-07-14,2023,2023-07,50,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2023-06-26,2023,2023-06,50,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2023-06-01,2023,2023-06,65,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2023-05-08,2023,2023-05,25,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2023-04-27,2023,2023-04,30,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2023-04-12,2023,2023-04,80,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2023-03-03,2023,2023-03,60,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2023-02-13,2023,2023-02,35,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2023-01-17,2023,2023-01,85,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2022-12-29,2022,2022-12,35,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2022-12-11,2022,2022-12,65,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2022-11-20,2022,2022-11,60,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2022-11-02,2022,2022-11,25,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2022-10-24,2022,2022-10,85,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2022-10-03,2022,2022-10,30,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2022-09-21,2022,2022-09,50,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2022-09-08,2022,2022-09,80,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2022-08-17,2022,2022-08,150,True,Williston
-1130,Texas Roadhouse-Mahoney,Williston,Chittenden,2022-07-15,2022,2022-07,400,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2026-07-08,2026,2026-07,95,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2026-06-04,2026,2026-06,100,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2026-04-24,2026,2026-04,100,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2026-03-05,2026,2026-03,80,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2026-01-06,2026,2026-01,130,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2025-10-21,2025,2025-10,100,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2025-08-26,2025,2025-08,75,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2025-07-31,2025,2025-07,140,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2025-06-11,2025,2025-06,95,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2025-05-06,2025,2025-05,115,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2025-02-28,2025,2025-02,50,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2024-09-24,2024,2024-09,30,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2024-07-09,2024,2024-07,80,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2024-05-28,2024,2024-05,45,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2024-04-25,2024,2024-04,25,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2024-04-05,2024,2024-04,70,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2024-03-05,2024,2024-03,70,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2024-02-08,2024,2024-02,60,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2024-01-08,2024,2024-01,25,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2023-12-18,2023,2023-12,50,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2023-11-27,2023,2023-11,70,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2023-10-11,2023,2023-10,85,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2023-09-06,2023,2023-09,50,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2023-08-01,2023,2023-08,50,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2023-07-14,2023,2023-07,50,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2023-06-26,2023,2023-06,50,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2023-06-01,2023,2023-06,65,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2023-05-08,2023,2023-05,25,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2023-04-27,2023,2023-04,30,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2023-04-12,2023,2023-04,80,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2023-03-03,2023,2023-03,60,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2023-02-13,2023,2023-02,35,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2023-01-17,2023,2023-01,85,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2022-12-29,2022,2022-12,35,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2022-12-11,2022,2022-12,65,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2022-11-20,2022,2022-11,60,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2022-11-02,2022,2022-11,25,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2022-10-24,2022,2022-10,85,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2022-10-03,2022,2022-10,30,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2022-09-21,2022,2022-09,50,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2022-09-08,2022,2022-09,80,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2022-08-17,2022,2022-08,150,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2022-07-15,2022,2022-07,400,True,Williston
 405,Williston Place -Retirement home,Williston,Chittenden,2026-07-08,2026,2026-07,55,True,Williston
 405,Williston Place -Retirement home,Williston,Chittenden,2025-10-21,2025,2025-10,30,True,Williston
 405,Williston Place -Retirement home,Williston,Chittenden,2025-08-06,2025,2025-08,10,True,Williston
