@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-15T17:35:54.489344",
+  "last_updated": "2026-09-16T11:00:24.534895",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -41981,6 +41981,11 @@
       "gallons": 770
     },
     {
+      "month": "2015-02",
+      "region": "Winter / Summer Combined",
+      "gallons": 70
+    },
+    {
       "month": "2015-03",
       "region": "Burlington / South Burlington",
       "gallons": 1262
@@ -42086,6 +42091,11 @@
       "gallons": 1065
     },
     {
+      "month": "2015-04",
+      "region": "Winter / Summer Combined",
+      "gallons": 1750
+    },
+    {
       "month": "2015-05",
       "region": "Burlington / South Burlington",
       "gallons": 1976
@@ -42151,6 +42161,11 @@
       "gallons": 873
     },
     {
+      "month": "2015-05",
+      "region": "Winter / Summer Combined",
+      "gallons": 750
+    },
+    {
       "month": "2015-06",
       "region": "Burlington / South Burlington",
       "gallons": 1766
@@ -42201,6 +42216,11 @@
       "gallons": 757
     },
     {
+      "month": "2015-06",
+      "region": "Winter / Summer Combined",
+      "gallons": 50
+    },
+    {
       "month": "2015-07",
       "region": "Burlington / South Burlington",
       "gallons": 2155
@@ -42249,6 +42269,11 @@
       "month": "2015-07",
       "region": "Waterbury / Stowe",
       "gallons": 950
+    },
+    {
+      "month": "2015-07",
+      "region": "Winter / Summer Combined",
+      "gallons": 25
     },
     {
       "month": "2015-08",
@@ -42316,6 +42341,11 @@
       "gallons": 1055
     },
     {
+      "month": "2015-08",
+      "region": "Winter / Summer Combined",
+      "gallons": 452
+    },
+    {
       "month": "2015-09",
       "region": "Burlington / South Burlington",
       "gallons": 2617
@@ -42374,6 +42404,11 @@
       "month": "2015-09",
       "region": "Waterbury / Stowe",
       "gallons": 1120
+    },
+    {
+      "month": "2015-09",
+      "region": "Winter / Summer Combined",
+      "gallons": 250
     },
     {
       "month": "2015-10",
@@ -42444,6 +42479,11 @@
       "month": "2015-10",
       "region": "Waterbury / Stowe",
       "gallons": 490
+    },
+    {
+      "month": "2015-10",
+      "region": "Winter / Summer Combined",
+      "gallons": 30
     },
     {
       "month": "2015-11",
@@ -42521,6 +42561,11 @@
       "gallons": 1235
     },
     {
+      "month": "2015-11",
+      "region": "Winter / Summer Combined",
+      "gallons": 480
+    },
+    {
       "month": "2015-12",
       "region": "Burlington / South Burlington",
       "gallons": 2209
@@ -42574,6 +42619,11 @@
       "month": "2015-12",
       "region": "Waterbury / Stowe",
       "gallons": 1230
+    },
+    {
+      "month": "2015-12",
+      "region": "Winter / Summer Combined",
+      "gallons": 300
     },
     {
       "month": "2016-01",
@@ -42641,6 +42691,11 @@
       "gallons": 858
     },
     {
+      "month": "2016-01",
+      "region": "Winter / Summer Combined",
+      "gallons": 270
+    },
+    {
       "month": "2016-02",
       "region": "Burlington / South Burlington",
       "gallons": 2318
@@ -42701,6 +42756,11 @@
       "gallons": 1433
     },
     {
+      "month": "2016-02",
+      "region": "Winter / Summer Combined",
+      "gallons": 835
+    },
+    {
       "month": "2016-03",
       "region": "Burlington / South Burlington",
       "gallons": 2289
@@ -42759,6 +42819,11 @@
       "month": "2016-03",
       "region": "Waterbury / Stowe",
       "gallons": 900
+    },
+    {
+      "month": "2016-03",
+      "region": "Winter / Summer Combined",
+      "gallons": 350
     },
     {
       "month": "2016-04",
@@ -42826,6 +42891,11 @@
       "gallons": 980
     },
     {
+      "month": "2016-04",
+      "region": "Winter / Summer Combined",
+      "gallons": 1200
+    },
+    {
       "month": "2016-05",
       "region": "Burlington / South Burlington",
       "gallons": 2657
@@ -42874,6 +42944,11 @@
       "month": "2016-05",
       "region": "Waterbury / Stowe",
       "gallons": 2250
+    },
+    {
+      "month": "2016-05",
+      "region": "Winter / Summer Combined",
+      "gallons": 180
     },
     {
       "month": "2016-06",
@@ -42939,6 +43014,11 @@
       "month": "2016-06",
       "region": "Waterbury / Stowe",
       "gallons": 1085
+    },
+    {
+      "month": "2016-06",
+      "region": "Winter / Summer Combined",
+      "gallons": 205
     },
     {
       "month": "2016-07",
@@ -43009,6 +43089,11 @@
       "month": "2016-07",
       "region": "Waterbury / Stowe",
       "gallons": 5147
+    },
+    {
+      "month": "2016-07",
+      "region": "Winter / Summer Combined",
+      "gallons": 935
     },
     {
       "month": "2016-08",
@@ -43091,6 +43176,11 @@
       "gallons": 1202
     },
     {
+      "month": "2016-08",
+      "region": "Winter / Summer Combined",
+      "gallons": 1050
+    },
+    {
       "month": "2016-09",
       "region": "Burlington / South Burlington",
       "gallons": 2515
@@ -43154,6 +43244,11 @@
       "month": "2016-09",
       "region": "Waterbury / Stowe",
       "gallons": 1400
+    },
+    {
+      "month": "2016-09",
+      "region": "Winter / Summer Combined",
+      "gallons": 530
     },
     {
       "month": "2016-10",
@@ -43226,6 +43321,11 @@
       "gallons": 1963
     },
     {
+      "month": "2016-10",
+      "region": "Winter / Summer Combined",
+      "gallons": 140
+    },
+    {
       "month": "2016-11",
       "region": "Burlington / South Burlington",
       "gallons": 2325
@@ -43289,6 +43389,11 @@
       "month": "2016-11",
       "region": "Waterbury / Stowe",
       "gallons": 955
+    },
+    {
+      "month": "2016-11",
+      "region": "Winter / Summer Combined",
+      "gallons": 85
     },
     {
       "month": "2016-12",
@@ -43359,6 +43464,11 @@
       "month": "2016-12",
       "region": "Waterbury / Stowe",
       "gallons": 1660
+    },
+    {
+      "month": "2016-12",
+      "region": "Winter / Summer Combined",
+      "gallons": 45
     },
     {
       "month": "2017-01",
@@ -43441,6 +43551,11 @@
       "gallons": 1321
     },
     {
+      "month": "2017-01",
+      "region": "Winter / Summer Combined",
+      "gallons": 825
+    },
+    {
       "month": "2017-02",
       "region": "Burlington / South Burlington",
       "gallons": 2475
@@ -43488,7 +43603,7 @@
     {
       "month": "2017-02",
       "region": "Ski Slopes",
-      "gallons": 385
+      "gallons": 535
     },
     {
       "month": "2017-02",
@@ -43514,6 +43629,11 @@
       "month": "2017-02",
       "region": "Waterbury / Stowe",
       "gallons": 1507
+    },
+    {
+      "month": "2017-02",
+      "region": "Winter / Summer Combined",
+      "gallons": 535
     },
     {
       "month": "2017-03",
@@ -43568,7 +43688,7 @@
     {
       "month": "2017-03",
       "region": "Ski Slopes",
-      "gallons": 1310
+      "gallons": 1385
     },
     {
       "month": "2017-03",
@@ -43589,6 +43709,11 @@
       "month": "2017-03",
       "region": "Waterbury / Stowe",
       "gallons": 1673
+    },
+    {
+      "month": "2017-03",
+      "region": "Winter / Summer Combined",
+      "gallons": 1385
     },
     {
       "month": "2017-04",
@@ -43683,7 +43808,7 @@
     {
       "month": "2017-05",
       "region": "Ski Slopes",
-      "gallons": 250
+      "gallons": 350
     },
     {
       "month": "2017-05",
@@ -43709,6 +43834,11 @@
       "month": "2017-05",
       "region": "Waterbury / Stowe",
       "gallons": 1620
+    },
+    {
+      "month": "2017-05",
+      "region": "Winter / Summer Combined",
+      "gallons": 545
     },
     {
       "month": "2017-06",
@@ -43763,7 +43893,7 @@
     {
       "month": "2017-06",
       "region": "Ski Slopes",
-      "gallons": 75
+      "gallons": 115
     },
     {
       "month": "2017-06",
@@ -43794,6 +43924,11 @@
       "month": "2017-06",
       "region": "Waterbury / Stowe",
       "gallons": 1600
+    },
+    {
+      "month": "2017-06",
+      "region": "Winter / Summer Combined",
+      "gallons": 295
     },
     {
       "month": "2017-07",
@@ -43848,7 +43983,7 @@
     {
       "month": "2017-07",
       "region": "Ski Slopes",
-      "gallons": 690
+      "gallons": 715
     },
     {
       "month": "2017-07",
@@ -43879,6 +44014,11 @@
       "month": "2017-07",
       "region": "Waterbury / Stowe",
       "gallons": 1100
+    },
+    {
+      "month": "2017-07",
+      "region": "Winter / Summer Combined",
+      "gallons": 1093
     },
     {
       "month": "2017-08",
@@ -43966,6 +44106,11 @@
       "gallons": 2065
     },
     {
+      "month": "2017-08",
+      "region": "Winter / Summer Combined",
+      "gallons": 795
+    },
+    {
       "month": "2017-09",
       "region": "Burlington / South Burlington",
       "gallons": 2577
@@ -44051,6 +44196,11 @@
       "gallons": 2565
     },
     {
+      "month": "2017-09",
+      "region": "Winter / Summer Combined",
+      "gallons": 595
+    },
+    {
       "month": "2017-10",
       "region": "Burlington / South Burlington",
       "gallons": 9002
@@ -44126,6 +44276,11 @@
       "gallons": 1105
     },
     {
+      "month": "2017-10",
+      "region": "Winter / Summer Combined",
+      "gallons": 175
+    },
+    {
       "month": "2017-11",
       "region": "Burlington / South Burlington",
       "gallons": 2154
@@ -44173,7 +44328,7 @@
     {
       "month": "2017-11",
       "region": "Ski Slopes",
-      "gallons": 100
+      "gallons": 170
     },
     {
       "month": "2017-11",
@@ -44194,6 +44349,11 @@
       "month": "2017-11",
       "region": "Waterbury / Stowe",
       "gallons": 2335
+    },
+    {
+      "month": "2017-11",
+      "region": "Winter / Summer Combined",
+      "gallons": 365
     },
     {
       "month": "2017-12",
@@ -44261,6 +44421,11 @@
       "gallons": 780
     },
     {
+      "month": "2017-12",
+      "region": "Winter / Summer Combined",
+      "gallons": 320
+    },
+    {
       "month": "2018-01",
       "region": "Burlington / South Burlington",
       "gallons": 1795
@@ -44303,7 +44468,7 @@
     {
       "month": "2018-01",
       "region": "Ski Slopes",
-      "gallons": 950
+      "gallons": 1015
     },
     {
       "month": "2018-01",
@@ -44329,6 +44494,11 @@
       "month": "2018-01",
       "region": "Waterbury / Stowe",
       "gallons": 2365
+    },
+    {
+      "month": "2018-01",
+      "region": "Winter / Summer Combined",
+      "gallons": 1015
     },
     {
       "month": "2018-02",
@@ -44383,7 +44553,7 @@
     {
       "month": "2018-02",
       "region": "Ski Slopes",
-      "gallons": 1275
+      "gallons": 1365
     },
     {
       "month": "2018-02",
@@ -44409,6 +44579,11 @@
       "month": "2018-02",
       "region": "Waterbury / Stowe",
       "gallons": 2075
+    },
+    {
+      "month": "2018-02",
+      "region": "Winter / Summer Combined",
+      "gallons": 1365
     },
     {
       "month": "2018-03",
@@ -44484,6 +44659,11 @@
       "month": "2018-03",
       "region": "Waterbury / Stowe",
       "gallons": 2100
+    },
+    {
+      "month": "2018-03",
+      "region": "Winter / Summer Combined",
+      "gallons": 1215
     },
     {
       "month": "2018-04",
@@ -44566,6 +44746,11 @@
       "gallons": 3448
     },
     {
+      "month": "2018-04",
+      "region": "Winter / Summer Combined",
+      "gallons": 1115
+    },
+    {
       "month": "2018-05",
       "region": "Burlington / South Burlington",
       "gallons": 4078
@@ -44618,7 +44803,7 @@
     {
       "month": "2018-05",
       "region": "Ski Slopes",
-      "gallons": 200
+      "gallons": 275
     },
     {
       "month": "2018-05",
@@ -44649,6 +44834,11 @@
       "month": "2018-05",
       "region": "Waterbury / Stowe",
       "gallons": 1715
+    },
+    {
+      "month": "2018-05",
+      "region": "Winter / Summer Combined",
+      "gallons": 575
     },
     {
       "month": "2018-06",
@@ -44719,6 +44909,11 @@
       "month": "2018-06",
       "region": "Waterbury / Stowe",
       "gallons": 1380
+    },
+    {
+      "month": "2018-06",
+      "region": "Winter / Summer Combined",
+      "gallons": 540
     },
     {
       "month": "2018-07",
@@ -44794,6 +44989,11 @@
       "month": "2018-07",
       "region": "Waterbury / Stowe",
       "gallons": 3265
+    },
+    {
+      "month": "2018-07",
+      "region": "Winter / Summer Combined",
+      "gallons": 1000
     },
     {
       "month": "2018-08",
@@ -44876,6 +45076,11 @@
       "gallons": 1757
     },
     {
+      "month": "2018-08",
+      "region": "Winter / Summer Combined",
+      "gallons": 980
+    },
+    {
       "month": "2018-09",
       "region": "Burlington / South Burlington",
       "gallons": 3535
@@ -44917,6 +45122,11 @@
     },
     {
       "month": "2018-09",
+      "region": "Ski Slopes",
+      "gallons": 100
+    },
+    {
+      "month": "2018-09",
       "region": "South",
       "gallons": 250
     },
@@ -44944,6 +45154,11 @@
       "month": "2018-09",
       "region": "Waterbury / Stowe",
       "gallons": 895
+    },
+    {
+      "month": "2018-09",
+      "region": "Winter / Summer Combined",
+      "gallons": 1715
     },
     {
       "month": "2018-10",
@@ -45031,6 +45246,11 @@
       "gallons": 2650
     },
     {
+      "month": "2018-10",
+      "region": "Winter / Summer Combined",
+      "gallons": 825
+    },
+    {
       "month": "2018-11",
       "region": "Burlington / South Burlington",
       "gallons": 3824
@@ -45104,6 +45324,11 @@
       "month": "2018-11",
       "region": "Waterbury / Stowe",
       "gallons": 1625
+    },
+    {
+      "month": "2018-11",
+      "region": "Winter / Summer Combined",
+      "gallons": 400
     },
     {
       "month": "2018-12",
@@ -45191,6 +45416,11 @@
       "gallons": 2523
     },
     {
+      "month": "2018-12",
+      "region": "Winter / Summer Combined",
+      "gallons": 825
+    },
+    {
       "month": "2019-01",
       "region": "Burlington / South Burlington",
       "gallons": 2490
@@ -45276,6 +45506,11 @@
       "gallons": 2405
     },
     {
+      "month": "2019-01",
+      "region": "Winter / Summer Combined",
+      "gallons": 1375
+    },
+    {
       "month": "2019-02",
       "region": "Burlington / South Burlington",
       "gallons": 4033
@@ -45328,7 +45563,7 @@
     {
       "month": "2019-02",
       "region": "Ski Slopes",
-      "gallons": 1400
+      "gallons": 1525
     },
     {
       "month": "2019-02",
@@ -45349,6 +45584,11 @@
       "month": "2019-02",
       "region": "Waterbury / Stowe",
       "gallons": 2523
+    },
+    {
+      "month": "2019-02",
+      "region": "Winter / Summer Combined",
+      "gallons": 1525
     },
     {
       "month": "2019-03",
@@ -45431,6 +45671,11 @@
       "gallons": 2905
     },
     {
+      "month": "2019-03",
+      "region": "Winter / Summer Combined",
+      "gallons": 825
+    },
+    {
       "month": "2019-04",
       "region": "Burlington / South Burlington",
       "gallons": 3150
@@ -45483,7 +45728,7 @@
     {
       "month": "2019-04",
       "region": "Ski Slopes",
-      "gallons": 1000
+      "gallons": 1100
     },
     {
       "month": "2019-04",
@@ -45509,6 +45754,11 @@
       "month": "2019-04",
       "region": "Waterbury / Stowe",
       "gallons": 1300
+    },
+    {
+      "month": "2019-04",
+      "region": "Winter / Summer Combined",
+      "gallons": 1250
     },
     {
       "month": "2019-05",
@@ -45591,6 +45841,11 @@
       "gallons": 3510
     },
     {
+      "month": "2019-05",
+      "region": "Winter / Summer Combined",
+      "gallons": 700
+    },
+    {
       "month": "2019-06",
       "region": "Burlington / South Burlington",
       "gallons": 4225
@@ -45669,6 +45924,11 @@
       "month": "2019-06",
       "region": "Waterbury / Stowe",
       "gallons": 2015
+    },
+    {
+      "month": "2019-06",
+      "region": "Winter / Summer Combined",
+      "gallons": 870
     },
     {
       "month": "2019-07",
@@ -45756,6 +46016,11 @@
       "gallons": 2260
     },
     {
+      "month": "2019-07",
+      "region": "Winter / Summer Combined",
+      "gallons": 1675
+    },
+    {
       "month": "2019-08",
       "region": "Burlington / South Burlington",
       "gallons": 3991
@@ -45829,6 +46094,11 @@
       "month": "2019-08",
       "region": "Waterbury / Stowe",
       "gallons": 1470
+    },
+    {
+      "month": "2019-08",
+      "region": "Winter / Summer Combined",
+      "gallons": 1225
     },
     {
       "month": "2019-09",
@@ -45916,6 +46186,11 @@
       "gallons": 2070
     },
     {
+      "month": "2019-09",
+      "region": "Winter / Summer Combined",
+      "gallons": 2425
+    },
+    {
       "month": "2019-10",
       "region": "Burlington / South Burlington",
       "gallons": 4830
@@ -45996,6 +46271,11 @@
       "gallons": 2105
     },
     {
+      "month": "2019-10",
+      "region": "Winter / Summer Combined",
+      "gallons": 1610
+    },
+    {
       "month": "2019-11",
       "region": "Burlington / South Burlington",
       "gallons": 3781
@@ -46064,6 +46344,11 @@
       "month": "2019-11",
       "region": "Waterbury / Stowe",
       "gallons": 2850
+    },
+    {
+      "month": "2019-11",
+      "region": "Winter / Summer Combined",
+      "gallons": 740
     },
     {
       "month": "2019-12",
@@ -46139,6 +46424,11 @@
       "month": "2019-12",
       "region": "Waterbury / Stowe",
       "gallons": 2520
+    },
+    {
+      "month": "2019-12",
+      "region": "Winter / Summer Combined",
+      "gallons": 1630
     },
     {
       "month": "2020-01",
@@ -46221,6 +46511,11 @@
       "gallons": 2215
     },
     {
+      "month": "2020-01",
+      "region": "Winter / Summer Combined",
+      "gallons": 925
+    },
+    {
       "month": "2020-02",
       "region": "Burlington / South Burlington",
       "gallons": 2815
@@ -46296,6 +46591,11 @@
       "gallons": 2735
     },
     {
+      "month": "2020-02",
+      "region": "Winter / Summer Combined",
+      "gallons": 1830
+    },
+    {
       "month": "2020-03",
       "region": "Burlington / South Burlington",
       "gallons": 2855
@@ -46348,7 +46648,7 @@
     {
       "month": "2020-03",
       "region": "Ski Slopes",
-      "gallons": 1875
+      "gallons": 2015
     },
     {
       "month": "2020-03",
@@ -46374,6 +46674,11 @@
       "month": "2020-03",
       "region": "Waterbury / Stowe",
       "gallons": 2375
+    },
+    {
+      "month": "2020-03",
+      "region": "Winter / Summer Combined",
+      "gallons": 2095
     },
     {
       "month": "2020-04",
@@ -46451,6 +46756,11 @@
       "gallons": 1265
     },
     {
+      "month": "2020-04",
+      "region": "Winter / Summer Combined",
+      "gallons": 365
+    },
+    {
       "month": "2020-05",
       "region": "Burlington / South Burlington",
       "gallons": 1750
@@ -46504,6 +46814,11 @@
       "month": "2020-05",
       "region": "Waterbury / Stowe",
       "gallons": 430
+    },
+    {
+      "month": "2020-05",
+      "region": "Winter / Summer Combined",
+      "gallons": 300
     },
     {
       "month": "2020-06",
@@ -46574,6 +46889,11 @@
       "month": "2020-06",
       "region": "Waterbury / Stowe",
       "gallons": 1280
+    },
+    {
+      "month": "2020-06",
+      "region": "Winter / Summer Combined",
+      "gallons": 830
     },
     {
       "month": "2020-07",
@@ -46656,6 +46976,11 @@
       "gallons": 1500
     },
     {
+      "month": "2020-07",
+      "region": "Winter / Summer Combined",
+      "gallons": 665
+    },
+    {
       "month": "2020-08",
       "region": "Burlington / South Burlington",
       "gallons": 2370
@@ -46719,6 +47044,11 @@
       "month": "2020-08",
       "region": "Waterbury / Stowe",
       "gallons": 1810
+    },
+    {
+      "month": "2020-08",
+      "region": "Winter / Summer Combined",
+      "gallons": 1130
     },
     {
       "month": "2020-09",
@@ -46794,6 +47124,11 @@
       "month": "2020-09",
       "region": "Waterbury / Stowe",
       "gallons": 1360
+    },
+    {
+      "month": "2020-09",
+      "region": "Winter / Summer Combined",
+      "gallons": 595
     },
     {
       "month": "2020-10",
@@ -46881,6 +47216,11 @@
       "gallons": 3055
     },
     {
+      "month": "2020-10",
+      "region": "Winter / Summer Combined",
+      "gallons": 560
+    },
+    {
       "month": "2020-11",
       "region": "Burlington / South Burlington",
       "gallons": 2725
@@ -46954,6 +47294,11 @@
       "month": "2020-11",
       "region": "Waterbury / Stowe",
       "gallons": 1610
+    },
+    {
+      "month": "2020-11",
+      "region": "Winter / Summer Combined",
+      "gallons": 1315
     },
     {
       "month": "2020-12",
@@ -47041,6 +47386,11 @@
       "gallons": 3635
     },
     {
+      "month": "2020-12",
+      "region": "Winter / Summer Combined",
+      "gallons": 710
+    },
+    {
       "month": "2021-01",
       "region": "Burlington / South Burlington",
       "gallons": 2600
@@ -47116,6 +47466,11 @@
       "gallons": 2980
     },
     {
+      "month": "2021-01",
+      "region": "Winter / Summer Combined",
+      "gallons": 975
+    },
+    {
       "month": "2021-02",
       "region": "Burlington / South Burlington",
       "gallons": 2030
@@ -47184,6 +47539,11 @@
       "month": "2021-02",
       "region": "Waterbury / Stowe",
       "gallons": 1510
+    },
+    {
+      "month": "2021-02",
+      "region": "Winter / Summer Combined",
+      "gallons": 1115
     },
     {
       "month": "2021-03",
@@ -47259,6 +47619,11 @@
       "month": "2021-03",
       "region": "Waterbury / Stowe",
       "gallons": 2165
+    },
+    {
+      "month": "2021-03",
+      "region": "Winter / Summer Combined",
+      "gallons": 1010
     },
     {
       "month": "2021-04",
@@ -47341,6 +47706,11 @@
       "gallons": 1170
     },
     {
+      "month": "2021-04",
+      "region": "Winter / Summer Combined",
+      "gallons": 1720
+    },
+    {
       "month": "2021-05",
       "region": "Burlington / South Burlington",
       "gallons": 2095
@@ -47421,6 +47791,11 @@
       "gallons": 2060
     },
     {
+      "month": "2021-05",
+      "region": "Winter / Summer Combined",
+      "gallons": 750
+    },
+    {
       "month": "2021-06",
       "region": "Burlington / South Burlington",
       "gallons": 3697
@@ -47489,6 +47864,11 @@
       "month": "2021-06",
       "region": "Waterbury / Stowe",
       "gallons": 2671
+    },
+    {
+      "month": "2021-06",
+      "region": "Winter / Summer Combined",
+      "gallons": 835
     },
     {
       "month": "2021-07",
@@ -47569,6 +47949,11 @@
       "month": "2021-07",
       "region": "Waterbury / Stowe",
       "gallons": 1965
+    },
+    {
+      "month": "2021-07",
+      "region": "Winter / Summer Combined",
+      "gallons": 1075
     },
     {
       "month": "2021-08",
@@ -47656,6 +48041,11 @@
       "gallons": 2980
     },
     {
+      "month": "2021-08",
+      "region": "Winter / Summer Combined",
+      "gallons": 1885
+    },
+    {
       "month": "2021-09",
       "region": "Burlington / South Burlington",
       "gallons": 2290
@@ -47703,7 +48093,7 @@
     {
       "month": "2021-09",
       "region": "Ski Slopes",
-      "gallons": 565
+      "gallons": 640
     },
     {
       "month": "2021-09",
@@ -47734,6 +48124,11 @@
       "month": "2021-09",
       "region": "Waterbury / Stowe",
       "gallons": 4088
+    },
+    {
+      "month": "2021-09",
+      "region": "Winter / Summer Combined",
+      "gallons": 2055
     },
     {
       "month": "2021-10",
@@ -47801,6 +48196,11 @@
       "gallons": 2985
     },
     {
+      "month": "2021-10",
+      "region": "Winter / Summer Combined",
+      "gallons": 705
+    },
+    {
       "month": "2021-11",
       "region": "Burlington / South Burlington",
       "gallons": 3005
@@ -47853,7 +48253,7 @@
     {
       "month": "2021-11",
       "region": "Ski Slopes",
-      "gallons": 260
+      "gallons": 325
     },
     {
       "month": "2021-11",
@@ -47884,6 +48284,11 @@
       "month": "2021-11",
       "region": "Waterbury / Stowe",
       "gallons": 2380
+    },
+    {
+      "month": "2021-11",
+      "region": "Winter / Summer Combined",
+      "gallons": 470
     },
     {
       "month": "2021-12",
@@ -47971,6 +48376,11 @@
       "gallons": 2630
     },
     {
+      "month": "2021-12",
+      "region": "Winter / Summer Combined",
+      "gallons": 1290
+    },
+    {
       "month": "2022-01",
       "region": "Burlington / South Burlington",
       "gallons": 2315
@@ -48041,6 +48451,11 @@
       "gallons": 2710
     },
     {
+      "month": "2022-01",
+      "region": "Winter / Summer Combined",
+      "gallons": 825
+    },
+    {
       "month": "2022-02",
       "region": "Burlington / South Burlington",
       "gallons": 2315
@@ -48093,7 +48508,7 @@
     {
       "month": "2022-02",
       "region": "Ski Slopes",
-      "gallons": 2055
+      "gallons": 2205
     },
     {
       "month": "2022-02",
@@ -48119,6 +48534,11 @@
       "month": "2022-02",
       "region": "Waterbury / Stowe",
       "gallons": 1890
+    },
+    {
+      "month": "2022-02",
+      "region": "Winter / Summer Combined",
+      "gallons": 2205
     },
     {
       "month": "2022-03",
@@ -48201,6 +48621,11 @@
       "gallons": 3749
     },
     {
+      "month": "2022-03",
+      "region": "Winter / Summer Combined",
+      "gallons": 1065
+    },
+    {
       "month": "2022-04",
       "region": "Burlington / South Burlington",
       "gallons": 4492
@@ -48253,7 +48678,7 @@
     {
       "month": "2022-04",
       "region": "Ski Slopes",
-      "gallons": 1600
+      "gallons": 1700
     },
     {
       "month": "2022-04",
@@ -48284,6 +48709,11 @@
       "month": "2022-04",
       "region": "Waterbury / Stowe",
       "gallons": 3958
+    },
+    {
+      "month": "2022-04",
+      "region": "Winter / Summer Combined",
+      "gallons": 1840
     },
     {
       "month": "2022-05",
@@ -48371,6 +48801,11 @@
       "gallons": 2950
     },
     {
+      "month": "2022-05",
+      "region": "Winter / Summer Combined",
+      "gallons": 1015
+    },
+    {
       "month": "2022-06",
       "region": "Burlington / South Burlington",
       "gallons": 4410
@@ -48456,6 +48891,11 @@
       "gallons": 2615
     },
     {
+      "month": "2022-06",
+      "region": "Winter / Summer Combined",
+      "gallons": 1610
+    },
+    {
       "month": "2022-07",
       "region": "Burlington / South Burlington",
       "gallons": 3565
@@ -48507,6 +48947,11 @@
     },
     {
       "month": "2022-07",
+      "region": "Ski Slopes",
+      "gallons": 50
+    },
+    {
+      "month": "2022-07",
       "region": "South",
       "gallons": 125
     },
@@ -48529,6 +48974,11 @@
       "month": "2022-07",
       "region": "Waterbury / Stowe",
       "gallons": 1210
+    },
+    {
+      "month": "2022-07",
+      "region": "Winter / Summer Combined",
+      "gallons": 1220
     },
     {
       "month": "2022-08",
@@ -48601,6 +49051,11 @@
       "gallons": 3395
     },
     {
+      "month": "2022-08",
+      "region": "Winter / Summer Combined",
+      "gallons": 2245
+    },
+    {
       "month": "2022-09",
       "region": "Burlington / South Burlington",
       "gallons": 3984
@@ -48653,7 +49108,7 @@
     {
       "month": "2022-09",
       "region": "Ski Slopes",
-      "gallons": 560
+      "gallons": 610
     },
     {
       "month": "2022-09",
@@ -48684,6 +49139,11 @@
       "month": "2022-09",
       "region": "Waterbury / Stowe",
       "gallons": 3515
+    },
+    {
+      "month": "2022-09",
+      "region": "Winter / Summer Combined",
+      "gallons": 3185
     },
     {
       "month": "2022-10",
@@ -48766,6 +49226,11 @@
       "gallons": 1835
     },
     {
+      "month": "2022-10",
+      "region": "Winter / Summer Combined",
+      "gallons": 905
+    },
+    {
       "month": "2022-11",
       "region": "Burlington / South Burlington",
       "gallons": 4675
@@ -48818,7 +49283,7 @@
     {
       "month": "2022-11",
       "region": "Ski Slopes",
-      "gallons": 715
+      "gallons": 755
     },
     {
       "month": "2022-11",
@@ -48849,6 +49314,11 @@
       "month": "2022-11",
       "region": "Waterbury / Stowe",
       "gallons": 2850
+    },
+    {
+      "month": "2022-11",
+      "region": "Winter / Summer Combined",
+      "gallons": 1005
     },
     {
       "month": "2022-12",
@@ -48936,6 +49406,11 @@
       "gallons": 2795
     },
     {
+      "month": "2022-12",
+      "region": "Winter / Summer Combined",
+      "gallons": 1175
+    },
+    {
       "month": "2023-01",
       "region": "Burlington / South Burlington",
       "gallons": 3534
@@ -48988,7 +49463,7 @@
     {
       "month": "2023-01",
       "region": "Ski Slopes",
-      "gallons": 1615
+      "gallons": 1715
     },
     {
       "month": "2023-01",
@@ -49014,6 +49489,11 @@
       "month": "2023-01",
       "region": "Waterbury / Stowe",
       "gallons": 2565
+    },
+    {
+      "month": "2023-01",
+      "region": "Winter / Summer Combined",
+      "gallons": 1715
     },
     {
       "month": "2023-02",
@@ -49081,6 +49561,11 @@
       "gallons": 2645
     },
     {
+      "month": "2023-02",
+      "region": "Winter / Summer Combined",
+      "gallons": 1790
+    },
+    {
       "month": "2023-03",
       "region": "Burlington / South Burlington",
       "gallons": 5580
@@ -49133,7 +49618,7 @@
     {
       "month": "2023-03",
       "region": "Ski Slopes",
-      "gallons": 2595
+      "gallons": 2660
     },
     {
       "month": "2023-03",
@@ -49159,6 +49644,11 @@
       "month": "2023-03",
       "region": "Waterbury / Stowe",
       "gallons": 2390
+    },
+    {
+      "month": "2023-03",
+      "region": "Winter / Summer Combined",
+      "gallons": 2660
     },
     {
       "month": "2023-04",
@@ -49239,6 +49729,11 @@
       "month": "2023-04",
       "region": "Waterbury / Stowe",
       "gallons": 2330
+    },
+    {
+      "month": "2023-04",
+      "region": "Winter / Summer Combined",
+      "gallons": 565
     },
     {
       "month": "2023-05",
@@ -49326,6 +49821,11 @@
       "gallons": 2560
     },
     {
+      "month": "2023-05",
+      "region": "Winter / Summer Combined",
+      "gallons": 1575
+    },
+    {
       "month": "2023-06",
       "region": "Burlington / South Burlington",
       "gallons": 5420
@@ -49378,7 +49878,7 @@
     {
       "month": "2023-06",
       "region": "Ski Slopes",
-      "gallons": 540
+      "gallons": 590
     },
     {
       "month": "2023-06",
@@ -49409,6 +49909,11 @@
       "month": "2023-06",
       "region": "Waterbury / Stowe",
       "gallons": 2615
+    },
+    {
+      "month": "2023-06",
+      "region": "Winter / Summer Combined",
+      "gallons": 1705
     },
     {
       "month": "2023-07",
@@ -49489,6 +49994,11 @@
       "month": "2023-07",
       "region": "Waterbury / Stowe",
       "gallons": 2779
+    },
+    {
+      "month": "2023-07",
+      "region": "Winter / Summer Combined",
+      "gallons": 1608
     },
     {
       "month": "2023-08",
@@ -49576,6 +50086,11 @@
       "gallons": 3455
     },
     {
+      "month": "2023-08",
+      "region": "Winter / Summer Combined",
+      "gallons": 2250
+    },
+    {
       "month": "2023-09",
       "region": "Burlington / South Burlington",
       "gallons": 4276
@@ -49654,6 +50169,11 @@
       "month": "2023-09",
       "region": "Waterbury / Stowe",
       "gallons": 2325
+    },
+    {
+      "month": "2023-09",
+      "region": "Winter / Summer Combined",
+      "gallons": 2250
     },
     {
       "month": "2023-10",
@@ -49741,6 +50261,11 @@
       "gallons": 2485
     },
     {
+      "month": "2023-10",
+      "region": "Winter / Summer Combined",
+      "gallons": 1343
+    },
+    {
       "month": "2023-11",
       "region": "Burlington / South Burlington",
       "gallons": 4501
@@ -49793,7 +50318,7 @@
     {
       "month": "2023-11",
       "region": "Ski Slopes",
-      "gallons": 890
+      "gallons": 970
     },
     {
       "month": "2023-11",
@@ -49824,6 +50349,11 @@
       "month": "2023-11",
       "region": "Waterbury / Stowe",
       "gallons": 2954
+    },
+    {
+      "month": "2023-11",
+      "region": "Winter / Summer Combined",
+      "gallons": 985
     },
     {
       "month": "2023-12",
@@ -49906,6 +50436,11 @@
       "gallons": 2830
     },
     {
+      "month": "2023-12",
+      "region": "Winter / Summer Combined",
+      "gallons": 970
+    },
+    {
       "month": "2024-01",
       "region": "Burlington / South Burlington",
       "gallons": 3807
@@ -49958,7 +50493,7 @@
     {
       "month": "2024-01",
       "region": "Ski Slopes",
-      "gallons": 2025
+      "gallons": 2055
     },
     {
       "month": "2024-01",
@@ -49989,6 +50524,11 @@
       "month": "2024-01",
       "region": "Waterbury / Stowe",
       "gallons": 3960
+    },
+    {
+      "month": "2024-01",
+      "region": "Winter / Summer Combined",
+      "gallons": 2110
     },
     {
       "month": "2024-02",
@@ -50076,6 +50616,11 @@
       "gallons": 2955
     },
     {
+      "month": "2024-02",
+      "region": "Winter / Summer Combined",
+      "gallons": 2450
+    },
+    {
       "month": "2024-03",
       "region": "Burlington / South Burlington",
       "gallons": 4029
@@ -50161,6 +50706,11 @@
       "gallons": 3185
     },
     {
+      "month": "2024-03",
+      "region": "Winter / Summer Combined",
+      "gallons": 2690
+    },
+    {
       "month": "2024-04",
       "region": "Burlington / South Burlington",
       "gallons": 6408
@@ -50213,7 +50763,7 @@
     {
       "month": "2024-04",
       "region": "Ski Slopes",
-      "gallons": 1715
+      "gallons": 1915
     },
     {
       "month": "2024-04",
@@ -50244,6 +50794,11 @@
       "month": "2024-04",
       "region": "Waterbury / Stowe",
       "gallons": 3000
+    },
+    {
+      "month": "2024-04",
+      "region": "Winter / Summer Combined",
+      "gallons": 2110
     },
     {
       "month": "2024-05",
@@ -50331,6 +50886,11 @@
       "gallons": 2422
     },
     {
+      "month": "2024-05",
+      "region": "Winter / Summer Combined",
+      "gallons": 1270
+    },
+    {
       "month": "2024-06",
       "region": "Burlington / South Burlington",
       "gallons": 5330
@@ -50409,6 +50969,11 @@
       "month": "2024-06",
       "region": "Waterbury / Stowe",
       "gallons": 2790
+    },
+    {
+      "month": "2024-06",
+      "region": "Winter / Summer Combined",
+      "gallons": 1975
     },
     {
       "month": "2024-07",
@@ -50491,6 +51056,11 @@
       "gallons": 3110
     },
     {
+      "month": "2024-07",
+      "region": "Winter / Summer Combined",
+      "gallons": 2055
+    },
+    {
       "month": "2024-08",
       "region": "Burlington / South Burlington",
       "gallons": 3974
@@ -50571,6 +51141,11 @@
       "gallons": 3235
     },
     {
+      "month": "2024-08",
+      "region": "Winter / Summer Combined",
+      "gallons": 2605
+    },
+    {
       "month": "2024-09",
       "region": "Burlington / South Burlington",
       "gallons": 4137
@@ -50623,7 +51198,7 @@
     {
       "month": "2024-09",
       "region": "Ski Slopes",
-      "gallons": 455
+      "gallons": 585
     },
     {
       "month": "2024-09",
@@ -50654,6 +51229,11 @@
       "month": "2024-09",
       "region": "Waterbury / Stowe",
       "gallons": 3790
+    },
+    {
+      "month": "2024-09",
+      "region": "Winter / Summer Combined",
+      "gallons": 3010
     },
     {
       "month": "2024-10",
@@ -50741,6 +51321,11 @@
       "gallons": 1890
     },
     {
+      "month": "2024-10",
+      "region": "Winter / Summer Combined",
+      "gallons": 1380
+    },
+    {
       "month": "2024-11",
       "region": "Burlington / South Burlington",
       "gallons": 4396
@@ -50821,6 +51406,11 @@
       "gallons": 3065
     },
     {
+      "month": "2024-11",
+      "region": "Winter / Summer Combined",
+      "gallons": 615
+    },
+    {
       "month": "2024-12",
       "region": "Burlington / South Burlington",
       "gallons": 3934
@@ -50873,7 +51463,7 @@
     {
       "month": "2024-12",
       "region": "Ski Slopes",
-      "gallons": 805
+      "gallons": 840
     },
     {
       "month": "2024-12",
@@ -50904,6 +51494,11 @@
       "month": "2024-12",
       "region": "Waterbury / Stowe",
       "gallons": 3340
+    },
+    {
+      "month": "2024-12",
+      "region": "Winter / Summer Combined",
+      "gallons": 925
     },
     {
       "month": "2025-01",
@@ -50981,6 +51576,11 @@
       "gallons": 2760
     },
     {
+      "month": "2025-01",
+      "region": "Winter / Summer Combined",
+      "gallons": 3875
+    },
+    {
       "month": "2025-02",
       "region": "Burlington / South Burlington",
       "gallons": 3305
@@ -51056,6 +51656,11 @@
       "gallons": 2945
     },
     {
+      "month": "2025-02",
+      "region": "Winter / Summer Combined",
+      "gallons": 2625
+    },
+    {
       "month": "2025-03",
       "region": "Burlington / South Burlington",
       "gallons": 4607
@@ -51108,7 +51713,7 @@
     {
       "month": "2025-03",
       "region": "Ski Slopes",
-      "gallons": 3720
+      "gallons": 3855
     },
     {
       "month": "2025-03",
@@ -51139,6 +51744,11 @@
       "month": "2025-03",
       "region": "Waterbury / Stowe",
       "gallons": 4045
+    },
+    {
+      "month": "2025-03",
+      "region": "Winter / Summer Combined",
+      "gallons": 4035
     },
     {
       "month": "2025-04",
@@ -51221,6 +51831,11 @@
       "gallons": 2695
     },
     {
+      "month": "2025-04",
+      "region": "Winter / Summer Combined",
+      "gallons": 1560
+    },
+    {
       "month": "2025-05",
       "region": "Burlington / South Burlington",
       "gallons": 4079
@@ -51273,7 +51888,7 @@
     {
       "month": "2025-05",
       "region": "Ski Slopes",
-      "gallons": 830
+      "gallons": 1000
     },
     {
       "month": "2025-05",
@@ -51304,6 +51919,11 @@
       "month": "2025-05",
       "region": "Waterbury / Stowe",
       "gallons": 2690
+    },
+    {
+      "month": "2025-05",
+      "region": "Winter / Summer Combined",
+      "gallons": 1825
     },
     {
       "month": "2025-06",
@@ -51384,6 +52004,11 @@
       "month": "2025-06",
       "region": "Waterbury / Stowe",
       "gallons": 2920
+    },
+    {
+      "month": "2025-06",
+      "region": "Winter / Summer Combined",
+      "gallons": 1715
     },
     {
       "month": "2025-07",
@@ -51471,6 +52096,11 @@
       "gallons": 3310
     },
     {
+      "month": "2025-07",
+      "region": "Winter / Summer Combined",
+      "gallons": 2730
+    },
+    {
       "month": "2025-08",
       "region": "Burlington / South Burlington",
       "gallons": 5028
@@ -51549,6 +52179,11 @@
       "month": "2025-08",
       "region": "Waterbury / Stowe",
       "gallons": 3770
+    },
+    {
+      "month": "2025-08",
+      "region": "Winter / Summer Combined",
+      "gallons": 3165
     },
     {
       "month": "2025-09",
@@ -51631,6 +52266,11 @@
       "gallons": 4590
     },
     {
+      "month": "2025-09",
+      "region": "Winter / Summer Combined",
+      "gallons": 2590
+    },
+    {
       "month": "2025-10",
       "region": "Burlington / South Burlington",
       "gallons": 4517
@@ -51683,7 +52323,7 @@
     {
       "month": "2025-10",
       "region": "Ski Slopes",
-      "gallons": 305
+      "gallons": 345
     },
     {
       "month": "2025-10",
@@ -51714,6 +52354,11 @@
       "month": "2025-10",
       "region": "Waterbury / Stowe",
       "gallons": 2090
+    },
+    {
+      "month": "2025-10",
+      "region": "Winter / Summer Combined",
+      "gallons": 2077
     },
     {
       "month": "2025-11",
@@ -51784,6 +52429,11 @@
       "month": "2025-11",
       "region": "Waterbury / Stowe",
       "gallons": 3655
+    },
+    {
+      "month": "2025-11",
+      "region": "Winter / Summer Combined",
+      "gallons": 831
     },
     {
       "month": "2025-12",
@@ -51866,6 +52516,11 @@
       "gallons": 3445
     },
     {
+      "month": "2025-12",
+      "region": "Winter / Summer Combined",
+      "gallons": 2335
+    },
+    {
       "month": "2026-01",
       "region": "Burlington / South Burlington",
       "gallons": 4696
@@ -51893,7 +52548,7 @@
     {
       "month": "2026-01",
       "region": "Other",
-      "gallons": 903
+      "gallons": 858
     },
     {
       "month": "2026-01",
@@ -51903,7 +52558,7 @@
     {
       "month": "2026-01",
       "region": "Route 15",
-      "gallons": 945
+      "gallons": 990
     },
     {
       "month": "2026-01",
@@ -51944,6 +52599,11 @@
       "month": "2026-01",
       "region": "Waterbury / Stowe",
       "gallons": 3410
+    },
+    {
+      "month": "2026-01",
+      "region": "Winter / Summer Combined",
+      "gallons": 3325
     },
     {
       "month": "2026-02",
@@ -52031,6 +52691,11 @@
       "gallons": 3005
     },
     {
+      "month": "2026-02",
+      "region": "Winter / Summer Combined",
+      "gallons": 3495
+    },
+    {
       "month": "2026-03",
       "region": "Burlington / South Burlington",
       "gallons": 4345
@@ -52083,7 +52748,7 @@
     {
       "month": "2026-03",
       "region": "Ski Slopes",
-      "gallons": 3540
+      "gallons": 3620
     },
     {
       "month": "2026-03",
@@ -52109,6 +52774,11 @@
       "month": "2026-03",
       "region": "Waterbury / Stowe",
       "gallons": 3705
+    },
+    {
+      "month": "2026-03",
+      "region": "Winter / Summer Combined",
+      "gallons": 3620
     },
     {
       "month": "2026-04",
@@ -52196,6 +52866,11 @@
       "gallons": 4235
     },
     {
+      "month": "2026-04",
+      "region": "Winter / Summer Combined",
+      "gallons": 2430
+    },
+    {
       "month": "2026-05",
       "region": "Burlington / South Burlington",
       "gallons": 4256
@@ -52279,6 +52954,11 @@
       "month": "2026-05",
       "region": "Waterbury / Stowe",
       "gallons": 2535
+    },
+    {
+      "month": "2026-05",
+      "region": "Winter / Summer Combined",
+      "gallons": 1410
     },
     {
       "month": "2026-06",
@@ -52366,6 +53046,11 @@
       "gallons": 2415
     },
     {
+      "month": "2026-06",
+      "region": "Winter / Summer Combined",
+      "gallons": 4135
+    },
+    {
       "month": "2026-07",
       "region": "Burlington / South Burlington",
       "gallons": 6506
@@ -52418,7 +53103,7 @@
     {
       "month": "2026-07",
       "region": "Ski Slopes",
-      "gallons": 650
+      "gallons": 710
     },
     {
       "month": "2026-07",
@@ -52451,6 +53136,11 @@
       "gallons": 3285
     },
     {
+      "month": "2026-07",
+      "region": "Winter / Summer Combined",
+      "gallons": 2705
+    },
+    {
       "month": "2026-08",
       "region": "Burlington / South Burlington",
       "gallons": 4858
@@ -52478,7 +53168,7 @@
     {
       "month": "2026-08",
       "region": "Other",
-      "gallons": 140
+      "gallons": 95
     },
     {
       "month": "2026-08",
@@ -52488,7 +53178,7 @@
     {
       "month": "2026-08",
       "region": "Route 15",
-      "gallons": 1745
+      "gallons": 1790
     },
     {
       "month": "2026-08",
@@ -52529,6 +53219,11 @@
       "month": "2026-08",
       "region": "Waterbury / Stowe",
       "gallons": 4430
+    },
+    {
+      "month": "2026-08",
+      "region": "Winter / Summer Combined",
+      "gallons": 2655
     },
     {
       "month": "2026-09",
@@ -52599,6 +53294,11 @@
       "month": "2026-09",
       "region": "Waterbury / Stowe",
       "gallons": 80
+    },
+    {
+      "month": "2026-09",
+      "region": "Winter / Summer Combined",
+      "gallons": 2735
     }
   ],
   "yearly_by_region": [
@@ -52683,6 +53383,11 @@
       "gallons": 11505
     },
     {
+      "year": 2015,
+      "region": "Winter / Summer Combined",
+      "gallons": 4157
+    },
+    {
       "year": 2016,
       "region": "Burlington / South Burlington",
       "gallons": 33354
@@ -52763,6 +53468,11 @@
       "gallons": 19833
     },
     {
+      "year": 2016,
+      "region": "Winter / Summer Combined",
+      "gallons": 5825
+    },
+    {
       "year": 2017,
       "region": "Burlington / South Burlington",
       "gallons": 37791
@@ -52815,7 +53525,7 @@
     {
       "year": 2017,
       "region": "Ski Slopes",
-      "gallons": 4745
+      "gallons": 5205
     },
     {
       "year": 2017,
@@ -52846,6 +53556,11 @@
       "year": 2017,
       "region": "Waterbury / Stowe",
       "gallons": 19589
+    },
+    {
+      "year": 2017,
+      "region": "Winter / Summer Combined",
+      "gallons": 6928
     },
     {
       "year": 2018,
@@ -52900,7 +53615,7 @@
     {
       "year": 2018,
       "region": "Ski Slopes",
-      "gallons": 6440
+      "gallons": 6770
     },
     {
       "year": 2018,
@@ -52931,6 +53646,11 @@
       "year": 2018,
       "region": "Waterbury / Stowe",
       "gallons": 25798
+    },
+    {
+      "year": 2018,
+      "region": "Winter / Summer Combined",
+      "gallons": 11570
     },
     {
       "year": 2019,
@@ -52985,7 +53705,7 @@
     {
       "year": 2019,
       "region": "Ski Slopes",
-      "gallons": 10170
+      "gallons": 10395
     },
     {
       "year": 2019,
@@ -53016,6 +53736,11 @@
       "year": 2019,
       "region": "Waterbury / Stowe",
       "gallons": 27933
+    },
+    {
+      "year": 2019,
+      "region": "Winter / Summer Combined",
+      "gallons": 15850
     },
     {
       "year": 2020,
@@ -53070,7 +53795,7 @@
     {
       "year": 2020,
       "region": "Ski Slopes",
-      "gallons": 7395
+      "gallons": 7535
     },
     {
       "year": 2020,
@@ -53101,6 +53826,11 @@
       "year": 2020,
       "region": "Waterbury / Stowe",
       "gallons": 23270
+    },
+    {
+      "year": 2020,
+      "region": "Winter / Summer Combined",
+      "gallons": 11320
     },
     {
       "year": 2021,
@@ -53155,7 +53885,7 @@
     {
       "year": 2021,
       "region": "Ski Slopes",
-      "gallons": 8860
+      "gallons": 9000
     },
     {
       "year": 2021,
@@ -53186,6 +53916,11 @@
       "year": 2021,
       "region": "Waterbury / Stowe",
       "gallons": 29584
+    },
+    {
+      "year": 2021,
+      "region": "Winter / Summer Combined",
+      "gallons": 13885
     },
     {
       "year": 2022,
@@ -53240,7 +53975,7 @@
     {
       "year": 2022,
       "region": "Ski Slopes",
-      "gallons": 9885
+      "gallons": 10275
     },
     {
       "year": 2022,
@@ -53271,6 +54006,11 @@
       "year": 2022,
       "region": "Waterbury / Stowe",
       "gallons": 33472
+    },
+    {
+      "year": 2022,
+      "region": "Winter / Summer Combined",
+      "gallons": 18295
     },
     {
       "year": 2023,
@@ -53325,7 +54065,7 @@
     {
       "year": 2023,
       "region": "Ski Slopes",
-      "gallons": 11545
+      "gallons": 11840
     },
     {
       "year": 2023,
@@ -53356,6 +54096,11 @@
       "year": 2023,
       "region": "Waterbury / Stowe",
       "gallons": 31933
+    },
+    {
+      "year": 2023,
+      "region": "Winter / Summer Combined",
+      "gallons": 19416
     },
     {
       "year": 2024,
@@ -53410,7 +54155,7 @@
     {
       "year": 2024,
       "region": "Ski Slopes",
-      "gallons": 13425
+      "gallons": 13820
     },
     {
       "year": 2024,
@@ -53441,6 +54186,11 @@
       "year": 2024,
       "region": "Waterbury / Stowe",
       "gallons": 36742
+    },
+    {
+      "year": 2024,
+      "region": "Winter / Summer Combined",
+      "gallons": 23195
     },
     {
       "year": 2025,
@@ -53495,7 +54245,7 @@
     {
       "year": 2025,
       "region": "Ski Slopes",
-      "gallons": 18350
+      "gallons": 18695
     },
     {
       "year": 2025,
@@ -53528,6 +54278,11 @@
       "gallons": 38915
     },
     {
+      "year": 2025,
+      "region": "Winter / Summer Combined",
+      "gallons": 29363
+    },
+    {
       "year": 2026,
       "region": "Burlington / South Burlington",
       "gallons": 41547
@@ -53555,7 +54310,7 @@
     {
       "year": 2026,
       "region": "Other",
-      "gallons": 8250
+      "gallons": 8160
     },
     {
       "year": 2026,
@@ -53565,7 +54320,7 @@
     {
       "year": 2026,
       "region": "Route 15",
-      "gallons": 9059
+      "gallons": 9149
     },
     {
       "year": 2026,
@@ -53580,7 +54335,7 @@
     {
       "year": 2026,
       "region": "Ski Slopes",
-      "gallons": 15255
+      "gallons": 15395
     },
     {
       "year": 2026,
@@ -53611,6 +54366,11 @@
       "year": 2026,
       "region": "Waterbury / Stowe",
       "gallons": 27100
+    },
+    {
+      "year": 2026,
+      "region": "Winter / Summer Combined",
+      "gallons": 26510
     }
   ],
   "region_names": [
@@ -53627,6 +54387,7 @@
     "Route 2 East",
     "Southern Ski Slopes",
     "South",
+    "Winter / Summer Combined",
     "Ski Slopes",
     "Summer Snack Stops",
     "South / Ski Combined"
@@ -53634,7 +54395,8 @@
   "theme_regions": [
     "Ski Slopes",
     "South / Ski Combined",
-    "Summer Snack Stops"
+    "Summer Snack Stops",
+    "Winter / Summer Combined"
   ],
   "region_descriptions": {
     "Route 7": "Middlebury, Vergennes, Bristol, Charlotte, Hinesburg, New Haven, Shelburne",
@@ -53642,14 +54404,15 @@
     "South": "Bennington, Brattleboro, Manchester, Sunderland, Readsboro, Wilmington",
     "Central": "Berlin, Barre City, Barre Town, Northfield, Montpelier",
     "Outer Burlington": "Winooski, Essex, Essex Junction, Williston, Richmond, Jericho",
-    "Northwest": "Plattsburgh, Enosburgh, North Hero, South Hero, Colchester, Milton, Fairfax, Swanton, Newport City, Alburgh, Waterville",
-    "Route 15": "Hardwick, Wolcott, Johnson, Hyde Park, Morristown, Cambridge",
+    "Northwest": "Plattsburgh, Enosburgh, North Hero, South Hero, Colchester, Milton, Fairfax, Swanton, Newport City, Alburgh",
+    "Route 15": "Hardwick, Wolcott, Johnson, Hyde Park, Morristown, Cambridge, Underhill",
     "Central South": "Hartford/Quechee, Woodstock, Pomfret, Bethel, Randolph, West Lebanon",
     "Route 2 East": "Cabot, Plainfield, Danville, Saint Johnsbury, Concord, Brighton, Lyndon, Burke, East Haven, Marshfield",
     "North-Northeast": "Jay, Montgomery, Troy, Glover, Eden, Barton, Newport City, Derby, Albany, Craftsbury",
     "Ski Slopes": "on-mountain and resort stops statewide, from Jay Peak to Mount Snow",
     "Summer Snack Stops": "seasonal snack bars, food trucks, fairgrounds and golf courses",
     "South / Ski Combined": "every stop in South, plus the southern mountains",
+    "Winter / Summer Combined": "both ends of the year: every ski slope stop and every summer snack stop",
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
@@ -53690,16 +54453,16 @@
       "active": 36
     },
     "Other": {
-      "customers": 65,
-      "active": 48
+      "customers": 64,
+      "active": 47
     },
     "Outer Burlington": {
       "customers": 58,
       "active": 46
     },
     "Route 15": {
-      "customers": 32,
-      "active": 29
+      "customers": 33,
+      "active": 30
     },
     "Route 2 East": {
       "customers": 35,
@@ -53710,8 +54473,8 @@
       "active": 34
     },
     "Ski Slopes": {
-      "customers": 19,
-      "active": 19
+      "customers": 20,
+      "active": 20
     },
     "South": {
       "customers": 16,
@@ -53735,6 +54498,10 @@
     },
     "Waterbury / Stowe": {
       "customers": 64,
+      "active": 47
+    },
+    "Winter / Summer Combined": {
+      "customers": 50,
       "active": 47
     }
   },
@@ -54338,7 +55105,6 @@
       1439,
       1456,
       1461,
-      1479,
       1484,
       1493,
       1513
@@ -54434,6 +55200,7 @@
       1404,
       1430,
       1460,
+      1479,
       1497,
       1504
     ],
@@ -54523,6 +55290,7 @@
       526,
       527,
       529,
+      815,
       817,
       900,
       901,
@@ -54739,6 +55507,58 @@
       1372,
       1374,
       1445
+    ],
+    "Winter / Summer Combined": [
+      224,
+      225,
+      240,
+      270,
+      279,
+      361,
+      375,
+      413,
+      517,
+      526,
+      527,
+      528,
+      529,
+      533,
+      602,
+      709,
+      803,
+      815,
+      817,
+      825,
+      830,
+      900,
+      901,
+      902,
+      903,
+      905,
+      934,
+      1029,
+      1056,
+      1059,
+      1076,
+      1090,
+      1117,
+      1136,
+      1137,
+      1142,
+      1146,
+      1169,
+      1194,
+      1205,
+      1219,
+      1262,
+      1346,
+      1388,
+      1426,
+      1441,
+      1457,
+      1497,
+      1508,
+      1509
     ]
   }
 }
