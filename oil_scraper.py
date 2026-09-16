@@ -402,17 +402,20 @@ REGION_TOWNS = {
     ),
     # Plattsburgh NY has no geo_town and is reached by the raw-city fallback.
     # Newport City is deliberately in North-Northeast too — Jim wants it in both
-    # for now, which is one of the reasons region totals overlap. Alburgh and
-    # Waterville have no customers yet; validate_data.py reports them as a
-    # warning until their first pickup.
+    # for now, which is one of the reasons region totals overlap. Alburgh has no
+    # customers yet; validate_data.py reports it as a warning until its first
+    # pickup.
     "Northwest": (
         "Plattsburgh", "Enosburgh", "North Hero", "South Hero", "Colchester",
-        "Milton", "Fairfax", "Swanton", "Newport City", "Alburgh", "Waterville",
+        "Milton", "Fairfax", "Swanton", "Newport City", "Alburgh",
     ),
     "Burlington / South Burlington": ("Burlington", "South Burlington"),
+    # Cambridge covers Jeffersonville via GEO_TOWN_NAME_MAP. Underhill Flats is
+    # on Route 15 between Jericho and Cambridge; Jericho itself sits in Outer
+    # Burlington, so the boundary here is drawn by history, not by the highway.
     "Route 15": (
         "Hardwick", "Wolcott", "Johnson", "Hyde Park", "Morristown",
-        "Cambridge",
+        "Cambridge", "Underhill",
     ),
     # Jim: "Quechee and Woodstock and Bethel & Randolph and West Leb".
     # Hartford is the official town for Quechee, and Pomfret rides with
@@ -451,6 +454,11 @@ SKI_SLOPE_IDS = {
     279,                         # Bolton Valley
     817, 1194,                   # Suicide 6 / Saskadena, and the Fox Farm stop it shares
     1142,                        # Burke Mountain Academy
+    # Killington Resort itself is not a customer — the mountain buys nothing.
+    # Summit Lodge is the slopeside stop; the town's other accounts (the
+    # distillery, Hops on the Hill, Choices, the Grey Bonnet Inn out on Route 4)
+    # are ordinary businesses and stay in Southern Ski Slopes only.
+    815,                         # Killington: Summit Lodge / Irish pub
 }
 
 # Seasonal stops: snack bars, fairgrounds and golf courses. Resort golf counts
@@ -479,6 +487,7 @@ THEME_REGIONS = (
     "Ski Slopes",
     "South / Ski Combined",
     "Summer Snack Stops",
+    "Winter / Summer Combined",
 )
 
 # Some towns are better known by a village name than by their official one.
@@ -512,6 +521,8 @@ STATIC_REGION_DESCRIPTIONS = {
         "every stop in South, plus the southern mountains",
     "Summer Snack Stops":
         "seasonal snack bars, food trucks, fairgrounds and golf courses",
+    "Winter / Summer Combined":
+        "both ends of the year: every ski slope stop and every summer snack stop",
 }
 
 
@@ -551,6 +562,11 @@ COMPOSITE_REGIONS = {
         _town_matcher(REGION_TOWNS["South"]),
         _town_matcher(REGION_TOWNS["Southern Ski Slopes"]),
     ),
+    # TEMPORARY, for a short-term look rather than a core region: both ends of
+    # the year in one view. Built from the union of the two id sets, so it
+    # tracks them automatically. Deliberately left out of REQUIRED_REGIONS in
+    # validate_data.py — dropping it later should not fail validation.
+    "Winter / Summer Combined": _customer_matcher(SKI_SLOPE_IDS | SNACK_STOP_IDS),
 }
 
 CUSTOM_REGIONS = (
