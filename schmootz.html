@@ -58,118 +58,6 @@ const SOURCE_ORDER = [KEY_BARR_GEBBIE, KEY_SHOP_GEBBIE, KEY_BARR_MONTPELIER];
 const COLOR_GEBBIE = "#3fb950";
 const COLOR_MONTPELIER = "#d3a04a";
 
-/*
- * Rough physical equivalents for the headline total, so a seven-figure gallon
- * count means something. PRESENTATION ONLY — these never feed a stored figure
- * and are deliberately hedged with "roughly" and "about" in the copy.
- *
- * Every value is derived from combined_total at render time, so the panel
- * follows the workbook rather than needing its own numbers kept in step.
- *
- * Tanker trucks were tried here and dropped: a truck is a routine unit for this
- * business, so it made the total read as ordinary rather than large.
- */
-const EQUIV = {
-  DRUM_GALLONS: 55,            // standard steel drum
-  OLYMPIC_POOL_GALLONS: 660000,
-  DRUMS_PER_BLOCK: 1000,       // one drawn drum stands for this many
-  MAX_BLOCKS: 80,              // a guard, not a limit we expect to reach
-
-  // American football playing area, 360 ft x 160 ft, and the volume conversion.
-  FIELD_SQ_FT: 57600,
-  GALLONS_PER_CUBIC_FOOT: 7.48052
-};
-
-/**
- * Translate a gallon total into the equivalents shown under the hero number.
- * Returns null when the total is missing or not a positive number, so the
- * caller can leave the panel out rather than render "0 drums".
- */
-function equivalents(totalGallons) {
-  const total = Number(totalGallons);
-  if (!Number.isFinite(total) || total <= 0) return null;
-
-  const drums = Math.round(total / EQUIV.DRUM_GALLONS);
-  const blocks = Math.max(
-    1,
-    Math.min(EQUIV.MAX_BLOCKS, Math.round(drums / EQUIV.DRUMS_PER_BLOCK))
-  );
-
-  // Normally the caption states the design ratio: "about 1,000" is honest for
-  // 994 and reads far better. Only if MAX_BLOCKS actually clamps the wall does
-  // the stated ratio stop being true, and then it falls back to the real one.
-  const clamped =
-    Math.round(drums / EQUIV.DRUMS_PER_BLOCK) > EQUIV.MAX_BLOCKS;
-  const drumsPerBlock = clamped
-    ? Math.max(1, Math.round(drums / blocks))
-    : EQUIV.DRUMS_PER_BLOCK;
-
-  // Depth if the whole total were poured over a football field.
-  const fieldDepthFt =
-    total / (EQUIV.FIELD_SQ_FT * EQUIV.GALLONS_PER_CUBIC_FOOT);
-
-  return {
-    total,
-    drums,
-    blocks,
-    drumsPerBlock,
-    // One decimal on both: whole numbers would overstate the precision.
-    pools: (total / EQUIV.OLYMPIC_POOL_GALLONS).toFixed(1),
-    fieldDepthFt: fieldDepthFt.toFixed(1),
-    // Hedged form for prose, so the sentence never implies survey accuracy.
-    fieldDepthWords: fieldDepthFt >= 1
-      ? `more than ${Math.floor(fieldDepthFt)} feet`
-      : "less than a foot"
-  };
-}
-
-/*
- * A 55-gallon drum, matching the solid-silhouette reference: an open elliptical
- * top and three body bands whose curved edges follow the cylinder, with the
- * rolling hoops read as the gaps between them.
- *
- * The bands are separate filled shapes rather than lines drawn over a solid
- * body, so the hoops are transparent and the icon needs no background colour of
- * its own — it sits on any panel. Every fill is currentColor, so the colour
- * lives in dashboard.css.
- *
- * An earlier version used three straight rounded rectangles, which read as
- * keycaps. The curves are what make it a drum.
- */
-const DRUM_SVG = `
-  <svg class="equiv-drum" viewBox="0 0 40 64" aria-hidden="true" focusable="false">
-    <path d="M1 8 V21 q19 6 38 0 V8 Z" fill="currentColor"/>
-    <path d="M1 25 q19 6 38 0 V38 q-19 6 -38 0 Z" fill="currentColor"/>
-    <path d="M1 42 q19 6 38 0 V55 q-19 8 -38 0 Z" fill="currentColor"/>
-    <ellipse cx="20" cy="8" rx="19" ry="7" fill="currentColor"/>
-    <ellipse cx="20" cy="7.2" rx="12.5" ry="4.3"
-             fill="currentColor" fill-opacity="0.35"/>
-  </svg>`;
-
-/* A pool: an outlined basin with two waterlines. */
-const POOL_SVG = `
-  <svg class="equiv-card-icon" viewBox="0 0 40 22" aria-hidden="true" focusable="false">
-    <rect x="1" y="2" width="38" height="18" rx="3"
-          fill="none" stroke="currentColor" stroke-width="1.4" stroke-opacity="0.5"/>
-    <path d="M4 9.5 q4 -2.6 8 0 t8 0 t8 0 t8 0"
-          fill="none" stroke="currentColor" stroke-width="1.4"/>
-    <path d="M4 14.5 q4 -2.6 8 0 t8 0 t8 0 t8 0"
-          fill="none" stroke="currentColor" stroke-width="1.4" stroke-opacity="0.55"/>
-  </svg>`;
-
-/* A field seen end-on, with yard lines and a depth marker up the side. */
-const FIELD_SVG = `
-  <svg class="equiv-card-icon" viewBox="0 0 40 22" aria-hidden="true" focusable="false">
-    <rect x="1" y="6" width="29" height="14" rx="1.5"
-          fill="currentColor" fill-opacity="0.12"
-          stroke="currentColor" stroke-width="1.4" stroke-opacity="0.5"/>
-    <path d="M8.25 6 v14 M15.5 6 v14 M22.75 6 v14"
-          stroke="currentColor" stroke-width="1" stroke-opacity="0.4"/>
-    <path d="M35 3 v16 M32.6 5.4 L35 3 l2.4 2.4 M32.6 16.6 L35 19 l2.4 -2.4"
-          fill="none" stroke="currentColor" stroke-width="1.3"
-          stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>`;
-
 async function init() {
   const page = document.getElementById("page");
   renderPageName("Schmootz");
@@ -244,10 +132,6 @@ function render(page, data) {
     return v === undefined || v === null ? "—" : formatNumber(v);
   };
 
-  // Tangible equivalents for the hero number. null when the total is unusable,
-  // which leaves the panel out entirely rather than showing zeros.
-  const eq = equivalents(data.combined_total);
-
   page.innerHTML = `
     <a class="back-link" href="index.html">← Back to the dashboard</a>
 
@@ -255,54 +139,6 @@ function render(page, data) {
       <div class="hero-value">${formatNumber(data.combined_total)}</div>
       <div class="hero-label">Total Waste Displaced (gallons)</div>
     </div>
-
-    ${eq ? `
-    <div class="equiv-panel">
-      <div class="equiv-title">Waste Displaced in Real Terms</div>
-
-      <!-- The drum count and the drums themselves are one unit: the number is
-           the dominant equivalent and the grid is its evidence. -->
-      <div class="equiv-lead">
-        <div class="equiv-callout">
-          <div class="equiv-callout-val">${formatNumber(eq.drums)}</div>
-          <div class="equiv-callout-label">standard 55-gallon drums</div>
-        </div>
-
-        <div class="equiv-grid-wrap">
-          <div class="equiv-grid">
-            ${DRUM_SVG.repeat(eq.blocks)}
-          </div>
-          <div class="equiv-caption">
-            Each drum icon represents about ${formatNumber(eq.drumsPerBlock)}
-            standard 55-gallon drums.
-          </div>
-        </div>
-      </div>
-
-      <div class="equiv-cards">
-        <div class="equiv-card">
-          ${POOL_SVG}
-          <div class="equiv-card-val">${escapeHtml(eq.pools)}</div>
-          <div class="equiv-card-label">Olympic-size swimming pools</div>
-          <div class="equiv-card-sub">Based on roughly
-            ${formatNumber(EQUIV.OLYMPIC_POOL_GALLONS)} gallons per pool.</div>
-        </div>
-        <div class="equiv-card">
-          ${FIELD_SVG}
-          <div class="equiv-card-val">${escapeHtml(eq.fieldDepthFt)} ft</div>
-          <div class="equiv-card-label">deep over a football field</div>
-          <div class="equiv-card-sub">A physical-scale comparison, over a
-            360 × 160 ft playing area.</div>
-        </div>
-      </div>
-
-      <div class="equiv-summary">
-        ${formatNumber(eq.total)} gallons of waste displaced — enough to fill
-        roughly ${formatNumber(eq.drums)} standard 55-gallon drums,
-        ${escapeHtml(eq.pools)} Olympic-size pools, or cover a football field
-        ${escapeHtml(eq.fieldDepthWords)} deep.
-      </div>
-    </div>` : ""}
 
     <div class="stats-bar">
       ${blocks.map(b => `
