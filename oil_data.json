@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-16T11:59:06.013702",
+  "last_updated": "2026-09-17T12:26:09.691096",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33382,7 +33382,7 @@
     {
       "month": "2026-09",
       "geo_town": "Burlington",
-      "gallons": 1815,
+      "gallons": 1995,
       "city": "Burlington"
     },
     {
@@ -33406,7 +33406,7 @@
     {
       "month": "2026-09",
       "geo_town": "Essex Junction",
-      "gallons": 1735,
+      "gallons": 2235,
       "city": "Essex Junction"
     },
     {
@@ -33567,8 +33567,14 @@
     },
     {
       "month": "2026-09",
+      "geo_town": "Williston",
+      "gallons": 335,
+      "city": "Williston"
+    },
+    {
+      "month": "2026-09",
       "geo_town": "Winooski",
-      "gallons": 520,
+      "gallons": 835,
       "city": "Winooski"
     },
     {
@@ -41257,7 +41263,7 @@
     {
       "month": "2026-09",
       "county": "Chittenden",
-      "gallons": 4210
+      "gallons": 5540
     },
     {
       "month": "2026-09",
@@ -41362,11 +41368,11 @@
     },
     {
       "year": 2026,
-      "gallons": 213362
+      "gallons": 214692
     }
   ],
-  "all_time_total": 2132129,
-  "current_year_total": 213362,
+  "all_time_total": 2133459,
+  "current_year_total": 214692,
   "customer_count": 796,
   "unmapped_total": 39625,
   "monthly_totals": [
@@ -41932,7 +41938,7 @@
     },
     {
       "month": "2026-09",
-      "gallons": 12023
+      "gallons": 13353
     }
   ],
   "monthly_by_region": [
@@ -53274,7 +53280,7 @@
     {
       "month": "2026-09",
       "region": "Burlington / South Burlington",
-      "gallons": 1955
+      "gallons": 2135
     },
     {
       "month": "2026-09",
@@ -53304,7 +53310,7 @@
     {
       "month": "2026-09",
       "region": "Outer Burlington",
-      "gallons": 2255
+      "gallons": 3405
     },
     {
       "month": "2026-09",
@@ -53339,7 +53345,7 @@
     {
       "month": "2026-09",
       "region": "Summer Snack Stops",
-      "gallons": 2545
+      "gallons": 3045
     },
     {
       "month": "2026-09",
@@ -53354,7 +53360,7 @@
     {
       "month": "2026-09",
       "region": "Winter / Summer Combined",
-      "gallons": 2940
+      "gallons": 3440
     }
   ],
   "yearly_by_region": [
@@ -54341,7 +54347,7 @@
     {
       "year": 2026,
       "region": "Burlington / South Burlington",
-      "gallons": 41547
+      "gallons": 41727
     },
     {
       "year": 2026,
@@ -54371,7 +54377,7 @@
     {
       "year": 2026,
       "region": "Outer Burlington",
-      "gallons": 18563
+      "gallons": 19713
     },
     {
       "year": 2026,
@@ -54411,7 +54417,7 @@
     {
       "year": 2026,
       "region": "Summer Snack Stops",
-      "gallons": 11150
+      "gallons": 11650
     },
     {
       "year": 2026,
@@ -54426,15 +54432,15 @@
     {
       "year": 2026,
       "region": "Winter / Summer Combined",
-      "gallons": 26715
+      "gallons": 27215
     }
   ],
   "region_names": [
     "Burlington / South Burlington",
     "Northwest",
     "Waterbury / Stowe",
-    "Central",
     "Outer Burlington",
+    "Central",
     "North-Northeast",
     "Central South",
     "Route 7",
@@ -54472,20 +54478,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 27423,
+  "collections_count": 27435,
   "out_of_state_total": 39625,
   "active_customer_count": 522,
   "projection": {
-    "latest_data_date": "2026-09-15",
+    "latest_data_date": "2026-09-16",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 213362,
+    "current_ytd": 214692,
     "previous_year_full": 269909,
     "previous_through_prior_month": 183361,
     "previous_same_month_total": 25498,
-    "previous_prorated_ytd": 196110.0,
-    "projected_current_year": 293653,
-    "percent_vs_previous_year": 0.087971
+    "previous_prorated_ytd": 196959.93,
+    "projected_current_year": 294209,
+    "percent_vs_previous_year": 0.090029
   },
   "region_stats": {
     "Burlington / South Burlington": {
