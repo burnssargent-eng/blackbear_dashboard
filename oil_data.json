@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-18T12:06:19.016719",
+  "last_updated": "2026-09-19T11:49:50.481583",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33346,7 +33346,7 @@
     {
       "month": "2026-09",
       "geo_town": "Barre City",
-      "gallons": 330,
+      "gallons": 490,
       "city": "Barre City"
     },
     {
@@ -33363,6 +33363,12 @@
     },
     {
       "month": "2026-09",
+      "geo_town": "Berlin",
+      "gallons": 190,
+      "city": "Berlin"
+    },
+    {
+      "month": "2026-09",
       "geo_town": "Bethel",
       "gallons": 225,
       "city": "Bethel"
@@ -33372,6 +33378,12 @@
       "geo_town": "Bristol",
       "gallons": 145,
       "city": "Bristol"
+    },
+    {
+      "month": "2026-09",
+      "geo_town": "Brookfield",
+      "gallons": 50,
+      "city": "Brookfield"
     },
     {
       "month": "2026-09",
@@ -33454,7 +33466,7 @@
     {
       "month": "2026-09",
       "geo_town": "Montpelier",
-      "gallons": 310,
+      "gallons": 585,
       "city": "Montpelier"
     },
     {
@@ -33468,6 +33480,12 @@
       "geo_town": "North Hero",
       "gallons": 70,
       "city": "North Hero"
+    },
+    {
+      "month": "2026-09",
+      "geo_town": "Northfield",
+      "gallons": 260,
+      "city": "Northfield"
     },
     {
       "month": "2026-09",
@@ -33486,6 +33504,12 @@
       "geo_town": "Randolph",
       "gallons": 25,
       "city": "Randolph"
+    },
+    {
+      "month": "2026-09",
+      "geo_town": "Roxbury",
+      "gallons": 55,
+      "city": "Roxbury"
     },
     {
       "month": "2026-09",
@@ -41314,7 +41338,7 @@
     {
       "month": "2026-09",
       "county": "Washington",
-      "gallons": 1926
+      "gallons": 2866
     },
     {
       "month": "2026-09",
@@ -41324,7 +41348,7 @@
     {
       "month": "2026-09",
       "county": "Windsor",
-      "gallons": 1040
+      "gallons": 1090
     }
   ],
   "yearly_totals": [
@@ -41374,11 +41398,11 @@
     },
     {
       "year": 2026,
-      "gallons": 216002
+      "gallons": 216992
     }
   ],
-  "all_time_total": 2134769,
-  "current_year_total": 216002,
+  "all_time_total": 2135759,
+  "current_year_total": 216992,
   "customer_count": 796,
   "unmapped_total": 39625,
   "monthly_totals": [
@@ -41944,7 +41968,7 @@
     },
     {
       "month": "2026-09",
-      "gallons": 14663
+      "gallons": 15653
     }
   ],
   "monthly_by_region": [
@@ -53291,7 +53315,7 @@
     {
       "month": "2026-09",
       "region": "Central",
-      "gallons": 1056
+      "gallons": 1941
     },
     {
       "month": "2026-09",
@@ -53311,7 +53335,7 @@
     {
       "month": "2026-09",
       "region": "Other",
-      "gallons": 865
+      "gallons": 915
     },
     {
       "month": "2026-09",
@@ -53351,7 +53375,7 @@
     {
       "month": "2026-09",
       "region": "Summer Snack Stops",
-      "gallons": 3195
+      "gallons": 3250
     },
     {
       "month": "2026-09",
@@ -53366,7 +53390,7 @@
     {
       "month": "2026-09",
       "region": "Winter / Summer Combined",
-      "gallons": 3590
+      "gallons": 3645
     }
   ],
   "yearly_by_region": [
@@ -54358,7 +54382,7 @@
     {
       "year": 2026,
       "region": "Central",
-      "gallons": 19652
+      "gallons": 20537
     },
     {
       "year": 2026,
@@ -54378,7 +54402,7 @@
     {
       "year": 2026,
       "region": "Other",
-      "gallons": 8160
+      "gallons": 8210
     },
     {
       "year": 2026,
@@ -54423,7 +54447,7 @@
     {
       "year": 2026,
       "region": "Summer Snack Stops",
-      "gallons": 11800
+      "gallons": 11855
     },
     {
       "year": 2026,
@@ -54438,15 +54462,15 @@
     {
       "year": 2026,
       "region": "Winter / Summer Combined",
-      "gallons": 27365
+      "gallons": 27420
     }
   ],
   "region_names": [
     "Burlington / South Burlington",
     "Northwest",
     "Waterbury / Stowe",
-    "Outer Burlington",
     "Central",
+    "Outer Burlington",
     "North-Northeast",
     "Central South",
     "Route 7",
@@ -54484,20 +54508,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 27453,
+  "collections_count": 27469,
   "out_of_state_total": 39625,
   "active_customer_count": 522,
   "projection": {
-    "latest_data_date": "2026-09-17",
+    "latest_data_date": "2026-09-18",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 216002,
+    "current_ytd": 216992,
     "previous_year_full": 269909,
     "previous_through_prior_month": 183361,
     "previous_same_month_total": 25498,
-    "previous_prorated_ytd": 197809.87,
-    "projected_current_year": 294732,
-    "percent_vs_previous_year": 0.091968
+    "previous_prorated_ytd": 198659.8,
+    "projected_current_year": 294816,
+    "percent_vs_previous_year": 0.092279
   },
   "region_stats": {
     "Burlington / South Burlington": {
@@ -54613,8 +54637,8 @@
       "year": 2020,
       "places_serviced": 292,
       "gained": 42,
-      "lost": 33,
-      "net": 9
+      "lost": 32,
+      "net": 10
     },
     {
       "year": 2021,
@@ -54653,7 +54677,7 @@
     },
     {
       "year": 2026,
-      "places_serviced": 456,
+      "places_serviced": 460,
       "gained": 34,
       "lost": 6,
       "net": 28
