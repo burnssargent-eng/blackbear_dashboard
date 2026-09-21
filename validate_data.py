@@ -989,6 +989,9 @@ RETIRED_REGIONS = {
     "Jay+Montgomery+Troy",
     "Jay / Montgomery / Troy",
     "UVM",
+    # Widened down the Connecticut River and renamed "Route 2 East / Route 5"
+    # on 2026-09-21.
+    "Route 2 East",
 }
 
 # The regions Jim named, including the three theme regions that cut across
@@ -1005,7 +1008,7 @@ REQUIRED_REGIONS = [
     "Burlington / South Burlington",
     "Route 15",
     "Central South",
-    "Route 2 East",
+    "Route 2 East / Route 5",
     "North-Northeast",
     "Ski Slopes",
     "South / Ski Combined",
@@ -1018,8 +1021,14 @@ REQUIRED_REGIONS = [
 REQUIRED_TOWN_REGION = {
     "Shelburne": "Route 7",
     "Whiting": "Route 7",
+    # Jim, 2026-09-21. Vermont splits Rutland in two and customers sit in both,
+    # so asserting one would let the other be dropped unnoticed.
+    "Rutland City": "Route 7",
+    "Rutland Town": "Route 7",
     "Stowe": "Waterbury / Stowe",
     "Waterbury": "Waterbury / Stowe",
+    # Jim, 2026-09-21. Bolton Valley reaches the region through Bolton.
+    "Bolton": "Waterbury / Stowe",
     "Woodstock": "Central South",
     "Pomfret": "Central South",
     "Hartford": "Central South",
@@ -1046,7 +1055,13 @@ REQUIRED_TOWN_REGION = {
     # both, so asserting one would let the other be dropped unnoticed.
     "Saint Albans City": "Northwest",
     "Saint Albans Town": "Northwest",
-    "Brighton": "Route 2 East",
+    "Brighton": "Route 2 East / Route 5",
+    # Jim, 2026-09-21. Newbury reaches the region through Wells River.
+    "Newbury": "Route 2 East / Route 5",
+    "Fairlee": "Route 2 East / Route 5",
+    "Bradford": "Route 2 East / Route 5",
+    # Lunenburg reaches the region through Gilman.
+    "Lunenburg": "Route 2 East / Route 5",
     "Readsboro": "South",
 }
 

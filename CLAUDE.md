@@ -122,10 +122,16 @@ its own command — printing it inside the same chain as the commit is too late.
 
 Raised by the data, not yet decided by Jim:
 
-- **Bolton Valley** (customer 279) is active — 6,040 gallons all-time, 1,075 in
-  2026 — and belongs to NO geographic region, because Bolton is in no
-  `REGION_TOWNS` entry. It sits in the Ski Slopes theme and otherwise falls to
-  `Other`.
+- **Rutland has collected nothing in 2026.** Jim put it in Route 7 on
+  2026-09-21 and its 11,123 all-time gallons are real, but the last pickup was
+  2025-09-10. Service dates went 15 in 2024 to 4 in 2025 to 0 since, and the
+  three accounts still flagged active — Hannaford, Mad Rose, Uncle Sam's — all
+  stopped on that same day, on a combined run. Three accounts lapsing
+  separately would stop on three dates; this reads as the route being dropped.
+  Ask Jim whether that was deliberate. Note the committed CSV is written after
+  the `EMPTY_QTYS` filter (`oil_scraper.py:337`, written at `:989`), so a
+  zero-quantity customer call in 2026 would not show up either way — the claim
+  is no collected volume, not no contact.
 - **Pittsford** (1 customer, 6 pickups) is one letter from Pittsfield, which
   Jim put in Central South on 2026-09-20. He named Pittsfield and it was taken
   literally; Pittsford is a different town in Rutland County and stays in
