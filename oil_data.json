@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-20T21:55:08.006983",
+  "last_updated": "2026-09-20T23:50:34.413822",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -42089,7 +42089,7 @@
     },
     {
       "month": "2015-03",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 110
     },
     {
@@ -42129,7 +42129,7 @@
     },
     {
       "month": "2015-04",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 110
     },
     {
@@ -42194,7 +42194,7 @@
     },
     {
       "month": "2015-05",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 40
     },
     {
@@ -42304,7 +42304,7 @@
     },
     {
       "month": "2015-07",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 180
     },
     {
@@ -42354,7 +42354,7 @@
     },
     {
       "month": "2015-08",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 65
     },
     {
@@ -42479,7 +42479,7 @@
     },
     {
       "month": "2015-10",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 25
     },
     {
@@ -42554,7 +42554,7 @@
     },
     {
       "month": "2015-11",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 163
     },
     {
@@ -42624,7 +42624,7 @@
     },
     {
       "month": "2015-12",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 40
     },
     {
@@ -42734,11 +42734,6 @@
     },
     {
       "month": "2016-02",
-      "region": "Other",
-      "gallons": 80
-    },
-    {
-      "month": "2016-02",
       "region": "Outer Burlington",
       "gallons": 365
     },
@@ -42749,13 +42744,13 @@
     },
     {
       "month": "2016-02",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 65
     },
     {
       "month": "2016-02",
       "region": "Route 7",
-      "gallons": 40
+      "gallons": 120
     },
     {
       "month": "2016-02",
@@ -42794,11 +42789,6 @@
     },
     {
       "month": "2016-03",
-      "region": "Other",
-      "gallons": 75
-    },
-    {
-      "month": "2016-03",
       "region": "Outer Burlington",
       "gallons": 285
     },
@@ -42810,7 +42800,7 @@
     {
       "month": "2016-03",
       "region": "Route 7",
-      "gallons": 160
+      "gallons": 235
     },
     {
       "month": "2016-03",
@@ -42864,11 +42854,6 @@
     },
     {
       "month": "2016-04",
-      "region": "Other",
-      "gallons": 80
-    },
-    {
-      "month": "2016-04",
       "region": "Outer Burlington",
       "gallons": 340
     },
@@ -42879,13 +42864,13 @@
     },
     {
       "month": "2016-04",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 60
     },
     {
       "month": "2016-04",
       "region": "Route 7",
-      "gallons": 580
+      "gallons": 660
     },
     {
       "month": "2016-04",
@@ -42929,11 +42914,6 @@
     },
     {
       "month": "2016-05",
-      "region": "Other",
-      "gallons": 65
-    },
-    {
-      "month": "2016-05",
       "region": "Outer Burlington",
       "gallons": 465
     },
@@ -42945,7 +42925,7 @@
     {
       "month": "2016-05",
       "region": "Route 7",
-      "gallons": 125
+      "gallons": 190
     },
     {
       "month": "2016-05",
@@ -42989,11 +42969,6 @@
     },
     {
       "month": "2016-06",
-      "region": "Other",
-      "gallons": 40
-    },
-    {
-      "month": "2016-06",
       "region": "Outer Burlington",
       "gallons": 263
     },
@@ -43004,13 +42979,13 @@
     },
     {
       "month": "2016-06",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 70
     },
     {
       "month": "2016-06",
       "region": "Route 7",
-      "gallons": 300
+      "gallons": 340
     },
     {
       "month": "2016-06",
@@ -43065,7 +43040,7 @@
     {
       "month": "2016-07",
       "region": "Other",
-      "gallons": 200
+      "gallons": 150
     },
     {
       "month": "2016-07",
@@ -43079,13 +43054,13 @@
     },
     {
       "month": "2016-07",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 65
     },
     {
       "month": "2016-07",
       "region": "Route 7",
-      "gallons": 120
+      "gallons": 170
     },
     {
       "month": "2016-07",
@@ -43135,7 +43110,7 @@
     {
       "month": "2016-08",
       "region": "Other",
-      "gallons": 190
+      "gallons": 100
     },
     {
       "month": "2016-08",
@@ -43149,13 +43124,13 @@
     },
     {
       "month": "2016-08",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 58
     },
     {
       "month": "2016-08",
       "region": "Route 7",
-      "gallons": 200
+      "gallons": 290
     },
     {
       "month": "2016-08",
@@ -43215,7 +43190,7 @@
     {
       "month": "2016-09",
       "region": "Other",
-      "gallons": 420
+      "gallons": 270
     },
     {
       "month": "2016-09",
@@ -43229,13 +43204,13 @@
     },
     {
       "month": "2016-09",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 25
     },
     {
       "month": "2016-09",
       "region": "Route 7",
-      "gallons": 305
+      "gallons": 455
     },
     {
       "month": "2016-09",
@@ -43290,7 +43265,7 @@
     {
       "month": "2016-10",
       "region": "Other",
-      "gallons": 215
+      "gallons": 150
     },
     {
       "month": "2016-10",
@@ -43304,13 +43279,13 @@
     },
     {
       "month": "2016-10",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 95
     },
     {
       "month": "2016-10",
       "region": "Route 7",
-      "gallons": 310
+      "gallons": 375
     },
     {
       "month": "2016-10",
@@ -43365,7 +43340,7 @@
     {
       "month": "2016-11",
       "region": "Other",
-      "gallons": 250
+      "gallons": 150
     },
     {
       "month": "2016-11",
@@ -43379,13 +43354,13 @@
     },
     {
       "month": "2016-11",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 70
     },
     {
       "month": "2016-11",
       "region": "Route 7",
-      "gallons": 260
+      "gallons": 360
     },
     {
       "month": "2016-11",
@@ -43430,7 +43405,7 @@
     {
       "month": "2016-12",
       "region": "Other",
-      "gallons": 200
+      "gallons": 110
     },
     {
       "month": "2016-12",
@@ -43445,7 +43420,7 @@
     {
       "month": "2016-12",
       "region": "Route 7",
-      "gallons": 490
+      "gallons": 580
     },
     {
       "month": "2016-12",
@@ -43505,7 +43480,7 @@
     {
       "month": "2017-01",
       "region": "Other",
-      "gallons": 350
+      "gallons": 270
     },
     {
       "month": "2017-01",
@@ -43519,13 +43494,13 @@
     },
     {
       "month": "2017-01",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 160
     },
     {
       "month": "2017-01",
       "region": "Route 7",
-      "gallons": 235
+      "gallons": 315
     },
     {
       "month": "2017-01",
@@ -43585,7 +43560,7 @@
     {
       "month": "2017-02",
       "region": "Other",
-      "gallons": 330
+      "gallons": 130
     },
     {
       "month": "2017-02",
@@ -43600,7 +43575,7 @@
     {
       "month": "2017-02",
       "region": "Route 7",
-      "gallons": 80
+      "gallons": 280
     },
     {
       "month": "2017-02",
@@ -43660,7 +43635,7 @@
     {
       "month": "2017-03",
       "region": "Other",
-      "gallons": 210
+      "gallons": 150
     },
     {
       "month": "2017-03",
@@ -43674,13 +43649,13 @@
     },
     {
       "month": "2017-03",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 15
     },
     {
       "month": "2017-03",
       "region": "Route 7",
-      "gallons": 355
+      "gallons": 415
     },
     {
       "month": "2017-03",
@@ -43730,7 +43705,7 @@
     {
       "month": "2017-04",
       "region": "Other",
-      "gallons": 300
+      "gallons": 225
     },
     {
       "month": "2017-04",
@@ -43744,8 +43719,8 @@
     },
     {
       "month": "2017-04",
-      "region": "Route 2 East",
-      "gallons": 175
+      "region": "Route 2 East / Route 5",
+      "gallons": 250
     },
     {
       "month": "2017-04",
@@ -43780,7 +43755,7 @@
     {
       "month": "2017-05",
       "region": "Other",
-      "gallons": 335
+      "gallons": 115
     },
     {
       "month": "2017-05",
@@ -43794,13 +43769,13 @@
     },
     {
       "month": "2017-05",
-      "region": "Route 2 East",
-      "gallons": 100
+      "region": "Route 2 East / Route 5",
+      "gallons": 210
     },
     {
       "month": "2017-05",
       "region": "Route 7",
-      "gallons": 385
+      "gallons": 495
     },
     {
       "month": "2017-05",
@@ -43865,7 +43840,7 @@
     {
       "month": "2017-06",
       "region": "Other",
-      "gallons": 555
+      "gallons": 300
     },
     {
       "month": "2017-06",
@@ -43879,13 +43854,13 @@
     },
     {
       "month": "2017-06",
-      "region": "Route 2 East",
-      "gallons": 140
+      "region": "Route 2 East / Route 5",
+      "gallons": 310
     },
     {
       "month": "2017-06",
       "region": "Route 7",
-      "gallons": 310
+      "gallons": 395
     },
     {
       "month": "2017-06",
@@ -43955,7 +43930,7 @@
     {
       "month": "2017-07",
       "region": "Other",
-      "gallons": 330
+      "gallons": 150
     },
     {
       "month": "2017-07",
@@ -43969,13 +43944,13 @@
     },
     {
       "month": "2017-07",
-      "region": "Route 2 East",
-      "gallons": 65
+      "region": "Route 2 East / Route 5",
+      "gallons": 165
     },
     {
       "month": "2017-07",
       "region": "Route 7",
-      "gallons": 225
+      "gallons": 305
     },
     {
       "month": "2017-07",
@@ -44045,7 +44020,7 @@
     {
       "month": "2017-08",
       "region": "Other",
-      "gallons": 440
+      "gallons": 125
     },
     {
       "month": "2017-08",
@@ -44059,13 +44034,13 @@
     },
     {
       "month": "2017-08",
-      "region": "Route 2 East",
-      "gallons": 145
+      "region": "Route 2 East / Route 5",
+      "gallons": 245
     },
     {
       "month": "2017-08",
       "region": "Route 7",
-      "gallons": 235
+      "gallons": 450
     },
     {
       "month": "2017-08",
@@ -44135,7 +44110,7 @@
     {
       "month": "2017-09",
       "region": "Other",
-      "gallons": 325
+      "gallons": 210
     },
     {
       "month": "2017-09",
@@ -44149,8 +44124,8 @@
     },
     {
       "month": "2017-09",
-      "region": "Route 2 East",
-      "gallons": 195
+      "region": "Route 2 East / Route 5",
+      "gallons": 310
     },
     {
       "month": "2017-09",
@@ -44224,11 +44199,6 @@
     },
     {
       "month": "2017-10",
-      "region": "Other",
-      "gallons": 125
-    },
-    {
-      "month": "2017-10",
       "region": "Outer Burlington",
       "gallons": 365
     },
@@ -44240,7 +44210,7 @@
     {
       "month": "2017-10",
       "region": "Route 7",
-      "gallons": 325
+      "gallons": 450
     },
     {
       "month": "2017-10",
@@ -44300,7 +44270,7 @@
     {
       "month": "2017-11",
       "region": "Other",
-      "gallons": 405
+      "gallons": 260
     },
     {
       "month": "2017-11",
@@ -44314,8 +44284,13 @@
     },
     {
       "month": "2017-11",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 125
+    },
+    {
+      "month": "2017-11",
+      "region": "Route 7",
+      "gallons": 145
     },
     {
       "month": "2017-11",
@@ -44369,11 +44344,6 @@
     },
     {
       "month": "2017-12",
-      "region": "Other",
-      "gallons": 100
-    },
-    {
-      "month": "2017-12",
       "region": "Outer Burlington",
       "gallons": 395
     },
@@ -44384,8 +44354,8 @@
     },
     {
       "month": "2017-12",
-      "region": "Route 2 East",
-      "gallons": 230
+      "region": "Route 2 East / Route 5",
+      "gallons": 330
     },
     {
       "month": "2017-12",
@@ -44435,7 +44405,7 @@
     {
       "month": "2018-01",
       "region": "Other",
-      "gallons": 288
+      "gallons": 153
     },
     {
       "month": "2018-01",
@@ -44450,7 +44420,7 @@
     {
       "month": "2018-01",
       "region": "Route 7",
-      "gallons": 185
+      "gallons": 320
     },
     {
       "month": "2018-01",
@@ -44515,7 +44485,7 @@
     {
       "month": "2018-02",
       "region": "Other",
-      "gallons": 250
+      "gallons": 50
     },
     {
       "month": "2018-02",
@@ -44529,13 +44499,13 @@
     },
     {
       "month": "2018-02",
-      "region": "Route 2 East",
-      "gallons": 125
+      "region": "Route 2 East / Route 5",
+      "gallons": 175
     },
     {
       "month": "2018-02",
       "region": "Route 7",
-      "gallons": 365
+      "gallons": 515
     },
     {
       "month": "2018-02",
@@ -44600,7 +44570,7 @@
     {
       "month": "2018-03",
       "region": "Other",
-      "gallons": 205
+      "gallons": 100
     },
     {
       "month": "2018-03",
@@ -44614,8 +44584,13 @@
     },
     {
       "month": "2018-03",
+      "region": "Route 2 East / Route 5",
+      "gallons": 5
+    },
+    {
+      "month": "2018-03",
       "region": "Route 7",
-      "gallons": 1200
+      "gallons": 1300
     },
     {
       "month": "2018-03",
@@ -44645,7 +44620,7 @@
     {
       "month": "2018-03",
       "region": "Waterbury / Stowe",
-      "gallons": 2100
+      "gallons": 2400
     },
     {
       "month": "2018-03",
@@ -44680,7 +44655,7 @@
     {
       "month": "2018-04",
       "region": "Other",
-      "gallons": 200
+      "gallons": 100
     },
     {
       "month": "2018-04",
@@ -44694,13 +44669,13 @@
     },
     {
       "month": "2018-04",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 275
     },
     {
       "month": "2018-04",
       "region": "Route 7",
-      "gallons": 650
+      "gallons": 750
     },
     {
       "month": "2018-04",
@@ -44730,7 +44705,7 @@
     {
       "month": "2018-04",
       "region": "Waterbury / Stowe",
-      "gallons": 3448
+      "gallons": 3623
     },
     {
       "month": "2018-04",
@@ -44765,7 +44740,7 @@
     {
       "month": "2018-05",
       "region": "Other",
-      "gallons": 325
+      "gallons": 250
     },
     {
       "month": "2018-05",
@@ -44779,13 +44754,13 @@
     },
     {
       "month": "2018-05",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 275
     },
     {
       "month": "2018-05",
       "region": "Route 7",
-      "gallons": 810
+      "gallons": 885
     },
     {
       "month": "2018-05",
@@ -44855,7 +44830,7 @@
     {
       "month": "2018-06",
       "region": "Other",
-      "gallons": 255
+      "gallons": 75
     },
     {
       "month": "2018-06",
@@ -44869,13 +44844,13 @@
     },
     {
       "month": "2018-06",
-      "region": "Route 2 East",
-      "gallons": 75
+      "region": "Route 2 East / Route 5",
+      "gallons": 105
     },
     {
       "month": "2018-06",
       "region": "Route 7",
-      "gallons": 615
+      "gallons": 765
     },
     {
       "month": "2018-06",
@@ -44944,7 +44919,7 @@
     },
     {
       "month": "2018-07",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 225
     },
     {
@@ -45024,7 +44999,7 @@
     },
     {
       "month": "2018-08",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 275
     },
     {
@@ -45085,7 +45060,7 @@
     {
       "month": "2018-09",
       "region": "Other",
-      "gallons": 310
+      "gallons": 100
     },
     {
       "month": "2018-09",
@@ -45099,13 +45074,13 @@
     },
     {
       "month": "2018-09",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 175
     },
     {
       "month": "2018-09",
       "region": "Route 7",
-      "gallons": 990
+      "gallons": 1200
     },
     {
       "month": "2018-09",
@@ -45189,7 +45164,7 @@
     },
     {
       "month": "2018-10",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 490
     },
     {
@@ -45264,11 +45239,6 @@
     },
     {
       "month": "2018-11",
-      "region": "Other",
-      "gallons": 160
-    },
-    {
-      "month": "2018-11",
       "region": "Outer Burlington",
       "gallons": 780
     },
@@ -45279,13 +45249,13 @@
     },
     {
       "month": "2018-11",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 171
     },
     {
       "month": "2018-11",
       "region": "Route 7",
-      "gallons": 655
+      "gallons": 815
     },
     {
       "month": "2018-11",
@@ -45359,7 +45329,7 @@
     },
     {
       "month": "2018-12",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 100
     },
     {
@@ -45435,7 +45405,7 @@
     {
       "month": "2019-01",
       "region": "Other",
-      "gallons": 275
+      "gallons": 150
     },
     {
       "month": "2019-01",
@@ -45449,13 +45419,13 @@
     },
     {
       "month": "2019-01",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 240
     },
     {
       "month": "2019-01",
       "region": "Route 7",
-      "gallons": 550
+      "gallons": 675
     },
     {
       "month": "2019-01",
@@ -45525,7 +45495,7 @@
     {
       "month": "2019-02",
       "region": "Other",
-      "gallons": 200
+      "gallons": 75
     },
     {
       "month": "2019-02",
@@ -45539,13 +45509,13 @@
     },
     {
       "month": "2019-02",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 176
     },
     {
       "month": "2019-02",
       "region": "Route 7",
-      "gallons": 905
+      "gallons": 1030
     },
     {
       "month": "2019-02",
@@ -45570,7 +45540,7 @@
     {
       "month": "2019-02",
       "region": "Waterbury / Stowe",
-      "gallons": 2523
+      "gallons": 2853
     },
     {
       "month": "2019-02",
@@ -45619,7 +45589,7 @@
     },
     {
       "month": "2019-03",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 50
     },
     {
@@ -45655,7 +45625,7 @@
     {
       "month": "2019-03",
       "region": "Waterbury / Stowe",
-      "gallons": 2905
+      "gallons": 2980
     },
     {
       "month": "2019-03",
@@ -45689,11 +45659,6 @@
     },
     {
       "month": "2019-04",
-      "region": "Other",
-      "gallons": 260
-    },
-    {
-      "month": "2019-04",
       "region": "Outer Burlington",
       "gallons": 965
     },
@@ -45704,13 +45669,13 @@
     },
     {
       "month": "2019-04",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 25
     },
     {
       "month": "2019-04",
       "region": "Route 7",
-      "gallons": 1335
+      "gallons": 1595
     },
     {
       "month": "2019-04",
@@ -45740,7 +45705,7 @@
     {
       "month": "2019-04",
       "region": "Waterbury / Stowe",
-      "gallons": 1300
+      "gallons": 1500
     },
     {
       "month": "2019-04",
@@ -45789,7 +45754,7 @@
     },
     {
       "month": "2019-05",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 500
     },
     {
@@ -45825,7 +45790,7 @@
     {
       "month": "2019-05",
       "region": "Waterbury / Stowe",
-      "gallons": 3510
+      "gallons": 3810
     },
     {
       "month": "2019-05",
@@ -45860,7 +45825,7 @@
     {
       "month": "2019-06",
       "region": "Other",
-      "gallons": 340
+      "gallons": 150
     },
     {
       "month": "2019-06",
@@ -45874,13 +45839,13 @@
     },
     {
       "month": "2019-06",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 200
     },
     {
       "month": "2019-06",
       "region": "Route 7",
-      "gallons": 1070
+      "gallons": 1260
     },
     {
       "month": "2019-06",
@@ -45959,7 +45924,7 @@
     },
     {
       "month": "2019-07",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 250
     },
     {
@@ -46044,7 +46009,7 @@
     },
     {
       "month": "2019-08",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 80
     },
     {
@@ -46115,7 +46080,7 @@
     {
       "month": "2019-09",
       "region": "Other",
-      "gallons": 450
+      "gallons": 200
     },
     {
       "month": "2019-09",
@@ -46129,13 +46094,13 @@
     },
     {
       "month": "2019-09",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 225
     },
     {
       "month": "2019-09",
       "region": "Route 7",
-      "gallons": 935
+      "gallons": 1185
     },
     {
       "month": "2019-09",
@@ -46219,7 +46184,7 @@
     },
     {
       "month": "2019-10",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 425
     },
     {
@@ -46290,7 +46255,7 @@
     {
       "month": "2019-11",
       "region": "Other",
-      "gallons": 450
+      "gallons": 300
     },
     {
       "month": "2019-11",
@@ -46300,7 +46265,7 @@
     {
       "month": "2019-11",
       "region": "Route 7",
-      "gallons": 760
+      "gallons": 910
     },
     {
       "month": "2019-11",
@@ -46379,7 +46344,7 @@
     },
     {
       "month": "2019-12",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 400
     },
     {
@@ -46410,7 +46375,7 @@
     {
       "month": "2019-12",
       "region": "Waterbury / Stowe",
-      "gallons": 2520
+      "gallons": 2620
     },
     {
       "month": "2019-12",
@@ -46459,7 +46424,7 @@
     },
     {
       "month": "2020-01",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 175
     },
     {
@@ -46530,7 +46495,7 @@
     {
       "month": "2020-02",
       "region": "Other",
-      "gallons": 335
+      "gallons": 100
     },
     {
       "month": "2020-02",
@@ -46544,8 +46509,13 @@
     },
     {
       "month": "2020-02",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 110
+    },
+    {
+      "month": "2020-02",
+      "region": "Route 7",
+      "gallons": 235
     },
     {
       "month": "2020-02",
@@ -46575,7 +46545,7 @@
     {
       "month": "2020-02",
       "region": "Waterbury / Stowe",
-      "gallons": 2735
+      "gallons": 2885
     },
     {
       "month": "2020-02",
@@ -46624,7 +46594,7 @@
     },
     {
       "month": "2020-03",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 750
     },
     {
@@ -46660,7 +46630,7 @@
     {
       "month": "2020-03",
       "region": "Waterbury / Stowe",
-      "gallons": 2375
+      "gallons": 2525
     },
     {
       "month": "2020-03",
@@ -46695,7 +46665,7 @@
     {
       "month": "2020-04",
       "region": "Other",
-      "gallons": 275
+      "gallons": 100
     },
     {
       "month": "2020-04",
@@ -46709,13 +46679,13 @@
     },
     {
       "month": "2020-04",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 275
     },
     {
       "month": "2020-04",
       "region": "Route 7",
-      "gallons": 1020
+      "gallons": 1195
     },
     {
       "month": "2020-04",
@@ -46774,7 +46744,7 @@
     },
     {
       "month": "2020-05",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 625
     },
     {
@@ -46875,7 +46845,7 @@
     {
       "month": "2020-06",
       "region": "Waterbury / Stowe",
-      "gallons": 1280
+      "gallons": 1580
     },
     {
       "month": "2020-06",
@@ -46910,7 +46880,7 @@
     {
       "month": "2020-07",
       "region": "Other",
-      "gallons": 225
+      "gallons": 125
     },
     {
       "month": "2020-07",
@@ -46924,13 +46894,13 @@
     },
     {
       "month": "2020-07",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 750
     },
     {
       "month": "2020-07",
       "region": "Route 7",
-      "gallons": 1155
+      "gallons": 1255
     },
     {
       "month": "2020-07",
@@ -47004,7 +46974,7 @@
     },
     {
       "month": "2020-08",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 550
     },
     {
@@ -47065,7 +47035,7 @@
     {
       "month": "2020-09",
       "region": "Other",
-      "gallons": 495
+      "gallons": 345
     },
     {
       "month": "2020-09",
@@ -47079,13 +47049,13 @@
     },
     {
       "month": "2020-09",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 733
     },
     {
       "month": "2020-09",
       "region": "Route 7",
-      "gallons": 750
+      "gallons": 900
     },
     {
       "month": "2020-09",
@@ -47159,7 +47129,7 @@
     },
     {
       "month": "2020-10",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 560
     },
     {
@@ -47235,7 +47205,7 @@
     {
       "month": "2020-11",
       "region": "Other",
-      "gallons": 150
+      "gallons": 70
     },
     {
       "month": "2020-11",
@@ -47249,8 +47219,13 @@
     },
     {
       "month": "2020-11",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 425
+    },
+    {
+      "month": "2020-11",
+      "region": "Route 7",
+      "gallons": 80
     },
     {
       "month": "2020-11",
@@ -47329,7 +47304,7 @@
     },
     {
       "month": "2020-12",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 500
     },
     {
@@ -47419,7 +47394,7 @@
     },
     {
       "month": "2021-01",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 70
     },
     {
@@ -47494,7 +47469,7 @@
     },
     {
       "month": "2021-02",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 75
     },
     {
@@ -47569,7 +47544,7 @@
     },
     {
       "month": "2021-03",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 350
     },
     {
@@ -47605,7 +47580,7 @@
     {
       "month": "2021-03",
       "region": "Waterbury / Stowe",
-      "gallons": 2165
+      "gallons": 2445
     },
     {
       "month": "2021-03",
@@ -47654,7 +47629,7 @@
     },
     {
       "month": "2021-04",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 125
     },
     {
@@ -47725,7 +47700,7 @@
     {
       "month": "2021-05",
       "region": "Other",
-      "gallons": 300
+      "gallons": 275
     },
     {
       "month": "2021-05",
@@ -47739,13 +47714,13 @@
     },
     {
       "month": "2021-05",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 525
     },
     {
       "month": "2021-05",
       "region": "Route 7",
-      "gallons": 925
+      "gallons": 950
     },
     {
       "month": "2021-05",
@@ -47814,7 +47789,7 @@
     },
     {
       "month": "2021-06",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 825
     },
     {
@@ -47894,7 +47869,7 @@
     },
     {
       "month": "2021-07",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 985
     },
     {
@@ -47979,7 +47954,7 @@
     },
     {
       "month": "2021-08",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 840
     },
     {
@@ -48020,7 +47995,7 @@
     {
       "month": "2021-08",
       "region": "Waterbury / Stowe",
-      "gallons": 2980
+      "gallons": 3080
     },
     {
       "month": "2021-08",
@@ -48064,7 +48039,7 @@
     },
     {
       "month": "2021-09",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 340
     },
     {
@@ -48210,7 +48185,7 @@
     {
       "month": "2021-11",
       "region": "Other",
-      "gallons": 180
+      "gallons": 80
     },
     {
       "month": "2021-11",
@@ -48224,13 +48199,13 @@
     },
     {
       "month": "2021-11",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 829
     },
     {
       "month": "2021-11",
       "region": "Route 7",
-      "gallons": 360
+      "gallons": 460
     },
     {
       "month": "2021-11",
@@ -48314,7 +48289,7 @@
     },
     {
       "month": "2021-12",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 141
     },
     {
@@ -48355,7 +48330,7 @@
     {
       "month": "2021-12",
       "region": "Waterbury / Stowe",
-      "gallons": 2630
+      "gallons": 2725
     },
     {
       "month": "2021-12",
@@ -48404,7 +48379,7 @@
     },
     {
       "month": "2022-01",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 270
     },
     {
@@ -48479,7 +48454,7 @@
     },
     {
       "month": "2022-02",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 380
     },
     {
@@ -48515,7 +48490,7 @@
     {
       "month": "2022-02",
       "region": "Waterbury / Stowe",
-      "gallons": 1890
+      "gallons": 2175
     },
     {
       "month": "2022-02",
@@ -48550,7 +48525,7 @@
     {
       "month": "2022-03",
       "region": "Other",
-      "gallons": 350
+      "gallons": 320
     },
     {
       "month": "2022-03",
@@ -48564,13 +48539,13 @@
     },
     {
       "month": "2022-03",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 310
     },
     {
       "month": "2022-03",
       "region": "Route 7",
-      "gallons": 807
+      "gallons": 837
     },
     {
       "month": "2022-03",
@@ -48635,7 +48610,7 @@
     {
       "month": "2022-04",
       "region": "Other",
-      "gallons": 150
+      "gallons": 100
     },
     {
       "month": "2022-04",
@@ -48649,13 +48624,13 @@
     },
     {
       "month": "2022-04",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 1500
     },
     {
       "month": "2022-04",
       "region": "Route 7",
-      "gallons": 740
+      "gallons": 790
     },
     {
       "month": "2022-04",
@@ -48739,7 +48714,7 @@
     },
     {
       "month": "2022-05",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 1060
     },
     {
@@ -48815,7 +48790,7 @@
     {
       "month": "2022-06",
       "region": "Other",
-      "gallons": 220
+      "gallons": 150
     },
     {
       "month": "2022-06",
@@ -48829,13 +48804,13 @@
     },
     {
       "month": "2022-06",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 890
     },
     {
       "month": "2022-06",
       "region": "Route 7",
-      "gallons": 1095
+      "gallons": 1165
     },
     {
       "month": "2022-06",
@@ -48870,7 +48845,7 @@
     {
       "month": "2022-06",
       "region": "Waterbury / Stowe",
-      "gallons": 2615
+      "gallons": 2890
     },
     {
       "month": "2022-06",
@@ -48905,7 +48880,7 @@
     {
       "month": "2022-07",
       "region": "Other",
-      "gallons": 280
+      "gallons": 195
     },
     {
       "month": "2022-07",
@@ -48919,13 +48894,13 @@
     },
     {
       "month": "2022-07",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 720
     },
     {
       "month": "2022-07",
       "region": "Route 7",
-      "gallons": 1005
+      "gallons": 1090
     },
     {
       "month": "2022-07",
@@ -48999,7 +48974,7 @@
     },
     {
       "month": "2022-08",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 1365
     },
     {
@@ -49060,7 +49035,7 @@
     {
       "month": "2022-09",
       "region": "Other",
-      "gallons": 704
+      "gallons": 300
     },
     {
       "month": "2022-09",
@@ -49074,13 +49049,13 @@
     },
     {
       "month": "2022-09",
-      "region": "Route 2 East",
-      "gallons": 385
+      "region": "Route 2 East / Route 5",
+      "gallons": 479
     },
     {
       "month": "2022-09",
       "region": "Route 7",
-      "gallons": 1044
+      "gallons": 1354
     },
     {
       "month": "2022-09",
@@ -49150,7 +49125,7 @@
     {
       "month": "2022-10",
       "region": "Other",
-      "gallons": 361
+      "gallons": 165
     },
     {
       "month": "2022-10",
@@ -49164,13 +49139,13 @@
     },
     {
       "month": "2022-10",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 820
     },
     {
       "month": "2022-10",
       "region": "Route 7",
-      "gallons": 430
+      "gallons": 626
     },
     {
       "month": "2022-10",
@@ -49235,7 +49210,7 @@
     {
       "month": "2022-11",
       "region": "Other",
-      "gallons": 445
+      "gallons": 243
     },
     {
       "month": "2022-11",
@@ -49249,13 +49224,13 @@
     },
     {
       "month": "2022-11",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 490
     },
     {
       "month": "2022-11",
       "region": "Route 7",
-      "gallons": 1446
+      "gallons": 1648
     },
     {
       "month": "2022-11",
@@ -49290,7 +49265,7 @@
     {
       "month": "2022-11",
       "region": "Waterbury / Stowe",
-      "gallons": 2850
+      "gallons": 2975
     },
     {
       "month": "2022-11",
@@ -49325,7 +49300,7 @@
     {
       "month": "2022-12",
       "region": "Other",
-      "gallons": 566
+      "gallons": 252
     },
     {
       "month": "2022-12",
@@ -49339,13 +49314,13 @@
     },
     {
       "month": "2022-12",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 530
     },
     {
       "month": "2022-12",
       "region": "Route 7",
-      "gallons": 508
+      "gallons": 822
     },
     {
       "month": "2022-12",
@@ -49415,7 +49390,7 @@
     {
       "month": "2023-01",
       "region": "Other",
-      "gallons": 513
+      "gallons": 179
     },
     {
       "month": "2023-01",
@@ -49429,13 +49404,13 @@
     },
     {
       "month": "2023-01",
-      "region": "Route 2 East",
-      "gallons": 505
+      "region": "Route 2 East / Route 5",
+      "gallons": 590
     },
     {
       "month": "2023-01",
       "region": "Route 7",
-      "gallons": 599
+      "gallons": 848
     },
     {
       "month": "2023-01",
@@ -49465,7 +49440,7 @@
     {
       "month": "2023-01",
       "region": "Waterbury / Stowe",
-      "gallons": 2565
+      "gallons": 2685
     },
     {
       "month": "2023-01",
@@ -49509,7 +49484,7 @@
     },
     {
       "month": "2023-02",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 430
     },
     {
@@ -49565,7 +49540,7 @@
     {
       "month": "2023-03",
       "region": "Other",
-      "gallons": 625
+      "gallons": 251
     },
     {
       "month": "2023-03",
@@ -49579,13 +49554,13 @@
     },
     {
       "month": "2023-03",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 140
     },
     {
       "month": "2023-03",
       "region": "Route 7",
-      "gallons": 1357
+      "gallons": 1731
     },
     {
       "month": "2023-03",
@@ -49615,7 +49590,7 @@
     {
       "month": "2023-03",
       "region": "Waterbury / Stowe",
-      "gallons": 2390
+      "gallons": 2490
     },
     {
       "month": "2023-03",
@@ -49650,7 +49625,7 @@
     {
       "month": "2023-04",
       "region": "Other",
-      "gallons": 536
+      "gallons": 253
     },
     {
       "month": "2023-04",
@@ -49664,13 +49639,13 @@
     },
     {
       "month": "2023-04",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 340
     },
     {
       "month": "2023-04",
       "region": "Route 7",
-      "gallons": 679
+      "gallons": 962
     },
     {
       "month": "2023-04",
@@ -49735,7 +49710,7 @@
     {
       "month": "2023-05",
       "region": "Other",
-      "gallons": 772
+      "gallons": 192
     },
     {
       "month": "2023-05",
@@ -49749,13 +49724,13 @@
     },
     {
       "month": "2023-05",
-      "region": "Route 2 East",
-      "gallons": 645
+      "region": "Route 2 East / Route 5",
+      "gallons": 720
     },
     {
       "month": "2023-05",
       "region": "Route 7",
-      "gallons": 790
+      "gallons": 1295
     },
     {
       "month": "2023-05",
@@ -49825,7 +49800,7 @@
     {
       "month": "2023-06",
       "region": "Other",
-      "gallons": 591
+      "gallons": 291
     },
     {
       "month": "2023-06",
@@ -49839,13 +49814,13 @@
     },
     {
       "month": "2023-06",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 807
     },
     {
       "month": "2023-06",
       "region": "Route 7",
-      "gallons": 683
+      "gallons": 983
     },
     {
       "month": "2023-06",
@@ -49910,7 +49885,7 @@
     {
       "month": "2023-07",
       "region": "Other",
-      "gallons": 276
+      "gallons": 131
     },
     {
       "month": "2023-07",
@@ -49924,13 +49899,13 @@
     },
     {
       "month": "2023-07",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 145
     },
     {
       "month": "2023-07",
       "region": "Route 7",
-      "gallons": 850
+      "gallons": 995
     },
     {
       "month": "2023-07",
@@ -50000,7 +49975,7 @@
     {
       "month": "2023-08",
       "region": "Other",
-      "gallons": 411
+      "gallons": 90
     },
     {
       "month": "2023-08",
@@ -50014,13 +49989,13 @@
     },
     {
       "month": "2023-08",
-      "region": "Route 2 East",
-      "gallons": 704
+      "region": "Route 2 East / Route 5",
+      "gallons": 794
     },
     {
       "month": "2023-08",
       "region": "Route 7",
-      "gallons": 2032
+      "gallons": 2263
     },
     {
       "month": "2023-08",
@@ -50055,7 +50030,7 @@
     {
       "month": "2023-08",
       "region": "Waterbury / Stowe",
-      "gallons": 3455
+      "gallons": 3555
     },
     {
       "month": "2023-08",
@@ -50090,7 +50065,7 @@
     {
       "month": "2023-09",
       "region": "Other",
-      "gallons": 525
+      "gallons": 194
     },
     {
       "month": "2023-09",
@@ -50104,13 +50079,13 @@
     },
     {
       "month": "2023-09",
-      "region": "Route 2 East",
-      "gallons": 850
+      "region": "Route 2 East / Route 5",
+      "gallons": 1013
     },
     {
       "month": "2023-09",
       "region": "Route 7",
-      "gallons": 545
+      "gallons": 713
     },
     {
       "month": "2023-09",
@@ -50175,7 +50150,7 @@
     {
       "month": "2023-10",
       "region": "Other",
-      "gallons": 436
+      "gallons": 213
     },
     {
       "month": "2023-10",
@@ -50189,13 +50164,13 @@
     },
     {
       "month": "2023-10",
-      "region": "Route 2 East",
-      "gallons": 595
+      "region": "Route 2 East / Route 5",
+      "gallons": 680
     },
     {
       "month": "2023-10",
       "region": "Route 7",
-      "gallons": 595
+      "gallons": 733
     },
     {
       "month": "2023-10",
@@ -50265,7 +50240,7 @@
     {
       "month": "2023-11",
       "region": "Other",
-      "gallons": 443
+      "gallons": 134
     },
     {
       "month": "2023-11",
@@ -50279,13 +50254,13 @@
     },
     {
       "month": "2023-11",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 522
     },
     {
       "month": "2023-11",
       "region": "Route 7",
-      "gallons": 979
+      "gallons": 1288
     },
     {
       "month": "2023-11",
@@ -50355,7 +50330,7 @@
     {
       "month": "2023-12",
       "region": "Other",
-      "gallons": 167
+      "gallons": 80
     },
     {
       "month": "2023-12",
@@ -50369,13 +50344,13 @@
     },
     {
       "month": "2023-12",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 495
     },
     {
       "month": "2023-12",
       "region": "Route 7",
-      "gallons": 847
+      "gallons": 934
     },
     {
       "month": "2023-12",
@@ -50440,7 +50415,7 @@
     {
       "month": "2024-01",
       "region": "Other",
-      "gallons": 870
+      "gallons": 195
     },
     {
       "month": "2024-01",
@@ -50454,13 +50429,13 @@
     },
     {
       "month": "2024-01",
-      "region": "Route 2 East",
-      "gallons": 360
+      "region": "Route 2 East / Route 5",
+      "gallons": 806
     },
     {
       "month": "2024-01",
       "region": "Route 7",
-      "gallons": 872
+      "gallons": 1101
     },
     {
       "month": "2024-01",
@@ -50495,7 +50470,7 @@
     {
       "month": "2024-01",
       "region": "Waterbury / Stowe",
-      "gallons": 3960
+      "gallons": 4160
     },
     {
       "month": "2024-01",
@@ -50530,7 +50505,7 @@
     {
       "month": "2024-02",
       "region": "Other",
-      "gallons": 354
+      "gallons": 175
     },
     {
       "month": "2024-02",
@@ -50544,13 +50519,13 @@
     },
     {
       "month": "2024-02",
-      "region": "Route 2 East",
-      "gallons": 550
+      "region": "Route 2 East / Route 5",
+      "gallons": 595
     },
     {
       "month": "2024-02",
       "region": "Route 7",
-      "gallons": 630
+      "gallons": 764
     },
     {
       "month": "2024-02",
@@ -50620,7 +50595,7 @@
     {
       "month": "2024-03",
       "region": "Other",
-      "gallons": 840
+      "gallons": 420
     },
     {
       "month": "2024-03",
@@ -50634,13 +50609,13 @@
     },
     {
       "month": "2024-03",
-      "region": "Route 2 East",
-      "gallons": 779
+      "region": "Route 2 East / Route 5",
+      "gallons": 919
     },
     {
       "month": "2024-03",
       "region": "Route 7",
-      "gallons": 699
+      "gallons": 979
     },
     {
       "month": "2024-03",
@@ -50710,7 +50685,7 @@
     {
       "month": "2024-04",
       "region": "Other",
-      "gallons": 751
+      "gallons": 189
     },
     {
       "month": "2024-04",
@@ -50724,13 +50699,13 @@
     },
     {
       "month": "2024-04",
-      "region": "Route 2 East",
-      "gallons": 580
+      "region": "Route 2 East / Route 5",
+      "gallons": 992
     },
     {
       "month": "2024-04",
       "region": "Route 7",
-      "gallons": 1040
+      "gallons": 1190
     },
     {
       "month": "2024-04",
@@ -50765,7 +50740,7 @@
     {
       "month": "2024-04",
       "region": "Waterbury / Stowe",
-      "gallons": 3000
+      "gallons": 3290
     },
     {
       "month": "2024-04",
@@ -50800,7 +50775,7 @@
     {
       "month": "2024-05",
       "region": "Other",
-      "gallons": 580
+      "gallons": 335
     },
     {
       "month": "2024-05",
@@ -50814,13 +50789,13 @@
     },
     {
       "month": "2024-05",
-      "region": "Route 2 East",
-      "gallons": 462
+      "region": "Route 2 East / Route 5",
+      "gallons": 622
     },
     {
       "month": "2024-05",
       "region": "Route 7",
-      "gallons": 632
+      "gallons": 717
     },
     {
       "month": "2024-05",
@@ -50890,7 +50865,7 @@
     {
       "month": "2024-06",
       "region": "Other",
-      "gallons": 610
+      "gallons": 325
     },
     {
       "month": "2024-06",
@@ -50904,13 +50879,13 @@
     },
     {
       "month": "2024-06",
-      "region": "Route 2 East",
-      "gallons": 696
+      "region": "Route 2 East / Route 5",
+      "gallons": 786
     },
     {
       "month": "2024-06",
       "region": "Route 7",
-      "gallons": 805
+      "gallons": 1000
     },
     {
       "month": "2024-06",
@@ -50975,7 +50950,7 @@
     {
       "month": "2024-07",
       "region": "Other",
-      "gallons": 297
+      "gallons": 50
     },
     {
       "month": "2024-07",
@@ -50989,13 +50964,13 @@
     },
     {
       "month": "2024-07",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 207
     },
     {
       "month": "2024-07",
       "region": "Route 7",
-      "gallons": 3466
+      "gallons": 3713
     },
     {
       "month": "2024-07",
@@ -51060,7 +51035,7 @@
     {
       "month": "2024-08",
       "region": "Other",
-      "gallons": 652
+      "gallons": 260
     },
     {
       "month": "2024-08",
@@ -51074,13 +51049,13 @@
     },
     {
       "month": "2024-08",
-      "region": "Route 2 East",
-      "gallons": 525
+      "region": "Route 2 East / Route 5",
+      "gallons": 827
     },
     {
       "month": "2024-08",
       "region": "Route 7",
-      "gallons": 1202
+      "gallons": 1292
     },
     {
       "month": "2024-08",
@@ -51110,7 +51085,7 @@
     {
       "month": "2024-08",
       "region": "Waterbury / Stowe",
-      "gallons": 3235
+      "gallons": 3465
     },
     {
       "month": "2024-08",
@@ -51145,7 +51120,7 @@
     {
       "month": "2024-09",
       "region": "Other",
-      "gallons": 580
+      "gallons": 415
     },
     {
       "month": "2024-09",
@@ -51159,13 +51134,13 @@
     },
     {
       "month": "2024-09",
-      "region": "Route 2 East",
-      "gallons": 456
+      "region": "Route 2 East / Route 5",
+      "gallons": 551
     },
     {
       "month": "2024-09",
       "region": "Route 7",
-      "gallons": 775
+      "gallons": 845
     },
     {
       "month": "2024-09",
@@ -51235,7 +51210,7 @@
     {
       "month": "2024-10",
       "region": "Other",
-      "gallons": 573
+      "gallons": 323
     },
     {
       "month": "2024-10",
@@ -51249,13 +51224,13 @@
     },
     {
       "month": "2024-10",
-      "region": "Route 2 East",
-      "gallons": 655
+      "region": "Route 2 East / Route 5",
+      "gallons": 815
     },
     {
       "month": "2024-10",
       "region": "Route 7",
-      "gallons": 640
+      "gallons": 730
     },
     {
       "month": "2024-10",
@@ -51325,7 +51300,7 @@
     {
       "month": "2024-11",
       "region": "Other",
-      "gallons": 808
+      "gallons": 385
     },
     {
       "month": "2024-11",
@@ -51339,13 +51314,13 @@
     },
     {
       "month": "2024-11",
-      "region": "Route 2 East",
-      "gallons": 315
+      "region": "Route 2 East / Route 5",
+      "gallons": 680
     },
     {
       "month": "2024-11",
       "region": "Route 7",
-      "gallons": 642
+      "gallons": 700
     },
     {
       "month": "2024-11",
@@ -51410,7 +51385,7 @@
     {
       "month": "2024-12",
       "region": "Other",
-      "gallons": 602
+      "gallons": 250
     },
     {
       "month": "2024-12",
@@ -51424,13 +51399,13 @@
     },
     {
       "month": "2024-12",
-      "region": "Route 2 East",
-      "gallons": 785
+      "region": "Route 2 East / Route 5",
+      "gallons": 1040
     },
     {
       "month": "2024-12",
       "region": "Route 7",
-      "gallons": 992
+      "gallons": 1089
     },
     {
       "month": "2024-12",
@@ -51500,7 +51475,7 @@
     {
       "month": "2025-01",
       "region": "Other",
-      "gallons": 298
+      "gallons": 213
     },
     {
       "month": "2025-01",
@@ -51509,13 +51484,13 @@
     },
     {
       "month": "2025-01",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 11
     },
     {
       "month": "2025-01",
       "region": "Route 7",
-      "gallons": 903
+      "gallons": 988
     },
     {
       "month": "2025-01",
@@ -51545,7 +51520,7 @@
     {
       "month": "2025-01",
       "region": "Waterbury / Stowe",
-      "gallons": 2760
+      "gallons": 2980
     },
     {
       "month": "2025-01",
@@ -51594,7 +51569,7 @@
     },
     {
       "month": "2025-02",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 863
     },
     {
@@ -51660,7 +51635,7 @@
     {
       "month": "2025-03",
       "region": "Other",
-      "gallons": 303
+      "gallons": 139
     },
     {
       "month": "2025-03",
@@ -51674,13 +51649,13 @@
     },
     {
       "month": "2025-03",
-      "region": "Route 2 East",
-      "gallons": 1065
+      "region": "Route 2 East / Route 5",
+      "gallons": 1209
     },
     {
       "month": "2025-03",
       "region": "Route 7",
-      "gallons": 630
+      "gallons": 650
     },
     {
       "month": "2025-03",
@@ -51715,7 +51690,7 @@
     {
       "month": "2025-03",
       "region": "Waterbury / Stowe",
-      "gallons": 4045
+      "gallons": 4245
     },
     {
       "month": "2025-03",
@@ -51750,7 +51725,7 @@
     {
       "month": "2025-04",
       "region": "Other",
-      "gallons": 629
+      "gallons": 164
     },
     {
       "month": "2025-04",
@@ -51764,8 +51739,8 @@
     },
     {
       "month": "2025-04",
-      "region": "Route 2 East",
-      "gallons": 980
+      "region": "Route 2 East / Route 5",
+      "gallons": 1445
     },
     {
       "month": "2025-04",
@@ -51800,7 +51775,7 @@
     {
       "month": "2025-04",
       "region": "Waterbury / Stowe",
-      "gallons": 2695
+      "gallons": 2960
     },
     {
       "month": "2025-04",
@@ -51835,7 +51810,7 @@
     {
       "month": "2025-05",
       "region": "Other",
-      "gallons": 268
+      "gallons": 40
     },
     {
       "month": "2025-05",
@@ -51849,13 +51824,13 @@
     },
     {
       "month": "2025-05",
-      "region": "Route 2 East",
-      "gallons": 585
+      "region": "Route 2 East / Route 5",
+      "gallons": 680
     },
     {
       "month": "2025-05",
       "region": "Route 7",
-      "gallons": 1786
+      "gallons": 1919
     },
     {
       "month": "2025-05",
@@ -51925,7 +51900,7 @@
     {
       "month": "2025-06",
       "region": "Other",
-      "gallons": 399
+      "gallons": 209
     },
     {
       "month": "2025-06",
@@ -51939,8 +51914,8 @@
     },
     {
       "month": "2025-06",
-      "region": "Route 2 East",
-      "gallons": 805
+      "region": "Route 2 East / Route 5",
+      "gallons": 995
     },
     {
       "month": "2025-06",
@@ -52010,7 +51985,7 @@
     {
       "month": "2025-07",
       "region": "Other",
-      "gallons": 245
+      "gallons": 110
     },
     {
       "month": "2025-07",
@@ -52024,8 +51999,8 @@
     },
     {
       "month": "2025-07",
-      "region": "Route 2 East",
-      "gallons": 165
+      "region": "Route 2 East / Route 5",
+      "gallons": 300
     },
     {
       "month": "2025-07",
@@ -52099,11 +52074,6 @@
     },
     {
       "month": "2025-08",
-      "region": "Other",
-      "gallons": 470
-    },
-    {
-      "month": "2025-08",
       "region": "Outer Burlington",
       "gallons": 3301
     },
@@ -52114,8 +52084,8 @@
     },
     {
       "month": "2025-08",
-      "region": "Route 2 East",
-      "gallons": 1440
+      "region": "Route 2 East / Route 5",
+      "gallons": 1910
     },
     {
       "month": "2025-08",
@@ -52185,7 +52155,7 @@
     {
       "month": "2025-09",
       "region": "Other",
-      "gallons": 341
+      "gallons": 257
     },
     {
       "month": "2025-09",
@@ -52199,13 +52169,13 @@
     },
     {
       "month": "2025-09",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 1035
     },
     {
       "month": "2025-09",
       "region": "Route 7",
-      "gallons": 1296
+      "gallons": 1380
     },
     {
       "month": "2025-09",
@@ -52270,7 +52240,7 @@
     {
       "month": "2025-10",
       "region": "Other",
-      "gallons": 429
+      "gallons": 20
     },
     {
       "month": "2025-10",
@@ -52284,8 +52254,8 @@
     },
     {
       "month": "2025-10",
-      "region": "Route 2 East",
-      "gallons": 155
+      "region": "Route 2 East / Route 5",
+      "gallons": 564
     },
     {
       "month": "2025-10",
@@ -52374,7 +52344,7 @@
     },
     {
       "month": "2025-11",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 855
     },
     {
@@ -52444,7 +52414,7 @@
     },
     {
       "month": "2025-12",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 395
     },
     {
@@ -52515,7 +52485,7 @@
     {
       "month": "2026-01",
       "region": "Other",
-      "gallons": 708
+      "gallons": 110
     },
     {
       "month": "2026-01",
@@ -52529,8 +52499,8 @@
     },
     {
       "month": "2026-01",
-      "region": "Route 2 East",
-      "gallons": 765
+      "region": "Route 2 East / Route 5",
+      "gallons": 1363
     },
     {
       "month": "2026-01",
@@ -52565,7 +52535,7 @@
     {
       "month": "2026-01",
       "region": "Waterbury / Stowe",
-      "gallons": 3410
+      "gallons": 3675
     },
     {
       "month": "2026-01",
@@ -52600,7 +52570,7 @@
     {
       "month": "2026-02",
       "region": "Other",
-      "gallons": 331
+      "gallons": 111
     },
     {
       "month": "2026-02",
@@ -52614,8 +52584,8 @@
     },
     {
       "month": "2026-02",
-      "region": "Route 2 East",
-      "gallons": 495
+      "region": "Route 2 East / Route 5",
+      "gallons": 715
     },
     {
       "month": "2026-02",
@@ -52655,7 +52625,7 @@
     {
       "month": "2026-02",
       "region": "Waterbury / Stowe",
-      "gallons": 3005
+      "gallons": 3265
     },
     {
       "month": "2026-02",
@@ -52704,7 +52674,7 @@
     },
     {
       "month": "2026-03",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 855
     },
     {
@@ -52740,7 +52710,7 @@
     {
       "month": "2026-03",
       "region": "Waterbury / Stowe",
-      "gallons": 3705
+      "gallons": 4005
     },
     {
       "month": "2026-03",
@@ -52775,7 +52745,7 @@
     {
       "month": "2026-04",
       "region": "Other",
-      "gallons": 724
+      "gallons": 300
     },
     {
       "month": "2026-04",
@@ -52789,8 +52759,8 @@
     },
     {
       "month": "2026-04",
-      "region": "Route 2 East",
-      "gallons": 920
+      "region": "Route 2 East / Route 5",
+      "gallons": 1344
     },
     {
       "month": "2026-04",
@@ -52874,7 +52844,7 @@
     },
     {
       "month": "2026-05",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 990
     },
     {
@@ -52950,7 +52920,7 @@
     {
       "month": "2026-06",
       "region": "Other",
-      "gallons": 250
+      "gallons": 50
     },
     {
       "month": "2026-06",
@@ -52964,8 +52934,8 @@
     },
     {
       "month": "2026-06",
-      "region": "Route 2 East",
-      "gallons": 1060
+      "region": "Route 2 East / Route 5",
+      "gallons": 1260
     },
     {
       "month": "2026-06",
@@ -53040,7 +53010,7 @@
     {
       "month": "2026-07",
       "region": "Other",
-      "gallons": 547
+      "gallons": 20
     },
     {
       "month": "2026-07",
@@ -53054,8 +53024,8 @@
     },
     {
       "month": "2026-07",
-      "region": "Route 2 East",
-      "gallons": 1060
+      "region": "Route 2 East / Route 5",
+      "gallons": 1587
     },
     {
       "month": "2026-07",
@@ -53139,7 +53109,7 @@
     },
     {
       "month": "2026-08",
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 535
     },
     {
@@ -53175,7 +53145,7 @@
     {
       "month": "2026-08",
       "region": "Waterbury / Stowe",
-      "gallons": 4430
+      "gallons": 4680
     },
     {
       "month": "2026-08",
@@ -53209,11 +53179,6 @@
     },
     {
       "month": "2026-09",
-      "region": "Other",
-      "gallons": 135
-    },
-    {
-      "month": "2026-09",
       "region": "Outer Burlington",
       "gallons": 3735
     },
@@ -53224,8 +53189,8 @@
     },
     {
       "month": "2026-09",
-      "region": "Route 2 East",
-      "gallons": 350
+      "region": "Route 2 East / Route 5",
+      "gallons": 485
     },
     {
       "month": "2026-09",
@@ -53306,7 +53271,7 @@
     },
     {
       "year": 2015,
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 733
     },
     {
@@ -53377,7 +53342,7 @@
     {
       "year": 2016,
       "region": "Other",
-      "gallons": 1815
+      "gallons": 930
     },
     {
       "year": 2016,
@@ -53391,13 +53356,13 @@
     },
     {
       "year": 2016,
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 508
     },
     {
       "year": 2016,
       "region": "Route 7",
-      "gallons": 3040
+      "gallons": 3925
     },
     {
       "year": 2016,
@@ -53462,7 +53427,7 @@
     {
       "year": 2017,
       "region": "Other",
-      "gallons": 3805
+      "gallons": 1935
     },
     {
       "year": 2017,
@@ -53476,13 +53441,13 @@
     },
     {
       "year": 2017,
-      "region": "Route 2 East",
-      "gallons": 1350
+      "region": "Route 2 East / Route 5",
+      "gallons": 2120
     },
     {
       "year": 2017,
       "region": "Route 7",
-      "gallons": 3224
+      "gallons": 4324
     },
     {
       "year": 2017,
@@ -53552,7 +53517,7 @@
     {
       "year": 2018,
       "region": "Other",
-      "gallons": 2698
+      "gallons": 1533
     },
     {
       "year": 2018,
@@ -53566,13 +53531,13 @@
     },
     {
       "year": 2018,
-      "region": "Route 2 East",
-      "gallons": 2186
+      "region": "Route 2 East / Route 5",
+      "gallons": 2271
     },
     {
       "year": 2018,
       "region": "Route 7",
-      "gallons": 8575
+      "gallons": 9655
     },
     {
       "year": 2018,
@@ -53607,7 +53572,7 @@
     {
       "year": 2018,
       "region": "Waterbury / Stowe",
-      "gallons": 25798
+      "gallons": 26273
     },
     {
       "year": 2018,
@@ -53642,7 +53607,7 @@
     {
       "year": 2019,
       "region": "Other",
-      "gallons": 3870
+      "gallons": 2770
     },
     {
       "year": 2019,
@@ -53656,13 +53621,13 @@
     },
     {
       "year": 2019,
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 2571
     },
     {
       "year": 2019,
       "region": "Route 7",
-      "gallons": 9305
+      "gallons": 10405
     },
     {
       "year": 2019,
@@ -53697,7 +53662,7 @@
     {
       "year": 2019,
       "region": "Waterbury / Stowe",
-      "gallons": 27933
+      "gallons": 28938
     },
     {
       "year": 2019,
@@ -53732,7 +53697,7 @@
     {
       "year": 2020,
       "region": "Other",
-      "gallons": 2345
+      "gallons": 1605
     },
     {
       "year": 2020,
@@ -53746,13 +53711,13 @@
     },
     {
       "year": 2020,
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 5453
     },
     {
       "year": 2020,
       "region": "Route 7",
-      "gallons": 8935
+      "gallons": 9675
     },
     {
       "year": 2020,
@@ -53787,7 +53752,7 @@
     {
       "year": 2020,
       "region": "Waterbury / Stowe",
-      "gallons": 23270
+      "gallons": 23870
     },
     {
       "year": 2020,
@@ -53822,7 +53787,7 @@
     {
       "year": 2021,
       "region": "Other",
-      "gallons": 1470
+      "gallons": 1345
     },
     {
       "year": 2021,
@@ -53836,13 +53801,13 @@
     },
     {
       "year": 2021,
-      "region": "Route 2 East",
+      "region": "Route 2 East / Route 5",
       "gallons": 5105
     },
     {
       "year": 2021,
       "region": "Route 7",
-      "gallons": 7145
+      "gallons": 7270
     },
     {
       "year": 2021,
@@ -53877,7 +53842,7 @@
     {
       "year": 2021,
       "region": "Waterbury / Stowe",
-      "gallons": 29584
+      "gallons": 30059
     },
     {
       "year": 2021,
@@ -53912,7 +53877,7 @@
     {
       "year": 2022,
       "region": "Other",
-      "gallons": 3386
+      "gallons": 2035
     },
     {
       "year": 2022,
@@ -53926,13 +53891,13 @@
     },
     {
       "year": 2022,
-      "region": "Route 2 East",
-      "gallons": 8720
+      "region": "Route 2 East / Route 5",
+      "gallons": 8814
     },
     {
       "year": 2022,
       "region": "Route 7",
-      "gallons": 9375
+      "gallons": 10632
     },
     {
       "year": 2022,
@@ -53967,7 +53932,7 @@
     {
       "year": 2022,
       "region": "Waterbury / Stowe",
-      "gallons": 33472
+      "gallons": 34157
     },
     {
       "year": 2022,
@@ -54002,7 +53967,7 @@
     {
       "year": 2023,
       "region": "Other",
-      "gallons": 5295
+      "gallons": 2008
     },
     {
       "year": 2023,
@@ -54016,13 +53981,13 @@
     },
     {
       "year": 2023,
-      "region": "Route 2 East",
-      "gallons": 6178
+      "region": "Route 2 East / Route 5",
+      "gallons": 6676
     },
     {
       "year": 2023,
       "region": "Route 7",
-      "gallons": 10686
+      "gallons": 13475
     },
     {
       "year": 2023,
@@ -54057,7 +54022,7 @@
     {
       "year": 2023,
       "region": "Waterbury / Stowe",
-      "gallons": 31933
+      "gallons": 32253
     },
     {
       "year": 2023,
@@ -54092,7 +54057,7 @@
     {
       "year": 2024,
       "region": "Other",
-      "gallons": 7517
+      "gallons": 3322
     },
     {
       "year": 2024,
@@ -54106,13 +54071,13 @@
     },
     {
       "year": 2024,
-      "region": "Route 2 East",
-      "gallons": 6370
+      "region": "Route 2 East / Route 5",
+      "gallons": 8840
     },
     {
       "year": 2024,
       "region": "Route 7",
-      "gallons": 12395
+      "gallons": 14120
     },
     {
       "year": 2024,
@@ -54147,7 +54112,7 @@
     {
       "year": 2024,
       "region": "Waterbury / Stowe",
-      "gallons": 36742
+      "gallons": 37462
     },
     {
       "year": 2024,
@@ -54182,7 +54147,7 @@
     {
       "year": 2025,
       "region": "Other",
-      "gallons": 3772
+      "gallons": 1542
     },
     {
       "year": 2025,
@@ -54196,13 +54161,13 @@
     },
     {
       "year": 2025,
-      "region": "Route 2 East",
-      "gallons": 8354
+      "region": "Route 2 East / Route 5",
+      "gallons": 10262
     },
     {
       "year": 2025,
       "region": "Route 7",
-      "gallons": 14797
+      "gallons": 15119
     },
     {
       "year": 2025,
@@ -54237,7 +54202,7 @@
     {
       "year": 2025,
       "region": "Waterbury / Stowe",
-      "gallons": 38915
+      "gallons": 39600
     },
     {
       "year": 2025,
@@ -54272,7 +54237,7 @@
     {
       "year": 2026,
       "region": "Other",
-      "gallons": 2790
+      "gallons": 686
     },
     {
       "year": 2026,
@@ -54286,8 +54251,8 @@
     },
     {
       "year": 2026,
-      "region": "Route 2 East",
-      "gallons": 7030
+      "region": "Route 2 East / Route 5",
+      "gallons": 9134
     },
     {
       "year": 2026,
@@ -54327,7 +54292,7 @@
     {
       "year": 2026,
       "region": "Waterbury / Stowe",
-      "gallons": 28420
+      "gallons": 29495
     },
     {
       "year": 2026,
@@ -54345,8 +54310,8 @@
     "Central South",
     "Route 7",
     "Route 15",
+    "Route 2 East / Route 5",
     "Warren / Waitsfield",
-    "Route 2 East",
     "Southern Ski Slopes",
     "South",
     "Winter / Summer Combined",
@@ -54361,7 +54326,8 @@
     "Winter / Summer Combined"
   ],
   "region_descriptions": {
-    "Route 7": "Middlebury, Vergennes, Bristol, Charlotte, Hinesburg, New Haven, Shelburne, Whiting",
+    "Route 7": "Middlebury, Vergennes, Bristol, Charlotte, Hinesburg, New Haven, Shelburne, Whiting, Rutland City, Rutland Town",
+    "Waterbury / Stowe": "Waterbury, Stowe, Bolton",
     "Southern Ski Slopes": "Dover, Ludlow, Killington",
     "South": "Bennington, Brattleboro, Manchester, Sunderland, Readsboro, Wilmington",
     "Central": "Berlin, Barre City, Barre Town, Northfield, Montpelier, Williamstown, Brookfield, Orange, East Montpelier, Middlesex",
@@ -54369,7 +54335,7 @@
     "Northwest": "Plattsburgh, Enosburgh, North Hero, South Hero, Colchester, Milton, Fairfax, Swanton, Alburgh, Saint Albans City, Saint Albans Town",
     "Route 15": "Hardwick, Wolcott, Johnson, Hyde Park, Morristown, Cambridge, Underhill",
     "Central South": "Hartford/Quechee, Woodstock, Pomfret, Bethel, Randolph, West Lebanon, Tunbridge, Royalton, Pittsfield, Braintree",
-    "Route 2 East": "Cabot, Plainfield, Danville, Saint Johnsbury, Concord, Brighton, Lyndon, Burke, East Haven, Marshfield",
+    "Route 2 East / Route 5": "Cabot, Plainfield, Danville, Saint Johnsbury, Concord, Brighton, Lyndon, Burke, East Haven, Marshfield, Newbury, Fairlee, Bradford, Lunenburg",
     "North-Northeast": "Jay, Montgomery, Troy, Glover, Eden, Barton, Newport City, Derby, Albany, Craftsbury, Richford, Greensboro",
     "Ski Slopes": "on-mountain and resort stops statewide, from Jay Peak to Mount Snow",
     "Summer Snack Stops": "seasonal snack bars, food trucks, fairgrounds and golf courses",
@@ -54415,8 +54381,8 @@
       "active": 38
     },
     "Other": {
-      "customers": 31,
-      "active": 21
+      "customers": 13,
+      "active": 11
     },
     "Outer Burlington": {
       "customers": 58,
@@ -54426,13 +54392,13 @@
       "customers": 33,
       "active": 30
     },
-    "Route 2 East": {
-      "customers": 35,
-      "active": 25
+    "Route 2 East / Route 5": {
+      "customers": 44,
+      "active": 32
     },
     "Route 7": {
-      "customers": 40,
-      "active": 35
+      "customers": 49,
+      "active": 38
     },
     "Ski Slopes": {
       "customers": 20,
@@ -54459,8 +54425,8 @@
       "active": 26
     },
     "Waterbury / Stowe": {
-      "customers": 64,
-      "active": 47
+      "customers": 65,
+      "active": 48
     },
     "Winter / Summer Combined": {
       "customers": 50,
@@ -55033,35 +54999,17 @@
     ],
     "Other": [
       620,
-      622,
-      623,
-      725,
-      728,
-      729,
       809,
       911,
       931,
       932,
       1095,
-      1120,
-      1148,
-      1178,
-      1182,
       1192,
       1206,
       1218,
-      1258,
-      1268,
-      1275,
       1300,
-      1304,
-      1305,
-      1325,
       1333,
-      1334,
-      1378,
       1439,
-      1461,
       1484
     ],
     "Outer Burlington": [
@@ -55159,7 +55107,7 @@
       1497,
       1504
     ],
-    "Route 2 East": [
+    "Route 2 East / Route 5": [
       547,
       548,
       549,
@@ -55177,22 +55125,31 @@
       616,
       617,
       618,
+      622,
+      623,
       1078,
       1080,
       1094,
       1142,
+      1178,
       1186,
       1249,
       1264,
+      1268,
       1280,
       1284,
       1293,
+      1304,
+      1305,
+      1334,
       1349,
       1360,
       1370,
+      1378,
       1415,
       1442,
       1453,
+      1461,
       1465,
       1467
     ],
@@ -55217,16 +55174,25 @@
       722,
       723,
       724,
+      725,
+      728,
+      729,
       732,
       1030,
       1077,
       1109,
+      1120,
+      1148,
       1160,
       1164,
+      1182,
       1197,
       1201,
+      1258,
       1274,
+      1275,
       1298,
+      1325,
       1346,
       1351,
       1377,
@@ -55442,6 +55408,7 @@
       276,
       277,
       278,
+      279,
       286,
       287,
       1020,

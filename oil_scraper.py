@@ -378,12 +378,20 @@ def prepare_dataframe(df):
 # region is the order the website lists them in, so keep these tuples readable —
 # they are user-facing as well as functional.
 REGION_TOWNS = {
-    # Whiting added by Jim on 2026-09-20.
+    # Whiting added by Jim on 2026-09-20, Rutland on 2026-09-21. Vermont splits
+    # Rutland into a City and a Town, as it does Barre and Saint Albans, and
+    # customers sit in both, so both belong here.
     "Route 7": (
         "Middlebury", "Vergennes", "Bristol", "Charlotte", "Hinesburg",
         "New Haven", "Shelburne", "Whiting",
+        "Rutland City", "Rutland Town",
     ),
-    "Waterbury / Stowe": ("Waterbury", "Stowe"),
+    # Bolton added by Jim on 2026-09-21. GEO_TOWN_NAME_MAP already folds
+    # "Bolton Valley" into Bolton, so this is what finally gives customer 279 a
+    # geographic region; it stays in the Ski Slopes theme as well. The region
+    # name no longer lists everything it contains, so it has been dropped from
+    # SELF_DESCRIBING_REGIONS below and now carries an "Includes:" line.
+    "Waterbury / Stowe": ("Waterbury", "Stowe", "Bolton"),
     # Dover covers West Dover and every Mt. Snow entity; Ludlow covers Okemo.
     # Town matching alone reaches all of them, including TCs in Dover, which the
     # old customer-name matcher missed. Do NOT add name matching back:
@@ -439,11 +447,16 @@ REGION_TOWNS = {
         "Hartford", "Woodstock", "Pomfret", "Bethel", "Randolph",
         "West Lebanon", "Tunbridge", "Royalton", "Pittsfield", "Braintree",
     ),
-    # Brighton is the official town for Island Pond, Lyndon for Lyndonville and
-    # Burke for East Burke. The village names match nothing on their own.
-    "Route 2 East": (
+    # Brighton is the official town for Island Pond, Lyndon for Lyndonville,
+    # Burke for East Burke, Newbury for Wells River and Lunenburg for Gilman.
+    # The village names match nothing on their own.
+    # Was "Route 2 East" until Jim added the Route 5 towns down the Connecticut
+    # River on 2026-09-21 and renamed the region to cover both roads. The old
+    # name is in RETIRED_REGIONS so a half-finished rename fails validation.
+    "Route 2 East / Route 5": (
         "Cabot", "Plainfield", "Danville", "Saint Johnsbury", "Concord",
         "Brighton", "Lyndon", "Burke", "East Haven", "Marshfield",
+        "Newbury", "Fairlee", "Bradford", "Lunenburg",
     ),
     "Warren / Waitsfield": ("Warren", "Waitsfield"),
     # Was "Jay / Montgomery / Troy" until Jim widened it across the Northeast
@@ -515,11 +528,12 @@ TOWN_DISPLAY_NAMES = {
 # Regions that need no "Includes:" line: their own name already lists their
 # contents, so repeating it under the dropdown is noise. North-Northeast is
 # deliberately NOT here — a compass label says nothing about which towns it
-# covers, so it keeps its town list.
+# covers, so it keeps its town list. "Waterbury / Stowe" left this set on
+# 2026-09-21 when Jim added Bolton: the name stopped being a full list of the
+# contents, so the line has to say so.
 SELF_DESCRIBING_REGIONS = {
     "Burlington / South Burlington",
     "Warren / Waitsfield",
-    "Waterbury / Stowe",
 }
 
 # The catch-all. Not a named region, but region.html offers it in the dropdown,
