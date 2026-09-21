@@ -1012,12 +1012,12 @@ REQUIRED_REGIONS = [
     "Summer Snack Stops",
 ]
 
-# Towns that must land in a specific region, as "town -> region(s)". A town may
-# name more than one region: Newport City is deliberately in both Northwest and
-# North-Northeast, and without asserting both, a later tidy-up could quietly
-# drop one of them.
+# Towns that must land in a specific region, as "town -> region(s)". A value may
+# still name more than one region if Jim ever wants a town in two again; nothing
+# uses that form today.
 REQUIRED_TOWN_REGION = {
     "Shelburne": "Route 7",
+    "Whiting": "Route 7",
     "Stowe": "Waterbury / Stowe",
     "Waterbury": "Waterbury / Stowe",
     "Woodstock": "Central South",
@@ -1026,22 +1026,40 @@ REQUIRED_TOWN_REGION = {
     "Bethel": "Central South",
     "Randolph": "Central South",
     "West Lebanon": "Central South",
+    # Jim, 2026-09-20. South Royalton reaches Central South through Royalton.
+    "Tunbridge": "Central South",
+    "Royalton": "Central South",
+    "Pittsfield": "Central South",
+    "Braintree": "Central South",
     "Jay": "North-Northeast",
-    "Newport City": ("Northwest", "North-Northeast"),
+    # Newport City was in Northwest as well until Jim made it exclusive to
+    # North-Northeast on 2026-09-20; FORBIDDEN_TOWN_REGION holds the other half.
+    "Newport City": "North-Northeast",
+    "Richford": "North-Northeast",
+    "Greensboro": "North-Northeast",
+    "Williamstown": "Central",
+    "Brookfield": "Central",
+    "Orange": "Central",
+    "East Montpelier": "Central",
+    "Middlesex": "Central",
+    # Vermont splits Saint Albans into a City and a Town and customers sit in
+    # both, so asserting one would let the other be dropped unnoticed.
+    "Saint Albans City": "Northwest",
+    "Saint Albans Town": "Northwest",
     "Brighton": "Route 2 East",
     "Readsboro": "South",
 }
 
 # Towns knowingly claimed by two regions. Anything shared but absent from here
 # is an accident rather than a decision, so it warns instead of reading as an
-# intentional overlap.
-EXPECTED_SHARED_TOWNS = {
-    "Newport City": {"Northwest", "North-Northeast"},
-}
+# intentional overlap. Empty since Newport City left Northwest on 2026-09-20:
+# the overlap in the region totals is now entirely the theme regions'.
+EXPECTED_SHARED_TOWNS = {}
 
 # Towns that must NOT land in a given region.
 FORBIDDEN_TOWN_REGION = {
     "Shelburne": "Burlington / South Burlington",
+    "Newport City": "Northwest",
 }
 
 
