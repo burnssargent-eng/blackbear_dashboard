@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-20T12:03:12.242950",
+  "last_updated": "2026-09-20T21:55:08.006983",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -41980,17 +41980,12 @@
     {
       "month": "2015-01",
       "region": "Central",
-      "gallons": 450
+      "gallons": 500
     },
     {
       "month": "2015-01",
       "region": "Central South",
       "gallons": 190
-    },
-    {
-      "month": "2015-01",
-      "region": "Other",
-      "gallons": 50
     },
     {
       "month": "2015-01",
@@ -42025,17 +42020,12 @@
     {
       "month": "2015-02",
       "region": "Central",
-      "gallons": 418
+      "gallons": 471
     },
     {
       "month": "2015-02",
       "region": "North-Northeast",
       "gallons": 97
-    },
-    {
-      "month": "2015-02",
-      "region": "Other",
-      "gallons": 53
     },
     {
       "month": "2015-02",
@@ -42075,22 +42065,17 @@
     {
       "month": "2015-03",
       "region": "Central",
-      "gallons": 188
+      "gallons": 261
     },
     {
       "month": "2015-03",
       "region": "Central South",
-      "gallons": 165
+      "gallons": 220
     },
     {
       "month": "2015-03",
       "region": "North-Northeast",
       "gallons": 35
-    },
-    {
-      "month": "2015-03",
-      "region": "Other",
-      "gallons": 128
     },
     {
       "month": "2015-03",
@@ -42120,22 +42105,17 @@
     {
       "month": "2015-04",
       "region": "Central",
-      "gallons": 695
+      "gallons": 740
     },
     {
       "month": "2015-04",
       "region": "Central South",
-      "gallons": 245
+      "gallons": 285
     },
     {
       "month": "2015-04",
       "region": "North-Northeast",
       "gallons": 1770
-    },
-    {
-      "month": "2015-04",
-      "region": "Other",
-      "gallons": 85
     },
     {
       "month": "2015-04",
@@ -42185,7 +42165,7 @@
     {
       "month": "2015-05",
       "region": "Central",
-      "gallons": 457
+      "gallons": 505
     },
     {
       "month": "2015-05",
@@ -42201,11 +42181,6 @@
       "month": "2015-05",
       "region": "Northwest",
       "gallons": 25
-    },
-    {
-      "month": "2015-05",
-      "region": "Other",
-      "gallons": 48
     },
     {
       "month": "2015-05",
@@ -42255,17 +42230,12 @@
     {
       "month": "2015-06",
       "region": "Central",
-      "gallons": 830
+      "gallons": 925
     },
     {
       "month": "2015-06",
       "region": "Central South",
-      "gallons": 265
-    },
-    {
-      "month": "2015-06",
-      "region": "Other",
-      "gallons": 75
+      "gallons": 295
     },
     {
       "month": "2015-06",
@@ -42310,7 +42280,7 @@
     {
       "month": "2015-07",
       "region": "Central",
-      "gallons": 563
+      "gallons": 596
     },
     {
       "month": "2015-07",
@@ -42321,11 +42291,6 @@
       "month": "2015-07",
       "region": "Northwest",
       "gallons": 25
-    },
-    {
-      "month": "2015-07",
-      "region": "Other",
-      "gallons": 33
     },
     {
       "month": "2015-07",
@@ -42365,7 +42330,7 @@
     {
       "month": "2015-08",
       "region": "Central",
-      "gallons": 835
+      "gallons": 955
     },
     {
       "month": "2015-08",
@@ -42376,11 +42341,6 @@
       "month": "2015-08",
       "region": "Northwest",
       "gallons": 42
-    },
-    {
-      "month": "2015-08",
-      "region": "Other",
-      "gallons": 70
     },
     {
       "month": "2015-08",
@@ -42435,7 +42395,7 @@
     {
       "month": "2015-09",
       "region": "Central",
-      "gallons": 510
+      "gallons": 600
     },
     {
       "month": "2015-09",
@@ -42446,11 +42406,6 @@
       "month": "2015-09",
       "region": "North-Northeast",
       "gallons": 280
-    },
-    {
-      "month": "2015-09",
-      "region": "Other",
-      "gallons": 40
     },
     {
       "month": "2015-09",
@@ -42500,22 +42455,17 @@
     {
       "month": "2015-10",
       "region": "Central",
-      "gallons": 570
+      "gallons": 620
     },
     {
       "month": "2015-10",
       "region": "Central South",
-      "gallons": 235
+      "gallons": 335
     },
     {
       "month": "2015-10",
       "region": "Northwest",
       "gallons": 15
-    },
-    {
-      "month": "2015-10",
-      "region": "Other",
-      "gallons": 150
     },
     {
       "month": "2015-10",
@@ -42575,12 +42525,12 @@
     {
       "month": "2015-11",
       "region": "Central",
-      "gallons": 670
+      "gallons": 719
     },
     {
       "month": "2015-11",
       "region": "Central South",
-      "gallons": 232
+      "gallons": 272
     },
     {
       "month": "2015-11",
@@ -42591,11 +42541,6 @@
       "month": "2015-11",
       "region": "Northwest",
       "gallons": 90
-    },
-    {
-      "month": "2015-11",
-      "region": "Other",
-      "gallons": 64
     },
     {
       "month": "2015-11",
@@ -42655,7 +42600,7 @@
     {
       "month": "2015-12",
       "region": "Central",
-      "gallons": 482
+      "gallons": 506
     },
     {
       "month": "2015-12",
@@ -42666,11 +42611,6 @@
       "month": "2015-12",
       "region": "North-Northeast",
       "gallons": 393
-    },
-    {
-      "month": "2015-12",
-      "region": "Other",
-      "gallons": 24
     },
     {
       "month": "2015-12",
@@ -42715,22 +42655,17 @@
     {
       "month": "2016-01",
       "region": "Central",
-      "gallons": 390
+      "gallons": 410
     },
     {
       "month": "2016-01",
       "region": "Central South",
-      "gallons": 265
+      "gallons": 295
     },
     {
       "month": "2016-01",
       "region": "North-Northeast",
       "gallons": 210
-    },
-    {
-      "month": "2016-01",
-      "region": "Other",
-      "gallons": 50
     },
     {
       "month": "2016-01",
@@ -42785,7 +42720,7 @@
     {
       "month": "2016-02",
       "region": "Central",
-      "gallons": 440
+      "gallons": 492
     },
     {
       "month": "2016-02",
@@ -42800,7 +42735,7 @@
     {
       "month": "2016-02",
       "region": "Other",
-      "gallons": 132
+      "gallons": 80
     },
     {
       "month": "2016-02",
@@ -42850,17 +42785,17 @@
     {
       "month": "2016-03",
       "region": "Central",
-      "gallons": 632
+      "gallons": 667
     },
     {
       "month": "2016-03",
       "region": "Central South",
-      "gallons": 345
+      "gallons": 430
     },
     {
       "month": "2016-03",
       "region": "Other",
-      "gallons": 195
+      "gallons": 75
     },
     {
       "month": "2016-03",
@@ -42915,7 +42850,7 @@
     {
       "month": "2016-04",
       "region": "Central",
-      "gallons": 1037
+      "gallons": 1142
     },
     {
       "month": "2016-04",
@@ -42930,7 +42865,7 @@
     {
       "month": "2016-04",
       "region": "Other",
-      "gallons": 185
+      "gallons": 80
     },
     {
       "month": "2016-04",
@@ -42985,7 +42920,7 @@
     {
       "month": "2016-05",
       "region": "Central",
-      "gallons": 880
+      "gallons": 930
     },
     {
       "month": "2016-05",
@@ -42995,7 +42930,7 @@
     {
       "month": "2016-05",
       "region": "Other",
-      "gallons": 115
+      "gallons": 65
     },
     {
       "month": "2016-05",
@@ -43040,12 +42975,12 @@
     {
       "month": "2016-06",
       "region": "Central",
-      "gallons": 460
+      "gallons": 568
     },
     {
       "month": "2016-06",
       "region": "Central South",
-      "gallons": 385
+      "gallons": 435
     },
     {
       "month": "2016-06",
@@ -43055,7 +42990,7 @@
     {
       "month": "2016-06",
       "region": "Other",
-      "gallons": 163
+      "gallons": 40
     },
     {
       "month": "2016-06",
@@ -43110,7 +43045,7 @@
     {
       "month": "2016-07",
       "region": "Central",
-      "gallons": 847
+      "gallons": 907
     },
     {
       "month": "2016-07",
@@ -43125,12 +43060,12 @@
     {
       "month": "2016-07",
       "region": "Northwest",
-      "gallons": 1180
+      "gallons": 1100
     },
     {
       "month": "2016-07",
       "region": "Other",
-      "gallons": 260
+      "gallons": 200
     },
     {
       "month": "2016-07",
@@ -43185,12 +43120,12 @@
     {
       "month": "2016-08",
       "region": "Central",
-      "gallons": 1065
+      "gallons": 1165
     },
     {
       "month": "2016-08",
       "region": "Central South",
-      "gallons": 520
+      "gallons": 560
     },
     {
       "month": "2016-08",
@@ -43199,13 +43134,8 @@
     },
     {
       "month": "2016-08",
-      "region": "Northwest",
-      "gallons": 110
-    },
-    {
-      "month": "2016-08",
       "region": "Other",
-      "gallons": 290
+      "gallons": 190
     },
     {
       "month": "2016-08",
@@ -43270,12 +43200,12 @@
     {
       "month": "2016-09",
       "region": "Central",
-      "gallons": 560
+      "gallons": 610
     },
     {
       "month": "2016-09",
       "region": "Central South",
-      "gallons": 735
+      "gallons": 770
     },
     {
       "month": "2016-09",
@@ -43285,7 +43215,7 @@
     {
       "month": "2016-09",
       "region": "Other",
-      "gallons": 505
+      "gallons": 420
     },
     {
       "month": "2016-09",
@@ -43340,7 +43270,7 @@
     {
       "month": "2016-10",
       "region": "Central",
-      "gallons": 1316
+      "gallons": 1451
     },
     {
       "month": "2016-10",
@@ -43360,7 +43290,7 @@
     {
       "month": "2016-10",
       "region": "Other",
-      "gallons": 300
+      "gallons": 215
     },
     {
       "month": "2016-10",
@@ -43415,12 +43345,12 @@
     {
       "month": "2016-11",
       "region": "Central",
-      "gallons": 520
+      "gallons": 555
     },
     {
       "month": "2016-11",
       "region": "Central South",
-      "gallons": 400
+      "gallons": 440
     },
     {
       "month": "2016-11",
@@ -43430,12 +43360,12 @@
     {
       "month": "2016-11",
       "region": "Northwest",
-      "gallons": 650
+      "gallons": 500
     },
     {
       "month": "2016-11",
       "region": "Other",
-      "gallons": 325
+      "gallons": 250
     },
     {
       "month": "2016-11",
@@ -43485,12 +43415,12 @@
     {
       "month": "2016-12",
       "region": "Central",
-      "gallons": 670
+      "gallons": 720
     },
     {
       "month": "2016-12",
       "region": "Central South",
-      "gallons": 250
+      "gallons": 275
     },
     {
       "month": "2016-12",
@@ -43499,13 +43429,8 @@
     },
     {
       "month": "2016-12",
-      "region": "Northwest",
-      "gallons": 50
-    },
-    {
-      "month": "2016-12",
       "region": "Other",
-      "gallons": 275
+      "gallons": 200
     },
     {
       "month": "2016-12",
@@ -43560,7 +43485,7 @@
     {
       "month": "2017-01",
       "region": "Central",
-      "gallons": 1110
+      "gallons": 1205
     },
     {
       "month": "2017-01",
@@ -43575,12 +43500,12 @@
     {
       "month": "2017-01",
       "region": "Northwest",
-      "gallons": 195
+      "gallons": 125
     },
     {
       "month": "2017-01",
       "region": "Other",
-      "gallons": 445
+      "gallons": 350
     },
     {
       "month": "2017-01",
@@ -43645,12 +43570,12 @@
     {
       "month": "2017-02",
       "region": "Central",
-      "gallons": 650
+      "gallons": 690
     },
     {
       "month": "2017-02",
       "region": "Central South",
-      "gallons": 255
+      "gallons": 335
     },
     {
       "month": "2017-02",
@@ -43659,13 +43584,8 @@
     },
     {
       "month": "2017-02",
-      "region": "Northwest",
-      "gallons": 390
-    },
-    {
-      "month": "2017-02",
       "region": "Other",
-      "gallons": 450
+      "gallons": 330
     },
     {
       "month": "2017-02",
@@ -43725,12 +43645,12 @@
     {
       "month": "2017-03",
       "region": "Central",
-      "gallons": 930
+      "gallons": 1000
     },
     {
       "month": "2017-03",
       "region": "Central South",
-      "gallons": 325
+      "gallons": 350
     },
     {
       "month": "2017-03",
@@ -43739,13 +43659,8 @@
     },
     {
       "month": "2017-03",
-      "region": "Northwest",
-      "gallons": 168
-    },
-    {
-      "month": "2017-03",
       "region": "Other",
-      "gallons": 305
+      "gallons": 210
     },
     {
       "month": "2017-03",
@@ -43805,7 +43720,7 @@
     {
       "month": "2017-04",
       "region": "Central",
-      "gallons": 1519
+      "gallons": 1619
     },
     {
       "month": "2017-04",
@@ -43815,7 +43730,7 @@
     {
       "month": "2017-04",
       "region": "Other",
-      "gallons": 400
+      "gallons": 300
     },
     {
       "month": "2017-04",
@@ -43845,7 +43760,7 @@
     {
       "month": "2017-05",
       "region": "Central",
-      "gallons": 1320
+      "gallons": 1385
     },
     {
       "month": "2017-05",
@@ -43860,12 +43775,12 @@
     {
       "month": "2017-05",
       "region": "Northwest",
-      "gallons": 1095
+      "gallons": 1005
     },
     {
       "month": "2017-05",
       "region": "Other",
-      "gallons": 400
+      "gallons": 335
     },
     {
       "month": "2017-05",
@@ -43930,12 +43845,12 @@
     {
       "month": "2017-06",
       "region": "Central",
-      "gallons": 798
+      "gallons": 2040
     },
     {
       "month": "2017-06",
       "region": "Central South",
-      "gallons": 425
+      "gallons": 460
     },
     {
       "month": "2017-06",
@@ -43945,12 +43860,12 @@
     {
       "month": "2017-06",
       "region": "Northwest",
-      "gallons": 930
+      "gallons": 710
     },
     {
       "month": "2017-06",
       "region": "Other",
-      "gallons": 1792
+      "gallons": 555
     },
     {
       "month": "2017-06",
@@ -44020,12 +43935,12 @@
     {
       "month": "2017-07",
       "region": "Central",
-      "gallons": 1635
+      "gallons": 1870
     },
     {
       "month": "2017-07",
       "region": "Central South",
-      "gallons": 650
+      "gallons": 675
     },
     {
       "month": "2017-07",
@@ -44035,12 +43950,12 @@
     {
       "month": "2017-07",
       "region": "Northwest",
-      "gallons": 1040
+      "gallons": 750
     },
     {
       "month": "2017-07",
       "region": "Other",
-      "gallons": 555
+      "gallons": 330
     },
     {
       "month": "2017-07",
@@ -44110,12 +44025,12 @@
     {
       "month": "2017-08",
       "region": "Central",
-      "gallons": 1370
+      "gallons": 1555
     },
     {
       "month": "2017-08",
       "region": "Central South",
-      "gallons": 335
+      "gallons": 360
     },
     {
       "month": "2017-08",
@@ -44130,7 +44045,7 @@
     {
       "month": "2017-08",
       "region": "Other",
-      "gallons": 605
+      "gallons": 440
     },
     {
       "month": "2017-08",
@@ -44200,7 +44115,7 @@
     {
       "month": "2017-09",
       "region": "Central",
-      "gallons": 2285
+      "gallons": 2490
     },
     {
       "month": "2017-09",
@@ -44215,12 +44130,12 @@
     {
       "month": "2017-09",
       "region": "Northwest",
-      "gallons": 1005
+      "gallons": 810
     },
     {
       "month": "2017-09",
       "region": "Other",
-      "gallons": 505
+      "gallons": 325
     },
     {
       "month": "2017-09",
@@ -44290,7 +44205,7 @@
     {
       "month": "2017-10",
       "region": "Central",
-      "gallons": 1175
+      "gallons": 1225
     },
     {
       "month": "2017-10",
@@ -44305,12 +44220,12 @@
     {
       "month": "2017-10",
       "region": "Northwest",
-      "gallons": 800
+      "gallons": 700
     },
     {
       "month": "2017-10",
       "region": "Other",
-      "gallons": 175
+      "gallons": 125
     },
     {
       "month": "2017-10",
@@ -44370,12 +44285,12 @@
     {
       "month": "2017-11",
       "region": "Central",
-      "gallons": 1220
+      "gallons": 1335
     },
     {
       "month": "2017-11",
       "region": "Central South",
-      "gallons": 895
+      "gallons": 995
     },
     {
       "month": "2017-11",
@@ -44384,13 +44299,8 @@
     },
     {
       "month": "2017-11",
-      "region": "Northwest",
-      "gallons": 80
-    },
-    {
-      "month": "2017-11",
       "region": "Other",
-      "gallons": 620
+      "gallons": 405
     },
     {
       "month": "2017-11",
@@ -44445,12 +44355,12 @@
     {
       "month": "2017-12",
       "region": "Central",
-      "gallons": 1280
+      "gallons": 1415
     },
     {
       "month": "2017-12",
       "region": "Central South",
-      "gallons": 175
+      "gallons": 295
     },
     {
       "month": "2017-12",
@@ -44459,13 +44369,8 @@
     },
     {
       "month": "2017-12",
-      "region": "Northwest",
-      "gallons": 350
-    },
-    {
-      "month": "2017-12",
       "region": "Other",
-      "gallons": 355
+      "gallons": 100
     },
     {
       "month": "2017-12",
@@ -44515,7 +44420,7 @@
     {
       "month": "2018-01",
       "region": "Central",
-      "gallons": 940
+      "gallons": 1070
     },
     {
       "month": "2018-01",
@@ -44530,7 +44435,7 @@
     {
       "month": "2018-01",
       "region": "Other",
-      "gallons": 418
+      "gallons": 288
     },
     {
       "month": "2018-01",
@@ -44595,7 +44500,7 @@
     {
       "month": "2018-02",
       "region": "Central South",
-      "gallons": 665
+      "gallons": 740
     },
     {
       "month": "2018-02",
@@ -44605,12 +44510,12 @@
     {
       "month": "2018-02",
       "region": "Northwest",
-      "gallons": 325
+      "gallons": 100
     },
     {
       "month": "2018-02",
       "region": "Other",
-      "gallons": 425
+      "gallons": 250
     },
     {
       "month": "2018-02",
@@ -44675,7 +44580,7 @@
     {
       "month": "2018-03",
       "region": "Central",
-      "gallons": 2735
+      "gallons": 2925
     },
     {
       "month": "2018-03",
@@ -44695,7 +44600,7 @@
     {
       "month": "2018-03",
       "region": "Other",
-      "gallons": 395
+      "gallons": 205
     },
     {
       "month": "2018-03",
@@ -44755,7 +44660,7 @@
     {
       "month": "2018-04",
       "region": "Central",
-      "gallons": 1945
+      "gallons": 2245
     },
     {
       "month": "2018-04",
@@ -44770,12 +44675,12 @@
     {
       "month": "2018-04",
       "region": "Northwest",
-      "gallons": 145
+      "gallons": 30
     },
     {
       "month": "2018-04",
       "region": "Other",
-      "gallons": 450
+      "gallons": 200
     },
     {
       "month": "2018-04",
@@ -44840,12 +44745,12 @@
     {
       "month": "2018-05",
       "region": "Central",
-      "gallons": 1497
+      "gallons": 1547
     },
     {
       "month": "2018-05",
       "region": "Central South",
-      "gallons": 495
+      "gallons": 620
     },
     {
       "month": "2018-05",
@@ -44855,12 +44760,12 @@
     {
       "month": "2018-05",
       "region": "Northwest",
-      "gallons": 2725
+      "gallons": 2750
     },
     {
       "month": "2018-05",
       "region": "Other",
-      "gallons": 600
+      "gallons": 325
     },
     {
       "month": "2018-05",
@@ -44930,12 +44835,12 @@
     {
       "month": "2018-06",
       "region": "Central",
-      "gallons": 2110
+      "gallons": 2285
     },
     {
       "month": "2018-06",
       "region": "Central South",
-      "gallons": 645
+      "gallons": 670
     },
     {
       "month": "2018-06",
@@ -44945,12 +44850,12 @@
     {
       "month": "2018-06",
       "region": "Northwest",
-      "gallons": 1550
+      "gallons": 1150
     },
     {
       "month": "2018-06",
       "region": "Other",
-      "gallons": 455
+      "gallons": 255
     },
     {
       "month": "2018-06",
@@ -45005,12 +44910,12 @@
     {
       "month": "2018-07",
       "region": "Central",
-      "gallons": 2580
+      "gallons": 2690
     },
     {
       "month": "2018-07",
       "region": "Central South",
-      "gallons": 410
+      "gallons": 460
     },
     {
       "month": "2018-07",
@@ -45020,12 +44925,12 @@
     {
       "month": "2018-07",
       "region": "Northwest",
-      "gallons": 1825
+      "gallons": 1800
     },
     {
       "month": "2018-07",
       "region": "Other",
-      "gallons": 260
+      "gallons": 100
     },
     {
       "month": "2018-07",
@@ -45085,12 +44990,12 @@
     {
       "month": "2018-08",
       "region": "Central",
-      "gallons": 2035
+      "gallons": 2195
     },
     {
       "month": "2018-08",
       "region": "Central South",
-      "gallons": 785
+      "gallons": 835
     },
     {
       "month": "2018-08",
@@ -45100,12 +45005,12 @@
     {
       "month": "2018-08",
       "region": "Northwest",
-      "gallons": 1750
+      "gallons": 1475
     },
     {
       "month": "2018-08",
       "region": "Other",
-      "gallons": 535
+      "gallons": 325
     },
     {
       "month": "2018-08",
@@ -45170,17 +45075,17 @@
     {
       "month": "2018-09",
       "region": "Central",
-      "gallons": 2145
+      "gallons": 2375
     },
     {
       "month": "2018-09",
       "region": "Central South",
-      "gallons": 700
+      "gallons": 1065
     },
     {
       "month": "2018-09",
       "region": "Other",
-      "gallons": 865
+      "gallons": 310
     },
     {
       "month": "2018-09",
@@ -45250,12 +45155,12 @@
     {
       "month": "2018-10",
       "region": "Central",
-      "gallons": 1635
+      "gallons": 1695
     },
     {
       "month": "2018-10",
       "region": "Central South",
-      "gallons": 760
+      "gallons": 800
     },
     {
       "month": "2018-10",
@@ -45265,12 +45170,12 @@
     {
       "month": "2018-10",
       "region": "Northwest",
-      "gallons": 760
+      "gallons": 785
     },
     {
       "month": "2018-10",
       "region": "Other",
-      "gallons": 505
+      "gallons": 205
     },
     {
       "month": "2018-10",
@@ -45340,7 +45245,7 @@
     {
       "month": "2018-11",
       "region": "Central",
-      "gallons": 2075
+      "gallons": 2315
     },
     {
       "month": "2018-11",
@@ -45355,12 +45260,12 @@
     {
       "month": "2018-11",
       "region": "Northwest",
-      "gallons": 990
+      "gallons": 900
     },
     {
       "month": "2018-11",
       "region": "Other",
-      "gallons": 400
+      "gallons": 160
     },
     {
       "month": "2018-11",
@@ -45420,12 +45325,12 @@
     {
       "month": "2018-12",
       "region": "Central",
-      "gallons": 1405
+      "gallons": 1480
     },
     {
       "month": "2018-12",
       "region": "Central South",
-      "gallons": 590
+      "gallons": 665
     },
     {
       "month": "2018-12",
@@ -45435,12 +45340,12 @@
     {
       "month": "2018-12",
       "region": "Northwest",
-      "gallons": 445
+      "gallons": 385
     },
     {
       "month": "2018-12",
       "region": "Other",
-      "gallons": 310
+      "gallons": 75
     },
     {
       "month": "2018-12",
@@ -45515,7 +45420,7 @@
     {
       "month": "2019-01",
       "region": "Central South",
-      "gallons": 430
+      "gallons": 480
     },
     {
       "month": "2019-01",
@@ -45525,12 +45430,12 @@
     {
       "month": "2019-01",
       "region": "Northwest",
-      "gallons": 156
+      "gallons": 176
     },
     {
       "month": "2019-01",
       "region": "Other",
-      "gallons": 375
+      "gallons": 275
     },
     {
       "month": "2019-01",
@@ -45600,12 +45505,12 @@
     {
       "month": "2019-02",
       "region": "Central",
-      "gallons": 1758
+      "gallons": 1953
     },
     {
       "month": "2019-02",
       "region": "Central South",
-      "gallons": 520
+      "gallons": 570
     },
     {
       "month": "2019-02",
@@ -45615,12 +45520,12 @@
     {
       "month": "2019-02",
       "region": "Northwest",
-      "gallons": 1000
+      "gallons": 750
     },
     {
       "month": "2019-02",
       "region": "Other",
-      "gallons": 445
+      "gallons": 200
     },
     {
       "month": "2019-02",
@@ -45680,12 +45585,12 @@
     {
       "month": "2019-03",
       "region": "Central",
-      "gallons": 1735
+      "gallons": 1810
     },
     {
       "month": "2019-03",
       "region": "Central South",
-      "gallons": 410
+      "gallons": 460
     },
     {
       "month": "2019-03",
@@ -45700,7 +45605,7 @@
     {
       "month": "2019-03",
       "region": "Other",
-      "gallons": 275
+      "gallons": 150
     },
     {
       "month": "2019-03",
@@ -45765,12 +45670,12 @@
     {
       "month": "2019-04",
       "region": "Central",
-      "gallons": 2245
+      "gallons": 2295
     },
     {
       "month": "2019-04",
       "region": "Central South",
-      "gallons": 640
+      "gallons": 755
     },
     {
       "month": "2019-04",
@@ -45780,12 +45685,12 @@
     {
       "month": "2019-04",
       "region": "Northwest",
-      "gallons": 1400
+      "gallons": 1150
     },
     {
       "month": "2019-04",
       "region": "Other",
-      "gallons": 425
+      "gallons": 260
     },
     {
       "month": "2019-04",
@@ -45850,7 +45755,7 @@
     {
       "month": "2019-05",
       "region": "Central",
-      "gallons": 2420
+      "gallons": 2620
     },
     {
       "month": "2019-05",
@@ -45865,12 +45770,12 @@
     {
       "month": "2019-05",
       "region": "Northwest",
-      "gallons": 1925
+      "gallons": 2130
     },
     {
       "month": "2019-05",
       "region": "Other",
-      "gallons": 900
+      "gallons": 420
     },
     {
       "month": "2019-05",
@@ -45935,12 +45840,12 @@
     {
       "month": "2019-06",
       "region": "Central",
-      "gallons": 1240
+      "gallons": 1315
     },
     {
       "month": "2019-06",
       "region": "Central South",
-      "gallons": 950
+      "gallons": 1050
     },
     {
       "month": "2019-06",
@@ -45950,12 +45855,12 @@
     {
       "month": "2019-06",
       "region": "Northwest",
-      "gallons": 1550
+      "gallons": 1300
     },
     {
       "month": "2019-06",
       "region": "Other",
-      "gallons": 515
+      "gallons": 340
     },
     {
       "month": "2019-06",
@@ -46020,12 +45925,12 @@
     {
       "month": "2019-07",
       "region": "Central",
-      "gallons": 2290
+      "gallons": 2490
     },
     {
       "month": "2019-07",
       "region": "Central South",
-      "gallons": 880
+      "gallons": 980
     },
     {
       "month": "2019-07",
@@ -46035,12 +45940,12 @@
     {
       "month": "2019-07",
       "region": "Northwest",
-      "gallons": 675
+      "gallons": 750
     },
     {
       "month": "2019-07",
       "region": "Other",
-      "gallons": 750
+      "gallons": 300
     },
     {
       "month": "2019-07",
@@ -46110,12 +46015,12 @@
     {
       "month": "2019-08",
       "region": "Central",
-      "gallons": 1615
+      "gallons": 1755
     },
     {
       "month": "2019-08",
       "region": "Central South",
-      "gallons": 540
+      "gallons": 590
     },
     {
       "month": "2019-08",
@@ -46130,7 +46035,7 @@
     {
       "month": "2019-08",
       "region": "Other",
-      "gallons": 515
+      "gallons": 375
     },
     {
       "month": "2019-08",
@@ -46190,7 +46095,7 @@
     {
       "month": "2019-09",
       "region": "Central",
-      "gallons": 810
+      "gallons": 860
     },
     {
       "month": "2019-09",
@@ -46205,7 +46110,7 @@
     {
       "month": "2019-09",
       "region": "Northwest",
-      "gallons": 1400
+      "gallons": 950
     },
     {
       "month": "2019-09",
@@ -46280,7 +46185,7 @@
     {
       "month": "2019-10",
       "region": "Central",
-      "gallons": 1820
+      "gallons": 1945
     },
     {
       "month": "2019-10",
@@ -46295,12 +46200,12 @@
     {
       "month": "2019-10",
       "region": "Northwest",
-      "gallons": 1475
+      "gallons": 1675
     },
     {
       "month": "2019-10",
       "region": "Other",
-      "gallons": 875
+      "gallons": 450
     },
     {
       "month": "2019-10",
@@ -46365,12 +46270,12 @@
     {
       "month": "2019-11",
       "region": "Central",
-      "gallons": 2410
+      "gallons": 2550
     },
     {
       "month": "2019-11",
       "region": "Central South",
-      "gallons": 400
+      "gallons": 550
     },
     {
       "month": "2019-11",
@@ -46385,7 +46290,7 @@
     {
       "month": "2019-11",
       "region": "Other",
-      "gallons": 740
+      "gallons": 450
     },
     {
       "month": "2019-11",
@@ -46440,7 +46345,7 @@
     {
       "month": "2019-12",
       "region": "Central",
-      "gallons": 1485
+      "gallons": 1685
     },
     {
       "month": "2019-12",
@@ -46455,12 +46360,12 @@
     {
       "month": "2019-12",
       "region": "Northwest",
-      "gallons": 1005
+      "gallons": 775
     },
     {
       "month": "2019-12",
       "region": "Other",
-      "gallons": 500
+      "gallons": 200
     },
     {
       "month": "2019-12",
@@ -46525,7 +46430,7 @@
     {
       "month": "2020-01",
       "region": "Central South",
-      "gallons": 390
+      "gallons": 475
     },
     {
       "month": "2020-01",
@@ -46540,7 +46445,7 @@
     {
       "month": "2020-01",
       "region": "Other",
-      "gallons": 225
+      "gallons": 40
     },
     {
       "month": "2020-01",
@@ -46605,12 +46510,12 @@
     {
       "month": "2020-02",
       "region": "Central",
-      "gallons": 1765
+      "gallons": 1915
     },
     {
       "month": "2020-02",
       "region": "Central South",
-      "gallons": 725
+      "gallons": 850
     },
     {
       "month": "2020-02",
@@ -46620,12 +46525,12 @@
     {
       "month": "2020-02",
       "region": "Northwest",
-      "gallons": 300
+      "gallons": 650
     },
     {
       "month": "2020-02",
       "region": "Other",
-      "gallons": 960
+      "gallons": 335
     },
     {
       "month": "2020-02",
@@ -46685,7 +46590,7 @@
     {
       "month": "2020-03",
       "region": "Central",
-      "gallons": 1215
+      "gallons": 1415
     },
     {
       "month": "2020-03",
@@ -46700,12 +46605,12 @@
     {
       "month": "2020-03",
       "region": "Northwest",
-      "gallons": 525
+      "gallons": 650
     },
     {
       "month": "2020-03",
       "region": "Other",
-      "gallons": 575
+      "gallons": 250
     },
     {
       "month": "2020-03",
@@ -46770,7 +46675,7 @@
     {
       "month": "2020-04",
       "region": "Central",
-      "gallons": 1465
+      "gallons": 1555
     },
     {
       "month": "2020-04",
@@ -46785,12 +46690,12 @@
     {
       "month": "2020-04",
       "region": "Northwest",
-      "gallons": 6970
+      "gallons": 6820
     },
     {
       "month": "2020-04",
       "region": "Other",
-      "gallons": 465
+      "gallons": 275
     },
     {
       "month": "2020-04",
@@ -46850,17 +46755,17 @@
     {
       "month": "2020-05",
       "region": "Central",
-      "gallons": 605
+      "gallons": 705
     },
     {
       "month": "2020-05",
       "region": "Central South",
-      "gallons": 245
+      "gallons": 345
     },
     {
       "month": "2020-05",
       "region": "Other",
-      "gallons": 325
+      "gallons": 125
     },
     {
       "month": "2020-05",
@@ -46910,7 +46815,7 @@
     {
       "month": "2020-06",
       "region": "Central",
-      "gallons": 1725
+      "gallons": 1925
     },
     {
       "month": "2020-06",
@@ -46920,12 +46825,12 @@
     {
       "month": "2020-06",
       "region": "Northwest",
-      "gallons": 2210
+      "gallons": 2560
     },
     {
       "month": "2020-06",
       "region": "Other",
-      "gallons": 725
+      "gallons": 175
     },
     {
       "month": "2020-06",
@@ -46990,7 +46895,7 @@
     {
       "month": "2020-07",
       "region": "Central South",
-      "gallons": 575
+      "gallons": 625
     },
     {
       "month": "2020-07",
@@ -47000,12 +46905,12 @@
     {
       "month": "2020-07",
       "region": "Northwest",
-      "gallons": 1850
+      "gallons": 1650
     },
     {
       "month": "2020-07",
       "region": "Other",
-      "gallons": 275
+      "gallons": 225
     },
     {
       "month": "2020-07",
@@ -47145,7 +47050,7 @@
     {
       "month": "2020-09",
       "region": "Central South",
-      "gallons": 795
+      "gallons": 970
     },
     {
       "month": "2020-09",
@@ -47155,12 +47060,12 @@
     {
       "month": "2020-09",
       "region": "Northwest",
-      "gallons": 450
+      "gallons": 50
     },
     {
       "month": "2020-09",
       "region": "Other",
-      "gallons": 670
+      "gallons": 495
     },
     {
       "month": "2020-09",
@@ -47220,12 +47125,12 @@
     {
       "month": "2020-10",
       "region": "Central",
-      "gallons": 825
+      "gallons": 900
     },
     {
       "month": "2020-10",
       "region": "Central South",
-      "gallons": 485
+      "gallons": 560
     },
     {
       "month": "2020-10",
@@ -47235,12 +47140,12 @@
     {
       "month": "2020-10",
       "region": "Northwest",
-      "gallons": 525
+      "gallons": 925
     },
     {
       "month": "2020-10",
       "region": "Other",
-      "gallons": 665
+      "gallons": 115
     },
     {
       "month": "2020-10",
@@ -47315,7 +47220,7 @@
     {
       "month": "2020-11",
       "region": "Central South",
-      "gallons": 920
+      "gallons": 990
     },
     {
       "month": "2020-11",
@@ -47330,7 +47235,7 @@
     {
       "month": "2020-11",
       "region": "Other",
-      "gallons": 220
+      "gallons": 150
     },
     {
       "month": "2020-11",
@@ -47390,12 +47295,12 @@
     {
       "month": "2020-12",
       "region": "Central",
-      "gallons": 1325
+      "gallons": 1425
     },
     {
       "month": "2020-12",
       "region": "Central South",
-      "gallons": 305
+      "gallons": 405
     },
     {
       "month": "2020-12",
@@ -47405,12 +47310,12 @@
     {
       "month": "2020-12",
       "region": "Northwest",
-      "gallons": 590
+      "gallons": 915
     },
     {
       "month": "2020-12",
       "region": "Other",
-      "gallons": 585
+      "gallons": 60
     },
     {
       "month": "2020-12",
@@ -47480,12 +47385,12 @@
     {
       "month": "2021-01",
       "region": "Central",
-      "gallons": 1070
+      "gallons": 1140
     },
     {
       "month": "2021-01",
       "region": "Central South",
-      "gallons": 440
+      "gallons": 465
     },
     {
       "month": "2021-01",
@@ -47495,12 +47400,12 @@
     {
       "month": "2021-01",
       "region": "Northwest",
-      "gallons": 975
+      "gallons": 600
     },
     {
       "month": "2021-01",
       "region": "Other",
-      "gallons": 275
+      "gallons": 180
     },
     {
       "month": "2021-01",
@@ -47635,12 +47540,12 @@
     {
       "month": "2021-03",
       "region": "Central",
-      "gallons": 2290
+      "gallons": 2490
     },
     {
       "month": "2021-03",
       "region": "Central South",
-      "gallons": 225
+      "gallons": 275
     },
     {
       "month": "2021-03",
@@ -47650,12 +47555,12 @@
     {
       "month": "2021-03",
       "region": "Northwest",
-      "gallons": 800
+      "gallons": 1050
     },
     {
       "month": "2021-03",
       "region": "Other",
-      "gallons": 775
+      "gallons": 125
     },
     {
       "month": "2021-03",
@@ -47800,12 +47705,12 @@
     {
       "month": "2021-05",
       "region": "Central",
-      "gallons": 1045
+      "gallons": 1220
     },
     {
       "month": "2021-05",
       "region": "Central South",
-      "gallons": 1175
+      "gallons": 1200
     },
     {
       "month": "2021-05",
@@ -47815,12 +47720,12 @@
     {
       "month": "2021-05",
       "region": "Northwest",
-      "gallons": 1975
+      "gallons": 2325
     },
     {
       "month": "2021-05",
       "region": "Other",
-      "gallons": 850
+      "gallons": 300
     },
     {
       "month": "2021-05",
@@ -47885,7 +47790,7 @@
     {
       "month": "2021-06",
       "region": "Central",
-      "gallons": 1595
+      "gallons": 1620
     },
     {
       "month": "2021-06",
@@ -47895,12 +47800,7 @@
     {
       "month": "2021-06",
       "region": "Northwest",
-      "gallons": 2850
-    },
-    {
-      "month": "2021-06",
-      "region": "Other",
-      "gallons": 425
+      "gallons": 2675
     },
     {
       "month": "2021-06",
@@ -47960,12 +47860,12 @@
     {
       "month": "2021-07",
       "region": "Central",
-      "gallons": 1480
+      "gallons": 1740
     },
     {
       "month": "2021-07",
       "region": "Central South",
-      "gallons": 900
+      "gallons": 1025
     },
     {
       "month": "2021-07",
@@ -47975,12 +47875,12 @@
     {
       "month": "2021-07",
       "region": "Northwest",
-      "gallons": 635
+      "gallons": 805
     },
     {
       "month": "2021-07",
       "region": "Other",
-      "gallons": 630
+      "gallons": 75
     },
     {
       "month": "2021-07",
@@ -48045,7 +47945,7 @@
     {
       "month": "2021-08",
       "region": "Central",
-      "gallons": 2080
+      "gallons": 2150
     },
     {
       "month": "2021-08",
@@ -48055,17 +47955,17 @@
     {
       "month": "2021-08",
       "region": "North-Northeast",
-      "gallons": 940
+      "gallons": 1005
     },
     {
       "month": "2021-08",
       "region": "Northwest",
-      "gallons": 2010
+      "gallons": 2120
     },
     {
       "month": "2021-08",
       "region": "Other",
-      "gallons": 740
+      "gallons": 205
     },
     {
       "month": "2021-08",
@@ -48135,12 +48035,12 @@
     {
       "month": "2021-09",
       "region": "Central",
-      "gallons": 1590
+      "gallons": 1740
     },
     {
       "month": "2021-09",
       "region": "Central South",
-      "gallons": 680
+      "gallons": 805
     },
     {
       "month": "2021-09",
@@ -48150,7 +48050,7 @@
     {
       "month": "2021-09",
       "region": "Other",
-      "gallons": 395
+      "gallons": 120
     },
     {
       "month": "2021-09",
@@ -48220,7 +48120,7 @@
     {
       "month": "2021-10",
       "region": "Central",
-      "gallons": 2120
+      "gallons": 2300
     },
     {
       "month": "2021-10",
@@ -48235,12 +48135,12 @@
     {
       "month": "2021-10",
       "region": "Northwest",
-      "gallons": 970
+      "gallons": 1010
     },
     {
       "month": "2021-10",
       "region": "Other",
-      "gallons": 520
+      "gallons": 85
     },
     {
       "month": "2021-10",
@@ -48290,12 +48190,12 @@
     {
       "month": "2021-11",
       "region": "Central",
-      "gallons": 1512
+      "gallons": 1617
     },
     {
       "month": "2021-11",
       "region": "Central South",
-      "gallons": 260
+      "gallons": 610
     },
     {
       "month": "2021-11",
@@ -48305,12 +48205,12 @@
     {
       "month": "2021-11",
       "region": "Northwest",
-      "gallons": 875
+      "gallons": 4575
     },
     {
       "month": "2021-11",
       "region": "Other",
-      "gallons": 4460
+      "gallons": 180
     },
     {
       "month": "2021-11",
@@ -48380,7 +48280,7 @@
     {
       "month": "2021-12",
       "region": "Central",
-      "gallons": 2535
+      "gallons": 2660
     },
     {
       "month": "2021-12",
@@ -48395,12 +48295,12 @@
     {
       "month": "2021-12",
       "region": "Northwest",
-      "gallons": 1335
+      "gallons": 1785
     },
     {
       "month": "2021-12",
       "region": "Other",
-      "gallons": 725
+      "gallons": 150
     },
     {
       "month": "2021-12",
@@ -48470,12 +48370,12 @@
     {
       "month": "2022-01",
       "region": "Central",
-      "gallons": 605
+      "gallons": 625
     },
     {
       "month": "2022-01",
       "region": "Central South",
-      "gallons": 185
+      "gallons": 233
     },
     {
       "month": "2022-01",
@@ -48485,12 +48385,12 @@
     {
       "month": "2022-01",
       "region": "Northwest",
-      "gallons": 292
+      "gallons": 55
     },
     {
       "month": "2022-01",
       "region": "Other",
-      "gallons": 148
+      "gallons": 80
     },
     {
       "month": "2022-01",
@@ -48545,7 +48445,7 @@
     {
       "month": "2022-02",
       "region": "Central",
-      "gallons": 1807
+      "gallons": 2032
     },
     {
       "month": "2022-02",
@@ -48560,12 +48460,12 @@
     {
       "month": "2022-02",
       "region": "Northwest",
-      "gallons": 1285
+      "gallons": 1345
     },
     {
       "month": "2022-02",
       "region": "Other",
-      "gallons": 555
+      "gallons": 130
     },
     {
       "month": "2022-02",
@@ -48630,12 +48530,12 @@
     {
       "month": "2022-03",
       "region": "Central",
-      "gallons": 1885
+      "gallons": 1905
     },
     {
       "month": "2022-03",
       "region": "Central South",
-      "gallons": 350
+      "gallons": 510
     },
     {
       "month": "2022-03",
@@ -48645,12 +48545,12 @@
     {
       "month": "2022-03",
       "region": "Northwest",
-      "gallons": 5865
+      "gallons": 6150
     },
     {
       "month": "2022-03",
       "region": "Other",
-      "gallons": 815
+      "gallons": 350
     },
     {
       "month": "2022-03",
@@ -48715,12 +48615,12 @@
     {
       "month": "2022-04",
       "region": "Central",
-      "gallons": 2070
+      "gallons": 2225
     },
     {
       "month": "2022-04",
       "region": "Central South",
-      "gallons": 305
+      "gallons": 510
     },
     {
       "month": "2022-04",
@@ -48730,12 +48630,12 @@
     {
       "month": "2022-04",
       "region": "Northwest",
-      "gallons": 1560
+      "gallons": 1220
     },
     {
       "month": "2022-04",
       "region": "Other",
-      "gallons": 510
+      "gallons": 150
     },
     {
       "month": "2022-04",
@@ -48805,7 +48705,7 @@
     {
       "month": "2022-05",
       "region": "Central",
-      "gallons": 1495
+      "gallons": 1710
     },
     {
       "month": "2022-05",
@@ -48820,12 +48720,12 @@
     {
       "month": "2022-05",
       "region": "Northwest",
-      "gallons": 2625
+      "gallons": 3135
     },
     {
       "month": "2022-05",
       "region": "Other",
-      "gallons": 825
+      "gallons": 100
     },
     {
       "month": "2022-05",
@@ -48895,7 +48795,7 @@
     {
       "month": "2022-06",
       "region": "Central",
-      "gallons": 2055
+      "gallons": 2215
     },
     {
       "month": "2022-06",
@@ -48910,12 +48810,12 @@
     {
       "month": "2022-06",
       "region": "Northwest",
-      "gallons": 1220
+      "gallons": 1025
     },
     {
       "month": "2022-06",
       "region": "Other",
-      "gallons": 380
+      "gallons": 220
     },
     {
       "month": "2022-06",
@@ -48985,12 +48885,12 @@
     {
       "month": "2022-07",
       "region": "Central",
-      "gallons": 2019
+      "gallons": 2174
     },
     {
       "month": "2022-07",
       "region": "Central South",
-      "gallons": 1080
+      "gallons": 1265
     },
     {
       "month": "2022-07",
@@ -49000,12 +48900,12 @@
     {
       "month": "2022-07",
       "region": "Northwest",
-      "gallons": 4238
+      "gallons": 4275
     },
     {
       "month": "2022-07",
       "region": "Other",
-      "gallons": 960
+      "gallons": 280
     },
     {
       "month": "2022-07",
@@ -49070,27 +48970,22 @@
     {
       "month": "2022-08",
       "region": "Central",
-      "gallons": 2333
+      "gallons": 2448
     },
     {
       "month": "2022-08",
       "region": "Central South",
-      "gallons": 880
+      "gallons": 1000
     },
     {
       "month": "2022-08",
       "region": "North-Northeast",
-      "gallons": 1200
+      "gallons": 1335
     },
     {
       "month": "2022-08",
       "region": "Northwest",
-      "gallons": 2322
-    },
-    {
-      "month": "2022-08",
-      "region": "Other",
-      "gallons": 674
+      "gallons": 2556
     },
     {
       "month": "2022-08",
@@ -49145,12 +49040,12 @@
     {
       "month": "2022-09",
       "region": "Central",
-      "gallons": 2318
+      "gallons": 2448
     },
     {
       "month": "2022-09",
       "region": "Central South",
-      "gallons": 1507
+      "gallons": 2132
     },
     {
       "month": "2022-09",
@@ -49160,12 +49055,12 @@
     {
       "month": "2022-09",
       "region": "Northwest",
-      "gallons": 2498
+      "gallons": 1741
     },
     {
       "month": "2022-09",
       "region": "Other",
-      "gallons": 1459
+      "gallons": 704
     },
     {
       "month": "2022-09",
@@ -49240,7 +49135,7 @@
     {
       "month": "2022-10",
       "region": "Central South",
-      "gallons": 1386
+      "gallons": 1596
     },
     {
       "month": "2022-10",
@@ -49250,12 +49145,12 @@
     {
       "month": "2022-10",
       "region": "Northwest",
-      "gallons": 5408
+      "gallons": 5828
     },
     {
       "month": "2022-10",
       "region": "Other",
-      "gallons": 991
+      "gallons": 361
     },
     {
       "month": "2022-10",
@@ -49320,12 +49215,12 @@
     {
       "month": "2022-11",
       "region": "Central",
-      "gallons": 2384
+      "gallons": 2579
     },
     {
       "month": "2022-11",
       "region": "Central South",
-      "gallons": 709
+      "gallons": 964
     },
     {
       "month": "2022-11",
@@ -49335,12 +49230,12 @@
     {
       "month": "2022-11",
       "region": "Northwest",
-      "gallons": 610
+      "gallons": 265
     },
     {
       "month": "2022-11",
       "region": "Other",
-      "gallons": 895
+      "gallons": 445
     },
     {
       "month": "2022-11",
@@ -49410,12 +49305,12 @@
     {
       "month": "2022-12",
       "region": "Central",
-      "gallons": 1684
+      "gallons": 1864
     },
     {
       "month": "2022-12",
       "region": "Central South",
-      "gallons": 212
+      "gallons": 397
     },
     {
       "month": "2022-12",
@@ -49425,12 +49320,12 @@
     {
       "month": "2022-12",
       "region": "Northwest",
-      "gallons": 766
+      "gallons": 2597
     },
     {
       "month": "2022-12",
       "region": "Other",
-      "gallons": 2897
+      "gallons": 566
     },
     {
       "month": "2022-12",
@@ -49500,17 +49395,17 @@
     {
       "month": "2023-01",
       "region": "Central",
-      "gallons": 2223
+      "gallons": 2378
     },
     {
       "month": "2023-01",
       "region": "Central South",
-      "gallons": 685
+      "gallons": 860
     },
     {
       "month": "2023-01",
       "region": "North-Northeast",
-      "gallons": 140
+      "gallons": 165
     },
     {
       "month": "2023-01",
@@ -49520,7 +49415,7 @@
     {
       "month": "2023-01",
       "region": "Other",
-      "gallons": 868
+      "gallons": 513
     },
     {
       "month": "2023-01",
@@ -49585,7 +49480,7 @@
     {
       "month": "2023-02",
       "region": "Central",
-      "gallons": 2281
+      "gallons": 2391
     },
     {
       "month": "2023-02",
@@ -49600,12 +49495,7 @@
     {
       "month": "2023-02",
       "region": "Northwest",
-      "gallons": 1424
-    },
-    {
-      "month": "2023-02",
-      "region": "Other",
-      "gallons": 498
+      "gallons": 1221
     },
     {
       "month": "2023-02",
@@ -49655,12 +49545,12 @@
     {
       "month": "2023-03",
       "region": "Central",
-      "gallons": 980
+      "gallons": 1065
     },
     {
       "month": "2023-03",
       "region": "Central South",
-      "gallons": 518
+      "gallons": 728
     },
     {
       "month": "2023-03",
@@ -49670,12 +49560,12 @@
     {
       "month": "2023-03",
       "region": "Northwest",
-      "gallons": 1077
+      "gallons": 1459
     },
     {
       "month": "2023-03",
       "region": "Other",
-      "gallons": 1302
+      "gallons": 625
     },
     {
       "month": "2023-03",
@@ -49740,12 +49630,12 @@
     {
       "month": "2023-04",
       "region": "Central",
-      "gallons": 2604
+      "gallons": 2839
     },
     {
       "month": "2023-04",
       "region": "Central South",
-      "gallons": 607
+      "gallons": 667
     },
     {
       "month": "2023-04",
@@ -49755,12 +49645,12 @@
     {
       "month": "2023-04",
       "region": "Northwest",
-      "gallons": 3189
+      "gallons": 2849
     },
     {
       "month": "2023-04",
       "region": "Other",
-      "gallons": 831
+      "gallons": 536
     },
     {
       "month": "2023-04",
@@ -49825,27 +49715,27 @@
     {
       "month": "2023-05",
       "region": "Central",
-      "gallons": 2168
+      "gallons": 2363
     },
     {
       "month": "2023-05",
       "region": "Central South",
-      "gallons": 1036
+      "gallons": 1226
     },
     {
       "month": "2023-05",
       "region": "North-Northeast",
-      "gallons": 825
+      "gallons": 865
     },
     {
       "month": "2023-05",
       "region": "Northwest",
-      "gallons": 3383
+      "gallons": 3664
     },
     {
       "month": "2023-05",
       "region": "Other",
-      "gallons": 1593
+      "gallons": 772
     },
     {
       "month": "2023-05",
@@ -49915,12 +49805,12 @@
     {
       "month": "2023-06",
       "region": "Central",
-      "gallons": 3041
+      "gallons": 3351
     },
     {
       "month": "2023-06",
       "region": "Central South",
-      "gallons": 1121
+      "gallons": 1201
     },
     {
       "month": "2023-06",
@@ -49930,12 +49820,12 @@
     {
       "month": "2023-06",
       "region": "Northwest",
-      "gallons": 3530
+      "gallons": 3345
     },
     {
       "month": "2023-06",
       "region": "Other",
-      "gallons": 1445
+      "gallons": 591
     },
     {
       "month": "2023-06",
@@ -50005,12 +49895,12 @@
     {
       "month": "2023-07",
       "region": "Central",
-      "gallons": 1160
+      "gallons": 1260
     },
     {
       "month": "2023-07",
       "region": "Central South",
-      "gallons": 622
+      "gallons": 697
     },
     {
       "month": "2023-07",
@@ -50020,7 +49910,7 @@
     {
       "month": "2023-07",
       "region": "Other",
-      "gallons": 451
+      "gallons": 276
     },
     {
       "month": "2023-07",
@@ -50090,27 +49980,27 @@
     {
       "month": "2023-08",
       "region": "Central",
-      "gallons": 2028
+      "gallons": 2148
     },
     {
       "month": "2023-08",
       "region": "Central South",
-      "gallons": 1225
+      "gallons": 1350
     },
     {
       "month": "2023-08",
       "region": "North-Northeast",
-      "gallons": 1390
+      "gallons": 1505
     },
     {
       "month": "2023-08",
       "region": "Northwest",
-      "gallons": 1877
+      "gallons": 2002
     },
     {
       "month": "2023-08",
       "region": "Other",
-      "gallons": 1086
+      "gallons": 411
     },
     {
       "month": "2023-08",
@@ -50180,12 +50070,12 @@
     {
       "month": "2023-09",
       "region": "Central",
-      "gallons": 1555
+      "gallons": 1605
     },
     {
       "month": "2023-09",
       "region": "Central South",
-      "gallons": 934
+      "gallons": 1299
     },
     {
       "month": "2023-09",
@@ -50195,12 +50085,12 @@
     {
       "month": "2023-09",
       "region": "Northwest",
-      "gallons": 1580
+      "gallons": 1008
     },
     {
       "month": "2023-09",
       "region": "Other",
-      "gallons": 940
+      "gallons": 525
     },
     {
       "month": "2023-09",
@@ -50265,12 +50155,12 @@
     {
       "month": "2023-10",
       "region": "Central",
-      "gallons": 2667
+      "gallons": 2897
     },
     {
       "month": "2023-10",
       "region": "Central South",
-      "gallons": 1776
+      "gallons": 2151
     },
     {
       "month": "2023-10",
@@ -50280,12 +50170,12 @@
     {
       "month": "2023-10",
       "region": "Northwest",
-      "gallons": 2005
+      "gallons": 3904
     },
     {
       "month": "2023-10",
       "region": "Other",
-      "gallons": 2940
+      "gallons": 436
     },
     {
       "month": "2023-10",
@@ -50355,7 +50245,7 @@
     {
       "month": "2023-11",
       "region": "Central",
-      "gallons": 1145
+      "gallons": 1220
     },
     {
       "month": "2023-11",
@@ -50370,12 +50260,12 @@
     {
       "month": "2023-11",
       "region": "Northwest",
-      "gallons": 1897
+      "gallons": 2092
     },
     {
       "month": "2023-11",
       "region": "Other",
-      "gallons": 1018
+      "gallons": 443
     },
     {
       "month": "2023-11",
@@ -50445,12 +50335,12 @@
     {
       "month": "2023-12",
       "region": "Central",
-      "gallons": 1886
+      "gallons": 1916
     },
     {
       "month": "2023-12",
       "region": "Central South",
-      "gallons": 480
+      "gallons": 500
     },
     {
       "month": "2023-12",
@@ -50460,12 +50350,12 @@
     {
       "month": "2023-12",
       "region": "Northwest",
-      "gallons": 1358
+      "gallons": 837
     },
     {
       "month": "2023-12",
       "region": "Other",
-      "gallons": 217
+      "gallons": 167
     },
     {
       "month": "2023-12",
@@ -50530,7 +50420,7 @@
     {
       "month": "2024-01",
       "region": "Central",
-      "gallons": 1770
+      "gallons": 1970
     },
     {
       "month": "2024-01",
@@ -50545,12 +50435,12 @@
     {
       "month": "2024-01",
       "region": "Northwest",
-      "gallons": 613
+      "gallons": 1097
     },
     {
       "month": "2024-01",
       "region": "Other",
-      "gallons": 1554
+      "gallons": 870
     },
     {
       "month": "2024-01",
@@ -50620,7 +50510,7 @@
     {
       "month": "2024-02",
       "region": "Central",
-      "gallons": 2212
+      "gallons": 2340
     },
     {
       "month": "2024-02",
@@ -50635,12 +50525,12 @@
     {
       "month": "2024-02",
       "region": "Northwest",
-      "gallons": 1798
+      "gallons": 1131
     },
     {
       "month": "2024-02",
       "region": "Other",
-      "gallons": 482
+      "gallons": 354
     },
     {
       "month": "2024-02",
@@ -50710,7 +50600,7 @@
     {
       "month": "2024-03",
       "region": "Central",
-      "gallons": 2450
+      "gallons": 2605
     },
     {
       "month": "2024-03",
@@ -50720,17 +50610,17 @@
     {
       "month": "2024-03",
       "region": "North-Northeast",
-      "gallons": 1250
+      "gallons": 1290
     },
     {
       "month": "2024-03",
       "region": "Northwest",
-      "gallons": 815
+      "gallons": 965
     },
     {
       "month": "2024-03",
       "region": "Other",
-      "gallons": 1330
+      "gallons": 840
     },
     {
       "month": "2024-03",
@@ -50800,12 +50690,12 @@
     {
       "month": "2024-04",
       "region": "Central",
-      "gallons": 2068
+      "gallons": 2338
     },
     {
       "month": "2024-04",
       "region": "Central South",
-      "gallons": 1077
+      "gallons": 1247
     },
     {
       "month": "2024-04",
@@ -50815,12 +50705,12 @@
     {
       "month": "2024-04",
       "region": "Northwest",
-      "gallons": 3272
+      "gallons": 3087
     },
     {
       "month": "2024-04",
       "region": "Other",
-      "gallons": 1271
+      "gallons": 751
     },
     {
       "month": "2024-04",
@@ -50890,7 +50780,7 @@
     {
       "month": "2024-05",
       "region": "Central",
-      "gallons": 2665
+      "gallons": 2770
     },
     {
       "month": "2024-05",
@@ -50900,17 +50790,17 @@
     {
       "month": "2024-05",
       "region": "North-Northeast",
-      "gallons": 930
+      "gallons": 1005
     },
     {
       "month": "2024-05",
       "region": "Northwest",
-      "gallons": 4294
+      "gallons": 4174
     },
     {
       "month": "2024-05",
       "region": "Other",
-      "gallons": 1000
+      "gallons": 580
     },
     {
       "month": "2024-05",
@@ -50980,12 +50870,12 @@
     {
       "month": "2024-06",
       "region": "Central",
-      "gallons": 2267
+      "gallons": 2382
     },
     {
       "month": "2024-06",
       "region": "Central South",
-      "gallons": 1879
+      "gallons": 1954
     },
     {
       "month": "2024-06",
@@ -50995,12 +50885,12 @@
     {
       "month": "2024-06",
       "region": "Northwest",
-      "gallons": 1110
+      "gallons": 988
     },
     {
       "month": "2024-06",
       "region": "Other",
-      "gallons": 908
+      "gallons": 610
     },
     {
       "month": "2024-06",
@@ -51065,7 +50955,7 @@
     {
       "month": "2024-07",
       "region": "Central",
-      "gallons": 2220
+      "gallons": 2265
     },
     {
       "month": "2024-07",
@@ -51080,12 +50970,12 @@
     {
       "month": "2024-07",
       "region": "Northwest",
-      "gallons": 1640
+      "gallons": 1455
     },
     {
       "month": "2024-07",
       "region": "Other",
-      "gallons": 682
+      "gallons": 297
     },
     {
       "month": "2024-07",
@@ -51150,27 +51040,27 @@
     {
       "month": "2024-08",
       "region": "Central",
-      "gallons": 2550
+      "gallons": 2635
     },
     {
       "month": "2024-08",
       "region": "Central South",
-      "gallons": 1514
+      "gallons": 1714
     },
     {
       "month": "2024-08",
       "region": "North-Northeast",
-      "gallons": 1195
+      "gallons": 1255
     },
     {
       "month": "2024-08",
       "region": "Northwest",
-      "gallons": 1071
+      "gallons": 876
     },
     {
       "month": "2024-08",
       "region": "Other",
-      "gallons": 997
+      "gallons": 652
     },
     {
       "month": "2024-08",
@@ -51235,27 +51125,27 @@
     {
       "month": "2024-09",
       "region": "Central",
-      "gallons": 3300
+      "gallons": 3650
     },
     {
       "month": "2024-09",
       "region": "Central South",
-      "gallons": 1240
+      "gallons": 1520
     },
     {
       "month": "2024-09",
       "region": "North-Northeast",
-      "gallons": 645
+      "gallons": 705
     },
     {
       "month": "2024-09",
       "region": "Northwest",
-      "gallons": 1748
+      "gallons": 1862
     },
     {
       "month": "2024-09",
       "region": "Other",
-      "gallons": 1694
+      "gallons": 580
     },
     {
       "month": "2024-09",
@@ -51325,12 +51215,12 @@
     {
       "month": "2024-10",
       "region": "Central",
-      "gallons": 1580
+      "gallons": 1730
     },
     {
       "month": "2024-10",
       "region": "Central South",
-      "gallons": 1373
+      "gallons": 1613
     },
     {
       "month": "2024-10",
@@ -51340,12 +51230,12 @@
     {
       "month": "2024-10",
       "region": "Northwest",
-      "gallons": 3376
+      "gallons": 3026
     },
     {
       "month": "2024-10",
       "region": "Other",
-      "gallons": 963
+      "gallons": 573
     },
     {
       "month": "2024-10",
@@ -51420,7 +51310,7 @@
     {
       "month": "2024-11",
       "region": "Central South",
-      "gallons": 1022
+      "gallons": 1087
     },
     {
       "month": "2024-11",
@@ -51430,12 +51320,12 @@
     {
       "month": "2024-11",
       "region": "Northwest",
-      "gallons": 2132
+      "gallons": 2202
     },
     {
       "month": "2024-11",
       "region": "Other",
-      "gallons": 1243
+      "gallons": 808
     },
     {
       "month": "2024-11",
@@ -51500,12 +51390,12 @@
     {
       "month": "2024-12",
       "region": "Central",
-      "gallons": 2778
+      "gallons": 2928
     },
     {
       "month": "2024-12",
       "region": "Central South",
-      "gallons": 524
+      "gallons": 722
     },
     {
       "month": "2024-12",
@@ -51515,12 +51405,12 @@
     {
       "month": "2024-12",
       "region": "Northwest",
-      "gallons": 2079
+      "gallons": 1699
     },
     {
       "month": "2024-12",
       "region": "Other",
-      "gallons": 950
+      "gallons": 602
     },
     {
       "month": "2024-12",
@@ -51605,12 +51495,12 @@
     {
       "month": "2025-01",
       "region": "Northwest",
-      "gallons": 846
+      "gallons": 819
     },
     {
       "month": "2025-01",
       "region": "Other",
-      "gallons": 776
+      "gallons": 298
     },
     {
       "month": "2025-01",
@@ -51670,12 +51560,12 @@
     {
       "month": "2025-02",
       "region": "Central",
-      "gallons": 1405
+      "gallons": 1500
     },
     {
       "month": "2025-02",
       "region": "Central South",
-      "gallons": 552
+      "gallons": 567
     },
     {
       "month": "2025-02",
@@ -51685,12 +51575,12 @@
     {
       "month": "2025-02",
       "region": "Northwest",
-      "gallons": 1820
+      "gallons": 1580
     },
     {
       "month": "2025-02",
       "region": "Other",
-      "gallons": 365
+      "gallons": 255
     },
     {
       "month": "2025-02",
@@ -51750,12 +51640,12 @@
     {
       "month": "2025-03",
       "region": "Central",
-      "gallons": 2956
+      "gallons": 3161
     },
     {
       "month": "2025-03",
       "region": "Central South",
-      "gallons": 899
+      "gallons": 959
     },
     {
       "month": "2025-03",
@@ -51765,12 +51655,12 @@
     {
       "month": "2025-03",
       "region": "Northwest",
-      "gallons": 3636
+      "gallons": 3116
     },
     {
       "month": "2025-03",
       "region": "Other",
-      "gallons": 868
+      "gallons": 303
     },
     {
       "month": "2025-03",
@@ -51840,12 +51730,12 @@
     {
       "month": "2025-04",
       "region": "Central",
-      "gallons": 2299
+      "gallons": 2544
     },
     {
       "month": "2025-04",
       "region": "Central South",
-      "gallons": 510
+      "gallons": 645
     },
     {
       "month": "2025-04",
@@ -51855,12 +51745,12 @@
     {
       "month": "2025-04",
       "region": "Northwest",
-      "gallons": 1858
+      "gallons": 2201
     },
     {
       "month": "2025-04",
       "region": "Other",
-      "gallons": 3727
+      "gallons": 629
     },
     {
       "month": "2025-04",
@@ -51880,7 +51770,7 @@
     {
       "month": "2025-04",
       "region": "Route 7",
-      "gallons": 1537
+      "gallons": 3762
     },
     {
       "month": "2025-04",
@@ -51925,27 +51815,27 @@
     {
       "month": "2025-05",
       "region": "Central",
-      "gallons": 2600
+      "gallons": 2635
     },
     {
       "month": "2025-05",
       "region": "Central South",
-      "gallons": 1010
+      "gallons": 1050
     },
     {
       "month": "2025-05",
       "region": "North-Northeast",
-      "gallons": 1155
+      "gallons": 1195
     },
     {
       "month": "2025-05",
       "region": "Northwest",
-      "gallons": 2450
+      "gallons": 2260
     },
     {
       "month": "2025-05",
       "region": "Other",
-      "gallons": 683
+      "gallons": 268
     },
     {
       "month": "2025-05",
@@ -51965,7 +51855,7 @@
     {
       "month": "2025-05",
       "region": "Route 7",
-      "gallons": 1486
+      "gallons": 1786
     },
     {
       "month": "2025-05",
@@ -52015,12 +51905,12 @@
     {
       "month": "2025-06",
       "region": "Central",
-      "gallons": 2851
+      "gallons": 2991
     },
     {
       "month": "2025-06",
       "region": "Central South",
-      "gallons": 1342
+      "gallons": 1507
     },
     {
       "month": "2025-06",
@@ -52030,12 +51920,12 @@
     {
       "month": "2025-06",
       "region": "Northwest",
-      "gallons": 2435
+      "gallons": 2287
     },
     {
       "month": "2025-06",
       "region": "Other",
-      "gallons": 1184
+      "gallons": 399
     },
     {
       "month": "2025-06",
@@ -52100,12 +51990,12 @@
     {
       "month": "2025-07",
       "region": "Central",
-      "gallons": 2340
+      "gallons": 2455
     },
     {
       "month": "2025-07",
       "region": "Central South",
-      "gallons": 2162
+      "gallons": 2297
     },
     {
       "month": "2025-07",
@@ -52115,12 +52005,12 @@
     {
       "month": "2025-07",
       "region": "Northwest",
-      "gallons": 3038
+      "gallons": 3268
     },
     {
       "month": "2025-07",
       "region": "Other",
-      "gallons": 960
+      "gallons": 245
     },
     {
       "month": "2025-07",
@@ -52140,7 +52030,7 @@
     {
       "month": "2025-07",
       "region": "Route 7",
-      "gallons": 708
+      "gallons": 828
     },
     {
       "month": "2025-07",
@@ -52190,7 +52080,7 @@
     {
       "month": "2025-08",
       "region": "Central",
-      "gallons": 2555
+      "gallons": 2575
     },
     {
       "month": "2025-08",
@@ -52205,12 +52095,12 @@
     {
       "month": "2025-08",
       "region": "Northwest",
-      "gallons": 2369
+      "gallons": 2488
     },
     {
       "month": "2025-08",
       "region": "Other",
-      "gallons": 1055
+      "gallons": 470
     },
     {
       "month": "2025-08",
@@ -52275,27 +52165,27 @@
     {
       "month": "2025-09",
       "region": "Central",
-      "gallons": 2771
+      "gallons": 2906
     },
     {
       "month": "2025-09",
       "region": "Central South",
-      "gallons": 1482
+      "gallons": 1952
     },
     {
       "month": "2025-09",
       "region": "North-Northeast",
-      "gallons": 1445
+      "gallons": 1490
     },
     {
       "month": "2025-09",
       "region": "Northwest",
-      "gallons": 2269
+      "gallons": 2019
     },
     {
       "month": "2025-09",
       "region": "Other",
-      "gallons": 1366
+      "gallons": 341
     },
     {
       "month": "2025-09",
@@ -52360,7 +52250,7 @@
     {
       "month": "2025-10",
       "region": "Central",
-      "gallons": 2547
+      "gallons": 2697
     },
     {
       "month": "2025-10",
@@ -52375,12 +52265,12 @@
     {
       "month": "2025-10",
       "region": "Northwest",
-      "gallons": 2193
+      "gallons": 2438
     },
     {
       "month": "2025-10",
       "region": "Other",
-      "gallons": 1444
+      "gallons": 429
     },
     {
       "month": "2025-10",
@@ -52450,12 +52340,12 @@
     {
       "month": "2025-11",
       "region": "Central",
-      "gallons": 2868
+      "gallons": 3090
     },
     {
       "month": "2025-11",
       "region": "Central South",
-      "gallons": 914
+      "gallons": 1054
     },
     {
       "month": "2025-11",
@@ -52465,12 +52355,12 @@
     {
       "month": "2025-11",
       "region": "Northwest",
-      "gallons": 1759
+      "gallons": 1754
     },
     {
       "month": "2025-11",
       "region": "Other",
-      "gallons": 907
+      "gallons": 135
     },
     {
       "month": "2025-11",
@@ -52525,12 +52415,12 @@
     {
       "month": "2025-12",
       "region": "Central",
-      "gallons": 1925
+      "gallons": 2035
     },
     {
       "month": "2025-12",
       "region": "Central South",
-      "gallons": 777
+      "gallons": 842
     },
     {
       "month": "2025-12",
@@ -52540,12 +52430,7 @@
     {
       "month": "2025-12",
       "region": "Northwest",
-      "gallons": 1473
-    },
-    {
-      "month": "2025-12",
-      "region": "Other",
-      "gallons": 532
+      "gallons": 1185
     },
     {
       "month": "2025-12",
@@ -52625,12 +52510,12 @@
     {
       "month": "2026-01",
       "region": "Northwest",
-      "gallons": 1850
+      "gallons": 1545
     },
     {
       "month": "2026-01",
       "region": "Other",
-      "gallons": 858
+      "gallons": 708
     },
     {
       "month": "2026-01",
@@ -52695,7 +52580,7 @@
     {
       "month": "2026-02",
       "region": "Central",
-      "gallons": 2030
+      "gallons": 2070
     },
     {
       "month": "2026-02",
@@ -52710,12 +52595,12 @@
     {
       "month": "2026-02",
       "region": "Northwest",
-      "gallons": 3005
+      "gallons": 3027
     },
     {
       "month": "2026-02",
       "region": "Other",
-      "gallons": 876
+      "gallons": 331
     },
     {
       "month": "2026-02",
@@ -52785,7 +52670,7 @@
     {
       "month": "2026-03",
       "region": "Central",
-      "gallons": 3208
+      "gallons": 3408
     },
     {
       "month": "2026-03",
@@ -52800,12 +52685,12 @@
     {
       "month": "2026-03",
       "region": "Northwest",
-      "gallons": 3036
+      "gallons": 2951
     },
     {
       "month": "2026-03",
       "region": "Other",
-      "gallons": 660
+      "gallons": 95
     },
     {
       "month": "2026-03",
@@ -52870,12 +52755,12 @@
     {
       "month": "2026-04",
       "region": "Central",
-      "gallons": 2780
+      "gallons": 2840
     },
     {
       "month": "2026-04",
       "region": "Central South",
-      "gallons": 1263
+      "gallons": 1448
     },
     {
       "month": "2026-04",
@@ -52885,12 +52770,12 @@
     {
       "month": "2026-04",
       "region": "Northwest",
-      "gallons": 3382
+      "gallons": 2869
     },
     {
       "month": "2026-04",
       "region": "Other",
-      "gallons": 1815
+      "gallons": 724
     },
     {
       "month": "2026-04",
@@ -52910,7 +52795,7 @@
     {
       "month": "2026-04",
       "region": "Route 7",
-      "gallons": 1490
+      "gallons": 1870
     },
     {
       "month": "2026-04",
@@ -52960,27 +52845,22 @@
     {
       "month": "2026-05",
       "region": "Central",
-      "gallons": 2629
+      "gallons": 2794
     },
     {
       "month": "2026-05",
       "region": "Central South",
-      "gallons": 1280
+      "gallons": 1395
     },
     {
       "month": "2026-05",
       "region": "North-Northeast",
-      "gallons": 1045
+      "gallons": 1080
     },
     {
       "month": "2026-05",
       "region": "Northwest",
-      "gallons": 1422
-    },
-    {
-      "month": "2026-05",
-      "region": "Other",
-      "gallons": 740
+      "gallons": 1557
     },
     {
       "month": "2026-05",
@@ -53050,12 +52930,12 @@
     {
       "month": "2026-06",
       "region": "Central",
-      "gallons": 2667
+      "gallons": 2702
     },
     {
       "month": "2026-06",
       "region": "Central South",
-      "gallons": 1979
+      "gallons": 2094
     },
     {
       "month": "2026-06",
@@ -53065,12 +52945,12 @@
     {
       "month": "2026-06",
       "region": "Northwest",
-      "gallons": 14530
+      "gallons": 14899
     },
     {
       "month": "2026-06",
       "region": "Other",
-      "gallons": 994
+      "gallons": 250
     },
     {
       "month": "2026-06",
@@ -53140,12 +53020,12 @@
     {
       "month": "2026-07",
       "region": "Central",
-      "gallons": 2005
+      "gallons": 2205
     },
     {
       "month": "2026-07",
       "region": "Central South",
-      "gallons": 1815
+      "gallons": 1925
     },
     {
       "month": "2026-07",
@@ -53155,12 +53035,12 @@
     {
       "month": "2026-07",
       "region": "Northwest",
-      "gallons": 4323
+      "gallons": 3773
     },
     {
       "month": "2026-07",
       "region": "Other",
-      "gallons": 1257
+      "gallons": 547
     },
     {
       "month": "2026-07",
@@ -53230,7 +53110,7 @@
     {
       "month": "2026-08",
       "region": "Central",
-      "gallons": 2262
+      "gallons": 2302
     },
     {
       "month": "2026-08",
@@ -53240,17 +53120,12 @@
     {
       "month": "2026-08",
       "region": "North-Northeast",
-      "gallons": 1853
+      "gallons": 1978
     },
     {
       "month": "2026-08",
       "region": "Northwest",
-      "gallons": 1625
-    },
-    {
-      "month": "2026-08",
-      "region": "Other",
-      "gallons": 95
+      "gallons": 777
     },
     {
       "month": "2026-08",
@@ -53315,12 +53190,12 @@
     {
       "month": "2026-09",
       "region": "Central",
-      "gallons": 1941
+      "gallons": 2151
     },
     {
       "month": "2026-09",
       "region": "Central South",
-      "gallons": 1209
+      "gallons": 1344
     },
     {
       "month": "2026-09",
@@ -53330,12 +53205,12 @@
     {
       "month": "2026-09",
       "region": "Northwest",
-      "gallons": 824
+      "gallons": 1059
     },
     {
       "month": "2026-09",
       "region": "Other",
-      "gallons": 915
+      "gallons": 135
     },
     {
       "month": "2026-09",
@@ -53402,12 +53277,12 @@
     {
       "year": 2015,
       "region": "Central",
-      "gallons": 6668
+      "gallons": 7398
     },
     {
       "year": 2015,
       "region": "Central South",
-      "gallons": 2102
+      "gallons": 2367
     },
     {
       "year": 2015,
@@ -53418,11 +53293,6 @@
       "year": 2015,
       "region": "Northwest",
       "gallons": 197
-    },
-    {
-      "year": 2015,
-      "region": "Other",
-      "gallons": 820
     },
     {
       "year": 2015,
@@ -53487,12 +53357,12 @@
     {
       "year": 2016,
       "region": "Central",
-      "gallons": 8817
+      "gallons": 9617
     },
     {
       "year": 2016,
       "region": "Central South",
-      "gallons": 4015
+      "gallons": 4320
     },
     {
       "year": 2016,
@@ -53502,12 +53372,12 @@
     {
       "year": 2016,
       "region": "Northwest",
-      "gallons": 3210
+      "gallons": 2820
     },
     {
       "year": 2016,
       "region": "Other",
-      "gallons": 2795
+      "gallons": 1815
     },
     {
       "year": 2016,
@@ -53572,12 +53442,12 @@
     {
       "year": 2017,
       "region": "Central",
-      "gallons": 15292
+      "gallons": 17829
     },
     {
       "year": 2017,
       "region": "Central South",
-      "gallons": 5215
+      "gallons": 5625
     },
     {
       "year": 2017,
@@ -53587,12 +53457,12 @@
     {
       "year": 2017,
       "region": "Northwest",
-      "gallons": 6603
+      "gallons": 4650
     },
     {
       "year": 2017,
       "region": "Other",
-      "gallons": 6607
+      "gallons": 3805
     },
     {
       "year": 2017,
@@ -53662,12 +53532,12 @@
     {
       "year": 2018,
       "region": "Central",
-      "gallons": 21297
+      "gallons": 23017
     },
     {
       "year": 2018,
       "region": "Central South",
-      "gallons": 6570
+      "gallons": 7375
     },
     {
       "year": 2018,
@@ -53677,12 +53547,12 @@
     {
       "year": 2018,
       "region": "Northwest",
-      "gallons": 10640
+      "gallons": 9500
     },
     {
       "year": 2018,
       "region": "Other",
-      "gallons": 5618
+      "gallons": 2698
     },
     {
       "year": 2018,
@@ -53752,12 +53622,12 @@
     {
       "year": 2019,
       "region": "Central",
-      "gallons": 21378
+      "gallons": 22828
     },
     {
       "year": 2019,
       "region": "Central South",
-      "gallons": 7475
+      "gallons": 8140
     },
     {
       "year": 2019,
@@ -53767,12 +53637,12 @@
     {
       "year": 2019,
       "region": "Northwest",
-      "gallons": 14251
+      "gallons": 13321
     },
     {
       "year": 2019,
       "region": "Other",
-      "gallons": 6765
+      "gallons": 3870
     },
     {
       "year": 2019,
@@ -53842,12 +53712,12 @@
     {
       "year": 2020,
       "region": "Central",
-      "gallons": 15985
+      "gallons": 16900
     },
     {
       "year": 2020,
       "region": "Central South",
-      "gallons": 6390
+      "gallons": 7170
     },
     {
       "year": 2020,
@@ -53857,12 +53727,12 @@
     {
       "year": 2020,
       "region": "Northwest",
-      "gallons": 15720
+      "gallons": 16520
     },
     {
       "year": 2020,
       "region": "Other",
-      "gallons": 5790
+      "gallons": 2345
     },
     {
       "year": 2020,
@@ -53932,27 +53802,27 @@
     {
       "year": 2021,
       "region": "Central",
-      "gallons": 18682
+      "gallons": 20042
     },
     {
       "year": 2021,
       "region": "Central South",
-      "gallons": 6760
+      "gallons": 7460
     },
     {
       "year": 2021,
       "region": "North-Northeast",
-      "gallons": 6661
+      "gallons": 6726
     },
     {
       "year": 2021,
       "region": "Northwest",
-      "gallons": 13585
+      "gallons": 18105
     },
     {
       "year": 2021,
       "region": "Other",
-      "gallons": 9845
+      "gallons": 1470
     },
     {
       "year": 2021,
@@ -54022,27 +53892,27 @@
     {
       "year": 2022,
       "region": "Central",
-      "gallons": 22478
+      "gallons": 24048
     },
     {
       "year": 2022,
       "region": "Central South",
-      "gallons": 8834
+      "gallons": 10827
     },
     {
       "year": 2022,
       "region": "North-Northeast",
-      "gallons": 9912
+      "gallons": 10047
     },
     {
       "year": 2022,
       "region": "Northwest",
-      "gallons": 28689
+      "gallons": 30192
     },
     {
       "year": 2022,
       "region": "Other",
-      "gallons": 11109
+      "gallons": 3386
     },
     {
       "year": 2022,
@@ -54112,27 +53982,27 @@
     {
       "year": 2023,
       "region": "Central",
-      "gallons": 23738
+      "gallons": 25433
     },
     {
       "year": 2023,
       "region": "Central South",
-      "gallons": 9909
+      "gallons": 11584
     },
     {
       "year": 2023,
       "region": "North-Northeast",
-      "gallons": 11655
+      "gallons": 11835
     },
     {
       "year": 2023,
       "region": "Northwest",
-      "gallons": 24570
+      "gallons": 25631
     },
     {
       "year": 2023,
       "region": "Other",
-      "gallons": 13189
+      "gallons": 5295
     },
     {
       "year": 2023,
@@ -54202,27 +54072,27 @@
     {
       "year": 2024,
       "region": "Central",
-      "gallons": 27860
+      "gallons": 29613
     },
     {
       "year": 2024,
       "region": "Central South",
-      "gallons": 12717
+      "gallons": 13945
     },
     {
       "year": 2024,
       "region": "North-Northeast",
-      "gallons": 12872
+      "gallons": 13107
     },
     {
       "year": 2024,
       "region": "Northwest",
-      "gallons": 23948
+      "gallons": 22562
     },
     {
       "year": 2024,
       "region": "Other",
-      "gallons": 13074
+      "gallons": 7517
     },
     {
       "year": 2024,
@@ -54292,27 +54162,27 @@
     {
       "year": 2025,
       "region": "Central",
-      "gallons": 28787
+      "gallons": 30259
     },
     {
       "year": 2025,
       "region": "Central South",
-      "gallons": 13203
+      "gallons": 14428
     },
     {
       "year": 2025,
       "region": "North-Northeast",
-      "gallons": 16019
+      "gallons": 16104
     },
     {
       "year": 2025,
       "region": "Northwest",
-      "gallons": 26146
+      "gallons": 25415
     },
     {
       "year": 2025,
       "region": "Other",
-      "gallons": 13867
+      "gallons": 3772
     },
     {
       "year": 2025,
@@ -54332,7 +54202,7 @@
     {
       "year": 2025,
       "region": "Route 7",
-      "gallons": 12152
+      "gallons": 14797
     },
     {
       "year": 2025,
@@ -54382,27 +54252,27 @@
     {
       "year": 2026,
       "region": "Central",
-      "gallons": 20537
+      "gallons": 21487
     },
     {
       "year": 2026,
       "region": "Central South",
-      "gallons": 11254
+      "gallons": 11914
     },
     {
       "year": 2026,
       "region": "North-Northeast",
-      "gallons": 13210
+      "gallons": 13370
     },
     {
       "year": 2026,
       "region": "Northwest",
-      "gallons": 33997
+      "gallons": 32457
     },
     {
       "year": 2026,
       "region": "Other",
-      "gallons": 8210
+      "gallons": 2790
     },
     {
       "year": 2026,
@@ -54422,7 +54292,7 @@
     {
       "year": 2026,
       "region": "Route 7",
-      "gallons": 9365
+      "gallons": 9745
     },
     {
       "year": 2026,
@@ -54491,16 +54361,16 @@
     "Winter / Summer Combined"
   ],
   "region_descriptions": {
-    "Route 7": "Middlebury, Vergennes, Bristol, Charlotte, Hinesburg, New Haven, Shelburne",
+    "Route 7": "Middlebury, Vergennes, Bristol, Charlotte, Hinesburg, New Haven, Shelburne, Whiting",
     "Southern Ski Slopes": "Dover, Ludlow, Killington",
     "South": "Bennington, Brattleboro, Manchester, Sunderland, Readsboro, Wilmington",
-    "Central": "Berlin, Barre City, Barre Town, Northfield, Montpelier",
+    "Central": "Berlin, Barre City, Barre Town, Northfield, Montpelier, Williamstown, Brookfield, Orange, East Montpelier, Middlesex",
     "Outer Burlington": "Winooski, Essex, Essex Junction, Williston, Richmond, Jericho",
-    "Northwest": "Plattsburgh, Enosburgh, North Hero, South Hero, Colchester, Milton, Fairfax, Swanton, Newport City, Alburgh",
+    "Northwest": "Plattsburgh, Enosburgh, North Hero, South Hero, Colchester, Milton, Fairfax, Swanton, Alburgh, Saint Albans City, Saint Albans Town",
     "Route 15": "Hardwick, Wolcott, Johnson, Hyde Park, Morristown, Cambridge, Underhill",
-    "Central South": "Hartford/Quechee, Woodstock, Pomfret, Bethel, Randolph, West Lebanon",
+    "Central South": "Hartford/Quechee, Woodstock, Pomfret, Bethel, Randolph, West Lebanon, Tunbridge, Royalton, Pittsfield, Braintree",
     "Route 2 East": "Cabot, Plainfield, Danville, Saint Johnsbury, Concord, Brighton, Lyndon, Burke, East Haven, Marshfield",
-    "North-Northeast": "Jay, Montgomery, Troy, Glover, Eden, Barton, Newport City, Derby, Albany, Craftsbury",
+    "North-Northeast": "Jay, Montgomery, Troy, Glover, Eden, Barton, Newport City, Derby, Albany, Craftsbury, Richford, Greensboro",
     "Ski Slopes": "on-mountain and resort stops statewide, from Jay Peak to Mount Snow",
     "Summer Snack Stops": "seasonal snack bars, food trucks, fairgrounds and golf courses",
     "South / Ski Combined": "every stop in South, plus the southern mountains",
@@ -54529,24 +54399,24 @@
       "active": 89
     },
     "Central": {
-      "customers": 87,
-      "active": 60
+      "customers": 97,
+      "active": 67
     },
     "Central South": {
-      "customers": 35,
-      "active": 28
+      "customers": 43,
+      "active": 35
     },
     "North-Northeast": {
-      "customers": 32,
-      "active": 30
+      "customers": 36,
+      "active": 33
     },
     "Northwest": {
-      "customers": 47,
-      "active": 36
+      "customers": 51,
+      "active": 38
     },
     "Other": {
-      "customers": 64,
-      "active": 47
+      "customers": 31,
+      "active": 21
     },
     "Outer Burlington": {
       "customers": 58,
@@ -54561,8 +54431,8 @@
       "active": 25
     },
     "Route 7": {
-      "customers": 39,
-      "active": 34
+      "customers": 40,
+      "active": 35
     },
     "Ski Slopes": {
       "customers": 20,
@@ -54927,6 +54797,9 @@
       1529
     ],
     "Central": [
+      101,
+      102,
+      103,
       106,
       107,
       108,
@@ -54945,6 +54818,7 @@
       123,
       124,
       125,
+      126,
       127,
       128,
       130,
@@ -54981,7 +54855,10 @@
       166,
       167,
       169,
+      201,
       302,
+      602,
+      1011,
       1039,
       1057,
       1082,
@@ -54997,6 +54874,7 @@
       1271,
       1289,
       1294,
+      1309,
       1313,
       1315,
       1353,
@@ -55008,8 +54886,10 @@
       1387,
       1390,
       1401,
+      1407,
       1419,
       1444,
+      1456,
       1485,
       1488,
       1489,
@@ -55019,6 +54899,10 @@
       800,
       802,
       803,
+      804,
+      806,
+      807,
+      808,
       817,
       818,
       819,
@@ -55035,6 +54919,8 @@
       832,
       833,
       834,
+      836,
+      837,
       923,
       928,
       930,
@@ -55042,6 +54928,8 @@
       1056,
       1083,
       1093,
+      1097,
+      1106,
       1119,
       1150,
       1161,
@@ -55070,10 +54958,13 @@
       536,
       537,
       538,
+      550,
       551,
       1072,
       1073,
       1074,
+      1124,
+      1136,
       1165,
       1171,
       1189,
@@ -55084,10 +54975,16 @@
       1371,
       1436,
       1473,
-      1500
+      1500,
+      1513
     ],
     "Northwest": [
       416,
+      417,
+      418,
+      419,
+      420,
+      421,
       422,
       423,
       425,
@@ -55097,18 +54994,15 @@
       517,
       518,
       519,
-      531,
-      533,
-      534,
-      536,
-      1072,
-      1074,
+      1040,
+      1086,
       1115,
+      1138,
       1139,
       1144,
       1147,
       1149,
-      1171,
+      1155,
       1172,
       1173,
       1175,
@@ -55125,55 +55019,32 @@
       1337,
       1355,
       1357,
-      1371,
       1375,
       1396,
       1409,
+      1429,
       1433,
+      1434,
       1437,
       1450,
       1471,
+      1493,
       1508
     ],
     "Other": [
-      101,
-      102,
-      103,
-      126,
-      201,
-      417,
-      418,
-      419,
-      420,
-      421,
-      550,
       620,
       622,
       623,
       725,
       728,
       729,
-      804,
-      806,
-      807,
-      808,
       809,
-      836,
-      837,
       911,
       931,
       932,
-      1011,
-      1040,
-      1086,
       1095,
-      1097,
-      1106,
       1120,
-      1124,
-      1138,
       1148,
-      1155,
       1178,
       1182,
       1192,
@@ -55185,21 +55056,13 @@
       1300,
       1304,
       1305,
-      1309,
       1325,
       1333,
       1334,
       1378,
-      1407,
-      1416,
-      1429,
-      1434,
       1439,
-      1456,
       1461,
-      1484,
-      1493,
-      1513
+      1484
     ],
     "Outer Burlington": [
       135,
@@ -55369,6 +55232,7 @@
       1377,
       1382,
       1393,
+      1416,
       1422,
       1441,
       1472,

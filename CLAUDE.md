@@ -47,13 +47,15 @@ shuts down in summer. Never use "has 12 months of rows" as a completeness test;
 use "is a past calendar year".
 
 **Regions overlap and are not exhaustive.** Region totals sum to MORE than
-`all_time_total` while also excluding the `Other` bucket. Three things cause the
-overlap, all deliberate: Newport City belongs to both Northwest and
-North-Northeast, the three **theme regions** (`Ski Slopes`,
-`South / Ski Combined`, `Summer Snack Stops`) are overlays drawn from
+`all_time_total` while also excluding the `Other` bucket. The overlap is
+deliberate and is now entirely the theme regions': `Ski Slopes`,
+`South / Ski Combined` and `Summer Snack Stops` are overlays drawn from
 customers who also sit in their own geography, and `South / Ski Combined` is
-built from the South and Southern Ski Slopes rules. All are asserted in
-`validate_data.py`. Do not "fix" it.
+built from the South and Southern Ski Slopes rules. No geographic town belongs
+to two regions any more — Newport City was in both Northwest and
+North-Northeast until Jim made it North-Northeast only on 2026-09-20, and
+`EXPECTED_SHARED_TOWNS` in `validate_data.py` is empty as a result, so any new
+shared town warns. All of it is asserted in `validate_data.py`. Do not "fix" it.
 
 **Theme regions are not places.** They are listed in `THEME_REGIONS`, exported as
 `theme_regions`, pinned after every geographic region in the display order, and
@@ -124,10 +126,10 @@ Raised by the data, not yet decided by Jim:
   2026 — and belongs to NO geographic region, because Bolton is in no
   `REGION_TOWNS` entry. It sits in the Ski Slopes theme and otherwise falls to
   `Other`.
-- **Saint Albans City + Saint Albans Town** are the largest unassigned cluster
-  left: 12 customers, roughly 28,400 gallons. A natural Northwest addition if
-  Jim agrees. (`CITY_TOWN_BY_CUSTOMER` already corrects City vs Town for
-  individual customers.)
+- **Pittsford** (1 customer, 6 pickups) is one letter from Pittsfield, which
+  Jim put in Central South on 2026-09-20. He named Pittsfield and it was taken
+  literally; Pittsford is a different town in Rutland County and stays in
+  `Other` until he says otherwise.
 
 ## People
 

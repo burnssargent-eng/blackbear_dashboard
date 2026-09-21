@@ -378,9 +378,10 @@ def prepare_dataframe(df):
 # region is the order the website lists them in, so keep these tuples readable —
 # they are user-facing as well as functional.
 REGION_TOWNS = {
+    # Whiting added by Jim on 2026-09-20.
     "Route 7": (
         "Middlebury", "Vergennes", "Bristol", "Charlotte", "Hinesburg",
-        "New Haven", "Shelburne",
+        "New Haven", "Shelburne", "Whiting",
     ),
     "Waterbury / Stowe": ("Waterbury", "Stowe"),
     # Dover covers West Dover and every Mt. Snow entity; Ludlow covers Okemo.
@@ -393,21 +394,31 @@ REGION_TOWNS = {
         "Bennington", "Brattleboro", "Manchester", "Sunderland", "Readsboro",
         "Wilmington",
     ),
-    # Vermont splits Barre into a City and a Town; both belong here.
-    "Central": ("Berlin", "Barre City", "Barre Town", "Northfield", "Montpelier"),
+    # Vermont splits Barre into a City and a Town; both belong here. East
+    # Montpelier is its own town, not a village of Montpelier, so it needs its
+    # own entry. Jim added Williamstown, Brookfield, Orange, East Montpelier
+    # and Middlesex on 2026-09-20.
+    "Central": (
+        "Berlin", "Barre City", "Barre Town", "Northfield", "Montpelier",
+        "Williamstown", "Brookfield", "Orange", "East Montpelier",
+        "Middlesex",
+    ),
     # Essex and Essex Junction are two separate municipalities.
     "Outer Burlington": (
         "Winooski", "Essex", "Essex Junction", "Williston", "Richmond",
         "Jericho",
     ),
     # Plattsburgh NY has no geo_town and is reached by the raw-city fallback.
-    # Newport City is deliberately in North-Northeast too — Jim wants it in both
-    # for now, which is one of the reasons region totals overlap. Alburgh has no
+    # Newport City was in both Northwest and North-Northeast until Jim moved it
+    # to North-Northeast alone on 2026-09-20; no geographic town overlaps two
+    # regions now. Saint Albans arrived in the same instruction, and Vermont
+    # splits it into a City and a Town, so both belong here. Alburgh has no
     # customers yet; validate_data.py reports it as a warning until its first
     # pickup.
     "Northwest": (
         "Plattsburgh", "Enosburgh", "North Hero", "South Hero", "Colchester",
-        "Milton", "Fairfax", "Swanton", "Newport City", "Alburgh",
+        "Milton", "Fairfax", "Swanton", "Alburgh",
+        "Saint Albans City", "Saint Albans Town",
     ),
     "Burlington / South Burlington": ("Burlington", "South Burlington"),
     # Cambridge covers Jeffersonville via GEO_TOWN_NAME_MAP. Underhill Flats is
@@ -421,9 +432,12 @@ REGION_TOWNS = {
     # Hartford is the official town for Quechee, and Pomfret rides with
     # Woodstock. West Lebanon is in New Hampshire, so it has no geo_town and is
     # reached by the raw-city fallback in region_key.
+    # Royalton is the official town for South Royalton, which is the spelling
+    # the source data actually uses. Jim added Tunbridge, Royalton, South
+    # Royalton, Pittsfield and Braintree on 2026-09-20.
     "Central South": (
         "Hartford", "Woodstock", "Pomfret", "Bethel", "Randolph",
-        "West Lebanon",
+        "West Lebanon", "Tunbridge", "Royalton", "Pittsfield", "Braintree",
     ),
     # Brighton is the official town for Island Pond, Lyndon for Lyndonville and
     # Burke for East Burke. The village names match nothing on their own.
@@ -435,9 +449,11 @@ REGION_TOWNS = {
     # Was "Jay / Montgomery / Troy" until Jim widened it across the Northeast
     # Kingdom. Glover is the official town for West Glover, Barton for Orleans
     # and Newport City for Newport.
+    # Richford and Greensboro added by Jim on 2026-09-20, in the same message
+    # that made Newport City exclusive to this region.
     "North-Northeast": (
         "Jay", "Montgomery", "Troy", "Glover", "Eden", "Barton", "Newport City",
-        "Derby", "Albany", "Craftsbury",
+        "Derby", "Albany", "Craftsbury", "Richford", "Greensboro",
     ),
 }
 
