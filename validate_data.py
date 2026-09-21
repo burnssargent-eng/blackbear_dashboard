@@ -1013,6 +1013,11 @@ REQUIRED_REGIONS = [
     "Ski Slopes",
     "South / Ski Combined",
     "Summer Snack Stops",
+    # Sarge, 2026-09-21. Perrigo Nutritionals split out of Northwest: a bulk
+    # on-demand account, not a route stop. Id-based but NOT a theme region —
+    # it is exclusive, so it ranks among the geography rather than being
+    # pinned after it.
+    "Perrigo",
 ]
 
 # Towns that must land in a specific region, as "town -> region(s)". A value may
@@ -1075,6 +1080,17 @@ EXPECTED_SHARED_TOWNS = {}
 FORBIDDEN_TOWN_REGION = {
     "Shelburne": "Burlington / South Burlington",
     "Newport City": "Northwest",
+}
+
+# Customer-level placements, checked against the EXPORTED membership rather
+# than the config, because REGION_EXCLUDED_IDS is the only subtractive rule in
+# oil_scraper.py and a silent failure of it would look like nothing at all:
+# Perrigo would quietly rejoin Northwest and inflate it by 109k gallons again.
+REQUIRED_CUSTOMER_REGION = {
+    423: "Perrigo",          # Perrigo Nutritionals, Milton
+}
+FORBIDDEN_CUSTOMER_REGION = {
+    423: "Northwest",        # split out by Sarge on 2026-09-21
 }
 
 
@@ -1228,6 +1244,21 @@ def check_region_taxonomy(report, data, coll):
             report.fail(f"{town} is in {region} — Jim moved it out.")
         else:
             report.ok(f"{town} is not in {region}.")
+
+    # 7b. Customer-level placements, read off the exported membership so the
+    #     subtractive rule in REGION_EXCLUDED_IDS is verified by its effect
+    #     rather than by trusting the config it came from.
+    membership = data.get("region_customers") or {}
+    for cid, region in sorted(REQUIRED_CUSTOMER_REGION.items()):
+        if cid in membership.get(region, []):
+            report.ok(f"Customer {cid} is in {region}.")
+        else:
+            report.fail(f"Customer {cid} is NOT in {region}.")
+    for cid, region in sorted(FORBIDDEN_CUSTOMER_REGION.items()):
+        if cid in membership.get(region, []):
+            report.fail(f"Customer {cid} is in {region} — it was split out.")
+        else:
+            report.ok(f"Customer {cid} is not in {region}.")
 
     # 7. A town in two regions is legal but worth naming, since it is what makes
     #    region totals non-additive.

@@ -49,13 +49,26 @@ use "is a past calendar year".
 **Regions overlap and are not exhaustive.** Region totals sum to MORE than
 `all_time_total` while also excluding the `Other` bucket. The overlap is
 deliberate and is now entirely the theme regions': `Ski Slopes`,
-`South / Ski Combined` and `Summer Snack Stops` are overlays drawn from
-customers who also sit in their own geography, and `South / Ski Combined` is
-built from the South and Southern Ski Slopes rules. No geographic town belongs
+`South / Ski Combined`, `Summer Snack Stops` and `Winter / Summer Combined`
+are overlays drawn from customers who also sit in their own geography, and
+`South / Ski Combined` is built from the South and Southern Ski Slopes rules.
+There are FOUR of them — `THEME_REGIONS` is the list, and this file named only
+three until 2026-09-21. `Perrigo` is id-based too but is NOT one: it is
+exclusive, so it ranks among the geography instead of being pinned after it. No geographic town belongs
 to two regions any more — Newport City was in both Northwest and
 North-Northeast until Jim made it North-Northeast only on 2026-09-20, and
 `EXPECTED_SHARED_TOWNS` in `validate_data.py` is empty as a result, so any new
 shared town warns. All of it is asserted in `validate_data.py`. Do not "fix" it.
+
+**`Other` is not the count of unassigned customers.** It means matched NO
+region at all (`oil_scraper.py:953-955`), theme regions included, so a customer
+with no geography but a theme tag never reaches the bucket and the dashboard's
+figure reads low. On 2026-09-21: 13 in `Other`, but 17 with no geographic
+region — Arlington, Pittsford, Rockingham and Roxbury were masked by
+`Winter / Summer Combined` + `Summer Snack Stops`. Five of the 17 are
+out-of-state and will never take a Vermont region, so the list actually worth
+sending Jim was 12. To count them, subtract the union of the non-theme regions
+from the roster; do not read `Other`.
 
 **Theme regions are not places.** They are listed in `THEME_REGIONS`, exported as
 `theme_regions`, pinned after every geographic region in the display order, and
@@ -68,6 +81,19 @@ maps a region to official town names, matched on the normalised `geo_town` with
 a fallback to raw `city` (that fallback is what reaches out-of-state places like
 Plattsburgh). Add a town there and every consumer follows. Town spelling
 variants belong in `GEO_TOWN_NAME_MAP`, not in the region config.
+
+**Region rules are additive — except one.** A row takes EVERY label it matches,
+so adding a town to a region can never remove a customer from another.
+`REGION_EXCLUDED_IDS` (`oil_scraper.py`) is the single subtractive rule: it
+keeps named customer ids out of a town-based region they would otherwise match.
+Today it holds only Perrigo (customer 423), split out of Northwest on
+2026-09-21 because a bulk on-demand account was 54% of that region and made its
+numbers a reading of one contract rather than a route. Milton stays in
+Northwest for its six other customers. If an exclusion is ever dropped without
+dropping the id-based region that replaces it, the customer silently rejoins
+and the region inflates — so it is asserted from the EXPORTED membership by
+`REQUIRED_CUSTOMER_REGION` and `FORBIDDEN_CUSTOMER_REGION` in
+`validate_data.py`, not from the config that produced it.
 
 **Excel sheet names reject `/`.** Region display names contain slashes, so
 `region_sheet_names()` sanitises them. Never pass a display name to
@@ -132,10 +158,21 @@ Raised by the data, not yet decided by Jim:
   the `EMPTY_QTYS` filter (`oil_scraper.py:337`, written at `:989`), so a
   zero-quantity customer call in 2026 would not show up either way — the claim
   is no collected volume, not no contact.
-- **Pittsford** (1 customer, 6 pickups) is one letter from Pittsfield, which
-  Jim put in Central South on 2026-09-20. He named Pittsfield and it was taken
-  literally; Pittsford is a different town in Rutland County and stays in
-  `Other` until he says otherwise.
+- **Pittsford** (customer 1090, Proctor-Pittsford Country Club, 435 gallons) is
+  one letter from Pittsfield, which Jim put in Central South on 2026-09-20. He
+  named Pittsfield and it was taken literally; Pittsford is a different town, in
+  Rutland County on US-7. It is NOT in `Other` — it is masked by two theme
+  regions — and the case for Route 7 is now concrete: all six of its pickups
+  happened on days the truck was also in Rutland City, three of them alongside
+  Middlebury and Vergennes, and Jim put Rutland in Route 7 on 2026-09-21, which
+  leaves Pittsford sitting in the gap. Ask him; the club is named for Proctor,
+  the next town over, which is likely why nobody said "Pittsford" out loud.
+  Brandon is the other gap town and has not been checked for customers.
+- **Twelve Vermont towns have no geographic region**, one customer each, 7,118
+  gallons: Arlington, Mount Holly, Westford, Whitingham, Pittsford, Waterford,
+  Rockingham, Rochester, Roxbury, Weathersfield, Barnard, Lincoln. Eleven are
+  active. Arlington, Whitingham and Rockingham are all Windham County and may be
+  one question rather than three.
 
 ## People
 
