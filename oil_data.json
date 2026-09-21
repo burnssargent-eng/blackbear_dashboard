@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-20T23:50:34.413822",
+  "last_updated": "2026-09-21T00:18:20.690941",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -43034,11 +43034,6 @@
     },
     {
       "month": "2016-07",
-      "region": "Northwest",
-      "gallons": 1100
-    },
-    {
-      "month": "2016-07",
       "region": "Other",
       "gallons": 150
     },
@@ -43046,6 +43041,11 @@
       "month": "2016-07",
       "region": "Outer Burlington",
       "gallons": 782
+    },
+    {
+      "month": "2016-07",
+      "region": "Perrigo",
+      "gallons": 1100
     },
     {
       "month": "2016-07",
@@ -43185,7 +43185,7 @@
     {
       "month": "2016-09",
       "region": "Northwest",
-      "gallons": 850
+      "gallons": 100
     },
     {
       "month": "2016-09",
@@ -43196,6 +43196,11 @@
       "month": "2016-09",
       "region": "Outer Burlington",
       "gallons": 445
+    },
+    {
+      "month": "2016-09",
+      "region": "Perrigo",
+      "gallons": 750
     },
     {
       "month": "2016-09",
@@ -43260,7 +43265,7 @@
     {
       "month": "2016-10",
       "region": "Northwest",
-      "gallons": 325
+      "gallons": 50
     },
     {
       "month": "2016-10",
@@ -43271,6 +43276,11 @@
       "month": "2016-10",
       "region": "Outer Burlington",
       "gallons": 380
+    },
+    {
+      "month": "2016-10",
+      "region": "Perrigo",
+      "gallons": 275
     },
     {
       "month": "2016-10",
@@ -43334,11 +43344,6 @@
     },
     {
       "month": "2016-11",
-      "region": "Northwest",
-      "gallons": 500
-    },
-    {
-      "month": "2016-11",
       "region": "Other",
       "gallons": 150
     },
@@ -43346,6 +43351,11 @@
       "month": "2016-11",
       "region": "Outer Burlington",
       "gallons": 285
+    },
+    {
+      "month": "2016-11",
+      "region": "Perrigo",
+      "gallons": 500
     },
     {
       "month": "2016-11",
@@ -43749,11 +43759,6 @@
     },
     {
       "month": "2017-05",
-      "region": "Northwest",
-      "gallons": 1005
-    },
-    {
-      "month": "2017-05",
       "region": "Other",
       "gallons": 115
     },
@@ -43761,6 +43766,11 @@
       "month": "2017-05",
       "region": "Outer Burlington",
       "gallons": 599
+    },
+    {
+      "month": "2017-05",
+      "region": "Perrigo",
+      "gallons": 1005
     },
     {
       "month": "2017-05",
@@ -43835,7 +43845,7 @@
     {
       "month": "2017-06",
       "region": "Northwest",
-      "gallons": 710
+      "gallons": 60
     },
     {
       "month": "2017-06",
@@ -43846,6 +43856,11 @@
       "month": "2017-06",
       "region": "Outer Burlington",
       "gallons": 545
+    },
+    {
+      "month": "2017-06",
+      "region": "Perrigo",
+      "gallons": 650
     },
     {
       "month": "2017-06",
@@ -43925,7 +43940,7 @@
     {
       "month": "2017-07",
       "region": "Northwest",
-      "gallons": 750
+      "gallons": 75
     },
     {
       "month": "2017-07",
@@ -43936,6 +43951,11 @@
       "month": "2017-07",
       "region": "Outer Burlington",
       "gallons": 740
+    },
+    {
+      "month": "2017-07",
+      "region": "Perrigo",
+      "gallons": 675
     },
     {
       "month": "2017-07",
@@ -44014,11 +44034,6 @@
     },
     {
       "month": "2017-08",
-      "region": "Northwest",
-      "gallons": 550
-    },
-    {
-      "month": "2017-08",
       "region": "Other",
       "gallons": 125
     },
@@ -44026,6 +44041,11 @@
       "month": "2017-08",
       "region": "Outer Burlington",
       "gallons": 500
+    },
+    {
+      "month": "2017-08",
+      "region": "Perrigo",
+      "gallons": 550
     },
     {
       "month": "2017-08",
@@ -44105,7 +44125,7 @@
     {
       "month": "2017-09",
       "region": "Northwest",
-      "gallons": 810
+      "gallons": 100
     },
     {
       "month": "2017-09",
@@ -44116,6 +44136,11 @@
       "month": "2017-09",
       "region": "Outer Burlington",
       "gallons": 320
+    },
+    {
+      "month": "2017-09",
+      "region": "Perrigo",
+      "gallons": 710
     },
     {
       "month": "2017-09",
@@ -44194,13 +44219,13 @@
     },
     {
       "month": "2017-10",
-      "region": "Northwest",
-      "gallons": 700
+      "region": "Outer Burlington",
+      "gallons": 365
     },
     {
       "month": "2017-10",
-      "region": "Outer Burlington",
-      "gallons": 365
+      "region": "Perrigo",
+      "gallons": 700
     },
     {
       "month": "2017-10",
@@ -44735,7 +44760,7 @@
     {
       "month": "2018-05",
       "region": "Northwest",
-      "gallons": 2750
+      "gallons": 100
     },
     {
       "month": "2018-05",
@@ -44746,6 +44771,11 @@
       "month": "2018-05",
       "region": "Outer Burlington",
       "gallons": 965
+    },
+    {
+      "month": "2018-05",
+      "region": "Perrigo",
+      "gallons": 2650
     },
     {
       "month": "2018-05",
@@ -44825,7 +44855,7 @@
     {
       "month": "2018-06",
       "region": "Northwest",
-      "gallons": 1150
+      "gallons": 100
     },
     {
       "month": "2018-06",
@@ -44836,6 +44866,11 @@
       "month": "2018-06",
       "region": "Outer Burlington",
       "gallons": 860
+    },
+    {
+      "month": "2018-06",
+      "region": "Perrigo",
+      "gallons": 1050
     },
     {
       "month": "2018-06",
@@ -44899,11 +44934,6 @@
     },
     {
       "month": "2018-07",
-      "region": "Northwest",
-      "gallons": 1800
-    },
-    {
-      "month": "2018-07",
       "region": "Other",
       "gallons": 100
     },
@@ -44911,6 +44941,11 @@
       "month": "2018-07",
       "region": "Outer Burlington",
       "gallons": 1790
+    },
+    {
+      "month": "2018-07",
+      "region": "Perrigo",
+      "gallons": 1800
     },
     {
       "month": "2018-07",
@@ -44980,7 +45015,7 @@
     {
       "month": "2018-08",
       "region": "Northwest",
-      "gallons": 1475
+      "gallons": 825
     },
     {
       "month": "2018-08",
@@ -44991,6 +45026,11 @@
       "month": "2018-08",
       "region": "Outer Burlington",
       "gallons": 1040
+    },
+    {
+      "month": "2018-08",
+      "region": "Perrigo",
+      "gallons": 650
     },
     {
       "month": "2018-08",
@@ -45145,7 +45185,7 @@
     {
       "month": "2018-10",
       "region": "Northwest",
-      "gallons": 785
+      "gallons": 585
     },
     {
       "month": "2018-10",
@@ -45156,6 +45196,11 @@
       "month": "2018-10",
       "region": "Outer Burlington",
       "gallons": 1260
+    },
+    {
+      "month": "2018-10",
+      "region": "Perrigo",
+      "gallons": 200
     },
     {
       "month": "2018-10",
@@ -45234,13 +45279,13 @@
     },
     {
       "month": "2018-11",
-      "region": "Northwest",
-      "gallons": 900
+      "region": "Outer Burlington",
+      "gallons": 780
     },
     {
       "month": "2018-11",
-      "region": "Outer Burlington",
-      "gallons": 780
+      "region": "Perrigo",
+      "gallons": 900
     },
     {
       "month": "2018-11",
@@ -45310,7 +45355,7 @@
     {
       "month": "2018-12",
       "region": "Northwest",
-      "gallons": 385
+      "gallons": 235
     },
     {
       "month": "2018-12",
@@ -45321,6 +45366,11 @@
       "month": "2018-12",
       "region": "Outer Burlington",
       "gallons": 1060
+    },
+    {
+      "month": "2018-12",
+      "region": "Perrigo",
+      "gallons": 150
     },
     {
       "month": "2018-12",
@@ -45400,7 +45450,7 @@
     {
       "month": "2019-01",
       "region": "Northwest",
-      "gallons": 176
+      "gallons": 50
     },
     {
       "month": "2019-01",
@@ -45411,6 +45461,11 @@
       "month": "2019-01",
       "region": "Outer Burlington",
       "gallons": 920
+    },
+    {
+      "month": "2019-01",
+      "region": "Perrigo",
+      "gallons": 126
     },
     {
       "month": "2019-01",
@@ -45490,7 +45545,7 @@
     {
       "month": "2019-02",
       "region": "Northwest",
-      "gallons": 750
+      "gallons": 250
     },
     {
       "month": "2019-02",
@@ -45501,6 +45556,11 @@
       "month": "2019-02",
       "region": "Outer Burlington",
       "gallons": 845
+    },
+    {
+      "month": "2019-02",
+      "region": "Perrigo",
+      "gallons": 500
     },
     {
       "month": "2019-02",
@@ -45569,11 +45629,6 @@
     },
     {
       "month": "2019-03",
-      "region": "Northwest",
-      "gallons": 2565
-    },
-    {
-      "month": "2019-03",
       "region": "Other",
       "gallons": 150
     },
@@ -45581,6 +45636,11 @@
       "month": "2019-03",
       "region": "Outer Burlington",
       "gallons": 1265
+    },
+    {
+      "month": "2019-03",
+      "region": "Perrigo",
+      "gallons": 2565
     },
     {
       "month": "2019-03",
@@ -45655,12 +45715,17 @@
     {
       "month": "2019-04",
       "region": "Northwest",
-      "gallons": 1150
+      "gallons": 350
     },
     {
       "month": "2019-04",
       "region": "Outer Burlington",
       "gallons": 965
+    },
+    {
+      "month": "2019-04",
+      "region": "Perrigo",
+      "gallons": 800
     },
     {
       "month": "2019-04",
@@ -45735,7 +45800,7 @@
     {
       "month": "2019-05",
       "region": "Northwest",
-      "gallons": 2130
+      "gallons": 380
     },
     {
       "month": "2019-05",
@@ -45746,6 +45811,11 @@
       "month": "2019-05",
       "region": "Outer Burlington",
       "gallons": 1645
+    },
+    {
+      "month": "2019-05",
+      "region": "Perrigo",
+      "gallons": 1750
     },
     {
       "month": "2019-05",
@@ -45819,11 +45889,6 @@
     },
     {
       "month": "2019-06",
-      "region": "Northwest",
-      "gallons": 1300
-    },
-    {
-      "month": "2019-06",
       "region": "Other",
       "gallons": 150
     },
@@ -45831,6 +45896,11 @@
       "month": "2019-06",
       "region": "Outer Burlington",
       "gallons": 960
+    },
+    {
+      "month": "2019-06",
+      "region": "Perrigo",
+      "gallons": 1300
     },
     {
       "month": "2019-06",
@@ -45905,7 +45975,7 @@
     {
       "month": "2019-07",
       "region": "Northwest",
-      "gallons": 750
+      "gallons": 475
     },
     {
       "month": "2019-07",
@@ -45916,6 +45986,11 @@
       "month": "2019-07",
       "region": "Outer Burlington",
       "gallons": 1820
+    },
+    {
+      "month": "2019-07",
+      "region": "Perrigo",
+      "gallons": 275
     },
     {
       "month": "2019-07",
@@ -45995,7 +46070,7 @@
     {
       "month": "2019-08",
       "region": "Northwest",
-      "gallons": 700
+      "gallons": 100
     },
     {
       "month": "2019-08",
@@ -46006,6 +46081,11 @@
       "month": "2019-08",
       "region": "Outer Burlington",
       "gallons": 1851
+    },
+    {
+      "month": "2019-08",
+      "region": "Perrigo",
+      "gallons": 600
     },
     {
       "month": "2019-08",
@@ -46075,7 +46155,7 @@
     {
       "month": "2019-09",
       "region": "Northwest",
-      "gallons": 950
+      "gallons": 150
     },
     {
       "month": "2019-09",
@@ -46086,6 +46166,11 @@
       "month": "2019-09",
       "region": "Outer Burlington",
       "gallons": 2860
+    },
+    {
+      "month": "2019-09",
+      "region": "Perrigo",
+      "gallons": 800
     },
     {
       "month": "2019-09",
@@ -46165,7 +46250,7 @@
     {
       "month": "2019-10",
       "region": "Northwest",
-      "gallons": 1675
+      "gallons": 775
     },
     {
       "month": "2019-10",
@@ -46176,6 +46261,11 @@
       "month": "2019-10",
       "region": "Outer Burlington",
       "gallons": 1560
+    },
+    {
+      "month": "2019-10",
+      "region": "Perrigo",
+      "gallons": 900
     },
     {
       "month": "2019-10",
@@ -46249,11 +46339,6 @@
     },
     {
       "month": "2019-11",
-      "region": "Northwest",
-      "gallons": 400
-    },
-    {
-      "month": "2019-11",
       "region": "Other",
       "gallons": 300
     },
@@ -46261,6 +46346,11 @@
       "month": "2019-11",
       "region": "Outer Burlington",
       "gallons": 1831
+    },
+    {
+      "month": "2019-11",
+      "region": "Perrigo",
+      "gallons": 400
     },
     {
       "month": "2019-11",
@@ -46325,7 +46415,7 @@
     {
       "month": "2019-12",
       "region": "Northwest",
-      "gallons": 775
+      "gallons": 275
     },
     {
       "month": "2019-12",
@@ -46336,6 +46426,11 @@
       "month": "2019-12",
       "region": "Outer Burlington",
       "gallons": 1190
+    },
+    {
+      "month": "2019-12",
+      "region": "Perrigo",
+      "gallons": 500
     },
     {
       "month": "2019-12",
@@ -46405,7 +46500,7 @@
     {
       "month": "2020-01",
       "region": "Northwest",
-      "gallons": 850
+      "gallons": 350
     },
     {
       "month": "2020-01",
@@ -46416,6 +46511,11 @@
       "month": "2020-01",
       "region": "Outer Burlington",
       "gallons": 1220
+    },
+    {
+      "month": "2020-01",
+      "region": "Perrigo",
+      "gallons": 500
     },
     {
       "month": "2020-01",
@@ -46575,7 +46675,7 @@
     {
       "month": "2020-03",
       "region": "Northwest",
-      "gallons": 650
+      "gallons": 300
     },
     {
       "month": "2020-03",
@@ -46586,6 +46686,11 @@
       "month": "2020-03",
       "region": "Outer Burlington",
       "gallons": 845
+    },
+    {
+      "month": "2020-03",
+      "region": "Perrigo",
+      "gallons": 350
     },
     {
       "month": "2020-03",
@@ -46660,7 +46765,7 @@
     {
       "month": "2020-04",
       "region": "Northwest",
-      "gallons": 6820
+      "gallons": 100
     },
     {
       "month": "2020-04",
@@ -46671,6 +46776,11 @@
       "month": "2020-04",
       "region": "Outer Burlington",
       "gallons": 555
+    },
+    {
+      "month": "2020-04",
+      "region": "Perrigo",
+      "gallons": 6720
     },
     {
       "month": "2020-04",
@@ -46795,7 +46905,7 @@
     {
       "month": "2020-06",
       "region": "Northwest",
-      "gallons": 2560
+      "gallons": 805
     },
     {
       "month": "2020-06",
@@ -46806,6 +46916,11 @@
       "month": "2020-06",
       "region": "Outer Burlington",
       "gallons": 785
+    },
+    {
+      "month": "2020-06",
+      "region": "Perrigo",
+      "gallons": 1755
     },
     {
       "month": "2020-06",
@@ -46875,7 +46990,7 @@
     {
       "month": "2020-07",
       "region": "Northwest",
-      "gallons": 1650
+      "gallons": 502
     },
     {
       "month": "2020-07",
@@ -46886,6 +47001,11 @@
       "month": "2020-07",
       "region": "Outer Burlington",
       "gallons": 805
+    },
+    {
+      "month": "2020-07",
+      "region": "Perrigo",
+      "gallons": 1148
     },
     {
       "month": "2020-07",
@@ -46960,7 +47080,7 @@
     {
       "month": "2020-08",
       "region": "Northwest",
-      "gallons": 1130
+      "gallons": 430
     },
     {
       "month": "2020-08",
@@ -46971,6 +47091,11 @@
       "month": "2020-08",
       "region": "Outer Burlington",
       "gallons": 1055
+    },
+    {
+      "month": "2020-08",
+      "region": "Perrigo",
+      "gallons": 700
     },
     {
       "month": "2020-08",
@@ -47110,7 +47235,7 @@
     {
       "month": "2020-10",
       "region": "Northwest",
-      "gallons": 925
+      "gallons": 475
     },
     {
       "month": "2020-10",
@@ -47121,6 +47246,11 @@
       "month": "2020-10",
       "region": "Outer Burlington",
       "gallons": 1035
+    },
+    {
+      "month": "2020-10",
+      "region": "Perrigo",
+      "gallons": 450
     },
     {
       "month": "2020-10",
@@ -47285,7 +47415,7 @@
     {
       "month": "2020-12",
       "region": "Northwest",
-      "gallons": 915
+      "gallons": 540
     },
     {
       "month": "2020-12",
@@ -47296,6 +47426,11 @@
       "month": "2020-12",
       "region": "Outer Burlington",
       "gallons": 1435
+    },
+    {
+      "month": "2020-12",
+      "region": "Perrigo",
+      "gallons": 375
     },
     {
       "month": "2020-12",
@@ -47375,7 +47510,7 @@
     {
       "month": "2021-01",
       "region": "Northwest",
-      "gallons": 600
+      "gallons": 100
     },
     {
       "month": "2021-01",
@@ -47386,6 +47521,11 @@
       "month": "2021-01",
       "region": "Outer Burlington",
       "gallons": 1225
+    },
+    {
+      "month": "2021-01",
+      "region": "Perrigo",
+      "gallons": 500
     },
     {
       "month": "2021-01",
@@ -47530,7 +47670,7 @@
     {
       "month": "2021-03",
       "region": "Northwest",
-      "gallons": 1050
+      "gallons": 400
     },
     {
       "month": "2021-03",
@@ -47541,6 +47681,11 @@
       "month": "2021-03",
       "region": "Outer Burlington",
       "gallons": 850
+    },
+    {
+      "month": "2021-03",
+      "region": "Perrigo",
+      "gallons": 650
     },
     {
       "month": "2021-03",
@@ -47610,7 +47755,7 @@
     {
       "month": "2021-04",
       "region": "Northwest",
-      "gallons": 775
+      "gallons": 175
     },
     {
       "month": "2021-04",
@@ -47621,6 +47766,11 @@
       "month": "2021-04",
       "region": "Outer Burlington",
       "gallons": 1090
+    },
+    {
+      "month": "2021-04",
+      "region": "Perrigo",
+      "gallons": 600
     },
     {
       "month": "2021-04",
@@ -47695,7 +47845,7 @@
     {
       "month": "2021-05",
       "region": "Northwest",
-      "gallons": 2325
+      "gallons": 475
     },
     {
       "month": "2021-05",
@@ -47706,6 +47856,11 @@
       "month": "2021-05",
       "region": "Outer Burlington",
       "gallons": 935
+    },
+    {
+      "month": "2021-05",
+      "region": "Perrigo",
+      "gallons": 1850
     },
     {
       "month": "2021-05",
@@ -47775,12 +47930,17 @@
     {
       "month": "2021-06",
       "region": "Northwest",
-      "gallons": 2675
+      "gallons": 1200
     },
     {
       "month": "2021-06",
       "region": "Outer Burlington",
       "gallons": 2051
+    },
+    {
+      "month": "2021-06",
+      "region": "Perrigo",
+      "gallons": 1475
     },
     {
       "month": "2021-06",
@@ -47850,7 +48010,7 @@
     {
       "month": "2021-07",
       "region": "Northwest",
-      "gallons": 805
+      "gallons": 480
     },
     {
       "month": "2021-07",
@@ -47861,6 +48021,11 @@
       "month": "2021-07",
       "region": "Outer Burlington",
       "gallons": 1480
+    },
+    {
+      "month": "2021-07",
+      "region": "Perrigo",
+      "gallons": 325
     },
     {
       "month": "2021-07",
@@ -47935,7 +48100,7 @@
     {
       "month": "2021-08",
       "region": "Northwest",
-      "gallons": 2120
+      "gallons": 785
     },
     {
       "month": "2021-08",
@@ -47946,6 +48111,11 @@
       "month": "2021-08",
       "region": "Outer Burlington",
       "gallons": 2780
+    },
+    {
+      "month": "2021-08",
+      "region": "Perrigo",
+      "gallons": 1335
     },
     {
       "month": "2021-08",
@@ -48110,7 +48280,7 @@
     {
       "month": "2021-10",
       "region": "Northwest",
-      "gallons": 1010
+      "gallons": 610
     },
     {
       "month": "2021-10",
@@ -48121,6 +48291,11 @@
       "month": "2021-10",
       "region": "Outer Burlington",
       "gallons": 1998
+    },
+    {
+      "month": "2021-10",
+      "region": "Perrigo",
+      "gallons": 400
     },
     {
       "month": "2021-10",
@@ -48180,7 +48355,7 @@
     {
       "month": "2021-11",
       "region": "Northwest",
-      "gallons": 4575
+      "gallons": 4050
     },
     {
       "month": "2021-11",
@@ -48191,6 +48366,11 @@
       "month": "2021-11",
       "region": "Outer Burlington",
       "gallons": 755
+    },
+    {
+      "month": "2021-11",
+      "region": "Perrigo",
+      "gallons": 525
     },
     {
       "month": "2021-11",
@@ -48270,7 +48450,7 @@
     {
       "month": "2021-12",
       "region": "Northwest",
-      "gallons": 1785
+      "gallons": 1135
     },
     {
       "month": "2021-12",
@@ -48281,6 +48461,11 @@
       "month": "2021-12",
       "region": "Outer Burlington",
       "gallons": 2305
+    },
+    {
+      "month": "2021-12",
+      "region": "Perrigo",
+      "gallons": 650
     },
     {
       "month": "2021-12",
@@ -48435,7 +48620,7 @@
     {
       "month": "2022-02",
       "region": "Northwest",
-      "gallons": 1345
+      "gallons": 425
     },
     {
       "month": "2022-02",
@@ -48446,6 +48631,11 @@
       "month": "2022-02",
       "region": "Outer Burlington",
       "gallons": 765
+    },
+    {
+      "month": "2022-02",
+      "region": "Perrigo",
+      "gallons": 920
     },
     {
       "month": "2022-02",
@@ -48520,7 +48710,7 @@
     {
       "month": "2022-03",
       "region": "Northwest",
-      "gallons": 6150
+      "gallons": 410
     },
     {
       "month": "2022-03",
@@ -48531,6 +48721,11 @@
       "month": "2022-03",
       "region": "Outer Burlington",
       "gallons": 2225
+    },
+    {
+      "month": "2022-03",
+      "region": "Perrigo",
+      "gallons": 5740
     },
     {
       "month": "2022-03",
@@ -48605,7 +48800,7 @@
     {
       "month": "2022-04",
       "region": "Northwest",
-      "gallons": 1220
+      "gallons": 620
     },
     {
       "month": "2022-04",
@@ -48616,6 +48811,11 @@
       "month": "2022-04",
       "region": "Outer Burlington",
       "gallons": 1820
+    },
+    {
+      "month": "2022-04",
+      "region": "Perrigo",
+      "gallons": 600
     },
     {
       "month": "2022-04",
@@ -48695,7 +48895,7 @@
     {
       "month": "2022-05",
       "region": "Northwest",
-      "gallons": 3135
+      "gallons": 770
     },
     {
       "month": "2022-05",
@@ -48706,6 +48906,11 @@
       "month": "2022-05",
       "region": "Outer Burlington",
       "gallons": 2345
+    },
+    {
+      "month": "2022-05",
+      "region": "Perrigo",
+      "gallons": 2365
     },
     {
       "month": "2022-05",
@@ -48785,7 +48990,7 @@
     {
       "month": "2022-06",
       "region": "Northwest",
-      "gallons": 1025
+      "gallons": 625
     },
     {
       "month": "2022-06",
@@ -48796,6 +49001,11 @@
       "month": "2022-06",
       "region": "Outer Burlington",
       "gallons": 1705
+    },
+    {
+      "month": "2022-06",
+      "region": "Perrigo",
+      "gallons": 400
     },
     {
       "month": "2022-06",
@@ -48875,7 +49085,7 @@
     {
       "month": "2022-07",
       "region": "Northwest",
-      "gallons": 4275
+      "gallons": 625
     },
     {
       "month": "2022-07",
@@ -48886,6 +49096,11 @@
       "month": "2022-07",
       "region": "Outer Burlington",
       "gallons": 2085
+    },
+    {
+      "month": "2022-07",
+      "region": "Perrigo",
+      "gallons": 3650
     },
     {
       "month": "2022-07",
@@ -48960,12 +49175,17 @@
     {
       "month": "2022-08",
       "region": "Northwest",
-      "gallons": 2556
+      "gallons": 1256
     },
     {
       "month": "2022-08",
       "region": "Outer Burlington",
       "gallons": 3360
+    },
+    {
+      "month": "2022-08",
+      "region": "Perrigo",
+      "gallons": 1300
     },
     {
       "month": "2022-08",
@@ -49120,7 +49340,7 @@
     {
       "month": "2022-10",
       "region": "Northwest",
-      "gallons": 5828
+      "gallons": 1098
     },
     {
       "month": "2022-10",
@@ -49131,6 +49351,11 @@
       "month": "2022-10",
       "region": "Outer Burlington",
       "gallons": 2660
+    },
+    {
+      "month": "2022-10",
+      "region": "Perrigo",
+      "gallons": 4730
     },
     {
       "month": "2022-10",
@@ -49620,7 +49845,7 @@
     {
       "month": "2023-04",
       "region": "Northwest",
-      "gallons": 2849
+      "gallons": 799
     },
     {
       "month": "2023-04",
@@ -49631,6 +49856,11 @@
       "month": "2023-04",
       "region": "Outer Burlington",
       "gallons": 1772
+    },
+    {
+      "month": "2023-04",
+      "region": "Perrigo",
+      "gallons": 2050
     },
     {
       "month": "2023-04",
@@ -49705,7 +49935,7 @@
     {
       "month": "2023-05",
       "region": "Northwest",
-      "gallons": 3664
+      "gallons": 1064
     },
     {
       "month": "2023-05",
@@ -49716,6 +49946,11 @@
       "month": "2023-05",
       "region": "Outer Burlington",
       "gallons": 1828
+    },
+    {
+      "month": "2023-05",
+      "region": "Perrigo",
+      "gallons": 2600
     },
     {
       "month": "2023-05",
@@ -49795,7 +50030,7 @@
     {
       "month": "2023-06",
       "region": "Northwest",
-      "gallons": 3345
+      "gallons": 2145
     },
     {
       "month": "2023-06",
@@ -49806,6 +50041,11 @@
       "month": "2023-06",
       "region": "Outer Burlington",
       "gallons": 3350
+    },
+    {
+      "month": "2023-06",
+      "region": "Perrigo",
+      "gallons": 1200
     },
     {
       "month": "2023-06",
@@ -49880,7 +50120,7 @@
     {
       "month": "2023-07",
       "region": "Northwest",
-      "gallons": 2880
+      "gallons": 2330
     },
     {
       "month": "2023-07",
@@ -49891,6 +50131,11 @@
       "month": "2023-07",
       "region": "Outer Burlington",
       "gallons": 1575
+    },
+    {
+      "month": "2023-07",
+      "region": "Perrigo",
+      "gallons": 550
     },
     {
       "month": "2023-07",
@@ -49970,7 +50215,7 @@
     {
       "month": "2023-08",
       "region": "Northwest",
-      "gallons": 2002
+      "gallons": 1602
     },
     {
       "month": "2023-08",
@@ -49981,6 +50226,11 @@
       "month": "2023-08",
       "region": "Outer Burlington",
       "gallons": 2882
+    },
+    {
+      "month": "2023-08",
+      "region": "Perrigo",
+      "gallons": 400
     },
     {
       "month": "2023-08",
@@ -50145,7 +50395,7 @@
     {
       "month": "2023-10",
       "region": "Northwest",
-      "gallons": 3904
+      "gallons": 3089
     },
     {
       "month": "2023-10",
@@ -50156,6 +50406,11 @@
       "month": "2023-10",
       "region": "Outer Burlington",
       "gallons": 2221
+    },
+    {
+      "month": "2023-10",
+      "region": "Perrigo",
+      "gallons": 815
     },
     {
       "month": "2023-10",
@@ -50235,7 +50490,7 @@
     {
       "month": "2023-11",
       "region": "Northwest",
-      "gallons": 2092
+      "gallons": 1392
     },
     {
       "month": "2023-11",
@@ -50246,6 +50501,11 @@
       "month": "2023-11",
       "region": "Outer Burlington",
       "gallons": 1915
+    },
+    {
+      "month": "2023-11",
+      "region": "Perrigo",
+      "gallons": 700
     },
     {
       "month": "2023-11",
@@ -50680,7 +50940,7 @@
     {
       "month": "2024-04",
       "region": "Northwest",
-      "gallons": 3087
+      "gallons": 1637
     },
     {
       "month": "2024-04",
@@ -50691,6 +50951,11 @@
       "month": "2024-04",
       "region": "Outer Burlington",
       "gallons": 2877
+    },
+    {
+      "month": "2024-04",
+      "region": "Perrigo",
+      "gallons": 1450
     },
     {
       "month": "2024-04",
@@ -50770,7 +51035,7 @@
     {
       "month": "2024-05",
       "region": "Northwest",
-      "gallons": 4174
+      "gallons": 1494
     },
     {
       "month": "2024-05",
@@ -50781,6 +51046,11 @@
       "month": "2024-05",
       "region": "Outer Burlington",
       "gallons": 2028
+    },
+    {
+      "month": "2024-05",
+      "region": "Perrigo",
+      "gallons": 2680
     },
     {
       "month": "2024-05",
@@ -50945,7 +51215,7 @@
     {
       "month": "2024-07",
       "region": "Northwest",
-      "gallons": 1455
+      "gallons": 1205
     },
     {
       "month": "2024-07",
@@ -50956,6 +51226,11 @@
       "month": "2024-07",
       "region": "Outer Burlington",
       "gallons": 3276
+    },
+    {
+      "month": "2024-07",
+      "region": "Perrigo",
+      "gallons": 250
     },
     {
       "month": "2024-07",
@@ -51205,7 +51480,7 @@
     {
       "month": "2024-10",
       "region": "Northwest",
-      "gallons": 3026
+      "gallons": 876
     },
     {
       "month": "2024-10",
@@ -51216,6 +51491,11 @@
       "month": "2024-10",
       "region": "Outer Burlington",
       "gallons": 3295
+    },
+    {
+      "month": "2024-10",
+      "region": "Perrigo",
+      "gallons": 2150
     },
     {
       "month": "2024-10",
@@ -51295,7 +51575,7 @@
     {
       "month": "2024-11",
       "region": "Northwest",
-      "gallons": 2202
+      "gallons": 1152
     },
     {
       "month": "2024-11",
@@ -51306,6 +51586,11 @@
       "month": "2024-11",
       "region": "Outer Burlington",
       "gallons": 2455
+    },
+    {
+      "month": "2024-11",
+      "region": "Perrigo",
+      "gallons": 1050
     },
     {
       "month": "2024-11",
@@ -51380,7 +51665,7 @@
     {
       "month": "2024-12",
       "region": "Northwest",
-      "gallons": 1699
+      "gallons": 749
     },
     {
       "month": "2024-12",
@@ -51391,6 +51676,11 @@
       "month": "2024-12",
       "region": "Outer Burlington",
       "gallons": 2005
+    },
+    {
+      "month": "2024-12",
+      "region": "Perrigo",
+      "gallons": 950
     },
     {
       "month": "2024-12",
@@ -51550,7 +51840,7 @@
     {
       "month": "2025-02",
       "region": "Northwest",
-      "gallons": 1580
+      "gallons": 980
     },
     {
       "month": "2025-02",
@@ -51561,6 +51851,11 @@
       "month": "2025-02",
       "region": "Outer Burlington",
       "gallons": 2274
+    },
+    {
+      "month": "2025-02",
+      "region": "Perrigo",
+      "gallons": 600
     },
     {
       "month": "2025-02",
@@ -51630,7 +51925,7 @@
     {
       "month": "2025-03",
       "region": "Northwest",
-      "gallons": 3116
+      "gallons": 1236
     },
     {
       "month": "2025-03",
@@ -51641,6 +51936,11 @@
       "month": "2025-03",
       "region": "Outer Burlington",
       "gallons": 2680
+    },
+    {
+      "month": "2025-03",
+      "region": "Perrigo",
+      "gallons": 1880
     },
     {
       "month": "2025-03",
@@ -51720,7 +52020,7 @@
     {
       "month": "2025-04",
       "region": "Northwest",
-      "gallons": 2201
+      "gallons": 1676
     },
     {
       "month": "2025-04",
@@ -51731,6 +52031,11 @@
       "month": "2025-04",
       "region": "Outer Burlington",
       "gallons": 2749
+    },
+    {
+      "month": "2025-04",
+      "region": "Perrigo",
+      "gallons": 525
     },
     {
       "month": "2025-04",
@@ -51805,7 +52110,7 @@
     {
       "month": "2025-05",
       "region": "Northwest",
-      "gallons": 2260
+      "gallons": 910
     },
     {
       "month": "2025-05",
@@ -51816,6 +52121,11 @@
       "month": "2025-05",
       "region": "Outer Burlington",
       "gallons": 2009
+    },
+    {
+      "month": "2025-05",
+      "region": "Perrigo",
+      "gallons": 1350
     },
     {
       "month": "2025-05",
@@ -51895,7 +52205,7 @@
     {
       "month": "2025-06",
       "region": "Northwest",
-      "gallons": 2287
+      "gallons": 1602
     },
     {
       "month": "2025-06",
@@ -51906,6 +52216,11 @@
       "month": "2025-06",
       "region": "Outer Burlington",
       "gallons": 2595
+    },
+    {
+      "month": "2025-06",
+      "region": "Perrigo",
+      "gallons": 685
     },
     {
       "month": "2025-06",
@@ -51980,7 +52295,7 @@
     {
       "month": "2025-07",
       "region": "Northwest",
-      "gallons": 3268
+      "gallons": 1418
     },
     {
       "month": "2025-07",
@@ -51991,6 +52306,11 @@
       "month": "2025-07",
       "region": "Outer Burlington",
       "gallons": 2628
+    },
+    {
+      "month": "2025-07",
+      "region": "Perrigo",
+      "gallons": 1850
     },
     {
       "month": "2025-07",
@@ -52150,7 +52470,7 @@
     {
       "month": "2025-09",
       "region": "Northwest",
-      "gallons": 2019
+      "gallons": 1444
     },
     {
       "month": "2025-09",
@@ -52161,6 +52481,11 @@
       "month": "2025-09",
       "region": "Outer Burlington",
       "gallons": 3200
+    },
+    {
+      "month": "2025-09",
+      "region": "Perrigo",
+      "gallons": 575
     },
     {
       "month": "2025-09",
@@ -52235,7 +52560,7 @@
     {
       "month": "2025-10",
       "region": "Northwest",
-      "gallons": 2438
+      "gallons": 2373
     },
     {
       "month": "2025-10",
@@ -52246,6 +52571,11 @@
       "month": "2025-10",
       "region": "Outer Burlington",
       "gallons": 3121
+    },
+    {
+      "month": "2025-10",
+      "region": "Perrigo",
+      "gallons": 65
     },
     {
       "month": "2025-10",
@@ -52325,7 +52655,7 @@
     {
       "month": "2025-11",
       "region": "Northwest",
-      "gallons": 1754
+      "gallons": 1454
     },
     {
       "month": "2025-11",
@@ -52336,6 +52666,11 @@
       "month": "2025-11",
       "region": "Outer Burlington",
       "gallons": 1715
+    },
+    {
+      "month": "2025-11",
+      "region": "Perrigo",
+      "gallons": 300
     },
     {
       "month": "2025-11",
@@ -52480,7 +52815,7 @@
     {
       "month": "2026-01",
       "region": "Northwest",
-      "gallons": 1545
+      "gallons": 945
     },
     {
       "month": "2026-01",
@@ -52491,6 +52826,11 @@
       "month": "2026-01",
       "region": "Outer Burlington",
       "gallons": 2182
+    },
+    {
+      "month": "2026-01",
+      "region": "Perrigo",
+      "gallons": 600
     },
     {
       "month": "2026-01",
@@ -52565,7 +52905,7 @@
     {
       "month": "2026-02",
       "region": "Northwest",
-      "gallons": 3027
+      "gallons": 1527
     },
     {
       "month": "2026-02",
@@ -52576,6 +52916,11 @@
       "month": "2026-02",
       "region": "Outer Burlington",
       "gallons": 1005
+    },
+    {
+      "month": "2026-02",
+      "region": "Perrigo",
+      "gallons": 1500
     },
     {
       "month": "2026-02",
@@ -52655,7 +53000,7 @@
     {
       "month": "2026-03",
       "region": "Northwest",
-      "gallons": 2951
+      "gallons": 1026
     },
     {
       "month": "2026-03",
@@ -52666,6 +53011,11 @@
       "month": "2026-03",
       "region": "Outer Burlington",
       "gallons": 2734
+    },
+    {
+      "month": "2026-03",
+      "region": "Perrigo",
+      "gallons": 1925
     },
     {
       "month": "2026-03",
@@ -52740,7 +53090,7 @@
     {
       "month": "2026-04",
       "region": "Northwest",
-      "gallons": 2869
+      "gallons": 2219
     },
     {
       "month": "2026-04",
@@ -52751,6 +53101,11 @@
       "month": "2026-04",
       "region": "Outer Burlington",
       "gallons": 2651
+    },
+    {
+      "month": "2026-04",
+      "region": "Perrigo",
+      "gallons": 650
     },
     {
       "month": "2026-04",
@@ -52915,7 +53270,7 @@
     {
       "month": "2026-06",
       "region": "Northwest",
-      "gallons": 14899
+      "gallons": 1499
     },
     {
       "month": "2026-06",
@@ -52926,6 +53281,11 @@
       "month": "2026-06",
       "region": "Outer Burlington",
       "gallons": 1723
+    },
+    {
+      "month": "2026-06",
+      "region": "Perrigo",
+      "gallons": 13400
     },
     {
       "month": "2026-06",
@@ -53005,7 +53365,7 @@
     {
       "month": "2026-07",
       "region": "Northwest",
-      "gallons": 3773
+      "gallons": 2173
     },
     {
       "month": "2026-07",
@@ -53016,6 +53376,11 @@
       "month": "2026-07",
       "region": "Outer Burlington",
       "gallons": 3041
+    },
+    {
+      "month": "2026-07",
+      "region": "Perrigo",
+      "gallons": 1600
     },
     {
       "month": "2026-07",
@@ -53337,7 +53702,7 @@
     {
       "year": 2016,
       "region": "Northwest",
-      "gallons": 2820
+      "gallons": 195
     },
     {
       "year": 2016,
@@ -53348,6 +53713,11 @@
       "year": 2016,
       "region": "Outer Burlington",
       "gallons": 4691
+    },
+    {
+      "year": 2016,
+      "region": "Perrigo",
+      "gallons": 2625
     },
     {
       "year": 2016,
@@ -53422,7 +53792,7 @@
     {
       "year": 2017,
       "region": "Northwest",
-      "gallons": 4650
+      "gallons": 360
     },
     {
       "year": 2017,
@@ -53433,6 +53803,11 @@
       "year": 2017,
       "region": "Outer Burlington",
       "gallons": 5252
+    },
+    {
+      "year": 2017,
+      "region": "Perrigo",
+      "gallons": 4290
     },
     {
       "year": 2017,
@@ -53512,7 +53887,7 @@
     {
       "year": 2018,
       "region": "Northwest",
-      "gallons": 9500
+      "gallons": 2100
     },
     {
       "year": 2018,
@@ -53523,6 +53898,11 @@
       "year": 2018,
       "region": "Outer Burlington",
       "gallons": 13655
+    },
+    {
+      "year": 2018,
+      "region": "Perrigo",
+      "gallons": 7400
     },
     {
       "year": 2018,
@@ -53602,7 +53982,7 @@
     {
       "year": 2019,
       "region": "Northwest",
-      "gallons": 13321
+      "gallons": 2805
     },
     {
       "year": 2019,
@@ -53613,6 +53993,11 @@
       "year": 2019,
       "region": "Outer Burlington",
       "gallons": 17712
+    },
+    {
+      "year": 2019,
+      "region": "Perrigo",
+      "gallons": 10516
     },
     {
       "year": 2019,
@@ -53692,7 +54077,7 @@
     {
       "year": 2020,
       "region": "Northwest",
-      "gallons": 16520
+      "gallons": 4522
     },
     {
       "year": 2020,
@@ -53703,6 +54088,11 @@
       "year": 2020,
       "region": "Outer Burlington",
       "gallons": 12256
+    },
+    {
+      "year": 2020,
+      "region": "Perrigo",
+      "gallons": 11998
     },
     {
       "year": 2020,
@@ -53782,7 +54172,7 @@
     {
       "year": 2021,
       "region": "Northwest",
-      "gallons": 18105
+      "gallons": 9795
     },
     {
       "year": 2021,
@@ -53793,6 +54183,11 @@
       "year": 2021,
       "region": "Outer Burlington",
       "gallons": 18389
+    },
+    {
+      "year": 2021,
+      "region": "Perrigo",
+      "gallons": 8310
     },
     {
       "year": 2021,
@@ -53872,7 +54267,7 @@
     {
       "year": 2022,
       "region": "Northwest",
-      "gallons": 30192
+      "gallons": 10487
     },
     {
       "year": 2022,
@@ -53883,6 +54278,11 @@
       "year": 2022,
       "region": "Outer Burlington",
       "gallons": 25221
+    },
+    {
+      "year": 2022,
+      "region": "Perrigo",
+      "gallons": 19705
     },
     {
       "year": 2022,
@@ -53962,7 +54362,7 @@
     {
       "year": 2023,
       "region": "Northwest",
-      "gallons": 25631
+      "gallons": 17316
     },
     {
       "year": 2023,
@@ -53973,6 +54373,11 @@
       "year": 2023,
       "region": "Outer Burlington",
       "gallons": 26023
+    },
+    {
+      "year": 2023,
+      "region": "Perrigo",
+      "gallons": 8315
     },
     {
       "year": 2023,
@@ -54052,7 +54457,7 @@
     {
       "year": 2024,
       "region": "Northwest",
-      "gallons": 22562
+      "gallons": 14032
     },
     {
       "year": 2024,
@@ -54063,6 +54468,11 @@
       "year": 2024,
       "region": "Outer Burlington",
       "gallons": 32450
+    },
+    {
+      "year": 2024,
+      "region": "Perrigo",
+      "gallons": 8530
     },
     {
       "year": 2024,
@@ -54142,7 +54552,7 @@
     {
       "year": 2025,
       "region": "Northwest",
-      "gallons": 25415
+      "gallons": 17585
     },
     {
       "year": 2025,
@@ -54153,6 +54563,11 @@
       "year": 2025,
       "region": "Outer Burlington",
       "gallons": 30149
+    },
+    {
+      "year": 2025,
+      "region": "Perrigo",
+      "gallons": 7830
     },
     {
       "year": 2025,
@@ -54232,7 +54647,7 @@
     {
       "year": 2026,
       "region": "Northwest",
-      "gallons": 32457
+      "gallons": 12782
     },
     {
       "year": 2026,
@@ -54243,6 +54658,11 @@
       "year": 2026,
       "region": "Outer Burlington",
       "gallons": 20043
+    },
+    {
+      "year": 2026,
+      "region": "Perrigo",
+      "gallons": 19675
     },
     {
       "year": 2026,
@@ -54302,11 +54722,12 @@
   ],
   "region_names": [
     "Burlington / South Burlington",
-    "Northwest",
     "Waterbury / Stowe",
     "Central",
     "Outer Burlington",
+    "Perrigo",
     "North-Northeast",
+    "Northwest",
     "Central South",
     "Route 7",
     "Route 15",
@@ -54339,6 +54760,7 @@
     "North-Northeast": "Jay, Montgomery, Troy, Glover, Eden, Barton, Newport City, Derby, Albany, Craftsbury, Richford, Greensboro",
     "Ski Slopes": "on-mountain and resort stops statewide, from Jay Peak to Mount Snow",
     "Summer Snack Stops": "seasonal snack bars, food trucks, fairgrounds and golf courses",
+    "Perrigo": "Perrigo Nutritionals, Milton \u2014 bulk on-demand",
     "South / Ski Combined": "every stop in South, plus the southern mountains",
     "Winter / Summer Combined": "both ends of the year: every ski slope stop and every summer snack stop",
     "Other": "customers not assigned to a named region"
@@ -54377,8 +54799,8 @@
       "active": 33
     },
     "Northwest": {
-      "customers": 51,
-      "active": 38
+      "customers": 50,
+      "active": 37
     },
     "Other": {
       "customers": 13,
@@ -54387,6 +54809,10 @@
     "Outer Burlington": {
       "customers": 58,
       "active": 46
+    },
+    "Perrigo": {
+      "customers": 1,
+      "active": 1
     },
     "Route 15": {
       "customers": 33,
@@ -54952,7 +55378,6 @@
       420,
       421,
       422,
-      423,
       425,
       426,
       427,
@@ -55071,6 +55496,9 @@
       1459,
       1495,
       1517
+    ],
+    "Perrigo": [
+      423
     ],
     "Route 15": [
       500,

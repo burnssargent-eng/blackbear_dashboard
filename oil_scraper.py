@@ -502,9 +502,29 @@ SNACK_STOP_IDS = {
     533, 1076, 905, 825, 602, 517, 1090, 1146, 1136, 375,    # the other golf courses
 }
 
+# Perrigo Nutritionals, Milton. An industrial bulk account rather than a route
+# stop: its median lift is 650 gallons against 55 for every other customer in
+# the company, and it was 54% of Northwest's all-time volume on its own, which
+# made that region's numbers a reading of one contract rather than of a route.
+# Sarge split it out on 2026-09-21. Unlike the theme regions this is EXCLUSIVE,
+# not an overlay — see REGION_EXCLUDED_IDS below.
+PERRIGO_IDS = {423}
+
 REGION_CUSTOMER_IDS = {
     "Ski Slopes": SKI_SLOPE_IDS,
     "Summer Snack Stops": SNACK_STOP_IDS,
+    "Perrigo": PERRIGO_IDS,
+}
+
+# Customers a town-based region must NOT claim, even though their town is in
+# its list. Every other rule here is additive — a row takes EVERY label it
+# matches — so this is the only way to move a single customer out of the region
+# its town would otherwise put it in, without moving the town and its
+# neighbours too. Milton stays in Northwest and keeps its six other customers.
+# Keep an entry here in step with the id-based region that replaces it, or the
+# customer lands in 'Other'.
+REGION_EXCLUDED_IDS = {
+    "Northwest": PERRIGO_IDS,
 }
 
 # Theme regions are overlays on the map rather than places on it: they are
@@ -553,6 +573,8 @@ STATIC_REGION_DESCRIPTIONS = {
         "seasonal snack bars, food trucks, fairgrounds and golf courses",
     "Winter / Summer Combined":
         "both ends of the year: every ski slope stop and every summer snack stop",
+    "Perrigo":
+        "Perrigo Nutritionals, Milton — bulk on-demand",
 }
 
 
@@ -572,8 +594,8 @@ def region_key(row):
     return city.strip() if isinstance(city, str) else ""
 
 
-def _town_matcher(towns):
-    return lambda r: region_key(r) in towns
+def _town_matcher(towns, excluded=frozenset()):
+    return lambda r: region_key(r) in towns and r["customer_id"] not in excluded
 
 
 def _customer_matcher(ids):
@@ -600,7 +622,8 @@ COMPOSITE_REGIONS = {
 }
 
 CUSTOM_REGIONS = (
-    [(name, _town_matcher(towns)) for name, towns in REGION_TOWNS.items()]
+    [(name, _town_matcher(towns, REGION_EXCLUDED_IDS.get(name, frozenset())))
+     for name, towns in REGION_TOWNS.items()]
     + [(name, _customer_matcher(ids)) for name, ids in REGION_CUSTOMER_IDS.items()]
     + list(COMPOSITE_REGIONS.items())
 )
@@ -649,8 +672,9 @@ def region_descriptions():
     follows the config, and a few towns are shown under a better-known village
     name. Regions whose name already lists their contents are omitted, so the
     page simply shows no line for them. "Other" is included even though it is
-    not a named region, and the id-based theme regions take their text from
-    STATIC_REGION_DESCRIPTIONS, having no towns to derive it from.
+    not a named region, and the id-based regions take their text from
+    STATIC_REGION_DESCRIPTIONS, having no towns to derive it from. Those are
+    the theme overlays plus Perrigo, which is id-based without being a theme.
     """
     out = {}
     for name in REGION_NAMES:
