@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-21T13:37:28.833819",
+  "last_updated": "2026-09-22T12:22:08.544598",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33394,7 +33394,7 @@
     {
       "month": "2026-09",
       "geo_town": "Burlington",
-      "gallons": 2835,
+      "gallons": 3425,
       "city": "Burlington"
     },
     {
@@ -41293,7 +41293,7 @@
     {
       "month": "2026-09",
       "county": "Chittenden",
-      "gallons": 7285
+      "gallons": 7875
     },
     {
       "month": "2026-09",
@@ -41398,11 +41398,11 @@
     },
     {
       "year": 2026,
-      "gallons": 217427
+      "gallons": 218017
     }
   ],
-  "all_time_total": 2136194,
-  "current_year_total": 217427,
+  "all_time_total": 2136784,
+  "current_year_total": 218017,
   "customer_count": 796,
   "unmapped_total": 39625,
   "monthly_totals": [
@@ -41968,7 +41968,7 @@
     },
     {
       "month": "2026-09",
-      "gallons": 16088
+      "gallons": 16678
     }
   ],
   "monthly_by_region": [
@@ -53520,7 +53520,7 @@
     {
       "month": "2026-09",
       "region": "Burlington / South Burlington",
-      "gallons": 3250
+      "gallons": 3840
     },
     {
       "month": "2026-09",
@@ -54627,7 +54627,7 @@
     {
       "year": 2026,
       "region": "Burlington / South Burlington",
-      "gallons": 42842
+      "gallons": 43432
     },
     {
       "year": 2026,
@@ -54766,20 +54766,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 27478,
+  "collections_count": 27488,
   "out_of_state_total": 39625,
   "active_customer_count": 522,
   "projection": {
     "latest_data_date": "2026-09-21",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 217427,
+    "current_ytd": 218017,
     "previous_year_full": 269909,
     "previous_through_prior_month": 183361,
     "previous_same_month_total": 25498,
     "previous_prorated_ytd": 201209.6,
-    "projected_current_year": 291664,
-    "percent_vs_previous_year": 0.0806
+    "projected_current_year": 292455,
+    "percent_vs_previous_year": 0.083532
   },
   "region_stats": {
     "Burlington / South Burlington": {
