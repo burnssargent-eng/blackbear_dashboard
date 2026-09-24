@@ -1424,6 +1424,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 802,Creek House Diner,Bethel,Windsor,2015-04-20,2015,2015-04,25,True,Bethel
 802,Creek House Diner,Bethel,Windsor,2015-03-10,2015,2015-03,25,True,Bethel
 802,Creek House Diner,Bethel,Windsor,2015-01-29,2015,2015-01,25,True,Bethel
+803,Toziers-,Bethel,Windsor,2026-09-23,2026,2026-09,100,True,Bethel
 803,Toziers-,Bethel,Windsor,2026-09-10,2026,2026-09,80,True,Bethel
 803,Toziers-,Bethel,Windsor,2026-09-04,2026,2026-09,120,True,Bethel
 803,Toziers-,Bethel,Windsor,2026-08-24,2026,2026-08,220,True,Bethel
@@ -6172,6 +6173,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 703,Philo Ridge Farm,Charlotte,Chittenden,2019-07-08,2019,2019-07,50,True,Charlotte
 703,Philo Ridge Farm,Charlotte,Chittenden,2018-12-13,2018,2018-12,35,True,Charlotte
 703,Philo Ridge Farm,Charlotte,Chittenden,2018-10-04,2018,2018-10,25,True,Charlotte
+931,Burger King-Claremont,Claremont,Out-of-State (NH),2026-09-23,2026,2026-09,50,True,
 931,Burger King-Claremont,Claremont,Out-of-State (NH),2026-02-11,2026,2026-02,80,True,
 931,Burger King-Claremont,Claremont,Out-of-State (NH),2025-09-26,2025,2025-09,60,True,
 931,Burger King-Claremont,Claremont,Out-of-State (NH),2025-07-22,2025,2025-07,45,True,
@@ -6283,6 +6285,8 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 931,Burger King-Claremont,Claremont,Out-of-State (NH),2016-09-03,2016,2016-09,150,True,
 931,Burger King-Claremont,Claremont,Out-of-State (NH),2016-08-06,2016,2016-08,100,True,
 931,Burger King-Claremont,Claremont,Out-of-State (NH),2016-07-10,2016,2016-07,115,True,
+1486,Cardinal Cafe-Claremont,Claremont,Out-of-State (NH),2026-09-23,2026,2026-09,30,True,
+1192,Hannaford-Claremont,Claremont,Out-of-State (NH),2026-09-23,2026,2026-09,49,True,
 1192,Hannaford-Claremont,Claremont,Out-of-State (NH),2026-02-11,2026,2026-02,31,True,
 1192,Hannaford-Claremont,Claremont,Out-of-State (NH),2025-09-26,2025,2025-09,30,True,
 1192,Hannaford-Claremont,Claremont,Out-of-State (NH),2025-06-12,2025,2025-06,79,True,
@@ -13309,6 +13313,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 829,Chef Brad Crazy Sides,Quechee,Windsor,2016-10-30,2016,2016-10,50,True,Hartford
 1463,Mobil Station,Quechee,Windsor,2025-11-14,2025,2025-11,7,True,Hartford
 1463,Mobil Station,Quechee,Windsor,2025-11-14,2025,2025-11,30,True,Hartford
+1056,Quechee Gorge Snack Bar,Quechee,Windsor,2026-09-23,2026,2026-09,200,True,Hartford
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2026-09-04,2026,2026-09,190,True,Hartford
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2026-08-20,2026,2026-08,250,True,Hartford
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2026-07-30,2026,2026-07,200,True,Hartford
@@ -13719,6 +13724,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 834,Gifford Retirement (Morgan Orchard),Randolph Center,Windsor,2020-01-22,2020,2020-01,50,True,Randolph
 834,Gifford Retirement (Morgan Orchard),Randolph Center,Windsor,2019-10-23,2019,2019-10,35,True,Randolph
 834,Gifford Retirement (Morgan Orchard),Randolph Center,Windsor,2019-07-01,2019,2019-07,30,True,Randolph
+1058,Readsboro General Store,Readsboro,Windham,2026-09-23,2026,2026-09,50,True,Readsboro
 1058,Readsboro General Store,Readsboro,Windham,2025-09-26,2025,2025-09,50,True,Readsboro
 1058,Readsboro General Store,Readsboro,Windham,2025-06-18,2025,2025-06,130,True,Readsboro
 1058,Readsboro General Store,Readsboro,Windham,2024-05-03,2024,2024-05,50,True,Readsboro
@@ -20773,6 +20779,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 900,Grand Summit Hotel (Mt. Snow),West Dover,Windham,2018-02-02,2018,2018-02,100,True,Dover
 900,Grand Summit Hotel (Mt. Snow),West Dover,Windham,2018-01-08,2018,2018-01,150,True,Dover
 900,Grand Summit Hotel (Mt. Snow),West Dover,Windham,2017-09-27,2017,2017-09,100,True,Dover
+1169,Mount snow golf course,West Dover,Windham,2026-09-23,2026,2026-09,100,True,Dover
 1169,Mount snow golf course,West Dover,Windham,2025-07-01,2025,2025-07,85,True,Dover
 1169,Mount snow golf course,West Dover,Windham,2023-07-18,2023,2023-07,80,True,Dover
 1169,Mount snow golf course,West Dover,Windham,2022-09-02,2022,2022-09,125,True,Dover
@@ -22889,6 +22896,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 820,Sante-2022|dailey catch-Woodstock,Woodstock,Windsor,2019-03-16,2019,2019-03,125,True,Woodstock
 820,Sante-2022|dailey catch-Woodstock,Woodstock,Windsor,2019-02-13,2019,2019-02,60,True,Woodstock
 820,Sante-2022|dailey catch-Woodstock,Woodstock,Windsor,2018-12-06,2018,2018-12,50,True,Woodstock
+824,White Cottage,Woodstock,Windsor,2026-09-23,2026,2026-09,20,True,Woodstock
 824,White Cottage,Woodstock,Windsor,2026-09-04,2026,2026-09,30,True,Woodstock
 824,White Cottage,Woodstock,Windsor,2026-08-20,2026,2026-08,90,True,Woodstock
 824,White Cottage,Woodstock,Windsor,2026-07-30,2026,2026-07,150,True,Woodstock
@@ -22953,6 +22961,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 825,Woodstock Country Club,Woodstock,Windsor,2021-08-17,2021,2021-08,75,True,Woodstock
 825,Woodstock Country Club,Woodstock,Windsor,2019-12-05,2019,2019-12,50,True,Woodstock
 825,Woodstock Country Club,Woodstock,Windsor,2019-04-26,2019,2019-04,50,True,Woodstock
+823,Woodstock Inn,Woodstock,Windsor,2026-09-23,2026,2026-09,120,True,Woodstock
 823,Woodstock Inn,Woodstock,Windsor,2026-09-04,2026,2026-09,70,True,Woodstock
 823,Woodstock Inn,Woodstock,Windsor,2026-08-20,2026,2026-08,110,True,Woodstock
 823,Woodstock Inn,Woodstock,Windsor,2026-07-30,2026,2026-07,80,True,Woodstock
