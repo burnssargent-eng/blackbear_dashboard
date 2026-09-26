@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-25T12:35:41.071849",
+  "last_updated": "2026-09-26T12:05:17.578812",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33352,7 +33352,7 @@
     {
       "month": "2026-09",
       "geo_town": "Barre Town",
-      "gallons": 416,
+      "gallons": 451,
       "city": "Barre Town"
     },
     {
@@ -33412,7 +33412,7 @@
     {
       "month": "2026-09",
       "geo_town": "Colchester",
-      "gallons": 300,
+      "gallons": 400,
       "city": "Colchester"
     },
     {
@@ -33603,6 +33603,12 @@
     },
     {
       "month": "2026-09",
+      "geo_town": "Tunbridge",
+      "gallons": 420,
+      "city": "Tunbridge"
+    },
+    {
+      "month": "2026-09",
       "geo_town": "Vergennes",
       "gallons": 295,
       "city": "Vergennes"
@@ -33622,7 +33628,7 @@
     {
       "month": "2026-09",
       "geo_town": "Waterbury",
-      "gallons": 160,
+      "gallons": 675,
       "city": "Waterbury"
     },
     {
@@ -33640,7 +33646,7 @@
     {
       "month": "2026-09",
       "geo_town": "Winooski",
-      "gallons": 835,
+      "gallons": 880,
       "city": "Winooski"
     },
     {
@@ -41335,7 +41341,7 @@
     {
       "month": "2026-09",
       "county": "Chittenden",
-      "gallons": 7875
+      "gallons": 8020
     },
     {
       "month": "2026-09",
@@ -41380,7 +41386,7 @@
     {
       "month": "2026-09",
       "county": "Washington",
-      "gallons": 2866
+      "gallons": 3416
     },
     {
       "month": "2026-09",
@@ -41390,7 +41396,7 @@
     {
       "month": "2026-09",
       "county": "Windsor",
-      "gallons": 1530
+      "gallons": 1950
     }
   ],
   "yearly_totals": [
@@ -41440,11 +41446,11 @@
     },
     {
       "year": 2026,
-      "gallons": 219753
+      "gallons": 220868
     }
   ],
-  "all_time_total": 2138520,
-  "current_year_total": 219753,
+  "all_time_total": 2139635,
+  "current_year_total": 220868,
   "customer_count": 797,
   "unmapped_total": 39754,
   "monthly_totals": [
@@ -42010,7 +42016,7 @@
     },
     {
       "month": "2026-09",
-      "gallons": 18414
+      "gallons": 19529
     }
   ],
   "monthly_by_region": [
@@ -53567,12 +53573,12 @@
     {
       "month": "2026-09",
       "region": "Central",
-      "gallons": 2151
+      "gallons": 2186
     },
     {
       "month": "2026-09",
       "region": "Central South",
-      "gallons": 1784
+      "gallons": 2204
     },
     {
       "month": "2026-09",
@@ -53582,7 +53588,7 @@
     {
       "month": "2026-09",
       "region": "Northwest",
-      "gallons": 1059
+      "gallons": 1159
     },
     {
       "month": "2026-09",
@@ -53592,7 +53598,7 @@
     {
       "month": "2026-09",
       "region": "Outer Burlington",
-      "gallons": 3735
+      "gallons": 3780
     },
     {
       "month": "2026-09",
@@ -53642,7 +53648,7 @@
     {
       "month": "2026-09",
       "region": "Waterbury / Stowe",
-      "gallons": 1400
+      "gallons": 1915
     },
     {
       "month": "2026-09",
@@ -54684,12 +54690,12 @@
     {
       "year": 2026,
       "region": "Central",
-      "gallons": 21487
+      "gallons": 21522
     },
     {
       "year": 2026,
       "region": "Central South",
-      "gallons": 12354
+      "gallons": 12774
     },
     {
       "year": 2026,
@@ -54699,7 +54705,7 @@
     {
       "year": 2026,
       "region": "Northwest",
-      "gallons": 12782
+      "gallons": 12882
     },
     {
       "year": 2026,
@@ -54709,7 +54715,7 @@
     {
       "year": 2026,
       "region": "Outer Burlington",
-      "gallons": 20043
+      "gallons": 20088
     },
     {
       "year": 2026,
@@ -54764,7 +54770,7 @@
     {
       "year": 2026,
       "region": "Waterbury / Stowe",
-      "gallons": 29495
+      "gallons": 30010
     },
     {
       "year": 2026,
@@ -54818,20 +54824,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 27517,
+  "collections_count": 27528,
   "out_of_state_total": 39754,
   "active_customer_count": 523,
   "projection": {
-    "latest_data_date": "2026-09-23",
+    "latest_data_date": "2026-09-25",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 219753,
+    "current_ytd": 220868,
     "previous_year_full": 269909,
     "previous_through_prior_month": 183361,
     "previous_same_month_total": 25498,
-    "previous_prorated_ytd": 202909.47,
-    "projected_current_year": 292314,
-    "percent_vs_previous_year": 0.08301
+    "previous_prorated_ytd": 204609.33,
+    "projected_current_year": 291357,
+    "percent_vs_previous_year": 0.079462
   },
   "region_stats": {
     "Burlington / South Burlington": {
@@ -54991,7 +54997,7 @@
     },
     {
       "year": 2026,
-      "places_serviced": 463,
+      "places_serviced": 464,
       "gained": 35,
       "lost": 6,
       "net": 29

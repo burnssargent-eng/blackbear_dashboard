@@ -186,6 +186,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 113,Asia Gourmet-Barre,Barre,Washington,2017-10-24,2017,2017-10,60,True,Barre City
 113,Asia Gourmet-Barre,Barre,Washington,2017-09-28,2017,2017-09,60,True,Barre City
 113,Asia Gourmet-Barre,Barre,Washington,2017-09-07,2017,2017-09,125,True,Barre City
+110,Canadian Club,Barre,Washington,2026-09-25,2026,2026-09,35,True,Barre Town
 110,Canadian Club,Barre,Washington,2026-07-20,2026,2026-07,20,True,Barre Town
 110,Canadian Club,Barre,Washington,2026-05-29,2026,2026-05,75,True,Barre Town
 110,Canadian Club,Barre,Washington,2026-03-25,2026,2026-03,15,True,Barre Town
@@ -6613,6 +6614,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1214,Pioneer Lakeshore Cafe 50%,Colchester,Chittenden,2023-03-22,2023,2023-03,45,True,Colchester
 1214,Pioneer Lakeshore Cafe 50%,Colchester,Chittenden,2023-02-24,2023,2023-02,36,True,Colchester
 1214,Pioneer Lakeshore Cafe 50%,Colchester,Chittenden,2023-02-07,2023,2023-02,15,True,Colchester
+1433,Three Brothers Pizza-Colchester,Colchester,Chittenden,2026-09-25,2026,2026-09,100,True,Colchester
 1433,Three Brothers Pizza-Colchester,Colchester,Chittenden,2026-05-28,2026,2026-05,70,True,Colchester
 1433,Three Brothers Pizza-Colchester,Colchester,Chittenden,2026-02-10,2026,2026-02,50,True,Colchester
 1433,Three Brothers Pizza-Colchester,Colchester,Chittenden,2025-10-28,2025,2025-10,25,True,Colchester
@@ -18044,6 +18046,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1176,Hannaford-Swanton,Swanton,Franklin,2022-12-08,2022,2022-12,41,True,Swanton
 1176,Hannaford-Swanton,Swanton,Franklin,2022-10-27,2022,2022-10,42,True,Swanton
 1176,Hannaford-Swanton,Swanton,Franklin,2022-09-16,2022,2022-09,117,True,Swanton
+836,Tunbridge Fair,Tunbridge,Windsor,2026-09-25,2026,2026-09,420,True,Tunbridge
 836,Tunbridge Fair,Tunbridge,Windsor,2025-09-18,2025,2025-09,285,True,Tunbridge
 836,Tunbridge Fair,Tunbridge,Windsor,2024-09-20,2024,2024-09,210,True,Tunbridge
 836,Tunbridge Fair,Tunbridge,Windsor,2023-09-29,2023,2023-09,25,True,Tunbridge
@@ -19451,6 +19454,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 288,Warren Store,Warren,Washington,2021-09-16,2021,2021-09,35,True,Warren
 288,Warren Store,Warren,Washington,2021-08-26,2021,2021-08,20,True,Warren
 288,Warren Store,Warren,Washington,2021-08-10,2021,2021-08,100,True,Warren
+1374,Arandas Mexican-Waterbury,Waterbury,Washington,2026-09-25,2026,2026-09,50,True,Waterbury
 1374,Arandas Mexican-Waterbury,Waterbury,Washington,2026-07-22,2026,2026-07,25,True,Waterbury
 1374,Arandas Mexican-Waterbury,Waterbury,Washington,2026-05-11,2026,2026-05,30,True,Waterbury
 1374,Arandas Mexican-Waterbury,Waterbury,Washington,2026-03-30,2026,2026-03,35,True,Waterbury
@@ -19465,6 +19469,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1374,Arandas Mexican-Waterbury,Waterbury,Washington,2025-04-08,2025,2025-04,55,True,Waterbury
 1374,Arandas Mexican-Waterbury,Waterbury,Washington,2025-02-13,2025,2025-02,45,True,Waterbury
 1374,Arandas Mexican-Waterbury,Waterbury,Washington,2024-10-30,2024,2024-10,35,True,Waterbury
+232,Crossroads Deli,Waterbury,Washington,2026-09-25,2026,2026-09,45,True,Waterbury
 232,Crossroads Deli,Waterbury,Washington,2026-08-18,2026,2026-08,30,True,Waterbury
 232,Crossroads Deli,Waterbury,Washington,2026-06-22,2026,2026-06,65,True,Waterbury
 232,Crossroads Deli,Waterbury,Washington,2026-04-27,2026,2026-04,20,True,Waterbury
@@ -19531,6 +19536,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 232,Crossroads Deli,Waterbury,Washington,2015-10-14,2015,2015-10,20,True,Waterbury
 232,Crossroads Deli,Waterbury,Washington,2015-06-11,2015,2015-06,20,True,Waterbury
 232,Crossroads Deli,Waterbury,Washington,2015-04-15,2015,2015-04,50,True,Waterbury
+1345,Gallus-Waterbury,Waterbury,Washington,2026-09-25,2026,2026-09,75,True,Waterbury
 1345,Gallus-Waterbury,Waterbury,Washington,2026-08-31,2026,2026-08,75,True,Waterbury
 1345,Gallus-Waterbury,Waterbury,Washington,2026-08-18,2026,2026-08,150,True,Waterbury
 1345,Gallus-Waterbury,Waterbury,Washington,2026-07-22,2026,2026-07,65,True,Waterbury
@@ -19566,6 +19572,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1345,Gallus-Waterbury,Waterbury,Washington,2024-09-19,2024,2024-09,40,True,Waterbury
 1345,Gallus-Waterbury,Waterbury,Washington,2024-09-02,2024,2024-09,60,True,Waterbury
 1345,Gallus-Waterbury,Waterbury,Washington,2024-08-14,2024,2024-08,140,True,Waterbury
+234,Hen of the Wood-WATERBURY,Waterbury,Washington,2026-09-25,2026,2026-09,75,True,Waterbury
 234,Hen of the Wood-WATERBURY,Waterbury,Washington,2026-08-18,2026,2026-08,75,True,Waterbury
 234,Hen of the Wood-WATERBURY,Waterbury,Washington,2026-07-22,2026,2026-07,80,True,Waterbury
 234,Hen of the Wood-WATERBURY,Waterbury,Washington,2026-06-23,2026,2026-06,70,True,Waterbury
@@ -19837,6 +19844,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 233,Maxi's,Waterbury,Washington,2015-06-11,2015,2015-06,25,True,Waterbury
 233,Maxi's,Waterbury,Washington,2015-03-19,2015,2015-03,40,True,Waterbury
 233,Maxi's,Waterbury,Washington,2015-01-09,2015,2015-01,25,True,Waterbury
+241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2026-09-25,2026,2026-09,70,True,Waterbury
 241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2026-08-31,2026,2026-08,60,True,Waterbury
 241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2026-08-18,2026,2026-08,35,True,Waterbury
 241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2026-07-22,2026,2026-07,75,True,Waterbury
@@ -20100,6 +20108,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 239,Michael's on the Hill,Waterbury,Washington,2015-01-14,2015,2015-01,40,True,Waterbury
 1225,Old Stage Coach Inn,Waterbury,Washington,2023-08-02,2023,2023-08,10,True,Waterbury
 1225,Old Stage Coach Inn,Waterbury,Washington,2023-03-13,2023,2023-03,25,True,Waterbury
+229,Prohibition Pig,Waterbury,Washington,2026-09-25,2026,2026-09,100,True,Waterbury
 229,Prohibition Pig,Waterbury,Washington,2026-09-01,2026,2026-09,80,True,Waterbury
 229,Prohibition Pig,Waterbury,Washington,2026-08-18,2026,2026-08,75,True,Waterbury
 229,Prohibition Pig,Waterbury,Washington,2026-08-04,2026,2026-08,75,True,Waterbury
@@ -20327,6 +20336,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 229,Prohibition Pig,Waterbury,Washington,2015-02-25,2015,2015-02,40,True,Waterbury
 229,Prohibition Pig,Waterbury,Washington,2015-02-09,2015,2015-02,50,True,Waterbury
 229,Prohibition Pig,Waterbury,Washington,2015-01-14,2015,2015-01,50,True,Waterbury
+227,The Reservoir-Waterbury,Waterbury,Washington,2026-09-25,2026,2026-09,100,True,Waterbury
 227,The Reservoir-Waterbury,Waterbury,Washington,2026-08-31,2026,2026-08,180,True,Waterbury
 227,The Reservoir-Waterbury,Waterbury,Washington,2026-08-04,2026,2026-08,180,True,Waterbury
 227,The Reservoir-Waterbury,Waterbury,Washington,2026-07-09,2026,2026-07,60,True,Waterbury
@@ -22357,6 +22367,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 432,Sneakers Alley 100%,Winooski,Chittenden,2019-08-22,2019,2019-08,100,True,Winooski
 432,Sneakers Alley 100%,Winooski,Chittenden,2019-05-26,2019,2019-05,50,True,Winooski
 432,Sneakers Alley 100%,Winooski,Chittenden,2019-03-19,2019,2019-03,25,True,Winooski
+443,Southern Smoke-Winooski,Winooski,Chittenden,2026-09-25,2026,2026-09,45,True,Winooski
 443,Southern Smoke-Winooski,Winooski,Chittenden,2026-07-31,2026,2026-07,60,True,Winooski
 443,Southern Smoke-Winooski,Winooski,Chittenden,2026-05-14,2026,2026-05,45,True,Winooski
 443,Southern Smoke-Winooski,Winooski,Chittenden,2025-07-25,2025,2025-07,45,True,Winooski
