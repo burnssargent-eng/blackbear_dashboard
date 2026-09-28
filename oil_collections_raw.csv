@@ -14726,6 +14726,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1493,Pizza Hut-St Albans,St Albans,Franklin,2026-06-23,2026,2026-06,15,True,Saint Albans Town
 1493,Pizza Hut-St Albans,St Albans,Franklin,2026-06-02,2026,2026-06,20,True,Saint Albans Town
 1493,Pizza Hut-St Albans,St Albans,Franklin,2026-05-12,2026,2026-05,90,True,Saint Albans Town
+1507,St.Johnsbury Country Club,Burlington,Chittenden,2026-09-28,2026,2026-09,30,True,Burlington
 1507,St.Johnsbury Country Club,Burlington,Chittenden,2026-09-02,2026,2026-09,30,True,Burlington
 1507,St.Johnsbury Country Club,Burlington,Chittenden,2026-08-18,2026,2026-08,55,True,Burlington
 1507,St.Johnsbury Country Club,Burlington,Chittenden,2026-07-21,2026,2026-07,50,True,Burlington
@@ -14951,6 +14952,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 418,Nelly's,St. Albans City,Franklin,2019-01-22,2019,2019-01,50,True,Saint Albans City
 1429,Rail City Grill,St. Albans City,Franklin,2025-08-01,2025,2025-08,65,True,Saint Albans City
 1429,Rail City Grill,St. Albans City,Franklin,2025-07-11,2025,2025-07,85,True,Saint Albans City
+1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2026-09-28,2026,2026-09,70,True,Saint Johnsbury
 1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2026-09-02,2026,2026-09,40,True,Saint Johnsbury
 1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2026-08-18,2026,2026-08,100,True,Saint Johnsbury
 1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2026-07-21,2026,2026-07,105,True,Saint Johnsbury
@@ -15001,12 +15003,15 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1293,Center Tower - St. J,St. Johnsbury,Caledonia,2024-12-14,2024,2024-12,100,True,Saint Johnsbury
 1293,Center Tower - St. J,St. Johnsbury,Caledonia,2024-06-20,2024,2024-06,125,True,Saint Johnsbury
 1293,Center Tower - St. J,St. Johnsbury,Caledonia,2023-10-27,2023,2023-10,275,True,Saint Johnsbury
+1080,JavierBillsAlmostMexican/PicaPica,St. Johnsbury,Caledonia,2026-09-28,2026,2026-09,45,True,Saint Johnsbury
 1080,JavierBillsAlmostMexican/PicaPica,St. Johnsbury,Caledonia,2026-04-10,2026,2026-04,50,True,Saint Johnsbury
 1080,JavierBillsAlmostMexican/PicaPica,St. Johnsbury,Caledonia,2025-09-23,2025,2025-09,20,True,Saint Johnsbury
 1080,JavierBillsAlmostMexican/PicaPica,St. Johnsbury,Caledonia,2025-06-27,2025,2025-06,40,True,Saint Johnsbury
 1080,JavierBillsAlmostMexican/PicaPica,St. Johnsbury,Caledonia,2023-09-27,2023,2023-09,30,True,Saint Johnsbury
 1080,JavierBillsAlmostMexican/PicaPica,St. Johnsbury,Caledonia,2022-12-22,2022,2022-12,40,True,Saint Johnsbury
 1080,JavierBillsAlmostMexican/PicaPica,St. Johnsbury,Caledonia,2021-11-09,2021,2021-11,60,True,Saint Johnsbury
+1519,Swing Sportsplex,St. Johnsbury,Caledonia,2026-09-28,2026,2026-09,20,True,Saint Johnsbury
+1415,The Buttery,St. Johnsbury,Caledonia,2026-09-28,2026,2026-09,25,True,Saint Johnsbury
 1415,The Buttery,St. Johnsbury,Caledonia,2026-07-21,2026,2026-07,15,True,Saint Johnsbury
 1415,The Buttery,St. Johnsbury,Caledonia,2026-06-19,2026,2026-06,15,True,Saint Johnsbury
 1415,The Buttery,St. Johnsbury,Caledonia,2026-05-04,2026,2026-05,20,True,Saint Johnsbury
