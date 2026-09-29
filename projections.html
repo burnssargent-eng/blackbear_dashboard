@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pickup Projections (beta) — Black Bear Biodiesel</title>
+
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+<header>
+  <a class="brand-home" href="index.html" aria-label="Back to dashboard">
+    <img src="logo.png" alt="Black Bear Biodiesel" onerror="this.style.display='none'">
+    <div>
+      <div class="subtitle">Oil Collection Analytics</div>
+      <h1>Black Bear Biodiesel</h1>
+    </div>
+  </a>
+  <div class="header-center">
+    <div class="page-name" id="page-name"></div>
+    <nav class="main-nav" id="main-nav"></nav>
+  </div>
+  <img class="header-team" src="team.png" alt="The Black Bear Biodiesel team"
+       onerror="this.style.display='none'">
+  <div class="last-updated" id="last-updated"></div>
+</header>
+
+<div class="page" id="page">
+  <div class="page-state">
+    <div class="state-message">Loading projections…</div>
+  </div>
+</div>
+
+<script src="dashboard-utils.js"></script>
+<script>
+/*
+ * Beta pickup projections. Not linked from the nav yet.
+ *
+ * Everything shown here is computed by analysis/build_projection_table.py and
+ * read from oil_projections.json, which the nightly job rebuilds after the
+ * scrape. This page NEVER recomputes a projection, re-sorts the ranking or
+ * re-derives a section: the maths lives in one place, in Python.
+ */
+
+const PROJECTIONS_FILE = "oil_projections.json";
+
+// Held-out sections, in the order the export lists them. The ranked section
+// is rendered separately as the main table.
+const SECTION_TEXT = {
+  "seasonal holdout":
+    "Seasonal accounts that are closed, or have gone quiet, outside their " +
+    "season — or whose season has opened but who have not had a pickup yet. " +
+    "Months of closure are not counted as oil building up.",
+  "event-driven":
+    "Fairs and event venues. Their oil follows the event calendar, not a " +
+    "daily rate, so they get no fill estimate.",
+  "on-demand / unlimited":
+    "Bulk accounts collected on request. Container-fill timing does not apply.",
+  "lump-sum / interval-based":
+    "Accounts collected in lumps at set intervals rather than as a barrel fills.",
+  "stale":
+    "Active on the source site, but no pickup in the last 180 days, so a " +
+    "fill estimate would mean nothing.",
+  "insufficient data":
+    "Too little pickup history to form both halves of the rate yet.",
+};
+
+let projections = null;     // the parsed oil_projections.json
+let oilData = null;         // oil_data.json, for the nav and the freshness check
+let selectedRegion = "";    // "" means every region
+
+async function loadProjections() {
+  const resp = await fetch(`${PROJECTIONS_FILE}?v=${Date.now()}`);
+  if (!resp.ok) {
+    throw new Error(`Could not load ${PROJECTIONS_FILE} (HTTP ${resp.status})`);
+  }
+  return resp.json();
+}
+
+async function init() {
+  const page = document.getElementById("page");
+
+  try {
+    oilData = await loadOilData();
+    projections = await loadProjections();
+  } catch (err) {
+    renderNav(null, oilData);
+    renderState(page, "error", "Could not load the projections.", err.message);
+    return;
+  }
+
+  renderNav(null, oilData);
+  renderLastUpdated(oilData);
+
+  if (!projections.customers || !projections.customers.length) {
+    renderState(page, "empty", "No projections are available.");
+    return;
+  }
+
+  selectedRegion = regionOptions(projections).includes(getUrlParam("region"))
+    ? getUrlParam("region") : "";
+
+  buildShell(page);
+  update();
+}
+
+/**
+ * A warning when this projection was not built from the scrape the site is
+ * now showing -- i.e. the nightly scraped but the projection build failed.
+ * Returns null when they match.
+ */
+function freshnessWarning(payload, data) {
+  const built = payload && payload.data_last_updated;
+  const live = data && data.last_updated;
+  if (!built || !live || built === live) return null;
+  return `These projections were built from the ${formatDate(built.slice(0, 10))} ` +
+    `data, but the site now has newer data (${formatDate(live.slice(0, 10))}). ` +
+    "The nightly projection build may have failed; treat these figures as out of date.";
+}
+
+/** Regions that actually have customers in the export, in the site's order. */
+function regionOptions(payload) {
+  const present = new Set();
+  payload.customers.forEach(c => (c.regions || []).forEach(r => present.add(r)));
+  return (payload.region_order || []).filter(r => present.has(r));
+}
+
+/** Customers in `region`, keeping the export's order. "" keeps everyone. */
+function filterByRegion(customers, region) {
+  if (!region) return customers.slice();
+  return customers.filter(c => (c.regions || []).includes(region));
+}
+
+function buildShell(page) {
+  renderPageName("Pickup Projections (beta)");
+
+  const target = Math.round((projections.target_fraction || 0.75) * 100);
+  const warning = freshnessWarning(projections, oilData);
+
+  page.innerHTML = `
+    <a class="back-link" href="index.html">← Back to the dashboard</a>
+    <div class="page-subtitle">
+      Projected oil as of <strong>${escapeHtml(formatDate(projections.as_of))}</strong>,
+      the latest pickup in the data
+    </div>
+
+    ${warning ? `<div class="note proj-warning">${escapeHtml(warning)}</div>` : ""}
+
+    <div class="note proj-beta">
+      <span class="proj-beta-tag">Beta</span>
+      Each customer's rate is the average of its gallons per day over the last
+      year and over its last six pickups. <strong>Projected gallons</strong> is
+      that rate times the days since the last pickup: the oil produced since then,
+      not a promise of what the truck will collect. The pickup point is
+      <strong>${target}% of listed capacity</strong>, which leaves a spillover
+      buffer. <strong>% full</strong> stops at 100%; a customer projected past
+      that carries a note to check its capacity. Seasonal, event and bulk
+      accounts are listed separately below instead of being ranked.
+    </div>
+
+    <div class="controls">
+      <label for="region-select">Region</label>
+      <select id="region-select">
+        <option value="">All regions</option>
+        ${regionOptions(projections).map(r =>
+          `<option value="${escapeHtml(r)}"${r === selectedRegion ? " selected" : ""}>` +
+          `${escapeHtml(r)}</option>`).join("")}
+      </select>
+    </div>
+
+    <div class="stats-bar" id="summary"></div>
+
+    <div class="section">
+      <div class="section-title" id="ranked-title">Route candidates</div>
+      <div class="section-caption">
+        Most urgent first: days past full capacity, then days past the
+        ${target}% pickup point, then % full.
+      </div>
+      <div id="ranked-list"></div>
+    </div>
+
+    <div class="section" id="held-out"></div>
+  `;
+
+  document.getElementById("region-select").addEventListener("change", e => {
+    selectedRegion = e.target.value;
+    const url = new URL(window.location.href);
+    if (selectedRegion) url.searchParams.set("region", selectedRegion);
+    else url.searchParams.delete("region");
+    window.history.replaceState(null, "", url);
+    update();
+  });
+}
+
+function update() {
+  const customers = filterByRegion(projections.customers, selectedRegion);
+  const ranked = customers.filter(c => c.section === "ranked");
+  const heldOut = customers.filter(c => c.section !== "ranked");
+
+  document.getElementById("summary").innerHTML = summaryHtml(ranked, heldOut);
+
+  document.getElementById("ranked-title").textContent =
+    `Route candidates · ${formatNumber(ranked.length)}` +
+    (selectedRegion ? ` in ${selectedRegion}` : "");
+
+  const list = document.getElementById("ranked-list");
+  list.dataset.expanded = "false";
+  if (ranked.length) {
+    renderExpandableCustomerList(list, ranked, rankedRowsHtml);
+  } else {
+    list.innerHTML = `<div class="note">No route candidates in this region.</div>`;
+  }
+
+  document.getElementById("held-out").innerHTML = heldOutHtml(heldOut);
+}
+
+function summaryHtml(ranked, heldOut) {
+  const pastTarget = ranked.filter(c => (c.days_past_75 || 0) > 0).length;
+  const pastFull = ranked.filter(c => (c.days_past_capacity || 0) > 0).length;
+  const separate = heldOut.filter(c =>
+    c.section !== "stale" && c.section !== "insufficient data").length;
+  const stat = (value, label) => `
+    <div class="stat">
+      <div class="stat-val">${formatNumber(value)}</div>
+      <div class="stat-label">${label}</div>
+    </div>`;
+  return stat(ranked.length, "Route Candidates") +
+    stat(pastTarget, "Past Pickup Point") +
+    stat(pastFull, "Past Full Capacity") +
+    stat(separate, "Listed Separately");
+}
+
+/** One-decimal number, or a dash for a missing value. */
+function formatOne(value) {
+  if (value === null || value === undefined || !Number.isFinite(Number(value))) return "—";
+  return Number(value).toLocaleString(undefined,
+    { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+}
+
+/** Capped % full as a number plus a small fill bar. */
+function pctFullHtml(pct) {
+  if (pct === null || pct === undefined) return "—";
+  const width = Math.max(0, Math.min(100, Number(pct)));
+  const level = width >= 100 ? "full" : (width >= 75 ? "due" : "ok");
+  return `<span class="proj-pct">${Math.round(width)}%` +
+    `<span class="proj-bar"><span class="proj-bar-fill proj-${level}" ` +
+    `style="width:${width}%"></span></span></span>`;
+}
+
+/** Status (when not the default) and flags, as small lines under the name. */
+function notesHtml(c) {
+  const lines = [];
+  if (c.status && c.status !== "50/50 default") lines.push(c.status);
+  (c.flags || []).forEach(f => lines.push(f));
+  return lines.length
+    ? `<div class="proj-notes">${lines.map(escapeHtml).join("<br>")}</div>`
+    : "";
+}
+
+function rankedRowsHtml(rows) {
+  const body = rows.map((c, i) => `
+    <tr>
+      <td class="rank">${i + 1}</td>
+      <td>${escapeHtml(c.name)}${notesHtml(c)}</td>
+      <td>${escapeHtml(c.town || "—")}</td>
+      <td class="gal">${formatNumber(Math.round(c.projected_gal || 0))}</td>
+      <td class="num proj-range">${formatNumber(Math.round(c.range_low || 0))}–${formatNumber(Math.round(c.range_high || 0))}</td>
+      <td class="num">${c.capacity === null ? "—" : formatNumber(c.capacity)}</td>
+      <td class="num">${pctFullHtml(c.pct_full)}</td>
+      <td class="num">${(c.days_past_75 || 0) > 0 ? formatNumber(Math.round(c.days_past_75)) : "—"}</td>
+      <td class="num">${formatOne(c.rate_gpd)}</td>
+      <td class="proj-date">${formatDate(c.last_pickup)}</td>
+      <td class="num">${formatNumber(c.days_since)}</td>
+    </tr>`).join("");
+
+  return `
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th class="rank">#</th>
+            <th>Customer</th>
+            <th>Town</th>
+            <th class="num">Projected gal</th>
+            <th class="num">Likely range</th>
+            <th class="num">Capacity</th>
+            <th class="num">% full</th>
+            <th class="num">Days past pickup point</th>
+            <th class="num">Gal / day</th>
+            <th>Last pickup</th>
+            <th class="num">Days since</th>
+          </tr>
+        </thead>
+        <tbody>${body}</tbody>
+      </table>
+    </div>`;
+}
+
+function heldOutRowsHtml(rows) {
+  const body = rows.map(c => `
+    <tr>
+      <td>${escapeHtml(c.name)}${(c.flags || []).length
+        ? `<div class="proj-notes">${c.flags.map(escapeHtml).join("<br>")}</div>` : ""}</td>
+      <td>${escapeHtml(c.town || "—")}</td>
+      <td>${escapeHtml(c.status)}</td>
+      <td class="proj-reason">${escapeHtml(c.reason || "—")}</td>
+      <td class="proj-date">${formatDate(c.last_pickup)}</td>
+      <td class="num">${formatNumber(c.days_since)}</td>
+      <td class="num">${formatOne(c.rate_gpd)}</td>
+      <td class="num">${formatOne(c.avg_collection)}</td>
+      <td class="num">${c.capacity === null ? "—" : formatNumber(c.capacity)}</td>
+    </tr>`).join("");
+
+  return `
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Customer</th>
+            <th>Town</th>
+            <th>Status</th>
+            <th>Why it is listed here</th>
+            <th>Last pickup</th>
+            <th class="num">Days since</th>
+            <th class="num">Gal / day</th>
+            <th class="num">Avg pickup (gal)</th>
+            <th class="num">Capacity</th>
+          </tr>
+        </thead>
+        <tbody>${body}</tbody>
+      </table>
+    </div>`;
+}
+
+/** Every non-empty held-out section, collapsed, in the export's order. */
+function heldOutHtml(heldOut) {
+  const order = (projections.section_order || []).filter(s => s !== "ranked");
+  const blocks = order.map(section => {
+    const rows = heldOut.filter(c => c.section === section);
+    if (!rows.length) return "";
+    return `
+      <details class="proj-section">
+        <summary>${escapeHtml(section.charAt(0).toUpperCase() + section.slice(1))}
+          <span class="proj-count">${formatNumber(rows.length)}</span></summary>
+        <div class="section-caption">${escapeHtml(SECTION_TEXT[section] || "")}</div>
+        ${heldOutRowsHtml(rows)}
+      </details>`;
+  }).join("");
+
+  return blocks
+    ? `<div class="section-title">Listed separately, not ranked</div>${blocks}`
+    : "";
+}
+
+init();
+</script>
+
+</body>
+</html>

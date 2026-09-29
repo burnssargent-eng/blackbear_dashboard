@@ -54,8 +54,13 @@ All percentage fields are written in percent units: 23.4 means 23.4%.
     python3 analysis/build_projection_table.py
     python3 analysis/build_projection_table.py --as-of 2026-06-30
 
-Writes analysis/oil_projection_table.csv, .md and _detail.csv. Analysis only;
-writes nothing outside analysis/ and nothing on the site reads this folder.
+    python3 analysis/build_projection_table.py --refresh-wape
+
+Writes analysis/oil_projection_table.csv, .md and _detail.csv, plus ONE file
+outside analysis/: oil_projections.json at the repo root, which projections.html
+reads. The nightly workflow runs this after the scraper. The confidence bands
+come from the committed analysis/customer_wape.json, never the gitignored
+backtest CSVs, so the nightly and a local run agree.
 """
 
 import argparse
@@ -80,6 +85,12 @@ OIL_DATA = ROOT / "oil_data.json"
 CAPACITY_CACHE = ROOT / "capacity_cache.csv"
 ROUTING_WAPE = HERE / "routing_rule_test_customers.csv"
 SEASONAL_DETAIL = HERE / "backtest_seasonal_models_detail.csv"
+# Committed snapshot of the two backtests above, so the nightly runner -- which
+# has neither CSV -- builds the same confidence bands as a local run.
+WAPE_SNAPSHOT = HERE / "customer_wape.json"
+
+# The one file this script writes outside analysis/: the website's input.
+OUT_JSON = ROOT / "oil_projections.json"
 
 OUT_MAIN = HERE / "oil_projection_table.csv"
 OUT_REPORT = HERE / "oil_projection_table.md"
@@ -316,33 +327,54 @@ def load_customer_wape():
     """
     customer_id -> WAPE of the 50/50 model, in percent units.
 
-    Two sources, no overlap: the held-out routing-rule test, and the seasonal
-    backtest detail for the customers that shaped the rule.
+    Read from the committed WAPE_SNAPSHOT only, never from the backtest CSVs:
+    those are gitignored, so the nightly runner does not have them, and reading
+    them when present would make local and nightly bands disagree.
     """
+    if not WAPE_SNAPSHOT.exists():
+        print(f"  note: {WAPE_SNAPSHOT.name} missing; every band is the "
+              f"default +/-{DEFAULT_BAND_PCT:.0f}%")
+        return {}
+    return {int(cid): value
+            for cid, value in json.loads(WAPE_SNAPSHOT.read_text()).items()}
+
+
+def refresh_wape_snapshot():
+    """
+    Rebuild WAPE_SNAPSHOT from the backtest CSVs (--refresh-wape).
+
+    Two sources, no overlap: the held-out routing-rule test, and the seasonal
+    backtest detail for the customers that shaped the rule. Run this after
+    re-running those backtests, then commit the snapshot.
+    """
+    for source in (ROUTING_WAPE, SEASONAL_DETAIL):
+        if not source.exists():
+            raise SystemExit(f"{source.name} not found; re-run its backtest first")
     wape = {}
 
-    if ROUTING_WAPE.exists():
-        with open(ROUTING_WAPE, newline="") as f:
-            for row in csv.DictReader(f):
-                try:
-                    wape[int(row["customer_id"])] = float(row["50/50"])
-                except (KeyError, TypeError, ValueError):
-                    continue
+    with open(ROUTING_WAPE, newline="") as f:
+        for row in csv.DictReader(f):
+            try:
+                wape[int(row["customer_id"])] = float(row["50/50"])
+            except (KeyError, TypeError, ValueError):
+                continue
 
-    if SEASONAL_DETAIL.exists():
-        totals = defaultdict(lambda: [0.0, 0.0])
-        with open(SEASONAL_DETAIL, newline="") as f:
-            for row in csv.DictReader(f):
-                if row.get("model") != "50/50 last 6 + prev year":
-                    continue
-                cid = int(row["customer_id"])
-                totals[cid][0] += abs(float(row["signed_error"]))
-                totals[cid][1] += float(row["actual_gallons"])
-        for cid, (error, actual) in totals.items():
-            if actual > 0:
-                wape.setdefault(cid, error / actual * 100)
+    totals = defaultdict(lambda: [0.0, 0.0])
+    with open(SEASONAL_DETAIL, newline="") as f:
+        for row in csv.DictReader(f):
+            if row.get("model") != "50/50 last 6 + prev year":
+                continue
+            cid = int(row["customer_id"])
+            totals[cid][0] += abs(float(row["signed_error"]))
+            totals[cid][1] += float(row["actual_gallons"])
+    for cid, (error, actual) in totals.items():
+        if actual > 0:
+            wape.setdefault(cid, error / actual * 100)
 
-    return wape
+    # Full float precision: rounding here would move the rounded bands.
+    WAPE_SNAPSHOT.write_text(json.dumps(
+        {str(cid): wape[cid] for cid in sorted(wape)}, indent=1) + "\n")
+    print(f"Wrote analysis/{WAPE_SNAPSHOT.name}: {len(wape)} customers")
 
 
 # ─────────────────────────────────────────────
@@ -764,6 +796,65 @@ def write_detail(rows):
             writer.writerow(presented(record, DETAIL_FIELDS))
 
 
+def write_json(rows, asof):
+    """
+    oil_projections.json for projections.html.
+
+    Operator fields only, taken from the SAME presented values as the main CSV,
+    so the page shows exactly what the table shows: % full is the capped
+    display value and held-out rows carry nulls. Rows keep the build's order;
+    the page never re-sorts or recomputes a projection.
+    """
+    def value(row, key):
+        return presented(row, [key])[key] if row.get(key) is not None else None
+
+    customers = [{
+        "id": r["customer_id"],
+        "name": r["customer"],
+        "town": r["town"],
+        "regions": r["region_names"].split("; ") if r["region_names"] else [],
+        "section": r["table_section"],
+        "status": r["model_status"],
+        "reason": r["routing_reason"] or None,
+        "season": r["active_season"],
+        "last_pickup": r["last_pickup_date"],
+        "days_since": r["days_since_last_pickup"],
+        "rate_gpd": value(r, "oil_rate_gpd_projected"),
+        "avg_collection": value(r, "avg_collection"),
+        "capacity": value(r, "capacity"),
+        "projected_gal": value(r, "current_projected_gallons"),
+        "range_low": value(r, "projected_range_low"),
+        "range_high": value(r, "projected_range_high"),
+        "pct_full": value(r, "display_pct_full"),
+        "days_until_75": value(r, "days_until_75pct"),
+        "days_past_75": value(r, "days_past_75pct"),
+        "days_past_capacity": value(r, "days_past_capacity"),
+        "flags": r["flags"].split("; ") if r["flags"] else [],
+    } for r in rows]
+
+    # The scrape this was built from. The page compares it with the live
+    # oil_data.json and warns when they differ, i.e. the nightly scraped but the
+    # projection build failed. No wall-clock timestamp, so a rerun on unchanged
+    # data writes an identical file.
+    oil_data = json.loads(OIL_DATA.read_text())
+
+    payload = {
+        "as_of": asof.isoformat(),
+        "data_last_updated": oil_data.get("last_updated"),
+        "beta": True,
+        "target_fraction": TARGET_FRACTION,
+        "stale_days": STALE_DAYS,
+        "section_order": SECTION_ORDER,
+        "region_order": list(oil_data.get("region_names", [])) + ["Other"],
+        "customers": customers,
+    }
+    # One customer per line: compact, and a nightly diff reads row by row.
+    head = json.dumps({k: v for k, v in payload.items() if k != "customers"},
+                      ensure_ascii=False, indent=1)
+    body = ",\n".join(json.dumps(c, ensure_ascii=False) for c in customers)
+    OUT_JSON.write_text(f'{head[:-2]},\n "customers": [\n{body}\n ]\n}}\n')
+
+
 def fmt(value, digits=1, dash="-"):
     if value is None or value == "":
         return dash
@@ -1072,8 +1163,16 @@ in the registry, but the heuristic says the default may not suit them.
 def main():
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("--as-of", type=date.fromisoformat, metavar="YYYY-MM-DD",
-                        help="projection date (default: latest pickup in the CSV)")
+                        help="projection date (default: latest pickup in the CSV); "
+                             "a dated run does not touch oil_projections.json")
+    parser.add_argument("--refresh-wape", action="store_true",
+                        help=f"rebuild analysis/{WAPE_SNAPSHOT.name} from the "
+                             "backtest CSVs, then exit")
     args = parser.parse_args()
+
+    if args.refresh_wape:
+        refresh_wape_snapshot()
+        return
 
     pickups = bt.load_pickups(ids=None)
     active = load_active_ids()
@@ -1123,6 +1222,10 @@ def main():
     write_main(rows)
     write_detail(rows)
     write_report(rows, asof, counts)
+    # The website shows the live edge only. A dated run is an analysis
+    # question and must never replace what the site is serving.
+    if args.as_of is None:
+        write_json(rows, asof)
 
     def in_section(section):
         return sum(1 for r in rows if r["table_section"] == section)
@@ -1148,7 +1251,8 @@ def main():
               f"{r['display_pct_full'] or 0:>6.0f}%{r['days_past_75pct'] or 0:>8.1f}"
               f"{r['days_past_capacity'] or 0:>9.1f}")
 
-    print(f"\nWrote analysis/{OUT_MAIN.name}, {OUT_REPORT.name} and {OUT_DETAIL.name}")
+    print(f"\nWrote analysis/{OUT_MAIN.name}, {OUT_REPORT.name} and {OUT_DETAIL.name}"
+          + (f", and {OUT_JSON.name}" if args.as_of is None else ""))
 
 
 if __name__ == "__main__":

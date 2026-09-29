@@ -652,6 +652,89 @@ select:disabled {
   color: #e5534b;
 }
 
+/* ── Projections page (beta) ──────────────────────────────── */
+
+.proj-beta-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #d3a04a;
+  border: 1px solid #6b5124;
+  background: rgba(211, 160, 74, 0.12);
+  border-radius: 10px;
+  padding: 1px 8px;
+  margin-right: 6px;
+}
+
+.note.proj-warning {
+  border-left-color: #e5734b;
+  color: #e6edf3;
+}
+
+/* Status and capacity flags under a customer name: present, but quiet. */
+.proj-notes {
+  font-size: 11px;
+  color: #8b949e;
+  line-height: 1.4;
+  margin-top: 3px;
+}
+
+.proj-range { color: #8b949e; }
+
+.proj-date { white-space: nowrap; }
+
+.proj-reason {
+  font-size: 12px;
+  color: #a3adb8;
+  min-width: 220px;
+}
+
+.proj-pct {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.proj-bar {
+  display: inline-block;
+  width: 48px;
+  height: 6px;
+  background: #21262d;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.proj-bar-fill { display: block; height: 100%; }
+.proj-bar-fill.proj-ok   { background: #3fb950; }
+.proj-bar-fill.proj-due  { background: #d3a04a; }
+.proj-bar-fill.proj-full { background: #e5734b; }
+
+.proj-section {
+  margin-top: 12px;
+}
+
+.proj-section > summary {
+  cursor: pointer;
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #e6edf3;
+}
+
+.proj-section[open] > summary {
+  margin-bottom: 10px;
+}
+
+.proj-count {
+  color: #a3adb8;
+  margin-left: 6px;
+}
+
 /* Responsive pass. Verified in headless Chrome at 390px; not yet checked on a
    real handset — see the TODO in the project notes. */
 @media (max-width: 860px) {
