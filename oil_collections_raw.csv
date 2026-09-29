@@ -68,7 +68,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1082,Arandas Mexican-Barre,Barre,Washington,2022-08-19,2022,2022-08,50,True,Barre City
 1082,Arandas Mexican-Barre,Barre,Washington,2022-04-06,2022,2022-04,40,True,Barre City
 1082,Arandas Mexican-Barre,Barre,Washington,2021-12-27,2021,2021-12,40,True,Barre City
-113,Asia Gourmet-Barre,Barre,Washington,2026-09-29,2026,2026-09,50,True,Barre City
+113,Asia Gourmet-Barre,Barre,Washington,2026-09-29,2026,2026-09,60,True,Barre City
 113,Asia Gourmet-Barre,Barre,Washington,2026-09-09,2026,2026-09,60,True,Barre City
 113,Asia Gourmet-Barre,Barre,Washington,2026-08-18,2026,2026-08,60,True,Barre City
 113,Asia Gourmet-Barre,Barre,Washington,2026-07-20,2026,2026-07,50,True,Barre City
@@ -220,7 +220,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 110,Canadian Club,Barre,Washington,2017-05-17,2017,2017-05,50,True,Barre Town
 110,Canadian Club,Barre,Washington,2016-04-16,2016,2016-04,25,True,Barre Town
 110,Canadian Club,Barre,Washington,2016-03-12,2016,2016-03,45,True,Barre Town
-115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2026-09-29,2026,2026-09,75,True,Barre City
+115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2026-09-29,2026,2026-09,85,True,Barre City
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2026-08-24,2026,2026-08,90,True,Barre City
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2026-07-20,2026,2026-07,45,True,Barre City
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2026-06-30,2026,2026-06,80,True,Barre City
@@ -582,7 +582,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 117,Ladder 1-Barre,Barre,Washington,2015-03-05,2015,2015-03,35,True,Barre City
 117,Ladder 1-Barre,Barre,Washington,2015-02-10,2015,2015-02,40,True,Barre City
 117,Ladder 1-Barre,Barre,Washington,2015-01-09,2015,2015-01,50,True,Barre City
-1380,Masonic Lodge-Barre,Barre,Washington,2026-09-29,2026,2026-09,35,True,Barre City
+1380,Masonic Lodge-Barre,Barre,Washington,2026-09-29,2026,2026-09,40,True,Barre City
 1380,Masonic Lodge-Barre,Barre,Washington,2026-06-11,2026,2026-06,40,True,Barre City
 1380,Masonic Lodge-Barre,Barre,Washington,2025-11-03,2025,2025-11,30,True,Barre City
 1380,Masonic Lodge-Barre,Barre,Washington,2025-08-27,2025,2025-08,15,True,Barre City
@@ -797,7 +797,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 118,Spaulding High School,Barre,Washington,2017-05-17,2017,2017-05,100,True,Barre City
 118,Spaulding High School,Barre,Washington,2016-06-27,2016,2016-06,30,True,Barre City
 118,Spaulding High School,Barre,Washington,2015-10-13,2015,2015-10,20,True,Barre City
-1401,Tasty Bites,Barre,Washington,2026-09-29,2026,2026-09,30,True,Barre City
+1401,Tasty Bites,Barre,Washington,2026-09-29,2026,2026-09,40,True,Barre City
 1401,Tasty Bites,Barre,Washington,2026-09-09,2026,2026-09,40,True,Barre City
 1401,Tasty Bites,Barre,Washington,2026-08-18,2026,2026-08,40,True,Barre City
 1401,Tasty Bites,Barre,Washington,2026-07-20,2026,2026-07,30,True,Barre City
@@ -1130,6 +1130,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 108,CVMC-Berlin Hospital,Berlin,Washington,2017-05-13,2017,2017-05,55,True,Berlin
 108,CVMC-Berlin Hospital,Berlin,Washington,2017-04-01,2017,2017-04,10,True,Berlin
 1444,Dan-Jockey Hollow 2025,Berlin,Washington,2025-08-21,2025,2025-08,85,True,Berlin
+107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2026-09-29,2026,2026-09,110,True,Berlin
 107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2026-09-18,2026,2026-09,190,True,Berlin
 107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2026-08-25,2026,2026-08,140,True,Berlin
 107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2026-08-05,2026,2026-08,100,True,Berlin
@@ -1267,10 +1268,12 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2019-05-09,2019,2019-05,75,True,Berlin
 107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2019-04-11,2019,2019-04,150,True,Berlin
 107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2019-03-15,2019,2019-03,110,True,Berlin
+1492,Pizza Hut Berlin,Berlin,Washington,2026-09-29,2026,2026-09,15,True,Berlin
 1492,Pizza Hut Berlin,Berlin,Washington,2026-08-27,2026,2026-08,25,True,Berlin
 1492,Pizza Hut Berlin,Berlin,Washington,2026-07-15,2026,2026-07,30,True,Berlin
 1492,Pizza Hut Berlin,Berlin,Washington,2026-05-08,2026,2026-05,25,True,Berlin
 1492,Pizza Hut Berlin,Berlin,Washington,2026-03-31,2026,2026-03,200,True,Berlin
+106,"Wal-mart Berlin ,Vt",Berlin,Washington,2026-09-29,2026,2026-09,100,True,Berlin
 106,"Wal-mart Berlin ,Vt",Berlin,Washington,2026-06-30,2026,2026-06,100,True,Berlin
 106,"Wal-mart Berlin ,Vt",Berlin,Washington,2026-03-25,2026,2026-03,70,True,Berlin
 106,"Wal-mart Berlin ,Vt",Berlin,Washington,2025-12-26,2025,2025-12,120,True,Berlin
@@ -10236,6 +10239,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 523,The Inn-Montgomery,Montgomery Center,Orleans,2015-08-17,2015,2015-08,45,True,Montgomery
 523,The Inn-Montgomery,Montgomery Center,Orleans,2015-05-12,2015,2015-05,30,True,Montgomery
 523,The Inn-Montgomery,Montgomery Center,Orleans,2015-03-04,2015,2015-03,35,True,Montgomery
+1376,Arandas-Montpelier,Montpelier,Washington,2026-09-29,2026,2026-09,40,True,Montpelier
 1376,Arandas-Montpelier,Montpelier,Washington,2026-08-27,2026,2026-08,55,True,Montpelier
 1376,Arandas-Montpelier,Montpelier,Washington,2026-06-29,2026,2026-06,20,True,Montpelier
 1376,Arandas-Montpelier,Montpelier,Washington,2026-05-29,2026,2026-05,25,True,Montpelier
@@ -10258,6 +10262,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1489,Barr Hill -OIL collection,Montpelier,Washington,2026-05-29,2026,2026-05,40,True,Montpelier
 1489,Barr Hill -OIL collection,Montpelier,Washington,2026-05-07,2026,2026-05,35,True,Montpelier
 1489,Barr Hill -OIL collection,Montpelier,Washington,2026-04-20,2026,2026-04,50,True,Montpelier
+147,Buddy's Famous Burgers,Montpelier,Washington,2026-09-29,2026,2026-09,120,True,Montpelier
 147,Buddy's Famous Burgers,Montpelier,Washington,2026-08-27,2026,2026-08,180,True,Montpelier
 147,Buddy's Famous Burgers,Montpelier,Washington,2026-07-22,2026,2026-07,75,True,Montpelier
 147,Buddy's Famous Burgers,Montpelier,Washington,2026-06-29,2026,2026-06,120,True,Montpelier
@@ -10384,6 +10389,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1191,GREENWAY INSTITUTE/Vermont College of Fine Arts,Montpelier,Washington,2023-12-06,2023,2023-12,35,True,Montpelier
 1191,GREENWAY INSTITUTE/Vermont College of Fine Arts,Montpelier,Washington,2023-03-02,2023,2023-03,50,True,Montpelier
 1191,GREENWAY INSTITUTE/Vermont College of Fine Arts,Montpelier,Washington,2022-10-28,2022,2022-10,110,True,Montpelier
+151,House of Tang,Montpelier,Washington,2026-09-29,2026,2026-09,40,True,Montpelier
 151,House of Tang,Montpelier,Washington,2026-08-27,2026,2026-08,30,True,Montpelier
 151,House of Tang,Montpelier,Washington,2026-05-01,2026,2026-05,50,True,Montpelier
 151,House of Tang,Montpelier,Washington,2026-03-25,2026,2026-03,65,True,Montpelier
@@ -10484,6 +10490,125 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1100,Hugo’s ~,Montpelier,Washington,2022-03-22,2022,2022-03,60,True,Montpelier
 1100,Hugo’s ~,Montpelier,Washington,2022-03-09,2022,2022-03,55,True,Montpelier
 1100,Hugo’s ~,Montpelier,Washington,2022-02-24,2022,2022-02,40,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2026-05-29,2026,2026-05,115,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2026-04-17,2026,2026-04,65,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2026-03-25,2026,2026-03,45,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2026-03-06,2026,2026-03,130,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2026-02-02,2026,2026-02,85,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2025-12-31,2025,2025-12,50,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2025-12-09,2025,2025-12,50,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2025-11-26,2025,2025-11,50,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2025-11-10,2025,2025-11,70,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2025-10-20,2025,2025-10,95,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2025-09-15,2025,2025-09,70,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2025-08-21,2025,2025-08,90,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2025-07-22,2025,2025-07,55,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2025-06-30,2025,2025-06,50,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2025-06-10,2025,2025-06,70,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2025-05-27,2025,2025-05,40,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2025-05-19,2025,2025-05,60,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2025-05-02,2025,2025-05,40,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2025-04-17,2025,2025-04,70,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2025-03-26,2025,2025-03,100,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2025-02-18,2025,2025-02,100,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2024-12-31,2024,2024-12,60,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2024-12-13,2024,2024-12,60,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2024-11-14,2024,2024-11,70,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2024-10-24,2024,2024-10,75,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2024-09-29,2024,2024-09,80,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2024-09-02,2024,2024-09,30,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2024-08-20,2024,2024-08,40,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2024-08-02,2024,2024-08,85,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2024-07-01,2024,2024-07,60,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2024-06-10,2024,2024-06,60,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2024-05-20,2024,2024-05,85,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2024-04-23,2024,2024-04,25,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2024-04-12,2024,2024-04,60,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2024-03-20,2024,2024-03,80,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2024-02-27,2024,2024-02,60,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2024-02-09,2024,2024-02,75,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2024-01-16,2024,2024-01,120,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2023-12-06,2023,2023-12,130,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2023-10-30,2023,2023-10,60,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2023-06-29,2023,2023-06,100,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2023-05-31,2023,2023-05,110,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2023-04-27,2023,2023-04,70,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2023-04-05,2023,2023-04,135,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2023-02-27,2023,2023-02,70,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2023-02-06,2023,2023-02,50,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2023-01-19,2023,2023-01,120,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2022-12-15,2022,2022-12,75,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2022-11-27,2022,2022-11,75,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2022-11-07,2022,2022-11,75,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2022-10-17,2022,2022-10,130,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2022-09-12,2022,2022-09,100,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2022-08-12,2022,2022-08,125,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2022-07-07,2022,2022-07,145,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2022-06-01,2022,2022-06,125,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2022-04-25,2022,2022-04,100,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2022-03-22,2022,2022-03,60,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2022-03-09,2022,2022-03,55,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2022-02-24,2022,2022-02,40,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2022-01-31,2022,2022-01,65,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2021-12-30,2021,2021-12,100,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2021-12-02,2021,2021-12,130,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2021-10-11,2021,2021-10,75,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2021-09-01,2021,2021-09,50,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2021-08-12,2021,2021-08,50,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2021-07-15,2021,2021-07,75,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2021-06-14,2021,2021-06,25,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2021-03-22,2021,2021-03,70,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2021-02-01,2021,2021-02,100,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2020-12-22,2020,2020-12,30,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2020-11-30,2020,2020-11,30,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2020-11-02,2020,2020-11,75,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2020-09-23,2020,2020-09,100,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2020-04-02,2020,2020-04,110,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2020-02-13,2020,2020-02,60,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2019-12-09,2019,2019-12,60,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2019-09-19,2019,2019-09,30,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2019-08-19,2019,2019-08,80,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2019-07-01,2019,2019-07,90,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2019-05-29,2019,2019-05,110,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2019-04-11,2019,2019-04,100,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2019-03-14,2019,2019-03,20,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2019-02-14,2019,2019-02,60,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2019-01-15,2019,2019-01,30,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2018-12-13,2018,2018-12,50,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2018-11-08,2018,2018-11,50,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2018-10-16,2018,2018-10,50,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2018-08-22,2018,2018-08,50,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2018-07-24,2018,2018-07,30,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2018-07-05,2018,2018-07,50,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2018-05-15,2018,2018-05,75,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2018-04-02,2018,2018-04,75,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2018-01-13,2018,2018-01,45,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2017-12-14,2017,2017-12,50,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2017-11-16,2017,2017-11,50,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2017-10-24,2017,2017-10,100,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2017-09-02,2017,2017-09,50,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2017-08-05,2017,2017-08,75,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2017-07-08,2017,2017-07,60,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2017-06-10,2017,2017-06,65,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2017-05-13,2017,2017-05,50,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2017-04-15,2017,2017-04,50,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2017-03-18,2017,2017-03,90,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2017-01-28,2017,2017-01,50,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2017-01-04,2017,2017-01,50,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2016-11-27,2016,2016-11,50,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2016-10-17,2016,2016-10,50,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2016-09-19,2016,2016-09,50,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2016-08-21,2016,2016-08,70,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2016-07-10,2016,2016-07,50,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2016-06-12,2016,2016-06,25,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2016-05-29,2016,2016-05,45,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2016-05-09,2016,2016-05,45,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2016-04-09,2016,2016-04,50,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2016-02-03,2016,2016-02,50,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2016-01-06,2016,2016-01,40,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2015-12-17,2015,2015-12,25,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2015-11-30,2015,2015-11,45,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2015-11-02,2015,2015-11,30,True,Montpelier
 1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2026-09-18,2026,2026-09,35,True,Montpelier
 1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2026-08-27,2026,2026-08,60,True,Montpelier
 1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2026-07-22,2026,2026-07,50,True,Montpelier
@@ -10508,6 +10633,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2025-01-29,2025,2025-01,55,True,Montpelier
 1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2024-12-31,2024,2024-12,55,True,Montpelier
 1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2024-11-26,2024,2024-11,100,True,Montpelier
+143,Julio's-67%,Montpelier,Washington,2026-09-29,2026,2026-09,40,True,Montpelier
 143,Julio's-67%,Montpelier,Washington,2026-09-09,2026,2026-09,55,True,Montpelier
 143,Julio's-67%,Montpelier,Washington,2026-08-14,2026,2026-08,10,True,Montpelier
 143,Julio's-67%,Montpelier,Washington,2026-06-29,2026,2026-06,45,True,Montpelier
@@ -10588,129 +10714,11 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 143,Julio's-67%,Montpelier,Washington,2015-05-15,2015,2015-05,12,True,Montpelier
 143,Julio's-67%,Montpelier,Washington,2015-04-09,2015,2015-04,65,True,Montpelier
 143,Julio's-67%,Montpelier,Washington,2015-02-06,2015,2015-02,30,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2026-05-29,2026,2026-05,115,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2026-04-17,2026,2026-04,65,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2026-03-25,2026,2026-03,45,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2026-03-06,2026,2026-03,130,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2026-02-02,2026,2026-02,85,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2025-12-31,2025,2025-12,50,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2025-12-09,2025,2025-12,50,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2025-11-26,2025,2025-11,50,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2025-11-10,2025,2025-11,70,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2025-10-20,2025,2025-10,95,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2025-09-15,2025,2025-09,70,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2025-08-21,2025,2025-08,90,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2025-07-22,2025,2025-07,55,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2025-06-30,2025,2025-06,50,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2025-06-10,2025,2025-06,70,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2025-05-27,2025,2025-05,40,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2025-05-19,2025,2025-05,60,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2025-05-02,2025,2025-05,40,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2025-04-17,2025,2025-04,70,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2025-03-26,2025,2025-03,100,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2025-02-18,2025,2025-02,100,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2024-12-31,2024,2024-12,60,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2024-12-13,2024,2024-12,60,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2024-11-14,2024,2024-11,70,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2024-10-24,2024,2024-10,75,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2024-09-29,2024,2024-09,80,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2024-09-02,2024,2024-09,30,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2024-08-20,2024,2024-08,40,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2024-08-02,2024,2024-08,85,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2024-07-01,2024,2024-07,60,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2024-06-10,2024,2024-06,60,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2024-05-20,2024,2024-05,85,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2024-04-23,2024,2024-04,25,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2024-04-12,2024,2024-04,60,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2024-03-20,2024,2024-03,80,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2024-02-27,2024,2024-02,60,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2024-02-09,2024,2024-02,75,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2024-01-16,2024,2024-01,120,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2023-12-06,2023,2023-12,130,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2023-10-30,2023,2023-10,60,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2023-06-29,2023,2023-06,100,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2023-05-31,2023,2023-05,110,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2023-04-27,2023,2023-04,70,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2023-04-05,2023,2023-04,135,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2023-02-27,2023,2023-02,70,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2023-02-06,2023,2023-02,50,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2023-01-19,2023,2023-01,120,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2022-12-15,2022,2022-12,75,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2022-11-27,2022,2022-11,75,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2022-11-07,2022,2022-11,75,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2022-10-17,2022,2022-10,130,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2022-09-12,2022,2022-09,100,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2022-08-12,2022,2022-08,125,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2022-07-07,2022,2022-07,145,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2022-06-01,2022,2022-06,125,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2022-04-25,2022,2022-04,100,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2022-03-22,2022,2022-03,60,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2022-03-09,2022,2022-03,55,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2022-02-24,2022,2022-02,40,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2022-01-31,2022,2022-01,65,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2021-12-30,2021,2021-12,100,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2021-12-02,2021,2021-12,130,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2021-10-11,2021,2021-10,75,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2021-09-01,2021,2021-09,50,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2021-08-12,2021,2021-08,50,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2021-07-15,2021,2021-07,75,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2021-06-14,2021,2021-06,25,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2021-03-22,2021,2021-03,70,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2021-02-01,2021,2021-02,100,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2020-12-22,2020,2020-12,30,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2020-11-30,2020,2020-11,30,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2020-11-02,2020,2020-11,75,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2020-09-23,2020,2020-09,100,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2020-04-02,2020,2020-04,110,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2020-02-13,2020,2020-02,60,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2019-12-09,2019,2019-12,60,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2019-09-19,2019,2019-09,30,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2019-08-19,2019,2019-08,80,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2019-07-01,2019,2019-07,90,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2019-05-29,2019,2019-05,110,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2019-04-11,2019,2019-04,100,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2019-03-14,2019,2019-03,20,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2019-02-14,2019,2019-02,60,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2019-01-15,2019,2019-01,30,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2018-12-13,2018,2018-12,50,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2018-11-08,2018,2018-11,50,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2018-10-16,2018,2018-10,50,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2018-08-22,2018,2018-08,50,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2018-07-24,2018,2018-07,30,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2018-07-05,2018,2018-07,50,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2018-05-15,2018,2018-05,75,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2018-04-02,2018,2018-04,75,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2018-01-13,2018,2018-01,45,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2017-12-14,2017,2017-12,50,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2017-11-16,2017,2017-11,50,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2017-10-24,2017,2017-10,100,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2017-09-02,2017,2017-09,50,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2017-08-05,2017,2017-08,75,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2017-07-08,2017,2017-07,60,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2017-06-10,2017,2017-06,65,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2017-05-13,2017,2017-05,50,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2017-04-15,2017,2017-04,50,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2017-03-18,2017,2017-03,90,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2017-01-28,2017,2017-01,50,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2017-01-04,2017,2017-01,50,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2016-11-27,2016,2016-11,50,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2016-10-17,2016,2016-10,50,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2016-09-19,2016,2016-09,50,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2016-08-21,2016,2016-08,70,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2016-07-10,2016,2016-07,50,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2016-06-12,2016,2016-06,25,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2016-05-29,2016,2016-05,45,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2016-05-09,2016,2016-05,45,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2016-04-09,2016,2016-04,50,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2016-02-03,2016,2016-02,50,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2016-01-06,2016,2016-01,40,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2015-12-17,2015,2015-12,25,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2015-11-30,2015,2015-11,45,True,Montpelier
-133,Langdon Street Tavern,Montpelier,Washington,2015-11-02,2015,2015-11,30,True,Montpelier
 1209,MJH Massage,Montpelier,Washington,2026-03-23,2026,2026-03,25,True,Montpelier
 1209,MJH Massage,Montpelier,Washington,2024-09-24,2024,2024-09,10,True,Montpelier
 1209,MJH Massage,Montpelier,Washington,2023-08-09,2023,2023-08,10,True,Montpelier
 1209,MJH Massage,Montpelier,Washington,2023-01-18,2023,2023-01,7,True,Montpelier
+131,Namaste ~ 33%,Montpelier,Washington,2026-09-29,2026,2026-09,33,True,Montpelier
 131,Namaste ~ 33%,Montpelier,Washington,2026-09-18,2026,2026-09,20,True,Montpelier
 131,Namaste ~ 33%,Montpelier,Washington,2026-09-09,2026,2026-09,30,True,Montpelier
 131,Namaste ~ 33%,Montpelier,Washington,2026-08-27,2026,2026-08,45,True,Montpelier
@@ -10828,6 +10836,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 149,National Life,Montpelier,Washington,2015-09-03,2015,2015-09,55,True,Montpelier
 149,National Life,Montpelier,Washington,2015-05-06,2015,2015-05,15,True,Montpelier
 149,National Life,Montpelier,Washington,2015-04-02,2015,2015-04,20,True,Montpelier
+169,Oakes and Evelyn-33%,Montpelier,Washington,2026-09-29,2026,2026-09,20,True,Montpelier
 169,Oakes and Evelyn-33%,Montpelier,Washington,2026-09-09,2026,2026-09,25,True,Montpelier
 169,Oakes and Evelyn-33%,Montpelier,Washington,2026-08-14,2026,2026-08,5,True,Montpelier
 169,Oakes and Evelyn-33%,Montpelier,Washington,2026-06-29,2026,2026-06,25,True,Montpelier
@@ -10995,6 +11004,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 145,Pho Capital,Montpelier,Washington,2015-07-15,2015,2015-07,30,True,Montpelier
 145,Pho Capital,Montpelier,Washington,2015-05-06,2015,2015-05,25,True,Montpelier
 145,Pho Capital,Montpelier,Washington,2015-01-05,2015,2015-01,40,True,Montpelier
+140,Positive Pie 2-Montpelier,Montpelier,Washington,2026-09-29,2026,2026-09,75,True,Montpelier
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2026-09-09,2026,2026-09,45,True,Montpelier
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2026-08-27,2026,2026-08,40,True,Montpelier
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2026-08-14,2026,2026-08,20,True,Montpelier
@@ -11140,6 +11150,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2015-04-09,2015,2015-04,110,True,Montpelier
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2015-02-20,2015,2015-02,100,True,Montpelier
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2015-01-16,2015,2015-01,70,True,Montpelier
+137,Royal Orchid,Montpelier,Washington,2026-09-29,2026,2026-09,25,True,Montpelier
 137,Royal Orchid,Montpelier,Washington,2026-07-22,2026,2026-07,40,True,Montpelier
 137,Royal Orchid,Montpelier,Washington,2026-05-12,2026,2026-05,50,True,Montpelier
 137,Royal Orchid,Montpelier,Washington,2026-02-02,2026,2026-02,15,True,Montpelier
@@ -11302,6 +11313,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 146,Sarduccis,Montpelier,Washington,2017-02-19,2017,2017-02,160,True,Montpelier
 146,Sarduccis,Montpelier,Washington,2017-01-14,2017,2017-01,150,True,Montpelier
 146,Sarduccis,Montpelier,Washington,2016-11-27,2016,2016-11,15,True,Montpelier
+302,Skinny Pancake-Montpelier,Montpelier,Washington,2026-09-29,2026,2026-09,40,True,Montpelier
 302,Skinny Pancake-Montpelier,Montpelier,Washington,2026-08-14,2026,2026-08,45,True,Montpelier
 302,Skinny Pancake-Montpelier,Montpelier,Washington,2026-06-29,2026,2026-06,85,True,Montpelier
 302,Skinny Pancake-Montpelier,Montpelier,Washington,2026-04-29,2026,2026-04,45,True,Montpelier
@@ -11432,6 +11444,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 157,State House,Montpelier,Washington,2023-05-18,2023,2023-05,45,True,Montpelier
 157,State House,Montpelier,Washington,2023-01-04,2023,2023-01,50,True,Montpelier
 157,State House,Montpelier,Washington,2020-04-29,2020,2020-04,50,True,Montpelier
+130,Three Penny Taproom 67%,Montpelier,Washington,2026-09-29,2026,2026-09,67,True,Montpelier
 130,Three Penny Taproom 67%,Montpelier,Washington,2026-09-18,2026,2026-09,40,True,Montpelier
 130,Three Penny Taproom 67%,Montpelier,Washington,2026-09-09,2026,2026-09,60,True,Montpelier
 130,Three Penny Taproom 67%,Montpelier,Washington,2026-08-27,2026,2026-08,95,True,Montpelier
@@ -21921,73 +21934,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2025-05-20,2025,2025-05,80,True,Winooski
 1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2025-04-28,2025,2025-04,50,True,Winooski
 1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2025-04-15,2025,2025-04,80,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2026-09-11,2026,2026-09,45,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2026-07-17,2026,2026-07,70,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2026-05-01,2026,2026-05,40,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2026-03-19,2026,2026-03,60,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2026-01-21,2026,2026-01,65,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2026-01-03,2026,2026-01,35,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2025-10-30,2025,2025-10,45,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2025-09-19,2025,2025-09,45,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2025-08-06,2025,2025-08,60,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2025-06-11,2025,2025-06,50,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2025-04-18,2025,2025-04,45,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2025-03-03,2025,2025-03,55,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2025-01-03,2025,2025-01,55,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2024-11-08,2024,2024-11,25,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2024-10-11,2024,2024-10,60,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2024-08-02,2024,2024-08,65,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2024-06-06,2024,2024-06,30,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2024-05-02,2024,2024-05,20,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2024-04-09,2024,2024-04,80,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2024-02-01,2024,2024-02,20,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2024-01-04,2024,2024-01,45,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2023-11-16,2023,2023-11,55,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2023-09-13,2023,2023-09,50,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2023-07-21,2023,2023-07,30,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2023-06-16,2023,2023-06,40,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2023-05-05,2023,2023-05,45,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2023-03-10,2023,2023-03,50,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2023-01-18,2023,2023-01,25,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2022-12-15,2022,2022-12,20,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2022-11-20,2022,2022-11,60,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2022-09-22,2022,2022-09,47,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2022-07-27,2022,2022-07,45,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2022-06-09,2022,2022-06,35,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2022-05-04,2022,2022-05,40,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2022-03-30,2022,2022-03,40,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2022-02-21,2022,2022-02,45,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2022-01-04,2022,2022-01,40,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2021-12-08,2021,2021-12,50,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2021-10-22,2021,2021-10,55,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2021-08-26,2021,2021-08,50,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2021-07-12,2021,2021-07,50,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2021-06-03,2021,2021-06,50,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2021-04-20,2021,2021-04,50,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2021-02-22,2021,2021-02,40,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2021-01-25,2021,2021-01,55,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2020-10-27,2020,2020-10,50,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2020-07-20,2020,2020-07,55,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2020-07-06,2020,2020-07,25,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2020-05-27,2020,2020-05,35,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2020-05-01,2020,2020-05,60,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2020-02-04,2020,2020-02,50,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2019-11-04,2019,2019-11,50,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2019-09-19,2019,2019-09,50,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2019-08-01,2019,2019-08,60,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2019-07-11,2019,2019-07,50,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2019-06-10,2019,2019-06,50,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2019-03-07,2019,2019-03,70,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2019-01-13,2019,2019-01,50,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2018-11-15,2018,2018-11,50,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2018-09-25,2018,2018-09,35,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2018-08-21,2018,2018-08,25,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2018-07-26,2018,2018-07,40,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2018-06-27,2018,2018-06,25,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2018-05-31,2018,2018-05,75,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2018-03-16,2018,2018-03,30,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2018-02-15,2018,2018-02,20,True,Winooski
-434,Asian Bistro-Winooski,Winooski,Chittenden,2018-01-27,2018,2018-01,100,True,Winooski
 445,Four Quarters-Winooski,Winooski,Chittenden,2026-08-11,2026,2026-08,65,True,Winooski
 445,Four Quarters-Winooski,Winooski,Chittenden,2026-07-08,2026,2026-07,70,True,Winooski
 445,Four Quarters-Winooski,Winooski,Chittenden,2026-05-28,2026,2026-05,40,True,Winooski

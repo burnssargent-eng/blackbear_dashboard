@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-29T13:44:25.620137",
+  "last_updated": "2026-09-29T22:13:59.535688",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -5614,7 +5614,7 @@
     {
       "month": "2018-01",
       "geo_town": "Winooski",
-      "gallons": 290,
+      "gallons": 190,
       "city": "Winooski"
     },
     {
@@ -5794,7 +5794,7 @@
     {
       "month": "2018-02",
       "geo_town": "Winooski",
-      "gallons": 265,
+      "gallons": 245,
       "city": "Winooski"
     },
     {
@@ -5998,7 +5998,7 @@
     {
       "month": "2018-03",
       "geo_town": "Winooski",
-      "gallons": 280,
+      "gallons": 250,
       "city": "Winooski"
     },
     {
@@ -6460,7 +6460,7 @@
     {
       "month": "2018-05",
       "geo_town": "Winooski",
-      "gallons": 450,
+      "gallons": 375,
       "city": "Winooski"
     },
     {
@@ -6652,7 +6652,7 @@
     {
       "month": "2018-06",
       "geo_town": "Winooski",
-      "gallons": 455,
+      "gallons": 430,
       "city": "Winooski"
     },
     {
@@ -6832,7 +6832,7 @@
     {
       "month": "2018-07",
       "geo_town": "Winooski",
-      "gallons": 305,
+      "gallons": 265,
       "city": "Winooski"
     },
     {
@@ -7084,7 +7084,7 @@
     {
       "month": "2018-08",
       "geo_town": "Winooski",
-      "gallons": 375,
+      "gallons": 350,
       "city": "Winooski"
     },
     {
@@ -7258,7 +7258,7 @@
     {
       "month": "2018-09",
       "geo_town": "Winooski",
-      "gallons": 375,
+      "gallons": 340,
       "city": "Winooski"
     },
     {
@@ -7732,7 +7732,7 @@
     {
       "month": "2018-11",
       "geo_town": "Winooski",
-      "gallons": 300,
+      "gallons": 250,
       "city": "Winooski"
     },
     {
@@ -8158,7 +8158,7 @@
     {
       "month": "2019-01",
       "geo_town": "Winooski",
-      "gallons": 520,
+      "gallons": 470,
       "city": "Winooski"
     },
     {
@@ -8590,7 +8590,7 @@
     {
       "month": "2019-03",
       "geo_town": "Winooski",
-      "gallons": 715,
+      "gallons": 645,
       "city": "Winooski"
     },
     {
@@ -9298,7 +9298,7 @@
     {
       "month": "2019-06",
       "geo_town": "Winooski",
-      "gallons": 245,
+      "gallons": 195,
       "city": "Winooski"
     },
     {
@@ -9562,7 +9562,7 @@
     {
       "month": "2019-07",
       "geo_town": "Winooski",
-      "gallons": 725,
+      "gallons": 675,
       "city": "Winooski"
     },
     {
@@ -9736,7 +9736,7 @@
     {
       "month": "2019-08",
       "geo_town": "Winooski",
-      "gallons": 516,
+      "gallons": 456,
       "city": "Winooski"
     },
     {
@@ -9934,7 +9934,7 @@
     {
       "month": "2019-09",
       "geo_town": "Winooski",
-      "gallons": 695,
+      "gallons": 645,
       "city": "Winooski"
     },
     {
@@ -10336,7 +10336,7 @@
     {
       "month": "2019-11",
       "geo_town": "Winooski",
-      "gallons": 1076,
+      "gallons": 1026,
       "city": "Winooski"
     },
     {
@@ -10966,7 +10966,7 @@
     {
       "month": "2020-02",
       "geo_town": "Winooski",
-      "gallons": 451,
+      "gallons": 401,
       "city": "Winooski"
     },
     {
@@ -11512,7 +11512,7 @@
     {
       "month": "2020-05",
       "geo_town": "Winooski",
-      "gallons": 955,
+      "gallons": 860,
       "city": "Winooski"
     },
     {
@@ -11920,7 +11920,7 @@
     {
       "month": "2020-07",
       "geo_town": "Winooski",
-      "gallons": 595,
+      "gallons": 515,
       "city": "Winooski"
     },
     {
@@ -12496,7 +12496,7 @@
     {
       "month": "2020-10",
       "geo_town": "Winooski",
-      "gallons": 345,
+      "gallons": 295,
       "city": "Winooski"
     },
     {
@@ -13180,7 +13180,7 @@
     {
       "month": "2021-01",
       "geo_town": "Winooski",
-      "gallons": 495,
+      "gallons": 440,
       "city": "Winooski"
     },
     {
@@ -13348,7 +13348,7 @@
     {
       "month": "2021-02",
       "geo_town": "Winooski",
-      "gallons": 415,
+      "gallons": 375,
       "city": "Winooski"
     },
     {
@@ -13702,7 +13702,7 @@
     {
       "month": "2021-04",
       "geo_town": "Winooski",
-      "gallons": 515,
+      "gallons": 465,
       "city": "Winooski"
     },
     {
@@ -14170,7 +14170,7 @@
     {
       "month": "2021-06",
       "geo_town": "Winooski",
-      "gallons": 751,
+      "gallons": 701,
       "city": "Winooski"
     },
     {
@@ -14422,7 +14422,7 @@
     {
       "month": "2021-07",
       "geo_town": "Winooski",
-      "gallons": 475,
+      "gallons": 425,
       "city": "Winooski"
     },
     {
@@ -14704,7 +14704,7 @@
     {
       "month": "2021-08",
       "geo_town": "Winooski",
-      "gallons": 950,
+      "gallons": 900,
       "city": "Winooski"
     },
     {
@@ -15154,7 +15154,7 @@
     {
       "month": "2021-10",
       "geo_town": "Winooski",
-      "gallons": 443,
+      "gallons": 388,
       "city": "Winooski"
     },
     {
@@ -15718,7 +15718,7 @@
     {
       "month": "2021-12",
       "geo_town": "Winooski",
-      "gallons": 330,
+      "gallons": 280,
       "city": "Winooski"
     },
     {
@@ -15928,7 +15928,7 @@
     {
       "month": "2022-01",
       "geo_town": "Winooski",
-      "gallons": 230,
+      "gallons": 190,
       "city": "Winooski"
     },
     {
@@ -16192,7 +16192,7 @@
     {
       "month": "2022-02",
       "geo_town": "Winooski",
-      "gallons": 375,
+      "gallons": 330,
       "city": "Winooski"
     },
     {
@@ -16450,7 +16450,7 @@
     {
       "month": "2022-03",
       "geo_town": "Winooski",
-      "gallons": 630,
+      "gallons": 590,
       "city": "Winooski"
     },
     {
@@ -16978,7 +16978,7 @@
     {
       "month": "2022-05",
       "geo_town": "Winooski",
-      "gallons": 785,
+      "gallons": 745,
       "city": "Winooski"
     },
     {
@@ -17302,7 +17302,7 @@
     {
       "month": "2022-06",
       "geo_town": "Winooski",
-      "gallons": 520,
+      "gallons": 485,
       "city": "Winooski"
     },
     {
@@ -17578,7 +17578,7 @@
     {
       "month": "2022-07",
       "geo_town": "Winooski",
-      "gallons": 695,
+      "gallons": 650,
       "city": "Winooski"
     },
     {
@@ -18232,7 +18232,7 @@
     {
       "month": "2022-09",
       "geo_town": "Winooski",
-      "gallons": 627,
+      "gallons": 580,
       "city": "Winooski"
     },
     {
@@ -18814,7 +18814,7 @@
     {
       "month": "2022-11",
       "geo_town": "Winooski",
-      "gallons": 745,
+      "gallons": 685,
       "city": "Winooski"
     },
     {
@@ -19114,7 +19114,7 @@
     {
       "month": "2022-12",
       "geo_town": "Winooski",
-      "gallons": 535,
+      "gallons": 515,
       "city": "Winooski"
     },
     {
@@ -19372,7 +19372,7 @@
     {
       "month": "2023-01",
       "geo_town": "Winooski",
-      "gallons": 780,
+      "gallons": 755,
       "city": "Winooski"
     },
     {
@@ -19948,7 +19948,7 @@
     {
       "month": "2023-03",
       "geo_town": "Winooski",
-      "gallons": 1080,
+      "gallons": 1030,
       "city": "Winooski"
     },
     {
@@ -20614,7 +20614,7 @@
     {
       "month": "2023-05",
       "geo_town": "Winooski",
-      "gallons": 655,
+      "gallons": 610,
       "city": "Winooski"
     },
     {
@@ -20950,7 +20950,7 @@
     {
       "month": "2023-06",
       "geo_town": "Winooski",
-      "gallons": 970,
+      "gallons": 930,
       "city": "Winooski"
     },
     {
@@ -21196,7 +21196,7 @@
     {
       "month": "2023-07",
       "geo_town": "Winooski",
-      "gallons": 690,
+      "gallons": 660,
       "city": "Winooski"
     },
     {
@@ -21850,7 +21850,7 @@
     {
       "month": "2023-09",
       "geo_town": "Winooski",
-      "gallons": 715,
+      "gallons": 665,
       "city": "Winooski"
     },
     {
@@ -22462,7 +22462,7 @@
     {
       "month": "2023-11",
       "geo_town": "Winooski",
-      "gallons": 705,
+      "gallons": 650,
       "city": "Winooski"
     },
     {
@@ -23074,7 +23074,7 @@
     {
       "month": "2024-01",
       "geo_town": "Winooski",
-      "gallons": 1220,
+      "gallons": 1175,
       "city": "Winooski"
     },
     {
@@ -23422,7 +23422,7 @@
     {
       "month": "2024-02",
       "geo_town": "Winooski",
-      "gallons": 915,
+      "gallons": 895,
       "city": "Winooski"
     },
     {
@@ -24070,7 +24070,7 @@
     {
       "month": "2024-04",
       "geo_town": "Winooski",
-      "gallons": 1390,
+      "gallons": 1310,
       "city": "Winooski"
     },
     {
@@ -24412,7 +24412,7 @@
     {
       "month": "2024-05",
       "geo_town": "Winooski",
-      "gallons": 730,
+      "gallons": 710,
       "city": "Winooski"
     },
     {
@@ -24772,7 +24772,7 @@
     {
       "month": "2024-06",
       "geo_town": "Winooski",
-      "gallons": 1080,
+      "gallons": 1050,
       "city": "Winooski"
     },
     {
@@ -25426,7 +25426,7 @@
     {
       "month": "2024-08",
       "geo_town": "Winooski",
-      "gallons": 1015,
+      "gallons": 950,
       "city": "Winooski"
     },
     {
@@ -26158,7 +26158,7 @@
     {
       "month": "2024-10",
       "geo_town": "Winooski",
-      "gallons": 1430,
+      "gallons": 1370,
       "city": "Winooski"
     },
     {
@@ -26464,7 +26464,7 @@
     {
       "month": "2024-11",
       "geo_town": "Winooski",
-      "gallons": 970,
+      "gallons": 945,
       "city": "Winooski"
     },
     {
@@ -27094,7 +27094,7 @@
     {
       "month": "2025-01",
       "geo_town": "Winooski",
-      "gallons": 730,
+      "gallons": 675,
       "city": "Winooski"
     },
     {
@@ -27676,7 +27676,7 @@
     {
       "month": "2025-03",
       "geo_town": "Winooski",
-      "gallons": 1390,
+      "gallons": 1335,
       "city": "Winooski"
     },
     {
@@ -28066,7 +28066,7 @@
     {
       "month": "2025-04",
       "geo_town": "Winooski",
-      "gallons": 1317,
+      "gallons": 1272,
       "city": "Winooski"
     },
     {
@@ -28768,7 +28768,7 @@
     {
       "month": "2025-06",
       "geo_town": "Winooski",
-      "gallons": 1070,
+      "gallons": 1020,
       "city": "Winooski"
     },
     {
@@ -29416,7 +29416,7 @@
     {
       "month": "2025-08",
       "geo_town": "Winooski",
-      "gallons": 1055,
+      "gallons": 995,
       "city": "Winooski"
     },
     {
@@ -29776,7 +29776,7 @@
     {
       "month": "2025-09",
       "geo_town": "Winooski",
-      "gallons": 1450,
+      "gallons": 1405,
       "city": "Winooski"
     },
     {
@@ -30106,7 +30106,7 @@
     {
       "month": "2025-10",
       "geo_town": "Winooski",
-      "gallons": 835,
+      "gallons": 790,
       "city": "Winooski"
     },
     {
@@ -31042,7 +31042,7 @@
     {
       "month": "2026-01",
       "geo_town": "Winooski",
-      "gallons": 805,
+      "gallons": 705,
       "city": "Winooski"
     },
     {
@@ -31672,7 +31672,7 @@
     {
       "month": "2026-03",
       "geo_town": "Winooski",
-      "gallons": 1120,
+      "gallons": 1060,
       "city": "Winooski"
     },
     {
@@ -32380,7 +32380,7 @@
     {
       "month": "2026-05",
       "geo_town": "Winooski",
-      "gallons": 845,
+      "gallons": 805,
       "city": "Winooski"
     },
     {
@@ -33022,7 +33022,7 @@
     {
       "month": "2026-07",
       "geo_town": "Winooski",
-      "gallons": 1125,
+      "gallons": 1055,
       "city": "Winooski"
     },
     {
@@ -33346,7 +33346,7 @@
     {
       "month": "2026-09",
       "geo_town": "Barre City",
-      "gallons": 825,
+      "gallons": 860,
       "city": "Barre City"
     },
     {
@@ -33364,7 +33364,7 @@
     {
       "month": "2026-09",
       "geo_town": "Berlin",
-      "gallons": 205,
+      "gallons": 430,
       "city": "Berlin"
     },
     {
@@ -33496,7 +33496,7 @@
     {
       "month": "2026-09",
       "geo_town": "Montpelier",
-      "gallons": 585,
+      "gallons": 1085,
       "city": "Montpelier"
     },
     {
@@ -33652,7 +33652,7 @@
     {
       "month": "2026-09",
       "geo_town": "Winooski",
-      "gallons": 880,
+      "gallons": 835,
       "city": "Winooski"
     },
     {
@@ -35167,7 +35167,7 @@
     {
       "month": "2018-01",
       "county": "Chittenden",
-      "gallons": 2415
+      "gallons": 2315
     },
     {
       "month": "2018-01",
@@ -35222,7 +35222,7 @@
     {
       "month": "2018-02",
       "county": "Chittenden",
-      "gallons": 5220
+      "gallons": 5200
     },
     {
       "month": "2018-02",
@@ -35287,7 +35287,7 @@
     {
       "month": "2018-03",
       "county": "Chittenden",
-      "gallons": 4845
+      "gallons": 4815
     },
     {
       "month": "2018-03",
@@ -35397,7 +35397,7 @@
     {
       "month": "2018-05",
       "county": "Chittenden",
-      "gallons": 7793
+      "gallons": 7718
     },
     {
       "month": "2018-05",
@@ -35447,7 +35447,7 @@
     {
       "month": "2018-06",
       "county": "Chittenden",
-      "gallons": 6400
+      "gallons": 6375
     },
     {
       "month": "2018-06",
@@ -35502,7 +35502,7 @@
     {
       "month": "2018-07",
       "county": "Chittenden",
-      "gallons": 9390
+      "gallons": 9350
     },
     {
       "month": "2018-07",
@@ -35542,7 +35542,7 @@
     {
       "month": "2018-08",
       "county": "Chittenden",
-      "gallons": 4905
+      "gallons": 4880
     },
     {
       "month": "2018-08",
@@ -35602,7 +35602,7 @@
     {
       "month": "2018-09",
       "county": "Chittenden",
-      "gallons": 6185
+      "gallons": 6150
     },
     {
       "month": "2018-09",
@@ -35697,7 +35697,7 @@
     {
       "month": "2018-11",
       "county": "Chittenden",
-      "gallons": 5779
+      "gallons": 5729
     },
     {
       "month": "2018-11",
@@ -35812,7 +35812,7 @@
     {
       "month": "2019-01",
       "county": "Chittenden",
-      "gallons": 3586
+      "gallons": 3536
     },
     {
       "month": "2019-01",
@@ -35922,7 +35922,7 @@
     {
       "month": "2019-03",
       "county": "Chittenden",
-      "gallons": 7135
+      "gallons": 7065
     },
     {
       "month": "2019-03",
@@ -36057,7 +36057,7 @@
     {
       "month": "2019-06",
       "county": "Chittenden",
-      "gallons": 6630
+      "gallons": 6580
     },
     {
       "month": "2019-06",
@@ -36107,7 +36107,7 @@
     {
       "month": "2019-07",
       "county": "Chittenden",
-      "gallons": 6700
+      "gallons": 6650
     },
     {
       "month": "2019-07",
@@ -36157,7 +36157,7 @@
     {
       "month": "2019-08",
       "county": "Chittenden",
-      "gallons": 6542
+      "gallons": 6482
     },
     {
       "month": "2019-08",
@@ -36207,7 +36207,7 @@
     {
       "month": "2019-09",
       "county": "Chittenden",
-      "gallons": 6045
+      "gallons": 5995
     },
     {
       "month": "2019-09",
@@ -36307,7 +36307,7 @@
     {
       "month": "2019-11",
       "county": "Chittenden",
-      "gallons": 6312
+      "gallons": 6262
     },
     {
       "month": "2019-11",
@@ -36447,7 +36447,7 @@
     {
       "month": "2020-02",
       "county": "Chittenden",
-      "gallons": 3991
+      "gallons": 3941
     },
     {
       "month": "2020-02",
@@ -36612,7 +36612,7 @@
     {
       "month": "2020-05",
       "county": "Chittenden",
-      "gallons": 3545
+      "gallons": 3450
     },
     {
       "month": "2020-05",
@@ -36702,7 +36702,7 @@
     {
       "month": "2020-07",
       "county": "Chittenden",
-      "gallons": 5020
+      "gallons": 4940
     },
     {
       "month": "2020-07",
@@ -36842,7 +36842,7 @@
     {
       "month": "2020-10",
       "county": "Chittenden",
-      "gallons": 3915
+      "gallons": 3865
     },
     {
       "month": "2020-10",
@@ -36997,7 +36997,7 @@
     {
       "month": "2021-01",
       "county": "Chittenden",
-      "gallons": 4500
+      "gallons": 4445
     },
     {
       "month": "2021-01",
@@ -37042,7 +37042,7 @@
     {
       "month": "2021-02",
       "county": "Chittenden",
-      "gallons": 3505
+      "gallons": 3465
     },
     {
       "month": "2021-02",
@@ -37142,7 +37142,7 @@
     {
       "month": "2021-04",
       "county": "Chittenden",
-      "gallons": 3625
+      "gallons": 3575
     },
     {
       "month": "2021-04",
@@ -37247,7 +37247,7 @@
     {
       "month": "2021-06",
       "county": "Chittenden",
-      "gallons": 7583
+      "gallons": 7533
     },
     {
       "month": "2021-06",
@@ -37287,7 +37287,7 @@
     {
       "month": "2021-07",
       "county": "Chittenden",
-      "gallons": 6217
+      "gallons": 6167
     },
     {
       "month": "2021-07",
@@ -37342,7 +37342,7 @@
     {
       "month": "2021-08",
       "county": "Chittenden",
-      "gallons": 8105
+      "gallons": 8055
     },
     {
       "month": "2021-08",
@@ -37452,7 +37452,7 @@
     {
       "month": "2021-10",
       "county": "Chittenden",
-      "gallons": 5593
+      "gallons": 5538
     },
     {
       "month": "2021-10",
@@ -37562,7 +37562,7 @@
     {
       "month": "2021-12",
       "county": "Chittenden",
-      "gallons": 7730
+      "gallons": 7680
     },
     {
       "month": "2021-12",
@@ -37627,7 +37627,7 @@
     {
       "month": "2022-01",
       "county": "Chittenden",
-      "gallons": 3596
+      "gallons": 3556
     },
     {
       "month": "2022-01",
@@ -37662,7 +37662,7 @@
     {
       "month": "2022-02",
       "county": "Chittenden",
-      "gallons": 4305
+      "gallons": 4260
     },
     {
       "month": "2022-02",
@@ -37727,7 +37727,7 @@
     {
       "month": "2022-03",
       "county": "Chittenden",
-      "gallons": 12277
+      "gallons": 12237
     },
     {
       "month": "2022-03",
@@ -37837,7 +37837,7 @@
     {
       "month": "2022-05",
       "county": "Chittenden",
-      "gallons": 8420
+      "gallons": 8380
     },
     {
       "month": "2022-05",
@@ -37897,7 +37897,7 @@
     {
       "month": "2022-06",
       "county": "Chittenden",
-      "gallons": 7260
+      "gallons": 7225
     },
     {
       "month": "2022-06",
@@ -37957,7 +37957,7 @@
     {
       "month": "2022-07",
       "county": "Chittenden",
-      "gallons": 9730
+      "gallons": 9685
     },
     {
       "month": "2022-07",
@@ -38077,7 +38077,7 @@
     {
       "month": "2022-09",
       "county": "Chittenden",
-      "gallons": 8275
+      "gallons": 8228
     },
     {
       "month": "2022-09",
@@ -38222,7 +38222,7 @@
     {
       "month": "2022-11",
       "county": "Chittenden",
-      "gallons": 7395
+      "gallons": 7335
     },
     {
       "month": "2022-11",
@@ -38272,7 +38272,7 @@
     {
       "month": "2022-12",
       "county": "Chittenden",
-      "gallons": 5543
+      "gallons": 5523
     },
     {
       "month": "2022-12",
@@ -38342,7 +38342,7 @@
     {
       "month": "2023-01",
       "county": "Chittenden",
-      "gallons": 6530
+      "gallons": 6505
     },
     {
       "month": "2023-01",
@@ -38452,7 +38452,7 @@
     {
       "month": "2023-03",
       "county": "Chittenden",
-      "gallons": 8972
+      "gallons": 8922
     },
     {
       "month": "2023-03",
@@ -38577,7 +38577,7 @@
     {
       "month": "2023-05",
       "county": "Chittenden",
-      "gallons": 9214
+      "gallons": 9169
     },
     {
       "month": "2023-05",
@@ -38652,7 +38652,7 @@
     {
       "month": "2023-06",
       "county": "Chittenden",
-      "gallons": 11033
+      "gallons": 10993
     },
     {
       "month": "2023-06",
@@ -38717,7 +38717,7 @@
     {
       "month": "2023-07",
       "county": "Chittenden",
-      "gallons": 9423
+      "gallons": 9393
     },
     {
       "month": "2023-07",
@@ -38842,7 +38842,7 @@
     {
       "month": "2023-09",
       "county": "Chittenden",
-      "gallons": 7956
+      "gallons": 7906
     },
     {
       "month": "2023-09",
@@ -38982,7 +38982,7 @@
     {
       "month": "2023-11",
       "county": "Chittenden",
-      "gallons": 7686
+      "gallons": 7631
     },
     {
       "month": "2023-11",
@@ -39107,7 +39107,7 @@
     {
       "month": "2024-01",
       "county": "Chittenden",
-      "gallons": 7141
+      "gallons": 7096
     },
     {
       "month": "2024-01",
@@ -39182,7 +39182,7 @@
     {
       "month": "2024-02",
       "county": "Chittenden",
-      "gallons": 7669
+      "gallons": 7649
     },
     {
       "month": "2024-02",
@@ -39322,7 +39322,7 @@
     {
       "month": "2024-04",
       "county": "Chittenden",
-      "gallons": 12050
+      "gallons": 11970
     },
     {
       "month": "2024-04",
@@ -39397,7 +39397,7 @@
     {
       "month": "2024-05",
       "county": "Chittenden",
-      "gallons": 9284
+      "gallons": 9264
     },
     {
       "month": "2024-05",
@@ -39472,7 +39472,7 @@
     {
       "month": "2024-06",
       "county": "Chittenden",
-      "gallons": 8002
+      "gallons": 7972
     },
     {
       "month": "2024-06",
@@ -39612,7 +39612,7 @@
     {
       "month": "2024-08",
       "county": "Chittenden",
-      "gallons": 7911
+      "gallons": 7846
     },
     {
       "month": "2024-08",
@@ -39757,7 +39757,7 @@
     {
       "month": "2024-10",
       "county": "Chittenden",
-      "gallons": 11970
+      "gallons": 11910
     },
     {
       "month": "2024-10",
@@ -39832,7 +39832,7 @@
     {
       "month": "2024-11",
       "county": "Chittenden",
-      "gallons": 8327
+      "gallons": 8302
     },
     {
       "month": "2024-11",
@@ -39982,7 +39982,7 @@
     {
       "month": "2025-01",
       "county": "Chittenden",
-      "gallons": 7446
+      "gallons": 7391
     },
     {
       "month": "2025-01",
@@ -40102,7 +40102,7 @@
     {
       "month": "2025-03",
       "county": "Chittenden",
-      "gallons": 10413
+      "gallons": 10358
     },
     {
       "month": "2025-03",
@@ -40172,7 +40172,7 @@
     {
       "month": "2025-04",
       "county": "Chittenden",
-      "gallons": 10596
+      "gallons": 10551
     },
     {
       "month": "2025-04",
@@ -40302,7 +40302,7 @@
     {
       "month": "2025-06",
       "county": "Chittenden",
-      "gallons": 9032
+      "gallons": 8982
     },
     {
       "month": "2025-06",
@@ -40447,7 +40447,7 @@
     {
       "month": "2025-08",
       "county": "Chittenden",
-      "gallons": 9044
+      "gallons": 8984
     },
     {
       "month": "2025-08",
@@ -40522,7 +40522,7 @@
     {
       "month": "2025-09",
       "county": "Chittenden",
-      "gallons": 8859
+      "gallons": 8814
     },
     {
       "month": "2025-09",
@@ -40597,7 +40597,7 @@
     {
       "month": "2025-10",
       "county": "Chittenden",
-      "gallons": 8603
+      "gallons": 8558
     },
     {
       "month": "2025-10",
@@ -40797,7 +40797,7 @@
     {
       "month": "2026-01",
       "county": "Chittenden",
-      "gallons": 8388
+      "gallons": 8288
     },
     {
       "month": "2026-01",
@@ -40937,7 +40937,7 @@
     {
       "month": "2026-03",
       "county": "Chittenden",
-      "gallons": 9869
+      "gallons": 9809
     },
     {
       "month": "2026-03",
@@ -41077,7 +41077,7 @@
     {
       "month": "2026-05",
       "county": "Chittenden",
-      "gallons": 6850
+      "gallons": 6810
     },
     {
       "month": "2026-05",
@@ -41207,7 +41207,7 @@
     {
       "month": "2026-07",
       "county": "Chittenden",
-      "gallons": 12646
+      "gallons": 12576
     },
     {
       "month": "2026-07",
@@ -41347,7 +41347,7 @@
     {
       "month": "2026-09",
       "county": "Chittenden",
-      "gallons": 8050
+      "gallons": 8005
     },
     {
       "month": "2026-09",
@@ -41392,7 +41392,7 @@
     {
       "month": "2026-09",
       "county": "Washington",
-      "gallons": 3846
+      "gallons": 4606
     },
     {
       "month": "2026-09",
@@ -41420,44 +41420,44 @@
     },
     {
       "year": 2018,
-      "gallons": 161333
+      "gallons": 160933
     },
     {
       "year": 2019,
-      "gallons": 176032
+      "gallons": 175652
     },
     {
       "year": 2020,
-      "gallons": 146561
+      "gallons": 146286
     },
     {
       "year": 2021,
-      "gallons": 167905
+      "gallons": 167505
     },
     {
       "year": 2022,
-      "gallons": 226389
+      "gallons": 226017
     },
     {
       "year": 2023,
-      "gallons": 244362
+      "gallons": 244067
     },
     {
       "year": 2024,
-      "gallons": 263257
+      "gallons": 262912
     },
     {
       "year": 2025,
-      "gallons": 269909
+      "gallons": 269554
     },
     {
       "year": 2026,
-      "gallons": 221698
+      "gallons": 222143
     }
   ],
-  "all_time_total": 2140465,
-  "current_year_total": 221698,
-  "customer_count": 798,
+  "all_time_total": 2138088,
+  "current_year_total": 222143,
+  "customer_count": 797,
   "unmapped_total": 39754,
   "monthly_totals": [
     {
@@ -41606,15 +41606,15 @@
     },
     {
       "month": "2018-01",
-      "gallons": 8568
+      "gallons": 8468
     },
     {
       "month": "2018-02",
-      "gallons": 11377
+      "gallons": 11357
     },
     {
       "month": "2018-03",
-      "gallons": 13755
+      "gallons": 13725
     },
     {
       "month": "2018-04",
@@ -41622,23 +41622,23 @@
     },
     {
       "month": "2018-05",
-      "gallons": 14730
+      "gallons": 14655
     },
     {
       "month": "2018-06",
-      "gallons": 12610
+      "gallons": 12585
     },
     {
       "month": "2018-07",
-      "gallons": 17534
+      "gallons": 17494
     },
     {
       "month": "2018-08",
-      "gallons": 13384
+      "gallons": 13359
     },
     {
       "month": "2018-09",
-      "gallons": 12785
+      "gallons": 12750
     },
     {
       "month": "2018-10",
@@ -41646,7 +41646,7 @@
     },
     {
       "month": "2018-11",
-      "gallons": 12160
+      "gallons": 12110
     },
     {
       "month": "2018-12",
@@ -41654,7 +41654,7 @@
     },
     {
       "month": "2019-01",
-      "gallons": 11689
+      "gallons": 11639
     },
     {
       "month": "2019-02",
@@ -41662,7 +41662,7 @@
     },
     {
       "month": "2019-03",
-      "gallons": 15290
+      "gallons": 15220
     },
     {
       "month": "2019-04",
@@ -41674,19 +41674,19 @@
     },
     {
       "month": "2019-06",
-      "gallons": 15000
+      "gallons": 14950
     },
     {
       "month": "2019-07",
-      "gallons": 16605
+      "gallons": 16555
     },
     {
       "month": "2019-08",
-      "gallons": 12257
+      "gallons": 12197
     },
     {
       "month": "2019-09",
-      "gallons": 13805
+      "gallons": 13755
     },
     {
       "month": "2019-10",
@@ -41694,7 +41694,7 @@
     },
     {
       "month": "2019-11",
-      "gallons": 14217
+      "gallons": 14167
     },
     {
       "month": "2019-12",
@@ -41706,7 +41706,7 @@
     },
     {
       "month": "2020-02",
-      "gallons": 12776
+      "gallons": 12726
     },
     {
       "month": "2020-03",
@@ -41718,7 +41718,7 @@
     },
     {
       "month": "2020-05",
-      "gallons": 5925
+      "gallons": 5830
     },
     {
       "month": "2020-06",
@@ -41726,7 +41726,7 @@
     },
     {
       "month": "2020-07",
-      "gallons": 12175
+      "gallons": 12095
     },
     {
       "month": "2020-08",
@@ -41738,7 +41738,7 @@
     },
     {
       "month": "2020-10",
-      "gallons": 12670
+      "gallons": 12620
     },
     {
       "month": "2020-11",
@@ -41750,11 +41750,11 @@
     },
     {
       "month": "2021-01",
-      "gallons": 11560
+      "gallons": 11505
     },
     {
       "month": "2021-02",
-      "gallons": 8840
+      "gallons": 8800
     },
     {
       "month": "2021-03",
@@ -41762,7 +41762,7 @@
     },
     {
       "month": "2021-04",
-      "gallons": 9130
+      "gallons": 9080
     },
     {
       "month": "2021-05",
@@ -41770,15 +41770,15 @@
     },
     {
       "month": "2021-06",
-      "gallons": 16004
+      "gallons": 15954
     },
     {
       "month": "2021-07",
-      "gallons": 15277
+      "gallons": 15227
     },
     {
       "month": "2021-08",
-      "gallons": 18620
+      "gallons": 18570
     },
     {
       "month": "2021-09",
@@ -41786,7 +41786,7 @@
     },
     {
       "month": "2021-10",
-      "gallons": 15188
+      "gallons": 15133
     },
     {
       "month": "2021-11",
@@ -41794,19 +41794,19 @@
     },
     {
       "month": "2021-12",
-      "gallons": 17947
+      "gallons": 17897
     },
     {
       "month": "2022-01",
-      "gallons": 9626
+      "gallons": 9586
     },
     {
       "month": "2022-02",
-      "gallons": 13102
+      "gallons": 13057
     },
     {
       "month": "2022-03",
-      "gallons": 22746
+      "gallons": 22706
     },
     {
       "month": "2022-04",
@@ -41814,15 +41814,15 @@
     },
     {
       "month": "2022-05",
-      "gallons": 17690
+      "gallons": 17650
     },
     {
       "month": "2022-06",
-      "gallons": 18845
+      "gallons": 18810
     },
     {
       "month": "2022-07",
-      "gallons": 18167
+      "gallons": 18122
     },
     {
       "month": "2022-08",
@@ -41830,7 +41830,7 @@
     },
     {
       "month": "2022-09",
-      "gallons": 23761
+      "gallons": 23714
     },
     {
       "month": "2022-10",
@@ -41838,15 +41838,15 @@
     },
     {
       "month": "2022-11",
-      "gallons": 20799
+      "gallons": 20739
     },
     {
       "month": "2022-12",
-      "gallons": 16576
+      "gallons": 16556
     },
     {
       "month": "2023-01",
-      "gallons": 16360
+      "gallons": 16335
     },
     {
       "month": "2023-02",
@@ -41854,7 +41854,7 @@
     },
     {
       "month": "2023-03",
-      "gallons": 20486
+      "gallons": 20436
     },
     {
       "month": "2023-04",
@@ -41862,15 +41862,15 @@
     },
     {
       "month": "2023-05",
-      "gallons": 21982
+      "gallons": 21937
     },
     {
       "month": "2023-06",
-      "gallons": 24960
+      "gallons": 24920
     },
     {
       "month": "2023-07",
-      "gallons": 18055
+      "gallons": 18025
     },
     {
       "month": "2023-08",
@@ -41878,7 +41878,7 @@
     },
     {
       "month": "2023-09",
-      "gallons": 17557
+      "gallons": 17507
     },
     {
       "month": "2023-10",
@@ -41886,7 +41886,7 @@
     },
     {
       "month": "2023-11",
-      "gallons": 18298
+      "gallons": 18243
     },
     {
       "month": "2023-12",
@@ -41894,11 +41894,11 @@
     },
     {
       "month": "2024-01",
-      "gallons": 19982
+      "gallons": 19937
     },
     {
       "month": "2024-02",
-      "gallons": 21041
+      "gallons": 21021
     },
     {
       "month": "2024-03",
@@ -41906,15 +41906,15 @@
     },
     {
       "month": "2024-04",
-      "gallons": 25983
+      "gallons": 25903
     },
     {
       "month": "2024-05",
-      "gallons": 20427
+      "gallons": 20407
     },
     {
       "month": "2024-06",
-      "gallons": 22290
+      "gallons": 22260
     },
     {
       "month": "2024-07",
@@ -41922,7 +41922,7 @@
     },
     {
       "month": "2024-08",
-      "gallons": 21675
+      "gallons": 21610
     },
     {
       "month": "2024-09",
@@ -41930,11 +41930,11 @@
     },
     {
       "month": "2024-10",
-      "gallons": 22593
+      "gallons": 22533
     },
     {
       "month": "2024-11",
-      "gallons": 20260
+      "gallons": 20235
     },
     {
       "month": "2024-12",
@@ -41942,7 +41942,7 @@
     },
     {
       "month": "2025-01",
-      "gallons": 19140
+      "gallons": 19085
     },
     {
       "month": "2025-02",
@@ -41950,11 +41950,11 @@
     },
     {
       "month": "2025-03",
-      "gallons": 26961
+      "gallons": 26906
     },
     {
       "month": "2025-04",
-      "gallons": 27145
+      "gallons": 27100
     },
     {
       "month": "2025-05",
@@ -41962,7 +41962,7 @@
     },
     {
       "month": "2025-06",
-      "gallons": 23433
+      "gallons": 23383
     },
     {
       "month": "2025-07",
@@ -41970,15 +41970,15 @@
     },
     {
       "month": "2025-08",
-      "gallons": 25119
+      "gallons": 25059
     },
     {
       "month": "2025-09",
-      "gallons": 25498
+      "gallons": 25453
     },
     {
       "month": "2025-10",
-      "gallons": 21968
+      "gallons": 21923
     },
     {
       "month": "2025-11",
@@ -41990,7 +41990,7 @@
     },
     {
       "month": "2026-01",
-      "gallons": 22048
+      "gallons": 21948
     },
     {
       "month": "2026-02",
@@ -41998,7 +41998,7 @@
     },
     {
       "month": "2026-03",
-      "gallons": 25965
+      "gallons": 25905
     },
     {
       "month": "2026-04",
@@ -42006,7 +42006,7 @@
     },
     {
       "month": "2026-05",
-      "gallons": 20331
+      "gallons": 20291
     },
     {
       "month": "2026-06",
@@ -42014,7 +42014,7 @@
     },
     {
       "month": "2026-07",
-      "gallons": 28907
+      "gallons": 28837
     },
     {
       "month": "2026-08",
@@ -42022,7 +42022,7 @@
     },
     {
       "month": "2026-09",
-      "gallons": 20359
+      "gallons": 21074
     }
   ],
   "monthly_by_region": [
@@ -44489,7 +44489,7 @@
     {
       "month": "2018-01",
       "region": "Outer Burlington",
-      "gallons": 620
+      "gallons": 520
     },
     {
       "month": "2018-01",
@@ -44569,7 +44569,7 @@
     {
       "month": "2018-02",
       "region": "Outer Burlington",
-      "gallons": 865
+      "gallons": 845
     },
     {
       "month": "2018-02",
@@ -44654,7 +44654,7 @@
     {
       "month": "2018-03",
       "region": "Outer Burlington",
-      "gallons": 930
+      "gallons": 900
     },
     {
       "month": "2018-03",
@@ -44824,7 +44824,7 @@
     {
       "month": "2018-05",
       "region": "Outer Burlington",
-      "gallons": 965
+      "gallons": 890
     },
     {
       "month": "2018-05",
@@ -44919,7 +44919,7 @@
     {
       "month": "2018-06",
       "region": "Outer Burlington",
-      "gallons": 860
+      "gallons": 835
     },
     {
       "month": "2018-06",
@@ -44994,7 +44994,7 @@
     {
       "month": "2018-07",
       "region": "Outer Burlington",
-      "gallons": 1790
+      "gallons": 1750
     },
     {
       "month": "2018-07",
@@ -45079,7 +45079,7 @@
     {
       "month": "2018-08",
       "region": "Outer Burlington",
-      "gallons": 1040
+      "gallons": 1015
     },
     {
       "month": "2018-08",
@@ -45159,7 +45159,7 @@
     {
       "month": "2018-09",
       "region": "Outer Burlington",
-      "gallons": 2400
+      "gallons": 2365
     },
     {
       "month": "2018-09",
@@ -45334,7 +45334,7 @@
     {
       "month": "2018-11",
       "region": "Outer Burlington",
-      "gallons": 780
+      "gallons": 730
     },
     {
       "month": "2018-11",
@@ -45514,7 +45514,7 @@
     {
       "month": "2019-01",
       "region": "Outer Burlington",
-      "gallons": 920
+      "gallons": 870
     },
     {
       "month": "2019-01",
@@ -45689,7 +45689,7 @@
     {
       "month": "2019-03",
       "region": "Outer Burlington",
-      "gallons": 1265
+      "gallons": 1195
     },
     {
       "month": "2019-03",
@@ -45949,7 +45949,7 @@
     {
       "month": "2019-06",
       "region": "Outer Burlington",
-      "gallons": 960
+      "gallons": 910
     },
     {
       "month": "2019-06",
@@ -46039,7 +46039,7 @@
     {
       "month": "2019-07",
       "region": "Outer Burlington",
-      "gallons": 1820
+      "gallons": 1770
     },
     {
       "month": "2019-07",
@@ -46134,7 +46134,7 @@
     {
       "month": "2019-08",
       "region": "Outer Burlington",
-      "gallons": 1851
+      "gallons": 1791
     },
     {
       "month": "2019-08",
@@ -46219,7 +46219,7 @@
     {
       "month": "2019-09",
       "region": "Outer Burlington",
-      "gallons": 2860
+      "gallons": 2810
     },
     {
       "month": "2019-09",
@@ -46399,7 +46399,7 @@
     {
       "month": "2019-11",
       "region": "Outer Burlington",
-      "gallons": 1831
+      "gallons": 1781
     },
     {
       "month": "2019-11",
@@ -46654,7 +46654,7 @@
     {
       "month": "2020-02",
       "region": "Outer Burlington",
-      "gallons": 1026
+      "gallons": 976
     },
     {
       "month": "2020-02",
@@ -46904,7 +46904,7 @@
     {
       "month": "2020-05",
       "region": "Outer Burlington",
-      "gallons": 1670
+      "gallons": 1575
     },
     {
       "month": "2020-05",
@@ -47054,7 +47054,7 @@
     {
       "month": "2020-07",
       "region": "Outer Burlington",
-      "gallons": 805
+      "gallons": 725
     },
     {
       "month": "2020-07",
@@ -47299,7 +47299,7 @@
     {
       "month": "2020-10",
       "region": "Outer Burlington",
-      "gallons": 1035
+      "gallons": 985
     },
     {
       "month": "2020-10",
@@ -47574,7 +47574,7 @@
     {
       "month": "2021-01",
       "region": "Outer Burlington",
-      "gallons": 1225
+      "gallons": 1170
     },
     {
       "month": "2021-01",
@@ -47654,7 +47654,7 @@
     {
       "month": "2021-02",
       "region": "Outer Burlington",
-      "gallons": 1400
+      "gallons": 1360
     },
     {
       "month": "2021-02",
@@ -47819,7 +47819,7 @@
     {
       "month": "2021-04",
       "region": "Outer Burlington",
-      "gallons": 1090
+      "gallons": 1040
     },
     {
       "month": "2021-04",
@@ -47989,7 +47989,7 @@
     {
       "month": "2021-06",
       "region": "Outer Burlington",
-      "gallons": 2051
+      "gallons": 2001
     },
     {
       "month": "2021-06",
@@ -48074,7 +48074,7 @@
     {
       "month": "2021-07",
       "region": "Outer Burlington",
-      "gallons": 1480
+      "gallons": 1430
     },
     {
       "month": "2021-07",
@@ -48164,7 +48164,7 @@
     {
       "month": "2021-08",
       "region": "Outer Burlington",
-      "gallons": 2780
+      "gallons": 2730
     },
     {
       "month": "2021-08",
@@ -48344,7 +48344,7 @@
     {
       "month": "2021-10",
       "region": "Outer Burlington",
-      "gallons": 1998
+      "gallons": 1943
     },
     {
       "month": "2021-10",
@@ -48514,7 +48514,7 @@
     {
       "month": "2021-12",
       "region": "Outer Burlington",
-      "gallons": 2305
+      "gallons": 2255
     },
     {
       "month": "2021-12",
@@ -48609,7 +48609,7 @@
     {
       "month": "2022-01",
       "region": "Outer Burlington",
-      "gallons": 1216
+      "gallons": 1176
     },
     {
       "month": "2022-01",
@@ -48684,7 +48684,7 @@
     {
       "month": "2022-02",
       "region": "Outer Burlington",
-      "gallons": 765
+      "gallons": 720
     },
     {
       "month": "2022-02",
@@ -48774,7 +48774,7 @@
     {
       "month": "2022-03",
       "region": "Outer Burlington",
-      "gallons": 2225
+      "gallons": 2185
     },
     {
       "month": "2022-03",
@@ -48959,7 +48959,7 @@
     {
       "month": "2022-05",
       "region": "Outer Burlington",
-      "gallons": 2345
+      "gallons": 2305
     },
     {
       "month": "2022-05",
@@ -49054,7 +49054,7 @@
     {
       "month": "2022-06",
       "region": "Outer Burlington",
-      "gallons": 1705
+      "gallons": 1670
     },
     {
       "month": "2022-06",
@@ -49149,7 +49149,7 @@
     {
       "month": "2022-07",
       "region": "Outer Burlington",
-      "gallons": 2085
+      "gallons": 2040
     },
     {
       "month": "2022-07",
@@ -49314,7 +49314,7 @@
     {
       "month": "2022-09",
       "region": "Outer Burlington",
-      "gallons": 3207
+      "gallons": 3160
     },
     {
       "month": "2022-09",
@@ -49494,7 +49494,7 @@
     {
       "month": "2022-11",
       "region": "Outer Burlington",
-      "gallons": 2125
+      "gallons": 2065
     },
     {
       "month": "2022-11",
@@ -49584,7 +49584,7 @@
     {
       "month": "2022-12",
       "region": "Outer Burlington",
-      "gallons": 1708
+      "gallons": 1688
     },
     {
       "month": "2022-12",
@@ -49674,7 +49674,7 @@
     {
       "month": "2023-01",
       "region": "Outer Burlington",
-      "gallons": 2256
+      "gallons": 2231
     },
     {
       "month": "2023-01",
@@ -49824,7 +49824,7 @@
     {
       "month": "2023-03",
       "region": "Outer Burlington",
-      "gallons": 2337
+      "gallons": 2287
     },
     {
       "month": "2023-03",
@@ -49999,7 +49999,7 @@
     {
       "month": "2023-05",
       "region": "Outer Burlington",
-      "gallons": 1828
+      "gallons": 1783
     },
     {
       "month": "2023-05",
@@ -50094,7 +50094,7 @@
     {
       "month": "2023-06",
       "region": "Outer Burlington",
-      "gallons": 3350
+      "gallons": 3310
     },
     {
       "month": "2023-06",
@@ -50184,7 +50184,7 @@
     {
       "month": "2023-07",
       "region": "Outer Burlington",
-      "gallons": 1575
+      "gallons": 1545
     },
     {
       "month": "2023-07",
@@ -50374,7 +50374,7 @@
     {
       "month": "2023-09",
       "region": "Outer Burlington",
-      "gallons": 2995
+      "gallons": 2945
     },
     {
       "month": "2023-09",
@@ -50554,7 +50554,7 @@
     {
       "month": "2023-11",
       "region": "Outer Burlington",
-      "gallons": 1915
+      "gallons": 1860
     },
     {
       "month": "2023-11",
@@ -50734,7 +50734,7 @@
     {
       "month": "2024-01",
       "region": "Outer Burlington",
-      "gallons": 2699
+      "gallons": 2654
     },
     {
       "month": "2024-01",
@@ -50824,7 +50824,7 @@
     {
       "month": "2024-02",
       "region": "Outer Burlington",
-      "gallons": 2099
+      "gallons": 2079
     },
     {
       "month": "2024-02",
@@ -51004,7 +51004,7 @@
     {
       "month": "2024-04",
       "region": "Outer Burlington",
-      "gallons": 2877
+      "gallons": 2797
     },
     {
       "month": "2024-04",
@@ -51099,7 +51099,7 @@
     {
       "month": "2024-05",
       "region": "Outer Burlington",
-      "gallons": 2028
+      "gallons": 2008
     },
     {
       "month": "2024-05",
@@ -51194,7 +51194,7 @@
     {
       "month": "2024-06",
       "region": "Outer Burlington",
-      "gallons": 2189
+      "gallons": 2159
     },
     {
       "month": "2024-06",
@@ -51369,7 +51369,7 @@
     {
       "month": "2024-08",
       "region": "Outer Burlington",
-      "gallons": 3157
+      "gallons": 3092
     },
     {
       "month": "2024-08",
@@ -51544,7 +51544,7 @@
     {
       "month": "2024-10",
       "region": "Outer Burlington",
-      "gallons": 3295
+      "gallons": 3235
     },
     {
       "month": "2024-10",
@@ -51639,7 +51639,7 @@
     {
       "month": "2024-11",
       "region": "Outer Burlington",
-      "gallons": 2455
+      "gallons": 2430
     },
     {
       "month": "2024-11",
@@ -51824,7 +51824,7 @@
     {
       "month": "2025-01",
       "region": "Outer Burlington",
-      "gallons": 1570
+      "gallons": 1515
     },
     {
       "month": "2025-01",
@@ -51989,7 +51989,7 @@
     {
       "month": "2025-03",
       "region": "Outer Burlington",
-      "gallons": 2680
+      "gallons": 2625
     },
     {
       "month": "2025-03",
@@ -52084,7 +52084,7 @@
     {
       "month": "2025-04",
       "region": "Outer Burlington",
-      "gallons": 2749
+      "gallons": 2704
     },
     {
       "month": "2025-04",
@@ -52269,7 +52269,7 @@
     {
       "month": "2025-06",
       "region": "Outer Burlington",
-      "gallons": 2595
+      "gallons": 2545
     },
     {
       "month": "2025-06",
@@ -52449,7 +52449,7 @@
     {
       "month": "2025-08",
       "region": "Outer Burlington",
-      "gallons": 3301
+      "gallons": 3241
     },
     {
       "month": "2025-08",
@@ -52534,7 +52534,7 @@
     {
       "month": "2025-09",
       "region": "Outer Burlington",
-      "gallons": 3200
+      "gallons": 3155
     },
     {
       "month": "2025-09",
@@ -52624,7 +52624,7 @@
     {
       "month": "2025-10",
       "region": "Outer Burlington",
-      "gallons": 3121
+      "gallons": 3076
     },
     {
       "month": "2025-10",
@@ -52879,7 +52879,7 @@
     {
       "month": "2026-01",
       "region": "Outer Burlington",
-      "gallons": 2182
+      "gallons": 2082
     },
     {
       "month": "2026-01",
@@ -53064,7 +53064,7 @@
     {
       "month": "2026-03",
       "region": "Outer Burlington",
-      "gallons": 2734
+      "gallons": 2674
     },
     {
       "month": "2026-03",
@@ -53244,7 +53244,7 @@
     {
       "month": "2026-05",
       "region": "Outer Burlington",
-      "gallons": 1645
+      "gallons": 1605
     },
     {
       "month": "2026-05",
@@ -53429,7 +53429,7 @@
     {
       "month": "2026-07",
       "region": "Outer Burlington",
-      "gallons": 3041
+      "gallons": 2971
     },
     {
       "month": "2026-07",
@@ -53579,7 +53579,7 @@
     {
       "month": "2026-09",
       "region": "Central",
-      "gallons": 2536
+      "gallons": 3296
     },
     {
       "month": "2026-09",
@@ -53604,7 +53604,7 @@
     {
       "month": "2026-09",
       "region": "Outer Burlington",
-      "gallons": 3780
+      "gallons": 3735
     },
     {
       "month": "2026-09",
@@ -53961,7 +53961,7 @@
     {
       "year": 2018,
       "region": "Outer Burlington",
-      "gallons": 13655
+      "gallons": 13255
     },
     {
       "year": 2018,
@@ -54056,7 +54056,7 @@
     {
       "year": 2019,
       "region": "Outer Burlington",
-      "gallons": 17712
+      "gallons": 17332
     },
     {
       "year": 2019,
@@ -54151,7 +54151,7 @@
     {
       "year": 2020,
       "region": "Outer Burlington",
-      "gallons": 12256
+      "gallons": 11981
     },
     {
       "year": 2020,
@@ -54246,7 +54246,7 @@
     {
       "year": 2021,
       "region": "Outer Burlington",
-      "gallons": 18389
+      "gallons": 17989
     },
     {
       "year": 2021,
@@ -54341,7 +54341,7 @@
     {
       "year": 2022,
       "region": "Outer Burlington",
-      "gallons": 25221
+      "gallons": 24849
     },
     {
       "year": 2022,
@@ -54436,7 +54436,7 @@
     {
       "year": 2023,
       "region": "Outer Burlington",
-      "gallons": 26023
+      "gallons": 25728
     },
     {
       "year": 2023,
@@ -54531,7 +54531,7 @@
     {
       "year": 2024,
       "region": "Outer Burlington",
-      "gallons": 32450
+      "gallons": 32105
     },
     {
       "year": 2024,
@@ -54626,7 +54626,7 @@
     {
       "year": 2025,
       "region": "Outer Burlington",
-      "gallons": 30149
+      "gallons": 29794
     },
     {
       "year": 2025,
@@ -54696,7 +54696,7 @@
     {
       "year": 2026,
       "region": "Central",
-      "gallons": 21872
+      "gallons": 22632
     },
     {
       "year": 2026,
@@ -54721,7 +54721,7 @@
     {
       "year": 2026,
       "region": "Outer Burlington",
-      "gallons": 20088
+      "gallons": 19773
     },
     {
       "year": 2026,
@@ -54830,20 +54830,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 27547,
+  "collections_count": 27493,
   "out_of_state_total": 39754,
-  "active_customer_count": 525,
+  "active_customer_count": 524,
   "projection": {
     "latest_data_date": "2026-09-29",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 221698,
-    "previous_year_full": 269909,
-    "previous_through_prior_month": 183361,
-    "previous_same_month_total": 25498,
-    "previous_prorated_ytd": 208009.07,
-    "projected_current_year": 287672,
-    "percent_vs_previous_year": 0.065809
+    "current_ytd": 222143,
+    "previous_year_full": 269554,
+    "previous_through_prior_month": 183096,
+    "previous_same_month_total": 25453,
+    "previous_prorated_ytd": 207700.57,
+    "projected_current_year": 288297,
+    "percent_vs_previous_year": 0.069535
   },
   "region_stats": {
     "Burlington / South Burlington": {
@@ -54871,8 +54871,8 @@
       "active": 12
     },
     "Outer Burlington": {
-      "customers": 58,
-      "active": 46
+      "customers": 57,
+      "active": 45
     },
     "Perrigo": {
       "customers": 1,
@@ -54947,63 +54947,63 @@
     },
     {
       "year": 2018,
-      "places_serviced": 288,
-      "gained": 100,
+      "places_serviced": 287,
+      "gained": 99,
       "lost": 36,
-      "net": 64
+      "net": 63
     },
     {
       "year": 2019,
-      "places_serviced": 299,
+      "places_serviced": 298,
       "gained": 56,
       "lost": 30,
       "net": 26
     },
     {
       "year": 2020,
-      "places_serviced": 292,
+      "places_serviced": 291,
       "gained": 42,
       "lost": 32,
       "net": 10
     },
     {
       "year": 2021,
-      "places_serviced": 330,
+      "places_serviced": 329,
       "gained": 55,
       "lost": 28,
       "net": 27
     },
     {
       "year": 2022,
-      "places_serviced": 397,
+      "places_serviced": 396,
       "gained": 85,
       "lost": 25,
       "net": 60
     },
     {
       "year": 2023,
-      "places_serviced": 431,
+      "places_serviced": 430,
       "gained": 56,
       "lost": 40,
       "net": 16
     },
     {
       "year": 2024,
-      "places_serviced": 451,
+      "places_serviced": 450,
       "gained": 60,
       "lost": 43,
       "net": 17
     },
     {
       "year": 2025,
-      "places_serviced": 476,
+      "places_serviced": 475,
       "gained": 60,
       "lost": 18,
       "net": 42
     },
     {
       "year": 2026,
-      "places_serviced": 465,
+      "places_serviced": 464,
       "gained": 36,
       "lost": 6,
       "net": 30
@@ -55526,7 +55526,6 @@
       431,
       432,
       433,
-      434,
       435,
       436,
       437,
