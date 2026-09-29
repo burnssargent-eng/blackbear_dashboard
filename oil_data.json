@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-28T14:55:02.295562",
+  "last_updated": "2026-09-29T13:44:25.620137",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33346,7 +33346,7 @@
     {
       "month": "2026-09",
       "geo_town": "Barre City",
-      "gallons": 490,
+      "gallons": 825,
       "city": "Barre City"
     },
     {
@@ -33364,7 +33364,7 @@
     {
       "month": "2026-09",
       "geo_town": "Berlin",
-      "gallons": 190,
+      "gallons": 205,
       "city": "Berlin"
     },
     {
@@ -33418,8 +33418,14 @@
     {
       "month": "2026-09",
       "geo_town": "Concord",
-      "gallons": 130,
+      "gallons": 190,
       "city": "Concord"
+    },
+    {
+      "month": "2026-09",
+      "geo_town": "Danville",
+      "gallons": 150,
+      "city": "Danville"
     },
     {
       "month": "2026-09",
@@ -33526,7 +33532,7 @@
     {
       "month": "2026-09",
       "geo_town": "Plainfield",
-      "gallons": 25,
+      "gallons": 105,
       "city": "Plainfield"
     },
     {
@@ -41336,7 +41342,7 @@
     {
       "month": "2026-09",
       "county": "Caledonia",
-      "gallons": 785
+      "gallons": 995
     },
     {
       "month": "2026-09",
@@ -41386,7 +41392,7 @@
     {
       "month": "2026-09",
       "county": "Washington",
-      "gallons": 3416
+      "gallons": 3846
     },
     {
       "month": "2026-09",
@@ -41446,11 +41452,11 @@
     },
     {
       "year": 2026,
-      "gallons": 221058
+      "gallons": 221698
     }
   ],
-  "all_time_total": 2139825,
-  "current_year_total": 221058,
+  "all_time_total": 2140465,
+  "current_year_total": 221698,
   "customer_count": 798,
   "unmapped_total": 39754,
   "monthly_totals": [
@@ -42016,7 +42022,7 @@
     },
     {
       "month": "2026-09",
-      "gallons": 19719
+      "gallons": 20359
     }
   ],
   "monthly_by_region": [
@@ -53573,7 +53579,7 @@
     {
       "month": "2026-09",
       "region": "Central",
-      "gallons": 2186
+      "gallons": 2536
     },
     {
       "month": "2026-09",
@@ -53608,7 +53614,7 @@
     {
       "month": "2026-09",
       "region": "Route 2 East / Route 5",
-      "gallons": 645
+      "gallons": 935
     },
     {
       "month": "2026-09",
@@ -54690,7 +54696,7 @@
     {
       "year": 2026,
       "region": "Central",
-      "gallons": 21522
+      "gallons": 21872
     },
     {
       "year": 2026,
@@ -54730,7 +54736,7 @@
     {
       "year": 2026,
       "region": "Route 2 East / Route 5",
-      "gallons": 9294
+      "gallons": 9584
     },
     {
       "year": 2026,
@@ -54824,20 +54830,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 27533,
+  "collections_count": 27547,
   "out_of_state_total": 39754,
-  "active_customer_count": 524,
+  "active_customer_count": 525,
   "projection": {
-    "latest_data_date": "2026-09-28",
+    "latest_data_date": "2026-09-29",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 221058,
+    "current_ytd": 221698,
     "previous_year_full": 269909,
     "previous_through_prior_month": 183361,
     "previous_same_month_total": 25498,
-    "previous_prorated_ytd": 207159.13,
-    "projected_current_year": 288018,
-    "percent_vs_previous_year": 0.067093
+    "previous_prorated_ytd": 208009.07,
+    "projected_current_year": 287672,
+    "percent_vs_previous_year": 0.065809
   },
   "region_stats": {
     "Burlington / South Burlington": {
@@ -54906,7 +54912,7 @@
     },
     "Warren / Waitsfield": {
       "customers": 30,
-      "active": 26
+      "active": 27
     },
     "Waterbury / Stowe": {
       "customers": 65,

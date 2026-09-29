@@ -68,6 +68,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1082,Arandas Mexican-Barre,Barre,Washington,2022-08-19,2022,2022-08,50,True,Barre City
 1082,Arandas Mexican-Barre,Barre,Washington,2022-04-06,2022,2022-04,40,True,Barre City
 1082,Arandas Mexican-Barre,Barre,Washington,2021-12-27,2021,2021-12,40,True,Barre City
+113,Asia Gourmet-Barre,Barre,Washington,2026-09-29,2026,2026-09,50,True,Barre City
 113,Asia Gourmet-Barre,Barre,Washington,2026-09-09,2026,2026-09,60,True,Barre City
 113,Asia Gourmet-Barre,Barre,Washington,2026-08-18,2026,2026-08,60,True,Barre City
 113,Asia Gourmet-Barre,Barre,Washington,2026-07-20,2026,2026-07,50,True,Barre City
@@ -219,6 +220,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 110,Canadian Club,Barre,Washington,2017-05-17,2017,2017-05,50,True,Barre Town
 110,Canadian Club,Barre,Washington,2016-04-16,2016,2016-04,25,True,Barre Town
 110,Canadian Club,Barre,Washington,2016-03-12,2016,2016-03,45,True,Barre Town
+115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2026-09-29,2026,2026-09,75,True,Barre City
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2026-08-24,2026,2026-08,90,True,Barre City
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2026-07-20,2026,2026-07,45,True,Barre City
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2026-06-30,2026,2026-06,80,True,Barre City
@@ -422,6 +424,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1128,Hannaford-South Barre,Barre,Washington,2022-08-23,2022,2022-08,114,True,Barre Town
 1128,Hannaford-South Barre,Barre,Washington,2022-07-26,2022,2022-07,85,True,Barre Town
 1128,Hannaford-South Barre,Barre,Washington,2022-06-29,2022,2022-06,110,True,Barre Town
+117,Ladder 1-Barre,Barre,Washington,2026-09-29,2026,2026-09,30,True,Barre City
 117,Ladder 1-Barre,Barre,Washington,2026-09-09,2026,2026-09,30,True,Barre City
 117,Ladder 1-Barre,Barre,Washington,2026-08-18,2026,2026-08,40,True,Barre City
 117,Ladder 1-Barre,Barre,Washington,2026-07-20,2026,2026-07,40,True,Barre City
@@ -579,12 +582,14 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 117,Ladder 1-Barre,Barre,Washington,2015-03-05,2015,2015-03,35,True,Barre City
 117,Ladder 1-Barre,Barre,Washington,2015-02-10,2015,2015-02,40,True,Barre City
 117,Ladder 1-Barre,Barre,Washington,2015-01-09,2015,2015-01,50,True,Barre City
+1380,Masonic Lodge-Barre,Barre,Washington,2026-09-29,2026,2026-09,35,True,Barre City
 1380,Masonic Lodge-Barre,Barre,Washington,2026-06-11,2026,2026-06,40,True,Barre City
 1380,Masonic Lodge-Barre,Barre,Washington,2025-11-03,2025,2025-11,30,True,Barre City
 1380,Masonic Lodge-Barre,Barre,Washington,2025-08-27,2025,2025-08,15,True,Barre City
 1380,Masonic Lodge-Barre,Barre,Washington,2025-06-06,2025,2025-06,35,True,Barre City
 1380,Masonic Lodge-Barre,Barre,Washington,2025-04-07,2025,2025-04,15,True,Barre City
 1380,Masonic Lodge-Barre,Barre,Washington,2025-01-11,2025,2025-01,35,True,Barre City
+112,Mulligans-Barre,Barre,Washington,2026-09-29,2026,2026-09,100,True,Barre City
 112,Mulligans-Barre,Barre,Washington,2026-09-18,2026,2026-09,100,True,Barre City
 112,Mulligans-Barre,Barre,Washington,2026-09-04,2026,2026-09,140,True,Barre City
 112,Mulligans-Barre,Barre,Washington,2026-08-18,2026,2026-08,130,True,Barre City
@@ -777,6 +782,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 112,Mulligans-Barre,Barre,Washington,2015-12-23,2015,2015-12,50,True,Barre City
 112,Mulligans-Barre,Barre,Washington,2015-11-23,2015,2015-11,30,True,Barre City
 112,Mulligans-Barre,Barre,Washington,2015-11-02,2015,2015-11,100,True,Barre City
+1387,SARKY’s/Foxys Barre,Barre,Washington,2026-09-29,2026,2026-09,15,True,Barre City
 1387,SARKY’s/Foxys Barre,Barre,Washington,2026-09-09,2026,2026-09,15,True,Barre City
 1387,SARKY’s/Foxys Barre,Barre,Washington,2026-04-10,2026,2026-04,35,True,Barre City
 1387,SARKY’s/Foxys Barre,Barre,Washington,2025-06-06,2025,2025-06,20,True,Barre City
@@ -791,6 +797,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 118,Spaulding High School,Barre,Washington,2017-05-17,2017,2017-05,100,True,Barre City
 118,Spaulding High School,Barre,Washington,2016-06-27,2016,2016-06,30,True,Barre City
 118,Spaulding High School,Barre,Washington,2015-10-13,2015,2015-10,20,True,Barre City
+1401,Tasty Bites,Barre,Washington,2026-09-29,2026,2026-09,30,True,Barre City
 1401,Tasty Bites,Barre,Washington,2026-09-09,2026,2026-09,40,True,Barre City
 1401,Tasty Bites,Barre,Washington,2026-08-18,2026,2026-08,40,True,Barre City
 1401,Tasty Bites,Barre,Washington,2026-07-20,2026,2026-07,30,True,Barre City
@@ -1098,6 +1105,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 121,Central Vermont Solid Waste Management District,Berlin,Washington,2016-09-03,2016,2016-09,40,True,Berlin
 121,Central Vermont Solid Waste Management District,Berlin,Washington,2016-04-09,2016,2016-04,50,True,Berlin
 121,Central Vermont Solid Waste Management District,Berlin,Washington,2016-03-19,2016,2016-03,30,True,Berlin
+108,CVMC-Berlin Hospital,Berlin,Washington,2026-09-29,2026,2026-09,15,True,Berlin
 108,CVMC-Berlin Hospital,Berlin,Washington,2026-05-08,2026,2026-05,40,True,Berlin
 108,CVMC-Berlin Hospital,Berlin,Washington,2025-11-26,2025,2025-11,30,True,Berlin
 108,CVMC-Berlin Hospital,Berlin,Washington,2025-05-27,2025,2025-05,45,True,Berlin
@@ -6638,6 +6646,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2024-12-14,2024,2024-12,30,True,Concord
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2024-11-07,2024,2024-11,85,True,Concord
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2024-08-21,2024,2024-08,50,True,Concord
+617,Moose Look Diner,Concord,Caledonia,2026-09-28,2026,2026-09,60,True,Concord
 617,Moose Look Diner,Concord,Caledonia,2026-09-02,2026,2026-09,100,True,Concord
 617,Moose Look Diner,Concord,Caledonia,2026-07-21,2026,2026-07,60,True,Concord
 617,Moose Look Diner,Concord,Caledonia,2026-06-19,2026,2026-06,110,True,Concord
@@ -6746,79 +6755,81 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 520,Sterling College - Craftsbury,Craftsbury Common,Caledonia,2020-12-14,2020,2020-12,50,True,Craftsbury
 520,Sterling College - Craftsbury,Craftsbury Common,Caledonia,2019-06-29,2019,2019-06,60,True,Craftsbury
 520,Sterling College - Craftsbury,Craftsbury Common,Caledonia,2018-08-24,2018,2018-08,100,True,Craftsbury
-610,GoodFellas-Danville,Danville,Caledonia,2026-08-18,2026,2026-08,40,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2026-07-21,2026,2026-07,50,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2026-06-19,2026,2026-06,50,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2026-05-04,2026,2026-05,150,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2026-03-19,2026,2026-03,90,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2026-02-09,2026,2026-02,30,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2026-01-02,2026,2026-01,100,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2025-09-23,2025,2025-09,65,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2025-08-07,2025,2025-08,50,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2025-06-09,2025,2025-06,60,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2025-05-14,2025,2025-05,35,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2025-04-08,2025,2025-04,75,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2025-03-14,2025,2025-03,65,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2025-02-14,2025,2025-02,30,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2024-11-14,2024,2024-11,40,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2024-10-09,2024,2024-10,100,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2024-08-01,2024,2024-08,50,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2024-06-20,2024,2024-06,60,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2024-05-20,2024,2024-05,75,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2024-04-18,2024,2024-04,100,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2024-03-12,2024,2024-03,160,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2024-02-06,2024,2024-02,80,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2024-01-04,2024,2024-01,30,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2023-12-12,2023,2023-12,145,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2023-09-27,2023,2023-09,100,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2023-08-21,2023,2023-08,90,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2023-06-27,2023,2023-06,80,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2023-05-11,2023,2023-05,100,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2023-04-03,2023,2023-04,80,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2023-02-24,2023,2023-02,50,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2023-01-15,2023,2023-01,80,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2022-11-17,2022,2022-11,95,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2022-10-04,2022,2022-10,40,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2022-08-09,2022,2022-08,85,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2022-06-27,2022,2022-06,80,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2022-05-16,2022,2022-05,70,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2022-04-19,2022,2022-04,180,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2022-02-23,2022,2022-02,75,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2022-01-03,2022,2022-01,40,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2021-11-09,2021,2021-11,84,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2021-09-12,2021,2021-09,50,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2021-08-11,2021,2021-08,50,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2021-07-26,2021,2021-07,25,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2021-06-20,2021,2021-06,75,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2021-03-14,2021,2021-03,125,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2020-12-01,2020,2020-12,75,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2020-11-11,2020,2020-11,75,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2020-10-16,2020,2020-10,75,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2020-09-25,2020,2020-09,150,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2020-07-28,2020,2020-07,150,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2020-04-16,2020,2020-04,125,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2020-03-02,2020,2020-03,75,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2020-01-15,2020,2020-01,50,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2019-12-03,2019,2019-12,100,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2019-10-15,2019,2019-10,100,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2019-07-30,2019,2019-07,50,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2019-06-21,2019,2019-06,50,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2019-05-28,2019,2019-05,100,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2019-02-26,2019,2019-02,25,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2019-02-04,2019,2019-02,40,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2019-01-07,2019,2019-01,100,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2018-11-20,2018,2018-11,80,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2018-10-29,2018,2018-10,75,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2018-10-15,2018,2018-10,130,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2018-08-20,2018,2018-08,125,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2018-07-09,2018,2018-07,100,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2018-06-04,2018,2018-06,75,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2018-05-30,2018,2018-05,100,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2018-04-09,2018,2018-04,50,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2018-02-14,2018,2018-02,75,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2017-12-07,2017,2017-12,70,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2017-09-03,2017,2017-09,35,True,Danville
-610,GoodFellas-Danville,Danville,Caledonia,2017-08-03,2017,2017-08,50,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2026-09-28,2026,2026-09,70,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2026-08-18,2026,2026-08,40,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2026-07-21,2026,2026-07,50,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2026-06-19,2026,2026-06,50,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2026-05-04,2026,2026-05,150,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2026-03-19,2026,2026-03,90,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2026-02-09,2026,2026-02,30,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2026-01-02,2026,2026-01,100,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2025-09-23,2025,2025-09,65,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2025-08-07,2025,2025-08,50,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2025-06-09,2025,2025-06,60,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2025-05-14,2025,2025-05,35,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2025-04-08,2025,2025-04,75,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2025-03-14,2025,2025-03,65,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2025-02-14,2025,2025-02,30,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2024-11-14,2024,2024-11,40,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2024-10-09,2024,2024-10,100,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2024-08-01,2024,2024-08,50,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2024-06-20,2024,2024-06,60,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2024-05-20,2024,2024-05,75,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2024-04-18,2024,2024-04,100,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2024-03-12,2024,2024-03,160,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2024-02-06,2024,2024-02,80,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2024-01-04,2024,2024-01,30,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2023-12-12,2023,2023-12,145,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2023-09-27,2023,2023-09,100,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2023-08-21,2023,2023-08,90,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2023-06-27,2023,2023-06,80,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2023-05-11,2023,2023-05,100,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2023-04-03,2023,2023-04,80,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2023-02-24,2023,2023-02,50,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2023-01-15,2023,2023-01,80,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2022-11-17,2022,2022-11,95,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2022-10-04,2022,2022-10,40,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2022-08-09,2022,2022-08,85,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2022-06-27,2022,2022-06,80,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2022-05-16,2022,2022-05,70,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2022-04-19,2022,2022-04,180,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2022-02-23,2022,2022-02,75,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2022-01-03,2022,2022-01,40,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2021-11-09,2021,2021-11,84,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2021-09-12,2021,2021-09,50,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2021-08-11,2021,2021-08,50,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2021-07-26,2021,2021-07,25,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2021-06-20,2021,2021-06,75,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2021-03-14,2021,2021-03,125,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2020-12-01,2020,2020-12,75,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2020-11-11,2020,2020-11,75,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2020-10-16,2020,2020-10,75,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2020-09-25,2020,2020-09,150,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2020-07-28,2020,2020-07,150,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2020-04-16,2020,2020-04,125,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2020-03-02,2020,2020-03,75,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2020-01-15,2020,2020-01,50,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2019-12-03,2019,2019-12,100,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2019-10-15,2019,2019-10,100,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2019-07-30,2019,2019-07,50,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2019-06-21,2019,2019-06,50,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2019-05-28,2019,2019-05,100,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2019-02-26,2019,2019-02,25,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2019-02-04,2019,2019-02,40,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2019-01-07,2019,2019-01,100,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2018-11-20,2018,2018-11,80,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2018-10-29,2018,2018-10,75,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2018-10-15,2018,2018-10,130,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2018-08-20,2018,2018-08,125,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2018-07-09,2018,2018-07,100,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2018-06-04,2018,2018-06,75,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2018-05-30,2018,2018-05,100,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2018-04-09,2018,2018-04,50,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2018-02-14,2018,2018-02,75,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2017-12-07,2017,2017-12,70,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2017-09-03,2017,2017-09,35,True,Danville
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2017-08-03,2017,2017-08,50,True,Danville
+1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2026-09-28,2026,2026-09,30,True,Danville
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2026-07-21,2026,2026-07,20,True,Danville
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2026-06-19,2026,2026-06,25,True,Danville
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2026-05-22,2026,2026-05,45,True,Danville
@@ -6844,6 +6855,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2022-05-16,2022,2022-05,60,True,Danville
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2022-02-23,2022,2022-02,25,True,Danville
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2022-01-03,2022,2022-01,30,True,Danville
+611,Three Ponds,Danville,Caledonia,2026-09-28,2026,2026-09,50,True,Danville
 611,Three Ponds,Danville,Caledonia,2026-08-18,2026,2026-08,40,True,Danville
 611,Three Ponds,Danville,Caledonia,2026-07-21,2026,2026-07,40,True,Danville
 611,Three Ponds,Danville,Caledonia,2026-06-19,2026,2026-06,75,True,Danville
@@ -13159,6 +13171,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1078,BBB- Pump oil @ Shop,Plainfield,Washington,2022-02-22,2022,2022-02,40,True,Plainfield
 1078,BBB- Pump oil @ Shop,Plainfield,Washington,2022-01-09,2022,2022-01,50,True,Plainfield
 1078,BBB- Pump oil @ Shop,Plainfield,Washington,2021-11-05,2021,2021-11,150,True,Plainfield
+603,HAYBARN-Goddard College- 7532,Plainfield,Washington,2026-09-28,2026,2026-09,40,True,Plainfield
 603,HAYBARN-Goddard College- 7532,Plainfield,Washington,2026-07-16,2026,2026-07,40,True,Plainfield
 603,HAYBARN-Goddard College- 7532,Plainfield,Washington,2026-04-20,2026,2026-04,45,True,Plainfield
 603,HAYBARN-Goddard College- 7532,Plainfield,Washington,2025-11-03,2025,2025-11,50,True,Plainfield
@@ -13174,6 +13187,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 603,HAYBARN-Goddard College- 7532,Plainfield,Washington,2016-06-27,2016,2016-06,45,True,Plainfield
 603,HAYBARN-Goddard College- 7532,Plainfield,Washington,2015-11-24,2015,2015-11,38,True,Plainfield
 603,HAYBARN-Goddard College- 7532,Plainfield,Washington,2015-07-09,2015,2015-07,45,True,Plainfield
+600,Positive Pie-Plainfield,Plainfield,Washington,2026-09-28,2026,2026-09,40,True,Plainfield
 600,Positive Pie-Plainfield,Plainfield,Washington,2026-08-28,2026,2026-08,65,True,Plainfield
 600,Positive Pie-Plainfield,Plainfield,Washington,2026-07-15,2026,2026-07,55,True,Plainfield
 600,Positive Pie-Plainfield,Plainfield,Washington,2026-06-19,2026,2026-06,20,True,Plainfield
@@ -18432,6 +18446,37 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-06-20,2019,2019-06,25,True,Waitsfield
 206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-03-12,2019,2019-03,20,True,Waitsfield
 206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-02-19,2019,2019-02,20,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2024-11-19,2024,2024-11,50,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2024-02-23,2024,2024-02,25,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2024-01-05,2024,2024-01,20,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2023-10-12,2023,2023-10,15,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2023-08-30,2023,2023-08,25,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2023-01-17,2023,2023-01,10,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2022-11-27,2022,2022-11,10,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2022-10-21,2022,2022-10,35,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2022-06-29,2022,2022-06,15,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2022-05-19,2022,2022-05,30,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2022-03-04,2022,2022-03,25,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2021-12-21,2021,2021-12,35,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2021-10-28,2021,2021-10,10,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2021-08-10,2021,2021-08,15,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2021-04-21,2021,2021-04,30,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2020-11-11,2020,2020-11,30,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2020-03-17,2020,2020-03,40,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2020-02-01,2020,2020-02,25,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2019-11-21,2019,2019-11,50,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2019-08-29,2019,2019-08,60,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2019-06-05,2019,2019-06,60,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2019-03-12,2019,2019-03,30,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2018-12-18,2018,2018-12,25,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2018-09-26,2018,2018-09,20,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2018-05-17,2018,2018-05,20,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2018-04-29,2018,2018-04,25,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2018-04-17,2018,2018-04,25,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2018-02-12,2018,2018-02,25,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2017-12-13,2017,2017-12,50,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2017-09-05,2017,2017-09,50,True,Waitsfield
+205,Big Picture Theater,Waitsfield,Washington,2017-02-14,2017,2017-02,10,True,Waitsfield
 211,Canteen Creemee Company,Waitsfield,Washington,2026-09-05,2026,2026-09,65,True,Waitsfield
 211,Canteen Creemee Company,Waitsfield,Washington,2026-08-18,2026,2026-08,90,True,Waitsfield
 211,Canteen Creemee Company,Waitsfield,Washington,2026-07-16,2026,2026-07,170,True,Waitsfield
@@ -23464,37 +23509,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1069,Big Fish,Stowe,Lamoille,2021-10-27,2021,2021-10,45,False,Stowe
 1069,Big Fish,Stowe,Lamoille,2021-10-18,2021,2021-10,50,False,Stowe
 1069,Big Fish,Stowe,Lamoille,2021-10-05,2021,2021-10,150,False,Stowe
-205,Big Picture Theater,Waitsfield,Washington,2024-11-19,2024,2024-11,50,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2024-02-23,2024,2024-02,25,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2024-01-05,2024,2024-01,20,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2023-10-12,2023,2023-10,15,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2023-08-30,2023,2023-08,25,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2023-01-17,2023,2023-01,10,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2022-11-27,2022,2022-11,10,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2022-10-21,2022,2022-10,35,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2022-06-29,2022,2022-06,15,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2022-05-19,2022,2022-05,30,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2022-03-04,2022,2022-03,25,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2021-12-21,2021,2021-12,35,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2021-10-28,2021,2021-10,10,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2021-08-10,2021,2021-08,15,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2021-04-21,2021,2021-04,30,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2020-11-11,2020,2020-11,30,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2020-03-17,2020,2020-03,40,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2020-02-01,2020,2020-02,25,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2019-11-21,2019,2019-11,50,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2019-08-29,2019,2019-08,60,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2019-06-05,2019,2019-06,60,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2019-03-12,2019,2019-03,30,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2018-12-18,2018,2018-12,25,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2018-09-26,2018,2018-09,20,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2018-05-17,2018,2018-05,20,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2018-04-29,2018,2018-04,25,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2018-04-17,2018,2018-04,25,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2018-02-12,2018,2018-02,25,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2017-12-13,2017,2017-12,50,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2017-09-05,2017,2017-09,50,False,Waitsfield
-205,Big Picture Theater,Waitsfield,Washington,2017-02-14,2017,2017-02,10,False,Waitsfield
 1104,Black-back Pub,Waterbury,Washington,2022-04-26,2022,2022-04,55,False,Waterbury
 372,Bliss Bee -SoBurl. Rte 7,South Burlington,Chittenden,2025-03-18,2025,2025-03,100,False,South Burlington
 372,Bliss Bee -SoBurl. Rte 7,South Burlington,Chittenden,2025-03-10,2025,2025-03,180,False,South Burlington
