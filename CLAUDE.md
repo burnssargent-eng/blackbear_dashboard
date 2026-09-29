@@ -113,6 +113,16 @@ on purpose, so the homepage cannot be broken by a shared-stylesheet edit. A
 change meant for every page goes in both. `dashboard.css` is shared by the other
 five, so prefix new classes distinctly.
 
+**Projection overrides are config, keyed by id.** `MODEL_OVERRIDES` in
+`analysis/build_projection_table.py` routes named customers around the 50/50
+ranking (true closer, semi-closer, open-ish, event-driven, on-demand). Each
+entry is keyed by customer id, asserts the customer name, and carries a
+month-level season where one applies. `fringe_seasonal_candidates` informs the
+registry but is never read by it: its labels are review prompts, not
+classifications. Overrides change routing and which columns show, never the
+50/50 arithmetic or a listed capacity. Operator `% full` is capped at 100; the
+raw figure lives in the detail CSV.
+
 ## Checks
 
 ```
