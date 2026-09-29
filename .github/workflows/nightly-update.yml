@@ -30,10 +30,17 @@ jobs:
         run: |
           python oil_scraper.py --rescrape
 
+      # Beta projections page. A failure here must never block the data commit
+      # below: the previous oil_projections.json is kept, and projections.html
+      # warns that it was built from an older scrape.
+      - name: Build projections
+        run: |
+          python analysis/build_projection_table.py || echo "::warning::Projection build failed; oil_projections.json left as-is"
+
       - name: Commit updated data files
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add oil_data.json oil_collections.json oil_collections_raw.csv oil_collection_report.xlsx capacity_cache.csv
+          git add oil_data.json oil_collections.json oil_collections_raw.csv oil_collection_report.xlsx capacity_cache.csv oil_projections.json
           git commit -m "Nightly oil data update" || echo "No changes to commit"
           git push

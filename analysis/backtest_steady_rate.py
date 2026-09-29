@@ -115,14 +115,14 @@ EMPTY_QTYS = {0, 1, 2, 3}
 # Load
 # ─────────────────────────────────────────────
 
-def load_pickups():
-    """customer_id -> pickups in date order, for the sampled customers only."""
+def load_pickups(ids=SAMPLE):
+    """customer_id -> pickups in date order, for `ids` (every customer if None)."""
     by_customer = defaultdict(list)
 
     with open(SOURCE, newline="") as f:
         for row in csv.DictReader(f):
             cid = int(row["customer_id"])
-            if cid not in SAMPLE:
+            if ids is not None and cid not in ids:
                 continue
 
             gallons = int(row["gallons"])
@@ -144,7 +144,7 @@ def load_pickups():
     for pickups in by_customer.values():
         pickups.sort(key=lambda p: p["date"])
 
-    missing = sorted(set(SAMPLE) - set(by_customer))
+    missing = sorted(set(ids or ()) - set(by_customer))
     if missing:
         raise SystemExit(f"No pickups found for customer_id(s): {missing}")
 

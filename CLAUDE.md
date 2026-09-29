@@ -16,18 +16,33 @@ oil_scraper.py ──> oil_data.json          (aggregates: regions, towns, count
 
 export_schmootz.py ──> schmootz_data.json  (from data/Schmootz.xlsx, gitignored)
 
+analysis/build_projection_table.py ──> oil_projections.json  (beta pickup projections)
+                                   └─> analysis/oil_projection_table.* (csv gitignored)
+
 index.html      dashboard + Leaflet heatmap. Keeps its OWN inline styles.
 region.html     per-region page. The most complex page.
 year.html  town.html  customers.html  schmootz.html
-dashboard-utils.js   shared helpers for the five detail pages
-dashboard.css        shared styles for the five detail pages — NOT index.html
+projections.html     beta pickup projections. NOT in the nav yet; shared by link.
+dashboard-utils.js   shared helpers for the detail pages
+dashboard.css        shared styles for the detail pages — NOT index.html
 ```
+
+**`projections.html` only displays `oil_projections.json`.** It never
+recomputes a projection, re-sorts the ranking or re-derives a section — the
+maths lives once, in `build_projection_table.py`. The nightly runs that builder
+after the scraper; a build failure is tolerated (the old JSON stays) and the
+page warns when its `data_last_updated` no longer matches `oil_data.json`.
+Its confidence bands come from the committed `analysis/customer_wape.json`, not
+the gitignored backtest CSVs, so the nightly and a local run agree byte for
+byte. After re-running those backtests, refresh it with
+`python3 analysis/build_projection_table.py --refresh-wape` and commit it.
 
 ## Regenerating data
 
 ```
 python3 oil_scraper.py            # reuses the committed CSV — no network
 python3 oil_scraper.py --rescrape # live scrape; the nightly does this, you rarely should
+python3 analysis/build_projection_table.py   # after either: rebuilds oil_projections.json
 ```
 
 A plain run rewrites the CSV, the Excel report and both JSONs, and is
@@ -112,6 +127,16 @@ leak. Anything re-rendered on a filter change must be scoped to its own element.
 on purpose, so the homepage cannot be broken by a shared-stylesheet edit. A
 change meant for every page goes in both. `dashboard.css` is shared by the other
 five, so prefix new classes distinctly.
+
+**Projection overrides are config, keyed by id.** `MODEL_OVERRIDES` in
+`analysis/build_projection_table.py` routes named customers around the 50/50
+ranking (true closer, semi-closer, open-ish, event-driven, on-demand). Each
+entry is keyed by customer id, asserts the customer name, and carries a
+month-level season where one applies. `fringe_seasonal_candidates` informs the
+registry but is never read by it: its labels are review prompts, not
+classifications. Overrides change routing and which columns show, never the
+50/50 arithmetic or a listed capacity. Operator `% full` is capped at 100; the
+raw figure lives in the detail CSV.
 
 ## Checks
 
