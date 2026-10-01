@@ -11,6 +11,7 @@ import requests
 import re
 import time
 import calendar
+import csv
 import pandas as pd
 from bs4 import BeautifulSoup
 from datetime import datetime
@@ -27,6 +28,17 @@ DELAY_SEC    = 0.3
 
 # Per-record detail, written alongside the summary oil_data.json.
 COLLECTIONS_JSON = "oil_collections.json"
+
+# Listed container capacity and the site's own periodicity, per customer, as
+# shown on each customer page ("Capacity: 220", "Periodicity: 75 days").
+# Refreshed on every --rescrape; a plain run leaves it alone. The site is the
+# source of truth: a wrong capacity is corrected THERE and arrives overnight.
+CAPACITY_CACHE = "capacity_cache.csv"
+CAPACITY_FIELDS = ["customer_id", "capacity", "periodicity_days", "scraped_date"]
+
+# If fewer than this share of fetched pages show a "Capacity:" label, the page
+# layout has probably changed: keep the old cache rather than blank it.
+CAPACITY_MIN_LABEL_SHARE = 0.5
 
 # Quantities meaning "we collected nothing" — excluded from all totals.
 #   2 = customer call received / entered in the system, not an oil pickup
@@ -808,6 +820,62 @@ def extract_city_from_page(soup, customer):
     return customer.get("city", "")
 
 
+def parse_capacity(soup):
+    """
+    (capacity, periodicity_days, label_found) from a customer page.
+
+    Values are strings exactly as shown, or "" when the label is present but
+    empty. label_found is False when the page has no "Capacity:" label at all,
+    which means "unknown", not "no capacity" -- the caller keeps the old value.
+    """
+    text = soup.get_text(separator="\n")
+    cap = re.search(r"Capacity:[ \t]*([\d.]*)", text)
+    per = re.search(r"Periodicity:[ \t]*([\d.]*)[ \t]*days?", text)
+    return (
+        cap.group(1) if cap else "",
+        per.group(1) if per else "",
+        bool(cap),
+    )
+
+
+def write_capacity_cache(fetched, scraped_date, path=CAPACITY_CACHE):
+    """
+    Merge freshly read capacities into the cache and rewrite it.
+
+    `fetched` maps customer_id -> (capacity, periodicity_days, label_found).
+    Customers not fetched this run (a page error) and pages with no Capacity
+    label keep their previous row, so one bad night never blanks a capacity.
+    """
+    rows = {}
+    if os.path.exists(path):
+        with open(path, newline="") as f:
+            for row in csv.DictReader(f):
+                rows[int(row["customer_id"])] = {k: row.get(k, "") for k in CAPACITY_FIELDS}
+
+    labelled = sum(1 for *_, found in fetched.values() if found)
+    if fetched and labelled / len(fetched) < CAPACITY_MIN_LABEL_SHARE:
+        print(f"\nWARNING: only {labelled}/{len(fetched)} customer pages show a "
+              f"Capacity label; {path} left unchanged.")
+        return
+
+    changed = 0
+    for cid, (capacity, periodicity, found) in fetched.items():
+        if not found:
+            continue
+        old = rows.get(cid, {})
+        if old.get("capacity", "") != capacity:
+            changed += 1
+        rows[cid] = {"customer_id": cid, "capacity": capacity,
+                     "periodicity_days": periodicity, "scraped_date": scraped_date}
+
+    with open(path, "w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=CAPACITY_FIELDS)
+        writer.writeheader()
+        for cid in sorted(rows):
+            writer.writerow(rows[cid])
+    print(f"Capacities: {labelled} read, {changed} changed -> {path}")
+
+
 def parse_collections(soup, customer):
     """
     Parse both data formats on customer pages:
@@ -915,6 +983,7 @@ def scrape_all():
 
     all_records = []
     unresolved_city_ids = []
+    capacities = {}
 
     for i, cust in enumerate(customers, 1):
         tag = "active  " if cust["is_active"] else "INACTIVE"
@@ -923,6 +992,7 @@ def scrape_all():
             csoup = get_soup(url, session)
             records = parse_collections(csoup, cust)
             all_records.extend(records)
+            capacities[cust["customer_id"]] = parse_capacity(csoup)
 
             resolved_city = records[0]["city"] if records else extract_city_from_page(csoup, cust)
             if not resolved_city or resolved_city not in COUNTY_MAP:
@@ -946,6 +1016,8 @@ def scrape_all():
         print("\nWARNING: could not confidently resolve town for these customers:")
         for cid, name, city in unresolved_city_ids:
             print(f"  - {cid}: {name} -> {city or 'UNRESOLVED'}")
+
+    write_capacity_cache(capacities, datetime.now().strftime("%Y-%m-%d"))
 
     return pd.DataFrame(all_records)
 

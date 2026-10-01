@@ -13,6 +13,7 @@ oil_scraper.py ──> oil_data.json          (aggregates: regions, towns, count
                └─> oil_collections.json   (27k pickup records + 796-customer roster)
                └─> oil_collections_raw.csv (the local cache — committed)
                └─> oil_collection_report.xlsx
+               └─> capacity_cache.csv     (capacity + site periodicity; --rescrape only)
 
 export_schmootz.py ──> schmootz_data.json  (from data/Schmootz.xlsx, gitignored)
 
@@ -127,6 +128,15 @@ leak. Anything re-rendered on a filter change must be scoped to its own element.
 on purpose, so the homepage cannot be broken by a shared-stylesheet edit. A
 change meant for every page goes in both. `dashboard.css` is shared by the other
 five, so prefix new classes distinctly.
+
+**Capacities come from the source site; fix them there.** Each customer page
+shows `Capacity:` and `Periodicity:`; every `--rescrape` (so every nightly)
+rewrites `capacity_cache.csv` from them. Never hand-edit the cache: a wrong
+capacity is corrected on the site and arrives overnight. The write is a merge —
+a page that fails to load, or shows no Capacity label, keeps its old row, and
+if most pages lose the label the file is left alone. Until 2026-10-01 nothing
+refreshed it: the April 2026 snapshot was 47 customers out of date, including
+27 with no capacity at all.
 
 **Projection overrides are config, keyed by id.** `MODEL_OVERRIDES` in
 `analysis/build_projection_table.py` routes named customers around the 50/50
