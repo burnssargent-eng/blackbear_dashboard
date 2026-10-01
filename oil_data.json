@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-01T14:11:49.465964",
+  "last_updated": "2026-10-01T19:48:30.621712",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33681,8 +33681,14 @@
     },
     {
       "month": "2026-10",
+      "geo_town": "Shelburne",
+      "gallons": 70,
+      "city": "Shelburne"
+    },
+    {
+      "month": "2026-10",
       "geo_town": "South Burlington",
-      "gallons": 110,
+      "gallons": 540,
       "city": "South Burlington"
     },
     {
@@ -41431,7 +41437,7 @@
     {
       "month": "2026-10",
       "county": "Chittenden",
-      "gallons": 660
+      "gallons": 1160
     }
   ],
   "yearly_totals": [
@@ -41481,11 +41487,11 @@
     },
     {
       "year": 2026,
-      "gallons": 225716
+      "gallons": 226216
     }
   ],
-  "all_time_total": 2144483,
-  "current_year_total": 225716,
+  "all_time_total": 2144983,
+  "current_year_total": 226216,
   "customer_count": 799,
   "unmapped_total": 39852,
   "monthly_totals": [
@@ -42055,7 +42061,7 @@
     },
     {
       "month": "2026-10",
-      "gallons": 660
+      "gallons": 1160
     }
   ],
   "monthly_by_region": [
@@ -53697,12 +53703,17 @@
     {
       "month": "2026-10",
       "region": "Burlington / South Burlington",
-      "gallons": 110
+      "gallons": 540
     },
     {
       "month": "2026-10",
       "region": "Outer Burlington",
       "gallons": 550
+    },
+    {
+      "month": "2026-10",
+      "region": "Route 7",
+      "gallons": 70
     }
   ],
   "yearly_by_region": [
@@ -54734,7 +54745,7 @@
     {
       "year": 2026,
       "region": "Burlington / South Burlington",
-      "gallons": 43572
+      "gallons": 44002
     },
     {
       "year": 2026,
@@ -54784,7 +54795,7 @@
     {
       "year": 2026,
       "region": "Route 7",
-      "gallons": 9745
+      "gallons": 9815
     },
     {
       "year": 2026,
@@ -54873,20 +54884,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 27601,
+  "collections_count": 27611,
   "out_of_state_total": 39852,
   "active_customer_count": 526,
   "projection": {
     "latest_data_date": "2026-10-01",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 225716,
+    "current_ytd": 226216,
     "previous_year_full": 269909,
     "previous_through_prior_month": 208859,
     "previous_same_month_total": 21968,
     "previous_prorated_ytd": 209567.65,
-    "projected_current_year": 290707,
-    "percent_vs_previous_year": 0.077056
+    "projected_current_year": 291351,
+    "percent_vs_previous_year": 0.079441
   },
   "region_stats": {
     "Burlington / South Burlington": {
