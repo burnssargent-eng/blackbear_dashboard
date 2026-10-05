@@ -6,6 +6,11 @@ generates that JSON; the browser does everything else.
 
 Live from `main`. **Merging a PR deploys.**
 
+**Projection, capacity or seasonality work: read `analysis/README.md` first**
+(the pipeline, the method and every decision so far), then
+`analysis/ROADMAP.md` (what is in flight and what comes next). Update the
+roadmap's "In flight" section when a step finishes.
+
 ## Shape of the thing
 
 ```
@@ -153,7 +158,7 @@ raw figure lives in the detail CSV.
 ```
 python3 validate_data.py          # ~82 checks on the generated data
 python3 check_town_mismatches.py  # town names vs the GeoJSON; exits non-zero on a real mismatch
-node tests/run_all.js             # five front-end suites; see tests/README.md
+node tests/run_all.js             # six front-end suites; see tests/README.md
 ```
 
 Two standing warnings, both towns configured ahead of their first customer:
