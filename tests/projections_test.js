@@ -117,6 +117,22 @@ ok(rankedChecked && /Checked empty/.test(api.rankedRowsHtml([rankedChecked])),
 ok(byId[510] && byId[510].last_empty_check && byId[510].pct_full < 75,
   `10 Railroad Street (510) counts from its last empty check (${byId[510] && byId[510].pct_full}% full)`);
 
+// ── Shared barrels and new owners ──
+const shared = customers.filter(c => c.members);
+const memberIds = shared.flatMap(c => c.members.map(m => m.id));
+const rowIds = new Set(customers.map(c => c.id));
+ok(shared.length >= 16, `${shared.length} shared barrels exported`);
+ok(shared.every(c => c.id === Math.min(...c.members.map(m => m.id))),
+  "each shared barrel is listed under its lowest member id");
+ok(memberIds.filter(id => !shared.some(c => c.id === id)).every(id => !rowIds.has(id)),
+  "no member of a shared barrel appears as its own row");
+ok(new Set(memberIds).size === memberIds.length, "no customer is in two barrels");
+const sharedRanked = shared.find(c => c.section === "ranked");
+ok(sharedRanked && /Shared barrel:/.test(api.rankedRowsHtml([sharedRanked])),
+  "a ranked shared barrel renders its members");
+ok(byId[133] && byId[133].history_start && byId[133].section !== "ranked",
+  "JJ's (133) restarts its history and is not ranked on the old tavern's");
+
 // ── Freshness ──
 ok(api.freshnessWarning(payload, { last_updated: payload.data_last_updated }) === null,
   "no warning when built from the live scrape");

@@ -4,7 +4,7 @@ What comes next for the pickup projections, and what is in flight. The method
 and its history are in [`README.md`](README.md); read that first.
 
 Owner: Sarge. Business direction (regions, capacities, what a route means):
-Jim. Last updated 2026-10-05 — **update the "In flight" section whenever a step
+Jim. Last updated 2026-10-06 — **update the "In flight" section whenever a step
 finishes**, so a fresh session does not redo or skip it.
 
 ## In flight
@@ -47,6 +47,27 @@ over-capacity pickups had a delivery since the previous pickup, so extra barrels
 
 Numbers saves its own format even under a `.csv` name. Use **File → Export
 To → CSV**, or read one with `osascript` (`export d … as CSV`).
+
+### Shared barrels (started 2026-10-06)
+
+Convention: every member of a shared barrel lists the **full** barrel capacity
+on the site. `SHARED_CONTAINERS` in the builder shows each barrel as one row.
+
+1. **Sarge converts the capacities on the site.** Known barrels: Julio's/Oakes
+   150, Johnsons/Marsala 150, RiRa's/Sweetwaters/BKK 300, Henry's/Pascolo 150,
+   Three Penny/Namaste 300, Duo/Tulip 300.
+2. **Barrel sizes still needed from Jim:** Pitchers Inn/Warren Store (65 each
+   now; joint pickups reach 120), Hotel Vermont/Hen of the Wood, Ranch Camp/
+   Backyard, Pioneer Lakeshore/NY Oven, Pizzeria Veritas/Trattoria Delia,
+   RJs/Ahli Baba's, the Hardwick trio, Namaste Garden/Pick Thai, Northfield
+   Pizza/O'Maddis, Junction/JNETME. **Caution:** a 50/50 pair still listing
+   equal per-share numbers (100/100 on a 200 barrel) looks converted to the
+   code; only the over-capacity flags give it away.
+3. **Not grouped yet, need an answer:** Farmhouse/Ken's Pizza (together on
+   54 of 55 pickups, 87/13), Grazers/Agave (50/50 until Jan 2026 — ended?),
+   Fox Farm/Suicide 6, Pingala (Volcano gone — is Pingala's 100 the whole
+   barrel?). Volcano still shows as active on the site.
+4. Verify: re-fetch the members' capacities and confirm each group agrees.
 
 ### Open questions on the other non-pickup codes
 

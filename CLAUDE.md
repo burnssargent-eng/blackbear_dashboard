@@ -153,6 +153,19 @@ if most pages lose the label the file is left alone. Until 2026-10-01 nothing
 refreshed it: the April 2026 snapshot was 47 customers out of date, including
 27 with no capacity at all.
 
+**Shared barrels: the full barrel capacity goes on EVERY member.** Some
+accounts share one barrel, and each records only its own share of the gallons
+(Three Penny/Namaste split 67/33 on every pickup). Convention agreed with Jim
+on 2026-10-06: each member lists the WHOLE barrel's capacity on the site, and
+the split lives in the names — for people; no code reads a % from a name.
+`SHARED_CONTAINERS` in `analysis/build_projection_table.py` (keyed by id)
+folds each group into one row under its lowest id: gallons summed by date,
+capacity = the members' common value, flagged while they disagree. Never add
+member capacities together — some were per-share, some full-barrel.
+`HISTORY_STARTS` there restarts a renamed account's history for a new owner
+(JJ's on the old Langdon Street Tavern account, 2026-09-22). Renames in either
+registry are flagged on the row, never fatal, so they cannot stop the nightly.
+
 **Projection overrides are config, keyed by id.** `MODEL_OVERRIDES` in
 `analysis/build_projection_table.py` routes named customers around the 50/50
 ranking (true closer, semi-closer, open-ish, event-driven, on-demand). Each
