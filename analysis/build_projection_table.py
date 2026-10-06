@@ -252,6 +252,231 @@ MODEL_OVERRIDES = {
 
 
 # ─────────────────────────────────────────────
+# Shared barrels and new owners
+# ─────────────────────────────────────────────
+
+class SharedContainer(NamedTuple):
+    members: dict               # customer_id -> name expected on the account
+    label: str                  # how the one barrel is shown
+    note: str                   # split and evidence
+
+
+# One physical barrel, several accounts. Each account records only ITS SHARE
+# of the gallons (Henry's/Pascolo 35/35, Three Penny/Namaste 67/33 on every
+# joint pickup), so the barrel's history is the members' gallons summed by
+# date, and both rates work on that unchanged. CONVENTION (Sarge and Jim,
+# 2026-10-06): every member lists the FULL barrel capacity on the site; the
+# split lives in the names, for people. Nothing here reads a % from a name.
+#
+# Shown as one row, under the lowest member id. A group whose members list
+# different capacities is flagged until the site is converted. A member's
+# name is checked against the account; a rename is FLAGGED, not fatal, so
+# renaming an account to show its split never stops the nightly.
+#
+# NOT a shared barrel: Pitchers Inn (219) and Warren Store (288) are two 65-gal
+# barrels in one shed, pumped together with the total split evenly. Kept as
+# two stops for now (Sarge, 2026-10-06; asking Jim).
+SHARED_CONTAINERS = [
+    # ── barrel size confirmed by Sarge / Jim ──
+    SharedContainer({143: "Julio's-67%", 169: "Oakes and Evelyn-33%"},
+                    "Julio's + Oakes and Evelyn", "67/33; 150 gal barrel"),
+    SharedContainer({544: "Johnsons Chinese Kitchen 90%",
+                     543: "Marsala Salsa/ Pizzeria -Johnson-10%"},
+                    "Johnsons Chinese Kitchen + Marsala Salsa", "90/10; 150 gal barrel"),
+    SharedContainer({327: "RiRa's 40%", 328: "Sweetwaters 2.0!!!- 50%",
+                     1273: "BKK-inTheAlley 10%"},
+                    "RiRa's + Sweetwaters + BKK-inTheAlley",
+                    "40/50/10; 300 gal barrel for the three (Jim)"),
+    SharedContainer({322: "Henrys Diner-50%", 323: "Pascolo 50% with Henrys"},
+                    "Henrys Diner + Pascolo", "50/50; 150 gal barrel; shared since Jan 2026"),
+    SharedContainer({130: "Three Penny Taproom 67%", 131: "Namaste ~ 33%"},
+                    "Three Penny Taproom + Namaste", "67/33; 300 gal barrel"),
+    SharedContainer({1054: "Duo Restaurant 50%-LOCK", 1055: "Tulip Bar and Cafe 50%-LOCK"},
+                    "Duo Restaurant + Tulip Bar and Cafe",
+                    "50/50; 300 gal (the site's own notes)"),
+    # Barrel sizes below confirmed by Sarge, 2026-10-06, and set on the site.
+    SharedContainer({304: "Hotel Vermont - 50%", 1037: "Hen of the Wood - 50%"},
+                    "Hotel Vermont + Hen of the Wood", "50/50; 200 gal barrel"),
+    SharedContainer({248: "Ranch Camp 50%", 287: "Backyard Tavern 50%"},
+                    "Ranch Camp + Backyard Tavern", "50/50; 200 gal barrel"),
+    SharedContainer({1214: "Pioneer Lakeshore Cafe 50%", 1215: "NY Oven Pizza 50%"},
+                    "Pioneer Lakeshore Cafe + NY Oven Pizza", "50/50; 150 gal barrel"),
+    SharedContainer({1286: "The PizzeriaVeritas50%", 1287: "Trattoria Delia 50%"},
+                    "Pizzeria Veritas + Trattoria Delia", "50/50; 200 gal barrel"),
+    SharedContainer({308: "Ruben James (RJs) (Ali Babas)- 0421",
+                     311: "Ahli Baba's (split with RJs)"},
+                    "Ruben James + Ahli Baba's", "50/50; 200 gal barrel"),
+    SharedContainer({501: "Positive Pie 3 ~25%", 502: "Village Restaurant-Hardwick~ 50%",
+                     504: "Cork & Fork/Scale House ~25%"},
+                    "Positive Pie + Village Restaurant + Cork & Fork (Hardwick)", "25/50/25; 200 gal barrel"),
+    SharedContainer({1053: "Namaste Garden 50%-Essex Jct", 1402: "Pick Thai -50% EssexJCT"},
+                    "Namaste Garden + Pick Thai", "50/50; 200 gal barrel"),
+    SharedContainer({159: "Northfield Pizza/ Depot Square 50%", 162: "O'Maddis 50%"},
+                    "Northfield Pizza + O'Maddis", "50/50; 100 gal barrel"),
+    SharedContainer({1246: "Junction Restaurant-50%-North Troy",
+                     1436: "JNETME CONCESSIONS 50%-North Troy"},
+                    "Junction Restaurant + JNETME Concessions", "50/50; 150 gal barrel"),
+]
+
+
+class HistoryStart(NamedTuple):
+    name: str
+    start: date
+    note: str
+
+
+# An existing account taken over by a new business: pickups and empty checks
+# before `start` belong to the old one and are ignored. Name checked, flagged
+# on mismatch (as for shared barrels).
+HISTORY_STARTS = {
+    133: HistoryStart("JJ’s- Langdon Street Tavern", date(2026, 9, 22),
+                      "New owner; the account's earlier pickups were Langdon Street Tavern"),
+}
+
+
+def _check_registries():
+    seen = {}
+    for group in SHARED_CONTAINERS:
+        for cid in group.members:
+            if cid in seen:
+                raise SystemExit(f"customer {cid} is in two SHARED_CONTAINERS groups")
+            if cid in MODEL_OVERRIDES:
+                raise SystemExit(f"customer {cid} is in both SHARED_CONTAINERS and "
+                                 "MODEL_OVERRIDES; routing would be ambiguous")
+            seen[cid] = group.label
+
+
+def _renamed(cid, expected, pickups):
+    """A flag when the account's current name is not the one configured."""
+    current = pickups[-1]["name"] if pickups else None
+    if current is None or current == expected:
+        return None
+    return (f"Account {cid} is now named {current!r} on the site (configured "
+            f"{expected!r}); check the registry")
+
+
+def apply_history_starts(pickups, empty_checks):
+    """
+    Drop pickups and empty checks before each HISTORY_STARTS date, in place.
+    Returns customer_id -> extras for the row (start, name, town, flags).
+    """
+    extras = {}
+    for cid, hs in HISTORY_STARTS.items():
+        before = pickups.get(cid, [])
+        flag = _renamed(cid, hs.name, before)
+        extras[cid] = {
+            "history_start": hs.start,
+            "name": before[-1]["name"] if before else hs.name,
+            "town": before[-1]["town"] if before else "",
+            "flags": [flag] if flag else [],
+            "note": hs.note,
+        }
+        pickups[cid] = [p for p in before if p["date"] >= hs.start]
+        if cid in empty_checks:
+            empty_checks[cid] = [d for d in empty_checks[cid] if d >= hs.start]
+    return extras
+
+
+def combine_shared(pickups, empty_checks, capacities, regions, active):
+    """
+    Fold each SHARED_CONTAINERS group into one customer under its lowest id,
+    in place. Returns that id -> extras for the row (label, members, flags).
+
+    Gallons are summed by date: each account records only its share, so the
+    sum is the barrel. The combined capacity is the members' common listed
+    capacity, or the largest with a flag while the site disagrees.
+    """
+    extras = {}
+    for group in SHARED_CONTAINERS:
+        ids = sorted(group.members)
+        key = ids[0]
+        flags = [f for f in (_renamed(cid, group.members[cid], pickups.get(cid, []))
+                             for cid in ids) if f]
+
+        gallons = defaultdict(int)
+        for cid in ids:
+            for p in pickups.get(cid, []):
+                gallons[p["date"]] += p["gallons"]
+        first_town = next((pickups[cid][-1]["town"] for cid in ids if pickups.get(cid)), "")
+        merged = [{"date": d, "gallons": gallons[d], "name": group.label, "town": first_town}
+                  for d in sorted(gallons)]
+
+        caps = {cid: capacities.get(cid) for cid in ids}
+        listed = sorted({c for c in caps.values() if c is not None})
+        if len(listed) > 1:
+            flags.append(
+                "Members list different capacities ("
+                + ", ".join(f"{caps[c]:g}" if caps[c] is not None else "none" for c in ids)
+                + "): the convention is the full barrel on each")
+
+        member_regions = []
+        for cid in ids:
+            for name in regions.get(cid, []):
+                if name not in member_regions:
+                    member_regions.append(name)
+
+        checks = sorted({d for cid in ids for d in empty_checks.get(cid, ())})
+        any_active = any(cid in active for cid in ids)
+
+        for cid in ids:
+            pickups.pop(cid, None)
+            empty_checks.pop(cid, None)
+            active.discard(cid)
+        if merged:
+            pickups[key] = merged
+        if checks:
+            empty_checks[key] = checks
+        capacities[key] = listed[-1] if listed else None
+        regions[key] = member_regions
+        if any_active:
+            active.add(key)
+
+        extras[key] = {
+            "shared_label": group.label,
+            "members": [{"id": cid, "name": group.members[cid],
+                         "capacity": caps[cid]} for cid in ids],
+            "flags": flags,
+            "note": group.note,
+        }
+    return extras
+
+
+def new_owner_row(cid, extra, capacity, regions, asof):
+    """The row for a HISTORY_STARTS account with no pickup since its start."""
+    start = extra["history_start"]
+    flags = list(extra["flags"])
+    return {
+        "table_section": SECTION_INSUFFICIENT, "customer_id": cid,
+        "customer": extra["name"], "town": extra["town"],
+        "region_names": "; ".join(regions.get(cid, [])),
+        "model_status": STATUS_INSUFFICIENT,
+        "routing_reason": f"new owner since {start.isoformat()}, no pickup yet",
+        "active_season": None, "review_hint": None, "flags": "; ".join(flags),
+        "last_pickup_date": None, "days_since_last_pickup": (asof - start).days,
+        "last_empty_check": None, "days_accumulating": (asof - start).days,
+        "avg_collection": None, "collections_per_year": None,
+        "oil_rate_gpd_projected": None, "current_projected_gallons": None,
+        "projected_range_low": None, "projected_range_high": None,
+        "capacity": capacity, "collections_over_capacity_all_time": 0,
+        "display_pct_full": None, "days_until_75pct": None, "days_past_75pct": None,
+        "days_past_capacity": None, "implied_periodicity_days": None,
+        "model_projected_gallons": None, "raw_pct_of_listed_capacity": None,
+        "model_days_until_75pct": None, "model_days_past_75pct": None,
+        "model_days_past_capacity": None, "inferred_active_season": None,
+        "override_reason": extra["note"], "current_month": MONTHS[asof.month - 1],
+        "current_month_index": None, "top_month": None, "top_month_index": None,
+        "bottom_month": None, "bottom_month_index": None,
+        "oil_rate_gpd_prev_year": None, "oil_rate_gpd_prev_6_pickups": None,
+        "model_wape_if_available": None, "confidence_band_used": "",
+        "history_start": start, "registry_note": extra["note"],
+        "_pickups": 0, "_first_pickup": "", "_season": None,
+        "_findings": {"flags": flags, "over_all_time": 0, "over_recent_years": 0,
+                      "over_last_n": 0, "median_recent": None, "mean_recent": None},
+        "_recent_gallons": [],
+    }
+
+
+# ─────────────────────────────────────────────
 # Rates
 # ─────────────────────────────────────────────
 
@@ -749,7 +974,8 @@ def sort_key(row):
 MAIN_FIELDS = [
     "table_section", "customer_id", "customer", "town", "region_names",
     "model_status", "routing_reason", "active_season", "review_hint",
-    "flags", "last_pickup_date", "days_since_last_pickup",
+    "flags", "shared_members_text", "history_start",
+    "last_pickup_date", "days_since_last_pickup",
     "last_empty_check", "days_accumulating",
     "avg_collection", "collections_per_year", "oil_rate_gpd_projected",
     "current_projected_gallons", "projected_range_low", "projected_range_high",
@@ -799,6 +1025,7 @@ DETAIL_FIELDS = [
     "customer_id", "customer", "town", "table_section", "model_status",
     "routing_reason", "active_season", "inferred_active_season",
     "override_reason", "review_hint", "flags",
+    "shared_members_text", "history_start", "registry_note",
     "pickup_count", "first_pickup", "last_pickup_date",
     "days_since_last_pickup", "last_empty_check", "days_accumulating",
     "oil_rate_gpd_prev_6_pickups",
@@ -861,6 +1088,10 @@ def write_json(rows, asof):
         "days_since": r["days_since_last_pickup"],
         "last_empty_check": r["last_empty_check"],
         "days_accumulating": r["days_accumulating"],
+        "shared_label": r.get("shared_label"),
+        "members": [{"id": m["id"], "name": m["name"]} for m in r["shared_members"]]
+                   if r.get("shared_members") else None,
+        "history_start": r.get("history_start"),
         "rate_gpd": value(r, "oil_rate_gpd_projected"),
         "avg_collection": value(r, "avg_collection"),
         "capacity": value(r, "capacity"),
@@ -1232,13 +1463,36 @@ def main():
 
     empty_checks = load_empty_checks(asof)
 
+    _check_registries()
+    owner_extras = apply_history_starts(pickups, empty_checks)
+    shared_extras = combine_shared(pickups, empty_checks, capacities, regions, active)
+
     rows = []
     for cid in sorted(active):
         history = pickups.get(cid)
         if not history:
+            if cid in owner_extras:
+                rows.append(new_owner_row(cid, owner_extras[cid], capacities.get(cid),
+                                          regions, asof))
             continue
-        rows.append(build_row(cid, history, asof, capacities.get(cid), regions, wape,
-                              empty_checks.get(cid, ())))
+        row = build_row(cid, history, asof, capacities.get(cid), regions, wape,
+                        empty_checks.get(cid, ()))
+        extra = shared_extras.get(cid) or owner_extras.get(cid)
+        if extra:
+            if extra["flags"]:
+                row["flags"] = "; ".join(f for f in [row["flags"], *extra["flags"]] if f)
+            row["shared_label"] = extra.get("shared_label")
+            row["shared_members"] = extra.get("members")
+            row["history_start"] = extra.get("history_start")
+            row["registry_note"] = extra["note"]
+        rows.append(row)
+
+    for r in rows:
+        members = r.get("shared_members")
+        r["shared_members_text"] = ("; ".join(f"{m['id']} {m['name']}" for m in members)
+                                    if members else None)
+        if r.get("history_start"):
+            r["history_start"] = r["history_start"].isoformat()
 
     missing = sorted(set(MODEL_OVERRIDES) - {r["customer_id"] for r in rows})
     for cid in missing:

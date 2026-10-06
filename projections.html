@@ -158,7 +158,8 @@ function buildShell(page) {
       <strong>${target}% of listed capacity</strong>, which leaves a spillover
       buffer. <strong>% full</strong> stops at 100%; a customer projected past
       that carries a note to check its capacity. Seasonal, event and bulk
-      accounts are listed separately below instead of being ranked.
+      accounts are listed separately below instead of being ranked. Accounts
+      that share one barrel are shown as a single stop.
     </div>
 
     <div class="controls">
@@ -250,6 +251,11 @@ function pctFullHtml(pct) {
     `style="width:${width}%"></span></span></span>`;
 }
 
+/** "Shared barrel: Julio's-67% · Oakes and Evelyn-33%" for a combined row. */
+function sharedNote(c) {
+  return "Shared barrel: " + c.members.map(m => m.name).join(" · ");
+}
+
 /** Why the clock restarted after the last pickup. */
 function emptyCheckNote(c) {
   return `Checked empty ${formatDate(c.last_empty_check)}, counting from then`;
@@ -258,6 +264,8 @@ function emptyCheckNote(c) {
 /** Status (when not the default) and flags, as small lines under the name. */
 function notesHtml(c) {
   const lines = [];
+  if (c.members) lines.push(sharedNote(c));
+  if (c.history_start) lines.push(`History from ${formatDate(c.history_start)} (new owner)`);
   if (c.last_empty_check) lines.push(emptyCheckNote(c));
   if (c.status && c.status !== "50/50 default") lines.push(c.status);
   (c.flags || []).forEach(f => lines.push(f));
@@ -305,12 +313,23 @@ function rankedRowsHtml(rows) {
     </div>`;
 }
 
+/** Notes under a held-out row: shared barrel, new owner, empty check, flags. */
+function heldOutNotesHtml(c) {
+  const lines = [
+    ...(c.members ? [sharedNote(c)] : []),
+    ...(c.history_start ? [`History from ${formatDate(c.history_start)} (new owner)`] : []),
+    ...(c.last_empty_check ? [emptyCheckNote(c)] : []),
+    ...(c.flags || []),
+  ];
+  return lines.length
+    ? `<div class="proj-notes">${lines.map(escapeHtml).join("<br>")}</div>`
+    : "";
+}
+
 function heldOutRowsHtml(rows) {
   const body = rows.map(c => `
     <tr>
-      <td>${escapeHtml(c.name)}${(c.flags || []).length || c.last_empty_check
-        ? `<div class="proj-notes">${[...(c.last_empty_check ? [emptyCheckNote(c)] : []),
-            ...(c.flags || [])].map(escapeHtml).join("<br>")}</div>` : ""}</td>
+      <td>${escapeHtml(c.name)}${heldOutNotesHtml(c)}</td>
       <td>${escapeHtml(c.town || "—")}</td>
       <td>${escapeHtml(c.status)}</td>
       <td class="proj-reason">${escapeHtml(c.reason || "—")}</td>

@@ -4,7 +4,7 @@ What comes next for the pickup projections, and what is in flight. The method
 and its history are in [`README.md`](README.md); read that first.
 
 Owner: Sarge. Business direction (regions, capacities, what a route means):
-Jim. Last updated 2026-10-05 — **update the "In flight" section whenever a step
+Jim. Last updated 2026-10-06 — **update the "In flight" section whenever a step
 finishes**, so a fresh session does not redo or skip it.
 
 ## In flight
@@ -47,6 +47,24 @@ over-capacity pickups had a delivery since the previous pickup, so extra barrels
 
 Numbers saves its own format even under a `.csv` name. Use **File → Export
 To → CSV**, or read one with `osascript` (`export d … as CSV`).
+
+### Shared barrels (started 2026-10-06)
+
+Convention: every member of a shared barrel lists the **full** barrel capacity
+on the site. `SHARED_CONTAINERS` in the builder shows each barrel as one row.
+
+1. ~~Sizes confirmed and set on the site for all 15 groups~~ (Sarge,
+   2026-10-06; verified read-only the same day, every member agrees).
+2. **Pitchers Inn / Warren Store are NOT grouped**: two 65-gal barrels in one
+   shed, pumped together, total split evenly. Kept as two stops; Sarge is
+   asking Jim.
+3. **Pingala**'s 100 is its whole barrel now that Volcano is gone. Volcano
+   still shows as active on the site — mark it inactive there.
+4. **Not grouped yet, need an answer:** Farmhouse/Ken's Pizza (together on
+   54 of 55 pickups, 87/13), Grazers/Agave (50/50 until Jan 2026 — ended?),
+   Fox Farm/Suicide 6.
+5. Duo/Tulip (300 gal, Brattleboro) shows as stale: no pickup since
+   2026-03-30. Still a customer?
 
 ### Open questions on the other non-pickup codes
 
