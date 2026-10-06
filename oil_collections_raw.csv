@@ -352,6 +352,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1363,GE-South Barre Gas Station,Barre,Washington,2024-09-24,2024,2024-09,20,True,Barre Town
 1363,GE-South Barre Gas Station,Barre,Washington,2024-09-05,2024,2024-09,60,True,Barre Town
 1363,GE-South Barre Gas Station,Barre,Washington,2024-08-01,2024,2024-08,200,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2026-10-06,2026,2026-10,60,True,Barre Town
 111,Gunner Brook (Brookside Mkt),Barre,Washington,2026-09-09,2026,2026-09,80,True,Barre Town
 111,Gunner Brook (Brookside Mkt),Barre,Washington,2026-07-31,2026,2026-07,65,True,Barre Town
 111,Gunner Brook (Brookside Mkt),Barre,Washington,2026-06-25,2026,2026-06,85,True,Barre Town
@@ -589,6 +590,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1380,Masonic Lodge-Barre,Barre,Washington,2025-06-06,2025,2025-06,35,True,Barre City
 1380,Masonic Lodge-Barre,Barre,Washington,2025-04-07,2025,2025-04,15,True,Barre City
 1380,Masonic Lodge-Barre,Barre,Washington,2025-01-11,2025,2025-01,35,True,Barre City
+112,Mulligans-Barre,Barre,Washington,2026-10-06,2026,2026-10,60,True,Barre City
 112,Mulligans-Barre,Barre,Washington,2026-09-29,2026,2026-09,100,True,Barre City
 112,Mulligans-Barre,Barre,Washington,2026-09-18,2026,2026-09,100,True,Barre City
 112,Mulligans-Barre,Barre,Washington,2026-09-04,2026,2026-09,140,True,Barre City
@@ -7108,6 +7110,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 518,Bumble Bee/Parkside-Enosburgh,Enosburg Falls,Orleans,2018-12-14,2018,2018-12,100,True,Enosburgh
 518,Bumble Bee/Parkside-Enosburgh,Enosburg Falls,Orleans,2018-10-29,2018,2018-10,150,True,Enosburgh
 518,Bumble Bee/Parkside-Enosburgh,Enosburg Falls,Orleans,2018-08-08,2018,2018-08,275,True,Enosburgh
+519,Dairy Center-Enosburgh Falls,Enosburg Falls,Orleans,2026-10-05,2026,2026-10,70,True,Enosburgh
 519,Dairy Center-Enosburgh Falls,Enosburg Falls,Orleans,2026-08-06,2026,2026-08,70,True,Enosburgh
 519,Dairy Center-Enosburgh Falls,Enosburg Falls,Orleans,2026-06-11,2026,2026-06,60,True,Enosburgh
 519,Dairy Center-Enosburgh Falls,Enosburg Falls,Orleans,2026-04-21,2026,2026-04,135,True,Enosburgh
@@ -7159,6 +7162,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 519,Dairy Center-Enosburgh Falls,Enosburg Falls,Orleans,2018-08-08,2018,2018-08,75,True,Enosburgh
 519,Dairy Center-Enosburgh Falls,Enosburg Falls,Orleans,2018-04-04,2018,2018-04,30,True,Enosburgh
 519,Dairy Center-Enosburgh Falls,Enosburg Falls,Orleans,2018-03-12,2018,2018-03,125,True,Enosburgh
+517,Enosburgh Falls Country Club,Enosburg Falls,Orleans,2026-10-05,2026,2026-10,25,True,Enosburgh
 517,Enosburgh Falls Country Club,Enosburg Falls,Orleans,2026-08-06,2026,2026-08,40,True,Enosburgh
 517,Enosburgh Falls Country Club,Enosburg Falls,Orleans,2025-10-01,2025,2025-10,30,True,Enosburgh
 517,Enosburgh Falls Country Club,Enosburg Falls,Orleans,2025-08-07,2025,2025-08,40,True,Enosburgh
@@ -7172,6 +7176,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 517,Enosburgh Falls Country Club,Enosburg Falls,Orleans,2019-10-08,2019,2019-10,50,True,Enosburgh
 517,Enosburgh Falls Country Club,Enosburg Falls,Orleans,2019-07-09,2019,2019-07,25,True,Enosburgh
 517,Enosburgh Falls Country Club,Enosburg Falls,Orleans,2018-08-08,2018,2018-08,50,True,Enosburgh
+1149,Hannaford-Enosburg Falls,Enosburg Falls,Orleans,2026-10-05,2026,2026-10,137,True,Enosburgh
 1149,Hannaford-Enosburg Falls,Enosburg Falls,Orleans,2026-08-06,2026,2026-08,130,True,Enosburgh
 1149,Hannaford-Enosburg Falls,Enosburg Falls,Orleans,2026-06-11,2026,2026-06,104,True,Enosburgh
 1149,Hannaford-Enosburg Falls,Enosburg Falls,Orleans,2026-04-21,2026,2026-04,86,True,Enosburgh
@@ -8996,6 +9001,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 543,Marsala Salsa/ Pizzeria -Johnson-10%,Johnson,Lamoille,2019-12-09,2019,2019-12,110,True,Johnson
 543,Marsala Salsa/ Pizzeria -Johnson-10%,Johnson,Lamoille,2019-10-08,2019,2019-10,125,True,Johnson
 543,Marsala Salsa/ Pizzeria -Johnson-10%,Johnson,Lamoille,2019-06-21,2019,2019-06,175,True,Johnson
+1515,NVU-Johnson,Johnson,Lamoille,2026-10-05,2026,2026-10,140,True,Johnson
 1391,Grey Bonnet Inn-Killington,Killington,Rutland,2025-08-25,2025,2025-08,10,True,Killington
 1391,Grey Bonnet Inn-Killington,Killington,Rutland,2025-03-05,2025,2025-03,15,True,Killington
 815,Summit Lodge / Irish pub,Killington,Rutland,2026-07-15,2026,2026-07,60,True,Killington
@@ -12150,6 +12156,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 512,North Country Donuts,Morrisville,Lamoille,2019-06-29,2019,2019-06,20,True,Morristown
 512,North Country Donuts,Morrisville,Lamoille,2019-06-06,2019,2019-06,50,True,Morristown
 512,North Country Donuts,Morrisville,Lamoille,2019-05-29,2019,2019-05,55,True,Morristown
+508,Pizza on Main -Morrisville,Morrisville,Lamoille,2026-10-05,2026,2026-10,175,True,Morristown
 508,Pizza on Main -Morrisville,Morrisville,Lamoille,2026-06-29,2026,2026-06,85,True,Morristown
 508,Pizza on Main -Morrisville,Morrisville,Lamoille,2024-11-21,2024,2024-11,55,True,Morristown
 508,Pizza on Main -Morrisville,Morrisville,Lamoille,2024-10-18,2024,2024-10,30,True,Morristown
@@ -16819,6 +16826,13 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 250,Sanfo,Stowe,Lamoille,2019-11-30,2019,2019-11,15,True,Stowe
 250,Sanfo,Stowe,Lamoille,2019-05-01,2019,2019-05,50,True,Stowe
 250,Sanfo,Stowe,Lamoille,2018-11-04,2018,2018-11,40,True,Stowe
+243,Stowe Hockey Arena,Stowe,Lamoille,2019-03-30,2019,2019-03,30,True,Stowe
+243,Stowe Hockey Arena,Stowe,Lamoille,2018-12-08,2018,2018-12,44,True,Stowe
+243,Stowe Hockey Arena,Stowe,Lamoille,2018-02-04,2018,2018-02,35,True,Stowe
+243,Stowe Hockey Arena,Stowe,Lamoille,2017-03-11,2017,2017-03,40,True,Stowe
+243,Stowe Hockey Arena,Stowe,Lamoille,2016-02-27,2016,2016-02,50,True,Stowe
+243,Stowe Hockey Arena,Stowe,Lamoille,2015-03-30,2015,2015-03,5,True,Stowe
+243,Stowe Hockey Arena,Stowe,Lamoille,2015-02-13,2015,2015-02,50,True,Stowe
 270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-09-30,2026,2026-09,160,True,Stowe
 270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-09-15,2026,2026-09,170,True,Stowe
 270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-08-31,2026,2026-08,120,True,Stowe
@@ -26657,13 +26671,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 104,Steakhouse Restaurant,Burlington,Chittenden,2017-06-28,2017,2017-06,20,False,Burlington
 104,Steakhouse Restaurant,Burlington,Chittenden,2017-06-01,2017,2017-06,50,False,Burlington
 104,Steakhouse Restaurant,Burlington,Chittenden,2017-03-25,2017,2017-03,35,False,Burlington
-243,Stowe Arena,Stowe,Lamoille,2019-03-30,2019,2019-03,30,False,Stowe
-243,Stowe Arena,Stowe,Lamoille,2018-12-08,2018,2018-12,44,False,Stowe
-243,Stowe Arena,Stowe,Lamoille,2018-02-04,2018,2018-02,35,False,Stowe
-243,Stowe Arena,Stowe,Lamoille,2017-03-11,2017,2017-03,40,False,Stowe
-243,Stowe Arena,Stowe,Lamoille,2016-02-27,2016,2016-02,50,False,Stowe
-243,Stowe Arena,Stowe,Lamoille,2015-03-30,2015,2015-03,5,False,Stowe
-243,Stowe Arena,Stowe,Lamoille,2015-02-13,2015,2015-02,50,False,Stowe
 269,Stowe Cantina/Over the Wall,Burlington,Chittenden,2021-07-11,2021,2021-07,50,False,Burlington
 269,Stowe Cantina/Over the Wall,Burlington,Chittenden,2021-03-18,2021,2021-03,75,False,Burlington
 269,Stowe Cantina/Over the Wall,Burlington,Chittenden,2020-10-01,2020,2020-10,50,False,Burlington
