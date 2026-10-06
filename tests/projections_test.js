@@ -105,6 +105,18 @@ const regionRanked = inRegion.filter(c => c.section === "ranked").length;
 ok(rowsIn(list.innerHTML) === Math.min(50, regionRanked),
   `region view ranks ${Math.min(50, regionRanked)} rows`);
 
+// ── Empty checks restart the clock ──
+const checked = customers.filter(c => c.last_empty_check);
+ok(checked.length > 0 && checked.every(c => c.days_accumulating < c.days_since &&
+  c.last_empty_check > c.last_pickup), `${checked.length} customers with a later empty check count from it`);
+ok(customers.filter(c => !c.last_empty_check).every(c => c.days_accumulating === c.days_since),
+  "every other customer counts from its last pickup");
+const rankedChecked = checked.find(c => c.section === "ranked");
+ok(rankedChecked && /Checked empty/.test(api.rankedRowsHtml([rankedChecked])),
+  "a ranked row with an empty check renders the note");
+ok(byId[510] && byId[510].last_empty_check && byId[510].pct_full < 75,
+  `10 Railroad Street (510) counts from its last empty check (${byId[510] && byId[510].pct_full}% full)`);
+
 // ── Freshness ──
 ok(api.freshnessWarning(payload, { last_updated: payload.data_last_updated }) === null,
   "no warning when built from the live scrape");

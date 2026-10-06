@@ -6,6 +6,11 @@ generates that JSON; the browser does everything else.
 
 Live from `main`. **Merging a PR deploys.**
 
+**Projection, capacity or seasonality work: read `analysis/README.md` first**
+(the pipeline, the method and every decision so far), then
+`analysis/ROADMAP.md` (what is in flight and what comes next). Update the
+roadmap's "In flight" section when a step finishes.
+
 ## Shape of the thing
 
 ```
@@ -14,6 +19,7 @@ oil_scraper.py ──> oil_data.json          (aggregates: regions, towns, count
                └─> oil_collections_raw.csv (the local cache — committed)
                └─> oil_collection_report.xlsx
                └─> capacity_cache.csv     (capacity + site periodicity; --rescrape only)
+               └─> oil_non_pickups.csv    (the 0-3 entries totals drop; --rescrape only)
 
 export_schmootz.py ──> schmootz_data.json  (from data/Schmootz.xlsx, gitignored)
 
@@ -56,6 +62,15 @@ UTC and commits straight to `main`, so expect a data diff most mornings.
 "nothing collected" — 2 is a customer call, 3 is a barrel delivery. **4 is NOT
 excluded**: it is a data-entry quirk that counts as exactly 4 gallons and is
 never rounded up. `validate_data.py` fails if either changes.
+
+**Dropped from totals is not thrown away.** Since 2026-10-05 every 0–3 entry is
+kept in `oil_non_pickups.csv` (merged on each `--rescrape`, like the capacity
+cache). `RESET_QTYS = {0, 1}` means the truck checked and found the container
+empty, so the projection restarts its oil clock at the latest one after the
+last pickup — the rate itself is unchanged. 2 (customer call) and 3 (barrel
+delivery) are kept but not used yet. The builder keeps its own copy of
+`RESET_QTYS`; `validate_data.py` asserts the two match. Never put a 0–3 into
+`oil_collections_raw.csv`: `backtest_steady_rate.load_pickups` refuses it.
 
 **A missing month is a real zero, not missing data.** Months with no pickups
 produce no row at all. Southern Ski Slopes has never had a 12-row year — it
@@ -153,7 +168,7 @@ raw figure lives in the detail CSV.
 ```
 python3 validate_data.py          # ~82 checks on the generated data
 python3 check_town_mismatches.py  # town names vs the GeoJSON; exits non-zero on a real mismatch
-node tests/run_all.js             # five front-end suites; see tests/README.md
+node tests/run_all.js             # six front-end suites; see tests/README.md
 ```
 
 Two standing warnings, both towns configured ahead of their first customer:

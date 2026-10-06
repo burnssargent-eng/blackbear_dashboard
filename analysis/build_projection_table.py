@@ -83,6 +83,14 @@ ROOT = HERE.parent
 COLLECTIONS = ROOT / "oil_collections.json"
 OIL_DATA = ROOT / "oil_data.json"
 CAPACITY_CACHE = ROOT / "capacity_cache.csv"
+NON_PICKUPS = ROOT / "oil_non_pickups.csv"
+
+# Quantities that mean "checked, container empty": the oil clock restarts at
+# the latest one after the last pickup. MUST MATCH oil_scraper.RESET_QTYS;
+# validate_data.py asserts it. Measured 2026-10-05: on 651 intervals with a
+# check between two pickups, counting from the pickup over-projected the next
+# pickup by +115%, counting from the check by +11%.
+RESET_QTYS = {0, 1}
 ROUTING_WAPE = HERE / "routing_rule_test_customers.csv"
 SEASONAL_DETAIL = HERE / "backtest_seasonal_models_detail.csv"
 # Committed snapshot of the two backtests above, so the nightly runner -- which
@@ -293,6 +301,22 @@ def load_active_ids():
     """customer_ids flagged active in the exported roster."""
     data = json.loads(COLLECTIONS.read_text())
     return {c["customer_id"] for c in data["customers"] if c.get("is_active")}
+
+
+def load_empty_checks(asof):
+    """customer_id -> sorted dates of RESET_QTYS entries on or before `asof`."""
+    checks = defaultdict(list)
+    if not NON_PICKUPS.exists():
+        print(f"  note: {NON_PICKUPS.name} missing; no empty-check resets applied")
+        return checks
+    with open(NON_PICKUPS, newline="") as f:
+        for row in csv.DictReader(f):
+            day = date.fromisoformat(row["date"])
+            if int(row["qty"]) in RESET_QTYS and day <= asof:
+                checks[int(row["customer_id"])].append(day)
+    for days in checks.values():
+        days.sort()
+    return checks
 
 
 def load_capacities():
@@ -570,9 +594,18 @@ def route(override, has_both_rates, days_since, last_date, pickups, asof):
 # Build
 # ─────────────────────────────────────────────
 
-def build_row(cid, pickups, asof, capacity, regions, wape):
+def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
     last = pickups[-1]
     days_since = (asof - last["date"]).days
+
+    # The oil clock starts at the last pickup, or at a later empty check: the
+    # truck looked and found nothing worth pumping, so nothing had built up.
+    # The RATE is untouched -- gallons over days between pickups is still the
+    # right average production -- only where the counting starts moves.
+    later = [d for d in empty_checks if d > last["date"]]
+    last_check = later[-1] if later else None
+    clock_start = last_check or last["date"]
+    days_accumulating = (asof - clock_start).days
 
     last6 = rate_last_six(pickups)
     prev_year = rate_prev_year_asof(pickups, asof)
@@ -589,11 +622,14 @@ def build_row(cid, pickups, asof, capacity, regions, wape):
             f"MODEL_OVERRIDES[{cid}] expects {override.name!r} but the pickup "
             f"record says {last['name']!r}. Check the id before trusting the "
             "override.")
+    # Stale and the off-season silence rule stay on the last PICKUP (a check is
+    # not oil); "awaiting first pickup" uses the clock, so an in-season empty
+    # check counts as a fresh start.
     status, section, routing_reason = route(
-        override, has_both, days_since, last["date"], pickups, asof)
+        override, has_both, days_since, clock_start, pickups, asof)
     hint = None if override else review_hint(season)
 
-    projected = rate * days_since if rate is not None else None
+    projected = rate * days_accumulating if rate is not None else None
     target = capacity * TARGET_FRACTION if capacity is not None else None
 
     # Confidence band: the customer's own backtested WAPE where it exists,
@@ -645,6 +681,8 @@ def build_row(cid, pickups, asof, capacity, regions, wape):
         "flags": "; ".join(findings["flags"]),
         "last_pickup_date": last["date"].isoformat(),
         "days_since_last_pickup": days_since,
+        "last_empty_check": last_check.isoformat() if last_check else None,
+        "days_accumulating": days_accumulating,
         "avg_collection": avg_collection,
         "collections_per_year": collections_per_year(pickups),
         "oil_rate_gpd_projected": rate,
@@ -712,6 +750,7 @@ MAIN_FIELDS = [
     "table_section", "customer_id", "customer", "town", "region_names",
     "model_status", "routing_reason", "active_season", "review_hint",
     "flags", "last_pickup_date", "days_since_last_pickup",
+    "last_empty_check", "days_accumulating",
     "avg_collection", "collections_per_year", "oil_rate_gpd_projected",
     "current_projected_gallons", "projected_range_low", "projected_range_high",
     "capacity", "collections_over_capacity_all_time", "display_pct_full",
@@ -761,7 +800,8 @@ DETAIL_FIELDS = [
     "routing_reason", "active_season", "inferred_active_season",
     "override_reason", "review_hint", "flags",
     "pickup_count", "first_pickup", "last_pickup_date",
-    "days_since_last_pickup", "oil_rate_gpd_prev_6_pickups",
+    "days_since_last_pickup", "last_empty_check", "days_accumulating",
+    "oil_rate_gpd_prev_6_pickups",
     "oil_rate_gpd_prev_year", "oil_rate_gpd_projected",
     "model_projected_gallons", "raw_pct_of_listed_capacity",
     "model_days_until_75pct", "model_days_past_75pct",
@@ -819,6 +859,8 @@ def write_json(rows, asof):
         "season": r["active_season"],
         "last_pickup": r["last_pickup_date"],
         "days_since": r["days_since_last_pickup"],
+        "last_empty_check": r["last_empty_check"],
+        "days_accumulating": r["days_accumulating"],
         "rate_gpd": value(r, "oil_rate_gpd_projected"),
         "avg_collection": value(r, "avg_collection"),
         "capacity": value(r, "capacity"),
@@ -966,7 +1008,9 @@ For each active customer, at the as-of date:
 - **previous year rate** = gallons since the latest pickup at least
   {YEAR_DAYS} days before the as-of date, over that same span
 - **projected rate** = 0.5 x previous year + 0.5 x previous 6 pickups
-- **projected gallons** = projected rate x days since the last pickup
+- **projected gallons** = projected rate x days since the last pickup, or
+  since a later empty check (quantity 0 or 1 in `oil_non_pickups.csv`),
+  whichever is later: the truck looked and found nothing worth pumping
 - **target** = {TARGET_FRACTION:.0%} of listed capacity -- the intended pickup
   point, leaving a spillover buffer
 - **implied periodicity** = target ÷ projected rate: the cadence that would
@@ -1186,12 +1230,15 @@ def main():
         print(f"  note: --as-of {asof} is before the latest pickup {latest}; "
               "later pickups are still in the history and will leak")
 
+    empty_checks = load_empty_checks(asof)
+
     rows = []
     for cid in sorted(active):
         history = pickups.get(cid)
         if not history:
             continue
-        rows.append(build_row(cid, history, asof, capacities.get(cid), regions, wape))
+        rows.append(build_row(cid, history, asof, capacities.get(cid), regions, wape,
+                              empty_checks.get(cid, ())))
 
     missing = sorted(set(MODEL_OVERRIDES) - {r["customer_id"] for r in rows})
     for cid in missing:

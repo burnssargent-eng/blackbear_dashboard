@@ -1,6 +1,93 @@
-# Oil-rate backtest
+# Oil-rate modelling and pickup projections
 
-Analysis only. Nothing on the site reads this folder.
+**Start here for any projection, capacity or seasonality work.** This file is
+the methodology and the decision history; [`ROADMAP.md`](ROADMAP.md) is what
+comes next and what is in flight. The site reads exactly one thing produced from
+this folder — `oil_projections.json` at the repo root — and nothing reads the
+folder itself.
+
+## The pipeline as it runs today
+
+The nightly (`.github/workflows/nightly-update.yml`, 07:00 UTC) runs steps 1–2
+and commits the results to `main`. Everything else is run by hand.
+
+| # | Step | Code | Output |
+|---|---|---|---|
+| 1 | Scrape pickups, drop `EMPTY_QTYS` {0,1,2,3} from totals but keep them as events; read each page's **Capacity** and **Periodicity** | `oil_scraper.py --rescrape` | `oil_collections_raw.csv`, `oil_collections.json`, `oil_data.json`, `capacity_cache.csv`, `oil_non_pickups.csv` |
+| 2 | Build the projection table and the website file | `analysis/build_projection_table.py` | `oil_projections.json` (committed nightly), `analysis/oil_projection_table.md` (tracked, but only committed by hand, so it lags), `.csv` + `_detail.csv` (gitignored) |
+| 3 | Page | `projections.html` | displays `oil_projections.json`; never recomputes |
+| — | Review tool for seasonal classification (manual) | `analysis/build_fringe_seasonal_candidates.py` | `fringe_seasonal_candidates.md` (+ gitignored csv) |
+| — | Rate-model research (manual, rarely rerun) | the backtest scripts, [below](#rate-study-2026-09-11-to-09-15) | the `*_report.md`, `seasonal_models.md`, etc. |
+
+**What step 2 computes, per active customer (`is_active` from the source site):**
+
+```
+rate       = 0.5 × previous-year rate + 0.5 × last-6-pickups rate      (gal/day)
+clock      = the last pickup, or a later empty check (qty 0 or 1), whichever is later
+projected  = rate × days since the clock started                         (gallons)
+target     = 0.75 × listed capacity                                      (the pickup point)
+% full     = projected ÷ capacity, capped at 100 for display (raw kept in _detail.csv)
+band       = ± the customer's own backtested WAPE (analysis/customer_wape.json), else ±20%
+```
+
+Then every row is **routed** to one section, in this order:
+
+1. `MODEL_OVERRIDES` (in the builder, keyed by customer id, name asserted) sends
+   **on-demand** (Perrigo), **event-driven** (Champlain Valley Expo, Tunbridge
+   Fair) and **lump-sum** accounts to their own sections, with no fill estimate.
+2. **Insufficient data** — either rate cannot be formed.
+3. **True closers** are held out whenever the month is outside their
+   month-level season; **semi-closers** only when off-season *and* silent past
+   max(60, 2 × median gap) days. Either is held out as *season open — awaiting
+   first pickup* until it gets a pickup inside the current season.
+4. **Stale** — no pickup in 180 days.
+5. Everything else is **ranked**, including *seasonal open-ish* overrides,
+   most urgent first (days past capacity, days past 75%, % full).
+
+The automatic seasonality heuristic survives only as a `review_hint` column.
+Customers are added to `MODEL_OVERRIDES` by a human, informed by
+`fringe_seasonal_candidates.md` — never read from it.
+
+**Dependencies between scripts.** The builder imports `backtest_steady_rate`
+(both rates), `seasonality_score` (monthly shape), `backtest_seasonal_models`
+(`CLOSED_INDEX`) and `build_fringe_seasonal_candidates` (season helpers and
+the silence rule). The fringe script in turn reads `oil_projection_table.csv`
+for its `projection_status` column, so run the builder first.
+
+**Capacity** is read from the source site, never edited in the repo. A wrong
+capacity is fixed on the site and arrives with the next nightly. See
+`CLAUDE.md` and [`ROADMAP.md`](ROADMAP.md) for the capacity cleanup in progress.
+
+## Decision log
+
+| Date | Decision | Where |
+|---|---|---|
+| 2026-09-11 | Last 6 pickups as the first rate; windows 3–7 tie, averaging interval rates rejected | [below](#rate-study-2026-09-11-to-09-15), `model_comparison.md` |
+| 2026-09-11 | **50/50 last 6 + previous year** as the default rate; seasonal blend unproven out of sample; no rate survives a closure | `seasonal_models.md`, `routing_rule_test.md` |
+| 2026-09-15 | Customer month/quarter factors **rejected** as a blanket adjustment — the baseline already carries the season, a factor double-counts it | `customer_factor_model_test.md` |
+| 2026-09-17 | Fringe/closer candidate table built as a **review tool**, not a classifier; elapsed silence in a seasonal account is evidence against accumulation, not for it | `fringe_seasonal_candidates.md` |
+| 2026-09-29 | **`MODEL_OVERRIDES`** (18 customers) routes closers, call-driven, event and on-demand accounts around the 50/50 ranking; operator % full capped at 100; 50/50 arithmetic unchanged for everyone else | `build_projection_table.py`, PR #24 |
+| 2026-09-29 | Beta `projections.html`, hidden from the nav, built nightly; bands frozen in committed `customer_wape.json` so CI and local agree byte for byte | PR #24 |
+| 2026-10-01 | Capacities refreshed nightly from the source site (the April snapshot was 47 customers stale); corrections are made on the site | `oil_scraper.py`, PR #25 |
+| 2026-10-05 | Jim's capacity review received; 103 to enter on the site, 9 to confirm with him | [`ROADMAP.md`](ROADMAP.md) |
+| 2026-10-05 | **Empty checks (qty 0 / 1) restart the oil clock.** On 651 intervals with a 1 between two pickups, counting from the pickup over-projected the next pickup by +115% (WAPE 134%); counting from the 1, +11% (WAPE 81%). Rate unchanged. 3 (barrel delivery) tested as only a partial reset (+213% → −34%) and left out | `oil_scraper.py` (`RESET_QTYS`, `oil_non_pickups.csv`), builder `load_empty_checks` |
+
+## Known weaknesses of the current model
+
+- **An in-season closer is ranked on a rate that includes its closed months**,
+  so it likely understates the in-season rate. A seasonal rate needs its own
+  backtest before it replaces 50/50 for them.
+- **Seasons are month-level.** A season opens on the 1st of its first month;
+  no reopening date is implied.
+- **Two Okemo overrides rest on two years of history.**
+- **Seasonality scores use the same years they describe** (2023–2025). A
+  production classifier would score from history before each prediction.
+- **Projected gallons are oil produced, not what the truck will collect.**
+- **A dated `--as-of` run leaks later pickups**; it never writes the site file.
+
+---
+
+# Rate study (2026-09-11 to 09-15)
 
 **The question:** before building any accumulation or fullness projection, how
 well does a plain gallons-per-day rate predict the size of the next pickup, for
@@ -219,6 +306,9 @@ no-lookahead:
 | `test_routing_rule.py` → `routing_rule_test.md` | The routing rule scored on 117 held-out customers |
 | `customer_factors.py` → `customer_cyclicality.md` | Per-customer monthly/quarterly factors and the screen of who has a repeating pattern |
 | `backtest_customer_factors.py` → `customer_factor_model_test.md` | Whether those factors beat the 50/50 baseline — explicit, naive and residual forms |
+| `build_fringe_seasonal_candidates.py` → `fringe_seasonal_candidates.md` | Review table of seasonal / closer / call-driven / event / on-demand candidates. Labels are prompts, not classifications |
+| `build_projection_table.py` → `oil_projection_table.md`, `../oil_projections.json` | The production projection: 50/50 rate, `MODEL_OVERRIDES`, routing, capped % full. Run nightly |
+| `customer_wape.json` | Committed snapshot of per-customer 50/50 WAPE for the confidence bands. Rebuild with `--refresh-wape` after rerunning `test_routing_rule.py` / `backtest_seasonal_models.py` |
 
 The CSVs (per-pickup detail and summaries) are gitignored. Every script is
 deterministic, so rerunning regenerates them byte for byte.
@@ -238,6 +328,10 @@ python3 analysis/backtest_seasonal_models.py                            # four m
 python3 analysis/test_routing_rule.py                                   # held-out rule test
 python3 analysis/customer_factors.py                                    # per-customer factors
 python3 analysis/backtest_customer_factors.py                           # do the factors help?
+python3 analysis/build_projection_table.py                              # projections (the nightly runs this)
+python3 analysis/build_projection_table.py --as-of 2026-06-30           # what-if date; never writes the site file
+python3 analysis/build_projection_table.py --refresh-wape               # rebuild customer_wape.json
+python3 analysis/build_fringe_seasonal_candidates.py                    # seasonal review table (after the builder)
 ```
 
 The nightly scrape adds pickups, so figures will drift slightly from those
