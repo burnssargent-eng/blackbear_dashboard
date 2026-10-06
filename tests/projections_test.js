@@ -121,7 +121,7 @@ ok(byId[510] && byId[510].last_empty_check && byId[510].pct_full < 75,
 const shared = customers.filter(c => c.members);
 const memberIds = shared.flatMap(c => c.members.map(m => m.id));
 const rowIds = new Set(customers.map(c => c.id));
-ok(shared.length >= 16, `${shared.length} shared barrels exported`);
+ok(shared.length >= 15, `${shared.length} shared barrels exported`);
 ok(shared.every(c => c.id === Math.min(...c.members.map(m => m.id))),
   "each shared barrel is listed under its lowest member id");
 ok(memberIds.filter(id => !shared.some(c => c.id === id)).every(id => !rowIds.has(id)),

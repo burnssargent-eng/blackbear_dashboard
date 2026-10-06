@@ -74,7 +74,7 @@ capacity is fixed on the site and arrives with the next nightly. See
 | 2026-09-29 | Beta `projections.html`, hidden from the nav, built nightly; bands frozen in committed `customer_wape.json` so CI and local agree byte for byte | PR #24 |
 | 2026-10-01 | Capacities refreshed nightly from the source site (the April snapshot was 47 customers stale); corrections are made on the site | `oil_scraper.py`, PR #25 |
 | 2026-10-05 | Jim's capacity review received; 103 to enter on the site, 9 to confirm with him | [`ROADMAP.md`](ROADMAP.md) |
-| 2026-10-06 | **Shared barrels shown as one stop** (`SHARED_CONTAINERS`, 16 groups). Each account records only its share of the gallons, so the barrel is the members' gallons summed by date; combined rate = sum of member rates. Capacity convention with Jim: the full barrel on every member. `HISTORY_STARTS` for new owners on old accounts (JJ's, 2026-09-22) | builder |
+| 2026-10-06 | **Shared barrels shown as one stop** (`SHARED_CONTAINERS`, 15 groups). Each account records only its share of the gallons, so the barrel is the members' gallons summed by date; combined rate = sum of member rates. Capacity convention with Jim: the full barrel on every member. `HISTORY_STARTS` for new owners on old accounts (JJ's, 2026-09-22) | builder |
 | 2026-10-05 | **Empty checks (qty 0 / 1) restart the oil clock.** On 651 intervals with a 1 between two pickups, counting from the pickup over-projected the next pickup by +115% (WAPE 134%); counting from the 1, +11% (WAPE 81%). Rate unchanged. 3 (barrel delivery) tested as only a partial reset (+213% → −34%) and left out | `oil_scraper.py` (`RESET_QTYS`, `oil_non_pickups.csv`), builder `load_empty_checks` |
 
 ## Known weaknesses of the current model

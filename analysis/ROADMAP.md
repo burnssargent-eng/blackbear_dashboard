@@ -53,21 +53,18 @@ To → CSV**, or read one with `osascript` (`export d … as CSV`).
 Convention: every member of a shared barrel lists the **full** barrel capacity
 on the site. `SHARED_CONTAINERS` in the builder shows each barrel as one row.
 
-1. **Sarge converts the capacities on the site.** Known barrels: Julio's/Oakes
-   150, Johnsons/Marsala 150, RiRa's/Sweetwaters/BKK 300, Henry's/Pascolo 150,
-   Three Penny/Namaste 300, Duo/Tulip 300.
-2. **Barrel sizes still needed from Jim:** Pitchers Inn/Warren Store (65 each
-   now; joint pickups reach 120), Hotel Vermont/Hen of the Wood, Ranch Camp/
-   Backyard, Pioneer Lakeshore/NY Oven, Pizzeria Veritas/Trattoria Delia,
-   RJs/Ahli Baba's, the Hardwick trio, Namaste Garden/Pick Thai, Northfield
-   Pizza/O'Maddis, Junction/JNETME. **Caution:** a 50/50 pair still listing
-   equal per-share numbers (100/100 on a 200 barrel) looks converted to the
-   code; only the over-capacity flags give it away.
-3. **Not grouped yet, need an answer:** Farmhouse/Ken's Pizza (together on
+1. ~~Sizes confirmed and set on the site for all 15 groups~~ (Sarge,
+   2026-10-06; verified read-only the same day, every member agrees).
+2. **Pitchers Inn / Warren Store are NOT grouped**: two 65-gal barrels in one
+   shed, pumped together, total split evenly. Kept as two stops; Sarge is
+   asking Jim.
+3. **Pingala**'s 100 is its whole barrel now that Volcano is gone. Volcano
+   still shows as active on the site — mark it inactive there.
+4. **Not grouped yet, need an answer:** Farmhouse/Ken's Pizza (together on
    54 of 55 pickups, 87/13), Grazers/Agave (50/50 until Jan 2026 — ended?),
-   Fox Farm/Suicide 6, Pingala (Volcano gone — is Pingala's 100 the whole
-   barrel?). Volcano still shows as active on the site.
-4. Verify: re-fetch the members' capacities and confirm each group agrees.
+   Fox Farm/Suicide 6.
+5. Duo/Tulip (300 gal, Brattleboro) shows as stale: no pickup since
+   2026-03-30. Still a customer?
 
 ### Open questions on the other non-pickup codes
 

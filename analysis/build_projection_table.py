@@ -272,6 +272,10 @@ class SharedContainer(NamedTuple):
 # different capacities is flagged until the site is converted. A member's
 # name is checked against the account; a rename is FLAGGED, not fatal, so
 # renaming an account to show its split never stops the nightly.
+#
+# NOT a shared barrel: Pitchers Inn (219) and Warren Store (288) are two 65-gal
+# barrels in one shed, pumped together with the total split evenly. Kept as
+# two stops for now (Sarge, 2026-10-06; asking Jim).
 SHARED_CONTAINERS = [
     # ── barrel size confirmed by Sarge / Jim ──
     SharedContainer({143: "Julio's-67%", 169: "Oakes and Evelyn-33%"},
@@ -290,31 +294,28 @@ SHARED_CONTAINERS = [
     SharedContainer({1054: "Duo Restaurant 50%-LOCK", 1055: "Tulip Bar and Cafe 50%-LOCK"},
                     "Duo Restaurant + Tulip Bar and Cafe",
                     "50/50; 300 gal (the site's own notes)"),
-    SharedContainer({219: "Pitchers Inn", 288: "Warren Store"},
-                    "Pitchers Inn + Warren Store",
-                    "about 50/50 on every joint pickup; confirmed shared by Sarge"),
-    # ── names say shared and the gallon split confirms it; barrel size open ──
+    # Barrel sizes below confirmed by Sarge, 2026-10-06, and set on the site.
     SharedContainer({304: "Hotel Vermont - 50%", 1037: "Hen of the Wood - 50%"},
-                    "Hotel Vermont + Hen of the Wood", "50/50"),
+                    "Hotel Vermont + Hen of the Wood", "50/50; 200 gal barrel"),
     SharedContainer({248: "Ranch Camp 50%", 287: "Backyard Tavern 50%"},
-                    "Ranch Camp + Backyard Tavern", "50/50"),
+                    "Ranch Camp + Backyard Tavern", "50/50; 200 gal barrel"),
     SharedContainer({1214: "Pioneer Lakeshore Cafe 50%", 1215: "NY Oven Pizza 50%"},
-                    "Pioneer Lakeshore Cafe + NY Oven Pizza", "50/50"),
+                    "Pioneer Lakeshore Cafe + NY Oven Pizza", "50/50; 150 gal barrel"),
     SharedContainer({1286: "The PizzeriaVeritas50%", 1287: "Trattoria Delia 50%"},
-                    "Pizzeria Veritas + Trattoria Delia", "50/50"),
+                    "Pizzeria Veritas + Trattoria Delia", "50/50; 200 gal barrel"),
     SharedContainer({308: "Ruben James (RJs) (Ali Babas)- 0421",
                      311: "Ahli Baba's (split with RJs)"},
-                    "Ruben James + Ahli Baba's", "50/50"),
+                    "Ruben James + Ahli Baba's", "50/50; 200 gal barrel"),
     SharedContainer({501: "Positive Pie 3 ~25%", 502: "Village Restaurant-Hardwick~ 50%",
                      504: "Cork & Fork/Scale House ~25%"},
-                    "Positive Pie + Village Restaurant + Cork & Fork (Hardwick)", "25/50/25"),
+                    "Positive Pie + Village Restaurant + Cork & Fork (Hardwick)", "25/50/25; 200 gal barrel"),
     SharedContainer({1053: "Namaste Garden 50%-Essex Jct", 1402: "Pick Thai -50% EssexJCT"},
-                    "Namaste Garden + Pick Thai", "50/50"),
+                    "Namaste Garden + Pick Thai", "50/50; 200 gal barrel"),
     SharedContainer({159: "Northfield Pizza/ Depot Square 50%", 162: "O'Maddis 50%"},
-                    "Northfield Pizza + O'Maddis", "50/50"),
+                    "Northfield Pizza + O'Maddis", "50/50; 100 gal barrel"),
     SharedContainer({1246: "Junction Restaurant-50%-North Troy",
                      1436: "JNETME CONCESSIONS 50%-North Troy"},
-                    "Junction Restaurant + JNETME Concessions", "50/50"),
+                    "Junction Restaurant + JNETME Concessions", "50/50; 150 gal barrel"),
 ]
 
 

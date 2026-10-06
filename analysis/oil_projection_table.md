@@ -40,7 +40,7 @@ projection is emitted, rather than projecting from half the model.
   current year is excluded as incomplete. A year inside the customer's own span
   with no pickups counts as a real zero.
 - *confidence range* -- the customer's own backtested 50/50 WAPE where one
-  exists (121 of the 345 ranked rows), otherwise a
+  exists (121 of the 346 ranked rows), otherwise a
   flat +/-20%. The low end is clamped at zero, since a few
   customers score over 100% WAPE.
 - *stale* -- no pickup in 180 days. Every column is still computed,
@@ -94,9 +94,9 @@ Capacity problems are reported in *flags*, separately from the model status.
 
 | | |
 |---|---:|
-| Active customers considered | 510 |
-| Model-ready (both rates) | 373 |
-| — ranked in the main table | 345 |
+| Active customers considered | 511 |
+| Model-ready (both rates) | 374 |
+| — ranked in the main table | 346 |
 | — seasonal holdouts | 8 |
 | — held out as stale | 17 |
 | Event-driven | 2 |
@@ -104,14 +104,14 @@ Capacity problems are reported in *flags*, separately from the model status.
 | Lump-sum / interval-based | 0 |
 | Insufficient data | 137 |
 | Missing capacity | 0 |
-| With a capacity warning | 84 |
-| Ranked and projected above listed capacity | 9 |
-| Past the 75% target | 21 |
-| Past full capacity | 9 |
+| With a capacity warning | 76 |
+| Ranked and projected above listed capacity | 6 |
+| Past the 75% target | 18 |
+| Past full capacity | 6 |
 
 | Section | Model status | Customers |
 |---|---|---:|
-| ranked | 50/50 default | 338 |
+| ranked | 50/50 default | 339 |
 | ranked | seasonal open-ish | 4 |
 | ranked | semi-closer / call-driven | 3 |
 | seasonal holdout | semi-closer / call-driven | 2 |
@@ -130,29 +130,29 @@ Ranked rows only. Sorted by days past capacity, then days past the
 |---:|---|---|---|---:|---|---:|---:|---:|---:|---:|---|---:|
 | 1 | Cafe Hot | Burlington | 50/50 default | 329.6 | 267-392 | 150 | 100.0% | 87.6 | 72.5 | 2.48 | 2026-05-26 | 133 |
 | 2 | Michael's on the Hill | Waterbury | 50/50 default | 136.6 | 109-164 | 100 | 100.0% | 66.7 | 39.6 | 0.92 | 2026-05-11 | 148 |
-| 3 | Pitchers Inn + Warren Store | Warren | 50/50 default | 110.3 | 88-132 | 65 | 100.0% | 45.8 | 33.7 | 1.35 | 2026-07-16 | 82 |
-| 4 | The NEW Forge-Randolph | Randolph | 50/50 default | 134.5 | 108-161 | 110 | 100.0% | 42.9 | 20.2 | 1.21 | 2026-06-17 | 111 |
-| 5 | Ruben James + Ahli Baba's | Burlington | 50/50 default | 139.2 | 69-209 | 100 | 100.0% | 31.8 | 19.4 | 2.02 | 2026-07-29 | 69 |
-| 6 | Grand Summit Hotel (Mt. Snow) | Dover | 50/50 default | 167.7 | 134-201 | 150 | 100.0% | 48.1 | 15.4 | 1.15 | 2026-05-13 | 146 |
-| 7 | West Side Market and Deli | Newport City | 50/50 default | 61.6 | 49-74 | 55 | 100.0% | 38.3 | 12.4 | 0.53 | 2026-06-12 | 116 |
-| 8 | Willows Bagels | Burlington | 50/50 default | 57.6 | 46-69 | 55 | 100.0% | 46.7 | 7.3 | 0.35 | 2026-04-24 | 165 |
-| 9 | Henrys Diner + Pascolo | Burlington | 50/50 default | 75.7 | 50-101 | 75 | 100.0% | 3.8 | 0.1 | 5.04 | 2026-09-21 | 15 |
-| 10 | Bethel Sandwhich Shop | Bethel | 50/50 default | 44.1 | 35-53 | 55 | 80.1% | 9.4 | 0.0 | 0.30 | 2026-05-13 | 146 |
-| 11 | Jan’s Fairlee Diner | Fairlee | 50/50 default | 125.2 | 100-150 | 150 | 83.5% | 7.5 | 0.0 | 1.69 | 2026-07-24 | 74 |
-| 12 | Pioneer Lakeshore Cafe + NY Oven Pizza | Colchester | 50/50 default | 70.1 | 56-84 | 75 | 93.4% | 3.7 | 0.0 | 3.69 | 2026-09-17 | 19 |
-| 13 | The Wise Fool | Burlington | 50/50 default | 168.7 | 135-202 | 200 | 84.4% | 3.7 | 0.0 | 5.11 | 2026-09-03 | 33 |
-| 14 | RiRa's + Sweetwaters + BKK-inTheAlley | Burlington | 50/50 default | 138.1 | 110-166 | 150 | 92.1% | 2.8 | 0.0 | 9.21 | 2026-09-21 | 15 |
-| 15 | Hannaford-West Lebanon | West Lebanon | 50/50 default | 142.1 | 102-183 | 170 | 83.6% | 2.7 | 0.0 | 5.47 | 2026-09-10 | 26 |
-| 16 | Hoagies-Newport | Newport City | 50/50 default | 257.9 | 180-335 | 300 | 86.0% | 2.7 | 0.0 | 12.28 | 2026-09-15 | 21 |
-| 17 | Onion City Chicken and Oysters | Winooski | 50/50 default | 129.7 | 100-159 | 150 | 86.4% | 2.6 | 0.0 | 6.48 | 2026-09-16 | 20 |
-| 18 | Mad River Glen | Waitsfield | seasonal open-ish | 81.1 | 65-97 | 100 | 81.1% | 2.3 | 0.0 | 2.62 | 2026-09-05 | 31 |
-| 19 | Vermont Country Club-Waterbury | Waterbury | 50/50 default | 42.2 | 34-51 | 50 | 84.3% | 2.3 | 0.0 | 2.01 | 2026-09-15 | 21 |
-| 20 | Mad River Barn | Waitsfield | 50/50 default | 50.6 | 27-75 | 65 | 77.9% | 1.1 | 0.0 | 1.63 | 2026-09-05 | 31 |
-| 21 | Great Northern | Burlington | 50/50 default | 112.5 | 96-129 | 150 | 75.0% | 0.0 | 0.0 | 7.50 | 2026-09-21 | 15 |
-| 22 | Hannaford-Burlington North Ave | Burlington | 50/50 default | 149.6 | 137-163 | 200 | 74.8% | 0.0 | 0.0 | 3.84 | 2026-08-28 | 39 |
-| 23 | Fusion cafe and bar | Winooski | 50/50 default | 109.1 | 76-142 | 150 | 72.7% | 0.0 | 0.0 | 3.31 | 2026-09-03 | 33 |
-| 24 | Jay Village Inn | Jay | 50/50 default | 108.6 | 89-129 | 150 | 72.4% | 0.0 | 0.0 | 2.31 | 2026-08-20 | 47 |
-| 25 | Hana-Japanese-Dorset | Burlington | 50/50 default | 107.6 | 61-154 | 150 | 71.7% | 0.0 | 0.0 | 1.99 | 2026-08-13 | 54 |
+| 3 | The NEW Forge-Randolph | Randolph | 50/50 default | 134.5 | 108-161 | 110 | 100.0% | 42.9 | 20.2 | 1.21 | 2026-06-17 | 111 |
+| 4 | Grand Summit Hotel (Mt. Snow) | Dover | 50/50 default | 167.7 | 134-201 | 150 | 100.0% | 48.1 | 15.4 | 1.15 | 2026-05-13 | 146 |
+| 5 | West Side Market and Deli | Newport City | 50/50 default | 61.6 | 49-74 | 55 | 100.0% | 38.3 | 12.4 | 0.53 | 2026-06-12 | 116 |
+| 6 | Willows Bagels | Burlington | 50/50 default | 57.6 | 46-69 | 55 | 100.0% | 46.7 | 7.3 | 0.35 | 2026-04-24 | 165 |
+| 7 | Warren Store | Warren | 50/50 default | 55.8 | 45-67 | 65 | 85.8% | 10.3 | 0.0 | 0.68 | 2026-07-16 | 82 |
+| 8 | Bethel Sandwhich Shop | Bethel | 50/50 default | 44.1 | 35-53 | 55 | 80.1% | 9.4 | 0.0 | 0.30 | 2026-05-13 | 146 |
+| 9 | Pitchers Inn | Warren | 50/50 default | 54.6 | 44-65 | 65 | 83.9% | 8.7 | 0.0 | 0.67 | 2026-07-16 | 82 |
+| 10 | Jan’s Fairlee Diner | Fairlee | 50/50 default | 125.2 | 100-150 | 150 | 83.5% | 7.5 | 0.0 | 1.69 | 2026-07-24 | 74 |
+| 11 | The Wise Fool | Burlington | 50/50 default | 168.7 | 135-202 | 200 | 84.4% | 3.7 | 0.0 | 5.11 | 2026-09-03 | 33 |
+| 12 | Hannaford-West Lebanon | West Lebanon | 50/50 default | 142.1 | 102-183 | 170 | 83.6% | 2.7 | 0.0 | 5.47 | 2026-09-10 | 26 |
+| 13 | Hoagies-Newport | Newport City | 50/50 default | 257.9 | 180-335 | 300 | 86.0% | 2.7 | 0.0 | 12.28 | 2026-09-15 | 21 |
+| 14 | Onion City Chicken and Oysters | Winooski | 50/50 default | 129.7 | 100-159 | 150 | 86.4% | 2.6 | 0.0 | 6.48 | 2026-09-16 | 20 |
+| 15 | Mad River Glen | Waitsfield | seasonal open-ish | 81.1 | 65-97 | 100 | 81.1% | 2.3 | 0.0 | 2.62 | 2026-09-05 | 31 |
+| 16 | Vermont Country Club-Waterbury | Waterbury | 50/50 default | 42.2 | 34-51 | 50 | 84.3% | 2.3 | 0.0 | 2.01 | 2026-09-15 | 21 |
+| 17 | Mad River Barn | Waitsfield | 50/50 default | 50.6 | 27-75 | 65 | 77.9% | 1.1 | 0.0 | 1.63 | 2026-09-05 | 31 |
+| 18 | Great Northern | Burlington | 50/50 default | 112.5 | 96-129 | 150 | 75.0% | 0.0 | 0.0 | 7.50 | 2026-09-21 | 15 |
+| 19 | Hannaford-Burlington North Ave | Burlington | 50/50 default | 149.6 | 137-163 | 200 | 74.8% | 0.0 | 0.0 | 3.84 | 2026-08-28 | 39 |
+| 20 | Fusion cafe and bar | Winooski | 50/50 default | 109.1 | 76-142 | 150 | 72.7% | 0.0 | 0.0 | 3.31 | 2026-09-03 | 33 |
+| 21 | Jay Village Inn | Jay | 50/50 default | 108.6 | 89-129 | 150 | 72.4% | 0.0 | 0.0 | 2.31 | 2026-08-20 | 47 |
+| 22 | Hana-Japanese-Dorset | Burlington | 50/50 default | 107.6 | 61-154 | 150 | 71.7% | 0.0 | 0.0 | 1.99 | 2026-08-13 | 54 |
+| 23 | Waterworks-Winooski | Winooski | 50/50 default | 107.1 | 87-127 | 150 | 71.4% | 0.0 | 0.0 | 5.35 | 2026-09-16 | 20 |
+| 24 | Poco- Burlington | Burlington | 50/50 default | 46.3 | 37-56 | 65 | 71.2% | 0.0 | 0.0 | 1.10 | 2026-08-25 | 42 |
+| 25 | Mountain Valley-Winooski | Winooski | 50/50 default | 78.3 | 63-94 | 110 | 71.2% | 0.0 | 0.0 | 0.71 | 2026-06-17 | 111 |
 
 ## Seasonal holdouts (8)
 
@@ -221,16 +221,8 @@ Customers whose recent collections do not fit the listed capacity. These are
 
 | Customer | Town | Capacity | Avg collection | Median last 10 | Max ever | Over cap (2y) | Over cap (all) | Flags |
 |---|---|---:|---:|---:|---:|---:|---:|---|
-| Positive Pie + Village Restaurant + Cork & Fork (Hardwick) | Hardwick | 100 | 113.3 | 127.5 | 260 | 16 | 83 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong; Capacity below typical pickup; Members list different capacities (50, 100, 50): the convention is the full barrel on each |
-| RiRa's + Sweetwaters + BKK-inTheAlley | Burlington | 150 | 150.0 | 115.0 | 220 | 12 | 81 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong; Members list different capacities (150, 150, 100): the convention is the full barrel on each |
-| Henrys Diner + Pascolo | Burlington | 75 | 79.2 | 75.0 | 90 | 11 | 71 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong; Capacity below typical pickup; Projected above listed capacity — review capacity/model. |
-| Pioneer Lakeshore Cafe + NY Oven Pizza | Colchester | 75 | 92.5 | 87.5 | 140 | 18 | 37 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong; Capacity below typical pickup |
-| Ruben James + Ahli Baba's | Burlington | 100 | 70.0 | 60.0 | 135 | 7 | 34 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong; Projected above listed capacity — review capacity/model. |
-| Ranch Camp + Backyard Tavern | Stowe | 100 | 103.3 | 75.0 | 160 | 10 | 29 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong; Capacity below typical pickup |
 | Asian Bistro-Winooski | Winooski | 50 | 52.5 | 47.5 | 70 | 7 | 19 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong; Capacity below typical pickup |
-| Pitchers Inn + Warren Store | Warren | 65 | 72.7 | 55.5 | 120 | 7 | 16 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong; Capacity below typical pickup; Projected above listed capacity — review capacity/model. |
 | Vermont Country Club-Waterbury | Waterbury | 50 | 50.8 | 52.5 | 75 | 10 | 16 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong; Capacity below typical pickup |
-| Three Penny Taproom + Namaste | Montpelier | 200 | 144.2 | 100.0 | 270 | 9 | 14 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong; Members list different capacities (200, 100): the convention is the full barrel on each |
 | Mad River Barn | Waitsfield | 65 | 51.7 | 55.0 | 70 | 4 | 10 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong |
 | Essex House and Tavern | Brighton | 165 | 158.3 | 157.5 | 220 | 4 | 6 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong |
 | Sante-2022|dailey catch-Woodstock | Woodstock | 100 | 138.3 | 100.0 | 200 | 3 | 6 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong; Capacity below typical pickup |
@@ -262,9 +254,9 @@ columns are in the CSV under `table_section = stale`.
 - Prince & The Pauper (Woodstock) -- last pickup 2026-03-23, 197 days
 - Black Bird Bistro (Craftsbury) -- last pickup 2026-03-23, 197 days
 - Rhapsody Natural Foods (Cabot) -- last pickup 2026-03-23, 197 days
-- Duo Restaurant + Tulip Bar and Cafe (Brattleboro) -- last pickup 2026-03-30, 190 days
 - Jacksonville General Store (Whitingham) -- last pickup 2026-03-30, 190 days
 - TCs (Dover) -- last pickup 2026-03-30, 190 days
+- Duo Restaurant + Tulip Bar and Cafe (Brattleboro) -- last pickup 2026-03-30, 190 days
 - Maple Soul (Rochester) -- last pickup 2026-04-02, 187 days
 - The Mojo Cafe-Belmont (Mount Holly) -- last pickup 2026-04-02, 187 days
 - Pho Dang (Winooski) -- last pickup 2026-04-08, 181 days
