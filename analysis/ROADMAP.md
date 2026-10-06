@@ -48,6 +48,17 @@ over-capacity pickups had a delivery since the previous pickup, so extra barrels
 Numbers saves its own format even under a `.csv` name. Use **File → Export
 To → CSV**, or read one with `osascript` (`export d … as CSV`).
 
+### Open questions on the other non-pickup codes
+
+`oil_non_pickups.csv` now keeps every 0–3 entry. Two are unused:
+
+- **3 = barrel delivery.** Counting from a delivery under-projects the next
+  pickup by 34%; from the previous pickup it over-projects by 213% (81
+  cases). So a delivery is partly a reset — perhaps a full container swapped
+  out, perhaps extra capacity. Ask Jim what a delivery usually means.
+- **2 = customer call** (129 entries). Likely a "this one is full" signal —
+  a candidate for an urgency boost rather than a clock change.
+
 ### Small fixes
 
 - `tests/seasonality_test.js` fails on `main` since 2026-10-01: its fixed

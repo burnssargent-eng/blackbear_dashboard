@@ -47,6 +47,18 @@ CAPACITY_MIN_LABEL_SHARE = 0.5
 # and is never rounded up.
 EMPTY_QTYS = {0, 1, 2, 3}
 
+# The EMPTY_QTYS entries are never gallons, but they are still events, so they
+# are kept -- separately, in NON_PICKUP_FILE -- instead of being thrown away:
+#   0, 1 = the truck checked the container and found it empty / not worth
+#          pumping. RESET_QTYS: the projection restarts its oil clock there.
+#          Measured 2026-10-05 on 651 intervals: counting from the previous
+#          pickup over-projects the next one by +115%, from the check by +11%.
+#   2    = customer call      (kept; not used by the projection yet)
+#   3    = barrel delivery    (kept; not a reset -- measured as partial)
+RESET_QTYS = {0, 1}
+NON_PICKUP_FILE = "oil_non_pickups.csv"
+NON_PICKUP_FIELDS = ["customer_id", "date", "qty"]
+
 # A source-site ACTIVE customer with no qualifying pickup since this date counts
 # as lost, attributed to the year of their last qualifying pickup. Fixed rather
 # than rolling so the numbers are reproducible against past reports; change this
@@ -876,12 +888,39 @@ def write_capacity_cache(fetched, scraped_date, path=CAPACITY_CACHE):
     print(f"Capacities: {labelled} read, {changed} changed -> {path}")
 
 
-def parse_collections(soup, customer):
+def write_non_pickups(fetched, path=NON_PICKUP_FILE):
+    """
+    Merge freshly read EMPTY_QTYS entries into NON_PICKUP_FILE and rewrite it.
+
+    `fetched` maps customer_id -> list of entries for every customer whose
+    page loaded this run (an empty list is a real "none"). Those customers'
+    rows are replaced wholesale; a customer whose page failed keeps its old
+    rows, so one bad night never erases history.
+    """
+    rows = []
+    if os.path.exists(path):
+        with open(path, newline="") as f:
+            rows = [r for r in csv.DictReader(f) if int(r["customer_id"]) not in fetched]
+    for entries in fetched.values():
+        rows.extend(entries)
+
+    rows.sort(key=lambda r: (int(r["customer_id"]), r["date"], int(r["qty"])))
+    with open(path, "w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=NON_PICKUP_FIELDS)
+        writer.writeheader()
+        writer.writerows(rows)
+    print(f"Non-pickup entries: {sum(len(v) for v in fetched.values())} read "
+          f"for {len(fetched)} customers -> {path}")
+
+
+def parse_collections(soup, customer, non_pickups=None):
     """
     Parse both data formats on customer pages:
       NEW (2021+):    "10/24/2025 : 65"
       OLD (pre-2021): year-header "### 2019" then "Dec 22 : 80"
-    Quantities in EMPTY_QTYS are skipped.
+    Quantities in EMPTY_QTYS are never returned as records. When a list is
+    passed as `non_pickups`, each of them is appended to it as
+    {"customer_id", "date", "qty"} instead of being discarded.
     """
     records = []
     text = soup.get_text(separator="\n")
@@ -889,6 +928,9 @@ def parse_collections(soup, customer):
 
     def make_record(date, qty):
         if qty in EMPTY_QTYS:
+            if non_pickups is not None:
+                non_pickups.append({"customer_id": customer["customer_id"],
+                                    "date": date.strftime("%Y-%m-%d"), "qty": qty})
             return None
         return {
             "customer_id": customer["customer_id"],
@@ -984,15 +1026,18 @@ def scrape_all():
     all_records = []
     unresolved_city_ids = []
     capacities = {}
+    non_pickups = {}
 
     for i, cust in enumerate(customers, 1):
         tag = "active  " if cust["is_active"] else "INACTIVE"
         url = f"{BASE_URL}/customer.php?id={cust['customer_id']}"
         try:
             csoup = get_soup(url, session)
-            records = parse_collections(csoup, cust)
+            entries = []
+            records = parse_collections(csoup, cust, entries)
             all_records.extend(records)
             capacities[cust["customer_id"]] = parse_capacity(csoup)
+            non_pickups[cust["customer_id"]] = entries
 
             resolved_city = records[0]["city"] if records else extract_city_from_page(csoup, cust)
             if not resolved_city or resolved_city not in COUNTY_MAP:
@@ -1018,6 +1063,7 @@ def scrape_all():
             print(f"  - {cid}: {name} -> {city or 'UNRESOLVED'}")
 
     write_capacity_cache(capacities, datetime.now().strftime("%Y-%m-%d"))
+    write_non_pickups(non_pickups)
 
     return pd.DataFrame(all_records)
 

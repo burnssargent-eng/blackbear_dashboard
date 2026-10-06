@@ -152,8 +152,9 @@ function buildShell(page) {
       <span class="proj-beta-tag">Beta</span>
       Each customer's rate is the average of its gallons per day over the last
       year and over its last six pickups. <strong>Projected gallons</strong> is
-      that rate times the days since the last pickup: the oil produced since then,
-      not a promise of what the truck will collect. The pickup point is
+      that rate times the days since the last pickup <em>or</em> since the truck
+      last checked and found the container empty, whichever is later: the oil
+      produced since then, not a promise of what the truck will collect. The pickup point is
       <strong>${target}% of listed capacity</strong>, which leaves a spillover
       buffer. <strong>% full</strong> stops at 100%; a customer projected past
       that carries a note to check its capacity. Seasonal, event and bulk
@@ -249,9 +250,15 @@ function pctFullHtml(pct) {
     `style="width:${width}%"></span></span></span>`;
 }
 
+/** Why the clock restarted after the last pickup. */
+function emptyCheckNote(c) {
+  return `Checked empty ${formatDate(c.last_empty_check)}, counting from then`;
+}
+
 /** Status (when not the default) and flags, as small lines under the name. */
 function notesHtml(c) {
   const lines = [];
+  if (c.last_empty_check) lines.push(emptyCheckNote(c));
   if (c.status && c.status !== "50/50 default") lines.push(c.status);
   (c.flags || []).forEach(f => lines.push(f));
   return lines.length
@@ -272,7 +279,7 @@ function rankedRowsHtml(rows) {
       <td class="num">${(c.days_past_75 || 0) > 0 ? formatNumber(Math.round(c.days_past_75)) : "—"}</td>
       <td class="num">${formatOne(c.rate_gpd)}</td>
       <td class="proj-date">${formatDate(c.last_pickup)}</td>
-      <td class="num">${formatNumber(c.days_since)}</td>
+      <td class="num">${formatNumber(c.days_accumulating ?? c.days_since)}</td>
     </tr>`).join("");
 
   return `
@@ -290,7 +297,7 @@ function rankedRowsHtml(rows) {
             <th class="num">Days past pickup point</th>
             <th class="num">Gal / day</th>
             <th>Last pickup</th>
-            <th class="num">Days since</th>
+            <th class="num">Days building</th>
           </tr>
         </thead>
         <tbody>${body}</tbody>
@@ -301,8 +308,9 @@ function rankedRowsHtml(rows) {
 function heldOutRowsHtml(rows) {
   const body = rows.map(c => `
     <tr>
-      <td>${escapeHtml(c.name)}${(c.flags || []).length
-        ? `<div class="proj-notes">${c.flags.map(escapeHtml).join("<br>")}</div>` : ""}</td>
+      <td>${escapeHtml(c.name)}${(c.flags || []).length || c.last_empty_check
+        ? `<div class="proj-notes">${[...(c.last_empty_check ? [emptyCheckNote(c)] : []),
+            ...(c.flags || [])].map(escapeHtml).join("<br>")}</div>` : ""}</td>
       <td>${escapeHtml(c.town || "—")}</td>
       <td>${escapeHtml(c.status)}</td>
       <td class="proj-reason">${escapeHtml(c.reason || "—")}</td>

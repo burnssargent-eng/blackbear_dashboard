@@ -577,6 +577,55 @@ def check_quantity_rule(report, coll):
     fours = sum(1 for r in coll if r.get("gallons") == 4)
     report.info(f"{fours} record(s) at exactly 4 gallons, counted as 4 (not rounded).")
 
+    check_non_pickups(report, coll)
+
+
+def check_non_pickups(report, coll):
+    """
+    oil_non_pickups.csv keeps the EMPTY_QTYS entries the totals drop, and the
+    projection restarts its oil clock at RESET_QTYS among them. Its copy of
+    RESET_QTYS lives in analysis/build_projection_table.py and must match.
+    """
+    import csv
+    import re
+    from oil_scraper import EMPTY_QTYS, NON_PICKUP_FILE, RESET_QTYS
+
+    if not set(RESET_QTYS) <= set(EMPTY_QTYS):
+        report.fail(f"RESET_QTYS {sorted(RESET_QTYS)} is not inside EMPTY_QTYS.")
+
+    with open(os.path.join("analysis", "build_projection_table.py")) as f:
+        builder = f.read()
+    m = re.search(r"^RESET_QTYS = \{([\d, ]*)\}", builder, re.M)
+    copy = {int(x) for x in m.group(1).split(",") if x.strip()} if m else None
+    if copy == set(RESET_QTYS):
+        report.ok(f"RESET_QTYS {sorted(RESET_QTYS)} matches the projection builder's copy.")
+    else:
+        report.fail(f"RESET_QTYS is {sorted(RESET_QTYS)} in oil_scraper.py but "
+                    f"{sorted(copy) if copy is not None else 'missing'} in the builder.")
+
+    path = NON_PICKUP_FILE
+    if not os.path.exists(path):
+        report.warn(f"{NON_PICKUP_FILE} missing — the projection applies no empty-check resets.")
+        return
+    with open(path, newline="") as f:
+        rows = list(csv.DictReader(f))
+    bad = [r for r in rows if int(r["qty"]) not in EMPTY_QTYS]
+    if bad:
+        report.fail(f"{len(bad)} row(s) in {NON_PICKUP_FILE} have a quantity outside "
+                    f"EMPTY_QTYS, e.g. {bad[0]}.")
+    else:
+        report.ok(f"{NON_PICKUP_FILE}: {len(rows):,} entries, all in EMPTY_QTYS.")
+
+    if coll:
+        pickup_days = {(r.get("customer_id"), str(r.get("date", ""))[:10]) for r in coll}
+        same_day = sum(1 for r in rows if int(r["qty"]) in RESET_QTYS
+                       and (int(r["customer_id"]), r["date"]) in pickup_days)
+        if same_day:
+            report.warn(f"{same_day} empty check(s) fall on the same day as a pickup "
+                        "for that customer; the pickup wins (clock starts at it).")
+        else:
+            report.ok("No empty check shares a day with a pickup for the same customer.")
+
 
 def check_projection(report, data):
     report.section("P", "Current-year projection")

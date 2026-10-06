@@ -41,6 +41,6 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add oil_data.json oil_collections.json oil_collections_raw.csv oil_collection_report.xlsx capacity_cache.csv oil_projections.json
+          git add oil_data.json oil_collections.json oil_collections_raw.csv oil_collection_report.xlsx capacity_cache.csv oil_non_pickups.csv oil_projections.json
           git commit -m "Nightly oil data update" || echo "No changes to commit"
           git push

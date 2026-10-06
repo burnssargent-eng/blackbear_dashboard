@@ -13,7 +13,7 @@ and commits the results to `main`. Everything else is run by hand.
 
 | # | Step | Code | Output |
 |---|---|---|---|
-| 1 | Scrape pickups, drop `EMPTY_QTYS` {0,1,2,3}; read each page's **Capacity** and **Periodicity** | `oil_scraper.py --rescrape` | `oil_collections_raw.csv`, `oil_collections.json`, `oil_data.json`, `capacity_cache.csv` |
+| 1 | Scrape pickups, drop `EMPTY_QTYS` {0,1,2,3} from totals but keep them as events; read each page's **Capacity** and **Periodicity** | `oil_scraper.py --rescrape` | `oil_collections_raw.csv`, `oil_collections.json`, `oil_data.json`, `capacity_cache.csv`, `oil_non_pickups.csv` |
 | 2 | Build the projection table and the website file | `analysis/build_projection_table.py` | `oil_projections.json` (committed nightly), `analysis/oil_projection_table.md` (tracked, but only committed by hand, so it lags), `.csv` + `_detail.csv` (gitignored) |
 | 3 | Page | `projections.html` | displays `oil_projections.json`; never recomputes |
 | — | Review tool for seasonal classification (manual) | `analysis/build_fringe_seasonal_candidates.py` | `fringe_seasonal_candidates.md` (+ gitignored csv) |
@@ -23,7 +23,8 @@ and commits the results to `main`. Everything else is run by hand.
 
 ```
 rate       = 0.5 × previous-year rate + 0.5 × last-6-pickups rate      (gal/day)
-projected  = rate × days since the last pickup                           (gallons)
+clock      = the last pickup, or a later empty check (qty 0 or 1), whichever is later
+projected  = rate × days since the clock started                         (gallons)
 target     = 0.75 × listed capacity                                      (the pickup point)
 % full     = projected ÷ capacity, capped at 100 for display (raw kept in _detail.csv)
 band       = ± the customer's own backtested WAPE (analysis/customer_wape.json), else ±20%
@@ -69,6 +70,7 @@ capacity is fixed on the site and arrives with the next nightly. See
 | 2026-09-29 | Beta `projections.html`, hidden from the nav, built nightly; bands frozen in committed `customer_wape.json` so CI and local agree byte for byte | PR #24 |
 | 2026-10-01 | Capacities refreshed nightly from the source site (the April snapshot was 47 customers stale); corrections are made on the site | `oil_scraper.py`, PR #25 |
 | 2026-10-05 | Jim's capacity review received; 103 to enter on the site, 9 to confirm with him | [`ROADMAP.md`](ROADMAP.md) |
+| 2026-10-05 | **Empty checks (qty 0 / 1) restart the oil clock.** On 651 intervals with a 1 between two pickups, counting from the pickup over-projected the next pickup by +115% (WAPE 134%); counting from the 1, +11% (WAPE 81%). Rate unchanged. 3 (barrel delivery) tested as only a partial reset (+213% → −34%) and left out | `oil_scraper.py` (`RESET_QTYS`, `oil_non_pickups.csv`), builder `load_empty_checks` |
 
 ## Known weaknesses of the current model
 
