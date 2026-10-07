@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-06T13:55:44.223950",
+  "last_updated": "2026-10-07T14:12:50.066575",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33693,6 +33693,30 @@
     },
     {
       "month": "2026-10",
+      "geo_town": "Bradford",
+      "gallons": 32,
+      "city": "Bradford"
+    },
+    {
+      "month": "2026-10",
+      "geo_town": "Burlington",
+      "gallons": 955,
+      "city": "Burlington"
+    },
+    {
+      "month": "2026-10",
+      "geo_town": "Concord",
+      "gallons": 75,
+      "city": "Concord"
+    },
+    {
+      "month": "2026-10",
+      "geo_town": "Derby",
+      "gallons": 50,
+      "city": "Derby"
+    },
+    {
+      "month": "2026-10",
       "geo_town": "Enosburgh",
       "gallons": 232,
       "city": "Enosburgh"
@@ -33702,6 +33726,12 @@
       "geo_town": "Essex Junction",
       "gallons": 150,
       "city": "Essex Junction"
+    },
+    {
+      "month": "2026-10",
+      "geo_town": "Fairlee",
+      "gallons": 180,
+      "city": "Fairlee"
     },
     {
       "month": "2026-10",
@@ -33717,9 +33747,21 @@
     },
     {
       "month": "2026-10",
+      "geo_town": "Lyndon",
+      "gallons": 50,
+      "city": "Lyndon"
+    },
+    {
+      "month": "2026-10",
       "geo_town": "Morristown",
       "gallons": 175,
       "city": "Morristown"
+    },
+    {
+      "month": "2026-10",
+      "geo_town": "Newport City",
+      "gallons": 300,
+      "city": "Newport City"
     },
     {
       "month": "2026-10",
@@ -33738,6 +33780,12 @@
       "geo_town": "South Burlington",
       "gallons": 540,
       "city": "South Burlington"
+    },
+    {
+      "month": "2026-10",
+      "geo_town": "Waterford",
+      "gallons": 85,
+      "city": "Waterford"
     },
     {
       "month": "2026-10",
@@ -41484,8 +41532,13 @@
     },
     {
       "month": "2026-10",
+      "county": "Caledonia",
+      "gallons": 210
+    },
+    {
+      "month": "2026-10",
       "county": "Chittenden",
-      "gallons": 1530
+      "gallons": 2485
     },
     {
       "month": "2026-10",
@@ -41494,8 +41547,13 @@
     },
     {
       "month": "2026-10",
+      "county": "Orange",
+      "gallons": 212
+    },
+    {
+      "month": "2026-10",
       "county": "Orleans",
-      "gallons": 232
+      "gallons": 582
     },
     {
       "month": "2026-10",
@@ -41550,11 +41608,11 @@
     },
     {
       "year": 2026,
-      "gallons": 227253
+      "gallons": 228980
     }
   ],
-  "all_time_total": 2146020,
-  "current_year_total": 227253,
+  "all_time_total": 2147747,
+  "current_year_total": 228980,
   "customer_count": 800,
   "unmapped_total": 39852,
   "monthly_totals": [
@@ -42124,7 +42182,7 @@
     },
     {
       "month": "2026-10",
-      "gallons": 2197
+      "gallons": 3924
     }
   ],
   "monthly_by_region": [
@@ -53766,7 +53824,7 @@
     {
       "month": "2026-10",
       "region": "Burlington / South Burlington",
-      "gallons": 540
+      "gallons": 1495
     },
     {
       "month": "2026-10",
@@ -53775,8 +53833,18 @@
     },
     {
       "month": "2026-10",
+      "region": "North-Northeast",
+      "gallons": 350
+    },
+    {
+      "month": "2026-10",
       "region": "Northwest",
       "gallons": 232
+    },
+    {
+      "month": "2026-10",
+      "region": "Other",
+      "gallons": 85
     },
     {
       "month": "2026-10",
@@ -53790,18 +53858,23 @@
     },
     {
       "month": "2026-10",
+      "region": "Route 2 East / Route 5",
+      "gallons": 337
+    },
+    {
+      "month": "2026-10",
       "region": "Route 7",
       "gallons": 70
     },
     {
       "month": "2026-10",
       "region": "Summer Snack Stops",
-      "gallons": 50
+      "gallons": 100
     },
     {
       "month": "2026-10",
       "region": "Winter / Summer Combined",
-      "gallons": 50
+      "gallons": 100
     }
   ],
   "yearly_by_region": [
@@ -54833,7 +54906,7 @@
     {
       "year": 2026,
       "region": "Burlington / South Burlington",
-      "gallons": 44002
+      "gallons": 44957
     },
     {
       "year": 2026,
@@ -54848,7 +54921,7 @@
     {
       "year": 2026,
       "region": "North-Northeast",
-      "gallons": 13370
+      "gallons": 13720
     },
     {
       "year": 2026,
@@ -54858,7 +54931,7 @@
     {
       "year": 2026,
       "region": "Other",
-      "gallons": 815
+      "gallons": 900
     },
     {
       "year": 2026,
@@ -54878,7 +54951,7 @@
     {
       "year": 2026,
       "region": "Route 2 East / Route 5",
-      "gallons": 9584
+      "gallons": 9921
     },
     {
       "year": 2026,
@@ -54908,7 +54981,7 @@
     {
       "year": 2026,
       "region": "Summer Snack Stops",
-      "gallons": 12395
+      "gallons": 12445
     },
     {
       "year": 2026,
@@ -54923,7 +54996,7 @@
     {
       "year": 2026,
       "region": "Winter / Summer Combined",
-      "gallons": 28120
+      "gallons": 28170
     }
   ],
   "region_names": [
@@ -54936,8 +55009,8 @@
     "North-Northeast",
     "Central South",
     "Route 15",
-    "Route 7",
     "Route 2 East / Route 5",
+    "Route 7",
     "Warren / Waitsfield",
     "Southern Ski Slopes",
     "South",
@@ -54972,20 +55045,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 27623,
+  "collections_count": 27650,
   "out_of_state_total": 39852,
   "active_customer_count": 528,
   "projection": {
-    "latest_data_date": "2026-10-06",
+    "latest_data_date": "2026-10-07",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 227253,
+    "current_ytd": 228980,
     "previous_year_full": 269909,
     "previous_through_prior_month": 208859,
     "previous_same_month_total": 21968,
-    "previous_prorated_ytd": 213110.87,
-    "projected_current_year": 287820,
-    "percent_vs_previous_year": 0.06636
+    "previous_prorated_ytd": 213819.52,
+    "projected_current_year": 289046,
+    "percent_vs_previous_year": 0.070903
   },
   "region_stats": {
     "Burlington / South Burlington": {
@@ -55091,8 +55164,8 @@
       "year": 2018,
       "places_serviced": 288,
       "gained": 100,
-      "lost": 36,
-      "net": 64
+      "lost": 35,
+      "net": 65
     },
     {
       "year": 2019,
@@ -55145,7 +55218,7 @@
     },
     {
       "year": 2026,
-      "places_serviced": 467,
+      "places_serviced": 468,
       "gained": 38,
       "lost": 6,
       "net": 32

@@ -1582,6 +1582,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 279,Bolton Valley,Bolton Valley,Chittenden,2019-02-03,2019,2019-02,80,True,Bolton
 279,Bolton Valley,Bolton Valley,Chittenden,2018-04-11,2018,2018-04,175,True,Bolton
 279,Bolton Valley,Bolton Valley,Chittenden,2018-03-06,2018,2018-03,300,True,Bolton
+1178,Hannaford- Bradford,Bradford,Orange,2026-10-06,2026,2026-10,32,True,Bradford
 1178,Hannaford- Bradford,Bradford,Orange,2026-07-24,2026,2026-07,160,True,Bradford
 1178,Hannaford- Bradford,Bradford,Orange,2026-04-10,2026,2026-04,149,True,Bradford
 1178,Hannaford- Bradford,Bradford,Orange,2026-01-26,2026,2026-01,113,True,Bradford
@@ -2002,6 +2003,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 329,Asiana Noodle-6974,Burlington,Chittenden,2018-06-20,2018,2018-06,90,True,Burlington
 329,Asiana Noodle-6974,Burlington,Chittenden,2018-04-26,2018,2018-04,50,True,Burlington
 1482,Bangkok Alley,Burlington,Chittenden,2026-02-24,2026,2026-02,15,True,Burlington
+1273,BKK-inTheAlley 10%,Burlington,Chittenden,2026-10-07,2026,2026-10,15,True,Burlington
 1273,BKK-inTheAlley 10%,Burlington,Chittenden,2026-09-21,2026,2026-09,15,True,Burlington
 1273,BKK-inTheAlley 10%,Burlington,Chittenden,2026-09-08,2026,2026-09,20,True,Burlington
 1273,BKK-inTheAlley 10%,Burlington,Chittenden,2026-08-25,2026,2026-08,10,True,Burlington
@@ -2331,6 +2333,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1070,Burlington Beer Co,Burlington,Chittenden,2021-11-19,2021,2021-11,130,True,Burlington
 1070,Burlington Beer Co,Burlington,Chittenden,2021-11-01,2021,2021-11,85,True,Burlington
 1070,Burlington Beer Co,Burlington,Chittenden,2021-10-22,2021,2021-10,75,True,Burlington
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2026-10-07,2026,2026-10,70,True,Burlington
 321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2026-09-21,2026,2026-09,15,True,Burlington
 321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2026-09-16,2026,2026-09,45,True,Burlington
 321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2026-09-08,2026,2026-09,100,True,Burlington
@@ -2840,6 +2843,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 345,City Market,Burlington,Chittenden,2020-01-30,2020,2020-01,30,True,Burlington
 1389,CK Dumplings House - North St.,Burlington,Chittenden,2026-04-24,2026,2026-04,30,True,Burlington
 1389,CK Dumplings House - North St.,Burlington,Chittenden,2025-05-06,2025,2025-05,50,True,Burlington
+1306,Crispy Burger- Jason (Volcano),Burlington,Chittenden,2026-10-07,2026,2026-10,100,True,Burlington
 1306,Crispy Burger- Jason (Volcano),Burlington,Chittenden,2026-09-21,2026,2026-09,125,True,Burlington
 1306,Crispy Burger- Jason (Volcano),Burlington,Chittenden,2026-09-03,2026,2026-09,30,True,Burlington
 1306,Crispy Burger- Jason (Volcano),Burlington,Chittenden,2026-08-25,2026,2026-08,85,True,Burlington
@@ -2912,6 +2916,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1306,Crispy Burger- Jason (Volcano),Burlington,Chittenden,2024-03-15,2024,2024-03,80,True,Burlington
 1306,Crispy Burger- Jason (Volcano),Burlington,Chittenden,2024-02-26,2024,2024-02,80,True,Burlington
 1306,Crispy Burger- Jason (Volcano),Burlington,Chittenden,2024-02-01,2024,2024-02,65,True,Burlington
+332,Daily Planet-65270,Burlington,Chittenden,2026-10-07,2026,2026-10,40,True,Burlington
 332,Daily Planet-65270,Burlington,Chittenden,2026-09-21,2026,2026-09,45,True,Burlington
 332,Daily Planet-65270,Burlington,Chittenden,2026-09-08,2026,2026-09,35,True,Burlington
 332,Daily Planet-65270,Burlington,Chittenden,2026-08-25,2026,2026-08,40,True,Burlington
@@ -3187,6 +3192,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 361,Farmers & Foragers 4560 (Lauren food truck),Burlington,Chittenden,2017-07-15,2017,2017-07,58,True,Burlington
 361,Farmers & Foragers 4560 (Lauren food truck),Burlington,Chittenden,2016-12-17,2016,2016-12,25,True,Burlington
 361,Farmers & Foragers 4560 (Lauren food truck),Burlington,Chittenden,2016-08-14,2016,2016-08,35,True,Burlington
+325,Farmhouse,Burlington,Chittenden,2026-10-07,2026,2026-10,190,True,Burlington
 325,Farmhouse,Burlington,Chittenden,2026-09-21,2026,2026-09,150,True,Burlington
 325,Farmhouse,Burlington,Chittenden,2026-09-08,2026,2026-09,160,True,Burlington
 325,Farmhouse,Burlington,Chittenden,2026-08-25,2026,2026-08,155,True,Burlington
@@ -3533,6 +3539,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1381,Fire and Gold-North Winooski Ave - 100%,Burlington,Chittenden,2025-01-18,2025,2025-01,20,True,Burlington
 1381,Fire and Gold-North Winooski Ave - 100%,Burlington,Chittenden,2024-11-27,2024,2024-11,25,True,Burlington
 1381,Fire and Gold-North Winooski Ave - 100%,Burlington,Chittenden,2024-10-29,2024,2024-10,27,True,Burlington
+1336,Frankie’s/Old Penny Cluse,Burlington,Chittenden,2026-10-07,2026,2026-10,30,True,Burlington
 1336,Frankie’s/Old Penny Cluse,Burlington,Chittenden,2026-09-21,2026,2026-09,45,True,Burlington
 1336,Frankie’s/Old Penny Cluse,Burlington,Chittenden,2026-08-25,2026,2026-08,40,True,Burlington
 1336,Frankie’s/Old Penny Cluse,Burlington,Chittenden,2026-07-29,2026,2026-07,20,True,Burlington
@@ -3897,6 +3904,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1037,Hen of the Wood - 50%,Burlington,Chittenden,2022-01-28,2022,2022-01,35,True,Burlington
 1037,Hen of the Wood - 50%,Burlington,Chittenden,2022-01-06,2022,2022-01,50,True,Burlington
 1037,Hen of the Wood - 50%,Burlington,Chittenden,2021-12-02,2021,2021-12,35,True,Burlington
+322,Henrys Diner-50%,Burlington,Chittenden,2026-10-07,2026,2026-10,40,True,Burlington
 322,Henrys Diner-50%,Burlington,Chittenden,2026-09-21,2026,2026-09,35,True,Burlington
 322,Henrys Diner-50%,Burlington,Chittenden,2026-09-08,2026,2026-09,40,True,Burlington
 322,Henrys Diner-50%,Burlington,Chittenden,2026-08-25,2026,2026-08,45,True,Burlington
@@ -4230,6 +4238,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 304,Hotel Vermont - 50%,Burlington,Chittenden,2015-01-26,2015,2015-01,45,True,Burlington
 304,Hotel Vermont - 50%,Burlington,Chittenden,2015-01-15,2015,2015-01,120,True,Burlington
 304,Hotel Vermont - 50%,Burlington,Chittenden,2015-01-07,2015,2015-01,25,True,Burlington
+1338,Ken’s Pizza,Burlington,Chittenden,2026-10-07,2026,2026-10,20,True,Burlington
 1338,Ken’s Pizza,Burlington,Chittenden,2026-09-21,2026,2026-09,15,True,Burlington
 1338,Ken’s Pizza,Burlington,Chittenden,2026-09-08,2026,2026-09,25,True,Burlington
 1338,Ken’s Pizza,Burlington,Chittenden,2026-08-25,2026,2026-08,20,True,Burlington
@@ -4648,6 +4657,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1432,Nomad-Church St-1638,Burlington,Chittenden,2026-04-08,2026,2026-04,110,True,Burlington
 1432,Nomad-Church St-1638,Burlington,Chittenden,2026-01-08,2026,2026-01,35,True,Burlington
 1432,Nomad-Church St-1638,Burlington,Chittenden,2025-09-19,2025,2025-09,110,True,Burlington
+323,Pascolo 50% with Henrys,Burlington,Chittenden,2026-10-07,2026,2026-10,40,True,Burlington
 323,Pascolo 50% with Henrys,Burlington,Chittenden,2026-09-21,2026,2026-09,35,True,Burlington
 323,Pascolo 50% with Henrys,Burlington,Chittenden,2026-09-08,2026,2026-09,40,True,Burlington
 323,Pascolo 50% with Henrys,Burlington,Chittenden,2026-08-25,2026,2026-08,40,True,Burlington
@@ -4818,6 +4828,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 323,Pascolo 50% with Henrys,Burlington,Chittenden,2015-02-06,2015,2015-02,30,True,Burlington
 323,Pascolo 50% with Henrys,Burlington,Chittenden,2015-01-15,2015,2015-01,25,True,Burlington
 323,Pascolo 50% with Henrys,Burlington,Chittenden,2015-01-02,2015,2015-01,55,True,Burlington
+335,Pho Hong,Burlington,Chittenden,2026-10-07,2026,2026-10,10,True,Burlington
 335,Pho Hong,Burlington,Chittenden,2026-08-12,2026,2026-08,60,True,Burlington
 335,Pho Hong,Burlington,Chittenden,2026-06-08,2026,2026-06,90,True,Burlington
 335,Pho Hong,Burlington,Chittenden,2026-03-05,2026,2026-03,60,True,Burlington
@@ -4922,6 +4933,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1386,Poco- Burlington,Burlington,Chittenden,2025-04-29,2025,2025-04,30,True,Burlington
 1386,Poco- Burlington,Burlington,Chittenden,2025-03-24,2025,2025-03,60,True,Burlington
 1386,Poco- Burlington,Burlington,Chittenden,2025-02-06,2025,2025-02,30,True,Burlington
+327,RiRa's 40%,Burlington,Chittenden,2026-10-07,2026,2026-10,60,True,Burlington
 327,RiRa's 40%,Burlington,Chittenden,2026-09-21,2026,2026-09,60,True,Burlington
 327,RiRa's 40%,Burlington,Chittenden,2026-09-08,2026,2026-09,40,True,Burlington
 327,RiRa's 40%,Burlington,Chittenden,2026-08-25,2026,2026-08,40,True,Burlington
@@ -5318,6 +5330,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 444,Skinny Pancake-Burlington LakeFront8741,Burlington,Chittenden,2023-04-12,2023,2023-04,15,True,Burlington
 444,Skinny Pancake-Burlington LakeFront8741,Burlington,Chittenden,2023-04-05,2023,2023-04,40,True,Burlington
 444,Skinny Pancake-Burlington LakeFront8741,Burlington,Chittenden,2021-05-04,2021,2021-05,75,True,Burlington
+328,Sweetwaters 2.0!!!- 50%,Burlington,Chittenden,2026-10-07,2026,2026-10,75,True,Burlington
 328,Sweetwaters 2.0!!!- 50%,Burlington,Chittenden,2026-09-21,2026,2026-09,75,True,Burlington
 328,Sweetwaters 2.0!!!- 50%,Burlington,Chittenden,2026-09-08,2026,2026-09,50,True,Burlington
 328,Sweetwaters 2.0!!!- 50%,Burlington,Chittenden,2026-08-25,2026,2026-08,50,True,Burlington
@@ -5531,6 +5544,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1029,The Beach House- NORTH BEACH,Burlington,Chittenden,2022-07-27,2022,2022-07,110,True,Burlington
 1029,The Beach House- NORTH BEACH,Burlington,Chittenden,2022-05-12,2022,2022-05,65,True,Burlington
 1029,The Beach House- NORTH BEACH,Burlington,Chittenden,2021-10-13,2021,2021-10,145,True,Burlington
+1286,The PizzeriaVeritas50%,Burlington,Chittenden,2026-10-07,2026,2026-10,30,True,Burlington
 1286,The PizzeriaVeritas50%,Burlington,Chittenden,2026-08-25,2026,2026-08,30,True,Burlington
 1286,The PizzeriaVeritas50%,Burlington,Chittenden,2026-07-14,2026,2026-07,75,True,Burlington
 1286,The PizzeriaVeritas50%,Burlington,Chittenden,2026-05-26,2026,2026-05,35,True,Burlington
@@ -5555,6 +5569,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1286,The PizzeriaVeritas50%,Burlington,Chittenden,2024-04-25,2024,2024-04,30,True,Burlington
 1286,The PizzeriaVeritas50%,Burlington,Chittenden,2024-04-03,2024,2024-04,10,True,Burlington
 1286,The PizzeriaVeritas50%,Burlington,Chittenden,2024-03-05,2024,2024-03,20,True,Burlington
+1394,The Wise Fool,Burlington,Chittenden,2026-10-07,2026,2026-10,160,True,Burlington
 1394,The Wise Fool,Burlington,Chittenden,2026-09-03,2026,2026-09,150,True,Burlington
 1394,The Wise Fool,Burlington,Chittenden,2026-08-12,2026,2026-08,170,True,Burlington
 1394,The Wise Fool,Burlington,Chittenden,2026-07-14,2026,2026-07,190,True,Burlington
@@ -5577,6 +5592,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1394,The Wise Fool,Burlington,Chittenden,2025-04-04,2025,2025-04,85,True,Burlington
 1394,The Wise Fool,Burlington,Chittenden,2025-03-10,2025,2025-03,55,True,Burlington
 1529,Thingz from Yaad Jamaican Restaurant,Burlington,Chittenden,2026-09-03,2026,2026-09,180,True,Burlington
+1287,Trattoria Delia 50%,Burlington,Chittenden,2026-10-07,2026,2026-10,30,True,Burlington
 1287,Trattoria Delia 50%,Burlington,Chittenden,2026-08-25,2026,2026-08,30,True,Burlington
 1287,Trattoria Delia 50%,Burlington,Chittenden,2026-07-14,2026,2026-07,75,True,Burlington
 1287,Trattoria Delia 50%,Burlington,Chittenden,2026-05-26,2026,2026-05,35,True,Burlington
@@ -6105,6 +6121,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 310,WHAT ALES YOU/Manhattan Pizza-17395,Burlington,Chittenden,2018-04-17,2018,2018-04,50,True,Burlington
 310,WHAT ALES YOU/Manhattan Pizza-17395,Burlington,Chittenden,2018-03-26,2018,2018-03,50,True,Burlington
 310,WHAT ALES YOU/Manhattan Pizza-17395,Burlington,Chittenden,2018-03-13,2018,2018-03,130,True,Burlington
+1134,Willows Bagels,Burlington,Chittenden,2026-10-07,2026,2026-10,45,True,Burlington
 1134,Willows Bagels,Burlington,Chittenden,2026-04-24,2026,2026-04,30,True,Burlington
 1134,Willows Bagels,Burlington,Chittenden,2025-12-23,2025,2025-12,20,True,Burlington
 1134,Willows Bagels,Burlington,Chittenden,2025-10-14,2025,2025-10,25,True,Burlington
@@ -6634,6 +6651,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1433,Three Brothers Pizza-Colchester,Colchester,Chittenden,2025-09-16,2025,2025-09,50,True,Colchester
 1433,Three Brothers Pizza-Colchester,Colchester,Chittenden,2025-07-03,2025,2025-07,20,True,Colchester
 1433,Three Brothers Pizza-Colchester,Colchester,Chittenden,2025-05-30,2025,2025-05,85,True,Colchester
+1349,"Concord, Vt Gas Station",Concord,Caledonia,2026-10-06,2026,2026-10,75,True,Concord
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2026-09-02,2026,2026-09,30,True,Concord
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2026-08-18,2026,2026-08,70,True,Concord
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2026-07-21,2026,2026-07,50,True,Concord
@@ -6925,6 +6943,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 611,Three Ponds,Danville,Caledonia,2017-09-03,2017,2017-09,30,True,Danville
 611,Three Ponds,Danville,Caledonia,2017-08-03,2017,2017-08,50,True,Danville
 611,Three Ponds,Danville,Caledonia,2017-06-07,2017,2017-06,60,True,Danville
+1473,Hoagies-Derby,Derby,Orleans,2026-10-06,2026,2026-10,50,True,Derby
 1473,Hoagies-Derby,Derby,Orleans,2026-08-06,2026,2026-08,55,True,Derby
 1473,Hoagies-Derby,Derby,Orleans,2026-05-22,2026,2026-05,25,True,Derby
 1473,Hoagies-Derby,Derby,Orleans,2026-04-29,2026,2026-04,25,True,Derby
@@ -7641,6 +7660,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1461,Arandas-Fairlee,Fairlee,Orange,2026-07-24,2026,2026-07,60,True,Fairlee
 1461,Arandas-Fairlee,Fairlee,Orange,2026-04-01,2026,2026-04,35,True,Fairlee
 1461,Arandas-Fairlee,Fairlee,Orange,2026-01-20,2026,2026-01,35,True,Fairlee
+1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2026-10-06,2026,2026-10,40,True,Fairlee
 1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2026-09-02,2026,2026-09,45,True,Fairlee
 1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2026-07-24,2026,2026-07,80,True,Fairlee
 1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2026-01-20,2026,2026-01,60,True,Fairlee
@@ -7662,6 +7682,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2023-10-16,2023,2023-10,85,True,Fairlee
 1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2023-09-05,2023,2023-09,100,True,Fairlee
 1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2023-08-03,2023,2023-08,90,True,Fairlee
+1305,Jan’s Fairlee Diner,Fairlee,Orange,2026-10-06,2026,2026-10,55,True,Fairlee
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2026-07-24,2026,2026-07,110,True,Fairlee
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2026-04-01,2026,2026-04,65,True,Fairlee
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2026-01-20,2026,2026-01,330,True,Fairlee
@@ -7673,6 +7694,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2024-05-30,2024,2024-05,50,True,Fairlee
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2024-03-12,2024,2024-03,50,True,Fairlee
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2024-01-05,2024,2024-01,40,True,Fairlee
+1304,Lake Morley Resort,Fairlee,Orange,2026-10-06,2026,2026-10,60,True,Fairlee
 1304,Lake Morley Resort,Fairlee,Orange,2026-09-02,2026,2026-09,90,True,Fairlee
 1304,Lake Morley Resort,Fairlee,Orange,2026-07-24,2026,2026-07,110,True,Fairlee
 1304,Lake Morley Resort,Fairlee,Orange,2026-04-01,2026,2026-04,65,True,Fairlee
@@ -7688,6 +7710,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1304,Lake Morley Resort,Fairlee,Orange,2024-05-30,2024,2024-05,60,True,Fairlee
 1304,Lake Morley Resort,Fairlee,Orange,2024-03-12,2024,2024-03,50,True,Fairlee
 1304,Lake Morley Resort,Fairlee,Orange,2024-01-05,2024,2024-01,200,True,Fairlee
+622,Samurai Soul Food,Fairlee,Orange,2026-10-06,2026,2026-10,25,True,Fairlee
 622,Samurai Soul Food,Fairlee,Orange,2018-06-13,2018,2018-06,25,True,Fairlee
 622,Samurai Soul Food,Fairlee,Orange,2018-06-04,2018,2018-06,5,True,Fairlee
 622,Samurai Soul Food,Fairlee,Orange,2018-03-24,2018,2018-03,5,True,Fairlee
@@ -9038,6 +9061,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 815,Summit Lodge / Irish pub,Killington,Rutland,2017-03-20,2017,2017-03,75,True,Killington
 815,Summit Lodge / Irish pub,Killington,Rutland,2017-02-27,2017,2017-02,150,True,Killington
 1439,Curdeous Cow,Lincoln,Addison,2025-11-25,2025,2025-11,50,True,Lincoln
+620,Rabbit Hill Inn,Lower Waterford,Caledonia,2026-10-06,2026,2026-10,85,True,Waterford
 620,Rabbit Hill Inn,Lower Waterford,Caledonia,2026-03-19,2026,2026-03,45,True,Waterford
 620,Rabbit Hill Inn,Lower Waterford,Caledonia,2025-11-21,2025,2025-11,85,True,Waterford
 620,Rabbit Hill Inn,Lower Waterford,Caledonia,2025-05-05,2025,2025-05,40,True,Waterford
@@ -9108,6 +9132,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 910,The Hatchery,Ludlow,Windsor,2020-09-29,2020,2020-09,220,True,Ludlow
 910,The Hatchery,Ludlow,Windsor,2017-01-31,2017,2017-01,35,True,Ludlow
 1453,Jeffrey Burger - Lyndonville,Lyndonville,Caledonia,2025-11-10,2025,2025-11,10,True,Lyndon
+1465,Lyndonville Station Irving,Lyndonville,Caledonia,2026-10-06,2026,2026-10,50,True,Lyndon
 1465,Lyndonville Station Irving,Lyndonville,Caledonia,2026-07-02,2026,2026-07,50,True,Lyndon
 1465,Lyndonville Station Irving,Lyndonville,Caledonia,2026-02-09,2026,2026-02,15,True,Lyndon
 1465,Lyndonville Station Irving,Lyndonville,Caledonia,2026-01-02,2026,2026-01,20,True,Lyndon
@@ -12308,6 +12333,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 534,Dusit Thai,Newport,Orleans,2017-02-21,2017,2017-02,15,True,Newport City
 534,Dusit Thai,Newport,Orleans,2017-01-31,2017,2017-01,40,True,Newport City
 534,Dusit Thai,Newport,Orleans,2016-12-09,2016,2016-12,20,True,Newport City
+1171,Hoagies-Newport,Newport,Orleans,2026-10-06,2026,2026-10,250,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2026-09-15,2026,2026-09,165,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2026-08-31,2026,2026-08,140,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2026-08-20,2026,2026-08,190,True,Newport City
@@ -12387,6 +12413,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1074,JumbleBite/Hilmers on Main,Newport,Orleans,2022-07-14,2022,2022-07,25,True,Newport City
 1074,JumbleBite/Hilmers on Main,Newport,Orleans,2022-06-07,2022,2022-06,50,True,Newport City
 1074,JumbleBite/Hilmers on Main,Newport,Orleans,2021-10-14,2021,2021-10,30,True,Newport City
+533,Newport Country Club,Newport,Orleans,2026-10-06,2026,2026-10,50,True,Newport City
 533,Newport Country Club,Newport,Orleans,2026-08-31,2026,2026-08,30,True,Newport City
 533,Newport Country Club,Newport,Orleans,2026-08-06,2026,2026-08,20,True,Newport City
 533,Newport Country Club,Newport,Orleans,2026-07-24,2026,2026-07,70,True,Newport City
