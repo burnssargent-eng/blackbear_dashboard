@@ -59,7 +59,8 @@ UTC and commits straight to `main`, so expect a data diff most mornings.
 ## Rules that are easy to break
 
 **`EMPTY_QTYS = {0, 1, 2, 3}`** (`oil_scraper.py:36`). Quantities 0–3 mean
-"nothing collected" — 2 is a customer call, 3 is a barrel delivery. **4 is NOT
+"nothing collected" — 2 is the sign-up call (the day Jim enters a new client;
+nothing to do with fullness), 3 is a barrel delivery. **4 is NOT
 excluded**: it is a data-entry quirk that counts as exactly 4 gallons and is
 never rounded up. `validate_data.py` fails if either changes.
 
@@ -67,7 +68,7 @@ never rounded up. `validate_data.py` fails if either changes.
 kept in `oil_non_pickups.csv` (merged on each `--rescrape`, like the capacity
 cache). `RESET_QTYS = {0, 1}` means the truck checked and found the container
 empty, so the projection restarts its oil clock at the latest one after the
-last pickup — the rate itself is unchanged. 2 (customer call) and 3 (barrel
+last pickup — the rate itself is unchanged. 2 (sign-up call) and 3 (barrel
 delivery) are kept but not used yet. The builder keeps its own copy of
 `RESET_QTYS`; `validate_data.py` asserts the two match. Never put a 0–3 into
 `oil_collections_raw.csv`: `backtest_steady_rate.load_pickups` refuses it.

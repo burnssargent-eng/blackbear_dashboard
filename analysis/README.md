@@ -76,6 +76,8 @@ capacity is fixed on the site and arrives with the next nightly. See
 | 2026-10-05 | Jim's capacity review received; 103 to enter on the site, 9 to confirm with him | [`ROADMAP.md`](ROADMAP.md) |
 | 2026-10-06 | **Shared barrels shown as one stop** (`SHARED_CONTAINERS`, 15 groups). Each account records only its share of the gallons, so the barrel is the members' gallons summed by date; combined rate = sum of member rates. Capacity convention with Jim: the full barrel on every member. `HISTORY_STARTS` for new owners on old accounts (JJ's, 2026-09-22) | builder |
 | 2026-10-05 | **Empty checks (qty 0 / 1) restart the oil clock.** On 651 intervals with a 1 between two pickups, counting from the pickup over-projected the next pickup by +115% (WAPE 134%); counting from the 1, +11% (WAPE 81%). Rate unchanged. 3 (barrel delivery) tested as only a partial reset (+213% → −34%) and left out | `oil_scraper.py` (`RESET_QTYS`, `oil_non_pickups.csv`), builder `load_empty_checks` |
+| 2026-10-07 | **Phase 2 rate tests** (research only, builder unchanged). Seasonal-open customers (29, scored from prior years only, with a 1000-shuffle noise test): season-free **level × month index** −14.5 WAPE points vs 50/50 on the 2025–26 holdout (−20.3 to −9.6), bias −6%; last 3 ÷ index × coming index −13.1, bias +0%; Sarge's last-year ±3 wk + last 2 at 70/30 −7.6, 50/50 −5.3. **Recency gate rejected** (last 2–3 vs the 3 before, >30/50/75%): −0.6 in choose, **+0.6 worse** confirmed, +1.9 on the pickups it fired on. EWMA −0.4: real, too small to adopt. Adoption of the index model for seasonal-open customers pending | `backtest_phase2_rates.py`, `phase2_rate_models.md` |
+| 2026-10-08 | Newcomer design agreed with Sarge: **lumpy accounts are will-call** (last pickup X days ago, never projected); a customer's **first pickup is a starting point only**, never a rate; ≥ 3 pickups → "new" projection with a wide band; lean toward the high side via a band, never by inflating the estimate; shared-barrel members modelled separately in research. Partial pickups (truck nearly full) are absorbed by the pooled last-6 rate — not modelled. Code 2 is the sign-up call, not a fullness call | [`ROADMAP.md`](ROADMAP.md) |
 
 ## Known weaknesses of the current model
 
@@ -312,6 +314,7 @@ no-lookahead:
 | `customer_factors.py` → `customer_cyclicality.md` | Per-customer monthly/quarterly factors and the screen of who has a repeating pattern |
 | `backtest_customer_factors.py` → `customer_factor_model_test.md` | Whether those factors beat the 50/50 baseline — explicit, naive and residual forms |
 | `build_fringe_seasonal_candidates.py` → `fringe_seasonal_candidates.md` | Review table of seasonal / closer / call-driven / event / on-demand candidates. Labels are prompts, not classifications |
+| `backtest_phase2_rates.py` → `phase2_rate_models.md` | Phase 2: seasonal-open detection from prior years (with a shuffle noise test), Sarge's last-year ±3 wk formula, month-index models, recency gates and EWMA; choose 2023–24, confirm 2025–26 |
 | `build_projection_table.py` → `oil_projection_table.md`, `../oil_projections.json` | The production projection: 50/50 rate, `MODEL_OVERRIDES`, routing, capped % full. Run nightly |
 | `customer_wape.json` | Committed snapshot of per-customer 50/50 WAPE for the confidence bands. Rebuild with `--refresh-wape` after rerunning `test_routing_rule.py` / `backtest_seasonal_models.py` |
 
@@ -333,6 +336,7 @@ python3 analysis/backtest_seasonal_models.py                            # four m
 python3 analysis/test_routing_rule.py                                   # held-out rule test
 python3 analysis/customer_factors.py                                    # per-customer factors
 python3 analysis/backtest_customer_factors.py                           # do the factors help?
+python3 analysis/backtest_phase2_rates.py                               # phase 2 rate tests (a few minutes)
 python3 analysis/build_projection_table.py                              # projections (the nightly runs this)
 python3 analysis/build_projection_table.py --as-of 2026-06-30           # what-if date; never writes the site file
 python3 analysis/build_projection_table.py --refresh-wape               # rebuild customer_wape.json
