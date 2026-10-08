@@ -39,49 +39,47 @@ Each pickup is scored with the rate its stage would show. Will-call is not appli
 | choose | 652 | 31.2% | 31.1% | **-0.1** | -1.0 to +0.7 |
 | confirm | 3,173 | 35.9% | 34.7% | **-1.1** | -1.7 to -0.6 |
 
-## 3. The high side: an 80% band per stage
+## 3. Calibrated range per stage
 
-Multiplier = the 80% point of actual ÷ projected in the choose period. "As full as" = projection × multiplier; "hits 75% as early as" = the date that inflated rate reaches 75%. Coverage = share of pickups that came in at or under the high side (target 80%).
+Factors = the 20% and 80% points of actual ÷ projected in the choose period. Likely range = projection × low factor to projection × high factor, so 60% of pickups should land inside it and 20% above it. The seasonal stage has too few pickups for its own factors and uses the established ones.
 
-| Stage | Multiplier | Choose coverage | Confirm coverage | Confirm pickups |
-|---|---:|---:|---:|---:|
-| new, 2 gaps | × 1.64 | 80.6% | 82.4% | 102 |
-| new, 3 gaps | × 1.49 | 80.9% | 78.8% | 85 |
-| new, 4–6 gaps | × 1.35 | 80.1% | 74.9% | 411 |
-| established | × 1.45 | 80.1% | 77.9% | 3,173 |
-| seasonal | – | – | – | 56 |
+| Stage | Low factor | High factor | Confirm: inside range | Confirm: at or under high | Confirm pickups |
+|---|---:|---:|---:|---:|---:|
+| new, 2 gaps | × 0.60 | × 1.64 | 69.6% | 82.4% | 102 |
+| new, 3 gaps | × 0.71 | × 1.49 | 52.9% | 78.8% | 85 |
+| new, 4–6 gaps | × 0.70 | × 1.35 | 56.2% | 74.9% | 411 |
+| established | × 0.75 | × 1.45 | 59.0% | 77.9% | 3,173 |
+| seasonal | × 0.75 | × 1.45 | 53.6% | 69.6% | 56 |
 
 ## 4. Will-call detector
 
-A customer is flagged once it has 3+ pickups and its gaps so far are long (median gap over G days) or irregular (gap variability over C, needing 3+ gaps). Checked against two labels the detector never reads: Jim's sign-up periodicity ≥ 180 days, and the call-driven / event / on-demand / lump-sum overrides. Scored on **every** customer with 3+ pickups in the last 3 years (their gaps since 2023-10), not just newcomers.
+A customer is flagged once it has 3+ pickups and its gaps are long (median gap over G days) or irregular (sd ÷ mean of the gaps over C, 3+ gaps). The **season-aware** version first drops gaps longer than 3× the median — a closer's off-season — so a summer business is not called irregular for closing each winter. Checked against two labels the detector never reads: Jim's sign-up periodicity ≥ 180 days, and the call-driven / event / on-demand / lump-sum overrides. Every customer with 3+ pickups in the window is scored, not just newcomers. The rule is **chosen on gaps dated 2021–23** and reported on gaps dated 2024–26. "Today's ranked" = customers ranked on the page now (no override), scored on their gaps over the last 3 years.
 
-488 customers scored; 43 carry a will-call label.
+| Rule | Choose F1 | Confirm F1 | Confirm: agree with label | Confirm: labels caught | Confirm: flagged pickups WAPE | kept WAPE | Today's ranked flagged |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| gap > 90 d or sd/mean > 0.8 | 0.44 | 0.39 | 25% | 85% | 66.2% | 30.9% | 81 |
+| gap > 90 d or sd/mean > 1.0 | 0.45 | 0.39 | 26% | 74% | 58.0% | 33.5% | 68 |
+| gap > 90 d or sd/mean > 1.2 | 0.46 | 0.39 | 27% | 67% | 54.7% | 34.1% | 56 |
+| gap > 120 d or sd/mean > 0.8 | 0.48 | 0.44 | 30% | 79% | 70.3% | 31.0% | 62 |
+| gap > 120 d or sd/mean > 1.0 | 0.50 | 0.45 | 33% | 69% | 62.9% | 33.5% | 49 |
+| gap > 120 d or sd/mean > 1.2 | 0.51 | 0.46 | 36% | 62% | 59.7% | 34.1% | 37 |
+| gap > 180 d or sd/mean > 0.8 | 0.44 | 0.39 | 29% | 59% | 71.6% | 31.1% | 50 |
+| gap > 180 d or sd/mean > 1.0 | 0.45 | 0.37 | 32% | 46% | 64.4% | 33.6% | 37 |
+| gap > 180 d or sd/mean > 1.2 | 0.45 | 0.37 | 37% | 38% | 61.1% | 34.2% | 24 |
+| gap > 90 d or season-aware sd/mean > 0.8 | 0.46 | 0.38 | 29% | 56% | 40.5% | 35.6% | 44 |
+| gap > 90 d or season-aware sd/mean > 1.0 | 0.46 | 0.39 | 30% | 56% | 38.9% | 35.7% | 43 |
+| gap > 90 d or season-aware sd/mean > 1.2 | 0.46 | 0.39 | 30% | 56% | 38.9% | 35.7% | 43 |
+| gap > 120 d or season-aware sd/mean > 0.8 | 0.52 | 0.47 | 43% | 51% | 49.3% | 35.6% | 25 |
+| gap > 120 d or season-aware sd/mean > 1.0 | 0.52 | 0.48 | 44% | 51% | 46.9% | 35.6% | 24 |
+| gap > 120 d or season-aware sd/mean > 1.2 | 0.52 | 0.48 | 44% | 51% | 46.9% | 35.6% | 24 |
+| gap > 180 d or season-aware sd/mean > 0.8 | 0.47 | 0.36 | 50% | 28% | 49.8% | 35.7% | 12 |
+| gap > 180 d or season-aware sd/mean > 1.0 | 0.47 | 0.37 | 55% | 28% | 42.7% | 35.7% | 11 |
+| gap > 180 d or season-aware sd/mean > 1.2 | 0.45 | 0.37 | 55% | 28% | 42.7% | 35.7% | 11 |
 
-| Rule | Flagged | Agree with a label | Labels caught | Choose: flagged pickups | WAPE flagged | WAPE kept |
-|---|---:|---:|---:|---:|---:|---:|
-| gap > 90 d or sd/mean > 0.8 | 142 | 27% | 88% | 97 | 55.6% | 33.3% |
-| gap > 90 d or sd/mean > 1.0 | 120 | 28% | 77% | 55 | 54.9% | 33.7% |
-| gap > 90 d or sd/mean > 1.2 | 103 | 27% | 65% | 43 | 54.4% | 34.1% |
-| gap > 120 d or sd/mean > 0.8 | 111 | 32% | 81% | 75 | 58.9% | 33.4% |
-| gap > 120 d or sd/mean > 1.0 | 89 | 34% | 70% | 33 | 60.1% | 33.8% |
-| gap > 120 d or sd/mean > 1.2 | 72 | 35% | 58% | 21 | 63.6% | 34.1% |
-| gap > 180 d or sd/mean > 0.8 | 89 | 31% | 65% | 64 | 59.8% | 33.6% |
-| gap > 180 d or sd/mean > 1.0 | 66 | 33% | 51% | 22 | 62.3% | 34.0% |
-| gap > 180 d or sd/mean > 1.2 | 48 | 35% | 40% | 10 | 73.7% | 34.3% |
-| gap > 90 d or IQR/median > 0.6 | 234 | 17% | 91% | 517 | 41.8% | 30.8% |
-| gap > 90 d or IQR/median > 0.8 | 156 | 22% | 81% | 296 | 47.0% | 31.8% |
-| gap > 90 d or IQR/median > 1.0 | 135 | 26% | 81% | 211 | 50.2% | 32.2% |
-| gap > 120 d or IQR/median > 0.6 | 220 | 18% | 91% | 501 | 41.7% | 30.9% |
-| gap > 120 d or IQR/median > 0.8 | 136 | 25% | 79% | 277 | 47.1% | 31.9% |
-| gap > 120 d or IQR/median > 1.0 | 112 | 29% | 77% | 190 | 50.9% | 32.4% |
-| gap > 180 d or IQR/median > 0.6 | 210 | 17% | 81% | 492 | 41.4% | 31.2% |
-| gap > 180 d or IQR/median > 0.8 | 122 | 24% | 67% | 266 | 46.7% | 32.2% |
-| gap > 180 d or IQR/median > 1.0 | 95 | 29% | 65% | 179 | 50.6% | 32.6% |
+**Chosen on 2021–23 (F1 0.52): gap > 120 d or season-aware sd/mean > 0.8.**
 
-**Best agreement with the labels (F1 0.45): gap > 120 d or sd/mean > 0.8.** Disagreements, for review:
-
-- Flagged, no label (76): CVMC-Berlin Hospital (108), Thunder Road  4567 (119), Central Vermont Solid Waste Management District (121), Rocket J's-Northfield (164), BentNailRoadhouse///Chico’s// The Filling Station- (201), Mount Ellen (225), BARBERIAN-Skinny Pancake-Stowe McCarthy's (273), Schaffers/Hatchet Tap & Table (282), Big Spruce (284), Ruben James (RJs) (Ali Babas)- 0421 (308), WHAT ALES YOU/Manhattan Pizza-17395 (310), Citizen Cider - 0316 (315), Arts Riot (317), Leunigs Bistro (326), Shalamar Indian/ Radio Bean- 7419 (339), City Market (345), Farmers & Foragers 4560 (Lauren food truck) (361), Auryvedic spa (406), Sneakers Alley 100% (432), Pingala Cafe- North Ave (439), Pizza on Main -Morrisville (508), Enosburgh Falls Country Club (517), Jay Peak-Stateside (loading dock) (529), HAYBARN-Goddard College- 7532 (603), Rustic Roots (700), Sante-2022|dailey catch-Woodstock (820), White Cottage (824), Grand Summit Hotel (Mt. Snow) (900), Main Lodge (Mt. Snow) (901), Carinthia Lodge (Mt. Snow) (902), TCs (904), Haystack Golf course (905), Trail Break (Taco place) (923), Lebanon SWMD (930), Burger King-Claremont (931), The Beach House- NORTH BEACH (1029), Hen of the Wood - 50% (1037), JumbleBite/Hilmers on Main (1074), Vermont Country Club-Waterbury (1076), BBB- Pump oil @ Shop (1078), Bethel Sandwhich Shop (1093), Vermont Law School-South Royalton (1106), Richford Country Club (1136), Cloud 9 catering- Sarah-COOK-Food Truck (1139), Shore Acres-North Hero (1144), Bravo Zulu- North Hero (1147), Volcano-50% NorthAve (1163), Toasted Bun-North Troy (1165), Hannaford- Rutland (1182), Hannaford-Claremont (1192), DOMA/Paradiso Hifi (1202), Sundance-(Mount Snow) (1205), Maple Soul (1218), Hoagies - Colchester-25% (1236), Bramble (1247), Sparky’s BBQ and Grill- 1977 (1248), 1824 House (1266), Scrag and Row 2025/The Great Eddy-Waitsfield (1267), BKK-inTheAlley 10% (1273), JETS BRUNCH/Headwaters-Cabot (1280), CUTLER (1309), MRD-KYLE (1321), Sarkys part 2 (1334), Cravens Food Truck-Middlebury (1346), Gondola’s Downtown Morrisville (1352), Kismet Mediterranean - 22222# (1354), Devil Takes a Holiday Cocktail Lounge (1358), DairyCreme-GreatestCaper (1359), Multitude Take Away-Gilman (1378), SARKY’s/Foxys Barre (1387), Okemo- Mountain Resort (1388), Cairns Arena (1418), THE STIC// old RUSTIC-Northfield (1419), AL’s FF food truck-ESSEX at Lowes (1426), JNETME CONCESSIONS 50%-North Troy (1436), Copley Hospital (1460)
-- Labelled, not flagged (8): State House (157), Bliss Bee -SoBurl. Rte 7 (372), Northwest Solid Waste Management District (422), Addison County Solid Waste Management District (710), Manchester Hockeypas-0150 (734), Woodstock Country Club (825), Grange at Hill Farm-Sunderland (1162), Dennys -Out of Business (1190)
+- Today's ranked customers it would move to will-call (25): CVMC-Berlin Hospital (108), Spaulding High School (118), Central Vermont Solid Waste Management District (121), Stowe Transfer Station (275), Lake Monsters (337), City Market (345), Blodgett ovens (415), Highland Lodge- Elsa (550), HAYBARN-Goddard College- 7532 (603), Rabbit Hill Inn (620), Addison Eagles Club (704), Black Sheep Bistro (707), Riverside Farm (806), The Original - Pittsfield General Store (807), Sante-2022|dailey catch-Woodstock (820), Mon Vert Café (822), The Hatchery (910), Readsboro General Store (1058), JavierBillsAlmostMexican/PicaPica (1080), Bethel Sandwhich Shop (1093), Vermont Law School-South Royalton (1106), Cloud 9 catering- Sarah-COOK-Food Truck (1139), Bramble (1247), Scrag and Row 2025/The Great Eddy-Waitsfield (1267), CUTLER (1309)
+- Labelled, not flagged, last 3 years (21): State House (157), Bliss Bee -SoBurl. Rte 7 (372), Champlain Valley Expo (413), Northwest Solid Waste Management District (422), Perrigo Nutritionals (423), Jay Peak- Hotel Jay -OutsideNow (527), Philo Ridge Farm (703), Goodies Snack Bar (709), Addison County Solid Waste Management District (710), Manchester Hockeypas-0150 (734), Toziers- (803), Suicide 6= Saskadena (817), Woodstock Country Club (825), Cousins (Mt. Snow) (903), Okemo-Jackson Gore Inn (934), Quechee Gorge Snack Bar (1056), Sugarbush Resort Golf Course (1059), Arlington Dairy Bar (1137), Grange at Hill Farm-Sunderland (1162), Dennys -Out of Business (1190), Tata (1416)
 
 ## 5. How long newcomers take to move up
 
@@ -93,12 +91,12 @@ A customer is flagged once it has 3+ pickups and its gaps so far are long (media
 
 ## 6. The ladder with will-call applied
 
-Pickups the chosen rule (gap > 120 d or sd/mean > 0.8) would have flagged at the time get no projection, as on the page. Everything else as section 2.
+Pickups the chosen rule (gap > 120 d or season-aware sd/mean > 0.8) would have flagged at the time get no projection, as on the page. Everything else as section 2.
 
 | Stage | Choose: pickups / customers | WAPE | Bias | Days | Confirm: pickups / customers | WAPE | Bias | Days |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| new | 752 / 119 | 36.8% | +1.1% | 12 | 589 / 123 | 41.9% | +6.7% | 15 |
-| established | 602 / 88 | 29.0% | -1.6% | 14 | 2,711 / 165 | 28.9% | -2.0% | 11 |
-| seasonal | – | – | – | – | 48 / 3 | 41.6% | -11.4% | 11 |
-| will-call (not shown) | 75 / 24 | 58.9% | -33.1% | 58 | 479 / 53 | 70.3% | -20.2% | 48 |
+| new | 770 / 121 | 37.2% | +0.1% | 12 | 597 / 124 | 42.2% | +5.9% | 16 |
+| established | 639 / 95 | 30.7% | -3.1% | 15 | 3,116 / 188 | 34.5% | -4.0% | 13 |
+| seasonal | – | – | – | – | 56 / 4 | 39.3% | -12.5% | 10 |
+| will-call (not shown) | 20 / 15 | 64.6% | -34.8% | 105 | 58 / 24 | 49.3% | -33.5% | 117 |
 

@@ -37,10 +37,11 @@ Writes analysis/replay_newcomers.md and backtest_replay_detail.csv
 """
 
 import csv
+import json
 import random
 import statistics
 from collections import Counter, defaultdict
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 
 import backtest_customer_factors as bcf
@@ -68,9 +69,12 @@ SEED = 42
 # gaps so far are long or irregular. The grid is scored, one rule is chosen.
 WILL_CALL_MEDIAN_GAP = (90, 120, 180)   # days
 WILL_CALL_GAP_CV = (0.8, 1.0, 1.2)      # sd / mean of the gaps (needs 3+ gaps)
-# A closer's one off-season gap a year makes sd / mean look irregular, so the
-# robust version uses the middle half of the gaps: (Q3 - Q1) / median, 4+ gaps.
-WILL_CALL_GAP_IQR = (0.6, 0.8, 1.0)
+# A closer's one off-season gap a year makes sd / mean look irregular. The
+# season-aware version treats a gap longer than CLOSURE_MULTIPLE x the median
+# as a closure and leaves it out of the sd / mean (3+ gaps must remain). An
+# IQR / median variant was tried first and flagged MORE customers; dropped.
+CLOSURE_MULTIPLE = 3
+LOW_Q = 0.20                        # low end of the likely range
 WILL_CALL_PERIODICITY = 180             # Jim's sign-up guess: 180/365 ~ will-call
 WILL_CALL_STATUSES = {bpt.STATUS_SEMI_CLOSER, bpt.STATUS_EVENT,
                       bpt.STATUS_ON_DEMAND, bpt.STATUS_LUMP_SUM}
@@ -99,33 +103,34 @@ def load():
     return pickups, checks, capacities, active, periodicity
 
 
+def spread(gaps):
+    return statistics.pstdev(gaps) / statistics.fmean(gaps) if len(gaps) >= 3 else None
+
+
 def gap_features(ps):
-    """Gap timing from pickups seen so far: (median, sd/mean, IQR/median).
-    Gap lengths use the first pickup's DATE, never its gallons."""
+    """Gap timing from pickups seen so far: (median, sd/mean, season-aware
+    sd/mean). Gap lengths use the first pickup's DATE, never its gallons."""
     gaps = [(b["date"] - a["date"]).days for a, b in zip(ps, ps[1:])]
     gaps = [g for g in gaps if g > 0]
     if not gaps:
         return None, None, None
     med = statistics.median(gaps)
-    cv = (statistics.pstdev(gaps) / statistics.fmean(gaps)) if len(gaps) >= 3 else None
-    iqr = None
-    if len(gaps) >= 4:
-        q = statistics.quantiles(gaps, n=4)
-        iqr = (q[2] - q[0]) / med
-    return med, cv, iqr
+    open_gaps = [g for g in gaps if g <= CLOSURE_MULTIPLE * med]
+    return med, spread(gaps), spread(open_gaps)
 
 
 RULES = ([("sd/mean", g, c) for g in WILL_CALL_MEDIAN_GAP for c in WILL_CALL_GAP_CV]
-         + [("IQR/median", g, c) for g in WILL_CALL_MEDIAN_GAP for c in WILL_CALL_GAP_IQR])
+         + [("season-aware sd/mean", g, c) for g in WILL_CALL_MEDIAN_GAP
+            for c in WILL_CALL_GAP_CV])
 
 
 def will_call(features, rule):
-    med, cv, iqr = features
+    med, cv, open_cv = features
     kind, g_max, c_max = rule
     if med is None:
         return False
-    spread = cv if kind == "sd/mean" else iqr
-    return med > g_max or (spread is not None and spread > c_max)
+    s = cv if kind == "sd/mean" else open_cv
+    return med > g_max or (s is not None and s > c_max)
 
 
 def rule_label(rule):
@@ -229,19 +234,21 @@ def score(rows, model):
             "days": statistics.median(day_err) if day_err else None}
 
 
-def high_multiplier(rows, model):
+def multiplier(rows, model, q):
     ratios = sorted(t["actual"] / (t["rates"][model] * t["days"])
                     for t in rows if t["rates"].get(model))
     if len(ratios) < 20:
         return None
-    return ratios[min(len(ratios) - 1, int(HIGH_Q * len(ratios)))]
+    return ratios[min(len(ratios) - 1, int(q * len(ratios)))]
 
 
-def coverage(rows, model, mult):
+def coverage(rows, model, hi, lo=0.0):
+    """Share of pickups inside projection x [lo, hi]."""
     rows = [t for t in rows if t["rates"].get(model)]
-    if not rows or mult is None:
+    if not rows or hi is None or lo is None:
         return None
-    return sum(t["actual"] <= t["rates"][model] * t["days"] * mult for t in rows) / len(rows) * 100
+    inside = sum(lo <= t["actual"] / (t["rates"][model] * t["days"]) <= hi for t in rows)
+    return inside / len(rows) * 100
 
 
 def band_key(t):
@@ -342,70 +349,103 @@ def main():
     w("")
 
     # 3. Bands ---------------------------------------------------------
-    w(f"## 3. The high side: an {HIGH_Q:.0%} band per stage\n")
-    w(f"Multiplier = the {HIGH_Q:.0%} point of actual ÷ projected in the choose "
-      "period. \"As full as\" = projection × multiplier; \"hits 75% as early as\" "
-      "= the date that inflated rate reaches 75%. Coverage = share of pickups "
-      f"that came in at or under the high side (target {HIGH_Q:.0%}).\n")
-    w("| Stage | Multiplier | Choose coverage | Confirm coverage | Confirm pickups |")
-    w("|---|---:|---:|---:|---:|")
+    w("## 3. Calibrated range per stage\n")
+    w(f"Factors = the {LOW_Q:.0%} and {HIGH_Q:.0%} points of actual ÷ projected in "
+      "the choose period. Likely range = projection × low factor to projection × "
+      f"high factor, so {HIGH_Q - LOW_Q:.0%} of pickups should land inside it and "
+      f"{1 - HIGH_Q:.0%} above it. The seasonal stage has too few pickups for its "
+      "own factors and uses the established ones.\n")
+    w("| Stage | Low factor | High factor | Confirm: inside range | Confirm: at or under high | Confirm pickups |")
+    w("|---|---:|---:|---:|---:|---:|")
     keys = ["new, 2 gaps", "new, 3 gaps", "new, 4–6 gaps", "established", "seasonal"]
+    factors = {}
     for key in keys:
         c_rows = [t for t in choose if band_key(t) == key]
         f_rows = [t for t in confirm if band_key(t) == key]
-        mult = high_multiplier(c_rows, "ladder")
-        w(f"| {key} | {'–' if mult is None else f'× {mult:.2f}'} | "
-          f"{pct(coverage(c_rows, 'ladder', mult))} | "
-          f"{pct(coverage(f_rows, 'ladder', mult))} | {len(f_rows):,} |")
+        lo, hi = multiplier(c_rows, "ladder", LOW_Q), multiplier(c_rows, "ladder", HIGH_Q)
+        if hi is None:
+            lo, hi = factors.get("established", (None, None))
+        factors[key] = (lo, hi)
+        w(f"| {key} | {'–' if lo is None else f'× {lo:.2f}'} | "
+          f"{'–' if hi is None else f'× {hi:.2f}'} | "
+          f"{pct(coverage(f_rows, 'ladder', hi, lo))} | "
+          f"{pct(coverage(f_rows, 'ladder', hi))} | {len(f_rows):,} |")
     w("")
 
     # 4. Will-call -----------------------------------------------------
     w("## 4. Will-call detector\n")
-    w("A customer is flagged once it has 3+ pickups and its gaps so far are long "
-      "(median gap over G days) or irregular (gap variability over C, needing 3+ "
-      "gaps). Checked against two labels the detector never reads: Jim's sign-up "
-      f"periodicity ≥ {WILL_CALL_PERIODICITY} days, and the call-driven / event / "
-      "on-demand / lump-sum overrides. Scored on **every** customer with 3+ "
-      "pickups in the last 3 years (their gaps since 2023-10), not just newcomers.\n")
-    recent_from = date(2023, 10, 1)
-    profiles = {}
-    for cid, ps in pickups.items():
-        recent = [p for p in ps if p["date"] >= recent_from]
-        if len(recent) >= 3:
-            profiles[cid] = gap_features(recent)
-    labels = {cid for cid in profiles
-              if (periodicity.get(cid) or 0) >= WILL_CALL_PERIODICITY
-              or (cid in bpt.MODEL_OVERRIDES
-                  and bpt.MODEL_OVERRIDES[cid].status in WILL_CALL_STATUSES)}
-    w(f"{len(profiles)} customers scored; {len(labels)} carry a will-call label.\n")
-    w("| Rule | Flagged | Agree with a label | Labels caught | Choose: flagged pickups | WAPE flagged | WAPE kept |")
-    w("|---|---:|---:|---:|---:|---:|---:|")
-    best = None
-    for rule in RULES:
+    w("A customer is flagged once it has 3+ pickups and its gaps are long (median "
+      "gap over G days) or irregular (sd ÷ mean of the gaps over C, 3+ gaps). The "
+      "**season-aware** version first drops gaps longer than "
+      f"{CLOSURE_MULTIPLE}× the median — a closer's off-season — so a summer "
+      "business is not called irregular for closing each winter. Checked against "
+      "two labels the detector never reads: Jim's sign-up periodicity ≥ "
+      f"{WILL_CALL_PERIODICITY} days, and the call-driven / event / on-demand / "
+      "lump-sum overrides. Every customer with 3+ pickups in the window is scored, "
+      "not just newcomers. The rule is **chosen on gaps dated 2021–23** and "
+      "reported on gaps dated 2024–26. \"Today's ranked\" = customers ranked on the "
+      "page now (no override), scored on their gaps over the last 3 years.\n")
+
+    def profiles_between(lo, hi):
+        out = {}
+        for cid, ps in pickups.items():
+            window = [p for p in ps if lo <= p["date"] <= hi]
+            if len(window) >= 3:
+                out[cid] = gap_features(window)
+        return out
+
+    def is_labelled(cid):
+        return ((periodicity.get(cid) or 0) >= WILL_CALL_PERIODICITY
+                or (cid in bpt.MODEL_OVERRIDES
+                    and bpt.MODEL_OVERRIDES[cid].status in WILL_CALL_STATUSES))
+
+    latest = max(p["date"] for ps in pickups.values() for p in ps)
+    prof_choose = profiles_between(date(2021, 1, 1), date(2023, 12, 31))
+    prof_confirm = profiles_between(date(2024, 1, 1), latest)
+    prof_today = profiles_between(latest - timedelta(days=3 * YEAR), latest)
+    page = json.loads((bpt.ROOT / "oil_projections.json").read_text())
+    ranked_today = {c["id"] for c in page["customers"]
+                    if c["section"] == "ranked" and c["id"] not in bpt.MODEL_OVERRIDES}
+
+    def agreement(profiles, rule):
+        labels = {cid for cid in profiles if is_labelled(cid)}
         flagged = {cid for cid, f in profiles.items() if will_call(f, rule)}
         hit = len(flagged & labels)
-        precision = hit / len(flagged) if flagged else 0
-        recall = hit / len(labels) if labels else 0
-        f1 = 2 * precision * recall / (precision + recall) if hit else 0
-        fl = [t for t in choose if t["stage"] != "insufficient"
+        p = hit / len(flagged) if flagged else 0
+        r = hit / len(labels) if labels else 0
+        return (2 * p * r / (p + r) if hit else 0), p, r, flagged, labels
+
+    w("| Rule | Choose F1 | Confirm F1 | Confirm: agree with label | Confirm: labels caught | Confirm: flagged pickups WAPE | kept WAPE | Today's ranked flagged |")
+    w("|---|---:|---:|---:|---:|---:|---:|---:|")
+    best = None
+    for rule in RULES:
+        f1c, *_ = agreement(prof_choose, rule)
+        f1f, p, r, _, _ = agreement(prof_confirm, rule)
+        fl = [t for t in confirm if t["stage"] != "insufficient"
               and will_call(t["features"], rule)]
         fl_ids = {id(t) for t in fl}
-        kept = [t for t in choose if t["stage"] != "insufficient" and id(t) not in fl_ids]
+        kept = [t for t in confirm if t["stage"] != "insufficient" and id(t) not in fl_ids]
         a, b = score(fl, "ladder"), score(kept, "ladder")
-        w(f"| {rule_label(rule)} | {len(flagged)} | {precision:.0%} | {recall:.0%} | "
-          f"{len(fl):,} | {pct(a and a['wape'])} | {pct(b and b['wape'])} |")
-        if best is None or f1 > best[0]:
-            best = (f1, rule, flagged)
+        today = sum(1 for cid in ranked_today
+                    if cid in prof_today and will_call(prof_today[cid], rule))
+        w(f"| {rule_label(rule)} | {f1c:.2f} | {f1f:.2f} | {p:.0%} | {r:.0%} | "
+          f"{pct(a and a['wape'])} | {pct(b and b['wape'])} | {today} |")
+        if best is None or f1c > best[0]:
+            best = (f1c, rule)
     w("")
-    f1, chosen, flagged = best
-    w(f"**Best agreement with the labels (F1 {f1:.2f}): {rule_label(chosen)}.** "
-      "Disagreements, for review:\n")
+    f1, chosen = best
     names = {cid: ps[-1]["name"] for cid, ps in pickups.items() if ps}
 
     def listing(ids):
         return ", ".join(f"{names.get(c, c)} ({c})" for c in sorted(ids)) or "none"
-    w(f"- Flagged, no label ({len(flagged - labels)}): {listing(flagged - labels)}")
-    w(f"- Labelled, not flagged ({len(labels - flagged)}): {listing(labels - flagged)}\n")
+    today_flagged = {cid for cid in ranked_today
+                     if cid in prof_today and will_call(prof_today[cid], chosen)}
+    _, _, _, flagged, labels = agreement(prof_today, chosen)
+    w(f"**Chosen on 2021–23 (F1 {f1:.2f}): {rule_label(chosen)}.**\n")
+    w(f"- Today's ranked customers it would move to will-call ({len(today_flagged)}): "
+      f"{listing(today_flagged)}")
+    w(f"- Labelled, not flagged, last 3 years ({len(labels - flagged)}): "
+      f"{listing(labels - flagged)}\n")
 
     # 5. Timing --------------------------------------------------------
     w("## 5. How long newcomers take to move up\n")
@@ -454,7 +494,7 @@ def main():
     OUT_REPORT.write_text("\n".join(out) + "\n")
     with open(OUT_DETAIL, "w", newline="") as f:
         cols = ["customer_id", "name", "date", "period", "k", "gaps", "days", "actual",
-                "stage", "capacity", "med_gap", "gap_cv", "gap_iqr", "ladder", "pooled",
+                "stage", "capacity", "med_gap", "gap_cv", "gap_cv_open", "ladder", "pooled",
                 "established", "seasonal"]
         wr = csv.writer(f)
         wr.writerow(cols)
