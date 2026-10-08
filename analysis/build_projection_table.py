@@ -92,7 +92,6 @@ from datetime import date, timedelta
 from pathlib import Path
 from typing import NamedTuple
 
-import backtest_customer_factors as bcf
 import backtest_seasonal_models as bsm
 import backtest_steady_rate as bt
 import build_fringe_seasonal_candidates as fringe
@@ -589,10 +588,9 @@ def rate_pooled(pickups):
 
 SEASONAL_LY_WEIGHT = 0.7         # Sarge's 70/30: last year vs the last 2 pickups
 SEASONAL_LY_HALF_WIDTH = 21      # days either side of the date, a year back
-# Last year's rate ran ~13% below what arrived (seasonal_formulas.md), so it is
-# scaled by growth = the last 12 months' rate / the 12 before, clamped. It cut
-# low-side misses in both test windows at the cost of more high-side ones.
-SEASONAL_GROWTH_CLAMP = (0.5, 2.0)
+# No growth factor on last year's rate: tried 2026-10-08 and removed the same
+# day. It amplified any customer whose volume had shifted, at its peak season
+# (recent_override.md; Skinny Pancake Quechee projected 151 gal vs ~100).
 
 
 def window_rate(daily, first_date, center, half_width):
@@ -608,25 +606,12 @@ def window_rate(daily, first_date, center, half_width):
     return sum(daily.get(start + timedelta(days=i), 0.0) for i in range(days)) / days
 
 
-def growth_ratio(pickups):
-    """Last 12 months' rate / the 12 before, ending at the last pickup, clamped."""
-    n, end = len(pickups), pickups[-1]["date"]
-    now = bcf.rate_between(pickups, n, end - timedelta(days=YEAR_DAYS), end)
-    before = bcf.rate_between(pickups, n, end - timedelta(days=2 * YEAR_DAYS),
-                              end - timedelta(days=YEAR_DAYS))
-    if not now or not before:
-        return None
-    lo, hi = SEASONAL_GROWTH_CLAMP
-    return min(hi, max(lo, now / before))
-
-
 def seasonal_rate(pickups, factor, clock_start, asof):
     """
     The seasonal-open rate (seasonal_formulas.md, chosen 2026-10-08):
 
         A = 0.7 x last year's rate over asof +/- 3 weeks (1-2 years back,
-            averaged) x growth + 0.3 x the last 2 pickups' rate -- Sarge's 70/30,
-            growth = last 12 months / the 12 before (unscaled if unavailable)
+            averaged) + 0.3 x the last 2 pickups' rate        -- Sarge's 70/30
         B = last 3 pickups' rate / the index of the days they cover
                                  x the index of the days being projected
         rate = (A + B) / 2, or whichever exists
@@ -640,9 +625,6 @@ def seasonal_rate(pickups, factor, clock_start, asof):
                                      SEASONAL_LY_HALF_WIDTH) for back in (1, 2))
              if r is not None]
     last_year = statistics.fmean(years) if years else None
-    growth = growth_ratio(pickups)
-    if last_year is not None and growth is not None:
-        last_year *= growth
     last2 = bsm.rate_span(pickups, n - 3, n - 1) if n >= 3 else None
     a = (SEASONAL_LY_WEIGHT * last_year + (1 - SEASONAL_LY_WEIGHT) * last2
          if last_year is not None and last2 is not None else None)

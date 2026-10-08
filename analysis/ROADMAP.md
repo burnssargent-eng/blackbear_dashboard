@@ -125,7 +125,8 @@ moved instead of 62). **Builder change built 2026-10-08** on `builder-ladder`
 (stages, will-call section, calibrated ranges), merged as PR #28.
 **Seasonal-closed detector built 2026-10-08** (`seasonal_closed.md`): 8
 detected closers, open-season rate for every in-season closer, and the
-zero-month shape fix. Seasonal stage now ½ × 70/30 (last year × growth) + ½ × last 3 ÷ index
+zero-month shape fix. Seasonal stage now ½ × 70/30 + ½ × last 3 ÷ index (growth tried and
+removed; frequency override rejected — `recent_override.md`)
 (`seasonal_formulas.md`). Open: Jim's word on Texas Roadhouse, Mad Taco Middlebury (both Nov–Dec "closures") and
 Grand Summit (May–Jul).
 
