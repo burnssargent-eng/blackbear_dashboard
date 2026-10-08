@@ -60,11 +60,16 @@ const SECTION_TEXT = {
     "Bulk accounts collected on request. Container-fill timing does not apply.",
   "lump-sum / interval-based":
     "Accounts collected in lumps at set intervals rather than as a barrel fills.",
+  "will-call":
+    "Picked up on call or too seldom to project: the gaps between pickups " +
+    "are long or irregular (a closed season does not count). No fill " +
+    "estimate — days since the last pickup is the signal.",
   "stale":
     "Active on the source site, but no pickup in the last 180 days, so a " +
     "fill estimate would mean nothing.",
   "insufficient data":
-    "Too little pickup history to form both halves of the rate yet.",
+    "Fewer than 3 pickups. The first pickup only starts the clock, so a " +
+    "rate needs two more.",
 };
 
 let projections = null;     // the parsed oil_projections.json
@@ -151,14 +156,17 @@ function buildShell(page) {
     <div class="note proj-beta">
       <span class="proj-beta-tag">Beta</span>
       Each customer's rate is the average of its gallons per day over the last
-      year and over its last six pickups. <strong>Projected gallons</strong> is
+      year and over its last six pickups. A customer with under a year of
+      history uses its pickups so far (from its third pickup on, with a wider
+      range); a customer with a proven seasonal pattern uses its year-round
+      level adjusted for the month. <strong>Projected gallons</strong> is
       that rate times the days since the last pickup <em>or</em> since the truck
       last checked and found the container empty, whichever is later: the oil
       produced since then, not a promise of what the truck will collect. The pickup point is
       <strong>${target}% of listed capacity</strong>, which leaves a spillover
       buffer. <strong>% full</strong> stops at 100%; a customer projected past
-      that carries a note to check its capacity. Seasonal, event and bulk
-      accounts are listed separately below instead of being ranked. Accounts
+      that carries a note to check its capacity. Seasonal, event, bulk and
+      will-call accounts are listed separately below instead of being ranked. Accounts
       that share one barrel are shown as a single stop.
     </div>
 
@@ -268,6 +276,8 @@ function notesHtml(c) {
   if (c.history_start) lines.push(`History from ${formatDate(c.history_start)} (new owner)`);
   if (c.last_empty_check) lines.push(emptyCheckNote(c));
   if (c.status && c.status !== "50/50 default") lines.push(c.status);
+  if (c.stage === "new") lines.push("New customer — wide range");
+  if (c.stage === "seasonal") lines.push("Seasonal rate (adjusted for the month)");
   (c.flags || []).forEach(f => lines.push(f));
   return lines.length
     ? `<div class="proj-notes">${lines.map(escapeHtml).join("<br>")}</div>`

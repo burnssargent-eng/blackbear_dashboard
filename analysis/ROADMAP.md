@@ -4,7 +4,7 @@ What comes next for the pickup projections, and what is in flight. The method
 and its history are in [`README.md`](README.md); read that first.
 
 Owner: Sarge. Business direction (regions, capacities, what a route means):
-Jim. Last updated 2026-10-06 — **update the "In flight" section whenever a step
+Jim. Last updated 2026-10-08 — **update the "In flight" section whenever a step
 finishes**, so a fresh session does not redo or skip it.
 
 ## In flight
@@ -58,11 +58,13 @@ on the site. `SHARED_CONTAINERS` in the builder shows each barrel as one row.
 2. **Pitchers Inn / Warren Store are NOT grouped**: two 65-gal barrels in one
    shed, pumped together, total split evenly. Kept as two stops; Sarge is
    asking Jim.
-3. **Pingala**'s 100 is its whole barrel now that Volcano is gone. Volcano
-   still shows as active on the site — mark it inactive there.
-4. **Not grouped yet, need an answer:** Farmhouse/Ken's Pizza (together on
-   54 of 55 pickups, 87/13), Grazers/Agave (50/50 until Jan 2026 — ended?),
-   Fox Farm/Suicide 6.
+3. **Pingala**'s 100 is its whole barrel now that Volcano is gone.
+4. Answered 2026-10-07: **Farmhouse/Ken's Pizza** share a parking lot but
+   not a barrel — separate. **Agave** looks inactive and was never shared
+   with Grazers. **Fox Farm/Suicide 6 DO share** (Fox Farm dumps at Suicide
+   6, ~30 gal/yr) — not grouped yet: Suicide 6 (817) is a true-closer
+   override, and `_check_registries` forbids an id in both registries.
+   Decide whether the group takes the override.
 5. Duo/Tulip (300 gal, Brattleboro) shows as stale: no pickup since
    2026-03-30. Still a customer?
 
@@ -74,8 +76,8 @@ on the site. `SHARED_CONTAINERS` in the builder shows each barrel as one row.
   pickup by 34%; from the previous pickup it over-projects by 213% (81
   cases). So a delivery is partly a reset — perhaps a full container swapped
   out, perhaps extra capacity. Ask Jim what a delivery usually means.
-- **2 = customer call** (129 entries). Likely a "this one is full" signal —
-  a candidate for an urgency boost rather than a clock change.
+- **2 = sign-up call** (Jim, 2026-10-08): the day a new client is entered
+  in the system. Says nothing about fullness — not a signal.
 
 ### Small fixes
 
@@ -86,21 +88,43 @@ on the site. `SHARED_CONTAINERS` in the builder shows each barrel as one row.
   configured Dec–Apr comes from pickup months, the inferred Oct–Mar from the
   index shape. Expected.
 
-## Next: steady vs will-call (Sarge's phase 2)
+## Next: newcomer replay (Phase 3, started 2026-10-08)
 
-Separate customers whose oil builds steadily — worth projecting — from those
-collected on call. Sarge's criteria:
+Phase 2 is done (`phase2_rate_models.md`, README decision log 2026-10-07):
+level × month index wins for seasonal-open customers, the recency gate is
+rejected. Its adoption in the builder is pending.
 
-- enough collection volume
-- long enough in the system
-- consistent collections
+The goal: classify and project customers **automatically** as they join (~60
+a year; the median newcomer has 5 pickups in its first 12 months), with no
+manual survey. Design agreed with Sarge 2026-10-08:
 
-Use statistical measures (for example interval regularity, coefficient of
-variation of gallons and of gaps, share of months with a pickup, backtested
-WAPE), then **bring the borderline customers to Sarge for judgement** rather
-than forcing a threshold. Only reliably steady customers get projected; the
-rest are listed, not ranked. This sits alongside the existing overrides, not
-instead of them.
+| Stage | When | Rate | Page |
+|---|---|---|---|
+| Insufficient | 1–2 pickups | – | last pickup X days ago |
+| New | ≥ 3 pickups | pooled rate since the first pickup (≤ last 6 gaps) | wide band, "new" label |
+| Established | ≥ 1 year of history | 50/50 | normal band |
+| Seasonal | passes the seasonal-open test | level × month index | seasonal band |
+| Will-call | lumpy / infrequent detector | none, ever | last pickup X days ago |
+
+- The **first pickup is a starting point only** — never a rate (oil may
+  predate the barrel; deliveries are logged only sometimes).
+- **Lean high, never inflate:** an unbiased estimate plus a calibrated
+  ~80th-percentile band for "as full as" / "hits 75% as early as". Both
+  key metrics: % full now and date reaching 75%.
+- Site periodicity is Jim's sign-up guess, rarely updated; 180/365 usually
+  means will-call. Used to check the detector, not as an input.
+- `backtest_replay_newcomers.py` replays every customer starting 2021+ from
+  its first pickup (choose 2021–23, confirm 2024–26) to set the promotion
+  thresholds, band widths and the will-call rule. Learned shapes and
+  credibility blending (Phase 3b) only if the year-one gap proves costly.
+  Route / truck-tank totals deferred to the route builder.
+
+**Replay done 2026-10-08** (`replay_newcomers.md`; README decision log). The
+ladder holds; bands calibrated; will-call rule made season-aware (25 ranked
+moved instead of 62). **Builder change built 2026-10-08** on `builder-ladder`
+(stages, will-call section, calibrated ranges). Next: an automatic
+seasonal-closed detector, so a new closer is routed like the registry's
+closers instead of being ranked on 50/50 all year.
 
 ## Then: the Projections page (Sarge's vision, 2026-10-01)
 

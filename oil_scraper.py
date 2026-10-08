@@ -53,7 +53,8 @@ EMPTY_QTYS = {0, 1, 2, 3}
 #          pumping. RESET_QTYS: the projection restarts its oil clock there.
 #          Measured 2026-10-05 on 651 intervals: counting from the previous
 #          pickup over-projects the next one by +115%, from the check by +11%.
-#   2    = customer call      (kept; not used by the projection yet)
+#   2    = sign-up call: the day Jim enters a new client (Jim, 2026-10-08);
+#          says nothing about fullness. Kept; not used by the projection.
 #   3    = barrel delivery    (kept; not a reset -- measured as partial)
 RESET_QTYS = {0, 1}
 NON_PICKUP_FILE = "oil_non_pickups.csv"

@@ -22,12 +22,16 @@ and commits the results to `main`. Everything else is run by hand.
 **What step 2 computes, per active customer (`is_active` from the source site):**
 
 ```
-rate       = 0.5 × previous-year rate + 0.5 × last-6-pickups rate      (gal/day)
+rate       = by stage (the ladder, since 2026-10-08):
+             new          pooled gallons ÷ days over ≤ the last 6 gaps (3+ pickups)
+             established  0.5 × previous-year rate + 0.5 × pooled (= last 6 once 7+ pickups)
+             seasonal     season-free level × month index (seasonal_open.py passes)
 clock      = the last pickup, or a later empty check (qty 0 or 1), whichever is later
 projected  = rate × days since the clock started                         (gallons)
 target     = 0.75 × listed capacity                                      (the pickup point)
 % full     = projected ÷ capacity, capped at 100 for display (raw kept in _detail.csv)
-band       = ± the customer's own backtested WAPE (analysis/customer_wape.json), else ±20%
+band       = ± the customer's own backtested WAPE (analysis/customer_wape.json) once past
+             "new", else projection × RANGE_FACTORS (20th–80th pct, replay_newcomers.md)
 ```
 
 Before routing, accounts in `SHARED_CONTAINERS` are folded into one row per
@@ -39,13 +43,16 @@ Then every row is **routed** to one section, in this order:
 1. `MODEL_OVERRIDES` (in the builder, keyed by customer id, name asserted) sends
    **on-demand** (Perrigo), **event-driven** (Champlain Valley Expo, Tunbridge
    Fair) and **lump-sum** accounts to their own sections, with no fill estimate.
-2. **Insufficient data** — either rate cannot be formed.
-3. **True closers** are held out whenever the month is outside their
+2. **Will-call** (detected, never for an override, not once stale) — median
+   gap over 120 days in the last 3 years, or gap sd/mean over 0.8 once gaps
+   over 3× the median are dropped as closures. Listed, no fill estimate.
+3. **Insufficient data** — fewer than 3 pickups.
+4. **True closers** are held out whenever the month is outside their
    month-level season; **semi-closers** only when off-season *and* silent past
    max(60, 2 × median gap) days. Either is held out as *season open — awaiting
    first pickup* until it gets a pickup inside the current season.
-4. **Stale** — no pickup in 180 days.
-5. Everything else is **ranked**, including *seasonal open-ish* overrides,
+5. **Stale** — no pickup in 180 days.
+6. Everything else is **ranked** on its stage's rate, including *seasonal open-ish* overrides,
    most urgent first (days past capacity, days past 75%, % full).
 
 The automatic seasonality heuristic survives only as a `review_hint` column.
@@ -54,7 +61,9 @@ Customers are added to `MODEL_OVERRIDES` by a human, informed by
 
 **Dependencies between scripts.** The builder imports `backtest_steady_rate`
 (both rates), `seasonality_score` (monthly shape), `backtest_seasonal_models`
-(`CLOSED_INDEX`) and `build_fringe_seasonal_candidates` (season helpers and
+(`CLOSED_INDEX`, `rate_span`), `backtest_customer_factors` / `customer_factors`
+(the seasonal level and index), `seasonal_open` (the seasonal-open test, shared
+with `backtest_phase2_rates`) and `build_fringe_seasonal_candidates` (season helpers and
 the silence rule). The fringe script in turn reads `oil_projection_table.csv`
 for its `projection_status` column, so run the builder first.
 
@@ -76,6 +85,10 @@ capacity is fixed on the site and arrives with the next nightly. See
 | 2026-10-05 | Jim's capacity review received; 103 to enter on the site, 9 to confirm with him | [`ROADMAP.md`](ROADMAP.md) |
 | 2026-10-06 | **Shared barrels shown as one stop** (`SHARED_CONTAINERS`, 15 groups). Each account records only its share of the gallons, so the barrel is the members' gallons summed by date; combined rate = sum of member rates. Capacity convention with Jim: the full barrel on every member. `HISTORY_STARTS` for new owners on old accounts (JJ's, 2026-09-22) | builder |
 | 2026-10-05 | **Empty checks (qty 0 / 1) restart the oil clock.** On 651 intervals with a 1 between two pickups, counting from the pickup over-projected the next pickup by +115% (WAPE 134%); counting from the 1, +11% (WAPE 81%). Rate unchanged. 3 (barrel delivery) tested as only a partial reset (+213% → −34%) and left out | `oil_scraper.py` (`RESET_QTYS`, `oil_non_pickups.csv`), builder `load_empty_checks` |
+| 2026-10-07 | **Phase 2 rate tests** (research only, builder unchanged). Seasonal-open customers (29, scored from prior years only, with a 1000-shuffle noise test): season-free **level × month index** −14.5 WAPE points vs 50/50 on the 2025–26 holdout (−20.3 to −9.6), bias −6%; last 3 ÷ index × coming index −13.1, bias +0%; Sarge's last-year ±3 wk + last 2 at 70/30 −7.6, 50/50 −5.3. **Recency gate rejected** (last 2–3 vs the 3 before, >30/50/75%): −0.6 in choose, **+0.6 worse** confirmed, +1.9 on the pickups it fired on. EWMA −0.4: real, too small to adopt. Adoption of the index model for seasonal-open customers pending | `backtest_phase2_rates.py`, `phase2_rate_models.md` |
+| 2026-10-08 | Newcomer design agreed with Sarge: **lumpy accounts are will-call** (last pickup X days ago, never projected); a customer's **first pickup is a starting point only**, never a rate; ≥ 3 pickups → "new" projection with a wide band; lean toward the high side via a band, never by inflating the estimate; shared-barrel members modelled separately in research. Partial pickups (truck nearly full) are absorbed by the pooled last-6 rate — not modelled. Code 2 is the sign-up call, not a fullness call | [`ROADMAP.md`](ROADMAP.md) |
+| 2026-10-08 | **Newcomer replay** (research; 354 customers starting 2021+, pickups > `STALE_DAYS` apart left out). Pooled-rate error falls from ~53% at 2 measured gaps (the 3-pickup rule) to ~42% at 3–4 and ~37% by 7+; **3 pickups kept**, with a wider band. Promotion to 50/50 at one year −1.1 points (−1.7 to −0.6). Calibrated high-side factors (80th pct of actual ÷ projected, chosen 2021–23): new ×1.64 / ×1.49 / ×1.35 at 2 / 3 / 4–6 gaps, established ×1.45; holdout coverage 75–82%. Today's ±20% default band is far too narrow for newcomers. **Will-call rule: median gap > 120 d or gap sd/mean > 0.8** — 81% of Jim's labels caught; flagged pickups ~70% WAPE and −20% bias vs 29% for the rest. It also flags seasonal closers (off-season gap); a robust IQR variant did worse. Seasonal stage reached by 4 newcomers only, so learned shapes (Phase 3b) are not needed now. **Revised same day:** the sd/mean rule pulled 62 ranked customers, mostly summer businesses; the **season-aware** rule (gaps > 3× the median count as closures and are dropped first; median gap > 120 d or remaining sd/mean > 0.8) was chosen on 2021–23 gaps (F1 0.52, confirm 0.47) and moves 25. Likely range for rows without their own WAPE: projection × 20th–80th pct factors, new ×0.60–1.64 / ×0.71–1.49 / ×0.70–1.35, established ×0.75–1.45 |
+| 2026-10-08 | **Ladder in the builder.** Stages new / established / seasonal placed automatically; will-call detector (overrides win; stale wins); calibrated ranges replace ±20% for rows without their own WAPE. Established rates unchanged; seasonal-open customers (19 ranked) move to level × month index. The seasonal-open test moved to `seasonal_open.py` (phase 2 report regenerates identically) | builder, `projections.html` | `backtest_replay_newcomers.py`, `replay_newcomers.md` |
 
 ## Known weaknesses of the current model
 
@@ -312,6 +325,8 @@ no-lookahead:
 | `customer_factors.py` → `customer_cyclicality.md` | Per-customer monthly/quarterly factors and the screen of who has a repeating pattern |
 | `backtest_customer_factors.py` → `customer_factor_model_test.md` | Whether those factors beat the 50/50 baseline — explicit, naive and residual forms |
 | `build_fringe_seasonal_candidates.py` → `fringe_seasonal_candidates.md` | Review table of seasonal / closer / call-driven / event / on-demand candidates. Labels are prompts, not classifications |
+| `backtest_phase2_rates.py` → `phase2_rate_models.md` | Phase 2: seasonal-open detection from prior years (with a shuffle noise test), Sarge's last-year ±3 wk formula, month-index models, recency gates and EWMA; choose 2023–24, confirm 2025–26 |
+| `backtest_replay_newcomers.py` → `replay_newcomers.md` | Phase 3: every newcomer replayed from its first pickup through the insufficient / new / established / seasonal ladder; learning curve, calibrated high-side bands, will-call rule |
 | `build_projection_table.py` → `oil_projection_table.md`, `../oil_projections.json` | The production projection: 50/50 rate, `MODEL_OVERRIDES`, routing, capped % full. Run nightly |
 | `customer_wape.json` | Committed snapshot of per-customer 50/50 WAPE for the confidence bands. Rebuild with `--refresh-wape` after rerunning `test_routing_rule.py` / `backtest_seasonal_models.py` |
 
@@ -333,6 +348,8 @@ python3 analysis/backtest_seasonal_models.py                            # four m
 python3 analysis/test_routing_rule.py                                   # held-out rule test
 python3 analysis/customer_factors.py                                    # per-customer factors
 python3 analysis/backtest_customer_factors.py                           # do the factors help?
+python3 analysis/backtest_phase2_rates.py                               # phase 2 rate tests (a few minutes)
+python3 analysis/backtest_replay_newcomers.py                           # newcomer replay (seconds)
 python3 analysis/build_projection_table.py                              # projections (the nightly runs this)
 python3 analysis/build_projection_table.py --as-of 2026-06-30           # what-if date; never writes the site file
 python3 analysis/build_projection_table.py --refresh-wape               # rebuild customer_wape.json

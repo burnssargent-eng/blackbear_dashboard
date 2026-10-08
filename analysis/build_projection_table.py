@@ -21,17 +21,29 @@ It is not a promise of how many gallons the truck will collect: that depends on
 route timing, container count, partial pickups and data quality. Treat it as a
 queue ordering, not a forecast of volume.
 
-Eligibility is strict. A customer is modelled only when BOTH rates can be
-formed; with one missing it is reported as insufficient data rather than
-projected from half the model. Customers with no pickup in STALE_DAYS still get
-every column but are held out of the urgency ranking, because rate x days grows
-without limit and would otherwise fill the top of the table.
+THE LADDER (since 2026-10-08; replay_newcomers.md). Every customer is placed
+automatically, so a new account needs no manual survey:
 
-Monthly seasonality indices are DIAGNOSTIC ONLY here. They are not multiplied
-into the projection: last-6 spans a median of ~131 days and the previous-year
-rate carries the same season a year earlier, so both already contain the
-seasonal signal, and applying an index on top double-counts it. That was
-measured and rejected in analysis/customer_factor_model_test.md.
+    insufficient  fewer than 3 pickups         no projection
+    new           3+ pickups, no prev-year     pooled rate over at most the last
+                                               6 gaps (never the FIRST pickup's
+                                               gallons: oil may predate the barrel)
+    established   a previous-year rate exists  0.5 x pooled + 0.5 x previous year
+                                               (= the 50/50 above once 7+ pickups)
+    seasonal      seasonal_open.classify       season-free level x month index
+                  passes (prior years only)    (phase2_rate_models.md)
+    will-call     long or irregular gaps       no projection, ever
+
+The will-call detector (median gap > 120 days, or gap sd/mean > 0.8 once gaps
+over 3x the median -- a closer's off-season -- are dropped) runs only for
+customers NOT in MODEL_OVERRIDES: a human decision always wins. Customers with
+no pickup in STALE_DAYS still get every column but are held out of the urgency
+ranking, because rate x days grows without limit and would otherwise fill the
+top of the table.
+
+Monthly indices enter the projection ONLY for seasonal-stage customers, and
+only on the season-free level. Multiplying the 50/50 by an index double-counts
+the season -- measured and rejected in customer_factor_model_test.md.
 
 Capacity flags are review prompts. A listed capacity is NEVER overwritten.
 
@@ -66,15 +78,19 @@ backtest CSVs, so the nightly and a local run agree.
 import argparse
 import csv
 import json
+import random
 import statistics
 from collections import defaultdict
 from datetime import date, timedelta
 from pathlib import Path
 from typing import NamedTuple
 
+import backtest_customer_factors as bcf
 import backtest_seasonal_models as bsm
 import backtest_steady_rate as bt
 import build_fringe_seasonal_candidates as fringe
+import customer_factors as cf
+import seasonal_open
 import seasonality_score as ss
 
 HERE = Path(__file__).resolve().parent
@@ -115,8 +131,29 @@ YEAR_DAYS = bt.YEAR_DAYS        # 365, matching the backtests
 # 2025-01-01", so it admits customers years past their last pickup.
 STALE_DAYS = 180
 
-# Band when the customer has no backtested WAPE of its own.
-DEFAULT_BAND_PCT = 20.0
+# The ladder (replay_newcomers.md, 2026-10-08).
+NEW_MIN_PICKUPS = 3             # the first is a starting point: 3 pickups = 2 gaps
+STAGE_NEW = "new"
+STAGE_ESTABLISHED = "established"
+STAGE_SEASONAL = "seasonal"
+
+# Will-call: chosen on 2021-23 gaps, confirmed on 2024-26.
+WILL_CALL_WINDOW_DAYS = 3 * 365
+WILL_CALL_MEDIAN_GAP = 120      # days
+WILL_CALL_GAP_CV = 0.8          # sd / mean of the gaps that are not closures
+WILL_CALL_CLOSURE_MULTIPLE = 3  # a gap over 3x the median is a closure
+
+# Likely range for rows WITHOUT a backtested WAPE of their own: projection x
+# the 20th and 80th percentiles of actual / projected in the replay's choose
+# period, by stage and measured gaps. Replaces a flat +/-20%, which real
+# newcomer error (40-55% WAPE) made far too narrow. Seasonal rows use the
+# established factors (too few replay pickups for their own).
+RANGE_FACTORS = {
+    "new, 2 gaps": (0.60, 1.64),
+    "new, 3 gaps": (0.71, 1.49),
+    "new, 4+ gaps": (0.70, 1.35),
+    STAGE_ESTABLISHED: (0.75, 1.45),
+}
 
 RECENT_PICKUPS = 10             # "recent" for the strong capacity flag
 SOFT_FLAG_YEARS = 2             # "recent" for the soft capacity flag
@@ -140,11 +177,12 @@ SECTION_SEASONAL = "seasonal holdout"
 SECTION_EVENT = "event-driven"
 SECTION_ON_DEMAND = "on-demand / unlimited"
 SECTION_LUMP_SUM = "lump-sum / interval-based"
+SECTION_WILL_CALL = "will-call"
 SECTION_STALE = "stale"
 SECTION_INSUFFICIENT = "insufficient data"
 
 SECTION_ORDER = [SECTION_RANKED, SECTION_SEASONAL, SECTION_EVENT,
-                 SECTION_ON_DEMAND, SECTION_LUMP_SUM, SECTION_STALE,
+                 SECTION_ON_DEMAND, SECTION_LUMP_SUM, SECTION_WILL_CALL, SECTION_STALE,
                  SECTION_INSUFFICIENT]
 
 # Final model statuses. model_status on every row is one of these.
@@ -155,6 +193,7 @@ STATUS_OPEN_ISH = "seasonal open-ish"
 STATUS_EVENT = "event-driven"
 STATUS_ON_DEMAND = "on-demand / unlimited"
 STATUS_LUMP_SUM = "lump-sum / interval-based"
+STATUS_WILL_CALL = "will-call (detected)"
 STATUS_INSUFFICIENT = "insufficient data"
 STATUS_STALE = "stale - projection not meaningful"
 
@@ -449,7 +488,7 @@ def new_owner_row(cid, extra, capacity, regions, asof):
         "table_section": SECTION_INSUFFICIENT, "customer_id": cid,
         "customer": extra["name"], "town": extra["town"],
         "region_names": "; ".join(regions.get(cid, [])),
-        "model_status": STATUS_INSUFFICIENT,
+        "model_status": STATUS_INSUFFICIENT, "stage": None,
         "routing_reason": f"new owner since {start.isoformat()}, no pickup yet",
         "active_season": None, "review_hint": None, "flags": "; ".join(flags),
         "last_pickup_date": None, "days_since_last_pickup": (asof - start).days,
@@ -467,6 +506,7 @@ def new_owner_row(cid, extra, capacity, regions, asof):
         "current_month_index": None, "top_month": None, "top_month_index": None,
         "bottom_month": None, "bottom_month_index": None,
         "oil_rate_gpd_prev_year": None, "oil_rate_gpd_prev_6_pickups": None,
+        "oil_rate_gpd_pooled": None, "seasonal_level_gpd": None,
         "model_wape_if_available": None, "confidence_band_used": "",
         "history_start": start, "registry_note": extra["note"],
         "_pickups": 0, "_first_pickup": "", "_season": None,
@@ -516,6 +556,102 @@ def rate_prev_year_asof(pickups, asof, lookback=YEAR_DAYS):
     if days <= 0:
         return None
     return sum(p["gallons"] for p in pickups[i + 1:]) / days
+
+
+def rate_pooled(pickups):
+    """
+    Gallons over days across at most the last WINDOW gaps, or None.
+
+    The window's first pickup only marks where the days start, so the FIRST
+    pickup a customer ever had never contributes gallons. With 7+ pickups this
+    is exactly rate_last_six.
+    """
+    n = len(pickups)
+    if n < 2:
+        return None
+    return bsm.rate_span(pickups, max(0, n - 1 - WINDOW), n - 1)
+
+
+def seasonal_level(pickups):
+    """
+    The season-free level at the live edge: bcf.base_rates' level (trailing
+    365 days, blended 50/50 with the year before when it exists), keyed to the
+    last pickup. base_rates itself reads the NEXT pickup, which does not exist
+    here; rate_between only reads pickups before index len(pickups).
+    """
+    n, end = len(pickups), pickups[-1]["date"]
+    trailing = bcf.rate_between(pickups, n, end - timedelta(days=YEAR_DAYS), end)
+    prior = bcf.rate_between(pickups, n, end - timedelta(days=2 * YEAR_DAYS),
+                             end - timedelta(days=YEAR_DAYS))
+    if trailing is not None and prior is not None:
+        return 0.5 * trailing + 0.5 * prior
+    return trailing
+
+
+def seasonal_factor(cid, pickups, asof):
+    """
+    The 12-month index when the customer is seasonal-open for asof's year,
+    scored from complete years before it; otherwise None. The shuffles are
+    seeded per customer and year so the result never depends on build order.
+    """
+    season = seasonal_open.season_for_year(pickups, asof.year)
+    rng = random.Random(f"{cid}-{asof.year}")
+    label, _ = seasonal_open.classify(season, rng)
+    return season["factor"] if label == seasonal_open.SEASONAL_OPEN else None
+
+
+def seasonal_gallons(level, factor, start, end):
+    """Oil produced over the days (start, end] at level x that month's index."""
+    if end <= start:
+        return 0.0
+    return level * (end - start).days * cf.gap_weighted(factor, start, end)
+
+
+def seasonal_days_to(level, factor, start, have, target, direction=1, limit=3 * 365):
+    """
+    Days, walking from `start` (forward, or backward with direction=-1), until
+    production at level x index takes `have` gallons to `target`. Forward it
+    answers "days until"; backward, "days since it passed". None if never.
+    """
+    day, gallons = start, have
+    for n in range(1, limit + 1):
+        if direction > 0:
+            day += timedelta(days=1)
+            gallons += level * factor[day.month - 1]
+            if gallons >= target:
+                return float(n)
+        else:
+            gallons -= level * factor[day.month - 1]
+            day -= timedelta(days=1)
+            if gallons < target:
+                return float(n)
+    return None
+
+
+def will_call_signal(pickups, asof):
+    """
+    The routing reason when the gaps over the last WILL_CALL_WINDOW_DAYS say
+    will-call, else None. Gaps longer than WILL_CALL_CLOSURE_MULTIPLE x the
+    median are a closer's off-season and are left out of the irregularity
+    measure, so a summer business is not called irregular for closing.
+    """
+    recent = [p for p in pickups
+              if p["date"] >= asof - timedelta(days=WILL_CALL_WINDOW_DAYS)]
+    if len(recent) < NEW_MIN_PICKUPS:
+        return None
+    gaps = [g for g in ((b["date"] - a["date"]).days for a, b in zip(recent, recent[1:]))
+            if g > 0]
+    if not gaps:
+        return None
+    median = statistics.median(gaps)
+    if median > WILL_CALL_MEDIAN_GAP:
+        return f"median gap {median:.0f} days (over {WILL_CALL_MEDIAN_GAP})"
+    open_gaps = [g for g in gaps if g <= WILL_CALL_CLOSURE_MULTIPLE * median]
+    if len(open_gaps) >= 3:
+        spread = statistics.pstdev(open_gaps) / statistics.fmean(open_gaps)
+        if spread > WILL_CALL_GAP_CV:
+            return f"irregular gaps (sd/mean {spread:.2f}, over {WILL_CALL_GAP_CV})"
+    return None
 
 
 # ─────────────────────────────────────────────
@@ -581,8 +717,8 @@ def load_customer_wape():
     them when present would make local and nightly bands disagree.
     """
     if not WAPE_SNAPSHOT.exists():
-        print(f"  note: {WAPE_SNAPSHOT.name} missing; every band is the "
-              f"default +/-{DEFAULT_BAND_PCT:.0f}%")
+        print(f"  note: {WAPE_SNAPSHOT.name} missing; every band comes from "
+              "RANGE_FACTORS")
         return {}
     return {int(cid): value
             for cid, value in json.loads(WAPE_SNAPSHOT.read_text()).items()}
@@ -769,22 +905,31 @@ def silence_threshold(pickups):
             if gap else fringe.SILENCE_FLOOR_DAYS)
 
 
-def route(override, has_both_rates, days_since, last_date, pickups, asof):
+def route(override, has_rate, days_since, last_date, pickups, asof, will_call=None):
     """
     (model_status, table_section, routing_reason) for one row.
 
-    Precedence: no-rate overrides -> insufficient data -> seasonal holdouts ->
-    stale -> ranked. The seasonal rules run before the stale rule, so a closer
-    that has been shut since spring is reported as off-season, not as lost.
+    Precedence: no-rate overrides -> will-call (detected, never for an
+    override, and not once stale: a long-silent account is reported as
+    stale, which says more) -> insufficient data -> seasonal holdouts ->
+    stale -> ranked.
+    The seasonal rules run before the stale rule, so a closer that has been
+    shut since spring is reported as off-season, not as lost.
     """
     status = override.status if override else STATUS_DEFAULT
 
     if status in NO_RATE_SECTIONS:
         return status, NO_RATE_SECTIONS[status], "not a daily-rate account"
 
-    if not has_both_rates:
+    if will_call and not override and days_since <= STALE_DAYS:
+        return STATUS_WILL_CALL, SECTION_WILL_CALL, will_call
+
+    if not has_rate:
+        reason = (f"{len(pickups)} pickup{'s' if len(pickups) != 1 else ''} so far; "
+                  f"projections start at {NEW_MIN_PICKUPS}"
+                  if len(pickups) < NEW_MIN_PICKUPS else "")
         return (status if override else STATUS_INSUFFICIENT,
-                SECTION_INSUFFICIENT, "")
+                SECTION_INSUFFICIENT, reason)
 
     if status in SEASONAL_STATUSES:
         opened = season_opened(override.season, asof)
@@ -832,10 +977,22 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
     clock_start = last_check or last["date"]
     days_accumulating = (asof - clock_start).days
 
+    # The ladder. last6 is kept for the detail column; pooled equals it once
+    # there are 7+ pickups, so established rows keep today's 50/50 exactly.
     last6 = rate_last_six(pickups)
+    pooled = rate_pooled(pickups)
     prev_year = rate_prev_year_asof(pickups, asof)
-    has_both = last6 is not None and prev_year is not None
-    rate = (last6 + prev_year) / 2 if has_both else None
+    gaps = len(pickups) - 1
+    stage = rate = level = factor = None
+    if len(pickups) >= NEW_MIN_PICKUPS and pooled is not None:
+        if prev_year is not None:
+            stage, rate = STAGE_ESTABLISHED, (pooled + prev_year) / 2
+            factor = seasonal_factor(cid, pickups, asof)
+            level = seasonal_level(pickups) if factor else None
+            if level:
+                stage = STAGE_SEASONAL
+        else:
+            stage, rate = STAGE_NEW, pooled
 
     avg_collection = average_collection(pickups)
     season = seasonality(pickups)
@@ -851,27 +1008,54 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
     # not oil); "awaiting first pickup" uses the clock, so an in-season empty
     # check counts as a fresh start.
     status, section, routing_reason = route(
-        override, has_both, days_since, clock_start, pickups, asof)
+        override, rate is not None, days_since, clock_start, pickups, asof,
+        will_call_signal(pickups, asof))
     hint = None if override else review_hint(season)
 
-    projected = rate * days_accumulating if rate is not None else None
     target = capacity * TARGET_FRACTION if capacity is not None else None
+    if stage == STAGE_SEASONAL:
+        # Season-free level x the index of the months actually elapsed; the
+        # rate shown is the average over them.
+        projected = seasonal_gallons(level, factor, clock_start, asof)
+        rate = projected / days_accumulating if days_accumulating > 0 else level
+    else:
+        projected = rate * days_accumulating if rate is not None else None
 
-    # Confidence band: the customer's own backtested WAPE where it exists,
-    # otherwise a flat default. Six customers score over 100% WAPE, so the low
-    # end is clamped at zero rather than allowed to go negative.
-    band_pct = wape.get(cid, DEFAULT_BAND_PCT)
-    band_used = (f"customer WAPE {wape[cid]:.1f}%" if cid in wape
-                 else f"default +/-{DEFAULT_BAND_PCT:.0f}%")
+    # Likely range: the customer's own backtested WAPE where it exists (an
+    # established customer), otherwise the replay's calibrated factors for the
+    # stage. Six customers score over 100% WAPE, so the low end is clamped at
+    # zero rather than allowed to go negative.
     low = high = None
+    band_used = ""
     if projected is not None:
-        low = max(0.0, projected * (1 - band_pct / 100))
-        high = projected * (1 + band_pct / 100)
+        if stage != STAGE_NEW and cid in wape:
+            band_pct = wape[cid]
+            band_used = f"customer WAPE {band_pct:.1f}%"
+            low = max(0.0, projected * (1 - band_pct / 100))
+            high = projected * (1 + band_pct / 100)
+        else:
+            key = (STAGE_ESTABLISHED if stage != STAGE_NEW
+                   else f"new, {gaps} gaps" if gaps <= 3 else "new, 4+ gaps")
+            lo_f, hi_f = RANGE_FACTORS[key]
+            band_used = f"calibrated {key}: x{lo_f:.2f} to x{hi_f:.2f}"
+            low, high = projected * lo_f, projected * hi_f
 
     raw_pct = days_until = days_past_75 = days_past_cap = periodicity = None
     if projected is not None and capacity:
         raw_pct = projected / capacity * 100
-        if rate > 0:
+        if stage == STAGE_SEASONAL and level > 0:
+            if projected < target:
+                days_until = seasonal_days_to(level, factor, asof, projected, target)
+                days_past_75 = 0.0
+            else:
+                days_past_75 = seasonal_days_to(level, factor, asof, projected,
+                                                target, direction=-1)
+                days_until = -days_past_75 if days_past_75 is not None else None
+            days_past_cap = (seasonal_days_to(level, factor, asof, projected,
+                                              capacity, direction=-1)
+                             if projected > capacity else 0.0)
+            periodicity = seasonal_days_to(level, factor, asof, 0.0, target)
+        elif rate > 0:
             days_until = (target - projected) / rate
             days_past_75 = abs(days_until) if projected > target else 0.0
             days_past_cap = ((projected - capacity) / rate
@@ -900,6 +1084,7 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
         "town": last["town"],
         "region_names": "; ".join(regions.get(cid, [])),
         "model_status": status,
+        "stage": stage,
         "routing_reason": routing_reason,
         "active_season": configured_season,
         "review_hint": hint,
@@ -937,6 +1122,8 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
         "bottom_month_index": season["trough_index"] if season else None,
         "oil_rate_gpd_prev_year": prev_year,
         "oil_rate_gpd_prev_6_pickups": last6,
+        "oil_rate_gpd_pooled": pooled,
+        "seasonal_level_gpd": level,
         "model_wape_if_available": wape.get(cid),
         "confidence_band_used": band_used,
         # Detail-only, and for sorting.
@@ -956,6 +1143,10 @@ def sort_key(row):
     def desc(value):
         return -value if value is not None else 1.0
 
+    # Will-call rows have no fill estimate: longest since the last pickup first.
+    if row["table_section"] == SECTION_WILL_CALL:
+        return (-row["days_since_last_pickup"], 0, 0, 0, row["customer_id"])
+
     # The raw model values, not the display ones: identical for ranked rows,
     # and they keep a sensible order inside the held-out sections too.
     return (
@@ -973,7 +1164,7 @@ def sort_key(row):
 
 MAIN_FIELDS = [
     "table_section", "customer_id", "customer", "town", "region_names",
-    "model_status", "routing_reason", "active_season", "review_hint",
+    "model_status", "stage", "routing_reason", "active_season", "review_hint",
     "flags", "shared_members_text", "history_start",
     "last_pickup_date", "days_since_last_pickup",
     "last_empty_check", "days_accumulating",
@@ -998,6 +1189,7 @@ ROUNDING = {
     "model_days_past_capacity": 1,
     "current_month_index": 2, "top_month_index": 2, "bottom_month_index": 2,
     "oil_rate_gpd_prev_year": 3, "oil_rate_gpd_prev_6_pickups": 3,
+    "oil_rate_gpd_pooled": 3, "seasonal_level_gpd": 3,
     "model_wape_if_available": 2,
 }
 
@@ -1022,13 +1214,13 @@ def write_main(rows):
 
 
 DETAIL_FIELDS = [
-    "customer_id", "customer", "town", "table_section", "model_status",
+    "customer_id", "customer", "town", "table_section", "model_status", "stage",
     "routing_reason", "active_season", "inferred_active_season",
     "override_reason", "review_hint", "flags",
     "shared_members_text", "history_start", "registry_note",
     "pickup_count", "first_pickup", "last_pickup_date",
     "days_since_last_pickup", "last_empty_check", "days_accumulating",
-    "oil_rate_gpd_prev_6_pickups",
+    "oil_rate_gpd_prev_6_pickups", "oil_rate_gpd_pooled", "seasonal_level_gpd",
     "oil_rate_gpd_prev_year", "oil_rate_gpd_projected",
     "model_projected_gallons", "raw_pct_of_listed_capacity",
     "model_days_until_75pct", "model_days_past_75pct",
@@ -1082,6 +1274,7 @@ def write_json(rows, asof):
         "regions": r["region_names"].split("; ") if r["region_names"] else [],
         "section": r["table_section"],
         "status": r["model_status"],
+        "stage": r["stage"],
         "reason": r["routing_reason"] or None,
         "season": r["active_season"],
         "last_pickup": r["last_pickup_date"],
@@ -1215,6 +1408,7 @@ def write_report(rows, asof, counts):
     on_demand = [r for r in rows if r["table_section"] == SECTION_ON_DEMAND]
     event = [r for r in rows if r["table_section"] == SECTION_EVENT]
     lump_sum = [r for r in rows if r["table_section"] == SECTION_LUMP_SUM]
+    will_call = [r for r in rows if r["table_section"] == SECTION_WILL_CALL]
 
     capacity_problems = sorted(
         (r for r in ranked if FLAG_CAPACITY_STALE in r["flags"]),
@@ -1234,11 +1428,17 @@ the site reads this folder. Percentages are in percent units.
 
 For each active customer, at the as-of date:
 
-- **previous 6 pickups rate** = gallons at *x-6* … *x-1* over the days from
-  *x-7* to *x-1* (`bt.rate_rolling`, the backtest's own window)
+- **pooled rate** = gallons over days across at most the last {WINDOW} gaps;
+  with {WINDOW + 1}+ pickups this is the previous-6-pickups rate (*x-6* … *x-1*
+  over *x-7* to *x-1*, `bt.rate_rolling`). The first pickup a customer ever
+  had only marks where the days start: its gallons never enter a rate
 - **previous year rate** = gallons since the latest pickup at least
   {YEAR_DAYS} days before the as-of date, over that same span
-- **projected rate** = 0.5 x previous year + 0.5 x previous 6 pickups
+- **projected rate**, by stage (the ladder, `replay_newcomers.md`):
+  *new* (3+ pickups, no previous-year rate) = pooled; *established* = 0.5 x
+  previous year + 0.5 x pooled; *seasonal* (passes the seasonal-open test,
+  `seasonal_open.py`, scored from complete years before this one) =
+  season-free level x the month index of the days elapsed
 - **projected gallons** = projected rate x days since the last pickup, or
   since a later empty check (quantity 0 or 1 in `oil_non_pickups.csv`),
   whichever is later: the truck looked and found nothing worth pumping
@@ -1250,9 +1450,12 @@ For each active customer, at the as-of date:
 The 50/50 blend is the default chosen in `analysis/README.md`. Both component
 formulas are reused from `backtest_steady_rate.py` rather than restated.
 
-**Eligibility is strict.** A customer is projected only when BOTH rates can be
-formed. With one missing it is reported as *insufficient data* and no
-projection is emitted, rather than projecting from half the model.
+**The ladder.** Fewer than {NEW_MIN_PICKUPS} pickups is *insufficient data*.
+A customer not in `MODEL_OVERRIDES` whose gaps over the last
+{WILL_CALL_WINDOW_DAYS // 365} years have a median over {WILL_CALL_MEDIAN_GAP}
+days, or an sd/mean over {WILL_CALL_GAP_CV} once gaps over
+{WILL_CALL_CLOSURE_MULTIPLE}x the median (a closer's off-season) are dropped,
+is *will-call*: listed, never projected.
 
 **Supporting definitions.**
 
@@ -1265,9 +1468,11 @@ projection is emitted, rather than projecting from half the model.
   current year is excluded as incomplete. A year inside the customer's own span
   with no pickups counts as a real zero.
 - *confidence range* -- the customer's own backtested 50/50 WAPE where one
-  exists ({counts['with_wape']} of the {len(ranked)} ranked rows), otherwise a
-  flat +/-{DEFAULT_BAND_PCT:.0f}%. The low end is clamped at zero, since a few
-  customers score over 100% WAPE.
+  exists and the customer is past the *new* stage ({counts['with_wape']} of the
+  {len(ranked)} ranked rows), otherwise the projection x the replay's 20th
+  and 80th percentile factors for its stage: {"; ".join(
+      f"{k} x{lo:.2f}-x{hi:.2f}" for k, (lo, hi) in RANGE_FACTORS.items())}. The
+  low end is clamped at zero, since a few customers score over 100% WAPE.
 - *stale* -- no pickup in {STALE_DAYS} days. Every column is still computed,
   but the row is held out of the ranking: `is_active` only means "not dormant
   since 2025-01-01", so it admits customers years past their last pickup and
@@ -1290,19 +1495,23 @@ precedence order:
 1. **{STATUS_ON_DEMAND}**, **{STATUS_EVENT}** and **{STATUS_LUMP_SUM}** accounts
    never take a daily-rate urgency. Each has its own section. No account is
    assigned *{STATUS_LUMP_SUM}*: nothing in the data justifies one yet.
-2. **insufficient data** -- one of the two rates cannot be formed.
-3. **{STATUS_TRUE_CLOSER}** -- outside its configured month-level season it is
+2. **{STATUS_WILL_CALL}** -- the detector above, for customers NOT in the
+   registry and not stale. A human override always wins over it. Listed
+   longest-since-pickup first.
+3. **insufficient data** -- fewer than {NEW_MIN_PICKUPS} pickups.
+4. **{STATUS_TRUE_CLOSER}** -- outside its configured month-level season it is
    held out as *off-season*, however long the silence. In season, if the last
    pickup came before the season opened, it is held out as *season open --
    awaiting first pickup*, so the closed months are never counted as
    production. With a pickup this season it is ranked on the 50/50 default.
-4. **{STATUS_SEMI_CLOSER}** -- the same, except off-season it is held out only
+5. **{STATUS_SEMI_CLOSER}** -- the same, except off-season it is held out only
    once silent longer than max({fringe.SILENCE_FLOOR_DAYS},
    {fringe.SILENCE_GAP_MULTIPLE} x median gap) days -- the fringe table's
    *no recent call signal* rule. A recent off-season call keeps it ranked.
-5. **stale** -- no pickup in {STALE_DAYS} days.
-6. Everything else is ranked. **{STATUS_OPEN_ISH}** customers stay here on the
-   50/50 default: strongly seasonal, but they never shut.
+6. **stale** -- no pickup in {STALE_DAYS} days.
+7. Everything else is ranked, on its stage's rate. **{STATUS_OPEN_ISH}**
+   customers are ranked like anyone else; those that pass the seasonal-open
+   test take the seasonal rate.
 
 Held-out rows keep their rates, averages, history and capacity flags, but the
 main CSV leaves projected gallons, range, % full and the day counts blank --
@@ -1320,13 +1529,15 @@ Capacity problems are reported in *flags*, separately from the model status.
 | | |
 |---|---:|
 | Active customers considered | {counts['active']} |
-| Model-ready (both rates) | {counts['model_ready']} |
+| Model-ready (a stage rate) | {counts['model_ready']} |
+| — stage new / established / seasonal | {counts['stages']} |
 | — ranked in the main table | {len(ranked)} |
 | — seasonal holdouts | {len(seasonal)} |
 | — held out as stale | {len(stale)} |
 | Event-driven | {len(event)} |
 | On-demand / unlimited | {len(on_demand)} |
 | Lump-sum / interval-based | {len(lump_sum)} |
+| Will-call (detected) | {len(will_call)} |
 | Insufficient data | {len(insufficient)} |
 | Missing capacity | {len(no_capacity)} |
 | With a capacity warning | {counts['capacity_warning']} |
@@ -1357,6 +1568,12 @@ capacity flags stay as review information.
 
 {held_out_table(on_demand)}
 
+## Will-call ({len(will_call)})
+
+Detected from long or irregular gaps; collected on call, so no fill estimate.
+
+{held_out_table(will_call)}
+
 ## Event-driven ({len(event)})
 
 Production follows an event calendar, not a daily rate. No event model is
@@ -1381,9 +1598,8 @@ Customers whose recent collections do not fit the listed capacity. These are
 
 ## Customers excluded or low confidence
 
-**Insufficient data ({len(insufficient)}).** One of the two rates could not be
-formed -- typically fewer than {WINDOW + 1} pickups, or no pickup old enough to
-anchor a previous-year window.
+**Insufficient data ({len(insufficient)}).** Fewer than {NEW_MIN_PICKUPS}
+pickups: the first only starts the clock, so a rate needs two more.
 
 **Stale ({len(stale)}).** Model-ready but no pickup in {STALE_DAYS}+ days. All
 columns are in the CSV under `table_section = {SECTION_STALE}`.
@@ -1409,12 +1625,12 @@ in the registry, but the heuristic says the default may not suit them.
   limit. It leaves a spillover buffer; past it is not an overflow.
 - **Capacity flags are review prompts, not automatic corrections.** No listed
   capacity is overwritten by this script.
-- **Monthly indices are diagnostic only in this version.** They are not applied
-  to the projection: last-6 and the previous-year rate already carry the
-  season, and multiplying by an index double-counts it -- measured and rejected
-  in `customer_factor_model_test.md`.
-- **A customer's seasonality score uses the same years it would be scored on.**
-  A production version would score from history before each prediction.
+- **Monthly indices apply only to seasonal-stage customers**, on the
+  season-free level. Multiplying the 50/50 by an index double-counts the
+  season -- measured and rejected in `customer_factor_model_test.md`. The
+  month columns shown for everyone else are diagnostic.
+- **The diagnostic seasonality score uses the same years it describes.** The
+  seasonal stage does not: it is scored from complete years before this one.
 - **Confidence ranges come from a backtest of pickup size**, so they describe
   how wrong the rate has been, not how wrong today's container reading is.
 - **Seasons are month-level.** A season is taken to open on the 1st of its
@@ -1511,6 +1727,8 @@ def main():
         "active": len(rows),
         "model_ready": sum(1 for r in rows
                            if r["oil_rate_gpd_projected"] is not None),
+        "stages": " / ".join(str(sum(1 for r in rows if r["stage"] == st))
+                             for st in (STAGE_NEW, STAGE_ESTABLISHED, STAGE_SEASONAL)),
         "with_wape": sum(1 for r in ranked if r["model_wape_if_available"] is not None),
         "capacity_warning": sum(1 for r in rows if FLAG_OVER_CAPACITY in r["flags"]
                                 or FLAG_CAPACITY_STALE in r["flags"]
@@ -1533,7 +1751,8 @@ def main():
 
     print(f"As of {asof.isoformat()}\n")
     print(f"  active customers considered   {counts['active']:>4}")
-    print(f"  model-ready (both rates)      {counts['model_ready']:>4}")
+    print(f"  model-ready (a stage rate)    {counts['model_ready']:>4}")
+    print(f"    new / established / seasonal  {counts['stages']}")
     for section in SECTION_ORDER:
         print(f"    {section:28}{in_section(section):>4}")
     print(f"  missing capacity              {sum(1 for r in rows if r['capacity'] is None):>4}")
