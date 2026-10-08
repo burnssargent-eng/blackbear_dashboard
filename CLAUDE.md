@@ -183,9 +183,9 @@ first pickup only starts the clock; its gallons never enter a rate); *new* =
 pooled rate over at most the last 6 gaps; *established* (a previous-year rate
 exists) = the 50/50; *seasonal* (passes `analysis/seasonal_open.py`, scored
 from complete years before this one, shuffles seeded per customer) = half
-Sarge's 70/30 (last year around the date × growth / last 2 pickups) + half the
-last 3 pickups re-timed by the month index (`seasonal_formulas.md`); growth =
-last 12 months ÷ the 12 before, clamped 0.5–2. A will-call detector (median gap > 120 d, or gap
+Sarge's 70/30 (last year around the date / last 2 pickups) + half the last 3
+pickups re-timed by the month index (`seasonal_formulas.md`). No growth factor:
+it amplified customers whose volume had shifted (`recent_override.md`). A will-call detector (median gap > 120 d, or gap
 sd/mean > 0.8 once gaps over 3× the median are dropped as closures) lists an
 account without a projection. **An override always wins over the detector**,
 and stale wins over will-call. Rows without their own WAPE get calibrated

@@ -131,9 +131,9 @@ Capacity problems are reported in *flags*, separately from the model status.
 | Insufficient data | 45 |
 | Missing capacity | 0 |
 | With a capacity warning | 75 |
-| Ranked and projected above listed capacity | 7 |
-| Past the 75% target | 17 |
-| Past full capacity | 7 |
+| Ranked and projected above listed capacity | 6 |
+| Past the 75% target | 16 |
+| Past full capacity | 6 |
 
 | Section | Model status | Customers |
 |---|---|---:|
@@ -163,25 +163,25 @@ Ranked rows only. Sorted by days past capacity, then days past the
 | 4 | The NEW Forge-Randolph | Randolph | 50/50 default | 137.0 | 103-199 | 110 | 100.0% | 44.9 | 22.2 | 1.21 | 2026-06-17 | 113 |
 | 5 | West Side Market and Deli | Newport City | 50/50 default | 62.6 | 47-91 | 55 | 100.0% | 40.3 | 14.4 | 0.53 | 2026-06-12 | 118 |
 | 6 | Thunder Road  4567 | Barre Town | closer (detected) | 156.3 | 97-256 | 150 | 100.0% | 8.1 | 1.2 | 5.39 | 2026-09-09 | 29 |
-| 7 | Skinny Pancake- Quechee | Hartford | 50/50 default | 150.8 | 113-219 | 150 | 100.0% | 8.6 | 0.2 | 4.44 | 2026-09-04 | 34 |
-| 8 | Warren Store | Warren | 50/50 default | 57.1 | 43-83 | 65 | 87.9% | 12.3 | 0.0 | 0.68 | 2026-07-16 | 84 |
-| 9 | Pitchers Inn | Warren | 50/50 default | 55.9 | 42-81 | 65 | 86.0% | 10.7 | 0.0 | 0.67 | 2026-07-16 | 84 |
-| 10 | Hannaford-West Lebanon | West Lebanon | 50/50 default | 153.1 | 109-197 | 170 | 90.0% | 4.7 | 0.0 | 5.47 | 2026-09-10 | 28 |
-| 11 | Mad River Glen | Waitsfield | seasonal open-ish | 87.1 | 65-126 | 100 | 87.1% | 4.6 | 0.0 | 2.64 | 2026-09-05 | 33 |
-| 12 | Vermont Country Club-Waterbury | Waterbury | 50/50 default | 46.2 | 35-67 | 50 | 92.4% | 4.3 | 0.0 | 2.01 | 2026-09-15 | 23 |
-| 13 | Hannaford-Burlington North Ave | Burlington | 50/50 default | 157.3 | 144-171 | 200 | 78.7% | 1.9 | 0.0 | 3.84 | 2026-08-28 | 41 |
-| 14 | Quechee Gorge Snack Bar | Hartford | semi-closer / call-driven | 171.0 | 106-280 | 200 | 85.5% | 1.8 | 0.0 | 11.40 | 2026-09-23 | 15 |
+| 7 | Warren Store | Warren | 50/50 default | 57.1 | 43-83 | 65 | 87.9% | 12.3 | 0.0 | 0.68 | 2026-07-16 | 84 |
+| 8 | Pitchers Inn | Warren | 50/50 default | 55.9 | 42-81 | 65 | 86.0% | 10.7 | 0.0 | 0.67 | 2026-07-16 | 84 |
+| 9 | Hannaford-West Lebanon | West Lebanon | 50/50 default | 153.1 | 109-197 | 170 | 90.0% | 4.7 | 0.0 | 5.47 | 2026-09-10 | 28 |
+| 10 | Vermont Country Club-Waterbury | Waterbury | 50/50 default | 46.2 | 35-67 | 50 | 92.4% | 4.3 | 0.0 | 2.01 | 2026-09-15 | 23 |
+| 11 | Mad River Glen | Waitsfield | seasonal open-ish | 84.5 | 63-122 | 100 | 84.5% | 3.7 | 0.0 | 2.56 | 2026-09-05 | 33 |
+| 12 | Hannaford-Burlington North Ave | Burlington | 50/50 default | 157.3 | 144-171 | 200 | 78.7% | 1.9 | 0.0 | 3.84 | 2026-08-28 | 41 |
+| 13 | Quechee Gorge Snack Bar | Hartford | semi-closer / call-driven | 171.0 | 106-280 | 200 | 85.5% | 1.8 | 0.0 | 11.40 | 2026-09-23 | 15 |
+| 14 | Skinny Pancake- Quechee | Hartford | 50/50 default | 117.9 | 88-171 | 150 | 78.6% | 1.6 | 0.0 | 3.47 | 2026-09-04 | 34 |
 | 15 | Fusion cafe and bar | Winooski | 50/50 default | 115.7 | 80-151 | 150 | 77.2% | 1.0 | 0.0 | 3.31 | 2026-09-03 | 35 |
-| 16 | Mad River Barn | Waitsfield | 50/50 default | 49.7 | 26-73 | 65 | 76.4% | 0.6 | 0.0 | 1.51 | 2026-09-05 | 33 |
-| 17 | Jay Village Inn | Jay | 50/50 default | 113.2 | 92-134 | 150 | 75.5% | 0.3 | 0.0 | 2.31 | 2026-08-20 | 49 |
-| 18 | Hana-Japanese-Dorset | Burlington | 50/50 default | 111.6 | 63-160 | 150 | 74.4% | 0.0 | 0.0 | 1.99 | 2026-08-13 | 56 |
-| 19 | Mountain Valley-Winooski | Winooski | 50/50 default | 79.7 | 60-116 | 110 | 72.5% | 0.0 | 0.0 | 0.71 | 2026-06-17 | 113 |
-| 20 | Two Brothers Tavern | Middlebury | 50/50 default | 144.0 | 120-168 | 200 | 72.0% | 0.0 | 0.0 | 6.00 | 2026-09-14 | 24 |
-| 21 | Le~Marche~Cafe | Shelburne | 50/50 default | 71.6 | 54-104 | 100 | 71.6% | 0.0 | 0.0 | 0.82 | 2026-07-13 | 87 |
-| 22 | Ruben James + Ahli Baba's | Burlington | 50/50 default | 143.2 | 71-215 | 200 | 71.6% | 0.0 | 0.0 | 2.02 | 2026-07-29 | 71 |
+| 16 | Jay Village Inn | Jay | 50/50 default | 113.2 | 92-134 | 150 | 75.5% | 0.3 | 0.0 | 2.31 | 2026-08-20 | 49 |
+| 17 | Hana-Japanese-Dorset | Burlington | 50/50 default | 111.6 | 63-160 | 150 | 74.4% | 0.0 | 0.0 | 1.99 | 2026-08-13 | 56 |
+| 18 | Mountain Valley-Winooski | Winooski | 50/50 default | 79.7 | 60-116 | 110 | 72.5% | 0.0 | 0.0 | 0.71 | 2026-06-17 | 113 |
+| 19 | Two Brothers Tavern | Middlebury | 50/50 default | 144.0 | 120-168 | 200 | 72.0% | 0.0 | 0.0 | 6.00 | 2026-09-14 | 24 |
+| 20 | Le~Marche~Cafe | Shelburne | 50/50 default | 71.6 | 54-104 | 100 | 71.6% | 0.0 | 0.0 | 0.82 | 2026-07-13 | 87 |
+| 21 | Ruben James + Ahli Baba's | Burlington | 50/50 default | 143.2 | 71-215 | 200 | 71.6% | 0.0 | 0.0 | 2.02 | 2026-07-29 | 71 |
+| 22 | Mad River Barn | Waitsfield | 50/50 default | 46.5 | 24-68 | 65 | 71.5% | 0.0 | 0.0 | 1.41 | 2026-09-05 | 33 |
 | 23 | Arandas-Fairlee | Fairlee | 50/50 default | 39.0 | 23-64 | 55 | 71.0% | 0.0 | 0.0 | 0.51 | 2026-07-24 | 76 |
 | 24 | Manchester Hockeypas-0150 | Manchester | 50/50 default | 70.2 | 53-102 | 100 | 70.2% | 0.0 | 0.0 | 0.83 | 2026-04-16 | 175 |
-| 25 | Skinny Pancake-Burlington LakeFront8741 | Burlington | 50/50 default | 104.7 | 79-152 | 150 | 69.8% | 0.0 | 0.0 | 2.99 | 2026-09-03 | 35 |
+| 25 | May Day | Burlington | 50/50 default | 104.5 | 88-122 | 150 | 69.7% | 0.0 | 0.0 | 2.38 | 2026-08-25 | 44 |
 
 ## Seasonal holdouts (10)
 
