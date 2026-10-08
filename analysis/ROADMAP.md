@@ -119,6 +119,12 @@ manual survey. Design agreed with Sarge 2026-10-08:
   credibility blending (Phase 3b) only if the year-one gap proves costly.
   Route / truck-tank totals deferred to the route builder.
 
+**Replay done 2026-10-08** (`replay_newcomers.md`; README decision log). The
+ladder holds; bands calibrated; will-call rule chosen. Next: the builder
+change — stage ladder, per-stage bands replacing the ±20% default, the
+will-call detector (overrides win). After that: an automatic seasonal-closed
+detector, since the will-call rule currently catches new closers too.
+
 ## Then: the Projections page (Sarge's vision, 2026-10-01)
 
 Today's beta page is a ranked table with held-out sections. The target:

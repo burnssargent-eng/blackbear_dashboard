@@ -78,6 +78,7 @@ capacity is fixed on the site and arrives with the next nightly. See
 | 2026-10-05 | **Empty checks (qty 0 / 1) restart the oil clock.** On 651 intervals with a 1 between two pickups, counting from the pickup over-projected the next pickup by +115% (WAPE 134%); counting from the 1, +11% (WAPE 81%). Rate unchanged. 3 (barrel delivery) tested as only a partial reset (+213% → −34%) and left out | `oil_scraper.py` (`RESET_QTYS`, `oil_non_pickups.csv`), builder `load_empty_checks` |
 | 2026-10-07 | **Phase 2 rate tests** (research only, builder unchanged). Seasonal-open customers (29, scored from prior years only, with a 1000-shuffle noise test): season-free **level × month index** −14.5 WAPE points vs 50/50 on the 2025–26 holdout (−20.3 to −9.6), bias −6%; last 3 ÷ index × coming index −13.1, bias +0%; Sarge's last-year ±3 wk + last 2 at 70/30 −7.6, 50/50 −5.3. **Recency gate rejected** (last 2–3 vs the 3 before, >30/50/75%): −0.6 in choose, **+0.6 worse** confirmed, +1.9 on the pickups it fired on. EWMA −0.4: real, too small to adopt. Adoption of the index model for seasonal-open customers pending | `backtest_phase2_rates.py`, `phase2_rate_models.md` |
 | 2026-10-08 | Newcomer design agreed with Sarge: **lumpy accounts are will-call** (last pickup X days ago, never projected); a customer's **first pickup is a starting point only**, never a rate; ≥ 3 pickups → "new" projection with a wide band; lean toward the high side via a band, never by inflating the estimate; shared-barrel members modelled separately in research. Partial pickups (truck nearly full) are absorbed by the pooled last-6 rate — not modelled. Code 2 is the sign-up call, not a fullness call | [`ROADMAP.md`](ROADMAP.md) |
+| 2026-10-08 | **Newcomer replay** (research; 354 customers starting 2021+, pickups > `STALE_DAYS` apart left out). Pooled-rate error falls from ~53% at 2 measured gaps (the 3-pickup rule) to ~42% at 3–4 and ~37% by 7+; **3 pickups kept**, with a wider band. Promotion to 50/50 at one year −1.1 points (−1.7 to −0.6). Calibrated high-side factors (80th pct of actual ÷ projected, chosen 2021–23): new ×1.64 / ×1.49 / ×1.35 at 2 / 3 / 4–6 gaps, established ×1.45; holdout coverage 75–82%. Today's ±20% default band is far too narrow for newcomers. **Will-call rule: median gap > 120 d or gap sd/mean > 0.8** — 81% of Jim's labels caught; flagged pickups ~70% WAPE and −20% bias vs 29% for the rest. It also flags seasonal closers (off-season gap); a robust IQR variant did worse. Seasonal stage reached by 4 newcomers only, so learned shapes (Phase 3b) are not needed now | `backtest_replay_newcomers.py`, `replay_newcomers.md` |
 
 ## Known weaknesses of the current model
 
@@ -315,6 +316,7 @@ no-lookahead:
 | `backtest_customer_factors.py` → `customer_factor_model_test.md` | Whether those factors beat the 50/50 baseline — explicit, naive and residual forms |
 | `build_fringe_seasonal_candidates.py` → `fringe_seasonal_candidates.md` | Review table of seasonal / closer / call-driven / event / on-demand candidates. Labels are prompts, not classifications |
 | `backtest_phase2_rates.py` → `phase2_rate_models.md` | Phase 2: seasonal-open detection from prior years (with a shuffle noise test), Sarge's last-year ±3 wk formula, month-index models, recency gates and EWMA; choose 2023–24, confirm 2025–26 |
+| `backtest_replay_newcomers.py` → `replay_newcomers.md` | Phase 3: every newcomer replayed from its first pickup through the insufficient / new / established / seasonal ladder; learning curve, calibrated high-side bands, will-call rule |
 | `build_projection_table.py` → `oil_projection_table.md`, `../oil_projections.json` | The production projection: 50/50 rate, `MODEL_OVERRIDES`, routing, capped % full. Run nightly |
 | `customer_wape.json` | Committed snapshot of per-customer 50/50 WAPE for the confidence bands. Rebuild with `--refresh-wape` after rerunning `test_routing_rule.py` / `backtest_seasonal_models.py` |
 
@@ -337,6 +339,7 @@ python3 analysis/test_routing_rule.py                                   # held-o
 python3 analysis/customer_factors.py                                    # per-customer factors
 python3 analysis/backtest_customer_factors.py                           # do the factors help?
 python3 analysis/backtest_phase2_rates.py                               # phase 2 rate tests (a few minutes)
+python3 analysis/backtest_replay_newcomers.py                           # newcomer replay (seconds)
 python3 analysis/build_projection_table.py                              # projections (the nightly runs this)
 python3 analysis/build_projection_table.py --as-of 2026-06-30           # what-if date; never writes the site file
 python3 analysis/build_projection_table.py --refresh-wape               # rebuild customer_wape.json
