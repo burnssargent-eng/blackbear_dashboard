@@ -278,6 +278,7 @@ function notesHtml(c) {
   if (c.status && c.status !== "50/50 default") lines.push(c.status);
   if (c.stage === "new") lines.push("New customer — wide range");
   if (c.stage === "seasonal") lines.push("Seasonal rate (adjusted for the month)");
+  if (c.stage === "closer in season") lines.push(`In-season rate (open ${c.season})`);
   (c.flags || []).forEach(f => lines.push(f));
   return lines.length
     ? `<div class="proj-notes">${lines.map(escapeHtml).join("<br>")}</div>`

@@ -122,9 +122,12 @@ manual survey. Design agreed with Sarge 2026-10-08:
 **Replay done 2026-10-08** (`replay_newcomers.md`; README decision log). The
 ladder holds; bands calibrated; will-call rule made season-aware (25 ranked
 moved instead of 62). **Builder change built 2026-10-08** on `builder-ladder`
-(stages, will-call section, calibrated ranges). Next: an automatic
-seasonal-closed detector, so a new closer is routed like the registry's
-closers instead of being ranked on 50/50 all year.
+(stages, will-call section, calibrated ranges), merged as PR #28.
+**Seasonal-closed detector built 2026-10-08** (`seasonal_closed.md`): 8
+detected closers, open-season rate for every in-season closer, and the
+zero-month shape fix. Seasonal stage now ½ × 70/30 (last year × growth) + ½ × last 3 ÷ index
+(`seasonal_formulas.md`). Open: Jim's word on Texas Roadhouse, Mad Taco Middlebury (both Nov–Dec "closures") and
+Grand Summit (May–Jul).
 
 ## Then: the Projections page (Sarge's vision, 2026-10-01)
 

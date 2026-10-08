@@ -30,8 +30,13 @@ automatically, so a new account needs no manual survey:
                                                gallons: oil may predate the barrel)
     established   a previous-year rate exists  0.5 x pooled + 0.5 x previous year
                                                (= the 50/50 above once 7+ pickups)
-    seasonal      seasonal_open.classify       season-free level x month index
-                  passes (prior years only)    (phase2_rate_models.md)
+    seasonal      seasonal_open.classify       average of Sarge's 70/30 (last year
+                  passes (prior years only)    around the date / last 2 pickups) and
+                                               last 3 pickups re-timed by the month
+                                               index (seasonal_formulas.md)
+    closer in     a registry closer, or one    pooled rate over open-season gaps
+      season      seasonal_open.closed_months  (seasonal_closed.md); detected
+                  detects, in its season       closers route like semi-closers
     will-call     long or irregular gaps       no projection, ever
 
 The will-call detector (median gap > 120 days, or gap sd/mean > 0.8 once gaps
@@ -42,8 +47,10 @@ ranking, because rate x days grows without limit and would otherwise fill the
 top of the table.
 
 Monthly indices enter the projection ONLY for seasonal-stage customers, and
-only on the season-free level. Multiplying the 50/50 by an index double-counts
-the season -- measured and rejected in customer_factor_model_test.md.
+only on a rate with the season divided out first. Multiplying the 50/50 by an
+index double-counts the season -- measured and rejected in
+customer_factor_model_test.md. Seasonal formulas HURT customers whose swing is
+not strong and repeatable (seasonal_formulas.md), so the stage stays strict.
 
 Capacity flags are review prompts. A listed capacity is NEVER overwritten.
 
@@ -136,6 +143,7 @@ NEW_MIN_PICKUPS = 3             # the first is a starting point: 3 pickups = 2 g
 STAGE_NEW = "new"
 STAGE_ESTABLISHED = "established"
 STAGE_SEASONAL = "seasonal"
+STAGE_CLOSER = "closer in season"
 
 # Will-call: chosen on 2021-23 gaps, confirmed on 2024-26.
 WILL_CALL_WINDOW_DAYS = 3 * 365
@@ -153,7 +161,12 @@ RANGE_FACTORS = {
     "new, 3 gaps": (0.71, 1.49),
     "new, 4+ gaps": (0.70, 1.35),
     STAGE_ESTABLISHED: (0.75, 1.45),
+    STAGE_CLOSER: (0.62, 1.64),     # seasonal_closed.md, open-season rate
 }
+
+# A closer's in-season rate needs at least this many open-season gaps;
+# with fewer it keeps its stage's rate.
+CLOSER_MIN_OPEN_GAPS = 3
 
 RECENT_PICKUPS = 10             # "recent" for the strong capacity flag
 SOFT_FLAG_YEARS = 2             # "recent" for the soft capacity flag
@@ -194,6 +207,7 @@ STATUS_EVENT = "event-driven"
 STATUS_ON_DEMAND = "on-demand / unlimited"
 STATUS_LUMP_SUM = "lump-sum / interval-based"
 STATUS_WILL_CALL = "will-call (detected)"
+STATUS_DETECTED_CLOSER = "closer (detected)"
 STATUS_INSUFFICIENT = "insufficient data"
 STATUS_STALE = "stale - projection not meaningful"
 
@@ -203,7 +217,7 @@ NO_RATE_SECTIONS = {
     STATUS_ON_DEMAND: SECTION_ON_DEMAND,
     STATUS_LUMP_SUM: SECTION_LUMP_SUM,
 }
-SEASONAL_STATUSES = {STATUS_TRUE_CLOSER, STATUS_SEMI_CLOSER}
+SEASONAL_STATUSES = {STATUS_TRUE_CLOSER, STATUS_SEMI_CLOSER, STATUS_DETECTED_CLOSER}
 
 # The automatic heuristic, kept as a REVIEW HINT for customers not in
 # MODEL_OVERRIDES. It never moves a row out of the ranking on its own.
@@ -506,7 +520,8 @@ def new_owner_row(cid, extra, capacity, regions, asof):
         "current_month_index": None, "top_month": None, "top_month_index": None,
         "bottom_month": None, "bottom_month_index": None,
         "oil_rate_gpd_prev_year": None, "oil_rate_gpd_prev_6_pickups": None,
-        "oil_rate_gpd_pooled": None, "seasonal_level_gpd": None,
+        "oil_rate_gpd_pooled": None, "seasonal_last_year_gpd": None,
+        "seasonal_recent_indexed_gpd": None,
         "model_wape_if_available": None, "confidence_band_used": "",
         "history_start": start, "registry_note": extra["note"],
         "_pickups": 0, "_first_pickup": "", "_season": None,
@@ -572,20 +587,75 @@ def rate_pooled(pickups):
     return bsm.rate_span(pickups, max(0, n - 1 - WINDOW), n - 1)
 
 
-def seasonal_level(pickups):
+SEASONAL_LY_WEIGHT = 0.7         # Sarge's 70/30: last year vs the last 2 pickups
+SEASONAL_LY_HALF_WIDTH = 21      # days either side of the date, a year back
+# Last year's rate ran ~13% below what arrived (seasonal_formulas.md), so it is
+# scaled by growth = the last 12 months' rate / the 12 before, clamped. It cut
+# low-side misses in both test windows at the cost of more high-side ones.
+SEASONAL_GROWTH_CLAMP = (0.5, 2.0)
+
+
+def window_rate(daily, first_date, center, half_width):
     """
-    The season-free level at the live edge: bcf.base_rates' level (trailing
-    365 days, blended 50/50 with the year before when it exists), keyed to the
-    last pickup. base_rates itself reads the NEXT pickup, which does not exist
-    here; rate_between only reads pickups before index len(pickups).
+    Gallons per day over center +/- half_width, from spread production.
+    THE SAME FORMULA AS backtest_phase2_rates.window_rate, which imports this
+    module and so cannot be imported here. IF ONE CHANGES, CHANGE BOTH.
     """
+    start, end = center - timedelta(days=half_width), center + timedelta(days=half_width)
+    if start <= first_date + timedelta(days=60):
+        return None
+    days = (end - start).days + 1
+    return sum(daily.get(start + timedelta(days=i), 0.0) for i in range(days)) / days
+
+
+def growth_ratio(pickups):
+    """Last 12 months' rate / the 12 before, ending at the last pickup, clamped."""
     n, end = len(pickups), pickups[-1]["date"]
-    trailing = bcf.rate_between(pickups, n, end - timedelta(days=YEAR_DAYS), end)
-    prior = bcf.rate_between(pickups, n, end - timedelta(days=2 * YEAR_DAYS),
-                             end - timedelta(days=YEAR_DAYS))
-    if trailing is not None and prior is not None:
-        return 0.5 * trailing + 0.5 * prior
-    return trailing
+    now = bcf.rate_between(pickups, n, end - timedelta(days=YEAR_DAYS), end)
+    before = bcf.rate_between(pickups, n, end - timedelta(days=2 * YEAR_DAYS),
+                              end - timedelta(days=YEAR_DAYS))
+    if not now or not before:
+        return None
+    lo, hi = SEASONAL_GROWTH_CLAMP
+    return min(hi, max(lo, now / before))
+
+
+def seasonal_rate(pickups, factor, clock_start, asof):
+    """
+    The seasonal-open rate (seasonal_formulas.md, chosen 2026-10-08):
+
+        A = 0.7 x last year's rate over asof +/- 3 weeks (1-2 years back,
+            averaged) x growth + 0.3 x the last 2 pickups' rate -- Sarge's 70/30,
+            growth = last 12 months / the 12 before (unscaled if unavailable)
+        B = last 3 pickups' rate / the index of the days they cover
+                                 x the index of the days being projected
+        rate = (A + B) / 2, or whichever exists
+
+    Returns (rate, A, B); rate is None when neither half can be formed.
+    """
+    n = len(pickups)
+    daily = ss.daily_production(pickups)
+    first = pickups[0]["date"]
+    years = [r for r in (window_rate(daily, first, asof - timedelta(days=YEAR_DAYS * back),
+                                     SEASONAL_LY_HALF_WIDTH) for back in (1, 2))
+             if r is not None]
+    last_year = statistics.fmean(years) if years else None
+    growth = growth_ratio(pickups)
+    if last_year is not None and growth is not None:
+        last_year *= growth
+    last2 = bsm.rate_span(pickups, n - 3, n - 1) if n >= 3 else None
+    a = (SEASONAL_LY_WEIGHT * last_year + (1 - SEASONAL_LY_WEIGHT) * last2
+         if last_year is not None and last2 is not None else None)
+
+    b = None
+    if n >= 4:
+        last3 = bsm.rate_span(pickups, n - 4, n - 1)
+        covered = cf.gap_weighted(factor, pickups[n - 4]["date"], pickups[n - 1]["date"])
+        if last3 is not None and covered > 0:
+            b = last3 / covered * cf.gap_weighted(factor, clock_start, asof)
+
+    halves = [h for h in (a, b) if h is not None]
+    return (statistics.fmean(halves) if halves else None), a, b
 
 
 def seasonal_factor(cid, pickups, asof):
@@ -600,32 +670,52 @@ def seasonal_factor(cid, pickups, asof):
     return season["factor"] if label == seasonal_open.SEASONAL_OPEN else None
 
 
-def seasonal_gallons(level, factor, start, end):
-    """Oil produced over the days (start, end] at level x that month's index."""
-    if end <= start:
-        return 0.0
-    return level * (end - start).days * cf.gap_weighted(factor, start, end)
+def open_season_spec(closed):
+    """Detected closed months -> the registry's season format, e.g. 'Apr-Oct'."""
+    first = next(m for m in range(12) if m not in closed and (m - 1) % 12 in closed)
+    last = (first + 12 - len(closed) - 1) % 12
+    return f"{MONTHS[first]}-{MONTHS[last]}"
 
 
-def seasonal_days_to(level, factor, start, have, target, direction=1, limit=3 * 365):
+def detected_closer(cid, pickups, asof):
     """
-    Days, walking from `start` (forward, or backward with direction=-1), until
-    production at level x index takes `have` gallons to `target`. Forward it
-    answers "days until"; backward, "days since it passed". None if never.
+    A pseudo-override for a customer the detector finds closing each year
+    (seasonal_open.closed_months, from the complete years before asof's
+    year), or None. Routed like a semi-closer: held out off-season only once
+    silent, so a real off-season call still ranks it -- the detector put
+    2% of gallons in predicted-closed months on the 2024-25 holdout.
     """
-    day, gallons = start, have
-    for n in range(1, limit + 1):
-        if direction > 0:
-            day += timedelta(days=1)
-            gallons += level * factor[day.month - 1]
-            if gallons >= target:
-                return float(n)
-        else:
-            gallons -= level * factor[day.month - 1]
-            day -= timedelta(days=1)
-            if gallons < target:
-                return float(n)
-    return None
+    closed = seasonal_open.closed_months(pickups, asof.year)
+    if not closed:
+        return None
+    spec = open_season_spec(closed)
+    return Override(STATUS_DETECTED_CLOSER, pickups[-1]["name"], spec,
+                    f"detected: closed {MONTHS[(MONTHS.index(spec.split('-')[1]) + 1) % 12]}"
+                    f"-{MONTHS[(MONTHS.index(spec.split('-')[0]) - 1) % 12]} over the "
+                    f"{seasonal_open.CLOSED_YEARS_BACK} complete years before {asof.year}")
+
+
+def rate_open_season(pickups, spec):
+    """
+    Gallons over days across at most the last WINDOW gaps that lie wholly in
+    season, or None with fewer than CLOSER_MIN_OPEN_GAPS. The 50/50 averages
+    in the closed months and under-projects an open closer by ~21 WAPE points
+    (seasonal_closed.md). The first pickup ever never contributes gallons.
+    """
+    open_months = season_months(spec)
+    gallons = days = used = 0
+    for i in range(len(pickups) - 1, 0, -1):
+        a, b = pickups[i - 1]["date"], pickups[i]["date"]
+        span = (b - a).days
+        if span <= 0 or any((a + timedelta(days=d)).month - 1 not in open_months
+                            for d in range(1, span + 1)):
+            continue
+        gallons += pickups[i]["gallons"]
+        days += span
+        used += 1
+        if used == WINDOW:
+            break
+    return gallons / days if used >= CLOSER_MIN_OPEN_GAPS and days else None
 
 
 def will_call_signal(pickups, asof):
@@ -950,9 +1040,7 @@ def route(override, has_rate, days_since, last_date, pickups, asof, will_call=No
             return (status, SECTION_SEASONAL,
                     f"season open — awaiting first pickup (season "
                     f"{override.season}; last pickup before it opened)")
-        return (status, SECTION_RANKED,
-                f"in season ({override.season}); 50/50 rate includes closed "
-                "months, so it likely understates the in-season rate")
+        return status, SECTION_RANKED, f"in season ({override.season})"
 
     if days_since > STALE_DAYS:
         return status if override else STATUS_STALE, SECTION_STALE, ""
@@ -983,14 +1071,16 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
     pooled = rate_pooled(pickups)
     prev_year = rate_prev_year_asof(pickups, asof)
     gaps = len(pickups) - 1
-    stage = rate = level = factor = None
+    stage = rate = factor = season_a = season_b = None
     if len(pickups) >= NEW_MIN_PICKUPS and pooled is not None:
         if prev_year is not None:
             stage, rate = STAGE_ESTABLISHED, (pooled + prev_year) / 2
             factor = seasonal_factor(cid, pickups, asof)
-            level = seasonal_level(pickups) if factor else None
-            if level:
-                stage = STAGE_SEASONAL
+            if factor:
+                seasonal, season_a, season_b = seasonal_rate(
+                    pickups, factor, clock_start, asof)
+                if seasonal is not None:
+                    stage, rate = STAGE_SEASONAL, seasonal
         else:
             stage, rate = STAGE_NEW, pooled
 
@@ -998,28 +1088,36 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
     season = seasonality(pickups)
     findings = capacity_findings(pickups, capacity, avg_collection, asof)
 
-    override = MODEL_OVERRIDES.get(cid)
-    if override and override.name != last["name"]:
+    registry = MODEL_OVERRIDES.get(cid)
+    if registry and registry.name != last["name"]:
         raise SystemExit(
-            f"MODEL_OVERRIDES[{cid}] expects {override.name!r} but the pickup "
+            f"MODEL_OVERRIDES[{cid}] expects {registry.name!r} but the pickup "
             f"record says {last['name']!r}. Check the id before trusting the "
             "override.")
+    # The registry wins; otherwise the closer detector may supply a season.
+    override = registry or detected_closer(cid, pickups, asof)
+
+    # An in-season closer is ranked on its open-season gaps, not the 50/50.
+    closer_rate = None
+    if (override and override.status in SEASONAL_STATUSES and rate is not None
+            and season_opened(override.season, asof) is not None):
+        closer_rate = rate_open_season(pickups, override.season)
+        if closer_rate is not None:
+            stage, rate = STAGE_CLOSER, closer_rate
     # Stale and the off-season silence rule stay on the last PICKUP (a check is
     # not oil); "awaiting first pickup" uses the clock, so an in-season empty
     # check counts as a fresh start.
     status, section, routing_reason = route(
         override, rate is not None, days_since, clock_start, pickups, asof,
         will_call_signal(pickups, asof))
+    if section == SECTION_RANKED and routing_reason.startswith("in season"):
+        routing_reason += ("; rate from its open-season pickups" if closer_rate is not None
+                           else "; too few open-season gaps, so the stage rate, which "
+                                "includes closed months and likely understates")
     hint = None if override else review_hint(season)
 
     target = capacity * TARGET_FRACTION if capacity is not None else None
-    if stage == STAGE_SEASONAL:
-        # Season-free level x the index of the months actually elapsed; the
-        # rate shown is the average over them.
-        projected = seasonal_gallons(level, factor, clock_start, asof)
-        rate = projected / days_accumulating if days_accumulating > 0 else level
-    else:
-        projected = rate * days_accumulating if rate is not None else None
+    projected = rate * days_accumulating if rate is not None else None
 
     # Likely range: the customer's own backtested WAPE where it exists (an
     # established customer), otherwise the replay's calibrated factors for the
@@ -1028,13 +1126,14 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
     low = high = None
     band_used = ""
     if projected is not None:
-        if stage != STAGE_NEW and cid in wape:
+        if stage not in (STAGE_NEW, STAGE_CLOSER) and cid in wape:
             band_pct = wape[cid]
             band_used = f"customer WAPE {band_pct:.1f}%"
             low = max(0.0, projected * (1 - band_pct / 100))
             high = projected * (1 + band_pct / 100)
         else:
-            key = (STAGE_ESTABLISHED if stage != STAGE_NEW
+            key = (STAGE_CLOSER if stage == STAGE_CLOSER
+                   else STAGE_ESTABLISHED if stage != STAGE_NEW
                    else f"new, {gaps} gaps" if gaps <= 3 else "new, 4+ gaps")
             lo_f, hi_f = RANGE_FACTORS[key]
             band_used = f"calibrated {key}: x{lo_f:.2f} to x{hi_f:.2f}"
@@ -1043,19 +1142,7 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
     raw_pct = days_until = days_past_75 = days_past_cap = periodicity = None
     if projected is not None and capacity:
         raw_pct = projected / capacity * 100
-        if stage == STAGE_SEASONAL and level > 0:
-            if projected < target:
-                days_until = seasonal_days_to(level, factor, asof, projected, target)
-                days_past_75 = 0.0
-            else:
-                days_past_75 = seasonal_days_to(level, factor, asof, projected,
-                                                target, direction=-1)
-                days_until = -days_past_75 if days_past_75 is not None else None
-            days_past_cap = (seasonal_days_to(level, factor, asof, projected,
-                                              capacity, direction=-1)
-                             if projected > capacity else 0.0)
-            periodicity = seasonal_days_to(level, factor, asof, 0.0, target)
-        elif rate > 0:
+        if rate > 0:
             days_until = (target - projected) / rate
             days_past_75 = abs(days_until) if projected > target else 0.0
             days_past_cap = ((projected - capacity) / rate
@@ -1075,7 +1162,7 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
 
     month_index = season["shape"][asof.month - 1] if season else None
     configured_season = override.season if override else None
-    inferred = inferred_season(pickups) if configured_season else None
+    inferred = inferred_season(pickups) if registry and registry.season else None
 
     return {
         "table_section": section,
@@ -1123,7 +1210,8 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
         "oil_rate_gpd_prev_year": prev_year,
         "oil_rate_gpd_prev_6_pickups": last6,
         "oil_rate_gpd_pooled": pooled,
-        "seasonal_level_gpd": level,
+        "seasonal_last_year_gpd": season_a,
+        "seasonal_recent_indexed_gpd": season_b,
         "model_wape_if_available": wape.get(cid),
         "confidence_band_used": band_used,
         # Detail-only, and for sorting.
@@ -1189,7 +1277,8 @@ ROUNDING = {
     "model_days_past_capacity": 1,
     "current_month_index": 2, "top_month_index": 2, "bottom_month_index": 2,
     "oil_rate_gpd_prev_year": 3, "oil_rate_gpd_prev_6_pickups": 3,
-    "oil_rate_gpd_pooled": 3, "seasonal_level_gpd": 3,
+    "oil_rate_gpd_pooled": 3, "seasonal_last_year_gpd": 3,
+    "seasonal_recent_indexed_gpd": 3,
     "model_wape_if_available": 2,
 }
 
@@ -1220,7 +1309,8 @@ DETAIL_FIELDS = [
     "shared_members_text", "history_start", "registry_note",
     "pickup_count", "first_pickup", "last_pickup_date",
     "days_since_last_pickup", "last_empty_check", "days_accumulating",
-    "oil_rate_gpd_prev_6_pickups", "oil_rate_gpd_pooled", "seasonal_level_gpd",
+    "oil_rate_gpd_prev_6_pickups", "oil_rate_gpd_pooled",
+    "seasonal_last_year_gpd", "seasonal_recent_indexed_gpd",
     "oil_rate_gpd_prev_year", "oil_rate_gpd_projected",
     "model_projected_gallons", "raw_pct_of_listed_capacity",
     "model_days_until_75pct", "model_days_past_75pct",
@@ -1437,8 +1527,10 @@ For each active customer, at the as-of date:
 - **projected rate**, by stage (the ladder, `replay_newcomers.md`):
   *new* (3+ pickups, no previous-year rate) = pooled; *established* = 0.5 x
   previous year + 0.5 x pooled; *seasonal* (passes the seasonal-open test,
-  `seasonal_open.py`, scored from complete years before this one) =
-  season-free level x the month index of the days elapsed
+  `seasonal_open.py`, scored from complete years before this one) = half
+  Sarge's 70/30 (0.7 x last year's rate over the date ±3 weeks + 0.3 x the
+  last 2 pickups) + half the last 3 pickups' rate ÷ the month index of the
+  days they cover × the index of the days being projected
 - **projected gallons** = projected rate x days since the last pickup, or
   since a later empty check (quantity 0 or 1 in `oil_non_pickups.csv`),
   whichever is later: the truck looked and found nothing worth pumping
@@ -1508,6 +1600,13 @@ precedence order:
    once silent longer than max({fringe.SILENCE_FLOOR_DAYS},
    {fringe.SILENCE_GAP_MULTIPLE} x median gap) days -- the fringe table's
    *no recent call signal* rule. A recent off-season call keeps it ranked.
+   **{STATUS_DETECTED_CLOSER}** -- a customer NOT in the registry whose
+   last {seasonal_open.CLOSED_YEARS_BACK} complete years show a closed block
+   (`seasonal_open.closed_months`, `seasonal_closed.md`) is routed exactly like
+   a semi-closer, with the detected season. In season, every closer (registry
+   or detected) is ranked on a pooled rate over its open-season gaps when it
+   has {CLOSER_MIN_OPEN_GAPS}+, not the 50/50, which averages in the closed
+   months; range x{RANGE_FACTORS[STAGE_CLOSER][0]:.2f}-x{RANGE_FACTORS[STAGE_CLOSER][1]:.2f}.
 6. **stale** -- no pickup in {STALE_DAYS} days.
 7. Everything else is ranked, on its stage's rate. **{STATUS_OPEN_ISH}**
    customers are ranked like anyone else; those that pass the seasonal-open
@@ -1530,7 +1629,8 @@ Capacity problems are reported in *flags*, separately from the model status.
 |---|---:|
 | Active customers considered | {counts['active']} |
 | Model-ready (a stage rate) | {counts['model_ready']} |
-| — stage new / established / seasonal | {counts['stages']} |
+| — stage new / established / seasonal / closer in season | {counts['stages']} |
+| Detected closers (not in the registry) | {counts['detected_closers']} |
 | — ranked in the main table | {len(ranked)} |
 | — seasonal holdouts | {len(seasonal)} |
 | — held out as stale | {len(stale)} |
@@ -1625,8 +1725,8 @@ in the registry, but the heuristic says the default may not suit them.
   limit. It leaves a spillover buffer; past it is not an overflow.
 - **Capacity flags are review prompts, not automatic corrections.** No listed
   capacity is overwritten by this script.
-- **Monthly indices apply only to seasonal-stage customers**, on the
-  season-free level. Multiplying the 50/50 by an index double-counts the
+- **Monthly indices apply only to seasonal-stage customers**, on a rate with
+  the season divided out first. Multiplying the 50/50 by an index double-counts the
   season -- measured and rejected in `customer_factor_model_test.md`. The
   month columns shown for everyone else are diagnostic.
 - **The diagnostic seasonality score uses the same years it describes.** The
@@ -1636,10 +1736,12 @@ in the registry, but the heuristic says the default may not suit them.
 - **Seasons are month-level.** A season is taken to open on the 1st of its
   first month; the data supports nothing finer, and no reopening date is
   implied.
-- **An in-season closer is ranked on a rate that includes its closed months.**
-  The previous-year rate spans the whole year, so it likely understates the
-  in-season rate. No seasonal rate model is applied here; that needs its own
-  backtest.
+- **An in-season closer is ranked on its open-season gaps** when it has
+  {CLOSER_MIN_OPEN_GAPS}+; with fewer it falls back to its stage rate, which
+  averages in the closed months and likely understates.
+- **A new closer is found only after {seasonal_open.CLOSED_YEARS_BACK}
+  complete years.** One year of history put 15% of gallons in wrongly closed
+  months. Until then its first closures are ranked, then go stale.
 - **Overrides are human decisions, not measurements.** The registry is
   informed by `fringe_seasonal_candidates.md` but does not read it. The two
   Okemo accounts rest on two years of history.
@@ -1715,7 +1817,8 @@ def main():
         print(f"  note: MODEL_OVERRIDES[{cid}] ({MODEL_OVERRIDES[cid].name}) is not "
               "an active customer with pickups; override unused")
     for r in rows:
-        if r["active_season"] and r["inferred_active_season"] != r["active_season"]:
+        if (r["customer_id"] in MODEL_OVERRIDES and r["active_season"]
+                and r["inferred_active_season"] != r["active_season"]):
             print(f"  note: {r['customer']} is configured {r['active_season']} but "
                   f"the fringe inference now reads {r['inferred_active_season']}")
 
@@ -1728,7 +1831,9 @@ def main():
         "model_ready": sum(1 for r in rows
                            if r["oil_rate_gpd_projected"] is not None),
         "stages": " / ".join(str(sum(1 for r in rows if r["stage"] == st))
-                             for st in (STAGE_NEW, STAGE_ESTABLISHED, STAGE_SEASONAL)),
+                             for st in (STAGE_NEW, STAGE_ESTABLISHED, STAGE_SEASONAL,
+                                        STAGE_CLOSER)),
+        "detected_closers": sum(1 for r in rows if r["model_status"] == STATUS_DETECTED_CLOSER),
         "with_wape": sum(1 for r in ranked if r["model_wape_if_available"] is not None),
         "capacity_warning": sum(1 for r in rows if FLAG_OVER_CAPACITY in r["flags"]
                                 or FLAG_CAPACITY_STALE in r["flags"]
@@ -1752,7 +1857,8 @@ def main():
     print(f"As of {asof.isoformat()}\n")
     print(f"  active customers considered   {counts['active']:>4}")
     print(f"  model-ready (a stage rate)    {counts['model_ready']:>4}")
-    print(f"    new / established / seasonal  {counts['stages']}")
+    print(f"    new / established / seasonal / closer in season  {counts['stages']}")
+    print(f"  detected closers              {counts['detected_closers']:>4}")
     for section in SECTION_ORDER:
         print(f"    {section:28}{in_section(section):>4}")
     print(f"  missing capacity              {sum(1 for r in rows if r['capacity'] is None):>4}")

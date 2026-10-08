@@ -134,7 +134,7 @@ ok(byId[133] && byId[133].history_start && byId[133].section !== "ranked",
   "JJ's (133) restarts its history and is not ranked on the old tavern's");
 
 // ── The ladder ──
-const STAGES = ["new", "established", "seasonal"];
+const STAGES = ["new", "established", "seasonal", "closer in season"];
 ok(ranked.every(c => STAGES.includes(c.stage)), "every ranked row has a stage");
 ok(customers.filter(c => c.section === "insufficient data" && !c.history_start)
   .every(c => c.stage === null), "insufficient rows have no stage");
@@ -152,6 +152,16 @@ ok(/New customer/.test(api.rankedRowsHtml([newRows[0]])), "a new customer render
 const seasonalRows = ranked.filter(c => c.stage === "seasonal");
 ok(seasonalRows.length > 0 && /Seasonal rate/.test(api.rankedRowsHtml([seasonalRows[0]])),
   `${seasonalRows.length} seasonal-rate customers, note rendered`);
+
+const detected = customers.filter(c => c.status === "closer (detected)");
+ok(detected.length > 0 && detected.every(c => c.season &&
+  ["ranked", "seasonal holdout"].includes(c.section)),
+  `${detected.length} detected closers, each with a season, ranked or held out`);
+ok(byId[119] && byId[119].status === "closer (detected)", "Thunder Road (119) is a detected closer");
+ok(byId[225] && byId[225].status === "true closer", "the registry still wins: Mount Ellen (225) stays a true closer");
+const inSeason = ranked.filter(c => c.stage === "closer in season");
+ok(inSeason.length > 0 && /In-season rate/.test(api.rankedRowsHtml([inSeason[0]])),
+  `${inSeason.length} closers ranked on their open-season rate, note rendered`);
 
 // ── Freshness ──
 ok(api.freshnessWarning(payload, { last_updated: payload.data_last_updated }) === null,
