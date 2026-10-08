@@ -133,6 +133,26 @@ ok(sharedRanked && /Shared barrel:/.test(api.rankedRowsHtml([sharedRanked])),
 ok(byId[133] && byId[133].history_start && byId[133].section !== "ranked",
   "JJ's (133) restarts its history and is not ranked on the old tavern's");
 
+// ── The ladder ──
+const STAGES = ["new", "established", "seasonal"];
+ok(ranked.every(c => STAGES.includes(c.stage)), "every ranked row has a stage");
+ok(customers.filter(c => c.section === "insufficient data" && !c.history_start)
+  .every(c => c.stage === null), "insufficient rows have no stage");
+const willCall = customers.filter(c => c.section === "will-call");
+ok(willCall.length > 0 && willCall.every(c => c.status === "will-call (detected)" &&
+  c.projected_gal === null && c.reason), `${willCall.length} will-call rows, none projected, each with a reason`);
+ok(willCall.every(c => !["on-demand / unlimited", "event-driven", "true closer",
+  "semi-closer / call-driven", "seasonal open-ish"].includes(c.status)),
+  "no override is detected as will-call");
+ok(/Will-call/.test(held), "will-call section rendered");
+const newRows = ranked.filter(c => c.stage === "new");
+ok(newRows.length > 0 && newRows.every(c => c.range_high >= c.projected_gal * 1.3 - 1),
+  `${newRows.length} new customers carry a range wider than +/-20% on the high side`);
+ok(/New customer/.test(api.rankedRowsHtml([newRows[0]])), "a new customer renders its note");
+const seasonalRows = ranked.filter(c => c.stage === "seasonal");
+ok(seasonalRows.length > 0 && /Seasonal rate/.test(api.rankedRowsHtml([seasonalRows[0]])),
+  `${seasonalRows.length} seasonal-rate customers, note rendered`);
+
 // ── Freshness ──
 ok(api.freshnessWarning(payload, { last_updated: payload.data_last_updated }) === null,
   "no warning when built from the live scrape");

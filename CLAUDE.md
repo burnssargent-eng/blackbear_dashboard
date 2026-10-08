@@ -177,6 +177,18 @@ classifications. Overrides change routing and which columns show, never the
 50/50 arithmetic or a listed capacity. Operator `% full` is capped at 100; the
 raw figure lives in the detail CSV.
 
+**Everyone else is placed automatically by the ladder** (since 2026-10-08,
+`analysis/replay_newcomers.md`): fewer than 3 pickups is insufficient (the
+first pickup only starts the clock; its gallons never enter a rate); *new* =
+pooled rate over at most the last 6 gaps; *established* (a previous-year rate
+exists) = the 50/50; *seasonal* (passes `analysis/seasonal_open.py`, scored
+from complete years before this one, shuffles seeded per customer) = season-
+free level × month index. A will-call detector (median gap > 120 d, or gap
+sd/mean > 0.8 once gaps over 3× the median are dropped as closures) lists an
+account without a projection. **An override always wins over the detector**,
+and stale wins over will-call. Rows without their own WAPE get calibrated
+range factors (`RANGE_FACTORS`), never a flat ±20%.
+
 ## Checks
 
 ```

@@ -44,6 +44,7 @@ import backtest_seasonal_models as bsm
 import backtest_steady_rate as bt
 import build_projection_table as bpt
 import customer_factors as cf
+import seasonal_open as so
 import seasonality_score as ss
 
 HERE = Path(__file__).resolve().parent
@@ -56,16 +57,7 @@ CHOOSE = (2023, 2024)
 CONFIRM = (2025, 2026)
 MIN_PRIOR = 8
 
-# Seasonal-open, scored from prior complete years only.
-PROFILE_YEARS_BACK = 3          # repeatability needs 3 years
-SKIP_YEARS = {2020}             # the pandemic year distorts a shape
-SEASONAL_AMPLITUDE = 0.25       # the house thresholds (seasonality_score)
-SEASONAL_REPEAT = 0.60
-OPEN_TROUGH = 0.10              # below this a month is "closed" (bsm.CLOSED_INDEX)
-MIN_GAL_PER_YEAR = 300
-PERMUTATIONS = 1000
-PERMUTATION_P = 0.05
-
+# Seasonal-open detection lives in seasonal_open.py, shared with the builder.
 SEED = 42
 CHECK_DAILY = True              # spot-check RunningDaily against ss.daily_production
 BOOTSTRAP_DRAWS = 2000
@@ -103,70 +95,8 @@ def clock_start(pickups, k, checks):
 # Seasonality from prior years only
 # ─────────────────────────────────────────────
 
-def profile_years(test_year):
-    years, y = [], test_year - 1
-    while len(years) < PROFILE_YEARS_BACK and y >= 2016:
-        if y not in SKIP_YEARS:
-            years.append(y)
-        y -= 1
-    return sorted(years)
-
-
-def season_for_year(pickups, test_year):
-    """
-    Seasonality for `test_year`, from pickups before Jan 1 of that year only.
-
-    The spreading pushes a January pickup's gallons back into December, so
-    leaving January out under-counts the last December slightly. Accepted: the
-    alternative is lookahead.
-    """
-    cutoff = date(test_year, 1, 1)
-    prior = [p for p in pickups if p["date"] < cutoff]
-    if len(prior) < 2:
-        return None
-    daily = ss.daily_production(prior)
-    years = profile_years(test_year)
-    profile = {}
-    for y in years:
-        idx = cf.year_index(daily, y)
-        if idx is not None:
-            profile[y] = idx
-    volume = sum(p["gallons"] for p in prior if p["date"].year in years) / len(years)
-    factor, used = cf.factor_from_years(profile, years)
-    if factor is None:
-        return None
-    return {
-        "profile": profile, "years": used, "factor": factor,
-        "amplitude": cf.amplitude(factor),
-        "repeatability": cf.repeatability(profile, years),
-        "trough": min(factor), "gal_per_year": volume,
-    }
-
-
-def permutation_p(profile, years, observed, rng):
-    """Share of month-shuffled profiles whose repeatability reaches the real one."""
-    hits = 0
-    for _ in range(PERMUTATIONS):
-        shuffled = {y: rng.sample(profile[y], 12) for y in years if y in profile}
-        r = cf.repeatability(shuffled, years)
-        if r is not None and r >= observed:
-            hits += 1
-    return (hits + 1) / (PERMUTATIONS + 1)
-
-
-def classify(season, rng):
-    if season is None or season["repeatability"] is None:
-        return "unscored", None
-    if season["gal_per_year"] < MIN_GAL_PER_YEAR:
-        return "low volume", None
-    if season["trough"] < OPEN_TROUGH:
-        return "closer", None
-    if (season["amplitude"] >= SEASONAL_AMPLITUDE
-            and season["repeatability"] >= SEASONAL_REPEAT):
-        p = permutation_p(season["profile"], season["years"],
-                          season["repeatability"], rng)
-        return ("seasonal-open" if p <= PERMUTATION_P else "seasonal, fails noise test"), p
-    return "steady/other", None
+season_for_year = so.season_for_year
+classify = so.classify
 
 
 # ─────────────────────────────────────────────
@@ -443,11 +373,11 @@ def main():
     for (cid, year), cls in groups.items():
         by_class[cls].add(cid)
     lines += ["## 1. Who is open but seasonal (scored from prior years only)", "",
-              f"Seasonal-open = never below {OPEN_TROUGH} of an average month, amplitude ≥ "
-              f"{SEASONAL_AMPLITUDE}, repeatability ≥ {SEASONAL_REPEAT} over the "
-              f"{PROFILE_YEARS_BACK} complete years before the test year (2020 skipped), "
-              f"≥ {MIN_GAL_PER_YEAR} gal/yr, **and** a repeatability that beats "
-              f"{100 - PERMUTATION_P * 100:.0f}% of {PERMUTATIONS} month-shuffled versions "
+              f"Seasonal-open = never below {so.OPEN_TROUGH} of an average month, amplitude ≥ "
+              f"{so.SEASONAL_AMPLITUDE}, repeatability ≥ {so.SEASONAL_REPEAT} over the "
+              f"{so.PROFILE_YEARS_BACK} complete years before the test year (2020 skipped), "
+              f"≥ {so.MIN_GAL_PER_YEAR} gal/yr, **and** a repeatability that beats "
+              f"{100 - so.PERMUTATION_P * 100:.0f}% of {so.PERMUTATIONS} month-shuffled versions "
               "of the same customer (the noise test).", "",
               "| Class (any test year) | Customers |", "|---|---:|"]
     for cls in sorted(by_class, key=lambda c: -len(by_class[c])):

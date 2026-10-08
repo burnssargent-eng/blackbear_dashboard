@@ -120,10 +120,11 @@ manual survey. Design agreed with Sarge 2026-10-08:
   Route / truck-tank totals deferred to the route builder.
 
 **Replay done 2026-10-08** (`replay_newcomers.md`; README decision log). The
-ladder holds; bands calibrated; will-call rule chosen. Next: the builder
-change — stage ladder, per-stage bands replacing the ±20% default, the
-will-call detector (overrides win). After that: an automatic seasonal-closed
-detector, since the will-call rule currently catches new closers too.
+ladder holds; bands calibrated; will-call rule made season-aware (25 ranked
+moved instead of 62). **Builder change built 2026-10-08** on `builder-ladder`
+(stages, will-call section, calibrated ranges). Next: an automatic
+seasonal-closed detector, so a new closer is routed like the registry's
+closers instead of being ranked on 50/50 all year.
 
 ## Then: the Projections page (Sarge's vision, 2026-10-01)
 
