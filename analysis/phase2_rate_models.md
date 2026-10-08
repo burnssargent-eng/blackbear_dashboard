@@ -8,13 +8,13 @@ Seasonal-open = never below 0.1 of an average month, amplitude ≥ 0.25, repeata
 
 | Class (any test year) | Customers |
 |---|---:|
-| steady/other | 197 |
+| steady/other | 192 |
 | unscored | 191 |
 | low volume | 126 |
-| seasonal-open | 29 |
-| closer | 8 |
+| seasonal-open | 21 |
+| closer | 17 |
 
-Seasonal-open customers: Thunder Road  4567, Canteen Creemee Company, Mad River Barn, Mad Taco-Waitsfield, Sugarbush Resort, Zen Barn, Stowebowl, Idletyme, Stowe Mountain-Spruce Peak, Matterhorn, Blue Bird BBQ - blue keychain in mack, UVM- Red Stone, UVM-Living Learning, UVM -Central. Residence, UVM- Davis Campus, Mad Taco-Essex Jct, North Hero House, Skinny Pancake-Burlington LakeFront8741, Black Diamond BBQ, Jay Peak-waterslide, Three Squares, Goodies Snack Bar, Addison County Solid Waste Management District, Ross Conrad, White Cottage, TCs, Onion City Chicken and Oysters, Mad River Glen, Skinny Pancake- Quechee
+Seasonal-open customers: Canteen Creemee Company, Mad River Barn, Mad Taco-Waitsfield, Sugarbush Resort, Zen Barn, Stowebowl, Idletyme, Stowe Mountain-Spruce Peak, Matterhorn, Blue Bird BBQ - blue keychain in mack, UVM- Red Stone, UVM -Central. Residence, UVM- Davis Campus, North Hero House, Skinny Pancake-Burlington LakeFront8741, Black Diamond BBQ, Jay Peak-waterslide, Three Squares, Onion City Chicken and Oysters, Mad River Glen, Skinny Pancake- Quechee
 
 ## 2. Seasonal-open customers
 
@@ -22,27 +22,27 @@ Seasonal-open customers: Thunder Road  4567, Canteen Creemee Company, Mad River 
 
 | Model | Pickups / customers | 50/50 WAPE | Model WAPE | Difference | 95% interval | Model bias |
 |---|---:|---:|---:|---:|---|---:|
-| Sarge 50/50: last-yr ±3wk + last 2 | 146 / 11 | 47.3% | 34.0% | **-13.3** | -19.9 to -7.5 | -8.5% |
-| Sarge 70/30 | 146 / 11 | 47.3% | 32.9% | **-14.4** | -20.8 to -8.2 | -9.3% |
-| Sarge 30/70 | 146 / 11 | 47.3% | 37.0% | **-10.4** | -16.0 to -4.6 | -7.8% |
-| Sarge ±6wk | 146 / 11 | 47.3% | 34.8% | **-12.5** | -18.2 to -7.3 | -8.8% |
-| Level-adjusted last year | 146 / 11 | 47.3% | 43.4% | **-3.9** | -14.1 to +6.7 | +2.4% |
-| Level × month index | 146 / 11 | 47.3% | 35.0% | **-12.3** | -18.9 to -6.7 | -11.4% |
-| Last 3 ÷ its index × coming index | 146 / 11 | 47.3% | 39.3% | **-8.0** | -15.9 to -0.3 | -7.2% |
-| Seasonal blend (2026-09) | 144 / 11 | 46.0% | 38.8% | **-7.1** | -12.3 to -2.6 | -16.3% |
+| Sarge 50/50: last-yr ±3wk + last 2 | 114 / 7 | 43.5% | 31.8% | **-11.8** | -18.8 to -4.5 | -4.7% |
+| Sarge 70/30 | 114 / 7 | 43.5% | 30.7% | **-12.8** | -21.3 to -5.3 | -5.7% |
+| Sarge 30/70 | 114 / 7 | 43.5% | 34.7% | **-8.8** | -16.0 to -1.8 | -3.6% |
+| Sarge ±6wk | 114 / 7 | 43.5% | 32.2% | **-11.4** | -18.2 to -5.0 | -4.9% |
+| Level-adjusted last year | 114 / 7 | 43.5% | 40.5% | **-3.0** | -14.2 to +9.1 | +3.2% |
+| Level × month index | 114 / 7 | 43.5% | 31.4% | **-12.2** | -20.8 to -4.6 | -5.0% |
+| Last 3 ÷ its index × coming index | 114 / 7 | 43.5% | 37.0% | **-6.6** | -16.3 to +2.6 | -1.8% |
+| Seasonal blend (2026-09) | 114 / 7 | 43.5% | 34.5% | **-9.1** | -15.2 to -3.6 | -7.0% |
 
 ### Confirm (2025–26)
 
 | Model | Pickups / customers | 50/50 WAPE | Model WAPE | Difference | 95% interval | Model bias |
 |---|---:|---:|---:|---:|---|---:|
-| Sarge 50/50: last-yr ±3wk + last 2 | 324 / 26 | 48.7% | 43.3% | **-5.3** | -9.5 to -0.3 | +5.6% |
-| Sarge 70/30 | 324 / 26 | 48.7% | 41.1% | **-7.6** | -11.9 to -3.0 | +2.8% |
-| Sarge 30/70 | 324 / 26 | 48.7% | 47.2% | **-1.5** | -6.0 to +3.8 | +8.5% |
-| Sarge ±6wk | 324 / 26 | 48.7% | 43.8% | **-4.8** | -8.9 to -0.4 | +5.5% |
-| Level-adjusted last year | 324 / 26 | 48.7% | 46.1% | **-2.5** | -8.3 to +3.5 | +9.9% |
-| Level × month index | 324 / 26 | 48.7% | 34.1% | **-14.5** | -20.3 to -9.6 | -6.2% |
-| Last 3 ÷ its index × coming index | 324 / 26 | 48.7% | 35.6% | **-13.1** | -18.2 to -8.7 | +0.4% |
-| Seasonal blend (2026-09) | 322 / 25 | 48.8% | 40.1% | **-8.7** | -13.0 to -5.0 | -6.7% |
+| Sarge 50/50: last-yr ±3wk + last 2 | 288 / 19 | 40.4% | 31.4% | **-9.0** | -11.8 to -6.2 | -5.6% |
+| Sarge 70/30 | 288 / 19 | 40.4% | 29.5% | **-10.9** | -14.0 to -8.2 | -8.6% |
+| Sarge 30/70 | 288 / 19 | 40.4% | 34.8% | **-5.7** | -8.7 to -2.7 | -2.6% |
+| Sarge ±6wk | 288 / 19 | 40.4% | 31.9% | **-8.5** | -11.1 to -6.0 | -5.8% |
+| Level-adjusted last year | 288 / 19 | 40.4% | 35.7% | **-4.7** | -9.5 to -0.0 | +0.3% |
+| Level × month index | 288 / 19 | 40.4% | 31.5% | **-8.9** | -13.3 to -5.0 | -10.0% |
+| Last 3 ÷ its index × coming index | 288 / 19 | 40.4% | 31.0% | **-9.4** | -13.9 to -5.0 | -2.1% |
+| Seasonal blend (2026-09) | 288 / 19 | 40.4% | 33.3% | **-7.1** | -10.1 to -4.3 | -10.7% |
 
 ## 3. Recency adaptation, every open customer
 
@@ -52,39 +52,45 @@ A gate compares the rate over the last 2 (or 3) pickups with the 3 before. When 
 
 | Model | Pickups / customers | 50/50 WAPE | Model WAPE | Difference | 95% interval | Model bias |
 |---|---:|---:|---:|---:|---|---:|
-| Gate last 3 vs 3 before >30%, mild | 4,608 / 285 | 30.1% | 29.5% | **-0.6** | – | -4.5% |
-| Gate last 2 vs 3 before >30%, mild | 4,608 / 285 | 30.1% | 29.6% | **-0.6** | – | -5.0% |
-| EWMA half-life 2 + prev year | 4,608 / 285 | 30.1% | 29.6% | **-0.5** | – | -6.0% |
-| Gate last 2 vs 3 before >30%, strong | 4,608 / 285 | 30.1% | 29.7% | **-0.5** | – | -4.5% |
-| Gate last 3 vs 3 before >50%, mild | 4,608 / 285 | 30.1% | 29.7% | **-0.4** | – | -4.2% |
-| Gate last 3 vs 3 before >30%, strong | 4,608 / 285 | 30.1% | 29.7% | **-0.4** | – | -3.8% |
-| Gate last 3 vs 3 before >50%, strong | 4,608 / 285 | 30.1% | 29.8% | **-0.4** | – | -3.5% |
-| Gate last 2 vs 3 before >50%, mild | 4,608 / 285 | 30.1% | 29.8% | **-0.3** | – | -4.8% |
-| Gate last 2 vs 3 before >50%, strong | 4,608 / 285 | 30.1% | 29.8% | **-0.3** | – | -4.3% |
-| Gate last 3 vs 3 before >75%, mild | 4,608 / 285 | 30.1% | 29.9% | **-0.3** | – | -4.2% |
-| Gate last 3 vs 3 before >75%, strong | 4,608 / 285 | 30.1% | 29.9% | **-0.2** | – | -3.5% |
-| Gate last 2 vs 3 before >75%, mild | 4,608 / 285 | 30.1% | 30.0% | **-0.2** | – | -4.7% |
-| Gate last 2 vs 3 before >75%, strong | 4,608 / 285 | 30.1% | 30.0% | **-0.2** | – | -4.3% |
-| EWMA half-life 3 + prev year | 4,608 / 285 | 30.1% | 30.0% | **-0.1** | – | -6.3% |
-| EWMA half-life 4 + prev year | 4,608 / 285 | 30.1% | 30.2% | **+0.1** | – | -6.4% |
+| Gate last 3 vs 3 before >30%, mild | 4,559 / 281 | 29.8% | 29.1% | **-0.7** | – | -4.4% |
+| Gate last 2 vs 3 before >30%, mild | 4,559 / 281 | 29.8% | 29.1% | **-0.7** | – | -4.8% |
+| Gate last 2 vs 3 before >30%, strong | 4,559 / 281 | 29.8% | 29.2% | **-0.6** | – | -4.4% |
+| Gate last 3 vs 3 before >30%, strong | 4,559 / 281 | 29.8% | 29.2% | **-0.6** | – | -3.8% |
+| Gate last 3 vs 3 before >50%, mild | 4,559 / 281 | 29.8% | 29.3% | **-0.5** | – | -4.1% |
+| Gate last 3 vs 3 before >50%, strong | 4,559 / 281 | 29.8% | 29.3% | **-0.5** | – | -3.4% |
+| EWMA half-life 2 + prev year | 4,559 / 281 | 29.8% | 29.3% | **-0.5** | – | -5.7% |
+| Gate last 2 vs 3 before >50%, strong | 4,559 / 281 | 29.8% | 29.3% | **-0.5** | – | -4.3% |
+| Gate last 2 vs 3 before >50%, mild | 4,559 / 281 | 29.8% | 29.3% | **-0.4** | – | -4.6% |
+| Gate last 3 vs 3 before >75%, mild | 4,559 / 281 | 29.8% | 29.4% | **-0.3** | – | -4.1% |
+| Gate last 3 vs 3 before >75%, strong | 4,559 / 281 | 29.8% | 29.4% | **-0.3** | – | -3.5% |
+| Gate last 2 vs 3 before >75%, strong | 4,559 / 281 | 29.8% | 29.5% | **-0.3** | – | -4.2% |
+| Gate last 2 vs 3 before >75%, mild | 4,559 / 281 | 29.8% | 29.5% | **-0.2** | – | -4.6% |
+| EWMA half-life 3 + prev year | 4,559 / 281 | 29.8% | 29.6% | **-0.1** | – | -6.0% |
+| EWMA half-life 4 + prev year | 4,559 / 281 | 29.8% | 29.9% | **+0.1** | – | -6.1% |
 
 ### Confirm (2025–26): the 3 best settings from choose
 
 | Model | Pickups / customers | 50/50 WAPE | Model WAPE | Difference | 95% interval | Model bias |
 |---|---:|---:|---:|---:|---|---:|
-| Gate last 3 vs 3 before >30%, mild | 5,069 / 345 | 33.6% | 34.2% | **+0.6** | +0.2 to +1.2 | +0.5% |
-| Gate last 2 vs 3 before >30%, mild | 5,069 / 345 | 33.6% | 33.8% | **+0.3** | -0.1 to +0.8 | -0.3% |
-| EWMA half-life 2 + prev year | 5,069 / 345 | 33.6% | 33.2% | **-0.4** | -0.6 to -0.2 | -1.6% |
+| Gate last 3 vs 3 before >30%, mild | 5,017 / 340 | 32.6% | 32.9% | **+0.3** | -0.2 to +0.7 | -0.3% |
+| Gate last 2 vs 3 before >30%, mild | 5,017 / 340 | 32.6% | 32.7% | **+0.1** | -0.3 to +0.5 | -0.9% |
+| Gate last 2 vs 3 before >30%, strong | 5,017 / 340 | 32.6% | 33.1% | **+0.5** | -0.1 to +1.2 | -0.4% |
 
-`Gate last 3 vs 3 before >30%, mild` fired on 1,771 of 5,069 confirm pickups (35%).
-
-| Model | Pickups / customers | 50/50 WAPE | Model WAPE | Difference | 95% interval | Model bias |
-|---|---:|---:|---:|---:|---|---:|
-| Gate last 3 vs 3 before >30%, mild — fired pickups only | 1,771 / 314 | 45.0% | 46.9% | **+1.9** | +0.5 to +3.6 | +0.9% |
-
-`Gate last 2 vs 3 before >30%, mild` fired on 1,911 of 5,069 confirm pickups (38%).
+`Gate last 3 vs 3 before >30%, mild` fired on 1,728 of 5,017 confirm pickups (34%).
 
 | Model | Pickups / customers | 50/50 WAPE | Model WAPE | Difference | 95% interval | Model bias |
 |---|---:|---:|---:|---:|---|---:|
-| Gate last 2 vs 3 before >30%, mild — fired pickups only | 1,911 / 325 | 44.4% | 45.1% | **+0.8** | -0.4 to +2.0 | -1.3% |
+| Gate last 3 vs 3 before >30%, mild — fired pickups only | 1,728 / 308 | 43.1% | 43.8% | **+0.7** | -0.4 to +2.0 | -1.4% |
+
+`Gate last 2 vs 3 before >30%, mild` fired on 1,867 of 5,017 confirm pickups (37%).
+
+| Model | Pickups / customers | 50/50 WAPE | Model WAPE | Difference | 95% interval | Model bias |
+|---|---:|---:|---:|---:|---|---:|
+| Gate last 2 vs 3 before >30%, mild — fired pickups only | 1,867 / 320 | 43.1% | 43.4% | **+0.3** | -0.8 to +1.5 | -2.1% |
+
+`Gate last 2 vs 3 before >30%, strong` fired on 1,867 of 5,017 confirm pickups (37%).
+
+| Model | Pickups / customers | 50/50 WAPE | Model WAPE | Difference | 95% interval | Model bias |
+|---|---:|---:|---:|---:|---|---:|
+| Gate last 2 vs 3 before >30%, strong — fired pickups only | 1,867 / 320 | 43.1% | 44.5% | **+1.4** | -0.4 to +3.4 | -0.7% |
 

@@ -384,7 +384,7 @@ def main():
       "lump-sum overrides. Every customer with 3+ pickups in the window is scored, "
       "not just newcomers. The rule is **chosen on gaps dated 2021–23** and "
       "reported on gaps dated 2024–26. \"Today's ranked\" = customers ranked on the "
-      "page now (no override), scored on their gaps over the last 3 years.\n")
+      "page now (no override), scored on their gaps over the last 3 years — read from the live `oil_projections.json`, so it reads 0 once the chosen rule is live.\n")
 
     def profiles_between(lo, hi):
         out = {}

@@ -8,18 +8,18 @@ Customer-years: a hit is a detected closer that is closed in Y. **Months right**
 
 | k years | T | M | Choose F1 | Confirm: precision | recall | F1 | months right | pickups held out | gallons held out |
 |---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| 1 | 0.1 | 2 | 0.31 | 50% | 59% | 0.54 | 42% | 70 | 15.4% |
-| 1 | 0.1 | 3 | 0.28 | 46% | 50% | 0.48 | 44% | 56 | 16.5% |
-| 1 | 0.2 | 2 | 0.37 | 51% | 58% | 0.54 | 44% | 80 | 16.4% |
-| 1 | 0.2 | 3 | 0.27 | 52% | 60% | 0.56 | 47% | 63 | 17.1% |
-| 2 | 0.1 | 2 | 0.69 | 89% | 53% | 0.67 | 84% | 5 | 1.9% |
-| 2 | 0.1 | 3 | 0.53 | 87% | 57% | 0.68 | 83% | 5 | 2.1% |
-| 2 | 0.2 | 2 | 0.67 | 91% | 53% | 0.67 | 86% | 8 | 3.8% |
-| 2 | 0.2 | 3 | 0.61 | 88% | 60% | 0.71 | 86% | 6 | 2.3% |
-| 3 | 0.1 | 2 | 0.67 | 86% | 46% | 0.60 | 88% | 3 | 1.6% |
-| 3 | 0.1 | 3 | 0.46 | 100% | 56% | 0.71 | 95% | 1 | 0.5% |
-| 3 | 0.2 | 2 | 0.63 | 85% | 52% | 0.64 | 87% | 10 | 3.7% |
-| 3 | 0.2 | 3 | 0.62 | 92% | 57% | 0.71 | 92% | 7 | 3.4% |
+| 1 | 0.1 | 2 | 0.29 | 42% | 62% | 0.50 | 33% | 95 | 16.4% |
+| 1 | 0.1 | 3 | 0.27 | 40% | 50% | 0.44 | 36% | 73 | 18.4% |
+| 1 | 0.2 | 2 | 0.37 | 42% | 58% | 0.49 | 35% | 104 | 17.6% |
+| 1 | 0.2 | 3 | 0.26 | 47% | 64% | 0.54 | 38% | 81 | 19.2% |
+| 2 | 0.1 | 2 | 0.69 | 88% | 50% | 0.64 | 82% | 6 | 2.2% |
+| 2 | 0.1 | 3 | 0.53 | 86% | 52% | 0.65 | 80% | 6 | 2.5% |
+| 2 | 0.2 | 2 | 0.67 | 90% | 50% | 0.64 | 83% | 9 | 4.1% |
+| 2 | 0.2 | 3 | 0.61 | 88% | 60% | 0.71 | 83% | 7 | 2.6% |
+| 3 | 0.1 | 2 | 0.67 | 86% | 46% | 0.60 | 85% | 4 | 1.9% |
+| 3 | 0.1 | 3 | 0.46 | 83% | 56% | 0.67 | 84% | 4 | 2.2% |
+| 3 | 0.2 | 2 | 0.60 | 85% | 52% | 0.64 | 85% | 11 | 3.9% |
+| 3 | 0.2 | 3 | 0.59 | 86% | 57% | 0.69 | 86% | 9 | 4.4% |
 
 **Chosen on 2022–23: k = 2, T = 0.1, M = 2.**
 
@@ -27,9 +27,9 @@ Best setting at each number of years, so the speed/accuracy trade is visible:
 
 | k years | Setting | Choose F1 | Confirm F1 | Confirm pickups held out |
 |---:|---|---:|---:|---:|
-| 1 | T 0.2, M 2 | 0.37 | 0.54 | 80 |
-| 2 | T 0.1, M 2 | 0.69 | 0.67 | 5 |
-| 3 | T 0.1, M 2 | 0.67 | 0.60 | 3 |
+| 1 | T 0.2, M 2 | 0.37 | 0.49 | 104 |
+| 2 | T 0.1, M 2 | 0.69 | 0.64 | 6 |
+| 3 | T 0.1, M 2 | 0.67 | 0.60 | 4 |
 
 ## 2. Against the registry, scored for 2026
 
@@ -52,6 +52,7 @@ The registry holds 11 closers (true + semi). The chosen detector, scored from th
 | Quechee Gorge Snack Bar (1056) | yes, semi-closer / call-driven | Dec–Feb | Mar-Oct | yes |
 | Suicide 6= Saskadena (817) | yes, true closer | not decidable | Nov-Apr | yes |
 | TCs (904) | no | May–Oct | – | yes |
+| Texas Roadhouse-# 1122-Mahoney (1130) | no | Nov–Dec | – | yes |
 | Thunder Road  4567 (119) | no | Nov–Mar | – | yes |
 | Toziers- (803) | yes, semi-closer / call-driven | Dec–Feb | Apr-Oct | yes |
 | White Cottage (824) | no | Nov–Mar | – | yes |
@@ -66,10 +67,10 @@ Pickups whose whole gap lies in predicted-open months (a gap across the closure 
 | Level × month index | 87 / 15 | 57.7% | 51.4% | **-6.3** | -12.5 to +0.9 | -22.0% |
 | Pooled, open-season gaps | 87 / 15 | 57.7% | 48.4% | **-9.3** | -18.3 to +0.4 | +4.9% |
 | **confirm** | | | | | | |
-| Level × month index | 229 / 19 | 56.5% | 33.1% | **-23.4** | -26.8 to -19.8 | -14.1% |
-| Pooled, open-season gaps | 229 / 19 | 56.5% | 35.6% | **-20.9** | -24.8 to -16.8 | -6.7% |
+| Level × month index | 229 / 20 | 55.4% | 32.5% | **-22.9** | -26.7 to -19.3 | -13.3% |
+| Pooled, open-season gaps | 229 / 20 | 55.4% | 33.9% | **-21.5** | -25.2 to -17.2 | -5.7% |
 
 **Likely range for the pooled, open-season gaps rate**: the 20th and 80th percentiles of actual ÷ projected on choose pickups, coverage on confirm.
 
-Factors × 0.62 – × 1.64; confirm: 71% inside (target 60%), 86% at or under the high end (target 80%), 229 pickups.
+Factors × 0.62 – × 1.64; confirm: 73% inside (target 60%), 87% at or under the high end (target 80%), 229 pickups.
 

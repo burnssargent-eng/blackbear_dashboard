@@ -18,8 +18,10 @@ For each active customer, at the as-of date:
 - **projected rate**, by stage (the ladder, `replay_newcomers.md`):
   *new* (3+ pickups, no previous-year rate) = pooled; *established* = 0.5 x
   previous year + 0.5 x pooled; *seasonal* (passes the seasonal-open test,
-  `seasonal_open.py`, scored from complete years before this one) =
-  season-free level x the month index of the days elapsed
+  `seasonal_open.py`, scored from complete years before this one) = half
+  Sarge's 70/30 (0.7 x last year's rate over the date ±3 weeks + 0.3 x the
+  last 2 pickups) + half the last 3 pickups' rate ÷ the month index of the
+  days they cover × the index of the days being projected
 - **projected gallons** = projected rate x days since the last pickup, or
   since a later empty check (quantity 0 or 1 in `oil_non_pickups.csv`),
   whichever is later: the truck looked and found nothing worth pumping
@@ -50,8 +52,8 @@ is *will-call*: listed, never projected.
   with no pickups counts as a real zero.
 - *confidence range* -- the customer's own backtested 50/50 WAPE where one
   exists and the customer is past the *new* stage (121 of the
-  357 ranked rows), otherwise the projection x the replay's 20th
-  and 80th percentile factors for its stage: new, 2 gaps x0.60-x1.64; new, 3 gaps x0.71-x1.49; new, 4+ gaps x0.70-x1.35; established x0.75-x1.45. The
+  356 ranked rows), otherwise the projection x the replay's 20th
+  and 80th percentile factors for its stage: new, 2 gaps x0.60-x1.64; new, 3 gaps x0.71-x1.49; new, 4+ gaps x0.70-x1.35; established x0.75-x1.45; closer in season x0.62-x1.64. The
   low end is clamped at zero, since a few customers score over 100% WAPE.
 - *stale* -- no pickup in 180 days. Every column is still computed,
   but the row is held out of the ranking: `is_active` only means "not dormant
@@ -88,6 +90,13 @@ precedence order:
    once silent longer than max(60,
    2 x median gap) days -- the fringe table's
    *no recent call signal* rule. A recent off-season call keeps it ranked.
+   **closer (detected)** -- a customer NOT in the registry whose
+   last 2 complete years show a closed block
+   (`seasonal_open.closed_months`, `seasonal_closed.md`) is routed exactly like
+   a semi-closer, with the detected season. In season, every closer (registry
+   or detected) is ranked on a pooled rate over its open-season gaps when it
+   has 3+, not the 50/50, which averages in the closed
+   months; range x0.62-x1.64.
 6. **stale** -- no pickup in 180 days.
 7. Everything else is ranked, on its stage's rate. **seasonal open-ish**
    customers are ranked like anyone else; those that pass the seasonal-open
@@ -110,10 +119,11 @@ Capacity problems are reported in *flags*, separately from the model status.
 |---|---:|
 | Active customers considered | 511 |
 | Model-ready (a stage rate) | 466 |
-| — stage new / established / seasonal | 68 / 372 / 26 |
-| — ranked in the main table | 357 |
-| — seasonal holdouts | 8 |
-| — held out as stale | 64 |
+| — stage new / established / seasonal / closer in season | 68 / 370 / 16 / 12 |
+| Detected closers (not in the registry) | 8 |
+| — ranked in the main table | 356 |
+| — seasonal holdouts | 10 |
+| — held out as stale | 63 |
 | Event-driven | 2 |
 | On-demand / unlimited | 1 |
 | Lump-sum / interval-based | 0 |
@@ -121,21 +131,23 @@ Capacity problems are reported in *flags*, separately from the model status.
 | Insufficient data | 45 |
 | Missing capacity | 0 |
 | With a capacity warning | 75 |
-| Ranked and projected above listed capacity | 6 |
-| Past the 75% target | 15 |
-| Past full capacity | 6 |
+| Ranked and projected above listed capacity | 7 |
+| Past the 75% target | 17 |
+| Past full capacity | 7 |
 
 | Section | Model status | Customers |
 |---|---|---:|
-| ranked | 50/50 default | 350 |
+| ranked | 50/50 default | 343 |
+| ranked | closer (detected) | 6 |
 | ranked | seasonal open-ish | 4 |
 | ranked | semi-closer / call-driven | 3 |
+| seasonal holdout | closer (detected) | 2 |
 | seasonal holdout | semi-closer / call-driven | 2 |
 | seasonal holdout | true closer | 6 |
 | event-driven | event-driven | 2 |
 | on-demand / unlimited | on-demand / unlimited | 1 |
 | will-call | will-call (detected) | 34 |
-| stale | stale - projection not meaningful | 64 |
+| stale | stale - projection not meaningful | 63 |
 | insufficient data | insufficient data | 45 |
 
 ## Top 25 urgent stops
@@ -149,29 +161,29 @@ Ranked rows only. Sorted by days past capacity, then days past the
 | 2 | Michael's on the Hill | Waterbury | 50/50 default | 138.4 | 104-201 | 100 | 100.0% | 68.7 | 41.6 | 0.92 | 2026-05-11 | 150 |
 | 3 | Pizza Hut-St Albans | Saint Albans Town | 50/50 default | 89.2 | 54-146 | 55 | 100.0% | 57.5 | 41.0 | 0.83 | 2026-06-23 | 107 |
 | 4 | The NEW Forge-Randolph | Randolph | 50/50 default | 137.0 | 103-199 | 110 | 100.0% | 44.9 | 22.2 | 1.21 | 2026-06-17 | 113 |
-| 5 | Grand Summit Hotel (Mt. Snow) | Dover | 50/50 default | 170.0 | 127-246 | 150 | 100.0% | 50.1 | 17.4 | 1.15 | 2026-05-13 | 148 |
-| 6 | West Side Market and Deli | Newport City | 50/50 default | 62.6 | 47-91 | 55 | 100.0% | 40.3 | 14.4 | 0.53 | 2026-06-12 | 118 |
-| 7 | Warren Store | Warren | 50/50 default | 57.1 | 43-83 | 65 | 87.9% | 12.3 | 0.0 | 0.68 | 2026-07-16 | 84 |
-| 8 | Pitchers Inn | Warren | 50/50 default | 55.9 | 42-81 | 65 | 86.0% | 10.7 | 0.0 | 0.67 | 2026-07-16 | 84 |
-| 9 | Mad River Glen | Waitsfield | seasonal open-ish | 84.0 | 63-122 | 100 | 84.0% | 7.0 | 0.0 | 2.55 | 2026-09-05 | 33 |
+| 5 | West Side Market and Deli | Newport City | 50/50 default | 62.6 | 47-91 | 55 | 100.0% | 40.3 | 14.4 | 0.53 | 2026-06-12 | 118 |
+| 6 | Thunder Road  4567 | Barre Town | closer (detected) | 156.3 | 97-256 | 150 | 100.0% | 8.1 | 1.2 | 5.39 | 2026-09-09 | 29 |
+| 7 | Skinny Pancake- Quechee | Hartford | 50/50 default | 150.8 | 113-219 | 150 | 100.0% | 8.6 | 0.2 | 4.44 | 2026-09-04 | 34 |
+| 8 | Warren Store | Warren | 50/50 default | 57.1 | 43-83 | 65 | 87.9% | 12.3 | 0.0 | 0.68 | 2026-07-16 | 84 |
+| 9 | Pitchers Inn | Warren | 50/50 default | 55.9 | 42-81 | 65 | 86.0% | 10.7 | 0.0 | 0.67 | 2026-07-16 | 84 |
 | 10 | Hannaford-West Lebanon | West Lebanon | 50/50 default | 153.1 | 109-197 | 170 | 90.0% | 4.7 | 0.0 | 5.47 | 2026-09-10 | 28 |
-| 11 | Vermont Country Club-Waterbury | Waterbury | 50/50 default | 46.2 | 35-67 | 50 | 92.4% | 4.3 | 0.0 | 2.01 | 2026-09-15 | 23 |
-| 12 | Hannaford-Burlington North Ave | Burlington | 50/50 default | 157.3 | 144-171 | 200 | 78.7% | 1.9 | 0.0 | 3.84 | 2026-08-28 | 41 |
-| 13 | Skinny Pancake- Quechee | Hartford | 50/50 default | 117.2 | 88-170 | 150 | 78.1% | 1.0 | 0.0 | 3.45 | 2026-09-04 | 34 |
-| 14 | Fusion cafe and bar | Winooski | 50/50 default | 115.7 | 80-151 | 150 | 77.2% | 1.0 | 0.0 | 3.31 | 2026-09-03 | 35 |
-| 15 | Jay Village Inn | Jay | 50/50 default | 113.2 | 92-134 | 150 | 75.5% | 0.3 | 0.0 | 2.31 | 2026-08-20 | 49 |
-| 16 | Hana-Japanese-Dorset | Burlington | 50/50 default | 111.6 | 63-160 | 150 | 74.4% | 0.0 | 0.0 | 1.99 | 2026-08-13 | 56 |
-| 17 | Mountain Valley-Winooski | Winooski | 50/50 default | 79.7 | 60-116 | 110 | 72.5% | 0.0 | 0.0 | 0.71 | 2026-06-17 | 113 |
-| 18 | Two Brothers Tavern | Middlebury | 50/50 default | 144.0 | 120-168 | 200 | 72.0% | 0.0 | 0.0 | 6.00 | 2026-09-14 | 24 |
-| 19 | Le~Marche~Cafe | Shelburne | 50/50 default | 71.6 | 54-104 | 100 | 71.6% | 0.0 | 0.0 | 0.82 | 2026-07-13 | 87 |
-| 20 | Ruben James + Ahli Baba's | Burlington | 50/50 default | 143.2 | 71-215 | 200 | 71.6% | 0.0 | 0.0 | 2.02 | 2026-07-29 | 71 |
-| 21 | Arandas-Fairlee | Fairlee | 50/50 default | 39.0 | 23-64 | 55 | 71.0% | 0.0 | 0.0 | 0.51 | 2026-07-24 | 76 |
-| 22 | Manchester Hockeypas-0150 | Manchester | 50/50 default | 70.2 | 53-102 | 100 | 70.2% | 0.0 | 0.0 | 0.83 | 2026-04-16 | 175 |
-| 23 | May Day | Burlington | 50/50 default | 104.5 | 88-122 | 150 | 69.7% | 0.0 | 0.0 | 2.38 | 2026-08-25 | 44 |
-| 24 | Maxi's | Waterbury | 50/50 default | 76.1 | 57-110 | 110 | 69.2% | 0.0 | 0.0 | 1.49 | 2026-08-18 | 51 |
-| 25 | Bent Hill Brewery | Braintree | 50/50 default | 103.2 | 63-144 | 150 | 68.8% | 0.0 | 0.0 | 1.47 | 2026-07-30 | 70 |
+| 11 | Mad River Glen | Waitsfield | seasonal open-ish | 87.1 | 65-126 | 100 | 87.1% | 4.6 | 0.0 | 2.64 | 2026-09-05 | 33 |
+| 12 | Vermont Country Club-Waterbury | Waterbury | 50/50 default | 46.2 | 35-67 | 50 | 92.4% | 4.3 | 0.0 | 2.01 | 2026-09-15 | 23 |
+| 13 | Hannaford-Burlington North Ave | Burlington | 50/50 default | 157.3 | 144-171 | 200 | 78.7% | 1.9 | 0.0 | 3.84 | 2026-08-28 | 41 |
+| 14 | Quechee Gorge Snack Bar | Hartford | semi-closer / call-driven | 171.0 | 106-280 | 200 | 85.5% | 1.8 | 0.0 | 11.40 | 2026-09-23 | 15 |
+| 15 | Fusion cafe and bar | Winooski | 50/50 default | 115.7 | 80-151 | 150 | 77.2% | 1.0 | 0.0 | 3.31 | 2026-09-03 | 35 |
+| 16 | Mad River Barn | Waitsfield | 50/50 default | 49.7 | 26-73 | 65 | 76.4% | 0.6 | 0.0 | 1.51 | 2026-09-05 | 33 |
+| 17 | Jay Village Inn | Jay | 50/50 default | 113.2 | 92-134 | 150 | 75.5% | 0.3 | 0.0 | 2.31 | 2026-08-20 | 49 |
+| 18 | Hana-Japanese-Dorset | Burlington | 50/50 default | 111.6 | 63-160 | 150 | 74.4% | 0.0 | 0.0 | 1.99 | 2026-08-13 | 56 |
+| 19 | Mountain Valley-Winooski | Winooski | 50/50 default | 79.7 | 60-116 | 110 | 72.5% | 0.0 | 0.0 | 0.71 | 2026-06-17 | 113 |
+| 20 | Two Brothers Tavern | Middlebury | 50/50 default | 144.0 | 120-168 | 200 | 72.0% | 0.0 | 0.0 | 6.00 | 2026-09-14 | 24 |
+| 21 | Le~Marche~Cafe | Shelburne | 50/50 default | 71.6 | 54-104 | 100 | 71.6% | 0.0 | 0.0 | 0.82 | 2026-07-13 | 87 |
+| 22 | Ruben James + Ahli Baba's | Burlington | 50/50 default | 143.2 | 71-215 | 200 | 71.6% | 0.0 | 0.0 | 2.02 | 2026-07-29 | 71 |
+| 23 | Arandas-Fairlee | Fairlee | 50/50 default | 39.0 | 23-64 | 55 | 71.0% | 0.0 | 0.0 | 0.51 | 2026-07-24 | 76 |
+| 24 | Manchester Hockeypas-0150 | Manchester | 50/50 default | 70.2 | 53-102 | 100 | 70.2% | 0.0 | 0.0 | 0.83 | 2026-04-16 | 175 |
+| 25 | Skinny Pancake-Burlington LakeFront8741 | Burlington | 50/50 default | 104.7 | 79-152 | 150 | 69.8% | 0.0 | 0.0 | 2.99 | 2026-09-03 | 35 |
 
-## Seasonal holdouts (8)
+## Seasonal holdouts (10)
 
 Closers and call-driven seasonal accounts held out of the ranking, so months
 of closure do not read as oil accumulating. Seasons are month-level.
@@ -180,12 +192,14 @@ of closure do not read as oil accumulating. Seasons are month-level.
 |---|---|---|---|---|---:|---:|---:|---:|---|
 | Okemo- Mountain Resort | Ludlow | true closer | off-season (closed; season Dec-Apr) | 2026-04-30 | 161 | 9.28 | 205.8 | 300 | - |
 | Okemo-Jackson Gore Inn | Ludlow | semi-closer / call-driven | seasonal / no recent call signal (161 days silent, threshold 60; season Dec-Apr) | 2026-04-30 | 161 | 6.55 | 117.5 | 300 | - |
-| Mount Ellen | Waitsfield | true closer | off-season (closed; season Nov-Apr) | 2026-03-30 | 192 | 0.96 | 74.2 | 130 | No pickup in 192 days |
-| Main Lodge (Mt. Snow) | Dover | true closer | season open — awaiting first pickup (season Oct-Apr; last pickup before it opened) | 2026-05-13 | 148 | 1.54 | 175.8 | 300 | - |
+| Main Lodge (Mt. Snow) | Dover | true closer | season open — awaiting first pickup (season Oct-Apr; last pickup before it opened) | 2026-05-13 | 148 | 8.30 | 175.8 | 300 | - |
+| Cousins (Mt. Snow) | Dover | semi-closer / call-driven | season open — awaiting first pickup (season Oct-Apr; last pickup before it opened) | 2026-05-13 | 148 | 7.39 | 150.8 | 300 | - |
+| Mount Ellen | Waitsfield | true closer | off-season (closed; season Nov-Apr) | 2026-03-30 | 192 | 1.28 | 74.2 | 130 | No pickup in 192 days |
+| Carinthia Lodge (Mt. Snow) | Dover | true closer | season open — awaiting first pickup (season Oct-Apr; last pickup before it opened) | 2026-05-13 | 148 | 3.77 | 84.2 | 300 | - |
+| Grand Summit Hotel (Mt. Snow) | Dover | closer (detected) | season open — awaiting first pickup (season Aug-Apr; last pickup before it opened) | 2026-05-13 | 148 | 1.67 | 35.8 | 150 | - |
 | Suicide 6= Saskadena | Pomfret | true closer | off-season (closed; season Nov-Apr) | 2026-03-23 | 199 | 0.44 | 67.5 | 150 | No pickup in 199 days |
-| Cousins (Mt. Snow) | Dover | semi-closer / call-driven | season open — awaiting first pickup (season Oct-Apr; last pickup before it opened) | 2026-05-13 | 148 | 1.17 | 150.8 | 300 | - |
-| Carinthia Lodge (Mt. Snow) | Dover | true closer | season open — awaiting first pickup (season Oct-Apr; last pickup before it opened) | 2026-05-13 | 148 | 0.98 | 84.2 | 300 | - |
-| Jay Peak-Stateside (loading dock) | Jay | true closer | off-season (closed; season Nov-Jun) | 2026-04-13 | 178 | 0.42 | 147.5 | 200 | - |
+| TCs | Dover | closer (detected) | seasonal / no recent call signal (192 days silent, threshold 60; season Nov-Apr) | 2026-03-30 | 192 | 0.61 | 45.0 | 195 | No pickup in 192 days |
+| Jay Peak-Stateside (loading dock) | Jay | true closer | off-season (closed; season Nov-Jun) | 2026-04-13 | 178 | 1.93 | 147.5 | 200 | - |
 
 ## On-demand / unlimited (1)
 
@@ -244,7 +258,7 @@ built here.
 
 | Customer | Town | Status | Reason | Last pickup | Days | Rate (gpd) | Avg collection | Capacity | Flags |
 |---|---|---|---|---|---:|---:|---:|---:|---|
-| Champlain Valley Expo | Essex Junction | event-driven | not a daily-rate account | 2026-09-17 | 21 | 21.26 | 569.2 | 2,000 | - |
+| Champlain Valley Expo | Essex Junction | event-driven | not a daily-rate account | 2026-09-17 | 21 | 9.23 | 569.2 | 2,000 | - |
 | Tunbridge Fair | Tunbridge | event-driven | not a daily-rate account | 2026-09-25 | 13 | 0.84 | 269.2 | 400 | Collection exceeds listed capacity - check capacity |
 
 ## Model-status overrides (18)
@@ -270,7 +284,7 @@ built here.
 | 1388 | Okemo- Mountain Resort | true closer | Dec-Apr | Pickups only Dec-Apr in both seasons it has; May-Sep index 0.00. Two years only. |
 | 817 | Suicide 6= Saskadena | true closer | Nov-Apr | Quiet May-Oct, repeatability 0.84 over 3 years. |
 
-Overridden customers still ranked: Mad River Glen (seasonal open-ish), Quechee Gorge Snack Bar (semi-closer / call-driven), Toziers- (semi-closer / call-driven), Jay Peak- Hotel Jay -OutsideNow (semi-closer / call-driven), Sugarbush Resort (seasonal open-ish), Stowe Mountain-Spruce Peak (seasonal open-ish), Jay Peak-waterslide (seasonal open-ish).
+Overridden customers still ranked: Thunder Road  4567 (closer (detected)), Mad River Glen (seasonal open-ish), Quechee Gorge Snack Bar (semi-closer / call-driven), Toziers- (semi-closer / call-driven), Cravens Food Truck-Middlebury (closer (detected)), Gondola’s Downtown Morrisville (closer (detected)), White Cottage (closer (detected)), Jay Peak- Hotel Jay -OutsideNow (semi-closer / call-driven), Stowe Mountain-Spruce Peak (seasonal open-ish), Sugarbush Resort (seasonal open-ish), Jay Peak-waterslide (seasonal open-ish), Texas Roadhouse-# 1122-Mahoney (closer (detected)), Mad Taco-Middlebury (closer (detected)).
 
 ## Top capacity problems
 
@@ -299,7 +313,7 @@ Customers whose recent collections do not fit the listed capacity. These are
 **Insufficient data (45).** Fewer than 3
 pickups: the first only starts the clock, so a rate needs two more.
 
-**Stale (64).** Model-ready but no pickup in 180+ days. All
+**Stale (63).** Model-ready but no pickup in 180+ days. All
 columns are in the CSV under `table_section = stale`.
 
 - Ricky's (Indian food gas station) (Barre Town) -- last pickup 2018-10-16, 2914 days
@@ -328,7 +342,7 @@ columns are in the CSV under `table_section = stale`.
 - Proctor-Pittsford Country Club (Pittsford) -- last pickup 2025-05-23, 503 days
 - Basin Harbor Resort (Vergennes) -- last pickup 2025-06-24, 471 days
 
-**Review hints (41).** Ranked on the 50/50 default and not
+**Review hints (39).** Ranked on the 50/50 default and not
 in the registry, but the heuristic says the default may not suit them.
 
 - Addison County Solid Waste Management District (Middlebury) -- likely seasonal / needs separate rule
@@ -366,8 +380,8 @@ in the registry, but the heuristic says the default may not suit them.
   limit. It leaves a spillover buffer; past it is not an overflow.
 - **Capacity flags are review prompts, not automatic corrections.** No listed
   capacity is overwritten by this script.
-- **Monthly indices apply only to seasonal-stage customers**, on the
-  season-free level. Multiplying the 50/50 by an index double-counts the
+- **Monthly indices apply only to seasonal-stage customers**, on a rate with
+  the season divided out first. Multiplying the 50/50 by an index double-counts the
   season -- measured and rejected in `customer_factor_model_test.md`. The
   month columns shown for everyone else are diagnostic.
 - **The diagnostic seasonality score uses the same years it describes.** The
@@ -377,10 +391,12 @@ in the registry, but the heuristic says the default may not suit them.
 - **Seasons are month-level.** A season is taken to open on the 1st of its
   first month; the data supports nothing finer, and no reopening date is
   implied.
-- **An in-season closer is ranked on a rate that includes its closed months.**
-  The previous-year rate spans the whole year, so it likely understates the
-  in-season rate. No seasonal rate model is applied here; that needs its own
-  backtest.
+- **An in-season closer is ranked on its open-season gaps** when it has
+  3+; with fewer it falls back to its stage rate, which
+  averages in the closed months and likely understates.
+- **A new closer is found only after 2
+  complete years.** One year of history put 15% of gallons in wrongly closed
+  months. Until then its first closures are ranked, then go stale.
 - **Overrides are human decisions, not measurements.** The registry is
   informed by `fringe_seasonal_candidates.md` but does not read it. The two
   Okemo accounts rest on two years of history.

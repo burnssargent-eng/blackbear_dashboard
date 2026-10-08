@@ -43,6 +43,7 @@ import backtest_seasonal_models as bsm
 import backtest_steady_rate as bt
 import build_projection_table as bpt
 import customer_factors as cf
+import seasonal_open as so
 import seasonality_score as ss
 
 HERE = Path(__file__).resolve().parent
@@ -86,41 +87,9 @@ def load():
             if cid not in excluded and len(ps) >= 2}, checks
 
 
-def prior_years(test_year, k):
-    years, y = [], test_year - 1
-    while len(years) < k and y >= 2016:
-        if y not in SKIP_YEARS:
-            years.append(y)
-        y -= 1
-    return sorted(years)
-
-
-def shape(profile, years):
-    """Mean index per month across `years`, ZEROS INCLUDED, renormalised."""
-    used = [y for y in years if y in profile]
-    if not used:
-        return None
-    raw = [statistics.fmean(profile[y][m] for y in used) for m in range(12)]
-    mean = statistics.fmean(raw)
-    return [r / mean for r in raw] if mean > 0 else None
-
-
-def closed_block(sh, threshold, min_months):
-    """The longest cyclic run of months below `threshold`, if long enough."""
-    flags = [v < threshold for v in sh]
-    if all(flags) or not any(flags):
-        return set()
-    best = set()
-    for start in range(12):
-        if flags[start] and not flags[(start - 1) % 12]:
-            run = set()
-            i = start
-            while flags[i % 12] and len(run) < 12:
-                run.add(i % 12)
-                i += 1
-            if len(run) > len(best):
-                best = run
-    return best if len(best) >= min_months else set()
+prior_years = so.profile_years_back
+shape = so.zero_keeping_shape
+closed_block = so.closed_block
 
 
 def months_label(months):
@@ -139,6 +108,7 @@ class Customer:
     def __init__(self, cid, ps):
         self.cid, self.ps = cid, ps
         self.daily = ss.daily_production(ps)
+        self._detected = {}
         self.profile = {}
         for y in range(ps[0]["date"].year, 2026):
             idx = cf.year_index(self.daily, y)
@@ -158,11 +128,12 @@ class Customer:
         return bool(gaps) and statistics.median(gaps) <= MAX_MEDIAN_GAP
 
     def detect(self, test_year, k, threshold, min_months):
-        years = prior_years(test_year, k)
-        if len(years) < k or not self.eligible(years):
-            return None                       # not decidable
-        sh = shape(self.profile, years)
-        return closed_block(sh, threshold, min_months) if sh else None
+        """seasonal_open.closed_months: pickups before Jan 1 of the year only."""
+        key = (test_year, k, threshold, min_months)
+        if key not in self._detected:
+            self._detected[key] = so.closed_months(self.ps, test_year, k,
+                                                   threshold, min_months)
+        return self._detected[key]
 
     def truth(self, year, threshold, min_months):
         """Closed months actually seen in `year` (needs the year's production)."""

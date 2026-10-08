@@ -19,8 +19,8 @@ The **new** stage's rate (pooled gallons ÷ days over at most the last 6 gaps, f
 | 5–6 | 199 | 35.2% | -8.0% | 19 | 205 | 39.4% | -14.1% | 26 |
 | 7–9 | 230 | 35.4% | +4.7% | 13 | 309 | 37.5% | -11.1% | 29 |
 | 10–12 | 167 | 36.1% | +7.3% | 15 | 312 | 45.5% | +9.2% | 21 |
-| 13–24 | 313 | 32.6% | -0.1% | 12 | 1,030 | 36.8% | -7.3% | 19 |
-| 25+ | 157 | 18.6% | +1.8% | 4 | 1,646 | 33.8% | +2.3% | 8 |
+| 13–24 | 313 | 32.6% | -0.1% | 12 | 1,031 | 36.8% | -7.2% | 19 |
+| 25+ | 157 | 18.6% | +1.8% | 4 | 1,651 | 33.7% | +2.3% | 8 |
 
 ## 2. The ladder, stage by stage
 
@@ -29,15 +29,15 @@ Each pickup is scored with the rate its stage would show. Will-call is not appli
 | Stage | Choose: pickups / customers | WAPE | Bias | Days | Confirm: pickups / customers | WAPE | Bias | Days |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | new | 777 / 125 | 37.5% | -0.3% | 13 | 598 / 125 | 42.2% | +5.8% | 16 |
-| established | 652 / 99 | 31.1% | -3.5% | 16 | 3,173 / 202 | 34.7% | -4.5% | 13 |
-| seasonal | – | – | – | – | 56 / 4 | 39.3% | -12.5% | 10 |
+| established | 652 / 99 | 31.1% | -3.5% | 16 | 3,179 / 202 | 34.7% | -4.4% | 13 |
+| seasonal | – | – | – | – | 56 / 4 | 47.3% | -11.9% | 12 |
 
 **Promotion to 50/50 at one year — does the previous-year half help a newcomer?** Same pickups (established stage), pooled-only vs the 50/50:
 
 | Period | Pickups | Pooled only | 50/50 | Difference | 95% interval |
 |---|---:|---:|---:|---:|---|
 | choose | 652 | 31.2% | 31.1% | **-0.1** | -1.0 to +0.7 |
-| confirm | 3,173 | 35.9% | 34.7% | **-1.1** | -1.7 to -0.6 |
+| confirm | 3,179 | 35.8% | 34.7% | **-1.1** | -1.7 to -0.6 |
 
 ## 3. Calibrated range per stage
 
@@ -48,37 +48,37 @@ Factors = the 20% and 80% points of actual ÷ projected in the choose period. Li
 | new, 2 gaps | × 0.60 | × 1.64 | 69.6% | 82.4% | 102 |
 | new, 3 gaps | × 0.71 | × 1.49 | 52.9% | 78.8% | 85 |
 | new, 4–6 gaps | × 0.70 | × 1.35 | 56.2% | 74.9% | 411 |
-| established | × 0.75 | × 1.45 | 59.0% | 77.9% | 3,173 |
-| seasonal | × 0.75 | × 1.45 | 53.6% | 69.6% | 56 |
+| established | × 0.75 | × 1.45 | 59.0% | 78.0% | 3,179 |
+| seasonal | × 0.75 | × 1.45 | 42.9% | 58.9% | 56 |
 
 ## 4. Will-call detector
 
-A customer is flagged once it has 3+ pickups and its gaps are long (median gap over G days) or irregular (sd ÷ mean of the gaps over C, 3+ gaps). The **season-aware** version first drops gaps longer than 3× the median — a closer's off-season — so a summer business is not called irregular for closing each winter. Checked against two labels the detector never reads: Jim's sign-up periodicity ≥ 180 days, and the call-driven / event / on-demand / lump-sum overrides. Every customer with 3+ pickups in the window is scored, not just newcomers. The rule is **chosen on gaps dated 2021–23** and reported on gaps dated 2024–26. "Today's ranked" = customers ranked on the page now (no override), scored on their gaps over the last 3 years.
+A customer is flagged once it has 3+ pickups and its gaps are long (median gap over G days) or irregular (sd ÷ mean of the gaps over C, 3+ gaps). The **season-aware** version first drops gaps longer than 3× the median — a closer's off-season — so a summer business is not called irregular for closing each winter. Checked against two labels the detector never reads: Jim's sign-up periodicity ≥ 180 days, and the call-driven / event / on-demand / lump-sum overrides. Every customer with 3+ pickups in the window is scored, not just newcomers. The rule is **chosen on gaps dated 2021–23** and reported on gaps dated 2024–26. "Today's ranked" = customers ranked on the page now (no override), scored on their gaps over the last 3 years — read from the live `oil_projections.json`, so it reads 0 once the chosen rule is live.
 
 | Rule | Choose F1 | Confirm F1 | Confirm: agree with label | Confirm: labels caught | Confirm: flagged pickups WAPE | kept WAPE | Today's ranked flagged |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| gap > 90 d or sd/mean > 0.8 | 0.44 | 0.39 | 25% | 85% | 66.2% | 30.9% | 81 |
-| gap > 90 d or sd/mean > 1.0 | 0.45 | 0.39 | 26% | 74% | 58.0% | 33.5% | 68 |
-| gap > 90 d or sd/mean > 1.2 | 0.46 | 0.39 | 27% | 67% | 54.7% | 34.1% | 56 |
-| gap > 120 d or sd/mean > 0.8 | 0.48 | 0.44 | 30% | 79% | 70.3% | 31.0% | 62 |
-| gap > 120 d or sd/mean > 1.0 | 0.50 | 0.45 | 33% | 69% | 62.9% | 33.5% | 49 |
-| gap > 120 d or sd/mean > 1.2 | 0.51 | 0.46 | 36% | 62% | 59.7% | 34.1% | 37 |
-| gap > 180 d or sd/mean > 0.8 | 0.44 | 0.39 | 29% | 59% | 71.6% | 31.1% | 50 |
-| gap > 180 d or sd/mean > 1.0 | 0.45 | 0.37 | 32% | 46% | 64.4% | 33.6% | 37 |
-| gap > 180 d or sd/mean > 1.2 | 0.45 | 0.37 | 37% | 38% | 61.1% | 34.2% | 24 |
-| gap > 90 d or season-aware sd/mean > 0.8 | 0.46 | 0.38 | 29% | 56% | 40.5% | 35.6% | 44 |
-| gap > 90 d or season-aware sd/mean > 1.0 | 0.46 | 0.39 | 30% | 56% | 38.9% | 35.7% | 43 |
-| gap > 90 d or season-aware sd/mean > 1.2 | 0.46 | 0.39 | 30% | 56% | 38.9% | 35.7% | 43 |
-| gap > 120 d or season-aware sd/mean > 0.8 | 0.52 | 0.47 | 43% | 51% | 49.3% | 35.6% | 25 |
-| gap > 120 d or season-aware sd/mean > 1.0 | 0.52 | 0.48 | 44% | 51% | 46.9% | 35.6% | 24 |
-| gap > 120 d or season-aware sd/mean > 1.2 | 0.52 | 0.48 | 44% | 51% | 46.9% | 35.6% | 24 |
-| gap > 180 d or season-aware sd/mean > 0.8 | 0.47 | 0.36 | 50% | 28% | 49.8% | 35.7% | 12 |
-| gap > 180 d or season-aware sd/mean > 1.0 | 0.47 | 0.37 | 55% | 28% | 42.7% | 35.7% | 11 |
-| gap > 180 d or season-aware sd/mean > 1.2 | 0.45 | 0.37 | 55% | 28% | 42.7% | 35.7% | 11 |
+| gap > 90 d or sd/mean > 0.8 | 0.44 | 0.39 | 25% | 85% | 66.3% | 31.0% | 61 |
+| gap > 90 d or sd/mean > 1.0 | 0.45 | 0.39 | 26% | 74% | 58.1% | 33.6% | 48 |
+| gap > 90 d or sd/mean > 1.2 | 0.46 | 0.39 | 27% | 67% | 54.7% | 34.2% | 36 |
+| gap > 120 d or sd/mean > 0.8 | 0.48 | 0.44 | 30% | 79% | 70.3% | 31.1% | 39 |
+| gap > 120 d or sd/mean > 1.0 | 0.50 | 0.45 | 33% | 69% | 63.0% | 33.6% | 26 |
+| gap > 120 d or sd/mean > 1.2 | 0.51 | 0.46 | 36% | 62% | 59.8% | 34.2% | 14 |
+| gap > 180 d or sd/mean > 0.8 | 0.44 | 0.39 | 29% | 59% | 71.7% | 31.2% | 39 |
+| gap > 180 d or sd/mean > 1.0 | 0.45 | 0.37 | 32% | 46% | 64.5% | 33.7% | 26 |
+| gap > 180 d or sd/mean > 1.2 | 0.45 | 0.37 | 37% | 38% | 61.2% | 34.3% | 14 |
+| gap > 90 d or season-aware sd/mean > 0.8 | 0.46 | 0.38 | 29% | 56% | 40.5% | 35.7% | 22 |
+| gap > 90 d or season-aware sd/mean > 1.0 | 0.46 | 0.39 | 30% | 56% | 38.9% | 35.8% | 22 |
+| gap > 90 d or season-aware sd/mean > 1.2 | 0.46 | 0.39 | 30% | 56% | 38.9% | 35.8% | 22 |
+| gap > 120 d or season-aware sd/mean > 0.8 | 0.52 | 0.47 | 43% | 51% | 49.3% | 35.7% | 0 |
+| gap > 120 d or season-aware sd/mean > 1.0 | 0.52 | 0.48 | 44% | 51% | 46.9% | 35.7% | 0 |
+| gap > 120 d or season-aware sd/mean > 1.2 | 0.52 | 0.48 | 44% | 51% | 46.9% | 35.7% | 0 |
+| gap > 180 d or season-aware sd/mean > 0.8 | 0.47 | 0.36 | 50% | 28% | 49.8% | 35.8% | 0 |
+| gap > 180 d or season-aware sd/mean > 1.0 | 0.47 | 0.37 | 55% | 28% | 42.7% | 35.8% | 0 |
+| gap > 180 d or season-aware sd/mean > 1.2 | 0.45 | 0.37 | 55% | 28% | 42.7% | 35.8% | 0 |
 
 **Chosen on 2021–23 (F1 0.52): gap > 120 d or season-aware sd/mean > 0.8.**
 
-- Today's ranked customers it would move to will-call (25): CVMC-Berlin Hospital (108), Spaulding High School (118), Central Vermont Solid Waste Management District (121), Stowe Transfer Station (275), Lake Monsters (337), City Market (345), Blodgett ovens (415), Highland Lodge- Elsa (550), HAYBARN-Goddard College- 7532 (603), Rabbit Hill Inn (620), Addison Eagles Club (704), Black Sheep Bistro (707), Riverside Farm (806), The Original - Pittsfield General Store (807), Sante-2022|dailey catch-Woodstock (820), Mon Vert Café (822), The Hatchery (910), Readsboro General Store (1058), JavierBillsAlmostMexican/PicaPica (1080), Bethel Sandwhich Shop (1093), Vermont Law School-South Royalton (1106), Cloud 9 catering- Sarah-COOK-Food Truck (1139), Bramble (1247), Scrag and Row 2025/The Great Eddy-Waitsfield (1267), CUTLER (1309)
+- Today's ranked customers it would move to will-call (0): none
 - Labelled, not flagged, last 3 years (21): State House (157), Bliss Bee -SoBurl. Rte 7 (372), Champlain Valley Expo (413), Northwest Solid Waste Management District (422), Perrigo Nutritionals (423), Jay Peak- Hotel Jay -OutsideNow (527), Philo Ridge Farm (703), Goodies Snack Bar (709), Addison County Solid Waste Management District (710), Manchester Hockeypas-0150 (734), Toziers- (803), Suicide 6= Saskadena (817), Woodstock Country Club (825), Cousins (Mt. Snow) (903), Okemo-Jackson Gore Inn (934), Quechee Gorge Snack Bar (1056), Sugarbush Resort Golf Course (1059), Arlington Dairy Bar (1137), Grange at Hill Farm-Sunderland (1162), Dennys -Out of Business (1190), Tata (1416)
 
 ## 5. How long newcomers take to move up
@@ -96,7 +96,7 @@ Pickups the chosen rule (gap > 120 d or season-aware sd/mean > 0.8) would have f
 | Stage | Choose: pickups / customers | WAPE | Bias | Days | Confirm: pickups / customers | WAPE | Bias | Days |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | new | 770 / 121 | 37.2% | +0.1% | 12 | 597 / 124 | 42.2% | +5.9% | 16 |
-| established | 639 / 95 | 30.7% | -3.1% | 15 | 3,116 / 188 | 34.5% | -4.0% | 13 |
-| seasonal | – | – | – | – | 56 / 4 | 39.3% | -12.5% | 10 |
+| established | 639 / 95 | 30.7% | -3.1% | 15 | 3,122 / 188 | 34.5% | -4.0% | 13 |
+| seasonal | – | – | – | – | 56 / 4 | 47.3% | -11.9% | 12 |
 | will-call (not shown) | 20 / 15 | 64.6% | -34.8% | 105 | 58 / 24 | 49.3% | -33.5% | 117 |
 
