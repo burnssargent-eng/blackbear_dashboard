@@ -169,7 +169,13 @@ api.setSort("rank");
 ok(JSON.stringify(renderedNames()) === JSON.stringify(expected), "clicking # restores the export's order");
 
 // ── Show all ──
-list.dataset.expanded = "true";
+const footerText = () => list.children.length ? list.children[list.children.length - 1].innerHTML : "";
+ok(/Show all 356|Show all \d+/.test(footerText()) && /Show top 50/.test(footerText()),
+  "top 250 offers Show all and Show top 50");
+list.children = []; list.dataset.expanded = "false";
+api.renderRanked();
+ok(rowsIn(list.innerHTML) === 50 && /Show top 250/.test(footerText()), "Show top 50 shows 50, offers Show top 250");
+list.children = []; list.dataset.expanded = "all";
 api.renderRanked();
 ok(rowsIn(list.innerHTML) === ranked.length, `show all renders every ranked row (${ranked.length})`);
 
