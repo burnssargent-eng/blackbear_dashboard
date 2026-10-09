@@ -47,6 +47,7 @@
  */
 
 const PROJECTIONS_FILE = "oil_projections.json";
+const LIVE_TEST_FILE = "oil_live_test.json";
 
 // Held-out sections, in the order the export lists them. The ranked section
 // is rendered separately as the main table.
@@ -76,6 +77,7 @@ const SECTION_TEXT = {
 
 let projections = null;     // the parsed oil_projections.json
 let oilData = null;         // oil_data.json, for the nav and the freshness check
+let liveTest = null;        // oil_live_test.json, or null when it is missing
 let selectedRegion = "";    // "" means every region
 let searchText = "";        // customer search, lower-cased
 let sort = { key: null, dir: "desc" };   // key null = the export's order
@@ -137,6 +139,17 @@ async function init() {
 
   buildShell(page);
   update();
+
+  // The live test is its own file: if it is missing or broken, only its
+  // section says so and the rest of the page is unaffected.
+  try {
+    const resp = await fetch(`${LIVE_TEST_FILE}?v=${Date.now()}`);
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    liveTest = await resp.json();
+  } catch (err) {
+    liveTest = null;
+  }
+  document.getElementById("live-test").innerHTML = liveTestHtml(liveTest);
 }
 
 /**
@@ -226,6 +239,8 @@ function buildShell(page) {
     </div>
 
     <div class="section" id="held-out"></div>
+
+    <div class="section" id="live-test"></div>
   `;
 
   document.getElementById("region-select").addEventListener("change", e => {
@@ -472,6 +487,133 @@ function heldOutHtml(heldOut) {
   return blocks
     ? `<div class="section-title">Listed separately, not ranked</div>${blocks}`
     : "";
+}
+
+/* ─────────────────────────────────────────────
+ * Live test: projected vs collected, from oil_live_test.json. Every figure is
+ * computed in analysis/live_test.py; this only lays it out. Statewide: the
+ * region filter and search do not apply.
+ * ───────────────────────────────────────────── */
+
+/** "12.3%", or a dash. */
+function formatPct(value) {
+  return value === null || value === undefined ? "—" : `${formatOne(value)}%`;
+}
+
+/** Signed one-decimal gallons: "+11.7", "−17.1". */
+function formatSigned(value) {
+  if (value === null || value === undefined) return "—";
+  const text = formatOne(Math.abs(value));
+  return value > 0 ? `+${text}` : (value < 0 ? `−${text}` : text);
+}
+
+function liveSummaryRowHtml(label, m, from) {
+  return `
+    <tr>
+      <td class="proj-live-label">${escapeHtml(label)}${from
+        ? ` <span class="proj-range">from ${escapeHtml(formatDate(from))}</span>` : ""}</td>
+      <td class="num">${formatNumber(m.scored)}</td>
+      <td class="num">${formatPct(m.wape)}</td>
+      <td class="num">${m.bias === null ? "—" : formatSigned(m.bias) + "%"}</td>
+      <td class="num">${formatPct(m.in_range)}</td>
+      <td class="num">${formatOne(m.median_miss)}</td>
+      <td class="num">${formatNumber(m.not_projected)}</td>
+    </tr>`;
+}
+
+function liveSummaryTableHtml(rows) {
+  return `
+    <div class="table-wrap">
+      <table class="data-table proj-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Pickups scored</th>
+            <th>Typical miss (WAPE)</th>
+            <th>Bias</th>
+            <th>Inside range</th>
+            <th>Median miss (gal)</th>
+            <th>Not projected</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`;
+}
+
+function liveDayRowsHtml(rows) {
+  const body = rows.map(r => {
+    const projected = r.projected === null
+      ? `<span class="proj-live-held">Not projected (${escapeHtml(r.section)})</span>`
+      : `${formatWhole(r.projected)} <span class="proj-range">` +
+        `(${formatWhole(r.range_low)}–${formatWhole(r.range_high)})</span>`;
+    return `
+      <tr${r.projected === null ? ' class="proj-live-off"' : ""}>
+        <td>${escapeHtml(r.name)}</td>
+        <td>${escapeHtml(r.town || "—")}</td>
+        <td>${escapeHtml(r.stage || "—")}</td>
+        <td class="gal">${projected}</td>
+        <td class="num">${formatNumber(r.actual)}</td>
+        <td class="num">${formatSigned(r.error)}</td>
+        <td>${r.in_range === "yes" ? "Yes" : (r.in_range === "no" ? "No" : "—")}</td>
+        <td class="proj-date">${formatDate(r.previous_pickup)}</td>
+      </tr>`;
+  }).join("");
+
+  return `
+    <div class="table-wrap">
+      <table class="data-table proj-table">
+        <thead>
+          <tr>
+            <th>Customer</th>
+            <th>Town</th>
+            <th>Stage</th>
+            <th>Projected gal (range)</th>
+            <th>Actual gal</th>
+            <th>Proj − actual</th>
+            <th>In range</th>
+            <th>Previous pickup</th>
+          </tr>
+        </thead>
+        <tbody>${body}</tbody>
+      </table>
+    </div>`;
+}
+
+function liveTestHtml(payload) {
+  const title = `<div class="section-title">Live test: projected vs collected</div>`;
+  if (!payload || !payload.days || !payload.days.length) {
+    return `${title}<div class="note">The live test log is not available yet.</div>`;
+  }
+
+  const summary = payload.summary.map(m => liveSummaryRowHtml(m.window, m, m.from)).join("");
+  const stages = (payload.by_stage || []).map(m => liveSummaryRowHtml(m.stage, m)).join("");
+
+  const days = payload.days.map((d, i) => `
+    <details class="proj-section"${i === 0 ? " open" : ""}>
+      <summary>${escapeHtml(formatDate(d.date))}
+        <span class="proj-count">${formatNumber(d.rows.length)} pickups ·
+          typical miss ${formatPct(d.wape)} · inside range ${formatPct(d.in_range)}</span>
+      </summary>
+      ${liveDayRowsHtml(d.rows)}
+    </details>`).join("");
+
+  return `
+    ${title}
+    <div class="section-caption">
+      Each pickup scraped from the source site, against the projection this page
+      was showing <strong>before</strong> that pickup arrived, moved to the
+      pickup date at the customer's rate. Predictions are frozen: a later model
+      change never rewrites them. <strong>Proj − actual</strong> is positive
+      when the projection was too high. <strong>Typical miss</strong> is total
+      error ÷ total gallons collected. Statewide; the region filter and search do
+      not apply. Pickups before 8 Oct 2026 were projected by earlier versions of
+      the model.
+    </div>
+    ${liveSummaryTableHtml(summary)}
+    ${stages ? `<div class="section-caption proj-live-sub">By stage (since stages began, 8 Oct 2026)</div>
+      ${liveSummaryTableHtml(stages)}` : ""}
+    <div class="proj-live-days">${days}</div>`;
 }
 
 init();

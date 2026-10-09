@@ -9,6 +9,14 @@ finishes**, so a fresh session does not redo or skip it.
 
 ## In flight
 
+### Live test (started 2026-10-09)
+
+The nightly scores every new pickup against the projection served before it
+(`analysis/live_test.py`; Live test section at the bottom of the Projections
+page). Backfilled to 2026-09-21. Watch: bias (−6% so far, under-projecting),
+the share inside the range, and stages once more post-ladder pickups arrive —
+only 10 so far. Early rows were projected by models before the ladder.
+
 ### Capacity cleanup (started 2026-09-29)
 
 Goal: every listed capacity on the source site matches the real container, so

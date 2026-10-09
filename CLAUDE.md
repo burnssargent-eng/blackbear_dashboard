@@ -26,6 +26,9 @@ export_schmootz.py ──> schmootz_data.json  (from data/Schmootz.xlsx, gitigno
 analysis/build_projection_table.py ──> oil_projections.json  (beta pickup projections)
                                    └─> analysis/oil_projection_table.* (csv gitignored)
 
+analysis/live_test.py ──> analysis/live_test_log.csv  (projected vs collected, per pickup)
+                      └─> oil_live_test.json          (the Live test section of projections.html)
+
 index.html      dashboard + Leaflet heatmap. Keeps its OWN inline styles.
 region.html     per-region page. The most complex page.
 year.html  town.html  customers.html  schmootz.html
@@ -47,6 +50,15 @@ Its confidence bands come from the committed `analysis/customer_wape.json`, not
 the gitignored backtest CSVs, so the nightly and a local run agree byte for
 byte. After re-running those backtests, refresh it with
 `python3 analysis/build_projection_table.py --refresh-wape` and commit it.
+
+**Live test predictions are frozen.** `analysis/live_test.py` scores each new
+pickup against the `oil_projections.json` the site was serving before it, so the
+nightly runs it AFTER the scrape and BEFORE the projection build — swap those
+steps and every pickup is scored by a file that already contains it. Never
+rescore or edit old rows in `analysis/live_test_log.csv` (committed, unlike the
+other analysis CSVs): they cannot be regenerated once the served files move on.
+Only actual gallons are refreshed, from the scrape. `--backfill` rebuilds from
+git history (first-parent `main`) and is a one-off.
 
 ## Regenerating data
 

@@ -30,6 +30,14 @@ jobs:
         run: |
           python oil_scraper.py --rescrape
 
+      # Live test: score the newly scraped pickups against the projections the
+      # site was serving. Must run BEFORE the build below, while
+      # oil_projections.json is still the served one. Failure-tolerant: the log
+      # is left as it was.
+      - name: Score live test
+        run: |
+          python analysis/live_test.py || echo "::warning::Live test scoring failed; log left as-is"
+
       # Beta projections page. A failure here must never block the data commit
       # below: the previous oil_projections.json is kept, and projections.html
       # warns that it was built from an older scrape.
@@ -41,6 +49,6 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add oil_data.json oil_collections.json oil_collections_raw.csv oil_collection_report.xlsx capacity_cache.csv oil_non_pickups.csv oil_projections.json
+          git add oil_data.json oil_collections.json oil_collections_raw.csv oil_collection_report.xlsx capacity_cache.csv oil_non_pickups.csv oil_projections.json analysis/live_test_log.csv oil_live_test.json
           git commit -m "Nightly oil data update" || echo "No changes to commit"
           git push
