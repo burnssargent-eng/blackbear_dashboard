@@ -37,7 +37,8 @@ a browser, not by these.
 | `region_filter_test.js` | Top Producing Customers period filter: month sets per mode, picker visibility, both sorts, and that All Time reproduces the pre-filter list exactly. |
 | `expand_test.js` | The shared 50/250 expandable customer list. |
 | `customers_regression.js` | The `applyPeriodPickers` contract shared by the customers and region pages. |
-| `projections_test.js` | Beta projections page against `oil_projections.json`: renders the export's order unchanged, % full never above 100, held-out sections show no fill figures, the region filter, the stale-build warning, and that Perrigo, Okemo, Champlain Valley Expo and Spruce Peak land in their override sections. |
+| `customers_table_test.js` | Customers page table: Region column (one non-theme region per customer, Perrigo as Perrigo), column sorting both ways with `#` restoring the preset order, the preset buttons, and the search. |
+| `projections_test.js` | Beta projections page against `oil_projections.json`: renders the export's order by default, column sorting (projected gallons, # back to default), search, Show all, the five header boxes, % full never above 100, held-out sections show no fill figures, the region filter, the stale-build warning, and that Perrigo, Okemo, Champlain Valley Expo and Spruce Peak land in their override sections. |
 
 ## Adding one
 

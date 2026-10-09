@@ -652,6 +652,59 @@ select:disabled {
   color: #e5534b;
 }
 
+/* A stats bar with an odd number of boxes (projections, customers): on narrow
+   screens two per row and the last one across both, so no empty cell is left. */
+@media (max-width: 860px) {
+  .stats-bar.stats-pairs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stats-pairs .stat:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+
+/* ── Sortable tables and search (projections, customers) ──── */
+
+/* Sortable column headings: the whole heading is the button. */
+.col-sort {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.col-sort:hover {
+  background: none;
+  color: #e6edf3;
+}
+
+.col-sort.col-sorted {
+  color: #3fb950;
+}
+
+.col-sort-arrow {
+  display: inline-block;
+  width: 1em;
+  font-size: 10px;
+}
+
+.table-search {
+  background: #0d1117;
+  color: #e6edf3;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 13px;
+  min-width: 0;
+  width: 220px;
+  max-width: 100%;
+}
+
+.table-search:focus {
+  outline: none;
+  border-color: #3fb950;
+}
+
 /* ── Projections page (beta) ──────────────────────────────── */
 
 .proj-beta-tag {
@@ -756,55 +809,6 @@ select:disabled {
   font-weight: normal;
 }
 
-/* Sortable column headings: the whole heading is the button. */
-.proj-sort {
-  background: none;
-  border: none;
-  padding: 0;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.proj-sort:hover {
-  background: none;
-  color: #e6edf3;
-}
-
-.proj-sort.proj-sorted {
-  color: #3fb950;
-}
-
-.proj-arrow {
-  display: inline-block;
-  width: 1em;
-  font-size: 10px;
-}
-
-.proj-search {
-  background: #0d1117;
-  color: #e6edf3;
-  border: 1px solid #30363d;
-  border-radius: 6px;
-  padding: 6px 10px;
-  font-size: 13px;
-  min-width: 0;
-  width: 220px;
-  max-width: 100%;
-}
-
-.proj-search:focus {
-  outline: none;
-  border-color: #3fb950;
-}
-
-/* Five header boxes: on narrow screens two per row, the fifth across both,
-   so no empty cell is left. */
-@media (max-width: 860px) {
-  .stats-bar.proj-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .proj-stats .stat:last-child:nth-child(odd) { grid-column: 1 / -1; }
-}
 
 /* Responsive pass. Verified in headless Chrome at 390px; not yet checked on a
    real handset — see the TODO in the project notes. */

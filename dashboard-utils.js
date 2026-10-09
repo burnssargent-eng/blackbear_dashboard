@@ -516,6 +516,64 @@ function lifecycleFootnoteHtml(extra) {
  * the customers, year and region pages can share one implementation.
  */
 /* ─────────────────────────────────────────────
+ * Sortable tables (projections and customers pages)
+ *
+ * A column is { key, label, text?, value?, cls? }. `value(row)` gives the sort
+ * value; a column without one (the "#" column) restores the page's default
+ * order. Text columns start A to Z, every other column starts high to low, and
+ * a repeat click flips the direction.
+ * ───────────────────────────────────────────── */
+
+/**
+ * The sort after a heading click, as { key, dir }. `key: null` means the
+ * page's default order.
+ */
+function nextSortState(columns, current, key) {
+  const column = columns.find(col => col.key === key);
+  if (!column || !column.value) return { key: null, dir: "desc" };
+  if (current.key === key) {
+    return { key, dir: current.dir === "asc" ? "desc" : "asc" };
+  }
+  return { key, dir: column.text ? "asc" : "desc" };
+}
+
+/**
+ * Rows in the chosen order. A stable sort over the incoming order, so ties keep
+ * the page's default ranking; missing values sort last in either direction.
+ */
+function sortRowsBy(rows, columns, sort) {
+  const column = columns.find(col => col.key === sort.key);
+  if (!column || !column.value) return rows.slice();
+  const sign = sort.dir === "asc" ? 1 : -1;
+  const missing = v => v === null || v === undefined || v === "" ||
+    (typeof v === "number" && !Number.isFinite(v));
+  return rows.slice().sort((a, b) => {
+    const va = column.value(a), vb = column.value(b);
+    if (missing(va) || missing(vb)) return missing(va) - missing(vb);
+    if (column.text) return sign * String(va).localeCompare(String(vb));
+    return sign * (va < vb ? -1 : va > vb ? 1 : 0);
+  });
+}
+
+/** Header cells with a sort button each; ▲/▼ on the active column. */
+function sortableHeadHtml(columns, sort) {
+  return columns.map(col => {
+    const active = col.key === sort.key || (!col.value && sort.key === null);
+    const arrow = col.key === sort.key ? (sort.dir === "asc" ? "▲" : "▼") : "";
+    return `<th${col.cls ? ` class="${col.cls}"` : ""}>` +
+      `<button type="button" class="col-sort${active ? " col-sorted" : ""}" ` +
+      `data-sort="${col.key}">${escapeHtml(col.label)}` +
+      `<span class="col-sort-arrow">${arrow}</span></button></th>`;
+  }).join("");
+}
+
+/** True when `query` (already lower-cased) is empty or appears in any name. */
+function matchesNameSearch(query, names) {
+  if (!query) return true;
+  return names.some(n => (n || "").toLowerCase().includes(query));
+}
+
+/* ─────────────────────────────────────────────
  * Expandable customer lists
  * ───────────────────────────────────────────── */
 

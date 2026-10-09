@@ -205,7 +205,7 @@ zero months as zero** (`seasonal_open.zero_keeping_shape`):
 ```
 python3 validate_data.py          # ~82 checks on the generated data
 python3 check_town_mismatches.py  # town names vs the GeoJSON; exits non-zero on a real mismatch
-node tests/run_all.js             # six front-end suites; see tests/README.md
+node tests/run_all.js             # seven front-end suites; see tests/README.md
 ```
 
 Two standing warnings, both towns configured ahead of their first customer:
