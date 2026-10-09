@@ -87,7 +87,9 @@ let sort = { key: null, dir: "desc" };   // key null = the export's order
 let currentRanked = [];
 let currentRanks = new Map();
 
-const RANKED_ROW_LIMITS = { collapsed: 250, expanded: Infinity };
+// Opens at the top 250 ("true"), with Show all and Show top 50 beside it, as
+// on the customers page.
+const RANKED_ROW_LIMITS = { collapsed: 50, expanded: 250 };
 
 // Sortable ranked-table columns (see sortRowsBy in dashboard-utils.js).
 const RANKED_COLUMNS = [
@@ -303,7 +305,7 @@ function update() {
     (searchText ? ` of ${formatNumber(ranked.length)}` : "") +
     (selectedRegion ? ` in ${selectedRegion}` : "");
 
-  document.getElementById("ranked-list").dataset.expanded = "false";
+  document.getElementById("ranked-list").dataset.expanded = "true";
   renderRanked();
 
   document.getElementById("held-out").innerHTML =
