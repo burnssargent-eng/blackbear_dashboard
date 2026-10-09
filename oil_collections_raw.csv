@@ -3786,6 +3786,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1157,Hannaford-217 Dorset St,Burlington,Chittenden,2022-10-24,2022,2022-10,57,True,Burlington
 1157,Hannaford-217 Dorset St,Burlington,Chittenden,2022-09-16,2022,2022-09,50,True,Burlington
 1157,Hannaford-217 Dorset St,Burlington,Chittenden,2022-08-17,2022,2022-08,65,True,Burlington
+1122,Hannaford-Burlington North Ave,Burlington,Chittenden,2026-10-08,2026,2026-10,157,True,Burlington
 1122,Hannaford-Burlington North Ave,Burlington,Chittenden,2026-08-28,2026,2026-08,124,True,Burlington
 1122,Hannaford-Burlington North Ave,Burlington,Chittenden,2026-07-28,2026,2026-07,111,True,Burlington
 1122,Hannaford-Burlington North Ave,Burlington,Chittenden,2026-07-01,2026,2026-07,160,True,Burlington
@@ -5179,6 +5180,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 308,Ruben James (RJs) (Ali Babas)- 0421,Burlington,Chittenden,2015-01-26,2015,2015-01,25,True,Burlington
 308,Ruben James (RJs) (Ali Babas)- 0421,Burlington,Chittenden,2015-01-15,2015,2015-01,40,True,Burlington
 308,Ruben James (RJs) (Ali Babas)- 0421,Burlington,Chittenden,2015-01-02,2015,2015-01,35,True,Burlington
+1399,"Said's House, Jahlib’s Jiblets",Burlington,Chittenden,2026-10-08,2026,2026-10,35,True,Burlington
 1399,"Said's House, Jahlib’s Jiblets",Burlington,Chittenden,2026-05-21,2026,2026-05,25,True,Burlington
 1399,"Said's House, Jahlib’s Jiblets",Burlington,Chittenden,2025-12-02,2025,2025-12,25,True,Burlington
 1399,"Said's House, Jahlib’s Jiblets",Burlington,Chittenden,2025-09-16,2025,2025-09,20,True,Burlington
@@ -5298,6 +5300,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 339,Shalamar Indian/ Radio Bean- 7419,Burlington,Chittenden,2015-01-26,2015,2015-01,40,True,Burlington
 339,Shalamar Indian/ Radio Bean- 7419,Burlington,Chittenden,2015-01-22,2015,2015-01,45,True,Burlington
 339,Shalamar Indian/ Radio Bean- 7419,Burlington,Chittenden,2015-01-07,2015,2015-01,45,True,Burlington
+444,Skinny Pancake-Burlington LakeFront8741,Burlington,Chittenden,2026-10-08,2026,2026-10,100,True,Burlington
 444,Skinny Pancake-Burlington LakeFront8741,Burlington,Chittenden,2026-09-03,2026,2026-09,65,True,Burlington
 444,Skinny Pancake-Burlington LakeFront8741,Burlington,Chittenden,2026-08-13,2026,2026-08,70,True,Burlington
 444,Skinny Pancake-Burlington LakeFront8741,Burlington,Chittenden,2026-07-14,2026,2026-07,150,True,Burlington
@@ -5656,6 +5659,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 371,Union Jacks,Burlington,Chittenden,2015-09-23,2015,2015-09,25,True,Burlington
 371,Union Jacks,Burlington,Chittenden,2015-06-22,2015,2015-06,30,True,Burlington
 371,Union Jacks,Burlington,Chittenden,2015-04-06,2015,2015-04,40,True,Burlington
+356,UVM -Central. Residence,Burlington,Chittenden,2026-10-08,2026,2026-10,125,True,Burlington
 356,UVM -Central. Residence,Burlington,Chittenden,2026-09-17,2026,2026-09,70,True,Burlington
 356,UVM -Central. Residence,Burlington,Chittenden,2026-09-03,2026,2026-09,10,True,Burlington
 356,UVM -Central. Residence,Burlington,Chittenden,2026-08-11,2026,2026-08,25,True,Burlington
@@ -5722,6 +5726,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 356,UVM -Central. Residence,Burlington,Chittenden,2018-12-13,2018,2018-12,100,True,Burlington
 356,UVM -Central. Residence,Burlington,Chittenden,2018-10-05,2018,2018-10,100,True,Burlington
 356,UVM -Central. Residence,Burlington,Chittenden,2018-02-16,2018,2018-02,25,True,Burlington
+353,UVM Harris-Milles,Burlington,Chittenden,2026-10-08,2026,2026-10,40,True,Burlington
 353,UVM Harris-Milles,Burlington,Chittenden,2026-09-17,2026,2026-09,45,True,Burlington
 353,UVM Harris-Milles,Burlington,Chittenden,2026-05-15,2026,2026-05,75,True,Burlington
 353,UVM Harris-Milles,Burlington,Chittenden,2026-04-24,2026,2026-04,80,True,Burlington
@@ -5800,6 +5805,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 353,UVM Harris-Milles,Burlington,Chittenden,2018-04-03,2018,2018-04,85,True,Burlington
 353,UVM Harris-Milles,Burlington,Chittenden,2018-03-16,2018,2018-03,60,True,Burlington
 353,UVM Harris-Milles,Burlington,Chittenden,2018-02-15,2018,2018-02,100,True,Burlington
+358,UVM- Davis Campus,Burlington,Chittenden,2026-10-08,2026,2026-10,140,True,Burlington
 358,UVM- Davis Campus,Burlington,Chittenden,2026-09-17,2026,2026-09,160,True,Burlington
 358,UVM- Davis Campus,Burlington,Chittenden,2026-08-11,2026,2026-08,190,True,Burlington
 358,UVM- Davis Campus,Burlington,Chittenden,2026-05-15,2026,2026-05,140,True,Burlington
@@ -5878,6 +5884,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 358,UVM- Davis Campus,Burlington,Chittenden,2018-02-27,2018,2018-02,100,True,Burlington
 358,UVM- Davis Campus,Burlington,Chittenden,2018-02-17,2018,2018-02,200,True,Burlington
 358,UVM- Davis Campus,Burlington,Chittenden,2018-02-13,2018,2018-02,200,True,Burlington
+354,UVM- Red Stone,Burlington,Chittenden,2026-10-08,2026,2026-10,90,True,Burlington
 354,UVM- Red Stone,Burlington,Chittenden,2026-09-17,2026,2026-09,110,True,Burlington
 354,UVM- Red Stone,Burlington,Chittenden,2026-08-11,2026,2026-08,60,True,Burlington
 354,UVM- Red Stone,Burlington,Chittenden,2026-05-15,2026,2026-05,80,True,Burlington
@@ -5953,6 +5960,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 354,UVM- Red Stone,Burlington,Chittenden,2018-05-17,2018,2018-05,150,True,Burlington
 354,UVM- Red Stone,Burlington,Chittenden,2018-04-03,2018,2018-04,150,True,Burlington
 354,UVM- Red Stone,Burlington,Chittenden,2018-02-15,2018,2018-02,150,True,Burlington
+355,UVM-Living Learning,Burlington,Chittenden,2026-10-08,2026,2026-10,50,True,Burlington
 355,UVM-Living Learning,Burlington,Chittenden,2026-09-17,2026,2026-09,20,True,Burlington
 355,UVM-Living Learning,Burlington,Chittenden,2026-05-15,2026,2026-05,50,True,Burlington
 355,UVM-Living Learning,Burlington,Chittenden,2026-04-24,2026,2026-04,30,True,Burlington
@@ -18902,6 +18910,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 208,Mad Moose/Blue Stone-Waitsfield,Waitsfield,Washington,2016-04-25,2016,2016-04,68,True,Waitsfield
 208,Mad Moose/Blue Stone-Waitsfield,Waitsfield,Washington,2016-03-29,2016,2016-03,45,True,Waitsfield
 208,Mad Moose/Blue Stone-Waitsfield,Waitsfield,Washington,2016-03-07,2016,2016-03,80,True,Waitsfield
+214,Mad River Barn,Waitsfield,Washington,2026-10-09,2026,2026-10,65,True,Waitsfield
 214,Mad River Barn,Waitsfield,Washington,2026-09-05,2026,2026-09,30,True,Waitsfield
 214,Mad River Barn,Waitsfield,Washington,2026-08-18,2026,2026-08,60,True,Waitsfield
 214,Mad River Barn,Waitsfield,Washington,2026-07-16,2026,2026-07,50,True,Waitsfield
@@ -19469,6 +19478,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 218,Sugarbush Inn / Fit to Be Thai’d,Warren,Washington,2019-04-22,2019,2019-04,30,True,Warren
 218,Sugarbush Inn / Fit to Be Thai’d,Warren,Washington,2018-11-19,2018,2018-11,20,True,Warren
 218,Sugarbush Inn / Fit to Be Thai’d,Warren,Washington,2018-09-26,2018,2018-09,25,True,Warren
+224,Sugarbush Resort,Warren,Washington,2026-10-09,2026,2026-10,60,True,Warren
 224,Sugarbush Resort,Warren,Washington,2026-09-05,2026,2026-09,75,True,Warren
 224,Sugarbush Resort,Warren,Washington,2026-08-18,2026,2026-08,125,True,Warren
 224,Sugarbush Resort,Warren,Washington,2026-07-16,2026,2026-07,110,True,Warren
