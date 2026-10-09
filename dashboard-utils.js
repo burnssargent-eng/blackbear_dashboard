@@ -448,6 +448,7 @@ function navHtml(current, latestYear, defaultRegion) {
 
   const links = [
     { key: "dashboard", href: "index.html", label: "Dashboard" },
+    { key: "projections", href: "projections.html", label: "Projections" },
     { key: "region", href: `region.html?region=${encodeURIComponent(region)}`, label: "Regions" },
     { key: "year", href: `year.html?year=${encodeURIComponent(year)}`, label: "Years" },
     { key: "customers", href: "customers.html", label: "Customers" },
@@ -581,21 +582,23 @@ const CUSTOMER_ROWS_COLLAPSED = 50;
 const CUSTOMER_ROWS_EXPANDED = 250;
 
 /**
- * Render a customer list capped at 50 rows, with a button to expand to 250.
+ * Render a customer list capped at 50 rows, expandable to 250 and then to all.
  *
  * Each page keeps its own columns and any status group headers by supplying its
  * own `renderFn`; only the slicing, the button wording and the open/closed
- * state are shared, so the four lists behave identically without being forced
- * onto one table builder.
+ * state are shared, so the lists behave identically without being forced onto
+ * one table builder.
  *
  *   container  element to fill (its contents are replaced)
  *   rows       the FULL list, already sorted by the caller — order is preserved
  *   renderFn   (subset) => HTML string for that subset
  *   limits     optional {collapsed, expanded}; defaults to 50 / 250. An
- *              expanded limit of Infinity makes the button "Show all".
+ *              expanded limit of Infinity skips the middle step.
  *
- * State lives on the container, so two lists on one page cannot interfere.
- * No button is shown when the list already fits in the collapsed limit.
+ * State lives on the container (dataset.expanded: "false", "true" for the
+ * expanded limit, "all"), so two lists on one page cannot interfere. No button
+ * is shown when the list already fits in the collapsed limit. While expanded
+ * with rows still hidden, "Show all N" sits beside "Show top <collapsed>".
  */
 function renderExpandableCustomerList(container, rows, renderFn, limits) {
   if (!container) return;
@@ -603,31 +606,38 @@ function renderExpandableCustomerList(container, rows, renderFn, limits) {
   const collapsedLimit = (limits && limits.collapsed) || CUSTOMER_ROWS_COLLAPSED;
   const expandedLimit = (limits && limits.expanded) || CUSTOMER_ROWS_EXPANDED;
   const all = rows || [];
-  const expanded = container.dataset.expanded === "true";
-  const limit = expanded ? expandedLimit : collapsedLimit;
+  const state = container.dataset.expanded === "all" ? "all"
+    : (container.dataset.expanded === "true" ? "true" : "false");
+  const limit = state === "all" ? Infinity
+    : (state === "true" ? expandedLimit : collapsedLimit);
   const shown = all.slice(0, limit);
 
   container.innerHTML = renderFn(shown);
 
   if (all.length <= collapsedLimit) return;
 
-  // "Show all N" when everything fits in one expansion, otherwise the cap.
-  const label = expanded
-    ? `Show top ${formatNumber(collapsedLimit)}`
-    : (all.length <= expandedLimit
-        ? `Show all ${formatNumber(all.length)}`
-        : `Show top ${formatNumber(expandedLimit)}`);
+  // Each button is [label, the state it moves to]. Collapsed: one step up
+  // ("Show all N" when everything fits in it). Otherwise "Show all N" while rows
+  // are still hidden, and always a way back to the collapsed list.
+  const showAll = [`Show all ${formatNumber(all.length)}`, "all"];
+  const buttons = state === "false"
+    ? [all.length <= expandedLimit ? showAll
+        : [`Show top ${formatNumber(expandedLimit)}`, "true"]]
+    : [...(shown.length < all.length ? [showAll] : []),
+       [`Show top ${formatNumber(collapsedLimit)}`, "false"]];
 
   const footer = document.createElement("div");
   footer.className = "list-more";
-  footer.innerHTML =
-    `<button type="button">${escapeHtml(label)}</button>` +
+  footer.innerHTML = buttons.map(([label, to]) =>
+      `<button type="button" data-expand="${to}">${escapeHtml(label)}</button>`).join("") +
     `<span class="list-count">Showing ${formatNumber(shown.length)} ` +
     `of ${formatNumber(all.length)}</span>`;
 
-  footer.querySelector("button").addEventListener("click", () => {
-    container.dataset.expanded = expanded ? "false" : "true";
-    renderExpandableCustomerList(container, all, renderFn, limits);
+  buttons.forEach(([, to]) => {
+    footer.querySelector(`[data-expand="${to}"]`).addEventListener("click", () => {
+      container.dataset.expanded = to;
+      renderExpandableCustomerList(container, all, renderFn, limits);
+    });
   });
 
   container.appendChild(footer);
