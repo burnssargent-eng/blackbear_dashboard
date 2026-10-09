@@ -533,28 +533,32 @@ const CUSTOMER_ROWS_EXPANDED = 250;
  *   container  element to fill (its contents are replaced)
  *   rows       the FULL list, already sorted by the caller — order is preserved
  *   renderFn   (subset) => HTML string for that subset
+ *   limits     optional {collapsed, expanded}; defaults to 50 / 250. An
+ *              expanded limit of Infinity makes the button "Show all".
  *
  * State lives on the container, so two lists on one page cannot interfere.
  * No button is shown when the list already fits in the collapsed limit.
  */
-function renderExpandableCustomerList(container, rows, renderFn) {
+function renderExpandableCustomerList(container, rows, renderFn, limits) {
   if (!container) return;
 
+  const collapsedLimit = (limits && limits.collapsed) || CUSTOMER_ROWS_COLLAPSED;
+  const expandedLimit = (limits && limits.expanded) || CUSTOMER_ROWS_EXPANDED;
   const all = rows || [];
   const expanded = container.dataset.expanded === "true";
-  const limit = expanded ? CUSTOMER_ROWS_EXPANDED : CUSTOMER_ROWS_COLLAPSED;
+  const limit = expanded ? expandedLimit : collapsedLimit;
   const shown = all.slice(0, limit);
 
   container.innerHTML = renderFn(shown);
 
-  if (all.length <= CUSTOMER_ROWS_COLLAPSED) return;
+  if (all.length <= collapsedLimit) return;
 
   // "Show all N" when everything fits in one expansion, otherwise the cap.
   const label = expanded
-    ? `Show top ${formatNumber(CUSTOMER_ROWS_COLLAPSED)}`
-    : (all.length <= CUSTOMER_ROWS_EXPANDED
+    ? `Show top ${formatNumber(collapsedLimit)}`
+    : (all.length <= expandedLimit
         ? `Show all ${formatNumber(all.length)}`
-        : `Show top ${formatNumber(CUSTOMER_ROWS_EXPANDED)}`);
+        : `Show top ${formatNumber(expandedLimit)}`);
 
   const footer = document.createElement("div");
   footer.className = "list-more";
@@ -565,7 +569,7 @@ function renderExpandableCustomerList(container, rows, renderFn) {
 
   footer.querySelector("button").addEventListener("click", () => {
     container.dataset.expanded = expanded ? "false" : "true";
-    renderExpandableCustomerList(container, all, renderFn);
+    renderExpandableCustomerList(container, all, renderFn, limits);
   });
 
   container.appendChild(footer);

@@ -132,7 +132,12 @@ Grand Summit (May–Jul).
 
 ## Then: the Projections page (Sarge's vision, 2026-10-01)
 
-Today's beta page is a ranked table with held-out sections. The target:
+Today's beta page is a ranked table with held-out sections. Done 2026-10-08:
+total projected oil and the count past 75% for All regions and each region,
+the urgent ranking with sortable columns, search, implied periodicity and an
+all-history avg collection exported. Still open below: the raw-oil ranking with
+the gallons / % toggle, the colour scale, collecting vs idle, and the rest of
+the per-customer columns. The target:
 
 **Regions view**
 - Total projected oil per region

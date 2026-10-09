@@ -506,7 +506,7 @@ def new_owner_row(cid, extra, capacity, regions, asof):
         "active_season": None, "review_hint": None, "flags": "; ".join(flags),
         "last_pickup_date": None, "days_since_last_pickup": (asof - start).days,
         "last_empty_check": None, "days_accumulating": (asof - start).days,
-        "avg_collection": None, "collections_per_year": None,
+        "avg_collection": None, "avg_collection_all": None, "collections_per_year": None,
         "oil_rate_gpd_projected": None, "current_projected_gallons": None,
         "projected_range_low": None, "projected_range_high": None,
         "capacity": capacity, "collections_over_capacity_all_time": 0,
@@ -844,6 +844,11 @@ def average_collection(pickups):
     return statistics.fmean(p["gallons"] for p in recent) if recent else None
 
 
+def average_collection_all(pickups):
+    """Mean gallons of every pickup the model sees: the page's Avg Collection."""
+    return statistics.fmean(p["gallons"] for p in pickups) if pickups else None
+
+
 def collections_per_year(pickups):
     """
     Qualifying pickups per complete calendar year.
@@ -1163,6 +1168,7 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
         "last_empty_check": last_check.isoformat() if last_check else None,
         "days_accumulating": days_accumulating,
         "avg_collection": avg_collection,
+        "avg_collection_all": average_collection_all(pickups),
         "collections_per_year": collections_per_year(pickups),
         "oil_rate_gpd_projected": rate,
         "current_projected_gallons": shown(projected),
@@ -1249,7 +1255,7 @@ MAIN_FIELDS = [
 ]
 
 ROUNDING = {
-    "avg_collection": 1, "collections_per_year": 1,
+    "avg_collection": 1, "avg_collection_all": 1, "collections_per_year": 1,
     "oil_rate_gpd_projected": 3, "current_projected_gallons": 1,
     "projected_range_low": 1, "projected_range_high": 1,
     "capacity": 0, "display_pct_full": 1, "days_until_75pct": 1, "days_past_75pct": 1,
@@ -1333,8 +1339,9 @@ def write_json(rows, asof):
 
     Operator fields only, taken from the SAME presented values as the main CSV,
     so the page shows exactly what the table shows: % full is the capped
-    display value and held-out rows carry nulls. Rows keep the build's order;
-    the page never re-sorts or recomputes a projection.
+    display value and held-out rows carry nulls. Rows keep the build's order,
+    which is the page's default; the page re-sorts only when the viewer clicks a
+    column heading, and never recomputes a projection.
     """
     def value(row, key):
         return presented(row, [key])[key] if row.get(key) is not None else None
@@ -1359,6 +1366,7 @@ def write_json(rows, asof):
         "history_start": r.get("history_start"),
         "rate_gpd": value(r, "oil_rate_gpd_projected"),
         "avg_collection": value(r, "avg_collection"),
+        "avg_collection_all": value(r, "avg_collection_all"),
         "capacity": value(r, "capacity"),
         "projected_gal": value(r, "current_projected_gallons"),
         "range_low": value(r, "projected_range_low"),
@@ -1367,6 +1375,7 @@ def write_json(rows, asof):
         "days_until_75": value(r, "days_until_75pct"),
         "days_past_75": value(r, "days_past_75pct"),
         "days_past_capacity": value(r, "days_past_capacity"),
+        "periodicity_days": value(r, "implied_periodicity_days"),
         "flags": r["flags"].split("; ") if r["flags"] else [],
     } for r in rows]
 

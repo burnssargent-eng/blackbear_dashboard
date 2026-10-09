@@ -35,8 +35,12 @@ dashboard.css        shared styles for the detail pages — NOT index.html
 ```
 
 **`projections.html` only displays `oil_projections.json`.** It never
-recomputes a projection, re-sorts the ranking or re-derives a section — the
-maths lives once, in `build_projection_table.py`. The nightly runs that builder
+recomputes a projection or re-derives a section — the maths lives once, in
+`build_projection_table.py`, and a per-customer value the page needs is
+exported there, not derived in the page (the header boxes only count and sum
+exported rows). Rows show in the builder's order by default; the only
+re-sort is one the viewer picks by clicking a column heading (`#` restores the
+builder's order). The nightly runs that builder
 after the scraper; a build failure is tolerated (the old JSON stays) and the
 page warns when its `data_last_updated` no longer matches `oil_data.json`.
 Its confidence bands come from the committed `analysis/customer_wape.json`, not
