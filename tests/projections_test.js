@@ -1,7 +1,8 @@
 // Beta projections page: runs the real script from projections.html against
 // the committed oil_projections.json. The page must only DISPLAY the export --
-// never recompute, re-sort or re-section it -- so most checks compare what it
-// renders with what the file says.
+// never recompute or re-section it, and keep the export's order unless the
+// viewer picks a sort -- so most checks compare what it renders with what the
+// file says.
 
 process.chdir(require("path").join(__dirname, ".."));
 
@@ -41,8 +42,9 @@ const api = new Function("document", "window", utils + "\n" + script + `
   return {
     set(p, d) { projections = p; oilData = d; },
     setRegion(r) { selectedRegion = r; },
+    setSearch(t) { searchText = t; },
     buildShell, update, filterByRegion, regionOptions, freshnessWarning,
-    rankedRowsHtml, heldOutRowsHtml,
+    rankedRowsHtml, heldOutRowsHtml, setSort, renderRanked, daysPastHtml,
   };`)(document, window);
 
 let fails = 0;
@@ -75,13 +77,15 @@ api.update();
 
 const ranked = customers.filter(c => c.section === "ranked");
 const list = document.getElementById("ranked-list");
-ok(rowsIn(list.innerHTML) === Math.min(50, ranked.length),
-  `ranked list shows ${Math.min(50, ranked.length)} rows collapsed (got ${rowsIn(list.innerHTML)})`);
+ok(rowsIn(list.innerHTML) === Math.min(250, ranked.length),
+  `ranked list shows ${Math.min(250, ranked.length)} rows collapsed (got ${rowsIn(list.innerHTML)})`);
 
-// Rendered order is the export's order: compare the first 50 names.
-const renderedNames = [...list.innerHTML.matchAll(/<td class="rank">\d+<\/td>\s*<td>([^<]*)/g)].map(m => m[1]);
-const expected = ranked.slice(0, 50).map(c => api.rankedRowsHtml([c]).match(/<td>([^<]*)/)[1]);
-ok(JSON.stringify(renderedNames) === JSON.stringify(expected), "ranked rows render in the export's order");
+// Rendered order is the export's order by default.
+const nameOf = c => api.rankedRowsHtml([c]).match(/<td>([^<]*)/)[1];
+const renderedNames = () =>
+  [...list.innerHTML.matchAll(/<td class="rank">\d+<\/td>\s*<td>([^<]*)/g)].map(m => m[1]);
+const expected = ranked.slice(0, 250).map(nameOf);
+ok(JSON.stringify(renderedNames()) === JSON.stringify(expected), "ranked rows render in the export's order");
 
 const pcts = [...list.innerHTML.matchAll(/class="proj-pct">(\d+)%/g)].map(m => Number(m[1]));
 ok(pcts.length > 0 && Math.max(...pcts) <= 100, `rendered % full never above 100 (max ${Math.max(...pcts)})`);
@@ -102,8 +106,83 @@ ok(inRegion.length === customers.filter(c => c.regions.includes(region)).length,
 api.setRegion(region);
 api.update();
 const regionRanked = inRegion.filter(c => c.section === "ranked").length;
-ok(rowsIn(list.innerHTML) === Math.min(50, regionRanked),
-  `region view ranks ${Math.min(50, regionRanked)} rows`);
+ok(rowsIn(list.innerHTML) === Math.min(250, regionRanked),
+  `region view ranks ${Math.min(250, regionRanked)} rows`);
+
+// ── Header boxes ──
+const statVals = () => [...document.getElementById("summary").innerHTML
+  .matchAll(/stat-val">([^<]*)/g)].map(m => m[1]);
+api.setRegion("");
+api.update();
+const totalGal = Math.round(ranked.reduce((s, c) => s + (c.projected_gal || 0), 0));
+const countedHeld = customers.filter(c =>
+  ["seasonal holdout", "will-call", "stale", "insufficient data"].includes(c.section)).length;
+const vals = statVals();
+ok(vals.length === 5, `five header boxes (got ${vals.length})`);
+ok(vals[0] === totalGal.toLocaleString(), `total projected oil = sum of ranked projected_gal (${totalGal})`);
+ok(vals[1] === ranked.length.toLocaleString(), "route candidates box");
+ok(vals[2] === String(ranked.filter(c => c.days_past_75 > 0).length), "past pickup point box");
+ok(vals[3] === String(ranked.filter(c => c.pct_full > 50).length), "past 50% full box");
+ok(vals[4] === String(countedHeld), `held-out box counts seasonal/will-call/stale/insufficient (${countedHeld})`);
+
+// ── Columns ──
+const notYet = ranked.find(c => c.days_until_75 > 0.5);
+const past = ranked.find(c => c.days_past_75 > 0.5);
+ok(notYet && api.daysPastHtml(notYet) === String(-Math.round(notYet.days_until_75)),
+  `not yet at the pickup point shows negative days (${notYet && api.daysPastHtml(notYet)})`);
+ok(past && api.daysPastHtml(past) === Math.round(past.days_past_75).toLocaleString(),
+  `past the pickup point shows positive days (${past && api.daysPastHtml(past)})`);
+ok(api.daysPastHtml({ days_until_75: 0.2 }) === "0" && api.daysPastHtml({ days_until_75: null }) === "—",
+  "zero shows as 0, missing as a dash");
+const sample = ranked[0];
+const sampleRow = api.rankedRowsHtml([sample]);
+ok(sampleRow.includes(`(${Math.round(sample.range_low).toLocaleString()}–${Math.round(sample.range_high).toLocaleString()})`),
+  "projected gal carries its range in brackets");
+ok(sample.periodicity_days !== null && sampleRow.includes(`>${Math.round(sample.periodicity_days)}</td>`),
+  "periodicity cell shows the exported periodicity_days");
+ok(sample.avg_collection_all !== null && sampleRow.includes(`>${sample.avg_collection_all.toFixed(1)}</td>`),
+  "avg collection cell shows the exported avg_collection_all");
+ok(ranked.every(c => c.capacity === null || c.rate_gpd === null || c.periodicity_days === null ||
+  Math.abs(c.periodicity_days / (payload.target_fraction * c.capacity / c.rate_gpd) - 1) < 0.02),
+  "exported periodicity = target fraction x capacity / gal per day (gal/day is rounded)");
+ok(!/Likely range|Days building/.test(list.innerHTML), "old Likely range and Days building columns gone");
+
+// ── Sorting ──
+api.setSort("projected");
+const maxHigh = Math.max(...ranked.map(c => c.range_high));
+ok(renderedNames()[0] === nameOf(ranked.find(c => c.range_high === maxHigh)),
+  "projected gal sorts by the range's upper bound, highest first");
+api.setSort("projected");
+const minHigh = Math.min(...ranked.map(c => c.range_high));
+ok(renderedNames()[0] === nameOf(ranked.find(c => c.range_high === minHigh)),
+  "a second click flips to lowest first");
+api.setSort("name");
+const firstName = renderedNames()[0];
+ok(ranked.every(c => nameOf(c).localeCompare(firstName) >= 0), "customer sorts A to Z first");
+const rankCells = [...list.innerHTML.matchAll(/<td class="rank">(\d+)</g)].map(m => Number(m[1]));
+ok(rankCells.slice(0, 5).some((r, i) => r !== i + 1), "# keeps the urgency rank through a re-sort");
+api.setSort("rank");
+ok(JSON.stringify(renderedNames()) === JSON.stringify(expected), "clicking # restores the export's order");
+
+// ── Show all ──
+list.dataset.expanded = "true";
+api.renderRanked();
+ok(rowsIn(list.innerHTML) === ranked.length, `show all renders every ranked row (${ranked.length})`);
+
+// ── Search ──
+const needle = sample.name.slice(0, 6).toLowerCase();
+api.setSearch(needle);
+api.update();
+const hits = ranked.filter(c => [c.name, ...(c.members || []).map(m => m.name)]
+  .some(n => n.toLowerCase().includes(needle)));
+ok(rowsIn(list.innerHTML) === hits.length && hits.length > 0,
+  `search "${needle}" shows its ${hits.length} matching ranked rows`);
+ok(statVals()[1] === ranked.length.toLocaleString(), "search leaves the header boxes alone");
+api.setSearch("zzzz-no-such-customer");
+api.update();
+ok(/No route candidates match/.test(list.innerHTML), "a search with no match says so");
+api.setSearch("");
+api.update();
 
 // ── Empty checks restart the clock ──
 const checked = customers.filter(c => c.last_empty_check);

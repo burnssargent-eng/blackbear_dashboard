@@ -40,8 +40,10 @@
  *
  * Everything shown here is computed by analysis/build_projection_table.py and
  * read from oil_projections.json, which the nightly job rebuilds after the
- * scrape. This page NEVER recomputes a projection, re-sorts the ranking or
- * re-derives a section: the maths lives in one place, in Python.
+ * scrape. This page NEVER recomputes a projection or re-derives a section: the
+ * maths lives in one place, in Python. Rows show in the export's order (the
+ * builder's urgency ranking) unless the viewer clicks a column heading to sort;
+ * clicking "#" returns to the export's order.
  */
 
 const PROJECTIONS_FILE = "oil_projections.json";
@@ -75,6 +77,34 @@ const SECTION_TEXT = {
 let projections = null;     // the parsed oil_projections.json
 let oilData = null;         // oil_data.json, for the nav and the freshness check
 let selectedRegion = "";    // "" means every region
+let searchText = "";        // customer search, lower-cased
+let sortKey = null;         // null = the export's order
+let sortDir = "desc";
+
+// Ranked rows after the region and search filters, in the export's order,
+// and each one's urgency rank within the region (kept through a re-sort).
+let currentRanked = [];
+let currentRanks = new Map();
+
+const RANKED_ROW_LIMITS = { collapsed: 250, expanded: Infinity };
+
+// Sortable ranked-table columns. `value` gives the sort value (null sorts last
+// in either direction); text columns start A to Z, the rest start high to low.
+const RANKED_COLUMNS = [
+  { key: "rank", label: "#" },
+  { key: "name", label: "Customer", text: true, value: c => c.name },
+  { key: "town", label: "Town", text: true, value: c => c.town },
+  { key: "projected", label: "Projected gal (range)", value: c => c.range_high },
+  { key: "capacity", label: "Capacity", value: c => c.capacity },
+  { key: "pct_full", label: "% full", value: c => c.pct_full },
+  { key: "days_past", label: "Days past pickup point",
+    value: c => (c.days_until_75 === null || c.days_until_75 === undefined)
+      ? null : -c.days_until_75 },
+  { key: "rate", label: "Gal / day", value: c => c.rate_gpd },
+  { key: "last_pickup", label: "Last pickup", value: c => c.last_pickup },
+  { key: "periodicity", label: "Periodicity", value: c => c.periodicity_days },
+  { key: "avg_all", label: "Avg Collection", value: c => c.avg_collection_all },
+];
 
 async function loadProjections() {
   const resp = await fetch(`${PROJECTIONS_FILE}?v=${Date.now()}`);
@@ -178,15 +208,21 @@ function buildShell(page) {
           `<option value="${escapeHtml(r)}"${r === selectedRegion ? " selected" : ""}>` +
           `${escapeHtml(r)}</option>`).join("")}
       </select>
+      <label for="proj-search">Search</label>
+      <input type="search" id="proj-search" class="proj-search"
+             placeholder="Customer name" autocomplete="off">
     </div>
 
-    <div class="stats-bar" id="summary"></div>
+    <div class="stats-bar proj-stats" id="summary"></div>
 
     <div class="section">
       <div class="section-title" id="ranked-title">Route candidates</div>
       <div class="section-caption">
-        Most urgent first: days past full capacity, then days past the
-        ${target}% pickup point, then % full.
+        Default order is most urgent first: days past full capacity, then days
+        past the ${target}% pickup point, then % full. Click a column heading to
+        sort by it; click # to return to this order. A negative
+        <strong>days past pickup point</strong> is the days until the customer
+        reaches it.
       </div>
       <div id="ranked-list"></div>
     </div>
@@ -202,6 +238,68 @@ function buildShell(page) {
     window.history.replaceState(null, "", url);
     update();
   });
+
+  document.getElementById("proj-search").addEventListener("input", e => {
+    searchText = e.target.value.trim().toLowerCase();
+    update();
+  });
+
+  // The table is rebuilt on every render, so one listener on its container.
+  document.getElementById("ranked-list").addEventListener("click", e => {
+    const button = e.target.closest && e.target.closest("[data-sort]");
+    if (button) setSort(button.dataset.sort);
+  });
+}
+
+/** True when the search box is empty or matches the name or a barrel member. */
+function matchesSearch(c) {
+  if (!searchText) return true;
+  const names = [c.name, ...(c.members || []).map(m => m.name)];
+  return names.some(n => (n || "").toLowerCase().includes(searchText));
+}
+
+/** A heading click: "#" restores the export's order, a repeat click flips. */
+function setSort(key) {
+  if (key === "rank") {
+    sortKey = null;
+  } else if (key === sortKey) {
+    sortDir = sortDir === "asc" ? "desc" : "asc";
+  } else {
+    const column = RANKED_COLUMNS.find(col => col.key === key);
+    if (!column) return;
+    sortKey = key;
+    sortDir = column.text ? "asc" : "desc";
+  }
+  renderRanked();
+}
+
+/**
+ * Rows in the viewer's chosen order. A stable sort over the export's order, so
+ * ties keep the builder's ranking; missing values sort last either way.
+ */
+function sortRows(rows) {
+  const column = RANKED_COLUMNS.find(col => col.key === sortKey);
+  if (!column || !column.value) return rows.slice();
+  const sign = sortDir === "asc" ? 1 : -1;
+  const missing = v => v === null || v === undefined || v === "";
+  return rows.slice().sort((a, b) => {
+    const va = column.value(a), vb = column.value(b);
+    if (missing(va) || missing(vb)) return missing(va) - missing(vb);
+    if (column.text) return sign * String(va).localeCompare(String(vb));
+    return sign * (va < vb ? -1 : va > vb ? 1 : 0);
+  });
+}
+
+function renderRanked() {
+  const list = document.getElementById("ranked-list");
+  if (!currentRanked.length) {
+    list.innerHTML = `<div class="note">${searchText
+      ? "No route candidates match the search."
+      : "No route candidates in this region."}</div>`;
+    return;
+  }
+  renderExpandableCustomerList(list, sortRows(currentRanked),
+    rows => rankedRowsHtml(rows, currentRanks), RANKED_ROW_LIMITS);
 }
 
 function update() {
@@ -209,37 +307,43 @@ function update() {
   const ranked = customers.filter(c => c.section === "ranked");
   const heldOut = customers.filter(c => c.section !== "ranked");
 
+  // The header boxes describe the region; the search only narrows the tables.
   document.getElementById("summary").innerHTML = summaryHtml(ranked, heldOut);
 
+  currentRanks = new Map(ranked.map((c, i) => [c.id, i + 1]));
+  currentRanked = ranked.filter(matchesSearch);
+
   document.getElementById("ranked-title").textContent =
-    `Route candidates · ${formatNumber(ranked.length)}` +
+    `Route candidates · ${formatNumber(currentRanked.length)}` +
+    (searchText ? ` of ${formatNumber(ranked.length)}` : "") +
     (selectedRegion ? ` in ${selectedRegion}` : "");
 
-  const list = document.getElementById("ranked-list");
-  list.dataset.expanded = "false";
-  if (ranked.length) {
-    renderExpandableCustomerList(list, ranked, rankedRowsHtml);
-  } else {
-    list.innerHTML = `<div class="note">No route candidates in this region.</div>`;
-  }
+  document.getElementById("ranked-list").dataset.expanded = "false";
+  renderRanked();
 
-  document.getElementById("held-out").innerHTML = heldOutHtml(heldOut);
+  document.getElementById("held-out").innerHTML =
+    heldOutHtml(heldOut.filter(matchesSearch));
 }
 
+// The held-out sections counted in the fifth header box.
+const HELD_OUT_COUNTED = ["seasonal holdout", "will-call", "stale", "insufficient data"];
+
 function summaryHtml(ranked, heldOut) {
+  const totalGal = ranked.reduce((sum, c) => sum + (c.projected_gal || 0), 0);
   const pastTarget = ranked.filter(c => (c.days_past_75 || 0) > 0).length;
-  const pastFull = ranked.filter(c => (c.days_past_capacity || 0) > 0).length;
-  const separate = heldOut.filter(c =>
-    c.section !== "stale" && c.section !== "insufficient data").length;
+  const pastHalf = ranked.filter(c => (c.pct_full || 0) > 50).length;
+  const counted = heldOut.filter(c => HELD_OUT_COUNTED.includes(c.section)).length;
+  const target = Math.round((projections.target_fraction || 0.75) * 100);
   const stat = (value, label) => `
     <div class="stat">
       <div class="stat-val">${formatNumber(value)}</div>
       <div class="stat-label">${label}</div>
     </div>`;
-  return stat(ranked.length, "Route Candidates") +
-    stat(pastTarget, "Past Pickup Point") +
-    stat(pastFull, "Past Full Capacity") +
-    stat(separate, "Listed Separately");
+  return stat(Math.round(totalGal), "Total Projected Oil (gal)") +
+    stat(ranked.length, "Route Candidates") +
+    stat(pastTarget, `Past Pickup Point (${target}%)`) +
+    stat(pastHalf, "Past 50% Full") +
+    stat(counted, "Seasonally Closed · Will\u2011call · Stale · Insufficient");
 }
 
 /** One-decimal number, or a dash for a missing value. */
@@ -285,39 +389,58 @@ function notesHtml(c) {
     : "";
 }
 
-function rankedRowsHtml(rows) {
+/** Whole number, or a dash for a missing value. */
+function formatWhole(value) {
+  if (value === null || value === undefined || !Number.isFinite(Number(value))) return "—";
+  return formatNumber(Math.round(Number(value)));
+}
+
+/** Days past the pickup point, negative while still short of it. */
+function daysPastHtml(c) {
+  if (c.days_until_75 === null || c.days_until_75 === undefined) return "—";
+  const days = Math.round(-c.days_until_75);
+  return days === 0 ? "0" : formatNumber(days);
+}
+
+/** "170 (128–247)": the projection, with its likely range smaller and grey. */
+function projectedHtml(c) {
+  return `${formatWhole(c.projected_gal)} <span class="proj-range">` +
+    `(${formatWhole(c.range_low)}–${formatWhole(c.range_high)})</span>`;
+}
+
+function rankedHeadHtml() {
+  return RANKED_COLUMNS.map(col => {
+    const active = col.key === sortKey || (col.key === "rank" && sortKey === null);
+    const arrow = col.key === sortKey ? (sortDir === "asc" ? "▲" : "▼") : "";
+    return `<th${col.key === "rank" ? ' class="rank"' : ""}>` +
+      `<button type="button" class="proj-sort${active ? " proj-sorted" : ""}" ` +
+      `data-sort="${col.key}">${escapeHtml(col.label)}` +
+      `<span class="proj-arrow">${arrow}</span></button></th>`;
+  }).join("");
+}
+
+/** `ranks` maps id to the urgency rank; without it, rows number from 1. */
+function rankedRowsHtml(rows, ranks) {
   const body = rows.map((c, i) => `
     <tr>
-      <td class="rank">${i + 1}</td>
+      <td class="rank">${(ranks && ranks.get(c.id)) || i + 1}</td>
       <td>${escapeHtml(c.name)}${notesHtml(c)}</td>
       <td>${escapeHtml(c.town || "—")}</td>
-      <td class="gal">${formatNumber(Math.round(c.projected_gal || 0))}</td>
-      <td class="num proj-range">${formatNumber(Math.round(c.range_low || 0))}–${formatNumber(Math.round(c.range_high || 0))}</td>
-      <td class="num">${c.capacity === null ? "—" : formatNumber(c.capacity)}</td>
+      <td class="gal">${projectedHtml(c)}</td>
+      <td class="num">${formatWhole(c.capacity)}</td>
       <td class="num">${pctFullHtml(c.pct_full)}</td>
-      <td class="num">${(c.days_past_75 || 0) > 0 ? formatNumber(Math.round(c.days_past_75)) : "—"}</td>
+      <td class="num">${daysPastHtml(c)}</td>
       <td class="num">${formatOne(c.rate_gpd)}</td>
       <td class="proj-date">${formatDate(c.last_pickup)}</td>
-      <td class="num">${formatNumber(c.days_accumulating ?? c.days_since)}</td>
+      <td class="num">${formatWhole(c.periodicity_days)}</td>
+      <td class="num">${formatOne(c.avg_collection_all)}</td>
     </tr>`).join("");
 
   return `
     <div class="table-wrap">
-      <table class="data-table">
+      <table class="data-table proj-table">
         <thead>
-          <tr>
-            <th class="rank">#</th>
-            <th>Customer</th>
-            <th>Town</th>
-            <th class="num">Projected gal</th>
-            <th class="num">Likely range</th>
-            <th class="num">Capacity</th>
-            <th class="num">% full</th>
-            <th class="num">Days past pickup point</th>
-            <th class="num">Gal / day</th>
-            <th>Last pickup</th>
-            <th class="num">Days building</th>
-          </tr>
+          <tr>${rankedHeadHtml()}</tr>
         </thead>
         <tbody>${body}</tbody>
       </table>
@@ -353,7 +476,7 @@ function heldOutRowsHtml(rows) {
 
   return `
     <div class="table-wrap">
-      <table class="data-table">
+      <table class="data-table proj-table">
         <thead>
           <tr>
             <th>Customer</th>

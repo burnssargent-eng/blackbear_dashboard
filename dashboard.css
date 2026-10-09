@@ -735,6 +735,77 @@ select:disabled {
   margin-left: 6px;
 }
 
+/* Projections tables read centred; the routing reason is a sentence, so it
+   stays left-aligned. Out-specifies .data-table .num / .gal / .rank. */
+.data-table.proj-table th,
+.data-table.proj-table td {
+  text-align: center;
+}
+
+.data-table.proj-table td.proj-reason {
+  text-align: left;
+}
+
+.proj-table .proj-pct {
+  justify-content: center;
+}
+
+/* The likely range beside the projected gallons: smaller and quiet. */
+.proj-table .gal .proj-range {
+  font-size: 0.85em;
+  font-weight: normal;
+}
+
+/* Sortable column headings: the whole heading is the button. */
+.proj-sort {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.proj-sort:hover {
+  background: none;
+  color: #e6edf3;
+}
+
+.proj-sort.proj-sorted {
+  color: #3fb950;
+}
+
+.proj-arrow {
+  display: inline-block;
+  width: 1em;
+  font-size: 10px;
+}
+
+.proj-search {
+  background: #0d1117;
+  color: #e6edf3;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 13px;
+  min-width: 0;
+  width: 220px;
+  max-width: 100%;
+}
+
+.proj-search:focus {
+  outline: none;
+  border-color: #3fb950;
+}
+
+/* Five header boxes: on narrow screens two per row, the fifth across both,
+   so no empty cell is left. */
+@media (max-width: 860px) {
+  .stats-bar.proj-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .proj-stats .stat:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+
 /* Responsive pass. Verified in headless Chrome at 390px; not yet checked on a
    real handset — see the TODO in the project notes. */
 @media (max-width: 860px) {
