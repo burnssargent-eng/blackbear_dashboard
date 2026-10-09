@@ -149,12 +149,12 @@ ok(!/Likely range|Days building/.test(list.innerHTML), "old Likely range and Day
 
 // ── Sorting ──
 api.setSort("projected");
-const maxHigh = Math.max(...ranked.map(c => c.range_high));
-ok(renderedNames()[0] === nameOf(ranked.find(c => c.range_high === maxHigh)),
-  "projected gal sorts by the range's upper bound, highest first");
+const maxProj = Math.max(...ranked.map(c => c.projected_gal));
+ok(renderedNames()[0] === nameOf(ranked.find(c => c.projected_gal === maxProj)),
+  "projected gal sorts by the projected figure, highest first");
 api.setSort("projected");
-const minHigh = Math.min(...ranked.map(c => c.range_high));
-ok(renderedNames()[0] === nameOf(ranked.find(c => c.range_high === minHigh)),
+const minProj = Math.min(...ranked.map(c => c.projected_gal));
+ok(renderedNames()[0] === nameOf(ranked.find(c => c.projected_gal === minProj)),
   "a second click flips to lowest first");
 api.setSort("name");
 const firstName = renderedNames()[0];

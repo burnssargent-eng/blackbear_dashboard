@@ -78,8 +78,7 @@ let projections = null;     // the parsed oil_projections.json
 let oilData = null;         // oil_data.json, for the nav and the freshness check
 let selectedRegion = "";    // "" means every region
 let searchText = "";        // customer search, lower-cased
-let sortKey = null;         // null = the export's order
-let sortDir = "desc";
+let sort = { key: null, dir: "desc" };   // key null = the export's order
 
 // Ranked rows after the region and search filters, in the export's order,
 // and each one's urgency rank within the region (kept through a re-sort).
@@ -88,13 +87,12 @@ let currentRanks = new Map();
 
 const RANKED_ROW_LIMITS = { collapsed: 250, expanded: Infinity };
 
-// Sortable ranked-table columns. `value` gives the sort value (null sorts last
-// in either direction); text columns start A to Z, the rest start high to low.
+// Sortable ranked-table columns (see sortRowsBy in dashboard-utils.js).
 const RANKED_COLUMNS = [
-  { key: "rank", label: "#" },
+  { key: "rank", label: "#", cls: "rank" },
   { key: "name", label: "Customer", text: true, value: c => c.name },
   { key: "town", label: "Town", text: true, value: c => c.town },
-  { key: "projected", label: "Projected gal (range)", value: c => c.range_high },
+  { key: "projected", label: "Projected gal (range)", value: c => c.projected_gal },
   { key: "capacity", label: "Capacity", value: c => c.capacity },
   { key: "pct_full", label: "% full", value: c => c.pct_full },
   { key: "days_past", label: "Days past pickup point",
@@ -209,11 +207,11 @@ function buildShell(page) {
           `${escapeHtml(r)}</option>`).join("")}
       </select>
       <label for="proj-search">Search</label>
-      <input type="search" id="proj-search" class="proj-search"
+      <input type="search" id="proj-search" class="table-search"
              placeholder="Customer name" autocomplete="off">
     </div>
 
-    <div class="stats-bar proj-stats" id="summary"></div>
+    <div class="stats-bar stats-pairs" id="summary"></div>
 
     <div class="section">
       <div class="section-title" id="ranked-title">Route candidates</div>
@@ -253,41 +251,13 @@ function buildShell(page) {
 
 /** True when the search box is empty or matches the name or a barrel member. */
 function matchesSearch(c) {
-  if (!searchText) return true;
-  const names = [c.name, ...(c.members || []).map(m => m.name)];
-  return names.some(n => (n || "").toLowerCase().includes(searchText));
+  return matchesNameSearch(searchText, [c.name, ...(c.members || []).map(m => m.name)]);
 }
 
 /** A heading click: "#" restores the export's order, a repeat click flips. */
 function setSort(key) {
-  if (key === "rank") {
-    sortKey = null;
-  } else if (key === sortKey) {
-    sortDir = sortDir === "asc" ? "desc" : "asc";
-  } else {
-    const column = RANKED_COLUMNS.find(col => col.key === key);
-    if (!column) return;
-    sortKey = key;
-    sortDir = column.text ? "asc" : "desc";
-  }
+  sort = nextSortState(RANKED_COLUMNS, sort, key);
   renderRanked();
-}
-
-/**
- * Rows in the viewer's chosen order. A stable sort over the export's order, so
- * ties keep the builder's ranking; missing values sort last either way.
- */
-function sortRows(rows) {
-  const column = RANKED_COLUMNS.find(col => col.key === sortKey);
-  if (!column || !column.value) return rows.slice();
-  const sign = sortDir === "asc" ? 1 : -1;
-  const missing = v => v === null || v === undefined || v === "";
-  return rows.slice().sort((a, b) => {
-    const va = column.value(a), vb = column.value(b);
-    if (missing(va) || missing(vb)) return missing(va) - missing(vb);
-    if (column.text) return sign * String(va).localeCompare(String(vb));
-    return sign * (va < vb ? -1 : va > vb ? 1 : 0);
-  });
 }
 
 function renderRanked() {
@@ -298,7 +268,7 @@ function renderRanked() {
       : "No route candidates in this region."}</div>`;
     return;
   }
-  renderExpandableCustomerList(list, sortRows(currentRanked),
+  renderExpandableCustomerList(list, sortRowsBy(currentRanked, RANKED_COLUMNS, sort),
     rows => rankedRowsHtml(rows, currentRanks), RANKED_ROW_LIMITS);
 }
 
@@ -408,17 +378,6 @@ function projectedHtml(c) {
     `(${formatWhole(c.range_low)}–${formatWhole(c.range_high)})</span>`;
 }
 
-function rankedHeadHtml() {
-  return RANKED_COLUMNS.map(col => {
-    const active = col.key === sortKey || (col.key === "rank" && sortKey === null);
-    const arrow = col.key === sortKey ? (sortDir === "asc" ? "▲" : "▼") : "";
-    return `<th${col.key === "rank" ? ' class="rank"' : ""}>` +
-      `<button type="button" class="proj-sort${active ? " proj-sorted" : ""}" ` +
-      `data-sort="${col.key}">${escapeHtml(col.label)}` +
-      `<span class="proj-arrow">${arrow}</span></button></th>`;
-  }).join("");
-}
-
 /** `ranks` maps id to the urgency rank; without it, rows number from 1. */
 function rankedRowsHtml(rows, ranks) {
   const body = rows.map((c, i) => `
@@ -440,7 +399,7 @@ function rankedRowsHtml(rows, ranks) {
     <div class="table-wrap">
       <table class="data-table proj-table">
         <thead>
-          <tr>${rankedHeadHtml()}</tr>
+          <tr>${sortableHeadHtml(RANKED_COLUMNS, sort)}</tr>
         </thead>
         <tbody>${body}</tbody>
       </table>

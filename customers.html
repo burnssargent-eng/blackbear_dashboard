@@ -41,6 +41,7 @@ let firstPickupByCustomer = {};   // customer_id -> earliest date anywhere in th
 let allYears = [];                // calendar years present, ascending
 let lifecycleRows = [];           // per-year serviced / gained / lost / net
 let dormantCutoff = "";
+let regionByCustomer = {};        // customer_id -> its geographic region ("Other" included)
 
 async function init() {
   const page = document.getElementById("page");
@@ -78,6 +79,7 @@ async function init() {
 
   lifecycleRows = data.lifecycle_by_year || [];
   dormantCutoff = data.dormant_cutoff || "";
+  regionByCustomer = customerRegions(data);
 
   buildShell(page);
   update();
@@ -165,6 +167,22 @@ function renderLifecycle() {
     </div>`;
 }
 
+/**
+ * Each customer's region from the exported region_customers sets. Theme regions
+ * are overlays, not places, so they are skipped; every other region (Other
+ * included) is exclusive, so a customer gets at most one. A customer tagged only
+ * by theme regions has none and shows a dash.
+ */
+function customerRegions(data) {
+  const themes = new Set(data.theme_regions || []);
+  const out = {};
+  Object.entries(data.region_customers || {}).forEach(([region, ids]) => {
+    if (themes.has(region)) return;
+    ids.forEach(id => { out[id] = region; });
+  });
+  return out;
+}
+
 function buildShell(page) {
   renderPageName("Top Producing Customers");
 
@@ -200,11 +218,15 @@ function buildShell(page) {
       <label>Sort</label>
       <button id="sort-gallons" class="active">Top producers</button>
       <button id="sort-status">Active first</button>
+
+      <label for="customer-search">Search</label>
+      <input type="search" id="customer-search" class="table-search"
+             placeholder="Customer name" autocomplete="off">
     </div>
 
     <a class="jump-link" href="#lifecycle">↓ View lifecycle summary</a>
 
-    <div class="stats-bar" id="summary"></div>
+    <div class="stats-bar stats-pairs" id="summary"></div>
 
     <div class="note" id="notes"></div>
 
@@ -222,15 +244,58 @@ function buildShell(page) {
 
   document.getElementById("sort-gallons").addEventListener("click", () => setSort("gallons"));
   document.getElementById("sort-status").addEventListener("click", () => setSort("status"));
+
+  document.getElementById("customer-search").addEventListener("input", e => {
+    searchText = e.target.value.trim().toLowerCase();
+    renderTable(document.getElementById("table-area"), true);
+  });
+
+  // The table is rebuilt on every render, so one listener on its container.
+  document.getElementById("table-area").addEventListener("click", e => {
+    const button = e.target.closest && e.target.closest("[data-sort]");
+    if (button) setColumnSort(button.dataset.sort);
+  });
 }
 
-let sortMode = "gallons";
+let sortMode = "gallons";                  // the preset behind the two buttons
+let columnSort = { key: null, dir: "desc" };   // key null = the preset's order
+let searchText = "";                       // customer search, lower-cased
+let currentCustomers = [];                 // the period's customers
+let currentPeriodLabel = "";
 
+// Sortable columns (see sortRowsBy in dashboard-utils.js). "#" returns to the
+// preset's order.
+const CUSTOMER_COLUMNS = [
+  { key: "rank", label: "#", cls: "rank" },
+  { key: "name", label: "Customer", text: true, value: c => c.name },
+  { key: "town", label: "Town", text: true, value: c => c.geo_town || c.city },
+  { key: "region", label: "Region", text: true, value: c => regionByCustomer[c.customer_id] },
+  { key: "gallons", label: "Gallons", cls: "num", value: c => c.gallons },
+  { key: "pickups", label: "Pickups", cls: "num", value: c => c.pickups },
+  { key: "first", label: "First Qualifying Pickup", value: c => c.first },
+  { key: "last", label: "Last Qualifying Pickup", value: c => c.last },
+  { key: "status", label: "Status", text: true, value: c => customerStatusLabel(c.is_active).text },
+];
+
+function syncSortButtons() {
+  const preset = columnSort.key === null;
+  document.getElementById("sort-gallons").classList.toggle("active", preset && sortMode === "gallons");
+  document.getElementById("sort-status").classList.toggle("active", preset && sortMode === "status");
+}
+
+/** A preset button: its order, and any column sort is cleared. */
 function setSort(mode) {
   sortMode = mode;
-  document.getElementById("sort-gallons").classList.toggle("active", mode === "gallons");
-  document.getElementById("sort-status").classList.toggle("active", mode === "status");
+  columnSort = { key: null, dir: "desc" };
+  syncSortButtons();
   update();
+}
+
+/** A heading click: "#" restores the preset's order, a repeat click flips. */
+function setColumnSort(key) {
+  columnSort = nextSortState(CUSTOMER_COLUMNS, columnSort, key);
+  syncSortButtons();
+  renderTable(document.getElementById("table-area"), false);
 }
 
 function update() {
@@ -329,31 +394,52 @@ function update() {
     on a definition before it goes on the page.
   `;
 
-  renderTable(tableArea, customers);
+  currentCustomers = customers;
+  currentPeriodLabel = periodLabel(mode, allMonths, selectedMonth);
+  renderTable(tableArea, true);
+}
+
+/**
+ * The table for the period's customers: the preset's order (which also numbers
+ * the # column), narrowed by the search, then any column sort on top. A column
+ * sort keeps the current expansion; a new period, preset or search starts from
+ * the top again.
+ */
+function renderTable(area, resetExpansion) {
+  const preset = sortMode === "status"
+    ? sortCustomersByStatusThenGallons(currentCustomers)
+    : sortCustomersByGallons(currentCustomers);
+  const ranks = new Map(preset.map((c, i) => [c.customer_id, i + 1]));
+  const matching = preset.filter(c => matchesNameSearch(searchText, [c.name]));
+
   document.getElementById("table-title").textContent =
-    `Top Producing Customers · ${formatNumber(customers.length)} in ` +
-    periodLabel(mode, allMonths, selectedMonth);
+    `Top Producing Customers · ${formatNumber(matching.length)}` +
+    (searchText ? ` of ${formatNumber(preset.length)}` : "") +
+    ` in ${currentPeriodLabel}`;
+
+  if (resetExpansion) area.dataset.expanded = "false";
+
+  if (!matching.length) {
+    area.innerHTML = `<div class="note">No customers match the search.</div>`;
+    return;
+  }
+
+  renderExpandableCustomerList(area, sortRowsBy(matching, CUSTOMER_COLUMNS, columnSort),
+    rows => customerRowsHtml(rows, ranks));
 }
 
-function renderTable(area, customers) {
-  const sorted = sortMode === "status"
-    ? sortCustomersByStatusThenGallons(customers)
-    : sortCustomersByGallons(customers);
-
-  // Switching the sort should start from the top again rather than keeping a
-  // previous expansion.
-  area.dataset.expanded = "false";
-
-  renderExpandableCustomerList(area, sorted, customerRowsHtml);
-}
-
-/** The page's own table markup, rendered for whatever subset it is given. */
-function customerRowsHtml(sorted) {
+/**
+ * The page's own table markup, rendered for whatever subset it is given.
+ * `ranks` maps customer_id to its place in the preset order; without it, rows
+ * number from 1.
+ */
+function customerRowsHtml(sorted, ranks) {
   let body = "";
   let lastGroup = null;
 
   sorted.forEach((c, i) => {
-    if (sortMode === "status") {
+    // Active/Inactive group rows only while the "Active first" order is shown.
+    if (sortMode === "status" && columnSort.key === null) {
       const group = customerStatusLabel(c.is_active).text;
       if (group !== lastGroup) {
         body += `<tr class="group-row"><td colspan="9">${group}</td></tr>`;
@@ -367,10 +453,10 @@ function customerRowsHtml(sorted) {
 
     body += `
       <tr>
-        <td class="rank">${i + 1}</td>
+        <td class="rank">${(ranks && ranks.get(c.customer_id)) || i + 1}</td>
         <td>${escapeHtml(c.name)}</td>
         <td>${townCell}</td>
-        <td>${escapeHtml(c.county || "—")}</td>
+        <td>${escapeHtml(regionByCustomer[c.customer_id] || "—")}</td>
         <td class="gal">${formatNumber(c.gallons)}</td>
         <td class="num">${formatNumber(c.pickups)}</td>
         <td>${formatDate(c.first)}</td>
@@ -384,17 +470,7 @@ function customerRowsHtml(sorted) {
     <div class="table-wrap">
       <table class="data-table">
         <thead>
-          <tr>
-            <th class="rank">#</th>
-            <th>Customer</th>
-            <th>Town</th>
-            <th>County</th>
-            <th class="num">Gallons</th>
-            <th class="num">Pickups</th>
-            <th>First Qualifying Pickup</th>
-            <th>Last Qualifying Pickup</th>
-            <th>Status</th>
-          </tr>
+          <tr>${sortableHeadHtml(CUSTOMER_COLUMNS, columnSort)}</tr>
         </thead>
         <tbody>${body}</tbody>
       </table>
