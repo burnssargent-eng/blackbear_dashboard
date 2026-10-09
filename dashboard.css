@@ -879,4 +879,5 @@ select:disabled {
 .proj-live-held { color: #8b949e; font-weight: normal; font-size: 0.85em; }
 .proj-live-sub { margin-top: 14px; }
 .proj-live-label { white-space: nowrap; }
+.proj-live-total td { font-weight: bold; border-top: 1px solid #30363d; }
 .proj-live-days { margin-top: 6px; }

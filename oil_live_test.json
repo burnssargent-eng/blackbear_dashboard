@@ -7,9 +7,11 @@
    "from": "2026-10-03",
    "scored": 52,
    "not_projected": 4,
+   "projected_total": 3987.0,
+   "actual_total": 4291,
+   "net_error": -304.0,
    "wape": 26.1,
    "bias": -7.1,
-   "in_range": 50.0,
    "median_miss": 13.7
   },
   {
@@ -17,9 +19,11 @@
    "from": "2026-09-10",
    "scored": 169,
    "not_projected": 26,
+   "projected_total": 11360.6,
+   "actual_total": 12101,
+   "net_error": -740.4,
    "wape": 25.5,
    "bias": -6.1,
-   "in_range": 52.1,
    "median_miss": 12.9
   },
   {
@@ -27,9 +31,11 @@
    "from": null,
    "scored": 169,
    "not_projected": 26,
+   "projected_total": 11360.6,
+   "actual_total": 12101,
+   "net_error": -740.4,
    "wape": 25.5,
    "bias": -6.1,
-   "in_range": 52.1,
    "median_miss": 12.9
   }
  ],
@@ -38,18 +44,22 @@
    "stage": "established",
    "scored": 5,
    "not_projected": 0,
+   "projected_total": 299.5,
+   "actual_total": 407,
+   "net_error": -107.5,
    "wape": 26.6,
    "bias": -26.4,
-   "in_range": 60.0,
    "median_miss": 6.3
   },
   {
    "stage": "seasonal",
    "scored": 5,
    "not_projected": 0,
+   "projected_total": 415.0,
+   "actual_total": 455,
+   "net_error": -40.0,
    "wape": 13.9,
    "bias": -8.8,
-   "in_range": 100.0,
    "median_miss": 11.7
   }
  ],
@@ -63,9 +73,11 @@
    "date": "2026-10-09",
    "scored": 2,
    "not_projected": 0,
+   "projected_total": 119.6,
+   "actual_total": 125,
+   "net_error": -5.4,
    "wape": 23.0,
    "bias": -4.3,
-   "in_range": 100.0,
    "median_miss": 14.4,
    "rows": [
     {
@@ -81,7 +93,7 @@
      "range_high": 70.5,
      "actual": 65,
      "error": -17.1,
-     "in_range": "yes"
+     "pct_error": -26.3
     },
     {
      "id": 224,
@@ -96,7 +108,7 @@
      "range_high": 126.6,
      "actual": 60,
      "error": 11.7,
-     "in_range": "yes"
+     "pct_error": 19.5
     }
    ]
   },
@@ -104,9 +116,11 @@
    "date": "2026-10-08",
    "scored": 12,
    "not_projected": 0,
+   "projected_total": 1070.3,
+   "actual_total": 1192,
+   "net_error": -121.7,
    "wape": 14.5,
    "bias": -10.2,
-   "in_range": 83.3,
    "median_miss": 7.0,
    "rows": [
     {
@@ -122,7 +136,7 @@
      "range_high": 240.5,
      "actual": 150,
      "error": 24.4,
-     "in_range": "yes"
+     "pct_error": 16.3
     },
     {
      "id": 351,
@@ -137,7 +151,7 @@
      "range_high": 48.6,
      "actual": 40,
      "error": 0.6,
-     "in_range": "yes"
+     "pct_error": 1.5
     },
     {
      "id": 1122,
@@ -152,7 +166,7 @@
      "range_high": 171.1,
      "actual": 157,
      "error": 0.3,
-     "in_range": "yes"
+     "pct_error": 0.2
     },
     {
      "id": 1168,
@@ -167,7 +181,7 @@
      "range_high": 175.1,
      "actual": 145,
      "error": -2.4,
-     "in_range": "yes"
+     "pct_error": -1.7
     },
     {
      "id": 1399,
@@ -182,7 +196,7 @@
      "range_high": 49.7,
      "actual": 35,
      "error": -0.7,
-     "in_range": "yes"
+     "pct_error": -2.0
     },
     {
      "id": 444,
@@ -197,7 +211,7 @@
      "range_high": 133.4,
      "actual": 100,
      "error": -8.0,
-     "in_range": "yes"
+     "pct_error": -8.0
     },
     {
      "id": 356,
@@ -212,7 +226,7 @@
      "range_high": 91.5,
      "actual": 125,
      "error": -68.4,
-     "in_range": "no"
+     "pct_error": -54.7
     },
     {
      "id": 353,
@@ -227,7 +241,7 @@
      "range_high": 47.6,
      "actual": 40,
      "error": -6.3,
-     "in_range": "yes"
+     "pct_error": -15.8
     },
     {
      "id": 358,
@@ -242,7 +256,7 @@
      "range_high": 193.1,
      "actual": 140,
      "error": -7.7,
-     "in_range": "yes"
+     "pct_error": -5.5
     },
     {
      "id": 354,
@@ -257,7 +271,7 @@
      "range_high": 111.8,
      "actual": 90,
      "error": -18.9,
-     "in_range": "yes"
+     "pct_error": -21.0
     },
     {
      "id": 355,
@@ -272,7 +286,7 @@
      "range_high": 30.1,
      "actual": 50,
      "error": -32.4,
-     "in_range": "no"
+     "pct_error": -64.8
     },
     {
      "id": 1135,
@@ -287,7 +301,7 @@
      "range_high": 139.8,
      "actual": 120,
      "error": -2.2,
-     "in_range": "yes"
+     "pct_error": -1.8
     }
    ]
   },
@@ -295,9 +309,11 @@
    "date": "2026-10-07",
    "scored": 20,
    "not_projected": 0,
+   "projected_total": 1544.2,
+   "actual_total": 1515,
+   "net_error": 29.2,
    "wape": 20.4,
    "bias": 1.9,
-   "in_range": 50.0,
    "median_miss": 12.8,
    "rows": [
     {
@@ -313,7 +329,7 @@
      "range_high": 13.3,
      "actual": 15,
      "error": -3.9,
-     "in_range": "no"
+     "pct_error": -26.0
     },
     {
      "id": 1070,
@@ -328,7 +344,7 @@
      "range_high": 127.8,
      "actual": 150,
      "error": -41.3,
-     "in_range": "no"
+     "pct_error": -27.5
     },
     {
      "id": 321,
@@ -343,7 +359,7 @@
      "range_high": 113.6,
      "actual": 70,
      "error": 24.1,
-     "in_range": "no"
+     "pct_error": 34.4
     },
     {
      "id": 315,
@@ -358,7 +374,7 @@
      "range_high": 77.3,
      "actual": 100,
      "error": -43.5,
-     "in_range": "no"
+     "pct_error": -43.5
     },
     {
      "id": 1306,
@@ -373,7 +389,7 @@
      "range_high": 121.8,
      "actual": 110,
      "error": -8.6,
-     "in_range": "yes"
+     "pct_error": -7.8
     },
     {
      "id": 332,
@@ -388,7 +404,7 @@
      "range_high": 55.9,
      "actual": 40,
      "error": 6.0,
-     "in_range": "yes"
+     "pct_error": 15.0
     },
     {
      "id": 325,
@@ -403,7 +419,7 @@
      "range_high": 225.9,
      "actual": 190,
      "error": 12.1,
-     "in_range": "yes"
+     "pct_error": 6.4
     },
     {
      "id": 1336,
@@ -418,7 +434,7 @@
      "range_high": 37.7,
      "actual": 30,
      "error": 1.4,
-     "in_range": "yes"
+     "pct_error": 4.7
     },
     {
      "id": 352,
@@ -433,7 +449,7 @@
      "range_high": 137.1,
      "actual": 95,
      "error": 25.0,
-     "in_range": "no"
+     "pct_error": 26.3
     },
     {
      "id": 322,
@@ -448,7 +464,7 @@
      "range_high": 107.9,
      "actual": 80,
      "error": 0.7,
-     "in_range": "yes"
+     "pct_error": 0.9
     },
     {
      "id": 1338,
@@ -463,7 +479,7 @@
      "range_high": 30.2,
      "actual": 20,
      "error": 5.2,
-     "in_range": "no"
+     "pct_error": 26.0
     },
     {
      "id": 323,
@@ -478,7 +494,7 @@
      "range_high": 31.6,
      "actual": 40,
      "error": -13.7,
-     "in_range": "no"
+     "pct_error": -34.2
     },
     {
      "id": 335,
@@ -493,7 +509,7 @@
      "range_high": 60.5,
      "actual": 10,
      "error": 40.4,
-     "in_range": "no"
+     "pct_error": 404.0
     },
     {
      "id": 1286,
@@ -508,7 +524,7 @@
      "range_high": 78.5,
      "actual": 60,
      "error": 5.4,
-     "in_range": "yes"
+     "pct_error": 9.0
     },
     {
      "id": 1386,
@@ -523,7 +539,7 @@
      "range_high": 56.9,
      "actual": 25,
      "error": 22.4,
-     "in_range": "no"
+     "pct_error": 89.6
     },
     {
      "id": 327,
@@ -538,7 +554,7 @@
      "range_high": 176.7,
      "actual": 160,
      "error": -12.7,
-     "in_range": "yes"
+     "pct_error": -7.9
     },
     {
      "id": 328,
@@ -553,7 +569,7 @@
      "range_high": 102.5,
      "actual": 85,
      "error": -13.7,
-     "in_range": "yes"
+     "pct_error": -16.1
     },
     {
      "id": 1394,
@@ -568,7 +584,7 @@
      "range_high": 208.6,
      "actual": 160,
      "error": 13.8,
-     "in_range": "yes"
+     "pct_error": 8.6
     },
     {
      "id": 1287,
@@ -583,7 +599,7 @@
      "range_high": 32.8,
      "actual": 30,
      "error": -2.8,
-     "in_range": "yes"
+     "pct_error": -9.3
     },
     {
      "id": 1134,
@@ -598,7 +614,7 @@
      "range_high": 69.5,
      "actual": 45,
      "error": 12.9,
-     "in_range": "no"
+     "pct_error": 28.7
     }
    ]
   },
@@ -606,9 +622,11 @@
    "date": "2026-10-06",
    "scored": 9,
    "not_projected": 4,
+   "projected_total": 731.8,
+   "actual_total": 682,
+   "net_error": 49.8,
    "wape": 38.2,
    "bias": 7.3,
-   "in_range": 22.2,
    "median_miss": 20.1,
    "rows": [
     {
@@ -624,7 +642,7 @@
      "range_high": 62.3,
      "actual": 75,
      "error": -23.1,
-     "in_range": "no"
+     "pct_error": -30.8
     },
     {
      "id": 1268,
@@ -639,7 +657,7 @@
      "range_high": 28.0,
      "actual": 40,
      "error": -16.7,
-     "in_range": "no"
+     "pct_error": -41.8
     },
     {
      "id": 111,
@@ -654,7 +672,7 @@
      "range_high": 43.1,
      "actual": 60,
      "error": -24.1,
-     "in_range": "no"
+     "pct_error": -40.2
     },
     {
      "id": 1178,
@@ -669,7 +687,7 @@
      "range_high": 130.9,
      "actual": 32,
      "error": 77.1,
-     "in_range": "no"
+     "pct_error": 240.9
     },
     {
      "id": 1171,
@@ -684,7 +702,7 @@
      "range_high": 335.3,
      "actual": 250,
      "error": 7.9,
-     "in_range": "yes"
+     "pct_error": 3.2
     },
     {
      "id": 1305,
@@ -699,7 +717,7 @@
      "range_high": 150.2,
      "actual": 55,
      "error": 70.2,
-     "in_range": "no"
+     "pct_error": 127.6
     },
     {
      "id": 1304,
@@ -714,7 +732,7 @@
      "range_high": 47.9,
      "actual": 60,
      "error": -20.1,
-     "in_range": "no"
+     "pct_error": -33.5
     },
     {
      "id": 112,
@@ -729,7 +747,7 @@
      "range_high": 66.6,
      "actual": 60,
      "error": -4.2,
-     "in_range": "yes"
+     "pct_error": -7.0
     },
     {
      "id": 533,
@@ -744,7 +762,7 @@
      "range_high": 39.3,
      "actual": 50,
      "error": -17.2,
-     "in_range": "no"
+     "pct_error": -34.4
     },
     {
      "id": 1473,
@@ -759,7 +777,7 @@
      "range_high": null,
      "actual": 50,
      "error": null,
-     "in_range": null
+     "pct_error": null
     },
     {
      "id": 1465,
@@ -774,7 +792,7 @@
      "range_high": null,
      "actual": 50,
      "error": null,
-     "in_range": null
+     "pct_error": null
     },
     {
      "id": 620,
@@ -789,7 +807,7 @@
      "range_high": null,
      "actual": 85,
      "error": null,
-     "in_range": null
+     "pct_error": null
     },
     {
      "id": 622,
@@ -804,7 +822,7 @@
      "range_high": null,
      "actual": 25,
      "error": null,
-     "in_range": null
+     "pct_error": null
     }
    ]
   },
@@ -812,9 +830,11 @@
    "date": "2026-10-05",
    "scored": 9,
    "not_projected": 0,
+   "projected_total": 521.1,
+   "actual_total": 777,
+   "net_error": -255.9,
    "wape": 44.7,
    "bias": -32.9,
-   "in_range": 22.2,
    "median_miss": 19.2,
    "rows": [
     {
@@ -830,7 +850,7 @@
      "range_high": 19.7,
      "actual": 25,
      "error": -8.7,
-     "in_range": "no"
+     "pct_error": -34.8
     },
     {
      "id": 284,
@@ -845,7 +865,7 @@
      "range_high": 79.7,
      "actual": 55,
      "error": -4.9,
-     "in_range": "yes"
+     "pct_error": -8.9
     },
     {
      "id": 519,
@@ -860,7 +880,7 @@
      "range_high": 107.1,
      "actual": 70,
      "error": 19.2,
-     "in_range": "no"
+     "pct_error": 27.4
     },
     {
      "id": 517,
@@ -875,7 +895,7 @@
      "range_high": 8.6,
      "actual": 25,
      "error": -17.8,
-     "in_range": "no"
+     "pct_error": -71.2
     },
     {
      "id": 1149,
@@ -890,7 +910,7 @@
      "range_high": 162.4,
      "actual": 137,
      "error": 0.9,
-     "in_range": "yes"
+     "pct_error": 0.7
     },
     {
      "id": 285,
@@ -905,7 +925,7 @@
      "range_high": 108.9,
      "actual": 65,
      "error": 25.7,
-     "in_range": "no"
+     "pct_error": 39.5
     },
     {
      "id": 447,
@@ -920,7 +940,7 @@
      "range_high": 108.5,
      "actual": 125,
      "error": -38.7,
-     "in_range": "no"
+     "pct_error": -31.0
     },
     {
      "id": 508,
@@ -935,7 +955,7 @@
      "range_high": 31.2,
      "actual": 175,
      "error": -149.0,
-     "in_range": "no"
+     "pct_error": -85.1
     },
     {
      "id": 282,
@@ -950,7 +970,7 @@
      "range_high": 22.0,
      "actual": 100,
      "error": -82.6,
-     "in_range": "no"
+     "pct_error": -82.6
     }
    ]
   },
@@ -958,9 +978,11 @@
    "date": "2026-10-01",
    "scored": 11,
    "not_projected": 6,
+   "projected_total": 835.4,
+   "actual_total": 940,
+   "net_error": -104.6,
    "wape": 19.1,
    "bias": -11.1,
-   "in_range": 63.6,
    "median_miss": 16.0,
    "rows": [
     {
@@ -976,7 +998,7 @@
      "range_high": 102.0,
      "actual": 125,
      "error": -40.0,
-     "in_range": "no"
+     "pct_error": -32.0
     },
     {
      "id": 403,
@@ -991,7 +1013,7 @@
      "range_high": 322.1,
      "actual": 300,
      "error": -35.6,
-     "in_range": "yes"
+     "pct_error": -11.9
     },
     {
      "id": 1195,
@@ -1006,7 +1028,7 @@
      "range_high": 49.5,
      "actual": 30,
      "error": 7.5,
-     "in_range": "yes"
+     "pct_error": 25.0
     },
     {
      "id": 1422,
@@ -1021,7 +1043,7 @@
      "range_high": 74.5,
      "actual": 70,
      "error": -7.9,
-     "in_range": "yes"
+     "pct_error": -11.3
     },
     {
      "id": 401,
@@ -1036,7 +1058,7 @@
      "range_high": 114.3,
      "actual": 100,
      "error": -20.4,
-     "in_range": "yes"
+     "pct_error": -20.4
     },
     {
      "id": 1032,
@@ -1051,7 +1073,7 @@
      "range_high": 59.8,
      "actual": 70,
      "error": -22.0,
-     "in_range": "no"
+     "pct_error": -31.4
     },
     {
      "id": 344,
@@ -1066,7 +1088,7 @@
      "range_high": 38.4,
      "actual": 30,
      "error": 2.0,
-     "in_range": "yes"
+     "pct_error": 6.7
     },
     {
      "id": 374,
@@ -1081,7 +1103,7 @@
      "range_high": 24.7,
      "actual": 15,
      "error": 5.6,
-     "in_range": "no"
+     "pct_error": 37.3
     },
     {
      "id": 365,
@@ -1096,7 +1118,7 @@
      "range_high": 121.2,
      "actual": 80,
      "error": 21.0,
-     "in_range": "no"
+     "pct_error": 26.2
     },
     {
      "id": 405,
@@ -1111,7 +1133,7 @@
      "range_high": 25.5,
      "actual": 20,
      "error": 1.2,
-     "in_range": "yes"
+     "pct_error": 6.0
     },
     {
      "id": 1188,
@@ -1126,7 +1148,7 @@
      "range_high": 109.2,
      "actual": 100,
      "error": -16.0,
-     "in_range": "yes"
+     "pct_error": -16.0
     },
     {
      "id": 1510,
@@ -1141,7 +1163,7 @@
      "range_high": null,
      "actual": 50,
      "error": null,
-     "in_range": null
+     "pct_error": null
     },
     {
      "id": 1495,
@@ -1156,7 +1178,7 @@
      "range_high": null,
      "actual": 60,
      "error": null,
-     "in_range": null
+     "pct_error": null
     },
     {
      "id": 1448,
@@ -1171,7 +1193,7 @@
      "range_high": null,
      "actual": 30,
      "error": null,
-     "in_range": null
+     "pct_error": null
     },
     {
      "id": 1458,
@@ -1186,7 +1208,7 @@
      "range_high": null,
      "actual": 20,
      "error": null,
-     "in_range": null
+     "pct_error": null
     },
     {
      "id": 1505,
@@ -1201,7 +1223,7 @@
      "range_high": null,
      "actual": 35,
      "error": null,
-     "in_range": null
+     "pct_error": null
     },
     {
      "id": 1483,
@@ -1216,7 +1238,7 @@
      "range_high": null,
      "actual": 25,
      "error": null,
-     "in_range": null
+     "pct_error": null
     }
    ]
   },
@@ -1224,9 +1246,11 @@
    "date": "2026-09-30",
    "scored": 31,
    "not_projected": 2,
+   "projected_total": 2389.4,
+   "actual_total": 2508,
+   "net_error": -118.6,
    "wape": 29.1,
    "bias": -4.7,
-   "in_range": 54.8,
    "median_miss": 17.0,
    "rows": [
     {
@@ -1242,7 +1266,7 @@
      "range_high": 91.9,
      "actual": 40,
      "error": 36.6,
-     "in_range": "no"
+     "pct_error": 91.5
     },
     {
      "id": 287,
@@ -1257,7 +1281,7 @@
      "range_high": 51.9,
      "actual": 80,
      "error": -40.7,
-     "in_range": "no"
+     "pct_error": -50.9
     },
     {
      "id": 273,
@@ -1272,7 +1296,7 @@
      "range_high": 14.7,
      "actual": 70,
      "error": -57.8,
-     "in_range": "no"
+     "pct_error": -82.6
     },
     {
      "id": 421,
@@ -1287,7 +1311,7 @@
      "range_high": 170.7,
      "actual": 150,
      "error": -17.0,
-     "in_range": "yes"
+     "pct_error": -11.3
     },
     {
      "id": 1147,
@@ -1302,7 +1326,7 @@
      "range_high": 20.9,
      "actual": 50,
      "error": -32.6,
-     "in_range": "no"
+     "pct_error": -65.2
     },
     {
      "id": 1434,
@@ -1317,7 +1341,7 @@
      "range_high": 67.9,
      "actual": 50,
      "error": 6.6,
-     "in_range": "yes"
+     "pct_error": 13.2
     },
     {
      "id": 247,
@@ -1332,7 +1356,7 @@
      "range_high": 190.2,
      "actual": 120,
      "error": 32.9,
-     "in_range": "yes"
+     "pct_error": 27.4
     },
     {
      "id": 263,
@@ -1347,7 +1371,7 @@
      "range_high": 36.0,
      "actual": 15,
      "error": 15.0,
-     "in_range": "no"
+     "pct_error": 100.0
     },
     {
      "id": 1355,
@@ -1362,7 +1386,7 @@
      "range_high": 103.6,
      "actual": 100,
      "error": -13.7,
-     "in_range": "yes"
+     "pct_error": -13.7
     },
     {
      "id": 1180,
@@ -1377,7 +1401,7 @@
      "range_high": 175.7,
      "actual": 117,
      "error": 24.5,
-     "in_range": "yes"
+     "pct_error": 20.9
     },
     {
      "id": 1173,
@@ -1392,7 +1416,7 @@
      "range_high": 135.1,
      "actual": 98,
      "error": 27.2,
-     "in_range": "no"
+     "pct_error": 27.8
     },
     {
      "id": 1176,
@@ -1407,7 +1431,7 @@
      "range_high": 101.6,
      "actual": 104,
      "error": -19.3,
-     "in_range": "no"
+     "pct_error": -18.6
     },
     {
      "id": 1155,
@@ -1422,7 +1446,7 @@
      "range_high": 157.4,
      "actual": 139,
      "error": -7.8,
-     "in_range": "yes"
+     "pct_error": -5.6
     },
     {
      "id": 262,
@@ -1437,7 +1461,7 @@
      "range_high": 173.3,
      "actual": 120,
      "error": 8.5,
-     "in_range": "yes"
+     "pct_error": 7.1
     },
     {
      "id": 1138,
@@ -1452,7 +1476,7 @@
      "range_high": 21.5,
      "actual": 20,
      "error": -2.0,
-     "in_range": "yes"
+     "pct_error": -10.0
     },
     {
      "id": 418,
@@ -1467,7 +1491,7 @@
      "range_high": 182.1,
      "actual": 160,
      "error": -15.6,
-     "in_range": "yes"
+     "pct_error": -9.8
     },
     {
      "id": 416,
@@ -1482,7 +1506,7 @@
      "range_high": 122.3,
      "actual": 140,
      "error": -62.4,
-     "in_range": "no"
+     "pct_error": -44.6
     },
     {
      "id": 261,
@@ -1497,7 +1521,7 @@
      "range_high": 158.7,
      "actual": 100,
      "error": 28.8,
-     "in_range": "yes"
+     "pct_error": 28.8
     },
     {
      "id": 276,
@@ -1512,7 +1536,7 @@
      "range_high": 22.3,
      "actual": 40,
      "error": -21.4,
-     "in_range": "no"
+     "pct_error": -53.5
     },
     {
      "id": 248,
@@ -1527,7 +1551,7 @@
      "range_high": 54.1,
      "actual": 80,
      "error": -39.2,
-     "in_range": "no"
+     "pct_error": -49.0
     },
     {
      "id": 249,
@@ -1542,7 +1566,7 @@
      "range_high": 48.9,
      "actual": 50,
      "error": -12.2,
-     "in_range": "no"
+     "pct_error": -24.4
     },
     {
      "id": 1396,
@@ -1557,7 +1581,7 @@
      "range_high": 154.4,
      "actual": 75,
      "error": 53.6,
-     "in_range": "no"
+     "pct_error": 71.5
     },
     {
      "id": 270,
@@ -1572,7 +1596,7 @@
      "range_high": 227.9,
      "actual": 160,
      "error": 8.1,
-     "in_range": "yes"
+     "pct_error": 5.1
     },
     {
      "id": 258,
@@ -1587,7 +1611,7 @@
      "range_high": 47.5,
      "actual": 40,
      "error": -0.4,
-     "in_range": "yes"
+     "pct_error": -1.0
     },
     {
      "id": 252,
@@ -1602,7 +1626,7 @@
      "range_high": 51.9,
      "actual": 50,
      "error": -8.0,
-     "in_range": "yes"
+     "pct_error": -16.0
     },
     {
      "id": 246,
@@ -1617,7 +1641,7 @@
      "range_high": 53.0,
      "actual": 5,
      "error": 39.1,
-     "in_range": "no"
+     "pct_error": 782.0
     },
     {
      "id": 265,
@@ -1632,7 +1656,7 @@
      "range_high": 50.8,
      "actual": 110,
      "error": -70.8,
-     "in_range": "no"
+     "pct_error": -64.4
     },
     {
      "id": 1445,
@@ -1647,7 +1671,7 @@
      "range_high": 27.9,
      "actual": 25,
      "error": -1.9,
-     "in_range": "yes"
+     "pct_error": -7.6
     },
     {
      "id": 1357,
@@ -1662,7 +1686,7 @@
      "range_high": 58.4,
      "actual": 50,
      "error": -1.3,
-     "in_range": "yes"
+     "pct_error": -2.6
     },
     {
      "id": 267,
@@ -1677,7 +1701,7 @@
      "range_high": 96.5,
      "actual": 70,
      "error": 9.5,
-     "in_range": "yes"
+     "pct_error": 13.6
     },
     {
      "id": 244,
@@ -1692,7 +1716,7 @@
      "range_high": 117.7,
      "actual": 80,
      "error": 15.1,
-     "in_range": "yes"
+     "pct_error": 18.9
     },
     {
      "id": 1437,
@@ -1707,7 +1731,7 @@
      "range_high": null,
      "actual": 20,
      "error": null,
-     "in_range": null
+     "pct_error": null
     },
     {
      "id": 1508,
@@ -1722,7 +1746,7 @@
      "range_high": null,
      "actual": 60,
      "error": null,
-     "in_range": null
+     "pct_error": null
     }
    ]
   },
@@ -1730,9 +1754,11 @@
    "date": "2026-09-29",
    "scored": 19,
    "not_projected": 2,
+   "projected_total": 919.8,
+   "actual_total": 1055,
+   "net_error": -135.2,
    "wape": 21.0,
    "bias": -12.8,
-   "in_range": 40.0,
    "median_miss": 11.4,
    "rows": [
     {
@@ -1748,7 +1774,7 @@
      "range_high": 32.7,
      "actual": 40,
      "error": -12.7,
-     "in_range": "no"
+     "pct_error": -31.8
     },
     {
      "id": 113,
@@ -1763,7 +1789,7 @@
      "range_high": 55.8,
      "actual": 60,
      "error": -11.3,
-     "in_range": "no"
+     "pct_error": -18.8
     },
     {
      "id": 147,
@@ -1778,7 +1804,7 @@
      "range_high": 146.7,
      "actual": 120,
      "error": -6.4,
-     "in_range": "yes"
+     "pct_error": -5.3
     },
     {
      "id": 115,
@@ -1793,7 +1819,7 @@
      "range_high": 110.7,
      "actual": 85,
      "error": 3.8,
-     "in_range": "yes"
+     "pct_error": 4.5
     },
     {
      "id": 108,
@@ -1808,7 +1834,7 @@
      "range_high": 35.2,
      "actual": 15,
      "error": 14.3,
-     "in_range": "no"
+     "pct_error": 95.3
     },
     {
      "id": 107,
@@ -1823,7 +1849,7 @@
      "range_high": null,
      "actual": 110,
      "error": -54.8,
-     "in_range": null
+     "pct_error": -49.8
     },
     {
      "id": 151,
@@ -1838,7 +1864,7 @@
      "range_high": 32.4,
      "actual": 40,
      "error": -13.0,
-     "in_range": "no"
+     "pct_error": -32.5
     },
     {
      "id": 143,
@@ -1853,7 +1879,7 @@
      "range_high": 32.7,
      "actual": 40,
      "error": -12.9,
-     "in_range": "no"
+     "pct_error": -32.2
     },
     {
      "id": 117,
@@ -1868,7 +1894,7 @@
      "range_high": 39.5,
      "actual": 30,
      "error": 2.4,
-     "in_range": "yes"
+     "pct_error": 8.0
     },
     {
      "id": 112,
@@ -1883,7 +1909,7 @@
      "range_high": null,
      "actual": 100,
      "error": -12.9,
-     "in_range": null
+     "pct_error": -12.9
     },
     {
      "id": 131,
@@ -1898,7 +1924,7 @@
      "range_high": null,
      "actual": 33,
      "error": -2.0,
-     "in_range": null
+     "pct_error": -6.1
     },
     {
      "id": 169,
@@ -1913,7 +1939,7 @@
      "range_high": 19.5,
      "actual": 20,
      "error": -3.8,
-     "in_range": "no"
+     "pct_error": -19.0
     },
     {
      "id": 140,
@@ -1928,7 +1954,7 @@
      "range_high": 77.3,
      "actual": 75,
      "error": -22.6,
-     "in_range": "yes"
+     "pct_error": -30.1
     },
     {
      "id": 137,
@@ -1943,7 +1969,7 @@
      "range_high": 37.5,
      "actual": 25,
      "error": 6.2,
-     "in_range": "yes"
+     "pct_error": 24.8
     },
     {
      "id": 1387,
@@ -1958,7 +1984,7 @@
      "range_high": 4.3,
      "actual": 15,
      "error": -11.4,
-     "in_range": "no"
+     "pct_error": -76.0
     },
     {
      "id": 302,
@@ -1973,7 +1999,7 @@
      "range_high": 66.2,
      "actual": 40,
      "error": 15.2,
-     "in_range": "no"
+     "pct_error": 38.0
     },
     {
      "id": 1401,
@@ -1988,7 +2014,7 @@
      "range_high": 33.7,
      "actual": 40,
      "error": -11.8,
-     "in_range": "no"
+     "pct_error": -29.5
     },
     {
      "id": 130,
@@ -2003,7 +2029,7 @@
      "range_high": null,
      "actual": 67,
      "error": -2.7,
-     "in_range": null
+     "pct_error": -4.0
     },
     {
      "id": 106,
@@ -2018,7 +2044,7 @@
      "range_high": 121.5,
      "actual": 100,
      "error": 1.2,
-     "in_range": "yes"
+     "pct_error": 1.2
     },
     {
      "id": 1380,
@@ -2033,7 +2059,7 @@
      "range_high": null,
      "actual": 40,
      "error": null,
-     "in_range": null
+     "pct_error": null
     },
     {
      "id": 1492,
@@ -2048,7 +2074,7 @@
      "range_high": null,
      "actual": 15,
      "error": null,
-     "in_range": null
+     "pct_error": null
     }
    ]
   },
@@ -2056,9 +2082,11 @@
    "date": "2026-09-28",
    "scored": 8,
    "not_projected": 2,
+   "projected_total": 377.4,
+   "actual_total": 385,
+   "net_error": -7.6,
    "wape": 20.1,
    "bias": -2.0,
-   "in_range": 62.5,
    "median_miss": 5.1,
    "rows": [
     {
@@ -2074,7 +2102,7 @@
      "range_high": 80.1,
      "actual": 70,
      "error": -3.2,
-     "in_range": "yes"
+     "pct_error": -4.6
     },
     {
      "id": 610,
@@ -2089,7 +2117,7 @@
      "range_high": 97.2,
      "actual": 70,
      "error": -1.8,
-     "in_range": "yes"
+     "pct_error": -2.6
     },
     {
      "id": 603,
@@ -2104,7 +2132,7 @@
      "range_high": 15.3,
      "actual": 40,
      "error": -27.3,
-     "in_range": "no"
+     "pct_error": -68.2
     },
     {
      "id": 1094,
@@ -2119,7 +2147,7 @@
      "range_high": 58.0,
      "actual": 30,
      "error": 18.3,
-     "in_range": "no"
+     "pct_error": 61.0
     },
     {
      "id": 617,
@@ -2134,7 +2162,7 @@
      "range_high": 67.1,
      "actual": 60,
      "error": -6.4,
-     "in_range": "yes"
+     "pct_error": -10.7
     },
     {
      "id": 600,
@@ -2149,7 +2177,7 @@
      "range_high": 66.6,
      "actual": 40,
      "error": 15.8,
-     "in_range": "no"
+     "pct_error": 39.5
     },
     {
      "id": 1415,
@@ -2164,7 +2192,7 @@
      "range_high": 30.9,
      "actual": 25,
      "error": 0.7,
-     "in_range": "yes"
+     "pct_error": 2.8
     },
     {
      "id": 611,
@@ -2179,7 +2207,7 @@
      "range_high": 55.5,
      "actual": 50,
      "error": -3.7,
-     "in_range": "yes"
+     "pct_error": -7.4
     },
     {
      "id": 1080,
@@ -2194,7 +2222,7 @@
      "range_high": null,
      "actual": 45,
      "error": null,
-     "in_range": null
+     "pct_error": null
     },
     {
      "id": 1507,
@@ -2209,7 +2237,7 @@
      "range_high": null,
      "actual": 30,
      "error": null,
-     "in_range": null
+     "pct_error": null
     }
    ]
   },
@@ -2217,9 +2245,11 @@
    "date": "2026-09-25",
    "scored": 9,
    "not_projected": 2,
+   "projected_total": 670.3,
+   "actual_total": 595,
+   "net_error": 75.3,
    "wape": 36.3,
    "bias": 12.7,
-   "in_range": 22.2,
    "median_miss": 24.7,
    "rows": [
     {
@@ -2235,7 +2265,7 @@
      "range_high": 46.2,
      "actual": 50,
      "error": -11.6,
-     "in_range": "no"
+     "pct_error": -23.2
     },
     {
      "id": 110,
@@ -2250,7 +2280,7 @@
      "range_high": 36.2,
      "actual": 35,
      "error": -4.9,
-     "in_range": "yes"
+     "pct_error": -14.0
     },
     {
      "id": 232,
@@ -2265,7 +2295,7 @@
      "range_high": 27.5,
      "actual": 45,
      "error": -22.1,
-     "in_range": "no"
+     "pct_error": -49.1
     },
     {
      "id": 1345,
@@ -2280,7 +2310,7 @@
      "range_high": 142.1,
      "actual": 75,
      "error": 43.3,
-     "in_range": "no"
+     "pct_error": 57.7
     },
     {
      "id": 234,
@@ -2295,7 +2325,7 @@
      "range_high": 107.0,
      "actual": 75,
      "error": 4.6,
-     "in_range": "yes"
+     "pct_error": 6.1
     },
     {
      "id": 241,
@@ -2310,7 +2340,7 @@
      "range_high": 119.0,
      "actual": 70,
      "error": 24.7,
-     "in_range": "no"
+     "pct_error": 35.3
     },
     {
      "id": 229,
@@ -2325,7 +2355,7 @@
      "range_high": 159.5,
      "actual": 100,
      "error": 30.0,
-     "in_range": "no"
+     "pct_error": 30.0
     },
     {
      "id": 443,
@@ -2340,7 +2370,7 @@
      "range_high": 15.9,
      "actual": 45,
      "error": -31.7,
-     "in_range": "no"
+     "pct_error": -70.4
     },
     {
      "id": 227,
@@ -2355,7 +2385,7 @@
      "range_high": 174.4,
      "actual": 100,
      "error": 43.0,
-     "in_range": "no"
+     "pct_error": 43.0
     },
     {
      "id": 1433,
@@ -2370,7 +2400,7 @@
      "range_high": null,
      "actual": 100,
      "error": null,
-     "in_range": null
+     "pct_error": null
     },
     {
      "id": 836,
@@ -2385,7 +2415,7 @@
      "range_high": null,
      "actual": 420,
      "error": null,
-     "in_range": null
+     "pct_error": null
     }
    ]
   },
@@ -2393,9 +2423,11 @@
    "date": "2026-09-23",
    "scored": 4,
    "not_projected": 4,
+   "projected_total": 388.2,
+   "actual_total": 440,
+   "net_error": -51.8,
    "wape": 24.5,
    "bias": -11.8,
-   "in_range": 50.0,
    "median_miss": 29.4,
    "rows": [
     {
@@ -2411,7 +2443,7 @@
      "range_high": 301.5,
      "actual": 200,
      "error": -40.0,
-     "in_range": "yes"
+     "pct_error": -20.0
     },
     {
      "id": 803,
@@ -2426,7 +2458,7 @@
      "range_high": 251.7,
      "actual": 100,
      "error": 18.8,
-     "in_range": "yes"
+     "pct_error": 18.8
     },
     {
      "id": 824,
@@ -2441,7 +2473,7 @@
      "range_high": 35.2,
      "actual": 20,
      "error": 9.3,
-     "in_range": "no"
+     "pct_error": 46.5
     },
     {
      "id": 823,
@@ -2456,7 +2488,7 @@
      "range_high": 105.9,
      "actual": 120,
      "error": -39.9,
-     "in_range": "no"
+     "pct_error": -33.2
     },
     {
      "id": 931,
@@ -2471,7 +2503,7 @@
      "range_high": null,
      "actual": 50,
      "error": null,
-     "in_range": null
+     "pct_error": null
     },
     {
      "id": 1192,
@@ -2486,7 +2518,7 @@
      "range_high": null,
      "actual": 49,
      "error": null,
-     "in_range": null
+     "pct_error": null
     },
     {
      "id": 1169,
@@ -2501,7 +2533,7 @@
      "range_high": null,
      "actual": 100,
      "error": null,
-     "in_range": null
+     "pct_error": null
     },
     {
      "id": 1058,
@@ -2516,7 +2548,7 @@
      "range_high": null,
      "actual": 50,
      "error": null,
-     "in_range": null
+     "pct_error": null
     }
    ]
   },
@@ -2524,9 +2556,11 @@
    "date": "2026-09-22",
    "scored": 16,
    "not_projected": 4,
+   "projected_total": 820.3,
+   "actual_total": 862,
+   "net_error": -41.7,
    "wape": 28.7,
    "bias": -4.8,
-   "in_range": 50.0,
    "median_miss": 9.4,
    "rows": [
     {
@@ -2542,7 +2576,7 @@
      "range_high": 75.8,
      "actual": 40,
      "error": 20.9,
-     "in_range": "no"
+     "pct_error": 52.2
     },
     {
      "id": 504,
@@ -2557,7 +2591,7 @@
      "range_high": 37.2,
      "actual": 45,
      "error": -14.0,
-     "in_range": "no"
+     "pct_error": -31.1
     },
     {
      "id": 1404,
@@ -2572,7 +2606,7 @@
      "range_high": 145.5,
      "actual": 100,
      "error": 21.3,
-     "in_range": "yes"
+     "pct_error": 21.3
     },
     {
      "id": 1352,
@@ -2587,7 +2621,7 @@
      "range_high": 106.9,
      "actual": 40,
      "error": 49.1,
-     "in_range": "no"
+     "pct_error": 122.8
     },
     {
      "id": 1181,
@@ -2602,7 +2636,7 @@
      "range_high": 88.9,
      "actual": 77,
      "error": -3.0,
-     "in_range": "yes"
+     "pct_error": -3.9
     },
     {
      "id": 503,
@@ -2617,7 +2651,7 @@
      "range_high": 53.5,
      "actual": 50,
      "error": -6.9,
-     "in_range": "yes"
+     "pct_error": -13.8
     },
     {
      "id": 1239,
@@ -2632,7 +2666,7 @@
      "range_high": 35.4,
      "actual": 30,
      "error": -0.4,
-     "in_range": "yes"
+     "pct_error": -1.3
     },
     {
      "id": 544,
@@ -2647,7 +2681,7 @@
      "range_high": 87.2,
      "actual": 60,
      "error": 7.5,
-     "in_range": "yes"
+     "pct_error": 12.5
     },
     {
      "id": 1071,
@@ -2662,7 +2696,7 @@
      "range_high": 46.5,
      "actual": 50,
      "error": -11.3,
-     "in_range": "no"
+     "pct_error": -22.6
     },
     {
      "id": 543,
@@ -2677,7 +2711,7 @@
      "range_high": 12.9,
      "actual": 15,
      "error": -4.2,
-     "in_range": "no"
+     "pct_error": -28.0
     },
     {
      "id": 509,
@@ -2692,7 +2726,7 @@
      "range_high": 58.4,
      "actual": 45,
      "error": 2.7,
-     "in_range": "yes"
+     "pct_error": 6.0
     },
     {
      "id": 512,
@@ -2707,7 +2741,7 @@
      "range_high": 66.0,
      "actual": 55,
      "error": 0.0,
-     "in_range": "yes"
+     "pct_error": 0.0
     },
     {
      "id": 501,
@@ -2722,7 +2756,7 @@
      "range_high": 39.0,
      "actual": 45,
      "error": -12.6,
-     "in_range": "no"
+     "pct_error": -28.0
     },
     {
      "id": 515,
@@ -2737,7 +2771,7 @@
      "range_high": 20.7,
      "actual": 85,
      "error": -68.5,
-     "in_range": "no"
+     "pct_error": -80.6
     },
     {
      "id": 502,
@@ -2752,7 +2786,7 @@
      "range_high": 83.6,
      "actual": 90,
      "error": -23.6,
-     "in_range": "no"
+     "pct_error": -26.2
     },
     {
      "id": 500,
@@ -2767,7 +2801,7 @@
      "range_high": 42.3,
      "actual": 35,
      "error": 1.3,
-     "in_range": "yes"
+     "pct_error": 3.7
     },
     {
      "id": 1460,
@@ -2782,7 +2816,7 @@
      "range_high": null,
      "actual": 40,
      "error": null,
-     "in_range": null
+     "pct_error": null
     },
     {
      "id": 1497,
@@ -2797,7 +2831,7 @@
      "range_high": null,
      "actual": 30,
      "error": null,
-     "in_range": null
+     "pct_error": null
     },
     {
      "id": 1430,
@@ -2812,7 +2846,7 @@
      "range_high": null,
      "actual": 15,
      "error": null,
-     "in_range": null
+     "pct_error": null
     },
     {
      "id": 1504,
@@ -2827,7 +2861,7 @@
      "range_high": null,
      "actual": 70,
      "error": null,
-     "in_range": null
+     "pct_error": null
     }
    ]
   },
@@ -2835,9 +2869,11 @@
    "date": "2026-09-21",
    "scored": 19,
    "not_projected": 0,
+   "projected_total": 972.8,
+   "actual_total": 1025,
+   "net_error": -52.2,
    "wape": 17.9,
    "bias": -5.1,
-   "in_range": 68.4,
    "median_miss": 9.7,
    "rows": [
     {
@@ -2853,7 +2889,7 @@
      "range_high": 11.0,
      "actual": 15,
      "error": -5.8,
-     "in_range": "no"
+     "pct_error": -38.7
     },
     {
      "id": 1070,
@@ -2868,7 +2904,7 @@
      "range_high": 108.2,
      "actual": 80,
      "error": 12.0,
-     "in_range": "yes"
+     "pct_error": 15.0
     },
     {
      "id": 321,
@@ -2883,7 +2919,7 @@
      "range_high": 37.2,
      "actual": 15,
      "error": 15.9,
-     "in_range": "no"
+     "pct_error": 106.0
     },
     {
      "id": 315,
@@ -2898,7 +2934,7 @@
      "range_high": 65.5,
      "actual": 65,
      "error": -17.2,
-     "in_range": "yes"
+     "pct_error": -26.5
     },
     {
      "id": 1306,
@@ -2913,7 +2949,7 @@
      "range_high": 138.3,
      "actual": 125,
      "error": -9.7,
-     "in_range": "yes"
+     "pct_error": -7.8
     },
     {
      "id": 332,
@@ -2928,7 +2964,7 @@
      "range_high": 44.8,
      "actual": 45,
      "error": -8.1,
-     "in_range": "no"
+     "pct_error": -18.0
     },
     {
      "id": 325,
@@ -2943,7 +2979,7 @@
      "range_high": 186.6,
      "actual": 150,
      "error": 16.8,
-     "in_range": "yes"
+     "pct_error": 11.2
     },
     {
      "id": 1381,
@@ -2958,7 +2994,7 @@
      "range_high": 28.6,
      "actual": 40,
      "error": -16.2,
-     "in_range": "no"
+     "pct_error": -40.5
     },
     {
      "id": 1336,
@@ -2973,7 +3009,7 @@
      "range_high": 65.9,
      "actual": 45,
      "error": 9.9,
-     "in_range": "yes"
+     "pct_error": 22.0
     },
     {
      "id": 352,
@@ -2988,7 +3024,7 @@
      "range_high": 112.3,
      "actual": 110,
      "error": -11.7,
-     "in_range": "yes"
+     "pct_error": -10.6
     },
     {
      "id": 1037,
@@ -3003,7 +3039,7 @@
      "range_high": 44.7,
      "actual": 25,
      "error": 1.8,
-     "in_range": "yes"
+     "pct_error": 7.2
     },
     {
      "id": 322,
@@ -3018,7 +3054,7 @@
      "range_high": 48.4,
      "actual": 35,
      "error": 1.1,
-     "in_range": "yes"
+     "pct_error": 3.1
     },
     {
      "id": 304,
@@ -3033,7 +3069,7 @@
      "range_high": 37.2,
      "actual": 25,
      "error": 2.2,
-     "in_range": "yes"
+     "pct_error": 8.8
     },
     {
      "id": 1338,
@@ -3048,7 +3084,7 @@
      "range_high": 25.0,
      "actual": 15,
      "error": 5.8,
-     "in_range": "no"
+     "pct_error": 38.7
     },
     {
      "id": 326,
@@ -3063,7 +3099,7 @@
      "range_high": 20.1,
      "actual": 15,
      "error": -0.2,
-     "in_range": "yes"
+     "pct_error": -1.3
     },
     {
      "id": 323,
@@ -3078,7 +3114,7 @@
      "range_high": 24.7,
      "actual": 35,
      "error": -14.3,
-     "in_range": "no"
+     "pct_error": -40.9
     },
     {
      "id": 327,
@@ -3093,7 +3129,7 @@
      "range_high": 62.0,
      "actual": 60,
      "error": -8.4,
-     "in_range": "yes"
+     "pct_error": -14.0
     },
     {
      "id": 328,
@@ -3108,7 +3144,7 @@
      "range_high": 81.0,
      "actual": 75,
      "error": -18.7,
-     "in_range": "yes"
+     "pct_error": -24.9
     },
     {
      "id": 1350,
@@ -3123,7 +3159,7 @@
      "range_high": 51.1,
      "actual": 50,
      "error": -7.4,
-     "in_range": "yes"
+     "pct_error": -14.8
     }
    ]
   }
