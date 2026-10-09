@@ -873,3 +873,10 @@ select:disabled {
   .data-table { font-size: 12px; }
   .data-table th, .data-table td { padding: 7px 10px; }
 }
+
+/* Live test on the projections page: rows with no projection read quieter. */
+.proj-live-off td { color: #8b949e; }
+.proj-live-held { color: #8b949e; font-weight: normal; font-size: 0.85em; }
+.proj-live-sub { margin-top: 14px; }
+.proj-live-label { white-space: nowrap; }
+.proj-live-days { margin-top: 6px; }

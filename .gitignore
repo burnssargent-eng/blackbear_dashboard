@@ -12,3 +12,6 @@ __pycache__/
 # Backtest outputs regenerate identically from the scripts in analysis/. Only
 # the markdown reports are committed.
 analysis/*.csv
+# The live test record is committed: it holds frozen predictions that cannot
+# be regenerated once the served projection files move on.
+!analysis/live_test_log.csv

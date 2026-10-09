@@ -8,12 +8,13 @@ folder itself.
 
 ## The pipeline as it runs today
 
-The nightly (`.github/workflows/nightly-update.yml`, 07:00 UTC) runs steps 1–2
-and commits the results to `main`. Everything else is run by hand.
+The nightly (`.github/workflows/nightly-update.yml`, 07:00 UTC) runs steps 1,
+1b and 2 and commits the results to `main`. Everything else is run by hand.
 
 | # | Step | Code | Output |
 |---|---|---|---|
 | 1 | Scrape pickups, drop `EMPTY_QTYS` {0,1,2,3} from totals but keep them as events; read each page's **Capacity** and **Periodicity** | `oil_scraper.py --rescrape` | `oil_collections_raw.csv`, `oil_collections.json`, `oil_data.json`, `capacity_cache.csv`, `oil_non_pickups.csv` |
+| 1b | Live test: score the new pickups against the projections the site was serving (before step 2 replaces them) | `analysis/live_test.py` | `analysis/live_test_log.csv`, `oil_live_test.json` (both committed nightly) |
 | 2 | Build the projection table and the website file | `analysis/build_projection_table.py` | `oil_projections.json` (committed nightly), `analysis/oil_projection_table.md` (tracked, but only committed by hand, so it lags), `.csv` + `_detail.csv` (gitignored) |
 | 3 | Page | `projections.html` | displays `oil_projections.json`; never recomputes (viewer-chosen column sorts only) |
 | — | Review tool for seasonal classification (manual) | `analysis/build_fringe_seasonal_candidates.py` | `fringe_seasonal_candidates.md` (+ gitignored csv) |
@@ -98,6 +99,7 @@ capacity is fixed on the site and arrives with the next nightly. See
 | 2026-10-08 | **Growth removed again; frequency override rejected.** Live, Skinny Pancake Quechee projected 151 gal (100%) against ~100: the 12-month growth (1.72) is computed over a window containing last fall's burst, the same burst that makes "last year, same dates" high — one autumn counted twice. A non-overlapping 6-month growth was worse (2.39 for Quechee; −0.9 accuracy 2024–26, +11% bias 2021–23). Seasonal stage back to ½ × 70/30 + ½ × last 3 ÷ index (most accurate in both windows). **Recent-rate override for frequent pickups** (Sarge's idea: median of last 4 gaps ≤ 14/21/30 d → last 3, last 4 or 75/25): worse on the customers it fires for in 2024–26 by 1.4–5.3 points, over-projecting 2–6%, neutral 2021–23. Short gaps mean small pickups dominated by timing noise, and the 50/50's last-6 half already spans only ~3 months for them | `backtest_recent_override.py`, `recent_override.md`, builder | `backtest_replay_newcomers.py`, `replay_newcomers.md` |
 | 2026-10-08 | **Projections page formatting.** Five header boxes (total projected oil, route candidates, past 75%, past 50%, seasonally closed / will-call / stale / insufficient); sortable columns, default still the builder's order; projected gallons with the range beside it; days past pickup point negative until reached; Periodicity (0.75 × capacity ÷ gal/day, exported as `periodicity_days`) and Avg Collection over all pickups (`avg_collection_all`) replace Days building; search; 250 rows then Show all | `projections.html`, builder `write_json` |
 | 2026-10-09 | **Projections in the nav** as "Projections", second after Dashboard, on the homepage and every detail page | `index.html`, `dashboard-utils.js` |
+| 2026-10-09 | **Live test** on the Projections page: every scraped pickup scored against the frozen projection served before it (advanced to the pickup date at the row's rate, range scaled with it); held-out rows logged as not projected. Backfilled from the 19 served versions since 2026-09-21: 169 scored, WAPE 25.5%, bias −6.1%, 52% inside range | `live_test.py`, nightly, `projections.html` |
 
 ## Known weaknesses of the current model
 

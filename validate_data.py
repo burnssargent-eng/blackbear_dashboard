@@ -627,6 +627,48 @@ def check_non_pickups(report, coll):
             report.ok("No empty check shares a day with a pickup for the same customer.")
 
 
+def check_live_test(report):
+    """
+    analysis/live_test_log.csv holds frozen predictions, one per pickup. Each
+    must predate its pickup, and no pickup may be scored twice.
+    """
+    import csv
+
+    report.section("LT", "Live test log")
+    path = os.path.join("analysis", "live_test_log.csv")
+    if not os.path.exists(path):
+        report.warn("No live test log yet; the projections page shows a note instead.")
+        return
+
+    with open(path, newline="") as f:
+        rows = list(csv.DictReader(f))
+    keys = [(r["pickup_date"], r["customer_id"]) for r in rows]
+    dupes = len(keys) - len(set(keys))
+    if dupes:
+        report.fail(f"{dupes} pickup(s) scored more than once in the live test log.")
+    else:
+        report.ok(f"{len(rows)} logged pickups, each scored once.")
+
+    late = [r for r in rows if r["previous_pickup"] >= r["pickup_date"]]
+    if late:
+        report.fail(f"{len(late)} live test prediction(s) were made after their pickup, "
+                    f"e.g. {late[0]['customer']} on {late[0]['pickup_date']}.")
+    else:
+        report.ok("Every live test prediction predates its pickup.")
+
+    if not os.path.exists("oil_live_test.json"):
+        report.fail("oil_live_test.json is missing; rerun analysis/live_test.py.")
+        return
+    with open("oil_live_test.json") as f:
+        shown = sum(len(d["rows"]) for d in json.load(f)["days"])
+    present = sum(1 for r in rows if r["actual"] != "")
+    if shown == present:
+        report.ok(f"oil_live_test.json shows all {shown} logged pickups still on the site.")
+    else:
+        report.fail(f"oil_live_test.json shows {shown} pickups but the log has {present}; "
+                    "rerun analysis/live_test.py.")
+
+
 def check_projection(report, data):
     report.section("P", "Current-year projection")
 
@@ -1416,6 +1458,7 @@ def main():
 
     check_quantity_rule(report, coll)
     check_projection(report, data)
+    check_live_test(report)
     check_active_customers(report, data, coll)
     check_lifecycle(report, data, coll_payload)
     check_region_customers(report, data, coll_payload)

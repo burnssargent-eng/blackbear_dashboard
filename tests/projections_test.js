@@ -45,7 +45,11 @@ const api = new Function("document", "window", utils + "\n" + script + `
     setSearch(t) { searchText = t; },
     buildShell, update, filterByRegion, regionOptions, freshnessWarning,
     rankedRowsHtml, heldOutRowsHtml, setSort, renderRanked, daysPastHtml,
+    liveTestHtml, formatSigned,
   };`)(document, window);
+
+// formatDate from dashboard-utils, for comparing rendered dates.
+const formatDateForTest = new Function(utils + "\nreturn formatDate;")();
 
 let fails = 0;
 const ok = (cond, msg) => {
@@ -241,6 +245,29 @@ ok(byId[225] && byId[225].status === "true closer", "the registry still wins: Mo
 const inSeason = ranked.filter(c => c.stage === "closer in season");
 ok(inSeason.length > 0 && /In-season rate/.test(api.rankedRowsHtml([inSeason[0]])),
   `${inSeason.length} closers ranked on their open-season rate, note rendered`);
+
+// ── Live test ──
+const live = JSON.parse(fs.readFileSync("oil_live_test.json", "utf8"));
+const liveHtml = api.liveTestHtml(live);
+const summaries = (liveHtml.match(/<summary>/g) || []).length;
+ok(summaries === live.days.length, `one block per pickup date (${summaries} of ${live.days.length})`);
+ok((liveHtml.match(/<details class="proj-section" open>/g) || []).length === 1,
+  "only the newest day is open");
+const dayDates = [...liveHtml.matchAll(/<summary>([^<]*?)\s*<span/g)].map(m => m[1].trim());
+ok(JSON.stringify(dayDates) === JSON.stringify(live.days.map(d => formatDateForTest(d.date))),
+  "days render newest first, in the export's order");
+const liveRows = live.days.flatMap(d => d.rows);
+const scoredRow = liveRows.find(r => r.projected !== null && r.error !== null);
+ok(scoredRow && liveHtml.includes(api.formatSigned(scoredRow.error)),
+  `a scored row shows its exported error (${scoredRow && api.formatSigned(scoredRow.error)})`);
+ok(api.formatSigned(11.7) === "+11.7" && api.formatSigned(-17.1) === "−17.1",
+  "errors are signed: + over-projected, − under");
+const heldRow = liveRows.find(r => r.projected === null);
+ok(!heldRow || /Not projected \(/.test(liveHtml), "rows without a projection say so");
+ok(liveRows.every(r => r.projected === null || r.range_low === null ||
+  (r.in_range === "yes") === (r.range_low <= r.actual && r.actual <= r.range_high)),
+  "every exported in-range flag matches its range");
+ok(/not available yet/.test(api.liveTestHtml(null)), "a missing live test file shows a note, not an error");
 
 // ── Freshness ──
 ok(api.freshnessWarning(payload, { last_updated: payload.data_last_updated }) === null,
