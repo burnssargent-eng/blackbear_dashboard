@@ -100,6 +100,7 @@ capacity is fixed on the site and arrives with the next nightly. See
 | 2026-10-08 | **Projections page formatting.** Five header boxes (total projected oil, route candidates, past 75%, past 50%, seasonally closed / will-call / stale / insufficient); sortable columns, default still the builder's order; projected gallons with the range beside it; days past pickup point negative until reached; Periodicity (0.75 × capacity ÷ gal/day, exported as `periodicity_days`) and Avg Collection over all pickups (`avg_collection_all`) replace Days building; search; 250 rows then Show all | `projections.html`, builder `write_json` |
 | 2026-10-09 | **Projections in the nav** as "Projections", second after Dashboard, on the homepage and every detail page | `index.html`, `dashboard-utils.js` |
 | 2026-10-09 | **Live test** on the Projections page: every scraped pickup scored against the frozen projection served before it (advanced to the pickup date at the row's rate, range scaled with it); held-out rows logged as not projected. Backfilled from the 19 served versions since 2026-09-21: 169 scored, WAPE 25.5%, bias −6.1%, 52% inside range | `live_test.py`, nightly, `projections.html` |
+| 2026-10-09 | Live test reports **net proj − actual** (misses summed so they cancel; a Total row per day) and **% error** per pickup. Inside-range figures dropped at Sarge's request | `live_test.py`, `projections.html` |
 
 ## Known weaknesses of the current model
 

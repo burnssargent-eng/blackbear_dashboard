@@ -495,6 +495,11 @@ function heldOutHtml(heldOut) {
  * region filter and search do not apply.
  * ───────────────────────────────────────────── */
 
+/** "+4.3%" / "−6.1%", or a dash. */
+function signedPct(value) {
+  return value === null || value === undefined ? "—" : `${formatSigned(value)}%`;
+}
+
 /** "12.3%", or a dash. */
 function formatPct(value) {
   return value === null || value === undefined ? "—" : `${formatOne(value)}%`;
@@ -514,8 +519,8 @@ function liveSummaryRowHtml(label, m, from) {
         ? ` <span class="proj-range">from ${escapeHtml(formatDate(from))}</span>` : ""}</td>
       <td class="num">${formatNumber(m.scored)}</td>
       <td class="num">${formatPct(m.wape)}</td>
-      <td class="num">${m.bias === null ? "—" : formatSigned(m.bias) + "%"}</td>
-      <td class="num">${formatPct(m.in_range)}</td>
+      <td class="num">${formatSigned(m.net_error)}</td>
+      <td class="num">${signedPct(m.bias)}</td>
       <td class="num">${formatOne(m.median_miss)}</td>
       <td class="num">${formatNumber(m.not_projected)}</td>
     </tr>`;
@@ -530,8 +535,8 @@ function liveSummaryTableHtml(rows) {
             <th></th>
             <th>Pickups scored</th>
             <th>Typical miss (WAPE)</th>
-            <th>Bias</th>
-            <th>Inside range</th>
+            <th>Net proj − actual (gal)</th>
+            <th>Net %</th>
             <th>Median miss (gal)</th>
             <th>Not projected</th>
           </tr>
@@ -541,7 +546,7 @@ function liveSummaryTableHtml(rows) {
     </div>`;
 }
 
-function liveDayRowsHtml(rows) {
+function liveDayRowsHtml(rows, day) {
   const body = rows.map(r => {
     const projected = r.projected === null
       ? `<span class="proj-live-held">Not projected (${escapeHtml(r.section)})</span>`
@@ -555,7 +560,7 @@ function liveDayRowsHtml(rows) {
         <td class="gal">${projected}</td>
         <td class="num">${formatNumber(r.actual)}</td>
         <td class="num">${formatSigned(r.error)}</td>
-        <td>${r.in_range === "yes" ? "Yes" : (r.in_range === "no" ? "No" : "—")}</td>
+        <td class="num">${signedPct(r.pct_error)}</td>
         <td class="proj-date">${formatDate(r.previous_pickup)}</td>
       </tr>`;
   }).join("");
@@ -571,11 +576,23 @@ function liveDayRowsHtml(rows) {
             <th>Projected gal (range)</th>
             <th>Actual gal</th>
             <th>Proj − actual</th>
-            <th>In range</th>
+            <th>% error</th>
             <th>Previous pickup</th>
           </tr>
         </thead>
         <tbody>${body}</tbody>
+        <tfoot>
+          <tr class="proj-live-total">
+            <td>Total</td>
+            <td></td>
+            <td>${formatNumber(day.scored)} projected</td>
+            <td class="gal">${formatWhole(day.projected_total)}</td>
+            <td class="num">${formatNumber(day.actual_total)}</td>
+            <td class="num">${formatSigned(day.net_error)}</td>
+            <td class="num">${signedPct(day.bias)}</td>
+            <td></td>
+          </tr>
+        </tfoot>
       </table>
     </div>`;
 }
@@ -593,9 +610,9 @@ function liveTestHtml(payload) {
     <details class="proj-section"${i === 0 ? " open" : ""}>
       <summary>${escapeHtml(formatDate(d.date))}
         <span class="proj-count">${formatNumber(d.rows.length)} pickups ·
-          typical miss ${formatPct(d.wape)} · inside range ${formatPct(d.in_range)}</span>
+          typical miss ${formatPct(d.wape)}</span>
       </summary>
-      ${liveDayRowsHtml(d.rows)}
+      ${liveDayRowsHtml(d.rows, d)}
     </details>`).join("");
 
   return `
@@ -605,8 +622,12 @@ function liveTestHtml(payload) {
       was showing <strong>before</strong> that pickup arrived, moved to the
       pickup date at the customer's rate. Predictions are frozen: a later model
       change never rewrites them. <strong>Proj − actual</strong> is positive
-      when the projection was too high. <strong>Typical miss</strong> is total
-      error ÷ total gallons collected. Statewide; the region filter and search do
+      when the projection was too high; <strong>% error</strong> is that as a
+      share of the gallons collected. <strong>Net</strong> adds the misses up
+      so over- and under-projections cancel: how far off the total was. A day's
+      <strong>Total</strong> row counts projected pickups only.
+      <strong>Typical miss</strong> adds the misses without letting them cancel,
+      as a share of gallons collected. Statewide; the region filter and search do
       not apply. Pickups before 8 Oct 2026 were projected by earlier versions of
       the model.
     </div>

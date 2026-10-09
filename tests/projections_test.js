@@ -264,9 +264,14 @@ ok(api.formatSigned(11.7) === "+11.7" && api.formatSigned(-17.1) === "−17.1",
   "errors are signed: + over-projected, − under");
 const heldRow = liveRows.find(r => r.projected === null);
 ok(!heldRow || /Not projected \(/.test(liveHtml), "rows without a projection say so");
-ok(liveRows.every(r => r.projected === null || r.range_low === null ||
-  (r.in_range === "yes") === (r.range_low <= r.actual && r.actual <= r.range_high)),
-  "every exported in-range flag matches its range");
+ok(!/inside range|In range/i.test(liveHtml), "no inside-range figures anywhere");
+ok(liveRows.every(r => r.error === null ||
+  Math.abs(r.pct_error - 100 * r.error / r.actual) < 0.11), "% error = error / actual");
+ok(live.days.every(d => Math.abs(d.net_error - d.rows.reduce((s, r) => s + (r.error || 0), 0)) < 0.5),
+  "each day's net error is the sum of its rows' proj − actual");
+const day0 = live.days[0];
+ok(/class="proj-live-total"/.test(liveHtml) && liveHtml.includes(api.formatSigned(day0.net_error)),
+  `the newest day's total row shows its net (${api.formatSigned(day0.net_error)})`);
 ok(/not available yet/.test(api.liveTestHtml(null)), "a missing live test file shows a note, not an error");
 
 // ── Freshness ──

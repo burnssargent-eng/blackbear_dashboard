@@ -57,11 +57,11 @@ OUT_JSON = ROOT / "oil_live_test.json"
 SECTION_RANKED = "ranked"
 
 # The record, in column order. The prediction columns are frozen once written;
-# actual / error / in_range are refreshed from the scrape on every run.
+# actual / error / pct_error are refreshed from the scrape on every run.
 LOG_FIELDS = [
     "pickup_date", "customer_id", "member_ids", "customer", "town", "stage",
     "status", "section", "previous_pickup", "predicted_as_of", "prediction_data",
-    "projected", "range_low", "range_high", "actual", "error", "in_range",
+    "projected", "range_low", "range_high", "actual", "error", "pct_error",
 ]
 FROZEN = LOG_FIELDS[:LOG_FIELDS.index("actual")]
 
@@ -179,12 +179,11 @@ def refresh_actuals(log, gallons):
         rec["actual"] = actual
         projected = rec["projected"]
         if actual is None or projected in (None, ""):
-            rec["error"] = rec["in_range"] = None
+            rec["error"] = rec["pct_error"] = None
             continue
         rec["error"] = _round(float(projected) - actual)
-        low, high = rec["range_low"], rec["range_high"]
-        rec["in_range"] = (None if low in (None, "") else
-                           "yes" if float(low) <= actual <= float(high) else "no")
+        # % error: the miss as a share of what was collected (+ = over-projected).
+        rec["pct_error"] = _round(100 * rec["error"] / actual) if actual else None
 
 
 def _round(value):
@@ -224,18 +223,23 @@ def write_log(log):
 # ─────────────────────────────────────────────
 
 def metrics(records):
-    """WAPE, bias, share in range and median miss over scored records."""
+    """
+    Totals and error measures over scored records. net_error is the sum of
+    projected - actual, so over- and under-projections cancel; bias is that as
+    a % of gallons collected. WAPE sums the misses without letting them cancel.
+    """
     scored = [r for r in records if r["error"] is not None]
     actual = sum(r["actual"] for r in scored)
-    ranged = [r for r in scored if r["in_range"] is not None]
+    net = sum(r["error"] for r in scored)
     return {
         "scored": len(scored),
         "not_projected": sum(1 for r in records if r["projected"] is None
                              and r["actual"] is not None),
+        "projected_total": round(sum(float(r["projected"]) for r in scored), 1),
+        "actual_total": actual,
+        "net_error": round(net, 1),
         "wape": round(100 * sum(abs(r["error"]) for r in scored) / actual, 1) if actual else None,
-        "bias": round(100 * sum(r["error"] for r in scored) / actual, 1) if actual else None,
-        "in_range": round(100 * sum(r["in_range"] == "yes" for r in ranged) / len(ranged), 1)
-                    if ranged else None,
+        "bias": round(100 * net / actual, 1) if actual else None,
         "median_miss": round(statistics.median(abs(r["error"]) for r in scored), 1)
                        if scored else None,
     }
@@ -275,7 +279,7 @@ def write_json(log):
             "predicted_as_of": r["predicted_as_of"],
             "projected": r["projected"], "range_low": r["range_low"],
             "range_high": r["range_high"], "actual": r["actual"],
-            "error": r["error"], "in_range": r["in_range"],
+            "error": r["error"], "pct_error": r["pct_error"],
         })
     # Within a day: projected rows first, then by name.
     by_day = defaultdict(list)
