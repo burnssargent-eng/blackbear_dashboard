@@ -36,7 +36,7 @@
 <script src="dashboard-utils.js"></script>
 <script>
 /*
- * Beta pickup projections. Not linked from the nav yet.
+ * Beta pickup projections. In the nav as "Projections", second after Dashboard.
  *
  * Everything shown here is computed by analysis/build_projection_table.py and
  * read from oil_projections.json, which the nightly job rebuilds after the
@@ -119,12 +119,12 @@ async function init() {
     oilData = await loadOilData();
     projections = await loadProjections();
   } catch (err) {
-    renderNav(null, oilData);
+    renderNav("projections", oilData);
     renderState(page, "error", "Could not load the projections.", err.message);
     return;
   }
 
-  renderNav(null, oilData);
+  renderNav("projections", oilData);
   renderLastUpdated(oilData);
 
   if (!projections.customers || !projections.customers.length) {

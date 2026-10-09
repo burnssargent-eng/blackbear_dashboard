@@ -29,7 +29,7 @@ analysis/build_projection_table.py ──> oil_projections.json  (beta pickup pr
 index.html      dashboard + Leaflet heatmap. Keeps its OWN inline styles.
 region.html     per-region page. The most complex page.
 year.html  town.html  customers.html  schmootz.html
-projections.html     beta pickup projections. NOT in the nav yet; shared by link.
+projections.html     beta pickup projections. In the nav as "Projections", after Dashboard.
 dashboard-utils.js   shared helpers for the detail pages
 dashboard.css        shared styles for the detail pages — NOT index.html
 ```

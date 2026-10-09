@@ -52,6 +52,21 @@ new Function('document','utils','rows','renderFn', '')  // noop
   ok(n===239, `expanded shows all 239 when <=250 (got ${n})`);
 })();
 
+// Over 250 rows: 50, then top 250 with "Show all" beside it, then everything.
+(function(){
+  const g=new Function('document',utils+`\nreturn {r:renderExpandableCustomerList,t:customerTableHtml};`)(document);
+  const big=[...Array(800)].map((_,i)=>({customer_id:i,name:'C'+i,geo_town:'T',gallons:800-i,pickups:1,is_active:true}));
+  const c=document.getElementById('_big'); const render=()=>g.r(c, big, s=>g.t(s,{town:true,dates:false}));
+  const n=()=>(c.innerHTML.match(/<td class="rank">/g)||[]).length;
+  const footer=()=>c.children[c.children.length-1].innerHTML;
+  c.dataset.expanded='false'; c.children=[]; render();
+  ok(n()===50 && /Show top 250/.test(footer()) && !/Show all/.test(footer()), 'over 250: collapsed offers Show top 250');
+  c.dataset.expanded='true'; c.children=[]; render();
+  ok(n()===250 && /Show all 800/.test(footer()) && /Show top 50/.test(footer()), 'top 250 offers Show all 800 and Show top 50');
+  c.dataset.expanded='all'; c.children=[]; render();
+  ok(n()===800 && !/Show all/.test(footer()) && /Show top 50/.test(footer()), 'show all renders all 800, offers Show top 50');
+})();
+
 // filter change must reset expansion
 list.dataset.expanded='true';
 set('month','2026-09'); api.u();
