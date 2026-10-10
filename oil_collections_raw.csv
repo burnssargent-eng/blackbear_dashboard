@@ -1438,6 +1438,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 802,Creek House Diner,Bethel,Windsor,2015-04-20,2015,2015-04,25,True,Bethel
 802,Creek House Diner,Bethel,Windsor,2015-03-10,2015,2015-03,25,True,Bethel
 802,Creek House Diner,Bethel,Windsor,2015-01-29,2015,2015-01,25,True,Bethel
+803,Toziers-,Bethel,Windsor,2026-10-09,2026,2026-10,130,True,Bethel
 803,Toziers-,Bethel,Windsor,2026-09-23,2026,2026-09,100,True,Bethel
 803,Toziers-,Bethel,Windsor,2026-09-10,2026,2026-09,80,True,Bethel
 803,Toziers-,Bethel,Windsor,2026-09-04,2026,2026-09,120,True,Bethel
@@ -1597,6 +1598,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1178,Hannaford- Bradford,Bradford,Orange,2023-05-01,2023,2023-05,75,True,Bradford
 1178,Hannaford- Bradford,Bradford,Orange,2023-01-15,2023,2023-01,85,True,Bradford
 1178,Hannaford- Bradford,Bradford,Orange,2022-09-19,2022,2022-09,94,True,Bradford
+837,Bent Hill Brewery,Braintree,Washington,2026-10-09,2026,2026-10,140,True,Braintree
 837,Bent Hill Brewery,Braintree,Washington,2026-07-30,2026,2026-07,70,True,Braintree
 837,Bent Hill Brewery,Braintree,Washington,2026-06-17,2026,2026-06,115,True,Braintree
 837,Bent Hill Brewery,Braintree,Washington,2026-04-23,2026,2026-04,150,True,Braintree
@@ -9106,6 +9108,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1388,Okemo- Mountain Resort,Ludlow,Windsor,2025-01-17,2025,2025-01,120,True,Ludlow
 1388,Okemo- Mountain Resort,Ludlow,Windsor,2025-01-06,2025,2025-01,250,True,Ludlow
 1388,Okemo- Mountain Resort,Ludlow,Windsor,2024-12-17,2024,2024-12,45,True,Ludlow
+934,Okemo-Jackson Gore Inn,Ludlow,Windsor,2026-10-09,2026,2026-10,260,True,Ludlow
 934,Okemo-Jackson Gore Inn,Ludlow,Windsor,2026-04-30,2026,2026-04,20,True,Ludlow
 934,Okemo-Jackson Gore Inn,Ludlow,Windsor,2026-04-02,2026,2026-04,65,True,Ludlow
 934,Okemo-Jackson Gore Inn,Ludlow,Windsor,2026-03-23,2026,2026-03,200,True,Ludlow
@@ -13686,6 +13689,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 923,Trail Break (Taco place),Quechee,Windsor,2018-06-04,2018,2018-06,50,True,Hartford
 923,Trail Break (Taco place),Quechee,Windsor,2018-03-20,2018,2018-03,10,True,Hartford
 923,Trail Break (Taco place),Quechee,Windsor,2018-02-23,2018,2018-02,40,True,Hartford
+833,Gifford Hospital,Randolph,Windsor,2026-10-09,2026,2026-10,75,True,Randolph
 833,Gifford Hospital,Randolph,Windsor,2026-07-30,2026,2026-07,50,True,Randolph
 833,Gifford Hospital,Randolph,Windsor,2026-06-17,2026,2026-06,65,True,Randolph
 833,Gifford Hospital,Randolph,Windsor,2026-04-30,2026,2026-04,60,True,Randolph
@@ -13741,6 +13745,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 833,Gifford Hospital,Randolph,Windsor,2019-10-23,2019,2019-10,65,True,Randolph
 833,Gifford Hospital,Randolph,Windsor,2019-08-15,2019,2019-08,65,True,Randolph
 833,Gifford Hospital,Randolph,Windsor,2019-05-17,2019,2019-05,5,True,Randolph
+1161,The NEW Forge-Randolph,Randolph,Windsor,2026-10-09,2026,2026-10,65,True,Randolph
 1161,The NEW Forge-Randolph,Randolph,Windsor,2026-06-17,2026,2026-06,45,True,Randolph
 1161,The NEW Forge-Randolph,Randolph,Windsor,2026-05-19,2026,2026-05,95,True,Randolph
 1161,The NEW Forge-Randolph,Randolph,Windsor,2026-03-20,2026,2026-03,90,True,Randolph
@@ -19416,6 +19421,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 226,Paradise Provisions,Warren,Washington,2021-02-03,2021,2021-02,15,True,Warren
 226,Paradise Provisions,Warren,Washington,2020-10-20,2020,2020-10,110,True,Warren
 226,Paradise Provisions,Warren,Washington,2020-02-01,2020,2020-02,50,True,Warren
+219,Pitchers Inn,Warren,Washington,2026-10-09,2026,2026-10,65,True,Warren
 219,Pitchers Inn,Warren,Washington,2026-07-16,2026,2026-07,30,True,Warren
 219,Pitchers Inn,Warren,Washington,2026-06-12,2026,2026-06,60,True,Warren
 219,Pitchers Inn,Warren,Washington,2026-03-02,2026,2026-03,25,True,Warren
@@ -19588,6 +19594,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1059,Sugarbush Resort Golf Course,Warren,Washington,2022-08-05,2022,2022-08,30,True,Warren
 1059,Sugarbush Resort Golf Course,Warren,Washington,2022-06-29,2022,2022-06,25,True,Warren
 1059,Sugarbush Resort Golf Course,Warren,Washington,2021-11-29,2021,2021-11,45,True,Warren
+288,Warren Store,Warren,Washington,2026-10-09,2026,2026-10,70,True,Warren
 288,Warren Store,Warren,Washington,2026-07-16,2026,2026-07,30,True,Warren
 288,Warren Store,Warren,Washington,2026-06-12,2026,2026-06,60,True,Warren
 288,Warren Store,Warren,Washington,2026-03-02,2026,2026-03,25,True,Warren
