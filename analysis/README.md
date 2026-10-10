@@ -24,7 +24,9 @@ The nightly (`.github/workflows/nightly-update.yml`, 07:00 UTC) runs steps 1,
 
 ```
 rate       = by stage (the ladder, since 2026-10-08):
-             new          pooled gallons ÷ days over ≤ the last 6 gaps (3+ pickups)
+             new          pooled gallons ÷ days over ≤ the last 6 gaps (3+ pickups); also a
+                          customer back after a gap > 180 d inside a rate window, counted
+                          from the reopening (dormant_restart, since 2026-10-09)
              established  0.5 × previous-year rate + 0.5 × pooled (= last 6 once 7+ pickups)
              seasonal     ½ × (0.7 × last year ±3 wk + 0.3 × last 2) + ½ × last 3 ÷ index × coming index
                           (seasonal_open.py passes)
@@ -101,6 +103,7 @@ capacity is fixed on the site and arrives with the next nightly. See
 | 2026-10-09 | **Projections in the nav** as "Projections", second after Dashboard, on the homepage and every detail page | `index.html`, `dashboard-utils.js` |
 | 2026-10-09 | **Live test** on the Projections page: every scraped pickup scored against the frozen projection served before it (advanced to the pickup date at the row's rate, range scaled with it); held-out rows logged as not projected. Backfilled from the 19 served versions since 2026-09-21: 169 scored, WAPE 25.5%, bias −6.1%, 52% inside range | `live_test.py`, nightly, `projections.html` |
 | 2026-10-09 | Live test reports **net proj − actual** (misses summed so they cancel; a Total row per day) and **% error** per pickup. Inside-range figures dropped at Sarge's request | `live_test.py`, `projections.html` |
+| 2026-10-09 | **Dormant-gap restart adopted; consistency gate rejected.** Schaffers projected 17 gal vs 100: a 448-day closure sat inside both 50/50 windows. A gap > 180 d (`STALE_DAYS`) inside a rate window with 3+ pickups since → the new-customer pooled rate from the reopening: confirm −0.13 WAPE (−0.25 to −0.02, customer bootstrap); where it fires (2% of pickups) WAPE 50 → 41, bias −38% → +1%. Sarge's gate (last 3–5 gaps within 60–120 d, interval-rate CV ≤ 0.25/0.4 → their pooled rate): all 18 variants worse on confirm (+0.2 to +1.0), over-projecting where fired. 26 ranked customers move today, several summer-only — closer-registry candidates | `backtest_dormant_restart.py`, `dormant_restart.md`, builder |
 
 ## Known weaknesses of the current model
 
@@ -341,6 +344,7 @@ no-lookahead:
 | `backtest_replay_newcomers.py` → `replay_newcomers.md` | Phase 3: every newcomer replayed from its first pickup through the insufficient / new / established / seasonal ladder; learning curve, calibrated high-side bands, will-call rule |
 | `backtest_recent_override.py` → `recent_override.md` | Recent-rate override for frequently collected customers, and non-overlapping growth (both rejected) |
 | `backtest_seasonal_formulas.py` → `seasonal_formulas.md` | Seasonal formulas on a wider sample: strict / wide / all-open groups, blends, and the last-year weight sweep |
+| `backtest_dormant_restart.py` → `dormant_restart.md` | Sarge's consistency gate (rejected) and the dormant-gap restart (adopted), customer-level bootstrap |
 | `backtest_seasonal_closed.py` → `seasonal_closed.md` | Seasonal-closed detection from prior years (1/2/3 years, thresholds), its safety (pickups that would be held out), and the in-season closer rate |
 | `build_projection_table.py` → `oil_projection_table.md`, `../oil_projections.json` | The production projection: 50/50 rate, `MODEL_OVERRIDES`, routing, capped % full. Run nightly |
 | `customer_wape.json` | Committed snapshot of per-customer 50/50 WAPE for the confidence bands. Rebuild with `--refresh-wape` after rerunning `test_routing_rule.py` / `backtest_seasonal_models.py` |

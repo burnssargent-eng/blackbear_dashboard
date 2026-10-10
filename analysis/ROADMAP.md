@@ -9,6 +9,14 @@ finishes**, so a fresh session does not redo or skip it.
 
 ## In flight
 
+### Dormant-gap restart (2026-10-09)
+
+Customers back after a gap > 180 days are projected from the reopening only
+(`dormant_restart.md`). 26 ranked customers moved; several are summer-only
+(Beach House North Beach, Bravo Zulu, food trucks, golf clubs) and will keep
+accumulating after closing until stale. **Sarge to decide which belong in
+`MODEL_OVERRIDES` as closers.** Watch them in the live test.
+
 ### Live test (started 2026-10-09)
 
 The nightly scores every new pickup against the projection served before it
