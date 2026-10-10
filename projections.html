@@ -355,6 +355,12 @@ function sharedNote(c) {
   return "Shared barrel: " + c.members.map(m => m.name).join(" · ");
 }
 
+/** A rate taken only from the pickups after a dormant gap. */
+function restartNote(c) {
+  return `Rate from ${formatDate(c.restart_from)} on (back after a ` +
+    `${formatNumber(c.restart_gap_days)}-day gap) — wide range`;
+}
+
 /** Why the clock restarted after the last pickup. */
 function emptyCheckNote(c) {
   return `Checked empty ${formatDate(c.last_empty_check)}, counting from then`;
@@ -367,7 +373,7 @@ function notesHtml(c) {
   if (c.history_start) lines.push(`History from ${formatDate(c.history_start)} (new owner)`);
   if (c.last_empty_check) lines.push(emptyCheckNote(c));
   if (c.status && c.status !== "50/50 default") lines.push(c.status);
-  if (c.stage === "new") lines.push("New customer — wide range");
+  if (c.stage === "new") lines.push(c.restart_from ? restartNote(c) : "New customer — wide range");
   if (c.stage === "seasonal") lines.push("Seasonal rate (adjusted for the month)");
   if (c.stage === "closer in season") lines.push(`In-season rate (open ${c.season})`);
   (c.flags || []).forEach(f => lines.push(f));
@@ -429,6 +435,7 @@ function heldOutNotesHtml(c) {
     ...(c.members ? [sharedNote(c)] : []),
     ...(c.history_start ? [`History from ${formatDate(c.history_start)} (new owner)`] : []),
     ...(c.last_empty_check ? [emptyCheckNote(c)] : []),
+    ...(c.restart_from ? [restartNote(c)] : []),
     ...(c.flags || []),
   ];
   return lines.length

@@ -586,6 +586,33 @@ def rate_pooled(pickups):
     return bsm.rate_span(pickups, max(0, n - 1 - WINDOW), n - 1)
 
 
+def dormant_restart(pickups, asof, threshold=STALE_DAYS):
+    """
+    (index of the first pickup after a dormant gap, gap in days), or None.
+
+    A gap longer than STALE_DAYS means the account went stale and came back:
+    the history before it no longer describes the customer, and dividing its
+    gallons by the dead months drags both 50/50 rates down (Schaffers,
+    2026-10-05: 0.46 gal/day after a 448-day closure, ~2 since reopening).
+    Applies only when NEW_MIN_PICKUPS pickups follow the gap and the gap sits
+    inside a production window -- the last 7 pickups, or the previous-year span
+    -- since outside both it changes nothing. Backtested in
+    dormant_restart.md: the rate is then the new-customer pooled rate over the
+    post-gap pickups. `threshold` exists for that backtest; production uses
+    STALE_DAYS.
+    """
+    n = len(pickups)
+    j = next((i for i in range(n - 1, 0, -1)
+              if (pickups[i]["date"] - pickups[i - 1]["date"]).days > threshold), None)
+    if j is None or n - j < NEW_MIN_PICKUPS:
+        return None
+    prev_year_start = next((i for i in range(n - 1, -1, -1)
+                            if pickups[i]["date"] <= asof - timedelta(days=YEAR_DAYS)), 0)
+    if j - 1 < max(min(n - 1 - WINDOW, prev_year_start), 0):
+        return None
+    return j, (pickups[j]["date"] - pickups[j - 1]["date"]).days
+
+
 SEASONAL_LY_WEIGHT = 0.7         # Sarge's 70/30: last year vs the last 2 pickups
 SEASONAL_LY_HALF_WIDTH = 21      # days either side of the date, a year back
 # No growth factor on last year's rate: tried 2026-10-08 and removed the same
@@ -1059,7 +1086,13 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
     prev_year = rate_prev_year_asof(pickups, asof)
     gaps = len(pickups) - 1
     stage = rate = factor = season_a = season_b = None
-    if len(pickups) >= NEW_MIN_PICKUPS and pooled is not None:
+    restart = dormant_restart(pickups, asof)
+    if restart:
+        # Back after a dormant gap: a new customer from the reopening on.
+        since = pickups[restart[0]:]
+        gaps = min(len(since) - 1, WINDOW)
+        stage, rate = STAGE_NEW, rate_pooled(since)
+    elif len(pickups) >= NEW_MIN_PICKUPS and pooled is not None:
         if prev_year is not None:
             stage, rate = STAGE_ESTABLISHED, (pooled + prev_year) / 2
             factor = seasonal_factor(cid, pickups, asof)
@@ -1091,6 +1124,7 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
         closer_rate = rate_open_season(pickups, override.season)
         if closer_rate is not None:
             stage, rate = STAGE_CLOSER, closer_rate
+            restart = None          # the open-season rate wins; no restart shown
     # Stale and the off-season silence rule stay on the last PICKUP (a check is
     # not oil); "awaiting first pickup" uses the clock, so an in-season empty
     # check counts as a fresh start.
@@ -1169,6 +1203,8 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
         "days_accumulating": days_accumulating,
         "avg_collection": avg_collection,
         "avg_collection_all": average_collection_all(pickups),
+        "restart_from": pickups[restart[0]]["date"].isoformat() if restart else None,
+        "restart_gap_days": restart[1] if restart else None,
         "collections_per_year": collections_per_year(pickups),
         "oil_rate_gpd_projected": rate,
         "current_projected_gallons": shown(projected),
@@ -1294,6 +1330,7 @@ DETAIL_FIELDS = [
     "customer_id", "customer", "town", "table_section", "model_status", "stage",
     "routing_reason", "active_season", "inferred_active_season",
     "override_reason", "review_hint", "flags",
+    "restart_from", "restart_gap_days",
     "shared_members_text", "history_start", "registry_note",
     "pickup_count", "first_pickup", "last_pickup_date",
     "days_since_last_pickup", "last_empty_check", "days_accumulating",
@@ -1376,6 +1413,8 @@ def write_json(rows, asof):
         "days_past_75": value(r, "days_past_75pct"),
         "days_past_capacity": value(r, "days_past_capacity"),
         "periodicity_days": value(r, "implied_periodicity_days"),
+        "restart_from": r.get("restart_from"),
+        "restart_gap_days": r.get("restart_gap_days"),
         "flags": r["flags"].split("; ") if r["flags"] else [],
     } for r in rows]
 

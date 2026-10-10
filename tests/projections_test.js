@@ -280,6 +280,17 @@ ok(/class="proj-live-total"/.test(liveHtml) && liveHtml.includes(api.formatSigne
   `the newest day's total row shows its net (${api.formatSigned(day0.net_error)})`);
 ok(/not available yet/.test(api.liveTestHtml(null)), "a missing live test file shows a note, not an error");
 
+// ── Dormant-gap restart ──
+const restarted = customers.filter(c => c.restart_from);
+ok(byId[282] && byId[282].restart_from === "2026-06-26" && byId[282].stage === "new" &&
+  byId[282].rate_gpd > 2, `Schaffers (282) restarts after its 448-day gap (${byId[282] && byId[282].rate_gpd} gal/day)`);
+const schaffersNote = (api.rankedRowsHtml([byId[282]]).match(/proj-notes">([^<]*)/) || [])[1] || "";
+ok(/Rate from .* on \(back after a 448-day gap\)/.test(schaffersNote), `its note says so (${schaffersNote})`);
+ok(restarted.length > 0 && restarted.every(c => c.stage === "new" && c.restart_gap_days > payload.stale_days),
+  `${restarted.length} restarted rows: all stage new, every gap past the stale threshold`);
+ok(restarted.every(c => c.stage !== "closer in season"), "no restart is shown where the closer rate is used");
+ok(!/New customer/.test(api.rankedRowsHtml([byId[282]])), "a restarted row is not labelled a new customer");
+
 // ── Freshness ──
 ok(api.freshnessWarning(payload, { last_updated: payload.data_last_updated }) === null,
   "no warning when built from the live scrape");

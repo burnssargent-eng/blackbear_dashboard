@@ -196,7 +196,9 @@ raw figure lives in the detail CSV.
 **Everyone else is placed automatically by the ladder** (since 2026-10-08,
 `analysis/replay_newcomers.md`): fewer than 3 pickups is insufficient (the
 first pickup only starts the clock; its gallons never enter a rate); *new* =
-pooled rate over at most the last 6 gaps; *established* (a previous-year rate
+pooled rate over at most the last 6 gaps — also used, from the reopening on,
+for a customer back after a gap longer than `STALE_DAYS` inside a rate window
+(`dormant_restart`, since 2026-10-09; `dormant_restart.md`); *established* (a previous-year rate
 exists) = the 50/50; *seasonal* (passes `analysis/seasonal_open.py`, scored
 from complete years before this one, shuffles seeded per customer) = half
 Sarge's 70/30 (last year around the date / last 2 pickups) + half the last 3
