@@ -4,10 +4,21 @@ What comes next for the pickup projections, and what is in flight. The method
 and its history are in [`README.md`](README.md); read that first.
 
 Owner: Sarge. Business direction (regions, capacities, what a route means):
-Jim. Last updated 2026-10-08 — **update the "In flight" section whenever a step
+Jim. Last updated 2026-10-11 — **update the "In flight" section whenever a step
 finishes**, so a fresh session does not redo or skip it.
 
 ## In flight
+
+### Off-season calls on open days (2026-10-11)
+
+Closers ranked off-season on a recent call now accrue oil on open-season days
+only (stage *closer off-season*). Two rows today (Jay Peak Hotel Jay, Okemo
+Jackson Gore Inn); more as closers go off-season. Watch the off-season
+rows in the live test this winter. From the same study
+(`model_research_2026_10/model_recommendations.md`), still open:
+**ask Jim when the closers actually open and close, and how the first visit of
+a season is timed** (month-level seasons over-project the first pickup by
+~94%), and **re-test a faster-decaying rate for the new stage in 2027**.
 
 ### Dormant-gap restart (2026-10-09)
 

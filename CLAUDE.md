@@ -210,7 +210,9 @@ and stale wins over will-call. Rows without their own WAPE get calibrated
 range factors (`RANGE_FACTORS`), never a flat ±20%. A customer NOT in the
 registry whose last 2 complete years show a closed block is a *detected
 closer* (`seasonal_open.closed_months`), routed like a semi-closer; every
-closer in season is ranked on its open-season gaps. **Monthly shapes keep
+closer in season is ranked on its open-season gaps, and a closer ranked
+off-season on a recent call accrues on open-season days only (*closer
+off-season*, `model_research_2026_10/reopening.md`). **Monthly shapes keep
 zero months as zero** (`seasonal_open.zero_keeping_shape`):
 `cf.factor_from_years` turns an all-zero month into 1.0, which hid closures.
 
