@@ -89,7 +89,9 @@ precedence order:
 5. **semi-closer / call-driven** -- the same, except off-season it is held out only
    once silent longer than max(60,
    2 x median gap) days -- the fringe table's
-   *no recent call signal* rule. A recent off-season call keeps it ranked.
+   *no recent call signal* rule. A recent off-season call keeps it ranked,
+   as *closer off-season*: its open-season rate x the open-season days since
+   the clock, so the closed months add no oil (`model_research_2026_10/reopening.md`).
    **closer (detected)** -- a customer NOT in the registry whose
    last 2 complete years show a closed block
    (`seasonal_open.closed_months`, `seasonal_closed.md`) is routed exactly like
@@ -119,7 +121,7 @@ Capacity problems are reported in *flags*, separately from the model status.
 |---|---:|
 | Active customers considered | 511 |
 | Model-ready (a stage rate) | 466 |
-| — stage new / established / seasonal / closer in season | 105 / 333 / 16 / 12 |
+| — stage new / established / seasonal / closer in season / closer off-season | 105 / 331 / 16 / 12 / 2 |
 | Detected closers (not in the registry) | 8 |
 | — ranked in the main table | 357 |
 | — seasonal holdouts | 9 |
@@ -283,7 +285,7 @@ built here.
 | 1388 | Okemo- Mountain Resort | true closer | Dec-Apr | Pickups only Dec-Apr in both seasons it has; May-Sep index 0.00. Two years only. |
 | 817 | Suicide 6= Saskadena | true closer | Nov-Apr | Quiet May-Oct, repeatability 0.84 over 3 years. |
 
-Overridden customers still ranked: Thunder Road  4567 (closer (detected)), Mad River Glen (seasonal open-ish), Quechee Gorge Snack Bar (semi-closer / call-driven), Cravens Food Truck-Middlebury (closer (detected)), Gondola’s Downtown Morrisville (closer (detected)), White Cottage (closer (detected)), Stowe Mountain-Spruce Peak (seasonal open-ish), Jay Peak- Hotel Jay -OutsideNow (semi-closer / call-driven), Jay Peak-waterslide (seasonal open-ish), Texas Roadhouse-# 1122-Mahoney (closer (detected)), Mad Taco-Middlebury (closer (detected)), Sugarbush Resort (seasonal open-ish), Toziers- (semi-closer / call-driven), Okemo-Jackson Gore Inn (semi-closer / call-driven).
+Overridden customers still ranked: Thunder Road  4567 (closer (detected)), Mad River Glen (seasonal open-ish), Quechee Gorge Snack Bar (semi-closer / call-driven), Cravens Food Truck-Middlebury (closer (detected)), Gondola’s Downtown Morrisville (closer (detected)), White Cottage (closer (detected)), Stowe Mountain-Spruce Peak (seasonal open-ish), Jay Peak-waterslide (seasonal open-ish), Texas Roadhouse-# 1122-Mahoney (closer (detected)), Mad Taco-Middlebury (closer (detected)), Sugarbush Resort (seasonal open-ish), Jay Peak- Hotel Jay -OutsideNow (semi-closer / call-driven), Toziers- (semi-closer / call-driven), Okemo-Jackson Gore Inn (semi-closer / call-driven).
 
 ## Top capacity problems
 

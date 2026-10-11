@@ -143,6 +143,7 @@ STAGE_NEW = "new"
 STAGE_ESTABLISHED = "established"
 STAGE_SEASONAL = "seasonal"
 STAGE_CLOSER = "closer in season"
+STAGE_CLOSER_OFF = "closer off-season"   # ranked on a recent call; accrues on open days only
 
 # Will-call: chosen on 2021-23 gaps, confirmed on 2024-26.
 WILL_CALL_WINDOW_DAYS = 3 * 365
@@ -978,6 +979,24 @@ def season_months(spec):
     return {(start + i) % 12 for i in range((end - start) % 12 + 1)}
 
 
+def open_days(start, end, months):
+    """Days in (start, end] that fall in the open months (0-11)."""
+    return sum(1 for d in range(1, (end - start).days + 1)
+               if (start + timedelta(days=d)).month - 1 in months)
+
+
+def calendar_days_for_open(start, needed, months):
+    """Calendar days after `start` until `needed` open days have passed."""
+    elapsed = 0
+    while needed > 0:
+        elapsed += 1
+        if (start + timedelta(days=elapsed)).month - 1 in months:
+            if needed <= 1:
+                return elapsed - 1 + needed
+            needed -= 1
+    return float(elapsed)
+
+
 def season_opened(spec, asof):
     """
     First day of the season `asof` falls in, or None when `asof` is off-season.
@@ -1135,10 +1154,28 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
         routing_reason += ("; rate from its open-season pickups" if closer_rate is not None
                            else "; too few open-season gaps, so the stage rate, which "
                                 "includes closed months and likely understates")
+
+    # An off-season closer ranked on a recent call accrues oil on open days
+    # only: counting the closed months flagged 88% of these rows urgent with no
+    # pickup in the next 30 days (model_research_2026_10/reopening.md, H2).
+    open_months = None
+    if (section == SECTION_RANKED and override and override.status in SEASONAL_STATUSES
+            and season_opened(override.season, asof) is None):
+        open_months = season_months(override.season)
+        open_rate = rate_open_season(pickups, override.season)
+        if open_rate is not None:
+            stage, rate = STAGE_CLOSER_OFF, open_rate
+            restart = None
+        routing_reason += (f"; projected on {open_days(clock_start, asof, open_months)} "
+                           f"open-season days since {clock_start.isoformat()}"
+                           + ("" if open_rate is not None else
+                              ", at the stage rate (too few open-season gaps)"))
     hint = None if override else review_hint(season)
 
     target = capacity * TARGET_FRACTION if capacity is not None else None
-    projected = rate * days_accumulating if rate is not None else None
+    exposure_days = (open_days(clock_start, asof, open_months) if open_months
+                     else days_accumulating)
+    projected = rate * exposure_days if rate is not None else None
 
     # Likely range: the customer's own backtested WAPE where it exists (an
     # established customer), otherwise the replay's calibrated factors for the
@@ -1147,13 +1184,13 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
     low = high = None
     band_used = ""
     if projected is not None:
-        if stage not in (STAGE_NEW, STAGE_CLOSER) and cid in wape:
+        if stage not in (STAGE_NEW, STAGE_CLOSER, STAGE_CLOSER_OFF) and cid in wape:
             band_pct = wape[cid]
             band_used = f"customer WAPE {band_pct:.1f}%"
             low = max(0.0, projected * (1 - band_pct / 100))
             high = projected * (1 + band_pct / 100)
         else:
-            key = (STAGE_CLOSER if stage == STAGE_CLOSER
+            key = (STAGE_CLOSER if stage in (STAGE_CLOSER, STAGE_CLOSER_OFF)
                    else STAGE_ESTABLISHED if stage != STAGE_NEW
                    else f"new, {gaps} gaps" if gaps <= 3 else "new, 4+ gaps")
             lo_f, hi_f = RANGE_FACTORS[key]
@@ -1165,6 +1202,9 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
         raw_pct = projected / capacity * 100
         if rate > 0:
             days_until = (target - projected) / rate
+            if open_months and days_until > 0:
+                # Open days to 75% -> calendar days, the closed months passing first.
+                days_until = calendar_days_for_open(asof, days_until, open_months)
             days_past_75 = abs(days_until) if projected > target else 0.0
             days_past_cap = ((projected - capacity) / rate
                              if projected > capacity else 0.0)
@@ -1629,7 +1669,9 @@ precedence order:
 5. **{STATUS_SEMI_CLOSER}** -- the same, except off-season it is held out only
    once silent longer than max({fringe.SILENCE_FLOOR_DAYS},
    {fringe.SILENCE_GAP_MULTIPLE} x median gap) days -- the fringe table's
-   *no recent call signal* rule. A recent off-season call keeps it ranked.
+   *no recent call signal* rule. A recent off-season call keeps it ranked,
+   as *{STAGE_CLOSER_OFF}*: its open-season rate x the open-season days since
+   the clock, so the closed months add no oil (`model_research_2026_10/reopening.md`).
    **{STATUS_DETECTED_CLOSER}** -- a customer NOT in the registry whose
    last {seasonal_open.CLOSED_YEARS_BACK} complete years show a closed block
    (`seasonal_open.closed_months`, `seasonal_closed.md`) is routed exactly like
@@ -1659,7 +1701,7 @@ Capacity problems are reported in *flags*, separately from the model status.
 |---|---:|
 | Active customers considered | {counts['active']} |
 | Model-ready (a stage rate) | {counts['model_ready']} |
-| — stage new / established / seasonal / closer in season | {counts['stages']} |
+| — stage new / established / seasonal / closer in season / closer off-season | {counts['stages']} |
 | Detected closers (not in the registry) | {counts['detected_closers']} |
 | — ranked in the main table | {len(ranked)} |
 | — seasonal holdouts | {len(seasonal)} |
@@ -1862,7 +1904,7 @@ def main():
                            if r["oil_rate_gpd_projected"] is not None),
         "stages": " / ".join(str(sum(1 for r in rows if r["stage"] == st))
                              for st in (STAGE_NEW, STAGE_ESTABLISHED, STAGE_SEASONAL,
-                                        STAGE_CLOSER)),
+                                        STAGE_CLOSER, STAGE_CLOSER_OFF)),
         "detected_closers": sum(1 for r in rows if r["model_status"] == STATUS_DETECTED_CLOSER),
         "with_wape": sum(1 for r in ranked if r["model_wape_if_available"] is not None),
         "capacity_warning": sum(1 for r in rows if FLAG_OVER_CAPACITY in r["flags"]
@@ -1887,7 +1929,7 @@ def main():
     print(f"As of {asof.isoformat()}\n")
     print(f"  active customers considered   {counts['active']:>4}")
     print(f"  model-ready (a stage rate)    {counts['model_ready']:>4}")
-    print(f"    new / established / seasonal / closer in season  {counts['stages']}")
+    print(f"    new / established / seasonal / closer in / off season  {counts['stages']}")
     print(f"  detected closers              {counts['detected_closers']:>4}")
     for section in SECTION_ORDER:
         print(f"    {section:28}{in_section(section):>4}")

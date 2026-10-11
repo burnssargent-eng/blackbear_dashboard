@@ -54,8 +54,9 @@ Then every row is **routed** to one section, in this order:
 3. **Insufficient data** — fewer than 3 pickups.
 4. **True closers** (registry) and **detected closers** (`seasonal_open.closed_months`, routed like semi-closers) are held out whenever the month is outside their
    month-level season; **semi-closers** only when off-season *and* silent past
-   max(60, 2 × median gap) days. Either is held out as *season open — awaiting
-   first pickup* until it gets a pickup inside the current season.
+   max(60, 2 × median gap) days; ranked off-season on a recent call, it accrues
+   on open-season days only (*closer off-season*). Either is held out as *season
+   open — awaiting first pickup* until it gets a pickup inside the current season.
 5. **Stale** — no pickup in 180 days.
 6. Everything else is **ranked** on its stage's rate, including *seasonal open-ish* overrides,
    most urgent first (days past capacity, days past 75%, % full).
@@ -104,6 +105,7 @@ capacity is fixed on the site and arrives with the next nightly. See
 | 2026-10-09 | **Live test** on the Projections page: every scraped pickup scored against the frozen projection served before it (advanced to the pickup date at the row's rate, range scaled with it); held-out rows logged as not projected. Backfilled from the 19 served versions since 2026-09-21: 169 scored, WAPE 25.5%, bias −6.1%, 52% inside range | `live_test.py`, nightly, `projections.html` |
 | 2026-10-09 | Live test reports **net proj − actual** (misses summed so they cancel; a Total row per day) and **% error** per pickup. Inside-range figures dropped at Sarge's request | `live_test.py`, `projections.html` |
 | 2026-10-09 | **Dormant-gap restart adopted; consistency gate rejected.** Schaffers projected 17 gal vs 100: a 448-day closure sat inside both 50/50 windows. A gap > 180 d (`STALE_DAYS`) inside a rate window with 3+ pickups since → the new-customer pooled rate from the reopening: confirm −0.13 WAPE (−0.25 to −0.02, customer bootstrap); where it fires (2% of pickups) WAPE 50 → 41, bias −38% → +1%. Sarge's gate (last 3–5 gaps within 60–120 d, interval-rate CV ≤ 0.25/0.4 → their pooled rate): all 18 variants worse on confirm (+0.2 to +1.0), over-projecting where fired. 26 ranked customers move today, several summer-only — closer-registry candidates | `backtest_dormant_restart.py`, `dormant_restart.md`, builder |
+| 2026-10-11 | **Off-season calls accrue on open days only.** A semi- or detected closer ranked off-season on a recent call was projected at its stage rate × every day since the clock, closed months included: in weekly replays (2018–26) 88% of the off-season rows it flagged had no pickup within 30 days, against 34% in season. Now it takes the open-season rate × open-season days since the clock (stage *closer off-season*; days to 75% count the closed days first). Flags fall 214 → 59 and the no-pickup share to 75% (confirm 87% → 62%); on the 17 off-season pickups that happened, WAPE 182% → 85%. Partially observed: no pickup does not prove an empty barrel. Part of a wider study (A–K) that found no rate-formula change worth adopting | [`model_research_2026_10/`](model_research_2026_10/model_recommendations.md), `build_projection_table.py` |
 
 ## Known weaknesses of the current model
 

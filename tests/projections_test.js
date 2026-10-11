@@ -223,7 +223,7 @@ ok(byId[133] && byId[133].history_start && byId[133].section !== "ranked",
   "JJ's (133) restarts its history and is not ranked on the old tavern's");
 
 // ── The ladder ──
-const STAGES = ["new", "established", "seasonal", "closer in season"];
+const STAGES = ["new", "established", "seasonal", "closer in season", "closer off-season"];
 ok(ranked.every(c => STAGES.includes(c.stage)), "every ranked row has a stage");
 ok(customers.filter(c => c.section === "insufficient data" && !c.history_start)
   .every(c => c.stage === null), "insufficient rows have no stage");
@@ -251,6 +251,13 @@ ok(byId[225] && byId[225].status === "true closer", "the registry still wins: Mo
 const inSeason = ranked.filter(c => c.stage === "closer in season");
 ok(inSeason.length > 0 && /In-season rate/.test(api.rankedRowsHtml([inSeason[0]])),
   `${inSeason.length} closers ranked on their open-season rate, note rendered`);
+
+const offSeason = ranked.filter(c => c.reason && c.reason.startsWith("off-season but called"));
+ok(offSeason.every(c => /open-season days since/.test(c.reason)),
+  `${offSeason.length} off-season ranked closers, each projected on open-season days`);
+ok(offSeason.filter(c => c.stage === "closer off-season").every(c =>
+  /Off-season: counting open-season days only/.test(api.rankedRowsHtml([c]))),
+  "an off-season closer renders its note");
 
 // ── Live test ──
 const live = JSON.parse(fs.readFileSync("oil_live_test.json", "utf8"));
