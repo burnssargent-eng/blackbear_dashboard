@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-11T13:48:16.375729",
+  "last_updated": "2026-10-13T14:49:22.587803",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33771,6 +33771,12 @@
     },
     {
       "month": "2026-10",
+      "geo_town": "Montpelier",
+      "gallons": 450,
+      "city": "Montpelier"
+    },
+    {
+      "month": "2026-10",
       "geo_town": "Morristown",
       "gallons": 175,
       "city": "Morristown"
@@ -33780,6 +33786,12 @@
       "geo_town": "Newport City",
       "gallons": 300,
       "city": "Newport City"
+    },
+    {
+      "month": "2026-10",
+      "geo_town": "Northfield",
+      "gallons": 240,
+      "city": "Northfield"
     },
     {
       "month": "2026-10",
@@ -33822,6 +33834,12 @@
       "geo_town": "Waterford",
       "gallons": 85,
       "city": "Waterford"
+    },
+    {
+      "month": "2026-10",
+      "geo_town": "Williamstown",
+      "gallons": 145,
+      "city": "Williamstown"
     },
     {
       "month": "2026-10",
@@ -41600,7 +41618,7 @@
     {
       "month": "2026-10",
       "county": "Washington",
-      "gallons": 520
+      "gallons": 1355
     },
     {
       "month": "2026-10",
@@ -41655,12 +41673,12 @@
     },
     {
       "year": 2026,
-      "gallons": 231492
+      "gallons": 232327
     }
   ],
-  "all_time_total": 2150259,
-  "current_year_total": 231492,
-  "customer_count": 800,
+  "all_time_total": 2151094,
+  "current_year_total": 232327,
+  "customer_count": 801,
   "unmapped_total": 39852,
   "monthly_totals": [
     {
@@ -42229,7 +42247,7 @@
     },
     {
       "month": "2026-10",
-      "gallons": 6436
+      "gallons": 7271
     }
   ],
   "monthly_by_region": [
@@ -53876,7 +53894,7 @@
     {
       "month": "2026-10",
       "region": "Central",
-      "gallons": 120
+      "gallons": 955
     },
     {
       "month": "2026-10",
@@ -54983,7 +55001,7 @@
     {
       "year": 2026,
       "region": "Central",
-      "gallons": 22752
+      "gallons": 23587
     },
     {
       "year": 2026,
@@ -55117,20 +55135,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 27675,
+  "collections_count": 27694,
   "out_of_state_total": 39852,
-  "active_customer_count": 528,
+  "active_customer_count": 529,
   "projection": {
-    "latest_data_date": "2026-10-09",
+    "latest_data_date": "2026-10-12",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 231492,
+    "current_ytd": 232327,
     "previous_year_full": 269909,
     "previous_through_prior_month": 208859,
     "previous_same_month_total": 21968,
-    "previous_prorated_ytd": 215236.81,
-    "projected_current_year": 290293,
-    "percent_vs_previous_year": 0.075522
+    "previous_prorated_ytd": 217362.74,
+    "projected_current_year": 288491,
+    "percent_vs_previous_year": 0.068845
   },
   "region_stats": {
     "Burlington / South Burlington": {
@@ -55138,8 +55156,8 @@
       "active": 89
     },
     "Central": {
-      "customers": 97,
-      "active": 67
+      "customers": 98,
+      "active": 68
     },
     "Central South": {
       "customers": 43,
@@ -55290,10 +55308,10 @@
     },
     {
       "year": 2026,
-      "places_serviced": 468,
-      "gained": 38,
+      "places_serviced": 469,
+      "gained": 39,
       "lost": 6,
-      "net": 32
+      "net": 33
     }
   ],
   "dormant_cutoff": "2025-01-01",
@@ -55636,7 +55654,8 @@
       1485,
       1488,
       1489,
-      1492
+      1492,
+      1530
     ],
     "Central South": [
       800,
