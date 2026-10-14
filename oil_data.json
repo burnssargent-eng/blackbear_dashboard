@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-13T14:49:22.587803",
+  "last_updated": "2026-10-14T12:41:06.658292",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33747,6 +33747,12 @@
     },
     {
       "month": "2026-10",
+      "geo_town": "Hartford",
+      "gallons": 375,
+      "city": "Hartford"
+    },
+    {
+      "month": "2026-10",
       "geo_town": "Jericho",
       "gallons": 65,
       "city": "Jericho"
@@ -33768,6 +33774,12 @@
       "geo_town": "Lyndon",
       "gallons": 50,
       "city": "Lyndon"
+    },
+    {
+      "month": "2026-10",
+      "geo_town": "Manchester",
+      "gallons": 355,
+      "city": "Manchester"
     },
     {
       "month": "2026-10",
@@ -33852,6 +33864,12 @@
       "geo_town": "Winooski",
       "gallons": 265,
       "city": "Winooski"
+    },
+    {
+      "month": "2026-10",
+      "geo_town": "Woodstock",
+      "gallons": 350,
+      "city": "Woodstock"
     }
   ],
   "monthly_by_county": [
@@ -41592,6 +41610,11 @@
     },
     {
       "month": "2026-10",
+      "county": "Bennington",
+      "gallons": 355
+    },
+    {
+      "month": "2026-10",
       "county": "Caledonia",
       "gallons": 210
     },
@@ -41617,13 +41640,18 @@
     },
     {
       "month": "2026-10",
+      "county": "Out-of-State (NH)",
+      "gallons": 207
+    },
+    {
+      "month": "2026-10",
       "county": "Washington",
       "gallons": 1355
     },
     {
       "month": "2026-10",
       "county": "Windsor",
-      "gallons": 530
+      "gallons": 1255
     }
   ],
   "yearly_totals": [
@@ -41673,13 +41701,13 @@
     },
     {
       "year": 2026,
-      "gallons": 232327
+      "gallons": 233614
     }
   ],
-  "all_time_total": 2151094,
-  "current_year_total": 232327,
+  "all_time_total": 2152381,
+  "current_year_total": 233614,
   "customer_count": 801,
-  "unmapped_total": 39852,
+  "unmapped_total": 40059,
   "monthly_totals": [
     {
       "month": "2015-01",
@@ -42247,7 +42275,7 @@
     },
     {
       "month": "2026-10",
-      "gallons": 7271
+      "gallons": 8558
     }
   ],
   "monthly_by_region": [
@@ -53899,7 +53927,7 @@
     {
       "month": "2026-10",
       "region": "Central South",
-      "gallons": 410
+      "gallons": 1342
     },
     {
       "month": "2026-10",
@@ -53943,8 +53971,13 @@
     },
     {
       "month": "2026-10",
+      "region": "South",
+      "gallons": 355
+    },
+    {
+      "month": "2026-10",
       "region": "South / Ski Combined",
-      "gallons": 260
+      "gallons": 615
     },
     {
       "month": "2026-10",
@@ -53954,7 +53987,7 @@
     {
       "month": "2026-10",
       "region": "Summer Snack Stops",
-      "gallons": 230
+      "gallons": 470
     },
     {
       "month": "2026-10",
@@ -53964,7 +53997,7 @@
     {
       "month": "2026-10",
       "region": "Winter / Summer Combined",
-      "gallons": 550
+      "gallons": 790
     }
   ],
   "yearly_by_region": [
@@ -55006,7 +55039,7 @@
     {
       "year": 2026,
       "region": "Central South",
-      "gallons": 13184
+      "gallons": 14116
     },
     {
       "year": 2026,
@@ -55056,12 +55089,12 @@
     {
       "year": 2026,
       "region": "South",
-      "gallons": 3625
+      "gallons": 3980
     },
     {
       "year": 2026,
       "region": "South / Ski Combined",
-      "gallons": 10040
+      "gallons": 10395
     },
     {
       "year": 2026,
@@ -55071,7 +55104,7 @@
     {
       "year": 2026,
       "region": "Summer Snack Stops",
-      "gallons": 12575
+      "gallons": 12815
     },
     {
       "year": 2026,
@@ -55086,7 +55119,7 @@
     {
       "year": 2026,
       "region": "Winter / Summer Combined",
-      "gallons": 28620
+      "gallons": 28860
     }
   ],
   "region_names": [
@@ -55096,8 +55129,8 @@
     "Outer Burlington",
     "Perrigo",
     "Northwest",
-    "North-Northeast",
     "Central South",
+    "North-Northeast",
     "Route 15",
     "Route 2 East / Route 5",
     "Route 7",
@@ -55135,20 +55168,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 27694,
-  "out_of_state_total": 39852,
+  "collections_count": 27706,
+  "out_of_state_total": 40059,
   "active_customer_count": 529,
   "projection": {
-    "latest_data_date": "2026-10-12",
+    "latest_data_date": "2026-10-13",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 232327,
+    "current_ytd": 233614,
     "previous_year_full": 269909,
     "previous_through_prior_month": 208859,
     "previous_same_month_total": 21968,
-    "previous_prorated_ytd": 217362.74,
-    "projected_current_year": 288491,
-    "percent_vs_previous_year": 0.068845
+    "previous_prorated_ytd": 218071.39,
+    "projected_current_year": 289146,
+    "percent_vs_previous_year": 0.071273
   },
   "region_stats": {
     "Burlington / South Burlington": {
