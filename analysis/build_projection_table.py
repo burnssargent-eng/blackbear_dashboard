@@ -24,7 +24,9 @@ queue ordering, not a forecast of volume.
 THE LADDER (since 2026-10-08; replay_newcomers.md). Every customer is placed
 automatically, so a new account needs no manual survey:
 
-    insufficient  fewer than 3 pickups         no projection
+    insufficient  fewer than 3 pickups, or     no projection
+                  fewer than 3 since a return
+                  after a gap > 365 days
     new           3+ pickups, no prev-year     pooled rate over at most the last
                                                6 gaps (never the FIRST pickup's
                                                gallons: oil may predate the barrel)
@@ -136,6 +138,15 @@ YEAR_DAYS = bt.YEAR_DAYS        # 365, matching the backtests
 # held out of the urgency ranking. is_active only means "not dormant since
 # 2025-01-01", so it admits customers years past their last pickup.
 STALE_DAYS = 180
+
+# Back after a gap longer than this, a customer starts over as a newcomer:
+# no projection until NEW_MIN_PICKUPS pickups since the return. Its old rates
+# divide by the dead stretch (2019-26 backtest: 80% WAPE, -77% bias, actual
+# 4-5x projected), and neither the pre-gap rate nor a one-gap rate held up in
+# both periods (dormant_restart.md, 2026-10-15). Gaps of 181-365 days, mostly
+# seasonal reopenings, keep their projection: hiding them was not tested
+# better and would empty ~20 rows each spring.
+COMEBACK_HOLD_DAYS = 365
 
 # The ladder (replay_newcomers.md, 2026-10-08).
 NEW_MIN_PICKUPS = 3             # the first is a starting point: 3 pickups = 2 gaps
@@ -614,6 +625,20 @@ def dormant_restart(pickups, asof, threshold=STALE_DAYS):
     return j, (pickups[j]["date"] - pickups[j - 1]["date"]).days
 
 
+def comeback_hold(pickups, threshold=COMEBACK_HOLD_DAYS):
+    """
+    (gap in days, pickups since) when fewer than NEW_MIN_PICKUPS pickups follow
+    the latest gap longer than `threshold`, else None. Such a customer is held
+    as insufficient data, like a newcomer, until dormant_restart can take over.
+    """
+    n = len(pickups)
+    for i in range(n - 1, max(n - NEW_MIN_PICKUPS, 0), -1):
+        gap = (pickups[i]["date"] - pickups[i - 1]["date"]).days
+        if gap > threshold:
+            return gap, n - i
+    return None
+
+
 SEASONAL_LY_WEIGHT = 0.7         # Sarge's 70/30: last year vs the last 2 pickups
 SEASONAL_LY_HALF_WIDTH = 21      # days either side of the date, a year back
 # No growth factor on last year's rate: tried 2026-10-08 and removed the same
@@ -1028,7 +1053,8 @@ def silence_threshold(pickups):
             if gap else fringe.SILENCE_FLOOR_DAYS)
 
 
-def route(override, has_rate, days_since, last_date, pickups, asof, will_call=None):
+def route(override, has_rate, days_since, last_date, pickups, asof, will_call=None,
+          comeback=None):
     """
     (model_status, table_section, routing_reason) for one row.
 
@@ -1051,6 +1077,11 @@ def route(override, has_rate, days_since, last_date, pickups, asof, will_call=No
         reason = (f"{len(pickups)} pickup{'s' if len(pickups) != 1 else ''} so far; "
                   f"projections start at {NEW_MIN_PICKUPS}"
                   if len(pickups) < NEW_MIN_PICKUPS else "")
+        if comeback:
+            gap, since = comeback
+            reason = (f"back after {gap} days without a pickup; {since} pickup"
+                      f"{'s' if since != 1 else ''} since, projections restart at "
+                      f"{NEW_MIN_PICKUPS}")
         return (status if override else STATUS_INSUFFICIENT,
                 SECTION_INSUFFICIENT, reason)
 
@@ -1106,7 +1137,13 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
     gaps = len(pickups) - 1
     stage = rate = factor = season_a = season_b = None
     restart = dormant_restart(pickups, asof)
-    if restart:
+    # Only a row that would otherwise be ranked: stale and will-call say more.
+    will_call = will_call_signal(pickups, asof)
+    comeback = (comeback_hold(pickups)
+                if days_since <= STALE_DAYS and not will_call else None)
+    if comeback:
+        pass                        # starting over: insufficient data, no rate
+    elif restart:
         # Back after a dormant gap: a new customer from the reopening on.
         since = pickups[restart[0]:]
         gaps = min(len(since) - 1, WINDOW)
@@ -1149,7 +1186,7 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
     # check counts as a fresh start.
     status, section, routing_reason = route(
         override, rate is not None, days_since, clock_start, pickups, asof,
-        will_call_signal(pickups, asof))
+        will_call, comeback)
     if section == SECTION_RANKED and routing_reason.startswith("in season"):
         routing_reason += ("; rate from its open-season pickups" if closer_rate is not None
                            else "; too few open-season gaps, so the stage rate, which "
@@ -1678,7 +1715,9 @@ precedence order:
 2. **{STATUS_WILL_CALL}** -- the detector above, for customers NOT in the
    registry and not stale. A human override always wins over it. Listed
    longest-since-pickup first.
-3. **insufficient data** -- fewer than {NEW_MIN_PICKUPS} pickups.
+3. **insufficient data** -- fewer than {NEW_MIN_PICKUPS} pickups, or fewer
+   than {NEW_MIN_PICKUPS} since a return after more than {COMEBACK_HOLD_DAYS}
+   days without one.
 4. **{STATUS_TRUE_CLOSER}** -- outside its configured month-level season it is
    held out as *off-season*, however long the silence. In season, if the last
    pickup came before the season opened, it is held out as *season open --
@@ -1789,7 +1828,9 @@ Customers whose recent collections do not fit the listed capacity. These are
 ## Customers excluded or low confidence
 
 **Insufficient data ({len(insufficient)}).** Fewer than {NEW_MIN_PICKUPS}
-pickups: the first only starts the clock, so a rate needs two more.
+pickups: the first only starts the clock, so a rate needs two more. A customer
+back after more than {COMEBACK_HOLD_DAYS} days without a pickup counts its
+pickups from the return.
 
 **Stale ({len(stale)}).** Model-ready but no pickup in {STALE_DAYS}+ days. All
 columns are in the CSV under `table_section = {SECTION_STALE}`.

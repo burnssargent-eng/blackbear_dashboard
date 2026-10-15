@@ -9,6 +9,15 @@ finishes**, so a fresh session does not redo or skip it.
 
 ## In flight
 
+### Comeback hold (2026-10-15)
+
+Customers back after more than a year without a pickup are insufficient data
+until 3 pickups since the return (7 ranked rows today). Still open: returns
+after 181–365 days (mostly seasonal reopenings) are projected ~50% low on
+their first two pickups — tie it to asking Jim how the first visit of a
+season is timed. Re-test a 2-pickup hold in 2027, once its 2024–26 win (17
+pickups) has more behind it.
+
 ### Projection capped at capacity (2026-10-15)
 
 Shown projected gallons and the range's high end are capped at listed

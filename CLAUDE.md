@@ -198,7 +198,9 @@ keep using it, so the cap changes no order.
 
 **Everyone else is placed automatically by the ladder** (since 2026-10-08,
 `analysis/replay_newcomers.md`): fewer than 3 pickups is insufficient (the
-first pickup only starts the clock; its gallons never enter a rate); *new* =
+first pickup only starts the clock; its gallons never enter a rate — and a
+customer back after more than 365 days counts its pickups from the return,
+`COMEBACK_HOLD_DAYS`, since 2026-10-15); *new* =
 pooled rate over at most the last 6 gaps — also used, from the reopening on,
 for a customer back after a gap longer than `STALE_DAYS` inside a rate window
 (`dormant_restart`, since 2026-10-09; `dormant_restart.md`); *established* (a previous-year rate
