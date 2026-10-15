@@ -9,6 +9,13 @@ finishes**, so a fresh session does not redo or skip it.
 
 ## In flight
 
+### Projection capped at capacity (2026-10-15)
+
+Shown projected gallons and the range's high end are capped at listed
+capacity; ranking and days-past columns are not. Watch in the live test
+whether capped rows come in near capacity or well under it (the backtest says
+under: capped over-capacity rows still ran ~47% high).
+
 ### Off-season calls on open days (2026-10-11)
 
 Closers ranked off-season on a recent call now accrue oil on open-season days

@@ -33,10 +33,12 @@ rate       = by stage (the ladder, since 2026-10-08):
              closer       in season: pooled over open-season gaps only (registry or detected closer)
 clock      = the last pickup, or a later empty check (qty 0 or 1), whichever is later
 projected  = rate × days since the clock started                         (gallons)
+             shown capped at listed capacity; uncapped in model_projected_gallons
 target     = 0.75 × listed capacity                                      (the pickup point)
 % full     = projected ÷ capacity, capped at 100 for display (raw kept in _detail.csv)
 band       = ± the customer's own backtested WAPE (analysis/customer_wape.json) once past
-             "new", else projection × RANGE_FACTORS (20th–80th pct, replay_newcomers.md)
+             "new", else projection × RANGE_FACTORS (20th–80th pct, replay_newcomers.md);
+             built on the capped estimate, high end capped at capacity
 ```
 
 Before routing, accounts in `SHARED_CONTAINERS` are folded into one row per
@@ -106,6 +108,7 @@ capacity is fixed on the site and arrives with the next nightly. See
 | 2026-10-09 | Live test reports **net proj − actual** (misses summed so they cancel; a Total row per day) and **% error** per pickup. Inside-range figures dropped at Sarge's request | `live_test.py`, `projections.html` |
 | 2026-10-09 | **Dormant-gap restart adopted; consistency gate rejected.** Schaffers projected 17 gal vs 100: a 448-day closure sat inside both 50/50 windows. A gap > 180 d (`STALE_DAYS`) inside a rate window with 3+ pickups since → the new-customer pooled rate from the reopening: confirm −0.13 WAPE (−0.25 to −0.02, customer bootstrap); where it fires (2% of pickups) WAPE 50 → 41, bias −38% → +1%. Sarge's gate (last 3–5 gaps within 60–120 d, interval-rate CV ≤ 0.25/0.4 → their pooled rate): all 18 variants worse on confirm (+0.2 to +1.0), over-projecting where fired. 26 ranked customers move today, several summer-only — closer-registry candidates | `backtest_dormant_restart.py`, `dormant_restart.md`, builder |
 | 2026-10-11 | **Off-season calls accrue on open days only.** A semi- or detected closer ranked off-season on a recent call was projected at its stage rate × every day since the clock, closed months included: in weekly replays (2018–26) 88% of the off-season rows it flagged had no pickup within 30 days, against 34% in season. Now it takes the open-season rate × open-season days since the clock (stage *closer off-season*; days to 75% count the closed days first). Flags fall 214 → 59 and the no-pickup share to 75% (confirm 87% → 62%); on the 17 off-season pickups that happened, WAPE 182% → 85%. Partially observed: no pickup does not prove an empty barrel. Part of a wider study (A–K) that found no rate-formula change worth adopting | [`model_research_2026_10/`](model_research_2026_10/model_recommendations.md), `build_projection_table.py` |
+| 2026-10-15 | **Projection capped at listed capacity.** Rate × days keeps growing after a container is full (Cafe Hot: 337 gal on a 150 barrel, average pickup 72). Phase 2 backtest, 50/50 scored with today's capacities: 196 of 9,749 pickups projected over capacity, 39,200 gal projected vs 18,947 collected (32 actually exceeded capacity); capped, 27,905. WAPE 32.1% → 30.7%, live test 25.8% → 25.5%. Aggregate bias −3.6% → −5.1% (live −5.3% → −5.6%): the removed overprojection was offsetting underprojection elsewhere, no row gets more under-projected. The range is built on the capped estimate, high end capped. **Asymmetric factor ranges kept**: a symmetric ±60th-pct band (new ±51/37/32%, established ±33%) holds 60% coverage but puts ~25% of pickups above the high end and ~15% below, because misses run high. Ranking and days-past columns stay uncapped (no order change; 22 rows changed today) | builder, `live_test.py`, `projections.html` values |
 
 ## Known weaknesses of the current model
 

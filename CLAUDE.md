@@ -191,7 +191,10 @@ month-level season where one applies. `fringe_seasonal_candidates` informs the
 registry but is never read by it: its labels are review prompts, not
 classifications. Overrides change routing and which columns show, never the
 50/50 arithmetic or a listed capacity. Operator `% full` is capped at 100; the
-raw figure lives in the detail CSV.
+raw figure lives in the detail CSV. Shown projected gallons and the range's
+high end are capped at listed capacity too (since 2026-10-15); the uncapped
+figure is `model_projected_gallons`, and the ranking and days-past columns
+keep using it, so the cap changes no order.
 
 **Everyone else is placed automatically by the ladder** (since 2026-10-08,
 `analysis/replay_newcomers.md`): fewer than 3 pickups is insufficient (the

@@ -149,6 +149,13 @@ def score_version(payload, gallons, log):
             if base > 0 and row.get("range_low") is not None:
                 factor = projected / base
                 low, high = row["range_low"] * factor, row["range_high"] * factor
+            # Served projections are capped at listed capacity since
+            # 2026-10-15; carrying one forward must not run past it either.
+            cap = row.get("capacity")
+            if cap:
+                projected = min(projected, cap)
+                if high is not None:
+                    low, high = min(low, cap), min(high, cap)
 
         log[key] = {
             "pickup_date": day.isoformat(),

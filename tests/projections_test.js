@@ -149,6 +149,9 @@ ok(sample.avg_collection_all !== null && sampleRow.includes(`>${sample.avg_colle
 ok(ranked.every(c => c.capacity === null || c.rate_gpd === null || c.periodicity_days === null ||
   Math.abs(c.periodicity_days / (payload.target_fraction * c.capacity / c.rate_gpd) - 1) < 0.02),
   "exported periodicity = target fraction x capacity / gal per day (gal/day is rounded)");
+ok(ranked.every(c => c.capacity === null || c.projected_gal === null ||
+  (c.projected_gal <= c.capacity && c.range_high <= c.capacity && c.range_low <= c.projected_gal)),
+  "projected gallons and the range's high end are capped at listed capacity");
 ok(!/Likely range|Days building/.test(list.innerHTML), "old Likely range and Days building columns gone");
 
 // ── Sorting ──
@@ -235,7 +238,8 @@ ok(willCall.every(c => !["on-demand / unlimited", "event-driven", "true closer",
   "no override is detected as will-call");
 ok(/Will-call/.test(held), "will-call section rendered");
 const newRows = ranked.filter(c => c.stage === "new");
-ok(newRows.length > 0 && newRows.every(c => c.range_high >= c.projected_gal * 1.3 - 1),
+ok(newRows.length > 0 && newRows.every(c => c.range_high >= c.projected_gal * 1.3 - 1 ||
+  c.range_high === c.capacity),
   `${newRows.length} new customers carry a range wider than +/-20% on the high side`);
 ok(/New customer/.test(api.rankedRowsHtml([newRows[0]])), "a new customer renders its note");
 const seasonalRows = ranked.filter(c => c.stage === "seasonal");
