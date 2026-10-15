@@ -52,7 +52,7 @@ is *will-call*: listed, never projected.
   with no pickups counts as a real zero.
 - *confidence range* -- the customer's own backtested 50/50 WAPE where one
   exists and the customer is past the *new* stage (121 of the
-  355 ranked rows), otherwise the projection x the replay's 20th
+  348 ranked rows), otherwise the projection x the replay's 20th
   and 80th percentile factors for its stage: new, 2 gaps x0.60-x1.64; new, 3 gaps x0.71-x1.49; new, 4+ gaps x0.70-x1.35; established x0.75-x1.45; closer in season x0.62-x1.64. The
   low end is clamped at zero, since a few customers score over 100% WAPE.
   The factor ranges are wider above than below on purpose: misses run high
@@ -86,7 +86,9 @@ precedence order:
 2. **will-call (detected)** -- the detector above, for customers NOT in the
    registry and not stale. A human override always wins over it. Listed
    longest-since-pickup first.
-3. **insufficient data** -- fewer than 3 pickups.
+3. **insufficient data** -- fewer than 3 pickups, or fewer
+   than 3 since a return after more than 365
+   days without one.
 4. **true closer** -- outside its configured month-level season it is
    held out as *off-season*, however long the silence. In season, if the last
    pickup came before the season opened, it is held out as *season open --
@@ -126,17 +128,17 @@ Capacity problems are reported in *flags*, separately from the model status.
 | | |
 |---|---:|
 | Active customers considered | 512 |
-| Model-ready (a stage rate) | 466 |
-| — stage new / established / seasonal / closer in season / closer off-season | 106 / 330 / 16 / 12 / 2 |
+| Model-ready (a stage rate) | 459 |
+| — stage new / established / seasonal / closer in season / closer off-season | 106 / 323 / 16 / 12 / 2 |
 | Detected closers (not in the registry) | 8 |
-| — ranked in the main table | 355 |
+| — ranked in the main table | 348 |
 | — seasonal holdouts | 9 |
 | — held out as stale | 64 |
 | Event-driven | 2 |
 | On-demand / unlimited | 1 |
 | Lump-sum / interval-based | 0 |
 | Will-call (detected) | 35 |
-| Insufficient data | 46 |
+| Insufficient data | 53 |
 | Missing capacity | 0 |
 | With a capacity warning | 75 |
 | Ranked and projected above listed capacity | 6 |
@@ -145,7 +147,7 @@ Capacity problems are reported in *flags*, separately from the model status.
 
 | Section | Model status | Customers |
 |---|---|---:|
-| ranked | 50/50 default | 341 |
+| ranked | 50/50 default | 334 |
 | ranked | closer (detected) | 6 |
 | ranked | seasonal open-ish | 4 |
 | ranked | semi-closer / call-driven | 4 |
@@ -156,7 +158,7 @@ Capacity problems are reported in *flags*, separately from the model status.
 | on-demand / unlimited | on-demand / unlimited | 1 |
 | will-call | will-call (detected) | 35 |
 | stale | stale - projection not meaningful | 64 |
-| insufficient data | insufficient data | 46 |
+| insufficient data | insufficient data | 53 |
 
 ## Top 25 urgent stops
 
@@ -317,8 +319,10 @@ Customers whose recent collections do not fit the listed capacity. These are
 
 ## Customers excluded or low confidence
 
-**Insufficient data (46).** Fewer than 3
-pickups: the first only starts the clock, so a rate needs two more.
+**Insufficient data (53).** Fewer than 3
+pickups: the first only starts the clock, so a rate needs two more. A customer
+back after more than 365 days without a pickup counts its
+pickups from the return.
 
 **Stale (64).** Model-ready but no pickup in 180+ days. All
 columns are in the CSV under `table_section = stale`.

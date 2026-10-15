@@ -204,6 +204,122 @@ def affected_now():
     return len(rows), "\n".join(lines)
 
 
+COMEBACK_SINCE = 2019               # pickups scored from this year on
+COMEBACK_SPLIT = 2024               # choose < this <= confirm
+
+
+def comeback_rate(h, asof):
+    """The builder's non-seasonal ladder rate on history h (no comeback hold)."""
+    if len(h) < bpt.NEW_MIN_PICKUPS:
+        return None
+    hit = bpt.dormant_restart(h, asof)
+    if hit:
+        return bpt.rate_pooled(h[hit[0]:])
+    pooled, prev = bpt.rate_pooled(h), bpt.rate_prev_year_asof(h, asof)
+    if pooled is None:
+        return None
+    return (pooled + prev) / 2 if prev is not None else pooled
+
+
+def comeback_rows():
+    """
+    Every open customer's pickups (no 8-pickup minimum: a comeback is often a
+    thin history), projected by the ladder from the pickups before each one.
+    Tagged when fewer than NEW_MIN_PICKUPS pickups follow the latest gap over
+    STALE_DAYS, with two alternatives: the ladder rate as of the last pickup
+    before the gap, and the pooled rate of the one post-gap gap.
+    """
+    pickups = bt.load_pickups(ids=None)
+    checks = bpt.load_empty_checks(bpt.date.max)
+    bpt.apply_history_starts(pickups, checks)
+    bpt.combine_shared(pickups, checks, {}, defaultdict(list), bpt.load_active_ids())
+    excluded = {cid for cid, o in bpt.MODEL_OVERRIDES.items() if o.status in p2.NOT_OPEN}
+    rows = []
+    for cid, ps in pickups.items():
+        if cid in excluded:
+            continue
+        for k in range(bpt.NEW_MIN_PICKUPS, len(ps)):
+            x = ps[k]
+            if x["date"].year < COMEBACK_SINCE or x["gallons"] <= 0:
+                continue
+            days = (x["date"] - p2.clock_start(ps, k, checks.get(cid, []))).days
+            if days <= 0 or days > bpt.STALE_DAYS:
+                continue
+            h = ps[:k]
+            rate = comeback_rate(h, x["date"])
+            if rate is None:
+                continue
+            gap = next(((i, (h[i]["date"] - h[i - 1]["date"]).days)
+                        for i in range(len(h) - 1, 0, -1)
+                        if (h[i]["date"] - h[i - 1]["date"]).days > bpt.STALE_DAYS), None)
+            row = {"customer_id": cid, "date": x["date"], "actual": x["gallons"],
+                   "group": None, "pred": {PROD: rate * days}}
+            if gap and len(h) - gap[0] < bpt.NEW_MIN_PICKUPS:
+                j, length = gap
+                since = len(h) - j
+                row["group"] = (("gap > 365 d" if length > 365 else "gap 181–365 d"),
+                                since)
+                pre = h[:j]
+                pre_rate = comeback_rate(pre, pre[-1]["date"]) if len(pre) >= 3 else None
+                one_gap = bpt.rate_pooled(h[j:]) if since >= 2 else None
+                for m, r in (("Pre-gap rate", pre_rate), ("One-gap rate", one_gap)):
+                    if r is not None:
+                        row["pred"][m] = r * days
+            rows.append(row)
+    return rows
+
+
+def comeback_section(rng):
+    rows = comeback_rows()
+    out = ["## Comeback hold (2026-10-15)\n",
+           "The restart needs 3 pickups since the gap, so the first two after a "
+           "return were projected from rates that divide by the dead stretch "
+           "(South Village Mobile, live test 2026-10-12: 0.9 gal projected, 50 "
+           "collected, after 2,111 days). Every open customer's pickups from "
+           f"{COMEBACK_SINCE} (no 8-pickup minimum), projected by the ladder; "
+           "*since* = pickups since the gap in the history used. **Decision: a "
+           "gap over 365 days holds the customer as insufficient data until 3 "
+           "pickups since the return** (`COMEBACK_HOLD_DAYS`; only rows that "
+           "would be ranked). The pre-gap rate beats production in both periods "
+           "for gaps over a year but still misses by ~56%, and stays near zero "
+           "for accounts that were sparse before the gap (South Village: 0.3 "
+           "gal); the one-gap rate wins on confirm only, on 17 pickups, and "
+           "over-projects on choose. Gaps of 181–365 days (mostly seasonal "
+           "reopenings) keep their projection, biased low as they are: no "
+           "alternative held up in both periods.\n",
+           "| Group | Pickups | Customers | WAPE | Bias | Median actual ÷ projected |",
+           "|---|---:|---:|---:|---:|---:|"]
+    groups = defaultdict(list)
+    for t in rows:
+        groups[t["group"] and f"{t['group'][0]}, {t['group'][1]} since" or "everyone else"].append(t)
+    for g in sorted(groups):
+        sub = groups[g]
+        med = statistics.median(t["actual"] / t["pred"][PROD] for t in sub if t["pred"][PROD] > 0)
+        out.append(f"| {g} | {len(sub):,} | {len({t['customer_id'] for t in sub})} | "
+                   f"{wape(sub, PROD):.1f}% | {bias(sub, PROD):+.1f}% | {med:.2f} |")
+    out += ["", "Alternatives, scored only where they exist; choose = "
+            f"{COMEBACK_SINCE}–{COMEBACK_SPLIT - 1}, confirm = {COMEBACK_SPLIT}–26. "
+            "Difference in WAPE points vs production, 95% interval resampling customers.\n",
+            "| Alternative | Group | Period | Pickups | Production WAPE (bias) | "
+            "Alternative WAPE (bias) | Difference |",
+            "|---|---|---|---:|---|---|---|"]
+    tests = [("Pre-gap rate", "gap > 365 d", (1, 2)),
+             ("Pre-gap rate", "gap 181–365 d", (1, 2)),
+             ("One-gap rate", "gap > 365 d", (2,)),
+             ("One-gap rate", "gap 181–365 d", (2,))]
+    for m, label, sinces in tests:
+        for period, test in (("choose", lambda y: y < COMEBACK_SPLIT),
+                             ("confirm", lambda y: y >= COMEBACK_SPLIT)):
+            sub = [t for t in rows if t["group"] and t["group"][0] == label
+                   and t["group"][1] in sinces and m in t["pred"] and test(t["date"].year)]
+            lo, hi = interval(sub, m, rng)
+            out.append(f"| {m} | {label}, {'/'.join(map(str, sinces))} since | {period} | "
+                       f"{len(sub)} | {wape(sub, PROD):.1f}% ({bias(sub, PROD):+.0f}%) | "
+                       f"{wape(sub, m):.1f}% ({bias(sub, m):+.0f}%) | "
+                       f"**{wape(sub, m) - wape(sub, PROD):+.1f}** [{lo:+.1f}, {hi:+.1f}] |")
+    return "\n".join(out) + "\n"
+
+
 # Follow-up tests run the same day from scratch scripts (not committed), each
 # against production WITH the restart, on this module's walk: choose 2021-23,
 # confirm 2024-26, customer bootstrap. Recorded so they are not re-run blind.
@@ -258,6 +374,8 @@ def main():
     w.append("")
 
     w.append(NOT_ADOPTED)
+
+    w.append(comeback_section(random.Random(SEED)))
 
     count, listing = affected_now()
     w.append(f"## Ranked customers on a restart rate today ({count})\n")

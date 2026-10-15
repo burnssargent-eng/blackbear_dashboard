@@ -237,6 +237,9 @@ ok(willCall.every(c => !["on-demand / unlimited", "event-driven", "true closer",
   "semi-closer / call-driven", "seasonal open-ish"].includes(c.status)),
   "no override is detected as will-call");
 ok(/Will-call/.test(held), "will-call section rendered");
+const comebacks = customers.filter(c => /^back after \d+ days/.test(c.reason || ""));
+ok(comebacks.length > 0 && comebacks.every(c => c.section === "insufficient data" &&
+  c.projected_gal === null), `${comebacks.length} comeback rows held as insufficient data, none projected`);
 const newRows = ranked.filter(c => c.stage === "new");
 ok(newRows.length > 0 && newRows.every(c => c.range_high >= c.projected_gal * 1.3 - 1 ||
   c.range_high === c.capacity),
