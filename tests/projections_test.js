@@ -224,6 +224,8 @@ ok(sharedRanked && /Shared barrel:/.test(api.rankedRowsHtml([sharedRanked])),
   "a ranked shared barrel renders its members");
 ok(byId[133] && byId[133].history_start && byId[133].section !== "ranked",
   "JJ's (133) restarts its history and is not ranked on the old tavern's");
+ok(byId[208] && byId[208].history_start === "2026-01-01",
+  "Mad Moose (208) restarts its history at the Blue Stone changeover");
 
 // ── The ladder ──
 const STAGES = ["new", "established", "seasonal", "closer in season", "closer off-season"];

@@ -129,7 +129,7 @@ Capacity problems are reported in *flags*, separately from the model status.
 |---|---:|
 | Active customers considered | 512 |
 | Model-ready (a stage rate) | 459 |
-| — stage new / established / seasonal / closer in season / closer off-season | 106 / 323 / 16 / 12 / 2 |
+| — stage new / established / seasonal / closer in season / closer off-season | 107 / 322 / 16 / 12 / 2 |
 | Detected closers (not in the registry) | 8 |
 | — ranked in the main table | 348 |
 | — seasonal holdouts | 9 |

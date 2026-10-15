@@ -180,7 +180,8 @@ folds each group into one row under its lowest id: gallons summed by date,
 capacity = the members' common value, flagged while they disagree. Never add
 member capacities together — some were per-share, some full-barrel.
 `HISTORY_STARTS` there restarts a renamed account's history for a new owner
-(JJ's on the old Langdon Street Tavern account, 2026-09-22). Renames in either
+(JJ's on the old Langdon Street Tavern account, 2026-09-22; Mad Moose on the
+old Blue Stone account, 2026-01-01 — opened 2025-12-26). Renames in either
 registry are flagged on the row, never fatal, so they cannot stop the nightly.
 
 **Projection overrides are config, keyed by id.** `MODEL_OVERRIDES` in

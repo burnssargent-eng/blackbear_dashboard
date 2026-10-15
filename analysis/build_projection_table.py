@@ -395,6 +395,10 @@ class HistoryStart(NamedTuple):
 HISTORY_STARTS = {
     133: HistoryStart("JJ’s- Langdon Street Tavern", date(2026, 9, 22),
                       "New owner; the account's earlier pickups were Langdon Street Tavern"),
+    # Mad Moose opened 2025-12-26 in the closed Blue Stone (Sarge, 2026-10-15);
+    # 2026-01-01 for ease. The 129-day gap before 2026-02-05 is the changeover.
+    208: HistoryStart("Mad Moose/Blue Stone-Waitsfield", date(2026, 1, 1),
+                      "New owner; the account's earlier pickups were Blue Stone"),
 }
 
 
