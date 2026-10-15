@@ -1177,25 +1177,37 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
                      else days_accumulating)
     projected = rate * exposure_days if rate is not None else None
 
+    # The shown estimate is capped at listed capacity: a container cannot
+    # hold more than it holds, and rate x days keeps growing after it is full.
+    # Over-capacity projections ran ~2x what was collected (phase 2 backtest,
+    # 196 pickups); capped they fell from 39,200 to 27,905 gal against 18,947
+    # actual. Every capacity column and the ranking keep the uncapped figure.
+    estimate = projected
+    if projected is not None and capacity:
+        estimate = min(projected, capacity)
+
     # Likely range: the customer's own backtested WAPE where it exists (an
     # established customer), otherwise the replay's calibrated factors for the
     # stage. Six customers score over 100% WAPE, so the low end is clamped at
-    # zero rather than allowed to go negative.
+    # zero rather than allowed to go negative. The range is built around the
+    # capped estimate and its high end is capped too.
     low = high = None
     band_used = ""
-    if projected is not None:
+    if estimate is not None:
         if stage not in (STAGE_NEW, STAGE_CLOSER, STAGE_CLOSER_OFF) and cid in wape:
             band_pct = wape[cid]
             band_used = f"customer WAPE {band_pct:.1f}%"
-            low = max(0.0, projected * (1 - band_pct / 100))
-            high = projected * (1 + band_pct / 100)
+            low = max(0.0, estimate * (1 - band_pct / 100))
+            high = estimate * (1 + band_pct / 100)
         else:
             key = (STAGE_CLOSER if stage in (STAGE_CLOSER, STAGE_CLOSER_OFF)
                    else STAGE_ESTABLISHED if stage != STAGE_NEW
                    else f"new, {gaps} gaps" if gaps <= 3 else "new, 4+ gaps")
             lo_f, hi_f = RANGE_FACTORS[key]
             band_used = f"calibrated {key}: x{lo_f:.2f} to x{hi_f:.2f}"
-            low, high = projected * lo_f, projected * hi_f
+            low, high = estimate * lo_f, estimate * hi_f
+        if capacity:
+            high = min(high, capacity)
 
     raw_pct = days_until = days_past_75 = days_past_cap = periodicity = None
     if projected is not None and capacity:
@@ -1247,7 +1259,7 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
         "restart_gap_days": restart[1] if restart else None,
         "collections_per_year": collections_per_year(pickups),
         "oil_rate_gpd_projected": rate,
-        "current_projected_gallons": shown(projected),
+        "current_projected_gallons": shown(estimate),
         "projected_range_low": shown(low),
         "projected_range_high": shown(high),
         "capacity": capacity,
@@ -1635,6 +1647,9 @@ is *will-call*: listed, never projected.
   and 80th percentile factors for its stage: {"; ".join(
       f"{k} x{lo:.2f}-x{hi:.2f}" for k, (lo, hi) in RANGE_FACTORS.items())}. The
   low end is clamped at zero, since a few customers score over 100% WAPE.
+  The factor ranges are wider above than below on purpose: misses run high
+  (a pickup cannot go below zero gallons but can run well above the rate).
+  The range is built around the capacity-capped estimate, high end capped.
 - *stale* -- no pickup in {STALE_DAYS} days. Every column is still computed,
   but the row is held out of the ranking: `is_active` only means "not dormant
   since 2025-01-01", so it admits customers years past their last pickup and
@@ -1642,9 +1657,12 @@ is *will-call*: listed, never projected.
 
 **% full.** The main table shows *display_pct_full*, capped at 100%. The
 uncapped *raw_pct_of_listed_capacity* is in the detail CSV, and a ranked row
-above 100% carries the flag *{FLAG_ABOVE_CAPACITY}* Projected gallons and
-listed capacity are never capped or changed; the ranking sorts on the raw
-values, so the cap changes no order.
+above 100% carries the flag *{FLAG_ABOVE_CAPACITY}* The shown projected
+gallons, and the high end of the range, are capped at listed capacity (since
+2026-10-15): rate x days keeps growing after a container is full, and
+over-capacity projections ran ~2x what was collected. The uncapped figure is
+*model_projected_gallons*; listed capacity is never changed; the ranking and
+the days-past columns use the uncapped values, so the cap changes no order.
 
 ## Model status and routing
 
