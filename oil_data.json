@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-15T12:28:43.008354",
+  "last_updated": "2026-10-16T12:07:56.007284",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33688,7 +33688,7 @@
     {
       "month": "2026-10",
       "geo_town": "Barre Town",
-      "gallons": 60,
+      "gallons": 205,
       "city": "Barre Town"
     },
     {
@@ -33711,9 +33711,21 @@
     },
     {
       "month": "2026-10",
+      "geo_town": "Bristol",
+      "gallons": 85,
+      "city": "Bristol"
+    },
+    {
+      "month": "2026-10",
       "geo_town": "Burlington",
       "gallons": 2272,
       "city": "Burlington"
+    },
+    {
+      "month": "2026-10",
+      "geo_town": "Charlotte",
+      "gallons": 60,
+      "city": "Charlotte"
     },
     {
       "month": "2026-10",
@@ -33753,6 +33765,12 @@
     },
     {
       "month": "2026-10",
+      "geo_town": "Hinesburg",
+      "gallons": 70,
+      "city": "Hinesburg"
+    },
+    {
+      "month": "2026-10",
       "geo_town": "Jericho",
       "gallons": 65,
       "city": "Jericho"
@@ -33780,6 +33798,12 @@
       "geo_town": "Manchester",
       "gallons": 355,
       "city": "Manchester"
+    },
+    {
+      "month": "2026-10",
+      "geo_town": "Middlebury",
+      "gallons": 375,
+      "city": "Middlebury"
     },
     {
       "month": "2026-10",
@@ -33837,8 +33861,14 @@
     },
     {
       "month": "2026-10",
+      "geo_town": "Vergennes",
+      "gallons": 75,
+      "city": "Vergennes"
+    },
+    {
+      "month": "2026-10",
       "geo_town": "Waitsfield",
-      "gallons": 65,
+      "gallons": 495,
       "city": "Waitsfield"
     },
     {
@@ -33850,7 +33880,7 @@
     {
       "month": "2026-10",
       "geo_town": "Waterbury",
-      "gallons": 615,
+      "gallons": 835,
       "city": "Waterbury"
     },
     {
@@ -41622,6 +41652,11 @@
     },
     {
       "month": "2026-10",
+      "county": "Addison",
+      "gallons": 535
+    },
+    {
+      "month": "2026-10",
       "county": "Bennington",
       "gallons": 355
     },
@@ -41633,7 +41668,7 @@
     {
       "month": "2026-10",
       "county": "Chittenden",
-      "gallons": 4067
+      "gallons": 4197
     },
     {
       "month": "2026-10",
@@ -41658,7 +41693,7 @@
     {
       "month": "2026-10",
       "county": "Washington",
-      "gallons": 1970
+      "gallons": 2765
     },
     {
       "month": "2026-10",
@@ -41713,12 +41748,12 @@
     },
     {
       "year": 2026,
-      "gallons": 235279
+      "gallons": 236739
     }
   ],
-  "all_time_total": 2154046,
-  "current_year_total": 235279,
-  "customer_count": 801,
+  "all_time_total": 2155506,
+  "current_year_total": 236739,
+  "customer_count": 802,
   "unmapped_total": 40059,
   "monthly_totals": [
     {
@@ -42287,7 +42322,7 @@
     },
     {
       "month": "2026-10",
-      "gallons": 10223
+      "gallons": 11683
     }
   ],
   "monthly_by_region": [
@@ -53934,7 +53969,7 @@
     {
       "month": "2026-10",
       "region": "Central",
-      "gallons": 955
+      "gallons": 1100
     },
     {
       "month": "2026-10",
@@ -53974,12 +54009,12 @@
     {
       "month": "2026-10",
       "region": "Route 7",
-      "gallons": 70
+      "gallons": 735
     },
     {
       "month": "2026-10",
       "region": "Ski Slopes",
-      "gallons": 490
+      "gallons": 580
     },
     {
       "month": "2026-10",
@@ -53999,22 +54034,22 @@
     {
       "month": "2026-10",
       "region": "Summer Snack Stops",
-      "gallons": 535
+      "gallons": 620
     },
     {
       "month": "2026-10",
       "region": "Warren / Waitsfield",
-      "gallons": 260
+      "gallons": 690
     },
     {
       "month": "2026-10",
       "region": "Waterbury / Stowe",
-      "gallons": 1665
+      "gallons": 1885
     },
     {
       "month": "2026-10",
       "region": "Winter / Summer Combined",
-      "gallons": 1025
+      "gallons": 1200
     }
   ],
   "yearly_by_region": [
@@ -55051,7 +55086,7 @@
     {
       "year": 2026,
       "region": "Central",
-      "gallons": 23587
+      "gallons": 23732
     },
     {
       "year": 2026,
@@ -55096,12 +55131,12 @@
     {
       "year": 2026,
       "region": "Route 7",
-      "gallons": 9815
+      "gallons": 10480
     },
     {
       "year": 2026,
       "region": "Ski Slopes",
-      "gallons": 16215
+      "gallons": 16305
     },
     {
       "year": 2026,
@@ -55121,22 +55156,22 @@
     {
       "year": 2026,
       "region": "Summer Snack Stops",
-      "gallons": 12880
+      "gallons": 12965
     },
     {
       "year": 2026,
       "region": "Warren / Waitsfield",
-      "gallons": 7450
+      "gallons": 7880
     },
     {
       "year": 2026,
       "region": "Waterbury / Stowe",
-      "gallons": 32940
+      "gallons": 33160
     },
     {
       "year": 2026,
       "region": "Winter / Summer Combined",
-      "gallons": 29095
+      "gallons": 29270
     }
   ],
   "region_names": [
@@ -55149,8 +55184,8 @@
     "Central South",
     "North-Northeast",
     "Route 15",
-    "Route 2 East / Route 5",
     "Route 7",
+    "Route 2 East / Route 5",
     "Warren / Waitsfield",
     "Southern Ski Slopes",
     "South",
@@ -55185,20 +55220,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 27727,
+  "collections_count": 27743,
   "out_of_state_total": 40059,
-  "active_customer_count": 529,
+  "active_customer_count": 530,
   "projection": {
-    "latest_data_date": "2026-10-14",
+    "latest_data_date": "2026-10-15",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 235279,
+    "current_ytd": 236739,
     "previous_year_full": 269909,
     "previous_through_prior_month": 208859,
     "previous_same_month_total": 21968,
-    "previous_prorated_ytd": 218780.03,
-    "projected_current_year": 290264,
-    "percent_vs_previous_year": 0.075413
+    "previous_prorated_ytd": 219488.68,
+    "projected_current_year": 291122,
+    "percent_vs_previous_year": 0.078593
   },
   "region_stats": {
     "Burlington / South Burlington": {
@@ -55242,8 +55277,8 @@
       "active": 33
     },
     "Route 7": {
-      "customers": 49,
-      "active": 38
+      "customers": 50,
+      "active": 39
     },
     "Ski Slopes": {
       "customers": 20,
@@ -55358,10 +55393,10 @@
     },
     {
       "year": 2026,
-      "places_serviced": 469,
-      "gained": 39,
+      "places_serviced": 470,
+      "gained": 40,
       "lost": 6,
-      "net": 33
+      "net": 34
     }
   ],
   "dormant_cutoff": "2025-01-01",
@@ -56053,6 +56088,7 @@
       1422,
       1441,
       1472,
+      1475,
       1480
     ],
     "Ski Slopes": [
