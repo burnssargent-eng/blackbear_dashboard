@@ -1,5 +1,5 @@
 {
- "data_last_updated": "2026-10-17T11:24:06.509378",
+ "data_last_updated": "2026-10-18T11:59:59.909495",
  "latest_pickup": "2026-10-16",
  "summary": [
   {
@@ -113,7 +113,7 @@
      "predicted_as_of": "2026-10-15",
      "projected": 90.4,
      "range_low": 54.3,
-     "range_high": 110,
+     "range_high": 110.0,
      "actual": 110,
      "error": -19.6,
      "pct_error": -17.8
@@ -218,7 +218,7 @@
      "predicted_as_of": "2026-10-15",
      "projected": 107.0,
      "range_low": 80.2,
-     "range_high": 150,
+     "range_high": 150.0,
      "actual": 90,
      "error": 17.0,
      "pct_error": 18.9
