@@ -881,3 +881,71 @@ select:disabled {
 .proj-live-label { white-space: nowrap; }
 .proj-live-total td { font-weight: bold; border-top: 1px solid #30363d; }
 .proj-live-days { margin-top: 6px; }
+
+/* ── Route planner (beta, planner.html) ───────────────────── */
+
+.rp-dim { color: #8b949e; }
+
+.rp-must {
+  color: #e5734b;
+  font-weight: bold;
+}
+
+.note.rp-totals {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 20px;
+  color: #e6edf3;
+  font-size: 13px;
+}
+
+.rp-route-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px 16px;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.rp-route-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.rp-fill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.proj-bar.rp-fill-bar { width: 90px; height: 8px; }
+
+.rp-seq input {
+  width: 3.4em;
+  background: #0d1117;
+  color: #e6edf3;
+  border: 1px solid #30363d;
+  border-radius: 4px;
+  padding: 3px 4px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.rp-move { white-space: nowrap; }
+.rp-move button, .rp-seq + td button { padding: 4px 9px; }
+
+.controls.rp-add { margin-top: 20px; margin-bottom: 8px; }
+
+/* Print the draft only: header, controls, candidates and site routes drop out. */
+@media print {
+  body { background: #fff; color: #000; }
+  header, .back-link, .page-subtitle, .proj-beta, .controls,
+  #rp-candidates, #rp-cand-title, .section + .section, .rp-move,
+  [data-action="remove"] { display: none !important; }
+  .data-table, .data-table th, .data-table td, .note { background: #fff; color: #000; }
+}

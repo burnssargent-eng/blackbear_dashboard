@@ -29,10 +29,16 @@ analysis/build_projection_table.py ──> oil_projections.json  (beta pickup pr
 analysis/live_test.py ──> analysis/live_test_log.csv  (projected vs collected, per pickup)
                       └─> oil_live_test.json          (the Live test section of projections.html)
 
+jamaal_routes.py ──> jamaal_routes.json   (source site's assigned routes, route names and Assign list; GET only)
+
 index.html      dashboard + Leaflet heatmap. Keeps its OWN inline styles.
 region.html     per-region page. The most complex page.
 year.html  town.html  customers.html  schmootz.html
 projections.html     beta pickup projections. In the nav as "Projections", after Dashboard.
+planner.html         route planner beta. UNLISTED (not in the nav). Reads the two JSONs above.
+ops-assign.html  ops-myroute.html  ops-calendar.html   SHADOW site: the source site's workflow on a copy of its
+                     data, kept in each browser. Light Bootstrap look, own nav (ops-common.js),
+                     ops.css. UNLISTED. Route maths for both betas: route-utils.js.
 dashboard-utils.js   shared helpers for the detail pages
 dashboard.css        shared styles for the detail pages — NOT index.html
 ```
@@ -59,6 +65,15 @@ rescore or edit old rows in `analysis/live_test_log.csv` (committed, unlike the
 other analysis CSVs): they cannot be regenerated once the served files move on.
 Only actual gallons are refreshed, from the scrape. `--backfill` rebuilds from
 git history (first-parent `main`) and is a one-off.
+
+**The source site is read-only to us.** Jamaal belongs to a third party.
+`jamaal_routes.py` and `oil_scraper.py` only GET. Never POST, and never request
+an action page (`delete_routes.php`, `update_order.php`, ...): its forms load
+without a login, so a stray request would change the real routes. A route
+assignment stays until someone removes it, so "Today's Routes" means "currently
+assigned", not today's. `planner.html` only adds exported per-customer figures:
+a shared barrel counts once, and a held-out customer's average pickup is shown
+as "typical", outside the projected total.
 
 ## Regenerating data
 

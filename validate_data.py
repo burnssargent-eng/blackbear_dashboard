@@ -48,6 +48,7 @@ CSV_PATH = "oil_collections_raw.csv"
 
 # How stale the newest collection date can get before we mention it.
 STALE_AFTER_DAYS = 21
+CAPACITY_CACHE_PATH = "capacity_cache.csv"
 
 
 # ─────────────────────────────────────────────
@@ -667,6 +668,72 @@ def check_live_test(report):
     else:
         report.fail(f"oil_live_test.json shows {shown} pickups but the log has {present}; "
                     "rerun analysis/live_test.py.")
+
+
+def check_route_snapshot(report):
+    """
+    jamaal_routes.json: the source site's currently assigned routes, read by
+    jamaal_routes.py for the route planner beta. Optional -- the planner still
+    drafts without it -- so a missing or old file only warns.
+    """
+    import csv
+    from datetime import datetime, timezone
+
+    report.section("RT", "Route snapshot (planner beta)")
+    path = "jamaal_routes.json"
+    if not os.path.exists(path):
+        report.warn(f"{path} missing; the route planner shows drafts only.")
+        return
+    with open(path) as f:
+        snap = json.load(f)
+    routes = snap.get("routes", [])
+    stops = [s for r in routes for s in r["stops"]]
+    report.ok(f"{len(routes)} routes, {len(stops)} stops, read {snap.get('scraped_at')}.")
+
+    age = datetime.now(timezone.utc) - datetime.fromisoformat(snap["scraped_at"])
+    if age.days >= 3:
+        report.warn(f"Route snapshot is {age.days} days old; the nightly may be failing to read it.")
+
+    # The site's own Assigned Capacity is the sum of its stops' capacities.
+    off = [r["name"] for r in routes if r["assigned_capacity"] is not None
+           and sum(s["capacity"] or 0 for s in r["stops"]) != r["assigned_capacity"]]
+    if off:
+        report.fail(f"Stop capacities do not add up to the site's Assigned Capacity on: {off}")
+    else:
+        report.ok("Every route's stop capacities add up to the site's Assigned Capacity.")
+
+    assignment_ids = [s["assignment_id"] for s in stops]
+    if len(assignment_ids) != len(set(assignment_ids)) or None in assignment_ids:
+        report.fail("Route snapshot has missing or repeated assignment ids.")
+    else:
+        report.ok("Every stop has its own assignment id.")
+
+    with open(CAPACITY_CACHE_PATH, newline="") as f:
+        known = {int(r["customer_id"]) for r in csv.DictReader(f)}
+    unknown = sorted({s["customer_id"] for s in stops} - known)
+    if unknown:
+        report.warn(f"{len(unknown)} route stop id(s) not in {CAPACITY_CACHE_PATH}: {unknown}")
+    else:
+        report.ok("Every route stop is a customer id the scraper knows.")
+
+    with open("oil_projections.json") as f:
+        projected = set()
+        for c in json.load(f)["customers"]:
+            projected.add(c["id"])
+            projected.update(m["id"] for m in (c.get("members") or []))
+    assign_list = snap.get("assign_list") or []
+    if not assign_list or not snap.get("route_names"):
+        report.warn("Route snapshot has no Assign Routes list or route names; the shadow site needs both.")
+    else:
+        report.ok(f"{len(assign_list)} Assign Routes rows and {len(snap['route_names'])} route names.")
+        ids = [a["customer_id"] for a in assign_list]
+        if len(ids) != len(set(ids)):
+            report.fail("A customer appears twice in the Assign Routes list.")
+
+    outside = [s["name"] for s in stops if s["customer_id"] not in projected]
+    if outside:
+        report.info(f"{len(outside)} stop(s) have no projection row (tasks, totes, "
+                    f"inactive or new accounts): {outside}")
 
 
 def check_projection(report, data):
@@ -1459,6 +1526,7 @@ def main():
     check_quantity_rule(report, coll)
     check_projection(report, data)
     check_live_test(report)
+    check_route_snapshot(report)
     check_active_customers(report, data, coll)
     check_lifecycle(report, data, coll_payload)
     check_region_customers(report, data, coll_payload)
