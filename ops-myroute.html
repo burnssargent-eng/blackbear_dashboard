@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Route (shadow) — Black Bear Biodiesel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="stylesheet" href="ops.css">
+</head>
+
+<body>
+<div id="nav"></div>
+<div id="banner"></div>
+<div class="container py-3" id="page">Loading…</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+<script src="dashboard-utils.js"></script>
+<script src="route-utils.js"></script>
+<script src="ops-common.js"></script>
+<script>
+/*
+ * My Route (shadow): the source site's "My Route" and "Today's Routes" in one
+ * page. Every route is listed collapsed; opening one shows its stops, which
+ * can be reordered (arrows or a typed stop number), flagged Must Get, removed,
+ * or added to straight from a search. "Set as My Route" opens the driver view
+ * for entering gallons. Everything is saved in the shadow copy, in this
+ * browser only.
+ */
+
+const SOURCE_CUSTOMER_URL = "https://jammal28.dreamhosters.com/tracking/customer.php?id=";
+
+let data = null, store = null, routeList = [];
+let openRoutes = new Set();          // route ids expanded in the list
+let addSearch = {};                  // route id -> text in its Add stop box
+
+/* ── Route list ─────────────────────────────────────────── */
+
+function stopRowsHtml(routeId, lines) {
+  const n = lines.length;
+  return lines.map((l, i) => `
+    <tr>
+      <td><input type="number" class="form-control form-control-sm ops-seq" min="1" max="${n}" value="${i + 1}"
+            data-seq="${i}" data-route="${routeId}" aria-label="Stop number"></td>
+      <td class="text-nowrap">
+        <button type="button" class="btn btn-light btn-sm" data-act="up" data-route="${routeId}" data-i="${i}"
+          ${i === 0 ? "disabled" : ""} aria-label="Move up">↑</button>
+        <button type="button" class="btn btn-light btn-sm" data-act="down" data-route="${routeId}" data-i="${i}"
+          ${i === n - 1 ? "disabled" : ""} aria-label="Move down">↓</button>
+      </td>
+      <td><span class="${l.stop.must_get ? "hotlist" : ""}">${escapeHtml(l.stop.name)}</span>
+        <div class="ops-muted">${escapeHtml((l.row && l.row.town) || "")}${
+          l.row && l.row.section !== "ranked" ? ` · ${escapeHtml(l.row.status || l.row.section)}` : ""}${
+          l.row && l.row.members ? " · shared barrel" : ""}</div></td>
+      <td class="text-end">${l.dupOf !== null ? `<span class="ops-muted">same barrel as #${l.dupOf + 1}</span>`
+        : l.est.kind === "projected" ? formatWhole(l.est.gal)
+        : l.est.kind === "typical" && l.est.gal ? `<span class="ops-muted">~${formatWhole(l.est.gal)} typical</span>` : "—"}</td>
+      <td class="text-end">${l.dupOf !== null ? `<span class="ops-muted">shared</span>` : formatWhole(l.capacity)}</td>
+      <td class="text-end">${l.row && l.row.pct_full != null ? `${Math.round(l.row.pct_full)}%` : "—"}</td>
+      <td class="text-nowrap">
+        <button type="button" class="btn btn-sm ${l.stop.must_get ? "btn-danger" : "btn-outline-danger"}"
+          data-act="must" data-route="${routeId}" data-i="${i}" title="Must Get">🚨</button>
+        <button type="button" class="btn btn-sm btn-outline-secondary" data-act="remove" data-route="${routeId}"
+          data-i="${i}" aria-label="Remove stop">✕</button>
+      </td>
+    </tr>`).join("");
+}
+
+/** Up to 8 customers matching the route's Add stop box, not already on it. */
+function addMatchesHtml(routeId) {
+  const q = (addSearch[routeId] || "").trim().toLowerCase();
+  if (!q) return "";
+  const onRoute = new Set(storeStops(store, routeId).map(s => s.customer_id));
+  const pool = [...data.snap.assign_list,
+    ...store.added.map(c => ({ customer_id: c.customer_id, name: c.name, city: c.city }))];
+  const hits = pool.filter(c => !onRoute.has(c.customer_id) &&
+    matchesNameSearch(q, [c.name, c.city])).slice(0, 8);
+  if (!hits.length) return `<div class="ops-muted mt-1">No match.</div>`;
+  return `<div class="list-group mt-1">${hits.map(c => {
+    const row = data.index.get(c.customer_id);
+    const badge = row ? projectionBadgeText(row) : "";
+    return `<button type="button" class="list-group-item list-group-item-action"
+        data-act="add" data-route="${routeId}" data-id="${c.customer_id}">
+      + ${escapeHtml(c.name || `#${c.customer_id}`)} <span class="ops-muted">${escapeHtml((row && row.town) || c.city || "")}</span>
+      ${badge ? `<span class="ops-proj">${escapeHtml(badge)}</span>` : ""}</button>`;
+  }).join("")}</div>`;
+}
+
+function fillHtml(totals, routeId) {
+  const fill = truckFill(totals, store.trucks[routeId]);
+  if (!fill) return "";
+  return `<span class="ops-fill"><span class="progress"><span class="progress-bar ${
+    fill.level === "full" ? "bg-danger" : fill.level === "due" ? "bg-warning" : "bg-success"}"
+    style="width:${Math.min(100, fill.pct)}%"></span></span>${Math.round(fill.pct)}% of
+    ${escapeHtml(fill.truck.name)}'s ${formatNumber(fill.truck.capacity)} gal${
+    fill.pct > 100 ? " — over the tank" : fill.highPct > 100 ? " — could overflow at the high end" : ""}</span>`;
+}
+
+function routeHtml(route) {
+  const stops = storeStops(store, route.route_id);
+  const { totals, lines } = routeSummary(stops, data.index);
+  const id = route.route_id;
+  return `
+    <details class="ops-route" data-route-box="${id}" ${openRoutes.has(id) ? "open" : ""}>
+      <summary>
+        <span class="ops-route-name">${escapeHtml(route.name)}</span>
+        <span class="ops-route-sum">${stops.length} stop${stops.length === 1 ? "" : "s"}${stops.length
+          ? ` · ${projectedRangeText(totals)} · capacity ${formatWhole(totals.capacity)}` : ""}</span>
+        ${store.trucks[id] ? `<span class="badge bg-secondary">${escapeHtml(store.trucks[id])}</span>` : ""}
+      </summary>
+      <div class="ops-route-body">
+        <div class="d-flex flex-wrap gap-2 align-items-center mb-2">
+          <select class="form-select form-select-sm w-auto" data-truck="${id}" aria-label="Truck">
+            <option value="">Truck…</option>
+            ${TRUCKS.map(t => `<option${t.name === store.trucks[id] ? " selected" : ""}>${escapeHtml(t.name)}</option>`).join("")}
+          </select>
+          <button type="button" class="btn btn-primary btn-sm" data-act="set" data-route="${id}"
+            ${stops.length ? "" : "disabled"}>Set as My Route</button>
+          ${fillHtml(totals, id)}
+        </div>
+        ${route.aliases.length ? `<div class="ops-muted mb-2">Also called ${escapeHtml(route.aliases.join(", "))} on the source site.</div>` : ""}
+        ${stops.length ? `
+        <div class="table-responsive">
+          <table class="table table-sm ops-stops mb-2">
+            <thead><tr><th>#</th><th>Move</th><th>Customer</th><th class="text-end">Projected gal</th>
+              <th class="text-end">Capacity</th><th class="text-end">% full</th><th></th></tr></thead>
+            <tbody>${stopRowsHtml(id, lines)}</tbody>
+            <tfoot><tr><td>Total</td><td></td><td></td>
+              <td class="text-end">${formatWhole(totals.projected)}</td>
+              <td class="text-end">${formatWhole(totals.capacity)}</td><td></td><td></td></tr></tfoot>
+          </table>
+        </div>
+        <div class="mb-2"><strong>${projectedRangeText(totals)}</strong></div>` : `<div class="ops-muted mb-2">No stops.</div>`}
+        <input type="search" class="form-control form-control-sm" data-add-search="${id}"
+          placeholder="Add a stop: search name or town" value="${escapeHtml(addSearch[id] || "")}" autocomplete="off">
+        <div data-add-results="${id}">${addMatchesHtml(id)}</div>
+      </div>
+    </details>`;
+}
+
+function renderList() {
+  const withStops = routeList.filter(r => storeStops(store, r.route_id).length);
+  const empty = routeList.filter(r => !storeStops(store, r.route_id).length);
+  document.getElementById("page").innerHTML = `
+    <h2>My Route</h2>
+    <div class="ops-muted mb-3">Open a route to see and change its stops; Set as My Route to start entering gallons.
+      Projections as of ${escapeHtml(formatDate(data.projections.as_of))}.</div>
+    ${withStops.map(routeHtml).join("")}
+    ${empty.length ? `<div class="ops-muted mt-3 mb-1">Routes with no stops</div>${empty.map(routeHtml).join("")}` : ""}`;
+}
+
+/* ── Driver view ────────────────────────────────────────── */
+
+/** Today's entries on this route in the shadow copy, by assignment id. */
+function todaysEntries(routeId) {
+  const today = todayIso();
+  const map = new Map();
+  store.collections.forEach(c => {
+    if (c.date === today && String(c.route_id) === String(routeId)) map.set(c.assignment_id, c);
+  });
+  return map;
+}
+
+function renderDriver() {
+  const route = routeList.find(r => String(r.route_id) === String(store.my.routeId));
+  const stops = storeStops(store, store.my.routeId);
+  if (!route || !stops.length) { store.my = null; saveStore(store); return renderList(); }
+  const { totals, lines } = routeSummary(stops, data.index);
+  const entries = todaysEntries(route.route_id);
+  const collected = [...entries.values()].reduce((s, c) => s + (c.gallons > 3 ? c.gallons : 0), 0);
+  const truck = truckByName(store.trucks[route.route_id]);
+  const pct = truck ? Math.min(100, 100 * collected / truck.capacity) : 0;
+
+  document.getElementById("page").innerHTML = `
+    <div class="ops-sticky py-2 mb-3">
+      <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2">
+        <h2 class="mb-0">${escapeHtml(route.name)}${truck ? ` <small class="text-muted">· ${escapeHtml(truck.name)}</small>` : ""}</h2>
+        <button type="button" class="btn btn-outline-secondary btn-sm" data-act="change">All routes</button>
+      </div>
+      <div class="ops-route-sum mt-1"><strong>${formatNumber(collected)} gal collected</strong> ·
+        ${entries.size} of ${lines.length} stops · ${projectedRangeText(totals)}</div>
+      ${truck ? `<div class="d-flex align-items-center gap-2 mt-1">
+        <div class="progress flex-grow-1"><div class="progress-bar ${pct > 90 ? "bg-danger" : "bg-success"}" style="width:${pct}%"></div></div>
+        <span class="small text-muted">${Math.round(pct)}% of ${formatNumber(truck.capacity)} gal</span></div>` : ""}
+    </div>
+    ${lines.map((l, i) => {
+      const e = entries.get(l.stop.assignment_id);
+      const hint = l.dupOf !== null ? `same barrel as #${l.dupOf + 1}`
+        : l.est.kind === "projected" ? `~${formatWhole(l.est.gal)} gal projected`
+        : l.est.kind === "typical" && l.est.gal ? `~${formatWhole(l.est.gal)} gal typical` : "";
+      return `<div class="ops-stop${e ? " ops-done" : ""}">
+        <div class="d-flex flex-wrap justify-content-between gap-2">
+          <div>
+            <span class="ops-stop-num">${i + 1}.</span>
+            <span class="ops-stop-name ${l.stop.must_get ? "hotlist" : ""}">${escapeHtml(l.stop.name)}</span>
+            <span class="graytext">(${l.capacity ?? l.stop.capacity ?? "—"})</span>
+            ${l.stop.must_get ? `<span class="badge ops-badge-must">Must Get</span>` : ""}
+            <div class="small text-muted">${escapeHtml((l.row && l.row.town) || "")}${hint ? ` · ${hint}` : ""}${
+              l.stop.customer_id > 0 ? ` · <a href="${SOURCE_CUSTOMER_URL}${l.stop.customer_id}" target="_blank" rel="noopener">customer page</a>` : ""}</div>
+          </div>
+          <div class="ops-entry d-flex gap-2 align-items-center">
+            ${e ? `<span class="fs-5">${e.gallons <= 3 ? "Empty" : `${formatNumber(e.gallons)} gal`} ✓</span>
+                   <button type="button" class="btn btn-link btn-sm" data-act="undo" data-i="${i}">Edit</button>`
+                : `<input type="number" inputmode="numeric" min="0" class="form-control" id="gal-${i}" placeholder="gal">
+                   <button type="button" class="btn btn-success" data-act="save" data-i="${i}">Save</button>
+                   <button type="button" class="btn btn-outline-secondary" data-act="empty" data-i="${i}">Empty</button>`}
+          </div>
+        </div>
+      </div>`;
+    }).join("")}
+    <h5 class="mt-4">Today's totals</h5>
+    <pre class="border rounded p-2 bg-light">${escapeHtml(totalsText(lines, entries))}</pre>`;
+}
+
+/** The source site's Today's Totals shape: "Name: gallons", then the total. */
+function totalsText(lines, entries) {
+  const rows = lines.filter(l => entries.has(l.stop.assignment_id))
+    .map(l => `${l.stop.name}: ${entries.get(l.stop.assignment_id).gallons}`);
+  const total = [...entries.values()].reduce((s, c) => s + (c.gallons > 3 ? c.gallons : 0), 0);
+  return [...rows, `Total: ${formatNumber(total)}`].join("\n");
+}
+
+/** Record (or replace) today's entry for one stop. 1 = checked, empty. */
+function recordEntry(stop, gallons) {
+  const today = todayIso();
+  store.collections = store.collections.filter(c =>
+    !(c.date === today && c.assignment_id === stop.assignment_id));
+  store.collections.push({ customer_id: stop.customer_id, name: stop.name, gallons, date: today,
+    route_id: Number(store.my.routeId), assignment_id: stop.assignment_id });
+}
+
+/* ── Events ─────────────────────────────────────────────── */
+
+function render() {
+  if (store.my) renderDriver(); else renderList();
+}
+
+function onAct(b) {
+  const d = b.dataset;
+  const routeId = d.route !== undefined ? Number(d.route) : null;
+  const i = Number(d.i);
+  const stops = routeId !== null ? storeStops(store, routeId) : null;
+  switch (d.act) {
+    case "up": store.routes[routeId] = moveStop(stops, i, i - 1); break;
+    case "down": store.routes[routeId] = moveStop(stops, i, i + 1); break;
+    case "remove": store.routes[routeId] = removeStop(stops, i); break;
+    case "must": store.routes[routeId] = stops.map((s, j) => j === i ? { ...s, must_get: !s.must_get } : s); break;
+    case "add": {
+      const id = Number(d.id);
+      const src = data.snap.assign_list.find(c => c.customer_id === id) ||
+        store.added.find(c => c.customer_id === id);
+      const row = data.index.get(id);
+      assignToRoute(store, routeId, [{ customer_id: id, name: src.name,
+        capacity: row && row.capacity != null ? row.capacity : (src.capacity ?? null) }], false);
+      addSearch[routeId] = "";
+      break;
+    }
+    case "set": store.my = { routeId }; openRoutes.add(routeId); window.scrollTo(0, 0); break;
+    case "change": store.my = null; break;
+    case "save": {
+      const v = parseInt(document.getElementById(`gal-${i}`).value, 10);
+      if (!Number.isFinite(v) || v < 0) return;
+      recordEntry(storeStops(store, store.my.routeId)[i], v);
+      break;
+    }
+    case "empty": recordEntry(storeStops(store, store.my.routeId)[i], 1); break;
+    case "undo": {
+      const stop = storeStops(store, store.my.routeId)[i];
+      store.collections = store.collections.filter(c =>
+        !(c.date === todayIso() && c.assignment_id === stop.assignment_id));
+      break;
+    }
+    default: return;
+  }
+  saveStore(store);
+  render();
+}
+
+function wire() {
+  const page = document.getElementById("page");
+  page.addEventListener("click", e => {
+    const b = e.target.closest && e.target.closest("[data-act]");
+    if (b) onAct(b);
+  });
+  page.addEventListener("toggle", e => {
+    const id = e.target.dataset && e.target.dataset.routeBox;
+    if (id === undefined) return;
+    if (e.target.open) openRoutes.add(Number(id)); else openRoutes.delete(Number(id));
+  }, true);
+  page.addEventListener("change", e => {
+    const t = e.target;
+    if (t.dataset.seq !== undefined) {
+      const r = Number(t.dataset.route);
+      store.routes[r] = setStopNumber(storeStops(store, r), Number(t.dataset.seq), t.value);
+    } else if (t.dataset.truck !== undefined) {
+      store.trucks[t.dataset.truck] = t.value;
+    } else return;
+    saveStore(store);
+    render();
+  });
+  page.addEventListener("input", e => {
+    const id = e.target.dataset && e.target.dataset.addSearch;
+    if (id === undefined) return;
+    addSearch[id] = e.target.value;
+    // Only the results redraw, so typing keeps focus.
+    page.querySelector(`[data-add-results="${id}"]`).innerHTML = addMatchesHtml(Number(id));
+  });
+}
+
+async function init() {
+  document.getElementById("nav").innerHTML = opsNavHtml("myroute");
+  try {
+    data = await loadOpsData();
+  } catch (err) {
+    document.getElementById("page").innerHTML = `<div class="alert alert-danger">${escapeHtml(err.message)}</div>`;
+    return;
+  }
+  store = loadStore(data.snap);
+  routeList = opsRouteList(data.snap);
+  const banner = document.getElementById("banner");
+  banner.innerHTML = shadowBannerHtml(store, data.snap);
+  wireShadowReset(banner, data.snap, fresh => {
+    store = fresh;
+    banner.innerHTML = shadowBannerHtml(store, data.snap);
+    render();
+  });
+  wire();
+  render();
+}
+
+init();
+</script>
+</body>
+</html>

@@ -9,6 +9,52 @@ finishes**, so a fresh session does not redo or skip it.
 
 ## In flight
 
+### Route planner beta (started 2026-10-17)
+
+The parked route builder (below), started as Milestone 1 of the operations
+platform plan. Jamaal belongs to a third party and is hard to change, so it stays
+the system of record. **We only read from it.**
+
+- `planner.html` is unlisted: not in the nav until Jim has seen it.
+- `jamaal_routes.py` GETs `routes_assigned.php` into `jamaal_routes.json`. It
+  runs nightly and on demand via the `Refresh Assigned Routes` workflow.
+- The planner scores each site route and drafts routes in the browser.
+  Reordering is by arrows or typed stop numbers. Truck fill is shown against
+  `TRUCKS`.
+- **Waiting on Sarge:** tank capacities for Mamma Bear, Mack Daddy, Baby Bird
+  and the new truck (all `null`). Also, whether a truck is tied to a route.
+- **Then Jim:** route names, and whether the totals help.
+- **Next (Phase 2):** a Ms. Lucy (`dayssince.php`) vs model comparison, and a
+  route-level range calibrated from the live test log.
+
+### Shadow operations site (started 2026-10-18)
+
+This is the first step towards replacing Jamaal. The source site's workflow
+runs on a copy of its data, and every change stays in the viewer's browser.
+
+- Target nav: Assign Routes · My Route · Calendar · Outgoing · Dashboard ·
+  Projections · Historical Totals (Regions, Years, Customers) · Schmootz.
+- Dropped: Ms. Lucy, Timeclock and Home.
+- Built (checkpoint 1):
+  - `ops-assign.html`: the list by town or by urgency, region filter, a
+    running total of ticked customers, route before/after against its truck,
+    and Add customer.
+  - `ops-myroute.html`: My Route and Today's Routes in one page, with arrows,
+    typed stop numbers, Must Get, remove, Add stop from search, and a driver
+    view for gallons.
+- Built (checkpoint 2): `ops-calendar.html`.
+  - The source site's month grid. Its latest day doubles as Today's Totals.
+  - A day's total counts gallons only; the 0-3 codes are listed in the day by
+    meaning. The source site adds them in, so it reads a few gallons higher.
+  - Header as on the source site: two green buttons a month either side
+    (09-18-26 | 11-18-26), and "This month / Last year" (the full same month).
+  - Adds a month picker (10/26 back to 01/15).
+- Next: Outgoing (Schmutz logging), later.
+- Route names differ between the source site's pages. Ask Jim:
+  - id 4 is "MamaBear" in the Assign dropdown but "Stowe/Wtbry/MRV" on
+    Today's Routes;
+  - id 15 appears twice.
+
 ### Comeback hold (2026-10-15)
 
 Customers back after more than a year without a pickup are insufficient data
@@ -207,7 +253,7 @@ Most of these fields already exist in `oil_projection_table_detail.csv`; the
 page work is mostly exporting them into `oil_projections.json` and building
 the views. The page must keep displaying, never recomputing.
 
-## Later: route builder (parked)
+## Later: route builder (parked; now In flight as the route planner beta)
 
 A page under Projections to assemble a route: list of active customers, sort
 by name / town / region / gallons / % accumulated, search, a checkbox per

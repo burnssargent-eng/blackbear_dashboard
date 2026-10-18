@@ -1,0 +1,44 @@
+name: Refresh Assigned Routes
+
+# Run by hand (Actions tab > Refresh Assigned Routes > Run workflow) to update
+# the route planner's copy of the source site's routes during the day. Only
+# reads one page there; never writes to it.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-commits
+  cancel-in-progress: false
+
+jobs:
+  refresh-routes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4
+
+      - name: Read assigned routes
+        run: |
+          python jamaal_routes.py
+
+      - name: Commit the snapshot
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add jamaal_routes.json
+          git commit -m "Refresh assigned routes" || echo "No changes to commit"
+          git push

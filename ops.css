@@ -1,0 +1,96 @@
+/*
+ * Shadow operations site (ops-*.html). Light Bootstrap 5.1, as on the source
+ * site, so the pages read the way Jim and the drivers are used to. The
+ * dashboard pages keep dashboard.css; nothing here touches them.
+ */
+
+body { background: #fff; }
+
+.ops-shadow { background: #fff8e1; border-bottom: 1px solid #f0d78c; font-size: 13px; }
+
+.graytext { color: #888; }
+.hotlist { color: #d00; }
+.ops-proj { color: #198754; font-size: 0.85em; white-space: nowrap; }
+.ops-muted { color: #6c757d; font-size: 0.85em; }
+.ops-on-route { color: #0d6efd; font-size: 0.85em; }
+.ops-new { color: #b35c00; font-size: 0.85em; }
+
+/* Assign Routes: the source site's big plain list, with a sticky assign bar. */
+.ops-assign-list { font-size: 18px; }
+.ops-assign-list td { padding: 4px 6px; vertical-align: top; }
+.ops-assign-list input[type=checkbox] { width: 1.1em; height: 1.1em; margin-top: 0.3em; }
+.ops-assign-list tr.ops-picked td { background: #eef6ff; }
+.ops-city-head td { font-size: 14px; font-weight: bold; color: #555; padding-top: 12px; border-bottom: 1px solid #ddd; }
+
+.ops-assign-bar {
+  position: sticky; bottom: 0; z-index: 10; background: #f8f9fa;
+  border-top: 1px solid #dee2e6; padding: 10px 12px; font-size: 14px;
+}
+
+/* My Route: routes collapsed in a list. */
+details.ops-route { border: 1px solid #dee2e6; border-radius: 6px; margin-bottom: 8px; }
+details.ops-route > summary {
+  list-style: none; cursor: pointer; padding: 12px 14px; background: #f8f9fa; border-radius: 6px;
+  display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline;
+}
+details.ops-route > summary::-webkit-details-marker { display: none; }
+details.ops-route > summary::before { content: "▸"; color: #888; }
+details.ops-route[open] > summary::before { content: "▾"; }
+details.ops-route[open] > summary { border-bottom: 1px solid #dee2e6; border-radius: 6px 6px 0 0; }
+.ops-route-name { font-weight: bold; font-size: 18px; }
+.ops-route-sum { font-size: 14px; color: #555; }
+.ops-route-body { padding: 10px 14px; }
+.ops-stops td, .ops-stops th { vertical-align: middle; }
+.ops-stops .ops-seq { width: 3.6em; }
+.ops-stops tfoot td { font-weight: bold; border-top: 2px solid #555; }
+.ops-fill { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; }
+.ops-fill .progress { width: 110px; height: 8px; }
+
+/* Driver view. */
+.ops-sticky { position: sticky; top: 0; z-index: 5; background: #fff; border-bottom: 1px solid #dee2e6; }
+.ops-stop { border: 1px solid #dee2e6; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; }
+.ops-stop.ops-done { background: #f1f8f3; border-color: #b7dfc4; }
+.ops-stop-num { font-weight: bold; color: #888; min-width: 1.6em; display: inline-block; }
+.ops-stop-name { font-size: 19px; }
+.ops-entry input { max-width: 7em; font-size: 18px; }
+.ops-badge-must { background: #d00; }
+.progress { height: 10px; }
+
+/* Calendar: the source site's month grid (its assets/calendar.css), tightened for phones. */
+.cal-month { font-size: 20px; font-weight: bold; color: #636e73; padding: 10px 0; }
+.cal-days { display: flex; flex-flow: wrap; }
+.cal-name {
+  width: calc(100% / 7); padding: 10px 6px; text-transform: uppercase; font-size: 12px;
+  font-weight: bold; color: #fff; background-color: green; border-right: 1px solid #2c7aca;
+}
+.cal-name:nth-child(7) { border-right: none; }
+.cal-day {
+  display: flex; flex-flow: column; width: calc(100% / 7); min-height: 100px; padding: 5px;
+  border-right: 1px solid #e6e9ea; border-bottom: 1px solid #e6e9ea;
+  font-weight: bold; font-size: 14px; color: #7c878d;
+}
+.cal-day:nth-child(7n+1) { border-left: 1px solid #e6e9ea; }
+.cal-day.cal-has { cursor: pointer; }
+.cal-day.cal-has:hover { background-color: #fafafa; }
+.cal-day.cal-ignore { background-color: #fdfdfd; color: #ced2d4; }
+.cal-day.cal-selected { background-color: #f1f2f3; }
+.cal-event { margin-top: 5px; border-radius: 4px; color: #fff; text-align: center; font-size: 14px; }
+.cal-green { background-color: #51ce57; }
+.cal-yellow { background-color: #f7c30d; }
+.cal-list { list-style: disc; padding-left: 1.4em; margin-bottom: 4px; }
+
+@media (max-width: 576px) {
+  .cal-day { min-height: 64px; padding: 3px; font-size: 12px; }
+  .cal-name { padding: 6px 2px; font-size: 10px; text-align: center; }
+  .cal-event { font-size: 11px; }
+}
+
+/* Calendar header: the source site's two month buttons centred, the month picker to their right. */
+.cal-nav { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 8px; }
+.cal-nav-center { display: flex; gap: 8px; justify-content: center; }
+.cal-nav-right { display: flex; gap: 8px; align-items: center; justify-content: flex-start; }
+@media (max-width: 576px) {
+  .cal-nav { grid-template-columns: 1fr; }
+  .cal-nav > div:first-child { display: none; }
+  .cal-nav-right { justify-content: center; }
+}

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calendar (shadow) — Black Bear Biodiesel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="stylesheet" href="ops.css">
+</head>
+
+<body>
+<div id="nav"></div>
+<div id="banner"></div>
+<div class="container py-3" id="page">Loading…</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+<script src="dashboard-utils.js"></script>
+<script src="route-utils.js"></script>
+<script src="ops-common.js"></script>
+<script>
+/*
+ * Calendar (shadow). The source site's month grid of gallons per day, with a
+ * day's list of "Customer: gallons" under it. The latest day is the source
+ * site's "Today's Totals".
+ *
+ * One deliberate difference: the source site adds the 0-3 codes into a day's
+ * total as if they were gallons. Here a day's total is gallons collected only
+ * (EMPTY_QTYS, oil_scraper.py), and the codes are listed in the day as what
+ * they mean. Gallons entered in this browser's shadow copy show separately,
+ * in yellow, and are never mixed into the real totals.
+ */
+
+const NON_PICKUP_FILE = "oil_non_pickups.csv";
+const CODE_LABELS = { 0: "checked, empty", 1: "checked, empty", 2: "sign-up call", 3: "barrel delivery" };
+
+let byDay = new Map();      // "YYYY-MM-DD" -> { gallons, rows: [{customer_id, name, gallons}] }
+let codesByDay = new Map(); // "YYYY-MM-DD" -> [{customer_id, name, qty}]
+let names = new Map();      // customer id -> name
+let latestDay = "";
+let store = null, snap = null;
+let anchor = "";            // "YYYY-MM-DD": the source site's startdate; its month is shown
+let day = "";               // selected "YYYY-MM-DD", or ""
+
+/* ── Data ───────────────────────────────────────────────── */
+
+function indexCollections(records) {
+  const out = new Map();
+  records.forEach(r => {
+    const d = out.get(r.date) || { gallons: 0, rows: [] };
+    d.gallons += r.gallons;
+    d.rows.push({ customer_id: r.customer_id, name: r.name, gallons: r.gallons });
+    out.set(r.date, d);
+  });
+  return out;
+}
+
+function parseNonPickups(text) {
+  const out = new Map();
+  text.trim().split(/\r?\n/).slice(1).forEach(line => {
+    const [id, date, qty] = line.split(",");
+    if (!date) return;
+    const list = out.get(date) || [];
+    list.push({ customer_id: Number(id), qty: Number(qty) });
+    out.set(date, list);
+  });
+  return out;
+}
+
+/** Total gallons for a month from the per-day index. */
+function monthTotal(ym) {
+  let sum = 0;
+  byDay.forEach((d, date) => { if (date.slice(0, 7) === ym) sum += d.gallons; });
+  return sum;
+}
+
+/** Shadow-copy entries for a day (gallons above 3 count as collected). */
+function shadowEntries(date) {
+  return ((store && store.collections) || []).filter(c => c.date === date);
+}
+
+function shiftMonth(ym, delta) {
+  const [y, m] = ym.split("-").map(Number);
+  const d = new Date(y, m - 1 + delta, 1);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+}
+
+/**
+ * The same day of the month `delta` months away, as the source site's buttons
+ * step (09-18-26 | 11-18-26 around Oct 18). A day past the month's end becomes
+ * its last day.
+ */
+function shiftAnchor(date, delta) {
+  const [y, m, d] = date.split("-").map(Number);
+  const target = new Date(y, m - 1 + delta, 1);
+  const last = new Date(target.getFullYear(), target.getMonth() + 1, 0).getDate();
+  return `${target.getFullYear()}-${String(target.getMonth() + 1).padStart(2, "0")}-` +
+    `${String(Math.min(d, last)).padStart(2, "0")}`;
+}
+
+/** "2026-09-18" -> "09-18-26", the source site's button label. */
+function anchorLabel(date) {
+  return `${date.slice(5, 7)}-${date.slice(8, 10)}-${date.slice(2, 4)}`;
+}
+
+/** Every month from this one back to the first with daily data, newest first, as "YYYY-MM". */
+function monthOptions(thisMonth) {
+  const first = [...byDay.keys()].sort()[0];
+  const out = [];
+  for (let ym = thisMonth; first && ym >= first.slice(0, 7); ym = shiftMonth(ym, -1)) out.push(ym);
+  return out;
+}
+
+function monthLabel(ym) {
+  const [y, m] = ym.split("-").map(Number);
+  return new Date(y, m - 1, 1).toLocaleDateString("default", { month: "long", year: "numeric" });
+}
+
+/* ── Rendering ──────────────────────────────────────────── */
+
+function gridHtml(ym) {
+  const [y, m] = ym.split("-").map(Number);
+  const first = new Date(y, m - 1, 1);
+  const days = new Date(y, m, 0).getDate();
+  const lead = first.getDay();
+  const prevDays = new Date(y, m - 1, 0).getDate();
+  const cells = [];
+  ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].forEach(n => cells.push(`<div class="cal-name">${n}</div>`));
+  for (let i = lead - 1; i >= 0; i--) cells.push(`<div class="cal-day cal-ignore">${prevDays - i}</div>`);
+  for (let d = 1; d <= days; d++) {
+    const date = `${ym}-${String(d).padStart(2, "0")}`;
+    const real = byDay.get(date);
+    const shadow = shadowEntries(date).reduce((s, c) => s + (c.gallons > 3 ? c.gallons : 0), 0);
+    const hasCodes = codesByDay.has(date);
+    const clickable = real || shadow || hasCodes;
+    cells.push(`<div class="cal-day${date === day ? " cal-selected" : ""}${clickable ? " cal-has" : ""}"
+        ${clickable ? `data-day="${date}" role="button" tabindex="0"` : ""}>
+      <span>${d}</span>
+      ${real ? `<div class="cal-event cal-green">${formatNumber(real.gallons)}</div>` : ""}
+      ${shadow ? `<div class="cal-event cal-yellow" title="Entered in this browser">${formatNumber(shadow)}</div>` : ""}
+    </div>`);
+  }
+  const tail = (7 - ((lead + days) % 7)) % 7;
+  for (let i = 1; i <= tail; i++) cells.push(`<div class="cal-day cal-ignore">${i}</div>`);
+  return `<div class="cal-days">${cells.join("")}</div>`;
+}
+
+function dayHtml(date) {
+  if (!date) return "";
+  const real = byDay.get(date);
+  const codes = codesByDay.get(date) || [];
+  const shadow = shadowEntries(date);
+  const rows = real ? real.rows.slice().sort((a, b) => a.name.localeCompare(b.name)) : [];
+  return `
+    <h3 class="mt-4" id="day">Collections for ${escapeHtml(formatDate(date))}</h3>
+    ${rows.length ? `<ul class="cal-list">${rows.map(r =>
+      `<li>${escapeHtml(r.name)}: ${formatNumber(r.gallons)}</li>`).join("")}</ul>
+      <div class="fw-bold">Total: ${formatNumber(real.gallons)}</div>`
+      : `<div class="text-muted">No gallons recorded${date > latestDay ? " yet: the data runs through " + escapeHtml(formatDate(latestDay)) : ""}.</div>`}
+    ${codes.length ? `<div class="mt-3 ops-muted">Not gallons (codes 0–3):</div>
+      <ul class="cal-list ops-muted">${codes.map(c =>
+        `<li>${escapeHtml(names.get(c.customer_id) || `#${c.customer_id}`)}: ${c.qty} — ${CODE_LABELS[c.qty] || "code"}</li>`).join("")}</ul>` : ""}
+    ${shadow.length ? `<div class="mt-3 ops-new">Entered in this browser (shadow copy, not real):</div>
+      <ul class="cal-list">${shadow.map(c =>
+        `<li>${escapeHtml(c.name)}: ${c.gallons}${c.gallons <= 3 ? " — checked, empty" : ""}</li>`).join("")}</ul>` : ""}`;
+}
+
+function render() {
+  const month = anchor.slice(0, 7);
+  const prev = shiftAnchor(anchor, -1), next = shiftAnchor(anchor, 1);
+  document.getElementById("page").innerHTML = `
+    <div class="cal-nav mb-2">
+      <div></div>
+      <div class="cal-nav-center">
+        <button type="button" class="btn btn-success btn-lg" data-anchor="${prev}">${anchorLabel(prev)}</button>
+        <button type="button" class="btn btn-success btn-lg" data-anchor="${next}">${anchorLabel(next)}</button>
+      </div>
+      <div class="cal-nav-right">
+        <select class="form-select form-select-sm w-auto" id="cal-month-pick" aria-label="Month">
+          ${monthOptions(todayIso().slice(0, 7)).map(ym =>
+            `<option value="${ym}"${ym === month ? " selected" : ""}>${ym.slice(5, 7)}/${ym.slice(2, 4)}</option>`).join("")}
+        </select>
+        <button type="button" class="btn btn-outline-success btn-sm text-nowrap" data-today>Latest day</button>
+      </div>
+    </div>
+    <div class="text-center mb-1">This month: ${formatNumber(monthTotal(month))} Last year: ${formatNumber(monthTotal(shiftMonth(month, -12)))}</div>
+    <div class="ops-muted text-center mb-2">Gallons collected; the 0–3 codes are not added in, so days read a few gallons
+      under the source site. Data runs through ${escapeHtml(formatDate(latestDay))}.</div>
+    <div class="cal-month">${escapeHtml(monthLabel(month))}</div>
+    ${gridHtml(month)}
+    ${dayHtml(day)}`;
+}
+
+function setUrl() {
+  const url = new URL(window.location.href);
+  url.searchParams.set("startdate", anchor);
+  if (day) url.searchParams.set("day", day); else url.searchParams.delete("day");
+  window.history.replaceState(null, "", url);
+}
+
+function pick(date) {
+  day = date;
+  anchor = date;
+  setUrl();
+  render();
+  const el = document.getElementById("day");
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+async function init() {
+  document.getElementById("nav").innerHTML = opsNavHtml("calendar");
+  try {
+    const oilData = await loadOilData();
+    const [payload, codesText, opsData] = await Promise.all([
+      loadCollectionsPayload(oilData),
+      fetch(`${NON_PICKUP_FILE}?v=${encodeURIComponent(oilData.last_updated)}`).then(r => r.ok ? r.text() : ""),
+      loadOpsData(),
+    ]);
+    snap = opsData.snap;
+    byDay = indexCollections(payload.records || []);
+    (payload.customers || []).forEach(c => names.set(c.customer_id, c.name));
+    (snap.assign_list || []).forEach(a => { if (!names.has(a.customer_id) && a.name) names.set(a.customer_id, a.name); });
+    codesByDay = parseNonPickups(codesText);
+  } catch (err) {
+    document.getElementById("page").innerHTML = `<div class="alert alert-danger">${escapeHtml(err.message)}</div>`;
+    return;
+  }
+  latestDay = [...byDay.keys()].sort().pop() || todayIso();
+  store = loadStore(snap);
+  const banner = document.getElementById("banner");
+  banner.innerHTML = shadowBannerHtml(store, snap);
+  wireShadowReset(banner, snap, fresh => { store = fresh; banner.innerHTML = shadowBannerHtml(store, snap); render(); });
+
+  const start = getUrlParam("startdate"), d = getUrlParam("day");
+  day = /^\d{4}-\d{2}-\d{2}$/.test(d) ? d : "";
+  anchor = /^\d{4}-\d{2}-\d{2}$/.test(start) ? start : (day || todayIso());
+
+  const page = document.getElementById("page");
+  page.addEventListener("click", e => {
+    const t = e.target.closest && e.target.closest("[data-anchor],[data-day],[data-today]");
+    if (!t) return;
+    if (t.dataset.anchor) { anchor = t.dataset.anchor; day = ""; setUrl(); render(); }
+    else if (t.dataset.day) pick(t.dataset.day);
+    else pick(latestDay);
+  });
+  page.addEventListener("change", e => {
+    if (e.target.id !== "cal-month-pick") return;
+    // Keep the source site's day of the month, as its buttons do.
+    anchor = shiftAnchor(`${e.target.value}-${anchor.slice(8)}`, 0);
+    day = "";
+    setUrl();
+    render();
+  });
+  page.addEventListener("keydown", e => {
+    if ((e.key === "Enter" || e.key === " ") && e.target.dataset && e.target.dataset.day) {
+      e.preventDefault();
+      pick(e.target.dataset.day);
+    }
+  });
+  render();
+}
+
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Assign Routes (shadow) — Black Bear Biodiesel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="stylesheet" href="ops.css">
+</head>
+
+<body>
+<div id="nav"></div>
+<div id="banner"></div>
+<div class="container py-3" id="page">Loading…</div>
+<div class="ops-assign-bar" id="bar" hidden></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+<script src="dashboard-utils.js"></script>
+<script src="route-utils.js"></script>
+<script src="ops-common.js"></script>
+<script>
+/*
+ * Assign Routes (shadow). The source site's list of active customers, by town,
+ * with a checkbox each and "Assign to" at the bottom. Added here:
+ *   - each customer's projected gallons and % full in place of [days over];
+ *   - a running total of the ticked customers, and what the chosen route
+ *     totals before and after assigning them, against its truck;
+ *   - a region filter (in place of Wheelhouse) and a most-urgent-first sort;
+ *   - Add customer, kept in this browser like every other change.
+ */
+
+let data = null;          // { projections, snap, index }
+let store = null;         // the shadow copy (ops-common.js)
+let routeList = [];
+let picked = new Set();   // ticked customer ids
+let view = { search: "", region: "", sort: "town", route: "", mustGet: false };
+let flash = "";
+
+/** The list: the source site's rows plus customers added in the shadow copy. */
+function customerRows() {
+  const rows = data.snap.assign_list.map(a => ({ ...a, added: false }));
+  store.added.forEach(c => rows.push({ customer_id: c.customer_id, name: c.name, city: c.city,
+    days_over: null, added: true, capacity: c.capacity }));
+  return rows.map(r => {
+    const row = data.index.get(r.customer_id) || null;
+    return { ...r, row, capacity: row && row.capacity != null ? row.capacity : (r.capacity ?? null),
+      town: (row && row.town) || r.city || "" };
+  });
+}
+
+// The builder's urgency order: ranked rows by position, everything else after.
+let urgencyRank = new Map();
+
+function visibleRows() {
+  const q = view.search.toLowerCase();
+  let rows = customerRows().filter(r =>
+    matchesNameSearch(q, [r.name, r.town, ...((r.row && r.row.members) || []).map(m => m.name)]) &&
+    (!view.region || (r.row && (r.row.regions || []).includes(view.region))));
+  if (view.sort === "urgent") {
+    rows = rows.slice().sort((a, b) =>
+      (urgencyRank.get(a.row && a.row.id) ?? Infinity) - (urgencyRank.get(b.row && b.row.id) ?? Infinity));
+  } else {
+    rows = rows.slice().sort((a, b) => (a.town || "~").localeCompare(b.town || "~"));
+  }
+  return rows;
+}
+
+function rowHtml(r, onRoutes) {
+  const on = onRoutes.get(r.customer_id) || [];
+  const badge = r.row ? projectionBadgeText(r.row) : "";
+  return `<tr class="${picked.has(r.customer_id) ? "ops-picked" : ""}">
+    <td><input type="checkbox" data-pick="${r.customer_id}" ${picked.has(r.customer_id) ? "checked" : ""}
+         aria-label="Select ${escapeHtml(r.name)}"></td>
+    <td>${escapeHtml(r.name || `(no name) #${r.customer_id}`)}
+      <span class="graytext">(${r.capacity ?? "—"})</span>
+      ${badge ? `<span class="ops-proj">${escapeHtml(badge)}</span>` : ""}
+      ${r.added ? `<span class="ops-new">new · this browser only</span>` : ""}
+      ${on.length ? `<div class="ops-on-route">On ${escapeHtml(on.join(", "))}</div>` : ""}
+    </td>
+    <td class="ops-muted">${escapeHtml(r.town)}</td>
+  </tr>`;
+}
+
+function renderList() {
+  const rows = visibleRows();
+  const onRoutes = storeRoutesByCustomer(store, routeList, data.index);
+  let lastTown = null;
+  const body = rows.map(r => {
+    let head = "";
+    if (view.sort === "town" && r.town !== lastTown) {
+      lastTown = r.town;
+      head = `<tr class="ops-city-head"><td colspan="3">${escapeHtml(r.town || "No town")}</td></tr>`;
+    }
+    return head + rowHtml(r, onRoutes);
+  }).join("");
+  document.getElementById("list").innerHTML = rows.length
+    ? `<table class="ops-assign-list w-100"><tbody>${body}</tbody></table>`
+    : `<div class="text-muted">No customers match.</div>`;
+  document.getElementById("count").textContent = `${rows.length} shown`;
+}
+
+function pickedStops() {
+  const byId = new Map(customerRows().map(r => [r.customer_id, r]));
+  return [...picked].map(id => byId.get(id)).filter(Boolean)
+    .map(r => ({ customer_id: r.customer_id, name: r.name, capacity: r.capacity }));
+}
+
+function routeFillHtml(totals, routeId) {
+  const fill = truckFill(totals, store.trucks[routeId]);
+  if (!fill) return "";
+  return ` · ${Math.round(fill.pct)}% of ${escapeHtml(fill.truck.name)}` +
+    (fill.pct > 100 ? " <strong class=\"text-danger\">over the tank</strong>" : "");
+}
+
+function renderBar() {
+  const bar = document.getElementById("bar");
+  bar.hidden = false;
+  const stops = pickedStops();
+  const sel = routeSummary(stops, data.index).totals;
+  let routeLine = "";
+  if (view.route) {
+    const current = storeStops(store, view.route);
+    const before = routeSummary(current, data.index).totals;
+    const after = routeSummary([...current, ...stops.filter(s =>
+      !current.some(c => c.customer_id === s.customer_id))], data.index).totals;
+    const name = routeList.find(r => String(r.route_id) === String(view.route)).name;
+    routeLine = stops.length
+      ? `<div class="mt-1">${escapeHtml(name)}: ${current.length} stops, ` +
+        `${formatWhole(before.projected)} gal → <strong>${projectedRangeText(after)}</strong>` +
+        ` after assigning${routeFillHtml(after, view.route)}</div>`
+      : `<div class="mt-1">${escapeHtml(name)}: ${current.length} stops, ` +
+        `${projectedRangeText(before)}${routeFillHtml(before, view.route)}</div>`;
+  }
+  bar.innerHTML = `
+    <div>${stops.length
+      ? `<strong>${stops.length} selected:</strong> ${projectedRangeText(sel)} · capacity ${formatWhole(sel.capacity)}
+         <button type="button" class="btn btn-link btn-sm p-0 ms-2" data-clear>Clear</button>`
+      : `Tick customers to assign them.`}</div>
+    <div class="d-flex flex-wrap gap-2 align-items-center mt-1">
+      <label for="route">Assign to:</label>
+      <select id="route" class="form-select form-select-sm w-auto">
+        <option value="">Route…</option>
+        ${routeList.map(r => `<option value="${r.route_id}"${String(r.route_id) === String(view.route) ? " selected" : ""}>` +
+          `${escapeHtml(r.name)}</option>`).join("")}
+      </select>
+      <label class="form-check-label"><input type="checkbox" class="form-check-input" id="must"
+        ${view.mustGet ? "checked" : ""}> Must Get</label>
+      <button type="button" class="btn btn-primary btn-sm" data-assign ${stops.length && view.route ? "" : "disabled"}>Assign</button>
+      ${flash ? `<span class="text-success">${flash}</span>` : ""}
+    </div>
+    ${routeLine}`;
+}
+
+function render() {
+  renderList();
+  renderBar();
+}
+
+function buildShell() {
+  const regions = [...new Set(data.projections.region_order || [])];
+  document.getElementById("page").innerHTML = `
+    <h2>Assign Routes</h2>
+    <div class="ops-muted mb-2">Projections as of ${escapeHtml(formatDate(data.projections.as_of))}.
+      Green figures are projected gallons and % full; a held-out customer shows why it has none.</div>
+
+    <div class="d-flex flex-wrap gap-2 align-items-center mb-2">
+      <input type="search" id="search" class="form-control form-control-sm w-auto" placeholder="Search name or town">
+      <select id="region" class="form-select form-select-sm w-auto">
+        <option value="">All regions</option>
+        ${regions.map(r => `<option value="${escapeHtml(r)}">${escapeHtml(r)}</option>`).join("")}
+      </select>
+      <select id="sort" class="form-select form-select-sm w-auto">
+        <option value="town">By town (as on the site)</option>
+        <option value="urgent">Most urgent first</option>
+      </select>
+      <span class="ops-muted" id="count"></span>
+    </div>
+
+    <details class="mb-3">
+      <summary class="btn btn-outline-secondary btn-sm">+ Add customer</summary>
+      <form id="add" class="row g-2 mt-1" autocomplete="off">
+        <div class="col-12 col-md-4"><input class="form-control form-control-sm" name="name" placeholder="Name" required></div>
+        <div class="col-6 col-md-3"><input class="form-control form-control-sm" name="city" placeholder="Town"></div>
+        <div class="col-3 col-md-2"><input class="form-control form-control-sm" name="capacity" type="number" min="0" placeholder="Capacity"></div>
+        <div class="col-3 col-md-2"><input class="form-control form-control-sm" name="periodicity" type="number" min="0" placeholder="Periodicity (days)"></div>
+        <div class="col-12 col-md-1"><button class="btn btn-success btn-sm w-100">Add</button></div>
+        <div class="col-12 ops-muted">Saved in this browser only. No address or phone: this site is public.</div>
+      </form>
+    </details>
+
+    <div id="list"></div>`;
+
+  const page = document.getElementById("page");
+  document.getElementById("search").addEventListener("input", e => { view.search = e.target.value.trim(); renderList(); });
+  document.getElementById("region").addEventListener("change", e => { view.region = e.target.value; renderList(); });
+  document.getElementById("sort").addEventListener("change", e => { view.sort = e.target.value; renderList(); });
+  page.addEventListener("change", e => {
+    const id = e.target.dataset && e.target.dataset.pick;
+    if (id === undefined) return;
+    if (e.target.checked) picked.add(Number(id)); else picked.delete(Number(id));
+    e.target.closest("tr").classList.toggle("ops-picked", e.target.checked);
+    flash = "";
+    renderBar();
+  });
+  document.getElementById("add").addEventListener("submit", e => {
+    e.preventDefault();
+    const f = new FormData(e.target);
+    if (!String(f.get("name") || "").trim()) return;
+    const c = addShadowCustomer(store, Object.fromEntries(f));
+    saveStore(store);
+    e.target.reset();
+    picked.add(c.customer_id);
+    flash = `Added ${escapeHtml(c.name)}; it is ticked below.`;
+    render();
+  });
+
+  const bar = document.getElementById("bar");
+  bar.addEventListener("change", e => {
+    if (e.target.id === "route") { view.route = e.target.value; flash = ""; renderBar(); }
+    if (e.target.id === "must") view.mustGet = e.target.checked;
+  });
+  bar.addEventListener("click", e => {
+    if (e.target.closest("[data-clear]")) { picked.clear(); flash = ""; render(); return; }
+    if (!e.target.closest("[data-assign]")) return;
+    const n = assignToRoute(store, Number(view.route), pickedStops(), view.mustGet);
+    saveStore(store);
+    const name = routeList.find(r => String(r.route_id) === String(view.route)).name;
+    const skipped = picked.size - n;
+    flash = `Added ${n} to ${escapeHtml(name)}` + (skipped ? ` (${skipped} already on it)` : "") +
+      `. <a href="ops-myroute.html">Open My Route</a>`;
+    picked.clear();
+    render();
+  });
+}
+
+async function init() {
+  document.getElementById("nav").innerHTML = opsNavHtml("assign");
+  try {
+    data = await loadOpsData();
+  } catch (err) {
+    document.getElementById("page").innerHTML = `<div class="alert alert-danger">${escapeHtml(err.message)}</div>`;
+    return;
+  }
+  if (!data.snap.assign_list) {
+    document.getElementById("page").innerHTML =
+      `<div class="alert alert-warning">The routes file has no Assign Routes list yet; rerun jamaal_routes.py.</div>`;
+    return;
+  }
+  store = loadStore(data.snap);
+  routeList = opsRouteList(data.snap);
+  urgencyRank = new Map(data.projections.customers.filter(c => c.section === "ranked").map((c, i) => [c.id, i]));
+  const banner = document.getElementById("banner");
+  banner.innerHTML = shadowBannerHtml(store, data.snap);
+  wireShadowReset(banner, data.snap, fresh => {
+    store = fresh;
+    banner.innerHTML = shadowBannerHtml(store, data.snap);
+    picked.clear();
+    render();
+  });
+  buildShell();
+  render();
+}
+
+init();
+</script>
+</body>
+</html>

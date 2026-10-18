@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Route Planner (beta) — Black Bear Biodiesel</title>
+
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+<header>
+  <a class="brand-home" href="index.html" aria-label="Back to dashboard">
+    <img src="logo.png" alt="Black Bear Biodiesel" onerror="this.style.display='none'">
+    <div>
+      <div class="subtitle">Oil Collection Analytics</div>
+      <h1>Black Bear Biodiesel</h1>
+    </div>
+  </a>
+  <div class="header-center">
+    <div class="page-name" id="page-name"></div>
+    <nav class="main-nav" id="main-nav"></nav>
+  </div>
+  <img class="header-team" src="team.png" alt="The Black Bear Biodiesel team"
+       onerror="this.style.display='none'">
+  <div class="last-updated" id="last-updated"></div>
+</header>
+
+<div class="page" id="page">
+  <div class="page-state">
+    <div class="state-message">Loading the route planner…</div>
+  </div>
+</div>
+
+<script src="dashboard-utils.js"></script>
+<script src="route-utils.js"></script>
+<script>
+/*
+ * Route planner (beta). UNLISTED: not in the nav until Jim has seen it.
+ *
+ * Read-only towards the source site. It shows the routes currently assigned
+ * there (jamaal_routes.json, a snapshot taken by jamaal_routes.py) and lets the
+ * viewer draft a route in this browser. Nothing here writes to the source site:
+ * a draft is copied or printed and entered there by hand.
+ *
+ * Like projections.html it never computes a projection. Route totals come from
+ * routeSummary() in route-utils.js, which only adds exported figures.
+ */
+
+const PROJECTIONS_FILE = "oil_projections.json";
+const ROUTES_FILE = "jamaal_routes.json";
+const STORAGE_KEY = "bbb-route-planner-v1";
+
+// Candidates listed under the draft when the search box is empty.
+const CANDIDATE_LIMIT = 15;
+
+let projections = null;   // oil_projections.json
+let routesSnap = null;    // jamaal_routes.json, or null when unavailable
+let oilData = null;       // oil_data.json, for the nav
+let index = null;         // from buildIndex()
+let state = { draft: { name: "", truck: "", stops: [] }, routeTrucks: {} };
+let searchText = "";
+
+/* ── Rendering helpers ──────────────────────────────────── */
+
+/** Truck fill bar and wording for a route's projected total. */
+function truckFillHtml(totals, truckName) {
+  const truck = truckByName(truckName);
+  if (!truck) return `<span class="rp-dim">Pick a truck to compare against its tank.</span>`;
+  const fill = truckFill(totals, truckName);
+  if (!fill) {
+    return `<span class="rp-dim">${escapeHtml(truck.name)}: tank capacity not set yet.</span>`;
+  }
+  return `<span class="rp-fill">` +
+    `<span class="proj-bar rp-fill-bar"><span class="proj-bar-fill proj-${fill.level}" ` +
+    `style="width:${Math.min(100, fill.pct)}%"></span></span>` +
+    `${Math.round(fill.pct)}% of ${escapeHtml(truck.name)}'s ${formatNumber(truck.capacity)} gal` +
+    (fill.highPct > 100 && fill.pct <= 100 ? " — could overflow at the high end" : "") +
+    (fill.pct > 100 ? " — over the tank" : "") + `</span>`;
+}
+
+/** A stop's own figure: projected gallons, a held-out stop's typical pickup, or a dash. */
+function estimateCellHtml(line) {
+  if (line.dupOf !== null) return `<span class="rp-dim">same barrel as #${line.dupOf + 1}</span>`;
+  const e = line.est;
+  if (e.kind === "projected") return formatWhole(e.gal);
+  if (e.kind === "typical" && e.gal !== null && e.gal !== undefined) {
+    return `<span class="rp-dim">~${formatWhole(e.gal)} typical</span>`;
+  }
+  return `<span class="rp-dim">—</span>`;
+}
+
+function capacityCellHtml(line) {
+  return line.dupOf !== null ? `<span class="rp-dim">shared</span>` : formatWhole(line.capacity);
+}
+
+function pctFullHtml(row) {
+  const pct = row ? row.pct_full : null;
+  if (pct === null || pct === undefined) return "—";
+  const width = Math.max(0, Math.min(100, Number(pct)));
+  const level = width >= 100 ? "full" : (width >= 75 ? "due" : "ok");
+  return `<span class="proj-pct">${Math.round(width)}%` +
+    `<span class="proj-bar"><span class="proj-bar-fill proj-${level}" ` +
+    `style="width:${width}%"></span></span></span>`;
+}
+
+function daysPastHtml(row) {
+  if (!row || row.days_until_75 === null || row.days_until_75 === undefined) return "—";
+  return formatNumber(Math.round(-row.days_until_75));
+}
+
+/**
+ * The bottom row: projected gallons and capacity summed down their columns.
+ * `before` is how many columns come before Projected gal, `after` how many after
+ * Capacity.
+ */
+function totalRowHtml(totals, before, after) {
+  const blank = n => "<td></td>".repeat(n);
+  return `<tfoot>
+    <tr class="proj-live-total">
+      <td>Total</td>${blank(before - 1)}
+      <td class="gal">${formatWhole(totals.projected)}</td>
+      <td class="num">${formatWhole(totals.capacity)}</td>${blank(after)}
+    </tr>
+  </tfoot>`;
+}
+
+/** Small lines under a stop name: Must Get, held-out status, other routes. */
+function stopNotesHtml(line, onRoutes, ownRoute) {
+  const notes = [];
+  if (line.stop.must_get) notes.push(`<span class="rp-must">Must Get</span>`);
+  if (line.row && line.row.section !== "ranked") notes.push(escapeHtml(line.row.status || line.row.section));
+  if (!line.row) notes.push("Not in the projections (task, tote, or inactive/new account)");
+  if (line.row && line.row.members) notes.push(escapeHtml("Shared barrel: " + line.row.members.map(m => m.name).join(" · ")));
+  const others = (onRoutes.get(line.stop.customer_id) || []).filter(n => n !== ownRoute);
+  if (others.length) notes.push(escapeHtml("Also on: " + others.join(", ")));
+  return notes.length ? `<div class="proj-notes">${notes.join("<br>")}</div>` : "";
+}
+
+function truckSelectHtml(selected, attrs) {
+  return `<select ${attrs}>
+    <option value="">Truck…</option>
+    ${TRUCKS.map(t => `<option value="${escapeHtml(t.name)}"${t.name === selected ? " selected" : ""}>` +
+      `${escapeHtml(t.name)}${t.capacity ? ` (${formatNumber(t.capacity)} gal)` : ""}</option>`).join("")}
+  </select>`;
+}
+
+/* ── Source-site routes ─────────────────────────────────── */
+
+function jamaalRouteHtml(route, onRoutes) {
+  const { totals, lines } = routeSummary(route.stops, index);
+  const truck = state.routeTrucks[route.route_id] || "";
+  const rows = lines.map((line, i) => `
+    <tr>
+      <td class="rank">${i + 1}</td>
+      <td>${escapeHtml(line.stop.name)}${stopNotesHtml(line, onRoutes, route.name)}</td>
+      <td>${escapeHtml((line.row && line.row.town) || "—")}</td>
+      <td class="gal">${estimateCellHtml(line)}</td>
+      <td class="num">${capacityCellHtml(line)}</td>
+      <td class="num">${pctFullHtml(line.row)}</td>
+      <td class="num">${daysPastHtml(line.row)}</td>
+      <td class="num">${line.stop.days_over === null ? "—" : formatNumber(line.stop.days_over)}</td>
+    </tr>`).join("");
+  return `
+    <details class="proj-section rp-route" open>
+      <summary>${escapeHtml(route.name)}
+        <span class="proj-count">${route.stops.length}</span></summary>
+      <div class="rp-route-head">
+        <div><strong>${projectedRangeText(totals)}</strong></div>
+        <div class="rp-route-tools">
+          ${truckSelectHtml(truck, `data-route-truck="${route.route_id}"`)}
+          ${truckFillHtml(totals, truck)}
+          <button type="button" data-action="copy-route" data-route="${route.route_id}">Copy to draft</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table proj-table">
+          <thead><tr>
+            <th>#</th><th>Customer</th><th>Town</th><th>Projected gal</th>
+            <th class="num">Capacity</th>
+            <th class="num">% full</th><th class="num">Days past pickup point</th>
+            <th class="num">Site [days over]</th>
+          </tr></thead>
+          <tbody>${rows}</tbody>
+          ${totalRowHtml(totals, 3, 3)}
+        </table>
+      </div>
+    </details>`;
+}
+
+function renderJamaal() {
+  const el = document.getElementById("rp-jamaal");
+  if (!routesSnap) {
+    el.innerHTML = `<div class="note proj-warning">The source site's routes are unavailable ` +
+      `(jamaal_routes.json did not load). Drafting still works.</div>`;
+    return;
+  }
+  const onRoutes = routesByCustomer(routesSnap, index);
+  el.innerHTML = routesSnap.routes.length
+    ? routesSnap.routes.map(r => jamaalRouteHtml(r, onRoutes)).join("")
+    : `<div class="note">No routes are assigned on the source site.</div>`;
+}
+
+/* ── Draft ──────────────────────────────────────────────── */
+
+/** `fromRoute`: the site route the draft was copied from, left out of "Also on". */
+function draftRowsHtml(lines, onRoutes, fromRoute) {
+  const n = lines.length;
+  return lines.map((line, i) => `
+    <tr>
+      <td class="rp-seq"><input type="number" min="1" max="${n}" value="${i + 1}"
+            data-seq="${i}" aria-label="Stop number"></td>
+      <td class="rp-move">
+        <button type="button" data-action="up" data-i="${i}" ${i === 0 ? "disabled" : ""} aria-label="Move up">↑</button>
+        <button type="button" data-action="down" data-i="${i}" ${i === n - 1 ? "disabled" : ""} aria-label="Move down">↓</button>
+      </td>
+      <td>${escapeHtml(line.stop.name)}${stopNotesHtml(line, onRoutes, fromRoute)}</td>
+      <td>${escapeHtml((line.row && line.row.town) || "—")}</td>
+      <td class="gal">${estimateCellHtml(line)}</td>
+      <td class="num">${capacityCellHtml(line)}</td>
+      <td class="num">${pctFullHtml(line.row)}</td>
+      <td class="num">${daysPastHtml(line.row)}</td>
+      <td><button type="button" data-action="remove" data-i="${i}" aria-label="Remove stop">✕</button></td>
+    </tr>`).join("");
+}
+
+function renderDraft() {
+  const d = state.draft;
+  const onRoutes = routesByCustomer(routesSnap, index);
+  const { totals, lines } = routeSummary(d.stops, index);
+  document.getElementById("rp-draft-totals").innerHTML =
+    `<div>${d.stops.length ? `<strong>${projectedRangeText(totals)}</strong>` : "No stops yet. Add customers below, or copy a route from the source site."}</div>` +
+    `<div>${truckFillHtml(totals, d.truck)}</div>`;
+  document.getElementById("rp-draft-stops").innerHTML = d.stops.length ? `
+    <div class="table-wrap">
+      <table class="data-table proj-table">
+        <thead><tr>
+          <th>#</th><th>Move</th><th>Customer</th><th>Town</th><th>Projected gal</th>
+          <th class="num">Capacity</th>
+          <th class="num">% full</th><th class="num">Days past pickup point</th><th></th>
+        </tr></thead>
+        <tbody>${draftRowsHtml(lines, onRoutes, d.fromRoute || null)}</tbody>
+        ${totalRowHtml(totals, 4, 3)}
+      </table>
+    </div>` : "";
+  renderCandidates();
+  saveState();
+}
+
+/** Ranked first in the builder's order, then held out; the draft's own stops left out. */
+function candidateRows() {
+  const inDraft = new Set(state.draft.stops.map(s => index.get(s.customer_id))
+    .filter(Boolean).map(r => r.id));
+  const pool = projections.customers.filter(c => !inDraft.has(c.id));
+  if (!searchText) return pool.filter(c => c.section === "ranked").slice(0, CANDIDATE_LIMIT);
+  return pool.filter(c => matchesNameSearch(searchText,
+    [c.name, c.town, ...(c.members || []).map(m => m.name)]));
+}
+
+function renderCandidates() {
+  const el = document.getElementById("rp-candidates");
+  const rows = candidateRows();
+  const onRoutes = routesByCustomer(routesSnap, index);
+  document.getElementById("rp-cand-title").textContent = searchText
+    ? `Matching customers · ${rows.length}`
+    : `Most urgent not yet in the draft · top ${rows.length}`;
+  if (!rows.length) {
+    el.innerHTML = `<div class="note">No customers match the search.</div>`;
+    return;
+  }
+  el.innerHTML = `
+    <div class="table-wrap">
+      <table class="data-table proj-table">
+        <thead><tr>
+          <th></th><th>Customer</th><th>Town</th><th>Projected gal</th>
+          <th class="num">Capacity</th>
+          <th class="num">% full</th><th class="num">Days past pickup point</th>
+          <th>Last pickup</th><th>On a site route</th>
+        </tr></thead>
+        <tbody>${rows.map(c => {
+          const line = { stop: { customer_id: c.id }, row: c, est: stopEstimate(c),
+            capacity: c.capacity, dupOf: null };
+          const on = onRoutes.get(c.id) || [];
+          return `<tr>
+            <td><button type="button" data-action="add" data-id="${c.id}">Add</button></td>
+            <td>${escapeHtml(c.name)}${c.section !== "ranked"
+              ? `<div class="proj-notes">${escapeHtml(c.status || c.section)}</div>` : ""}</td>
+            <td>${escapeHtml(c.town || "—")}</td>
+            <td class="gal">${estimateCellHtml(line)}</td>
+            <td class="num">${capacityCellHtml(line)}</td>
+            <td class="num">${pctFullHtml(c)}</td>
+            <td class="num">${daysPastHtml(c)}</td>
+            <td class="proj-date">${formatDate(c.last_pickup)}</td>
+            <td>${on.length ? escapeHtml(on.join(", ")) : "—"}</td>
+          </tr>`;
+        }).join("")}</tbody>
+      </table>
+    </div>`;
+}
+
+/** The draft as plain text, in stop order, for pasting or texting. */
+function draftText(draft, byId) {
+  const { totals, lines } = routeSummary(draft.stops, byId);
+  const head = `${draft.name || "Draft route"}${draft.truck ? ` — ${draft.truck}` : ""}`;
+  const body = lines.map((l, i) => {
+    const town = l.row && l.row.town ? ` (${l.row.town})` : "";
+    const gal = l.dupOf !== null ? "same barrel"
+      : l.est.kind === "projected" ? `~${Math.round(l.est.gal)} gal`
+      : l.est.kind === "typical" && l.est.gal ? `~${Math.round(l.est.gal)} gal typical` : "";
+    return `${i + 1}. ${l.stop.name}${town}${gal ? ` — ${gal}` : ""}${l.stop.must_get ? " [MUST GET]" : ""}`;
+  });
+  const total = `Projected ${Math.round(totals.projected)} gal (range ` +
+    `${Math.round(totals.low)}–${Math.round(totals.high)}), capacity ${Math.round(totals.capacity)} gal`;
+  return [head, ...body, total].join("\n");
+}
+
+/* ── State ──────────────────────────────────────────────── */
+
+function loadState() {
+  try {
+    const saved = JSON.parse(window.localStorage.getItem(STORAGE_KEY) || "null");
+    if (saved && saved.draft && Array.isArray(saved.draft.stops)) {
+      state = { draft: saved.draft, routeTrucks: saved.routeTrucks || {} };
+    }
+  } catch (err) { /* private window or blocked storage: start empty */ }
+}
+
+function saveState() {
+  try { window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (err) { /* ignore */ }
+}
+
+/* ── Page ───────────────────────────────────────────────── */
+
+function freshnessHtml() {
+  const parts = [`Projections as of <strong>${escapeHtml(formatDate(projections.as_of))}</strong>`];
+  if (routesSnap && routesSnap.scraped_at) {
+    const when = new Date(routesSnap.scraped_at);
+    const hours = Math.round((Date.now() - when.getTime()) / 3600000);
+    parts.push(`source-site routes read <strong>${escapeHtml(when.toLocaleString())}</strong>` +
+      (hours >= 1 ? ` (${hours} h ago)` : ""));
+  }
+  return parts.join(" · ");
+}
+
+function buildShell(page) {
+  renderPageName("Route Planner (beta)");
+  page.innerHTML = `
+    <a class="back-link" href="projections.html">← Projections</a>
+    <div class="page-subtitle">${freshnessHtml()}</div>
+
+    <div class="note proj-beta">
+      <span class="proj-beta-tag">Beta</span>
+      Nothing on this page changes the source site. Draft a route here, then
+      enter it there. <strong>Projected gallons</strong> is the oil built up
+      since the last pickup, not a promise of what the truck will collect. The
+      route's range adds every stop's range, so it is a rough outer bound. Stops
+      that share a barrel count once. Will-call, seasonal, stale and new
+      accounts have no projection; their average pickup is shown as
+      <em>typical</em> and kept out of the projected total. Drafts are saved in
+      this browser only.
+    </div>
+
+    <div class="section">
+      <div class="section-title">Draft route</div>
+      <div class="controls">
+        <label for="rp-name">Name</label>
+        <input type="text" id="rp-name" class="table-search" placeholder="e.g. Central Vt 2, Tue"
+               value="${escapeHtml(state.draft.name)}" autocomplete="off">
+        ${truckSelectHtml(state.draft.truck, `id="rp-truck" aria-label="Truck"`)}
+        <button type="button" data-action="copy-text">Copy as text</button>
+        <button type="button" data-action="print">Print</button>
+        <button type="button" data-action="clear">Clear</button>
+        <span id="rp-copied" class="rp-dim"></span>
+      </div>
+      <div class="note rp-totals" id="rp-draft-totals"></div>
+      <div id="rp-draft-stops"></div>
+
+      <div class="controls rp-add">
+        <label for="rp-search">Add a stop</label>
+        <input type="search" id="rp-search" class="table-search"
+               placeholder="Customer, town or barrel member" autocomplete="off">
+      </div>
+      <div class="section-caption" id="rp-cand-title"></div>
+      <div id="rp-candidates"></div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Routes on the source site now</div>
+      <div class="section-caption">
+        Stops in the site's own order. A stop stays on its route until someone
+        removes it there, so long-standing stops show up here too.
+        <strong>Site [days over]</strong> is the site's own figure: days past
+        the customer's listed periodicity.
+      </div>
+      <div id="rp-jamaal"></div>
+    </div>
+  `;
+
+  document.getElementById("rp-name").addEventListener("input", e => {
+    state.draft.name = e.target.value;
+    saveState();
+  });
+  document.getElementById("rp-truck").addEventListener("change", e => {
+    state.draft.truck = e.target.value;
+    renderDraft();
+  });
+  document.getElementById("rp-search").addEventListener("input", e => {
+    searchText = e.target.value.trim().toLowerCase();
+    renderCandidates();
+  });
+  page.addEventListener("change", e => {
+    const t = e.target;
+    if (t.dataset && t.dataset.seq !== undefined) {
+      state.draft.stops = setStopNumber(state.draft.stops, Number(t.dataset.seq), t.value);
+      renderDraft();
+    } else if (t.dataset && t.dataset.routeTruck !== undefined) {
+      state.routeTrucks[t.dataset.routeTruck] = t.value;
+      saveState();
+      renderJamaal();
+    }
+  });
+  page.addEventListener("click", e => {
+    const b = e.target.closest && e.target.closest("[data-action]");
+    if (b) handleAction(b.dataset);
+  });
+}
+
+function handleAction(data) {
+  const stops = state.draft.stops;
+  const i = Number(data.i);
+  switch (data.action) {
+    case "up": state.draft.stops = moveStop(stops, i, i - 1); break;
+    case "down": state.draft.stops = moveStop(stops, i, i + 1); break;
+    case "remove": state.draft.stops = removeStop(stops, i); break;
+    case "add": {
+      const c = projections.customers.find(row => row.id === Number(data.id));
+      if (c) state.draft.stops = addStop(stops, { customer_id: c.id, name: c.name, must_get: false });
+      break;
+    }
+    case "copy-route": {
+      const r = routesSnap.routes.find(route => String(route.route_id) === data.route);
+      if (!r) return;
+      if (stops.length && !window.confirm(`Replace the current draft with ${r.name}?`)) return;
+      state.draft = {
+        name: r.name,
+        fromRoute: r.name,
+        truck: state.routeTrucks[r.route_id] || state.draft.truck,
+        stops: r.stops.map(s => ({ customer_id: s.customer_id, name: s.name, must_get: s.must_get })),
+      };
+      document.getElementById("rp-name").value = state.draft.name;
+      document.getElementById("rp-truck").value = state.draft.truck;
+      break;
+    }
+    case "clear":
+      if (stops.length && !window.confirm("Clear the draft?")) return;
+      state.draft.stops = [];
+      state.draft.fromRoute = null;
+      break;
+    case "copy-text": {
+      const text = draftText(state.draft, index);
+      const done = () => { document.getElementById("rp-copied").textContent = "Copied."; };
+      if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, () => window.prompt("Copy:", text));
+      else window.prompt("Copy:", text);
+      return;
+    }
+    case "print": window.print(); return;
+    default: return;
+  }
+  renderDraft();
+}
+
+async function loadJson(file) {
+  const resp = await fetch(`${file}?v=${Date.now()}`);
+  if (!resp.ok) throw new Error(`Could not load ${file} (HTTP ${resp.status})`);
+  return resp.json();
+}
+
+async function init() {
+  const page = document.getElementById("page");
+  try {
+    oilData = await loadOilData();
+    projections = await loadJson(PROJECTIONS_FILE);
+  } catch (err) {
+    renderNav("planner", oilData);
+    renderState(page, "error", "Could not load the projections.", err.message);
+    return;
+  }
+  renderNav("planner", oilData);
+  renderLastUpdated(oilData);
+
+  // The routes snapshot is optional: without it the draft still works.
+  try { routesSnap = await loadJson(ROUTES_FILE); } catch (err) { routesSnap = null; }
+
+  index = buildIndex(projections.customers || []);
+  loadState();
+  buildShell(page);
+  renderDraft();
+  renderJamaal();
+}
+
+init();
+</script>
+
+</body>
+</html>
