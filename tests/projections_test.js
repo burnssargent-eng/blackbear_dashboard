@@ -228,7 +228,7 @@ ok(byId[208] && byId[208].history_start === "2026-01-01",
   "Mad Moose (208) restarts its history at the Blue Stone changeover");
 
 // ── The ladder ──
-const STAGES = ["new", "established", "seasonal", "closer in season", "closer off-season"];
+const STAGES = ["new", "established", "seasonal", "closer in season", "closer off-season", "return"];
 ok(ranked.every(c => STAGES.includes(c.stage)), "every ranked row has a stage");
 ok(customers.filter(c => c.section === "insufficient data" && !c.history_start)
   .every(c => c.stage === null), "insufficient rows have no stage");
@@ -306,6 +306,18 @@ ok(restarted.length > 0 && restarted.every(c => c.stage === "new" && c.restart_g
   `${restarted.length} restarted rows: all stage new, every gap past the stale threshold`);
 ok(restarted.every(c => c.stage !== "closer in season"), "no restart is shown where the closer rate is used");
 ok(!/New customer/.test(api.rankedRowsHtml([byId[282]])), "a restarted row is not labelled a new customer");
+
+// ── Return after 181-365 days ──
+const returns = customers.filter(c => c.stage === "return");
+ok(returns.length > 0 && returns.every(c => c.section === "ranked" && c.projected_gal !== null &&
+  c.return_gap_days > payload.stale_days && c.return_gap_days <= payload.comeback_hold_days &&
+  [1, 2].includes(c.return_pickups_since) && !c.restart_from),
+  `${returns.length} return rows: ranked, gap between the stale and comeback thresholds, 1-2 pickups since`);
+ok(customers.every(c => (c.return_gap_days !== null && c.return_gap_days !== undefined) === (c.stage === "return")),
+  "return_gap_days is set exactly on return rows");
+const returnHtml = returns.length ? api.rankedRowsHtml([returns[0]]) : "";
+ok(/Back after a [\d,]+-day gap: rate from the same time last year/.test(returnHtml),
+  "a return row's note names the gap and the same-time-last-year rate");
 
 // ── Freshness ──
 ok(api.freshnessWarning(payload, { last_updated: payload.data_last_updated }) === null,
