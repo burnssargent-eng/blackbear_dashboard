@@ -10,22 +10,34 @@ body { background: #fff; }
 
 .graytext { color: #888; }
 .hotlist { color: #d00; }
-.ops-proj { color: #198754; font-size: 0.85em; white-space: nowrap; }
+.ops-proj { white-space: nowrap; }   /* same size as the [days] beside it */
+/* Coloured by % full, as on the projections page. */
+.ops-fill-ok { color: #198754; }
+.ops-fill-due { color: #b8860b; }
+.ops-fill-full { color: #d9480f; font-weight: bold; }
+.ops-fill-held { color: #6c757d; }
 .ops-muted { color: #6c757d; font-size: 0.85em; }
-.ops-on-route { color: #0d6efd; font-size: 0.85em; }
+.ops-on-route { color: #212529; font-weight: bold; font-size: 0.85em; }
 .ops-new { color: #b35c00; font-size: 0.85em; }
 
-/* Assign Routes: the source site's big plain list, with a sticky assign bar. */
-.ops-assign-list { font-size: 18px; }
-.ops-assign-list td { padding: 4px 6px; vertical-align: top; }
-.ops-assign-list input[type=checkbox] { width: 1.1em; height: 1.1em; margin-top: 0.3em; }
-.ops-assign-list tr.ops-picked td { background: #eef6ff; }
-.ops-city-head td { font-size: 14px; font-weight: bold; color: #555; padding-top: 12px; border-bottom: 1px solid #ddd; }
+/* Assign Routes: the source site's plain striped list (16px, as there), with a
+   sticky assign bar in the same size. A tap anywhere on a row ticks it. */
+.ops-assign-list { font-size: 16px; table-layout: fixed; }
+.ops-assign-list td { padding: 6px; vertical-align: top; overflow-wrap: anywhere; }
+.ops-assign-list td:first-child { width: 34px; }
+.ops-assign-list td:last-child { width: 28%; }
+.ops-assign-list .ops-proj { white-space: normal; font-size: 0.85em; }
+.ops-assign-list tr { cursor: pointer; }
+.ops-assign-list tbody tr:nth-child(odd) td { background: #f2f2f2; }
+.ops-assign-list input[type=checkbox] { width: 1.1em; height: 1.1em; margin-top: 0.2em; }
+.ops-assign-list tr.ops-picked td { background: #dbeafe; }
 
 .ops-assign-bar {
   position: sticky; bottom: 0; z-index: 10; background: #f8f9fa;
-  border-top: 1px solid #dee2e6; padding: 10px 12px; font-size: 14px;
+  border-top: 1px solid #dee2e6; padding: 10px 12px; font-size: 16px;
 }
+.ops-assign-bar .form-select, .ops-assign-bar .btn { font-size: 16px; }
+.ops-assign-bar .form-select { flex: 1 1 auto; min-width: 0; max-width: 260px; }
 
 /* My Route: routes collapsed in a list. */
 details.ops-route { border: 1px solid #dee2e6; border-radius: 6px; margin-bottom: 8px; }
@@ -58,6 +70,8 @@ details.ops-route[open] > summary { border-bottom: 1px solid #dee2e6; border-rad
 
 /* Calendar: the source site's month grid (its assets/calendar.css), tightened for phones. */
 .cal-month { font-size: 20px; font-weight: bold; color: #636e73; padding: 10px 0; }
+/* The source site's buttons: btn-lg, about 120 x 48 (2026-10-18). */
+.cal-nav-center .btn-lg { font-size: 20px; padding: 8px 16px; }
 .cal-days { display: flex; flex-flow: wrap; }
 .cal-name {
   width: calc(100% / 7); padding: 10px 6px; text-transform: uppercase; font-size: 12px;
@@ -74,15 +88,17 @@ details.ops-route[open] > summary { border-bottom: 1px solid #dee2e6; border-rad
 .cal-day.cal-has:hover { background-color: #fafafa; }
 .cal-day.cal-ignore { background-color: #fdfdfd; color: #ced2d4; }
 .cal-day.cal-selected { background-color: #f1f2f3; }
-.cal-event { margin-top: 5px; border-radius: 4px; color: #fff; text-align: center; font-size: 14px; }
+.cal-event { margin-top: 5px; border-radius: 4px; color: #fff; text-align: center;
+  font-size: 16px; font-weight: bold; line-height: 24px; overflow: hidden; }
 .cal-green { background-color: #51ce57; }
 .cal-yellow { background-color: #f7c30d; }
 .cal-list { list-style: disc; padding-left: 1.4em; margin-bottom: 4px; }
 
+/* Phones keep the source site's 100px days and 16px totals; only the day names
+   tighten so "WED" fits a seventh of the screen. */
 @media (max-width: 576px) {
-  .cal-day { min-height: 64px; padding: 3px; font-size: 12px; }
-  .cal-name { padding: 6px 2px; font-size: 10px; text-align: center; }
-  .cal-event { font-size: 11px; }
+  .cal-name { padding: 10px 2px; text-align: center; }
+  .cal-day { padding: 3px; }
 }
 
 /* Calendar header: the source site's two month buttons centred, the month picker to their right. */
@@ -94,3 +110,83 @@ details.ops-route[open] > summary { border-bottom: 1px solid #dee2e6; border-rad
   .cal-nav > div:first-child { display: none; }
   .cal-nav-right { justify-content: center; }
 }
+
+/* My Route stops table: customer text smaller so it fits a phone; the stop
+   number box and arrows keep their size. */
+.ops-stops .ops-cust { font-size: 14px; overflow-wrap: anywhere; }
+.ops-stops td.text-end, .ops-stops th.text-end { white-space: nowrap; overflow-wrap: normal; }
+.ops-stops .ops-cust .ops-muted { font-size: 12px; }
+@media (max-width: 576px) {
+  .ops-route-body { padding: 8px 6px; }
+  .ops-stops > :not(caption) > * > * { padding-left: 3px; padding-right: 3px; }
+}
+.ops-stops tfoot td.ops-total-cap { font-weight: bold; text-align: left; font-size: 14px; }
+
+/* Map pins: numbered red dots, green once collected today. */
+.ops-pin { background: none; border: none; }
+.ops-pin-dot {
+  display: flex; align-items: center; justify-content: center; width: 26px; height: 26px;
+  border-radius: 50%; background: #d93025; color: #fff; font-weight: bold; font-size: 13px;
+  border: 2px solid #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+.ops-pin-dot.ops-pin-done { background: #198754; }
+.ops-map { height: 360px; border-radius: 6px; border: 1px solid #dee2e6; }
+.ops-map-small { height: 220px; }
+
+/* Customer page. */
+.ops-detail dt { font-weight: normal; color: #6c757d; }
+.ops-history { font-size: 15px; }
+
+/* Driver view: the source site's My Route list. */
+.ops-driver-list { font-size: 18px; padding-left: 1.6em; }
+.ops-driver-list li { padding: 5px 0; }
+.ops-driver-list li.ops-driver-done a { color: #198754; }
+.ops-done-mark { color: #198754; font-weight: bold; white-space: nowrap; }
+.ops-driver-total { font-size: 18px; }
+.ops-days { color: #444; white-space: nowrap; }
+
+/* Driver view: a stop's figures under its name, Details below the row. */
+.ops-stop-main { min-width: 0; flex: 1 1 200px; }
+.ops-stop-details { border-top: 1px dashed #ccc; padding-top: 8px; font-size: 15px; }
+.ops-photos { display: flex; gap: 6px; overflow-x: auto; }
+.ops-photos img { height: 110px; width: auto; border-radius: 4px; }
+.ops-bar-pending { opacity: 0.35; }
+
+/* Collecting page entry row: gloved-thumb sized. Every control is at least
+   44px tall; Details and Edit are plain black buttons, not blue links, so the
+   name above is the only link on a stop. */
+.ops-entry .btn, .ops-entry .form-control { min-height: 44px; }
+/* The gallons box never shrinks below a thumb's width; on the narrowest phones
+   Details wraps to its own line instead. */
+.ops-entry { flex-wrap: wrap; }
+.ops-entry .form-control { flex: 1 1 72px; min-width: 72px; max-width: 126px; }
+.ops-plain-btn {
+  color: #212529; background: #f1f3f5; border: 1px solid #ced4da;
+  text-decoration: none; white-space: nowrap;
+}
+.ops-plain-btn:hover, .ops-plain-btn:focus { color: #000; background: #e2e6ea; }
+.ops-entry .ops-plain-btn[data-act="details"] { margin-left: auto; }
+
+/* Collecting page: one line per stop, so 10+ fit a phone screen. */
+.ops-line { border: 1px solid #dee2e6; border-radius: 6px; padding: 5px 8px; margin-bottom: 5px; cursor: pointer; }
+.ops-line.ops-done { background: #f1f8f3; border-color: #b7dfc4; }
+.ops-line.ops-current { border-color: #0d6efd; box-shadow: 0 0 0 1px #0d6efd; cursor: default; }
+.ops-line-head { display: flex; align-items: baseline; gap: 6px; }
+.ops-line-name { flex: 1 1 auto; min-width: 0; font-size: 16px; font-weight: 500; color: #212529;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ops-line-name.hotlist { color: #d00; }
+.ops-line-figs { flex: 0 0 auto; white-space: nowrap; font-size: 13px; }
+.ops-line-figs .ops-proj, .ops-line-figs .ops-days, .ops-line-figs .graytext, .ops-line-figs .ops-muted { font-size: 13px; }
+/* The control row: gallons, Save, Maps, Details. 33px tall, gloved-thumb wide. */
+.ops-row { display: flex; gap: 6px; align-items: center; margin-top: 4px; }
+.ops-row .form-control { flex: 1 1 60px; min-width: 60px; max-width: 110px; height: 33px; min-height: 33px;
+  padding: 2px 8px; font-size: 16px; }
+.ops-row .btn { height: 33px; padding: 0 10px; white-space: nowrap; font-size: 14px;
+  display: inline-flex; align-items: center; justify-content: center; }
+.ops-flag { font-weight: bold; }
+.ops-flag::after { content: "•"; color: #d93025; margin-left: 3px; }
+.ops-line-details { border-top: 1px dashed #ccc; margin-top: 5px; padding-top: 5px; font-size: 15px; cursor: default; }
+.ops-cust-btn { height: 33px; padding: 0 12px; font-size: 14px; display: inline-flex; align-items: center; }
+.ops-drive-title { font-size: 20px; font-weight: 600; line-height: 1.2; min-width: 0;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ops-shadow .btn { font-size: 12px; }

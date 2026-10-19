@@ -736,6 +736,67 @@ def check_route_snapshot(report):
                     f"inactive or new accounts): {outside}")
 
 
+def check_outgoing(report):
+    """
+    outgoing.json: the source site's outgoing log, read by jamaal_outgoing.py
+    for the shadow site's Outgoing page. Stillage runs per truck and Black Bear
+    Shop -> Gebbie Schmutz. Optional, so a missing file only warns.
+    """
+    report.section("OG", "Outgoing log (shadow site)")
+    path = "outgoing.json"
+    if not os.path.exists(path):
+        report.warn(f"{path} missing; the shadow Outgoing page has no history.")
+        return
+    with open(path) as f:
+        days = json.load(f).get("days", {})
+    known = {"mammabear", "mackdaddy", "babybird", "newbiedoo"}
+    runs = sum(n for d in days.values() for n in d["stillage"].values())
+    gallons = sum(g for d in days.values() for g in d["schmutz"])
+    report.ok(f"{len(days)} days, {runs} stillage runs, {gallons:,.0f} gal Schmutz.")
+    unknown = sorted({k for d in days.values() for k in d["stillage"]} - known)
+    if unknown:
+        report.fail(f"Unknown truck(s) in the outgoing log: {unknown}; add them to TRUCKS in route-utils.js.")
+    if any(g <= 0 for d in days.values() for g in d["schmutz"]):
+        report.fail("A Schmutz entry in the outgoing log is zero or negative.")
+
+
+def check_customer_details(report):
+    """
+    customer_details.json: addresses and map positions for the shadow site,
+    read by jamaal_customers.py. Positions must fall in the region; no phones.
+    """
+    import re
+    report.section("CD", "Customer details (shadow site)")
+    path = "customer_details.json"
+    if not os.path.exists(path):
+        report.warn(f"{path} missing; shadow customer pages show no address or map.")
+        return
+    with open(path) as f:
+        details = json.load(f).get("customers", {})
+    placed = [d for d in details.values() if d.get("lat") is not None]
+    by = {}
+    for d in details.values():
+        by[d.get("loc")] = by.get(d.get("loc"), 0) + 1
+    report.ok(f"{len(details)} customers: {by.get('site', 0)} site position, {by.get('census', 0)} geocoded, "
+              f"{by.get('town', 0)} town centre, {by.get(None, 0)} none.")
+    off = [k for k, d in details.items() if d.get("lat") is not None
+           and not (42.0 < d["lat"] < 45.5 and -74.5 < d["lon"] < -70.5)]
+    if off:
+        report.fail(f"Map position(s) outside the region for customer(s) {off}.")
+    # Each entry on its own: joined together, one address's ZIP and the next
+    # one's street number read as a phone number.
+    phone = re.compile(r"\(?\b\d{3}\)?[\s.-]*\d{3}[\s.-]*\d{4}\b")
+    code = re.compile(r"\b(pass\s*code|passcode|pass|code|combo|pin|keypad|alarm)\s*(#|:|is)?\s*[\w-]*\d", re.I)
+    phones = [k for k, d in details.items() if phone.search(f"{d.get('address', '')} | {d.get('notes', '')}")]
+    codes = [k for k, d in details.items() if code.search(d.get("notes", ""))]
+    if phones:
+        report.fail(f"Phone number(s) in customer_details.json for {phones}; they must never be published.")
+    if codes:
+        report.fail(f"Door or lock code(s) in customer_details.json notes for {codes}; they must never be published.")
+    if not phones and not codes:
+        report.ok("No phone numbers or door codes in addresses or notes.")
+
+
 def check_projection(report, data):
     report.section("P", "Current-year projection")
 
@@ -1527,6 +1588,8 @@ def main():
     check_projection(report, data)
     check_live_test(report)
     check_route_snapshot(report)
+    check_outgoing(report)
+    check_customer_details(report)
     check_active_customers(report, data, coll)
     check_lifecycle(report, data, coll_payload)
     check_region_customers(report, data, coll_payload)

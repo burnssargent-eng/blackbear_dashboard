@@ -33,7 +33,7 @@
  */
 
 const NON_PICKUP_FILE = "oil_non_pickups.csv";
-const CODE_LABELS = { 0: "checked, empty", 1: "checked, empty", 2: "sign-up call", 3: "barrel delivery" };
+const CODE_LABELS = { 0: "empty", 1: "empty", 2: "sign-up call", 3: "barrel delivery" };
 
 let byDay = new Map();      // "YYYY-MM-DD" -> { gallons, rows: [{customer_id, name, gallons}] }
 let codesByDay = new Map(); // "YYYY-MM-DD" -> [{customer_id, name, qty}]
@@ -80,70 +80,24 @@ function shadowEntries(date) {
   return ((store && store.collections) || []).filter(c => c.date === date);
 }
 
-function shiftMonth(ym, delta) {
-  const [y, m] = ym.split("-").map(Number);
-  const d = new Date(y, m - 1 + delta, 1);
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
-}
-
-/**
- * The same day of the month `delta` months away, as the source site's buttons
- * step (09-18-26 | 11-18-26 around Oct 18). A day past the month's end becomes
- * its last day.
- */
-function shiftAnchor(date, delta) {
-  const [y, m, d] = date.split("-").map(Number);
-  const target = new Date(y, m - 1 + delta, 1);
-  const last = new Date(target.getFullYear(), target.getMonth() + 1, 0).getDate();
-  return `${target.getFullYear()}-${String(target.getMonth() + 1).padStart(2, "0")}-` +
-    `${String(Math.min(d, last)).padStart(2, "0")}`;
-}
-
-/** "2026-09-18" -> "09-18-26", the source site's button label. */
-function anchorLabel(date) {
-  return `${date.slice(5, 7)}-${date.slice(8, 10)}-${date.slice(2, 4)}`;
-}
-
-/** Every month from this one back to the first with daily data, newest first, as "YYYY-MM". */
+/** Every month from this one back to the first with daily data, newest first. */
 function monthOptions(thisMonth) {
-  const first = [...byDay.keys()].sort()[0];
-  const out = [];
-  for (let ym = thisMonth; first && ym >= first.slice(0, 7); ym = shiftMonth(ym, -1)) out.push(ym);
-  return out;
-}
-
-function monthLabel(ym) {
-  const [y, m] = ym.split("-").map(Number);
-  return new Date(y, m - 1, 1).toLocaleDateString("default", { month: "long", year: "numeric" });
+  return monthsBack(thisMonth, ([...byDay.keys()].sort()[0] || "").slice(0, 7));
 }
 
 /* ── Rendering ──────────────────────────────────────────── */
 
 function gridHtml(ym) {
-  const [y, m] = ym.split("-").map(Number);
-  const first = new Date(y, m - 1, 1);
-  const days = new Date(y, m, 0).getDate();
-  const lead = first.getDay();
-  const prevDays = new Date(y, m - 1, 0).getDate();
-  const cells = [];
-  ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].forEach(n => cells.push(`<div class="cal-name">${n}</div>`));
-  for (let i = lead - 1; i >= 0; i--) cells.push(`<div class="cal-day cal-ignore">${prevDays - i}</div>`);
-  for (let d = 1; d <= days; d++) {
-    const date = `${ym}-${String(d).padStart(2, "0")}`;
+  return calendarGridHtml(ym, day, date => {
     const real = byDay.get(date);
     const shadow = shadowEntries(date).reduce((s, c) => s + (c.gallons > 3 ? c.gallons : 0), 0);
-    const hasCodes = codesByDay.has(date);
-    const clickable = real || shadow || hasCodes;
-    cells.push(`<div class="cal-day${date === day ? " cal-selected" : ""}${clickable ? " cal-has" : ""}"
-        ${clickable ? `data-day="${date}" role="button" tabindex="0"` : ""}>
-      <span>${d}</span>
-      ${real ? `<div class="cal-event cal-green">${formatNumber(real.gallons)}</div>` : ""}
-      ${shadow ? `<div class="cal-event cal-yellow" title="Entered in this browser">${formatNumber(shadow)}</div>` : ""}
-    </div>`);
-  }
-  const tail = (7 - ((lead + days) % 7)) % 7;
-  for (let i = 1; i <= tail; i++) cells.push(`<div class="cal-day cal-ignore">${i}</div>`);
-  return `<div class="cal-days">${cells.join("")}</div>`;
+    return {
+      clickable: !!(real || shadow || codesByDay.has(date)),
+      // Plain numbers in the grid ("1345"), as on the source site, so they fit a phone.
+      html: (real ? `<div class="cal-event cal-green">${real.gallons}</div>` : "") +
+        (shadow ? `<div class="cal-event cal-yellow" title="Entered in this browser">${shadow}</div>` : ""),
+    };
+  });
 }
 
 function dayHtml(date) {
@@ -160,33 +114,19 @@ function dayHtml(date) {
       : `<div class="text-muted">No gallons recorded${date > latestDay ? " yet: the data runs through " + escapeHtml(formatDate(latestDay)) : ""}.</div>`}
     ${codes.length ? `<div class="mt-3 ops-muted">Not gallons (codes 0–3):</div>
       <ul class="cal-list ops-muted">${codes.map(c =>
-        `<li>${escapeHtml(names.get(c.customer_id) || `#${c.customer_id}`)}: ${c.qty} — ${CODE_LABELS[c.qty] || "code"}</li>`).join("")}</ul>` : ""}
+        `<li>${escapeHtml(names.get(c.customer_id) || `#${c.customer_id}`)}: ${c.qty} - ${CODE_LABELS[c.qty] || "code"}</li>`).join("")}</ul>` : ""}
     ${shadow.length ? `<div class="mt-3 ops-new">Entered in this browser (shadow copy, not real):</div>
       <ul class="cal-list">${shadow.map(c =>
-        `<li>${escapeHtml(c.name)}: ${c.gallons}${c.gallons <= 3 ? " — checked, empty" : ""}</li>`).join("")}</ul>` : ""}`;
+        `<li>${escapeHtml(c.name)}: ${c.gallons}${c.gallons <= 3 ? ` - ${CODE_LABELS[c.gallons]}` : ""}</li>`).join("")}</ul>` : ""}`;
 }
 
 function render() {
   const month = anchor.slice(0, 7);
-  const prev = shiftAnchor(anchor, -1), next = shiftAnchor(anchor, 1);
   document.getElementById("page").innerHTML = `
-    <div class="cal-nav mb-2">
-      <div></div>
-      <div class="cal-nav-center">
-        <button type="button" class="btn btn-success btn-lg" data-anchor="${prev}">${anchorLabel(prev)}</button>
-        <button type="button" class="btn btn-success btn-lg" data-anchor="${next}">${anchorLabel(next)}</button>
-      </div>
-      <div class="cal-nav-right">
-        <select class="form-select form-select-sm w-auto" id="cal-month-pick" aria-label="Month">
-          ${monthOptions(todayIso().slice(0, 7)).map(ym =>
-            `<option value="${ym}"${ym === month ? " selected" : ""}>${ym.slice(5, 7)}/${ym.slice(2, 4)}</option>`).join("")}
-        </select>
-        <button type="button" class="btn btn-outline-success btn-sm text-nowrap" data-today>Latest day</button>
-      </div>
-    </div>
+    ${calendarNavHtml(anchor, monthOptions(todayIso().slice(0, 7)),
+      `<button type="button" class="btn btn-outline-success btn-sm text-nowrap" data-today>Latest day</button>`)}
     <div class="text-center mb-1">This month: ${formatNumber(monthTotal(month))} Last year: ${formatNumber(monthTotal(shiftMonth(month, -12)))}</div>
-    <div class="ops-muted text-center mb-2">Gallons collected; the 0–3 codes are not added in, so days read a few gallons
-      under the source site. Data runs through ${escapeHtml(formatDate(latestDay))}.</div>
+    <div class="ops-muted text-center mb-2">0–3 codes are excluded, so gallons read below Jamaal.</div>
     <div class="cal-month">${escapeHtml(monthLabel(month))}</div>
     ${gridHtml(month)}
     ${dayHtml(day)}`;
@@ -201,7 +141,8 @@ function setUrl() {
 
 function pick(date) {
   day = date;
-  anchor = date;
+  // Keep the buttons' day of the month, as the source site does; only the month follows the pick.
+  anchor = shiftAnchor(`${date.slice(0, 7)}-${anchor.slice(8)}`, 0);
   setUrl();
   render();
   const el = document.getElementById("day");

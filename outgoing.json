@@ -1,0 +1,4537 @@
+{
+ "scraped_at": "2026-10-18T21:23:43+00:00",
+ "source": "dumps.php",
+ "trucks": {
+  "MB": "mammabear",
+  "MD": "mackdaddy",
+  "BB": "babybird"
+ },
+ "days": {
+  "2021-07-26": {
+   "stillage": {},
+   "schmutz": [
+    12776
+   ]
+  },
+  "2021-08-26": {
+   "stillage": {},
+   "schmutz": [
+    11000
+   ]
+  },
+  "2021-09-16": {
+   "stillage": {},
+   "schmutz": [
+    3700
+   ]
+  },
+  "2021-09-18": {
+   "stillage": {},
+   "schmutz": [
+    567
+   ]
+  },
+  "2021-09-29": {
+   "stillage": {},
+   "schmutz": [
+    2250
+   ]
+  },
+  "2021-11-14": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2021-11-16": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2021-11-18": {
+   "stillage": {
+    "mammabear": 1,
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2021-11-20": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2021-11-22": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2021-11-24": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2021-12-01": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2021-12-08": {
+   "stillage": {
+    "mammabear": 1,
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2022-01-18": {
+   "stillage": {},
+   "schmutz": [
+    777
+   ]
+  },
+  "2022-02-07": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2022-02-09": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2022-02-10": {
+   "stillage": {
+    "babybird": 2
+   },
+   "schmutz": []
+  },
+  "2022-02-11": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2022-02-15": {
+   "stillage": {
+    "babybird": 4
+   },
+   "schmutz": []
+  },
+  "2022-02-16": {
+   "stillage": {
+    "babybird": 2
+   },
+   "schmutz": []
+  },
+  "2022-02-17": {
+   "stillage": {
+    "babybird": 1,
+    "mammabear": 1
+   },
+   "schmutz": [
+    2000
+   ]
+  },
+  "2022-02-20": {
+   "stillage": {
+    "babybird": 2
+   },
+   "schmutz": []
+  },
+  "2022-02-22": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": [
+    750
+   ]
+  },
+  "2022-03-06": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2022-03-09": {
+   "stillage": {
+    "mammabear": 4
+   },
+   "schmutz": []
+  },
+  "2022-04-05": {
+   "stillage": {
+    "mammabear": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    1100
+   ]
+  },
+  "2023-01-05": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-01-19": {
+   "stillage": {
+    "mackdaddy": 3
+   },
+   "schmutz": []
+  },
+  "2023-01-20": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-01-21": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-01-23": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-01-31": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-02-03": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-02-07": {
+   "stillage": {
+    "mammabear": 4
+   },
+   "schmutz": []
+  },
+  "2023-02-21": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-02-22": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-02-24": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    1000
+   ]
+  },
+  "2023-02-27": {
+   "stillage": {},
+   "schmutz": [
+    1300
+   ]
+  },
+  "2023-02-28": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-03-02": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2023-03-06": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-03-07": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-03-08": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-03-09": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-03-10": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-03-15": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2023-03-17": {
+   "stillage": {
+    "mammabear": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-03-23": {
+   "stillage": {
+    "mackdaddy": 1,
+    "mammabear": 1
+   },
+   "schmutz": [
+    500
+   ]
+  },
+  "2023-03-28": {
+   "stillage": {
+    "mackdaddy": 1,
+    "mammabear": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2023-03-29": {
+   "stillage": {
+    "mammabear": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-03-30": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-04-03": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-04-04": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-04-05": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-04-10": {
+   "stillage": {
+    "babybird": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-04-11": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-04-13": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": []
+  },
+  "2023-04-17": {
+   "stillage": {
+    "mammabear": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-04-18": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-04-19": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-04-20": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2023-04-24": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-04-26": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2023-04-27": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-05-01": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-05-02": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-05-03": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-05-04": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": [
+    1000
+   ]
+  },
+  "2023-05-09": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-05-10": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-05-11": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-05-12": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-05-14": {
+   "stillage": {},
+   "schmutz": [
+    1400
+   ]
+  },
+  "2023-05-15": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": [
+    1100
+   ]
+  },
+  "2023-05-16": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2023-05-17": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2023-05-20": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-05-23": {
+   "stillage": {
+    "mackdaddy": 1,
+    "babybird": 2
+   },
+   "schmutz": []
+  },
+  "2023-05-25": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-05-27": {
+   "stillage": {
+    "mackdaddy": 0
+   },
+   "schmutz": []
+  },
+  "2023-05-28": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": []
+  },
+  "2023-05-31": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2023-06-01": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-06-03": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2023-06-05": {
+   "stillage": {},
+   "schmutz": [
+    700
+   ]
+  },
+  "2023-06-06": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-06-07": {
+   "stillage": {
+    "mammabear": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-06-08": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-06-09": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": [
+    750
+   ]
+  },
+  "2023-06-11": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2023-06-14": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-06-15": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    1300
+   ]
+  },
+  "2023-06-18": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2023-06-20": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-06-22": {
+   "stillage": {
+    "mackdaddy": 1,
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-06-23": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-06-27": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-06-29": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-07-01": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-07-03": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-07-06": {
+   "stillage": {
+    "babybird": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    500
+   ]
+  },
+  "2023-07-14": {
+   "stillage": {
+    "mackdaddy": 1,
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-07-18": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": [
+    800
+   ]
+  },
+  "2023-07-19": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-07-21": {
+   "stillage": {
+    "babybird": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    1300
+   ]
+  },
+  "2023-07-24": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2023-07-26": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-07-30": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-08-03": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    450
+   ]
+  },
+  "2023-08-04": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-08-05": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-08-08": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-08-09": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    1350
+   ]
+  },
+  "2023-08-12": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-08-13": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-08-15": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2023-08-16": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": [
+    1100
+   ]
+  },
+  "2023-08-18": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-08-21": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2023-08-22": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-08-23": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    2000
+   ]
+  },
+  "2023-08-24": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-08-25": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    300
+   ]
+  },
+  "2023-08-28": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-08-30": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2023-08-31": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    400
+   ]
+  },
+  "2023-09-05": {
+   "stillage": {
+    "mackdaddy": 3
+   },
+   "schmutz": []
+  },
+  "2023-09-07": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-09-09": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-09-10": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-09-11": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    300
+   ]
+  },
+  "2023-09-12": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-09-13": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2023-09-18": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-09-20": {
+   "stillage": {
+    "mammabear": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    1350
+   ]
+  },
+  "2023-09-21": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-09-22": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2023-09-25": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-09-27": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-09-28": {
+   "stillage": {
+    "mammabear": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-09-29": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-10-02": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-10-03": {
+   "stillage": {
+    "mackdaddy": 1,
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-10-05": {
+   "stillage": {
+    "mammabear": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-10-10": {
+   "stillage": {
+    "mackdaddy": 1,
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-10-11": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-10-12": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-10-13": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-10-14": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-10-17": {
+   "stillage": {
+    "mackdaddy": 1,
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-10-18": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    1350
+   ]
+  },
+  "2023-10-19": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-10-22": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-10-23": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-10-24": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-10-25": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-10-29": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-10-31": {
+   "stillage": {
+    "mammabear": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-11-03": {
+   "stillage": {},
+   "schmutz": [
+    1350
+   ]
+  },
+  "2023-11-05": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-11-07": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-11-08": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2023-11-10": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-11-13": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    300
+   ]
+  },
+  "2023-11-14": {
+   "stillage": {
+    "babybird": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    300
+   ]
+  },
+  "2023-11-15": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-11-17": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2023-11-18": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2023-11-21": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-11-24": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-11-28": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-11-29": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-12-01": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-12-02": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-12-04": {
+   "stillage": {},
+   "schmutz": [
+    1300
+   ]
+  },
+  "2023-12-06": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-12-07": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-12-08": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-12-12": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-12-13": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-12-19": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2023-12-20": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2023-12-23": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-12-24": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-12-27": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2023-12-29": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    300
+   ]
+  },
+  "2024-01-04": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-01-06": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-01-07": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-01-08": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-01-10": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-01-11": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": [
+    600
+   ]
+  },
+  "2024-01-15": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2024-01-17": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2024-01-18": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-01-23": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-01-24": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": [
+    800
+   ]
+  },
+  "2024-01-25": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-01-27": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-01-28": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-01-30": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    300
+   ]
+  },
+  "2024-01-31": {
+   "stillage": {
+    "mammabear": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-02-02": {
+   "stillage": {
+    "mackdaddy": 1,
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2024-02-03": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2024-02-07": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": [
+    650
+   ]
+  },
+  "2024-02-08": {
+   "stillage": {
+    "babybird": 1,
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-02-09": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2024-02-12": {
+   "stillage": {
+    "mammabear": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-02-13": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-02-15": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-02-18": {
+   "stillage": {
+    "mammabear": 2,
+    "babybird": 1
+   },
+   "schmutz": [
+    600
+   ]
+  },
+  "2024-02-20": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": []
+  },
+  "2024-02-21": {
+   "stillage": {
+    "babybird": 1,
+    "mammabear": 1
+   },
+   "schmutz": [
+    1400
+   ]
+  },
+  "2024-02-22": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-02-25": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-02-27": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2024-02-29": {
+   "stillage": {
+    "mackdaddy": 1,
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2024-03-05": {
+   "stillage": {
+    "mammabear": 2,
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2024-03-06": {
+   "stillage": {
+    "babybird": 1,
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2024-03-08": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    1000
+   ]
+  },
+  "2024-03-12": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-03-14": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": []
+  },
+  "2024-03-15": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": [
+    650
+   ]
+  },
+  "2024-03-17": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-03-19": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2024-03-20": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-03-21": {
+   "stillage": {
+    "mackdaddy": 1,
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-03-22": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-03-26": {
+   "stillage": {
+    "mammabear": 3
+   },
+   "schmutz": []
+  },
+  "2024-03-27": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": [
+    1000
+   ]
+  },
+  "2024-03-28": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-03-29": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2024-04-02": {
+   "stillage": {
+    "mammabear": 3
+   },
+   "schmutz": [
+    1000
+   ]
+  },
+  "2024-04-04": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": []
+  },
+  "2024-04-09": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": [
+    1000
+   ]
+  },
+  "2024-04-10": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-04-11": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-04-12": {
+   "stillage": {
+    "mackdaddy": 1,
+    "babybird": 1
+   },
+   "schmutz": [
+    300
+   ]
+  },
+  "2024-04-15": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": [
+    500
+   ]
+  },
+  "2024-04-16": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": []
+  },
+  "2024-04-17": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-04-19": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2024-04-21": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2024-04-23": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2024-04-24": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2024-04-26": {
+   "stillage": {
+    "mammabear": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-04-30": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-05-01": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2024-05-03": {
+   "stillage": {
+    "babybird": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-05-06": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-05-07": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-05-09": {
+   "stillage": {
+    "mackdaddy": 1,
+    "mammabear": 2
+   },
+   "schmutz": [
+    1400
+   ]
+  },
+  "2024-05-13": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2024-05-14": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-05-16": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": []
+  },
+  "2024-05-17": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2024-05-21": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2024-05-22": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-05-23": {
+   "stillage": {
+    "mammabear": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-05-27": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-05-29": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-05-30": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-05-31": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-06-04": {
+   "stillage": {
+    "mammabear": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    400
+   ]
+  },
+  "2024-06-05": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-06-06": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    1000
+   ]
+  },
+  "2024-06-07": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": [
+    900
+   ]
+  },
+  "2024-06-10": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": [
+    600
+   ]
+  },
+  "2024-06-11": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-06-12": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-06-13": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-06-14": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-06-18": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-06-19": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-06-21": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-06-23": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-06-25": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-06-26": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-06-27": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-07-01": {
+   "stillage": {
+    "mackdaddy": 1,
+    "mammabear": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2024-07-02": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-07-05": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-07-06": {
+   "stillage": {
+    "mammabear": 0
+   },
+   "schmutz": []
+  },
+  "2024-07-08": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": [
+    650
+   ]
+  },
+  "2024-07-09": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-07-10": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-07-12": {
+   "stillage": {},
+   "schmutz": [
+    1500
+   ]
+  },
+  "2024-07-15": {
+   "stillage": {
+    "mammabear": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-07-16": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-07-18": {
+   "stillage": {
+    "mammabear": 3
+   },
+   "schmutz": [
+    1000
+   ]
+  },
+  "2024-07-22": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-07-23": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2024-07-25": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-07-29": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2024-07-30": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-07-31": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-08-01": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-08-02": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": [
+    1000
+   ]
+  },
+  "2024-08-05": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-08-06": {
+   "stillage": {
+    "mammabear": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-08-07": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-08-08": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-08-11": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-08-13": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2024-08-14": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-08-15": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-08-19": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": [
+    1000
+   ]
+  },
+  "2024-08-20": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-08-21": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-08-23": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-08-25": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-08-26": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-08-27": {
+   "stillage": {},
+   "schmutz": [
+    2700
+   ]
+  },
+  "2024-08-28": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2024-08-29": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-08-30": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": [
+    350
+   ]
+  },
+  "2024-09-02": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-09-03": {
+   "stillage": {
+    "mammabear": 1,
+    "babybird": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2024-09-05": {
+   "stillage": {
+    "mammabear": 1,
+    "babybird": 2
+   },
+   "schmutz": []
+  },
+  "2024-09-07": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2024-09-08": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2024-09-09": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-09-10": {
+   "stillage": {
+    "mammabear": 1,
+    "babybird": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2024-09-11": {
+   "stillage": {
+    "babybird": 1,
+    "mammabear": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2024-09-13": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2024-09-16": {
+   "stillage": {
+    "mammabear": 3
+   },
+   "schmutz": []
+  },
+  "2024-09-17": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-09-18": {
+   "stillage": {},
+   "schmutz": [
+    700
+   ]
+  },
+  "2024-09-19": {
+   "stillage": {
+    "mammabear": 3
+   },
+   "schmutz": []
+  },
+  "2024-09-20": {
+   "stillage": {},
+   "schmutz": [
+    700
+   ]
+  },
+  "2024-09-23": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2024-09-24": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-09-25": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2024-09-27": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2024-09-29": {
+   "stillage": {},
+   "schmutz": [
+    700
+   ]
+  },
+  "2024-10-01": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-10-02": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-10-03": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2024-10-04": {
+   "stillage": {},
+   "schmutz": [
+    700
+   ]
+  },
+  "2024-10-07": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2024-10-08": {
+   "stillage": {
+    "mackdaddy": 2,
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2024-10-09": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2024-10-10": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2024-10-12": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2024-10-14": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-10-15": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-10-16": {
+   "stillage": {},
+   "schmutz": [
+    700
+   ]
+  },
+  "2024-10-17": {
+   "stillage": {
+    "mammabear": 1,
+    "babybird": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2024-10-18": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2024-10-21": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-10-22": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2024-10-23": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2024-10-25": {
+   "stillage": {
+    "mackdaddy": 1,
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2024-10-28": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2024-10-30": {
+   "stillage": {
+    "babybird": 2,
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    1300
+   ]
+  },
+  "2024-11-01": {
+   "stillage": {
+    "mammabear": 1,
+    "babybird": 1
+   },
+   "schmutz": [
+    900
+   ]
+  },
+  "2024-11-05": {
+   "stillage": {
+    "babybird": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-11-06": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-11-07": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-11-08": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-11-13": {
+   "stillage": {
+    "mammabear": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-11-15": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": [
+    1800
+   ]
+  },
+  "2024-11-21": {
+   "stillage": {
+    "mackdaddy": 1,
+    "babybird": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2024-11-22": {
+   "stillage": {},
+   "schmutz": [
+    1500
+   ]
+  },
+  "2024-11-23": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2024-11-29": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-12-03": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2024-12-04": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2024-12-05": {
+   "stillage": {},
+   "schmutz": [
+    1200
+   ]
+  },
+  "2024-12-07": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-12-09": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": [
+    1300
+   ]
+  },
+  "2024-12-11": {
+   "stillage": {
+    "mammabear": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-12-12": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-12-14": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-12-16": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2024-12-17": {
+   "stillage": {
+    "babybird": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2024-12-23": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-12-24": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2024-12-27": {
+   "stillage": {},
+   "schmutz": [
+    700
+   ]
+  },
+  "2024-12-29": {
+   "stillage": {},
+   "schmutz": [
+    650
+   ]
+  },
+  "2025-01-01": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-01-02": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2025-01-04": {
+   "stillage": {
+    "babybird": 2
+   },
+   "schmutz": []
+  },
+  "2025-01-05": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-01-07": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-01-08": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-01-10": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2025-01-13": {
+   "stillage": {},
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-01-14": {
+   "stillage": {
+    "mammabear": 2,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-01-15": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-01-16": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2025-01-17": {
+   "stillage": {
+    "babybird": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-01-22": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": [
+    1300
+   ]
+  },
+  "2025-01-27": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-01-28": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-01-29": {
+   "stillage": {
+    "mackdaddy": 1,
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-01-30": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-02-04": {
+   "stillage": {
+    "mammabear": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    500
+   ]
+  },
+  "2025-02-05": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": []
+  },
+  "2025-02-07": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-02-12": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-02-13": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    400
+   ]
+  },
+  "2025-02-14": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": [
+    1100
+   ]
+  },
+  "2025-02-18": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-02-19": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-02-21": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-02-25": {
+   "stillage": {},
+   "schmutz": [
+    2000
+   ]
+  },
+  "2025-02-27": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-03-04": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-03-05": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-03-07": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-03-11": {
+   "stillage": {},
+   "schmutz": [
+    1200
+   ]
+  },
+  "2025-03-12": {
+   "stillage": {
+    "mackdaddy": 1,
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-03-18": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-03-19": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-03-21": {
+   "stillage": {},
+   "schmutz": [
+    1700
+   ]
+  },
+  "2025-03-26": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": [
+    500
+   ]
+  },
+  "2025-03-28": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-03-31": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    500
+   ]
+  },
+  "2025-04-01": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": [
+    1300
+   ]
+  },
+  "2025-04-04": {
+   "stillage": {},
+   "schmutz": [
+    1300
+   ]
+  },
+  "2025-04-07": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-04-08": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-04-09": {
+   "stillage": {},
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-04-11": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-04-13": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    500
+   ]
+  },
+  "2025-04-14": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-04-16": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": []
+  },
+  "2025-04-20": {
+   "stillage": {},
+   "schmutz": [
+    1000
+   ]
+  },
+  "2025-04-21": {
+   "stillage": {
+    "mammabear": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-04-22": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    1000
+   ]
+  },
+  "2025-04-24": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-04-25": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-04-28": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2025-04-29": {
+   "stillage": {
+    "mackdaddy": 1,
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-04-30": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-05-01": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-05-06": {
+   "stillage": {
+    "mackdaddy": 2,
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2025-05-08": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    375
+   ]
+  },
+  "2025-05-09": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2025-05-12": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-05-14": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2025-05-16": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": [
+    500
+   ]
+  },
+  "2025-05-19": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-05-20": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-05-21": {
+   "stillage": {},
+   "schmutz": [
+    900
+   ]
+  },
+  "2025-05-22": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-05-26": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-05-27": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-05-29": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": [
+    1000
+   ]
+  },
+  "2025-05-30": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-06-02": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-06-04": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-06-05": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": [
+    1000
+   ]
+  },
+  "2025-06-06": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    1000
+   ]
+  },
+  "2025-06-10": {
+   "stillage": {
+    "mackdaddy": 1,
+    "mammabear": 1
+   },
+   "schmutz": [
+    200
+   ]
+  },
+  "2025-06-11": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-06-12": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": []
+  },
+  "2025-06-17": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": [
+    500
+   ]
+  },
+  "2025-06-20": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-06-26": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-07-01": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    250
+   ]
+  },
+  "2025-07-03": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": []
+  },
+  "2025-07-08": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    800
+   ]
+  },
+  "2025-07-09": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": [
+    1400
+   ]
+  },
+  "2025-07-10": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-07-14": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": []
+  },
+  "2025-07-15": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-07-17": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-07-18": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-07-22": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-07-24": {
+   "stillage": {
+    "mackdaddy": 2,
+    "mammabear": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-07-25": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-07-29": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-07-30": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-08-01": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-08-05": {
+   "stillage": {},
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-08-06": {
+   "stillage": {
+    "mammabear": 1,
+    "babybird": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-08-07": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-08-11": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-08-13": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-08-14": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-08-15": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-08-19": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-08-21": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": []
+  },
+  "2025-08-25": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    300
+   ]
+  },
+  "2025-08-26": {
+   "stillage": {
+    "mammabear": 1,
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2025-08-28": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-08-29": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2025-09-02": {
+   "stillage": {
+    "mackdaddy": 1,
+    "babybird": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-09-04": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": [
+    1000
+   ]
+  },
+  "2025-09-08": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-09-09": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-09-10": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": []
+  },
+  "2025-09-16": {
+   "stillage": {
+    "babybird": 2,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-09-18": {
+   "stillage": {
+    "mammabear": 1,
+    "mackdaddy": 1,
+    "babybird": 1
+   },
+   "schmutz": [
+    1300
+   ]
+  },
+  "2025-09-19": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-09-21": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-09-22": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-09-23": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": []
+  },
+  "2025-09-25": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-09-26": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    750
+   ]
+  },
+  "2025-09-29": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-09-30": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-10-02": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    1000
+   ]
+  },
+  "2025-10-04": {
+   "stillage": {
+    "mackdaddy": 1,
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2025-10-08": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-10-14": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-10-15": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2025-10-16": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-10-17": {
+   "stillage": {
+    "mammabear": 1,
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2025-10-22": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-10-27": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2025-10-29": {
+   "stillage": {
+    "babybird": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-10-30": {
+   "stillage": {
+    "babybird": 1,
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-10-31": {
+   "stillage": {
+    "babybird": 2
+   },
+   "schmutz": []
+  },
+  "2025-11-03": {
+   "stillage": {
+    "mackdaddy": 1,
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2025-11-05": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-11-06": {
+   "stillage": {
+    "babybird": 2
+   },
+   "schmutz": []
+  },
+  "2025-11-07": {
+   "stillage": {
+    "babybird": 2,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-11-10": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    500
+   ]
+  },
+  "2025-11-11": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-11-12": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-11-13": {
+   "stillage": {
+    "babybird": 2
+   },
+   "schmutz": [
+    300
+   ]
+  },
+  "2025-11-14": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-11-17": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-11-19": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-11-20": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2025-11-23": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-11-24": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-11-25": {
+   "stillage": {
+    "babybird": 2
+   },
+   "schmutz": []
+  },
+  "2025-11-26": {
+   "stillage": {},
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-11-28": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2025-12-01": {
+   "stillage": {
+    "babybird": 1,
+    "mammabear": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-12-02": {
+   "stillage": {
+    "babybird": 2
+   },
+   "schmutz": []
+  },
+  "2025-12-04": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-12-08": {
+   "stillage": {
+    "mammabear": 2,
+    "babybird": 2
+   },
+   "schmutz": []
+  },
+  "2025-12-09": {
+   "stillage": {
+    "babybird": 1,
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-12-10": {
+   "stillage": {
+    "babybird": 2
+   },
+   "schmutz": []
+  },
+  "2025-12-11": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-12-12": {
+   "stillage": {
+    "babybird": 1,
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2025-12-15": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-12-16": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-12-17": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2025-12-18": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2025-12-19": {
+   "stillage": {
+    "babybird": 1,
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2025-12-22": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2025-12-23": {
+   "stillage": {
+    "babybird": 3
+   },
+   "schmutz": []
+  },
+  "2025-12-26": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2025-12-30": {
+   "stillage": {
+    "babybird": 2
+   },
+   "schmutz": []
+  },
+  "2025-12-31": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-01-02": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2026-01-05": {
+   "stillage": {
+    "babybird": 2
+   },
+   "schmutz": []
+  },
+  "2026-01-07": {
+   "stillage": {
+    "babybird": 3
+   },
+   "schmutz": []
+  },
+  "2026-01-08": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2026-01-09": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-01-13": {
+   "stillage": {
+    "mackdaddy": 1,
+    "babybird": 3
+   },
+   "schmutz": [
+    350
+   ]
+  },
+  "2026-01-14": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-01-15": {
+   "stillage": {
+    "mammabear": 1,
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2026-01-16": {
+   "stillage": {
+    "babybird": 1,
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-01-19": {
+   "stillage": {
+    "babybird": 2
+   },
+   "schmutz": []
+  },
+  "2026-01-23": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-01-27": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2026-01-28": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2026-01-29": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    850
+   ]
+  },
+  "2026-02-02": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-02-04": {
+   "stillage": {
+    "mackdaddy": 1,
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-02-06": {
+   "stillage": {
+    "mammabear": 3
+   },
+   "schmutz": []
+  },
+  "2026-02-10": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-02-11": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-02-13": {
+   "stillage": {
+    "mammabear": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-02-17": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    800
+   ]
+  },
+  "2026-02-18": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2026-02-19": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-02-20": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": [
+    400
+   ]
+  },
+  "2026-02-23": {
+   "stillage": {
+    "mammabear": 3
+   },
+   "schmutz": []
+  },
+  "2026-02-25": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-02-26": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-02-27": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2026-03-02": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-03-03": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-03-04": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-03-05": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-03-06": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-03-11": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": [
+    350
+   ]
+  },
+  "2026-03-16": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    500
+   ]
+  },
+  "2026-03-17": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-03-19": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-03-20": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-03-23": {
+   "stillage": {},
+   "schmutz": [
+    1700
+   ]
+  },
+  "2026-03-24": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-03-25": {
+   "stillage": {
+    "mackdaddy": 1,
+    "babybird": 1
+   },
+   "schmutz": [
+    650
+   ]
+  },
+  "2026-03-27": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2026-03-31": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2026-04-01": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-04-03": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    1000
+   ]
+  },
+  "2026-04-06": {
+   "stillage": {
+    "mammabear": 1,
+    "babybird": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2026-04-07": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-04-09": {
+   "stillage": {},
+   "schmutz": [
+    1000
+   ]
+  },
+  "2026-04-10": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-04-14": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": []
+  },
+  "2026-04-17": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": []
+  },
+  "2026-04-20": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-04-22": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2026-04-23": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": [
+    1000
+   ]
+  },
+  "2026-04-24": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-04-28": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2026-04-29": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    1300
+   ]
+  },
+  "2026-04-30": {
+   "stillage": {
+    "mackdaddy": 2,
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2026-05-01": {
+   "stillage": {},
+   "schmutz": [
+    950
+   ]
+  },
+  "2026-05-05": {
+   "stillage": {
+    "babybird": 2
+   },
+   "schmutz": []
+  },
+  "2026-05-06": {
+   "stillage": {
+    "mackdaddy": 1,
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2026-05-11": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2026-05-12": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2026-05-13": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": []
+  },
+  "2026-05-18": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2026-05-20": {
+   "stillage": {
+    "mammabear": 3
+   },
+   "schmutz": []
+  },
+  "2026-05-22": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-05-26": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2026-05-28": {
+   "stillage": {
+    "babybird": 1,
+    "mammabear": 1
+   },
+   "schmutz": [
+    1300
+   ]
+  },
+  "2026-05-31": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-06-01": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": [
+    300
+   ]
+  },
+  "2026-06-03": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2026-06-05": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2026-06-07": {
+   "stillage": {
+    "babybird": 1,
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-06-08": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2026-06-09": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-06-10": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-06-11": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-06-12": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    800
+   ]
+  },
+  "2026-06-14": {
+   "stillage": {
+    "mammabear": 1,
+    "babybird": 1
+   },
+   "schmutz": []
+  },
+  "2026-06-16": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-06-17": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-06-18": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": [
+    1200
+   ]
+  },
+  "2026-06-22": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-06-23": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-06-25": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-06-26": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-06-30": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-07-02": {
+   "stillage": {},
+   "schmutz": [
+    1000
+   ]
+  },
+  "2026-07-05": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-07-07": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-07-08": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-07-13": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-07-14": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": [
+    1300
+   ]
+  },
+  "2026-07-15": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": [
+    1300
+   ]
+  },
+  "2026-07-20": {
+   "stillage": {
+    "mackdaddy": 1,
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-07-23": {
+   "stillage": {},
+   "schmutz": [
+    700
+   ]
+  },
+  "2026-07-24": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-07-28": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-07-29": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-07-30": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-07-31": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-08-03": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-08-04": {
+   "stillage": {
+    "mackdaddy": 1,
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-08-06": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": []
+  },
+  "2026-08-07": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-08-11": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-08-12": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": []
+  },
+  "2026-08-17": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": [
+    900
+   ]
+  },
+  "2026-08-19": {
+   "stillage": {
+    "mammabear": 1,
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    1000
+   ]
+  },
+  "2026-08-20": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-08-24": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-08-25": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2026-08-26": {
+   "stillage": {
+    "mackdaddy": 1,
+    "mammabear": 1
+   },
+   "schmutz": [
+    300
+   ]
+  },
+  "2026-08-27": {
+   "stillage": {
+    "babybird": 1
+   },
+   "schmutz": [
+    250
+   ]
+  },
+  "2026-08-28": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-08-31": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-09-02": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": []
+  },
+  "2026-09-03": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-09-08": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-09-09": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-09-10": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-09-14": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-09-15": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2026-09-17": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": []
+  },
+  "2026-09-21": {
+   "stillage": {
+    "mammabear": 1
+   },
+   "schmutz": []
+  },
+  "2026-09-22": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": [
+    800
+   ]
+  },
+  "2026-09-24": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2026-09-28": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": []
+  },
+  "2026-10-01": {
+   "stillage": {
+    "mackdaddy": 1
+   },
+   "schmutz": []
+  },
+  "2026-10-02": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": [
+    800
+   ]
+  },
+  "2026-10-06": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": []
+  },
+  "2026-10-08": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": [
+    700
+   ]
+  },
+  "2026-10-12": {
+   "stillage": {
+    "mackdaddy": 2
+   },
+   "schmutz": []
+  },
+  "2026-10-14": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
+  },
+  "2026-10-16": {
+   "stillage": {},
+   "schmutz": [
+    1300
+   ]
+  }
+ }
+}

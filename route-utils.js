@@ -10,13 +10,14 @@
  *     separately as "typical", never mixed into the projected total.
  */
 
-// The trucks, from the source site's Outgoing page, with tank capacity in
-// gallons (Sarge, 2026-10-18).
+// The trucks, with tank capacity in gallons (Sarge, 2026-10-18). `key` and
+// `abbr` are the source site's Outgoing names ("mackdaddy", "MD"); Newbie Doo
+// is the new truck's working name and is not on the source site yet.
 const TRUCKS = [
-  { name: "Mamma Bear", capacity: 1350 },
-  { name: "Mack Daddy", capacity: 2000 },
-  { name: "Baby Bird", capacity: 750 },
-  { name: "New truck", capacity: 1200 },
+  { name: "Mamma Bear", capacity: 1350, key: "mammabear", abbr: "MB" },
+  { name: "Mack Daddy", capacity: 2000, key: "mackdaddy", abbr: "MD" },
+  { name: "Baby Bird", capacity: 750, key: "babybird", abbr: "BB" },
+  { name: "Newbie Doo", capacity: 1200, key: "newbiedoo", abbr: "ND" },
 ];
 
 function truckByName(name) {
@@ -137,10 +138,13 @@ function formatWhole(value) {
   return formatNumber(Math.round(Number(value)));
 }
 
-/** "419 gal projected (range 303–592)": the route-level figure. No range when nothing is projected. */
+/**
+ * "419 proj. gal (range 303–592)": the route-level figure. One hedge only
+ * ("proj."), never "~" as well. No range when nothing is projected.
+ */
 function projectedRangeText(totals) {
-  if (!totals.projectedStops) return `${formatWhole(totals.projected)} gal projected`;
-  return `${formatWhole(totals.projected)} gal projected ` +
+  if (!totals.projectedStops) return `${formatWhole(totals.projected)} proj. gal`;
+  return `${formatWhole(totals.projected)} proj. gal ` +
     `(range ${formatWhole(totals.low)}–${formatWhole(totals.high)})`;
 }
 

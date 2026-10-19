@@ -15,3 +15,6 @@ analysis/*.csv
 # The live test record is committed: it holds frozen predictions that cannot
 # be regenerated once the served projection files move on.
 !analysis/live_test_log.csv
+
+# Full customer notes (door codes, phones) for a local preview only. Never commit.
+*.local.json

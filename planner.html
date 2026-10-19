@@ -86,7 +86,7 @@ function estimateCellHtml(line) {
   const e = line.est;
   if (e.kind === "projected") return formatWhole(e.gal);
   if (e.kind === "typical" && e.gal !== null && e.gal !== undefined) {
-    return `<span class="rp-dim">~${formatWhole(e.gal)} typical</span>`;
+    return `<span class="rp-dim">${formatWhole(e.gal)} typical</span>`;
   }
   return `<span class="rp-dim">—</span>`;
 }
@@ -177,7 +177,7 @@ function jamaalRouteHtml(route, onRoutes) {
       <div class="table-wrap">
         <table class="data-table proj-table">
           <thead><tr>
-            <th>#</th><th>Customer</th><th>Town</th><th>Projected gal</th>
+            <th>#</th><th>Customer</th><th>Town</th><th>Proj. Gal</th>
             <th class="num">Capacity</th>
             <th class="num">% full</th><th class="num">Days past pickup point</th>
             <th class="num">Site [days over]</th>
@@ -236,7 +236,7 @@ function renderDraft() {
     <div class="table-wrap">
       <table class="data-table proj-table">
         <thead><tr>
-          <th>#</th><th>Move</th><th>Customer</th><th>Town</th><th>Projected gal</th>
+          <th>#</th><th>Move</th><th>Customer</th><th>Town</th><th>Proj. Gal</th>
           <th class="num">Capacity</th>
           <th class="num">% full</th><th class="num">Days past pickup point</th><th></th>
         </tr></thead>
@@ -273,7 +273,7 @@ function renderCandidates() {
     <div class="table-wrap">
       <table class="data-table proj-table">
         <thead><tr>
-          <th></th><th>Customer</th><th>Town</th><th>Projected gal</th>
+          <th></th><th>Customer</th><th>Town</th><th>Proj. Gal</th>
           <th class="num">Capacity</th>
           <th class="num">% full</th><th class="num">Days past pickup point</th>
           <th>Last pickup</th><th>On a site route</th>
@@ -306,11 +306,11 @@ function draftText(draft, byId) {
   const body = lines.map((l, i) => {
     const town = l.row && l.row.town ? ` (${l.row.town})` : "";
     const gal = l.dupOf !== null ? "same barrel"
-      : l.est.kind === "projected" ? `~${Math.round(l.est.gal)} gal`
-      : l.est.kind === "typical" && l.est.gal ? `~${Math.round(l.est.gal)} gal typical` : "";
+      : l.est.kind === "projected" ? `${Math.round(l.est.gal)} proj. gal`
+      : l.est.kind === "typical" && l.est.gal ? `${Math.round(l.est.gal)} gal typical` : "";
     return `${i + 1}. ${l.stop.name}${town}${gal ? ` — ${gal}` : ""}${l.stop.must_get ? " [MUST GET]" : ""}`;
   });
-  const total = `Projected ${Math.round(totals.projected)} gal (range ` +
+  const total = `${Math.round(totals.projected)} proj. gal (range ` +
     `${Math.round(totals.low)}–${Math.round(totals.high)}), capacity ${Math.round(totals.capacity)} gal`;
   return [head, ...body, total].join("\n");
 }

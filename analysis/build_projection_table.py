@@ -565,7 +565,7 @@ def new_owner_row(cid, extra, capacity, regions, asof):
         "projected_range_low": None, "projected_range_high": None,
         "capacity": capacity, "collections_over_capacity_all_time": 0,
         "display_pct_full": None, "days_until_75pct": None, "days_past_75pct": None,
-        "days_past_capacity": None, "implied_periodicity_days": None,
+        "days_past_capacity": None, "days_past_full": None, "implied_periodicity_days": None,
         "model_projected_gallons": None, "raw_pct_of_listed_capacity": None,
         "model_days_until_75pct": None, "model_days_past_75pct": None,
         "model_days_past_capacity": None, "inferred_active_season": None,
@@ -1371,7 +1371,7 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
         if capacity:
             high = min(high, capacity)
 
-    raw_pct = days_until = days_past_75 = days_past_cap = periodicity = None
+    raw_pct = days_until = days_past_75 = days_past_cap = days_past_full = periodicity = None
     if projected is not None and capacity:
         raw_pct = projected / capacity * 100
         if rate > 0:
@@ -1382,6 +1382,14 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
             days_past_75 = abs(days_until) if projected > target else 0.0
             days_past_cap = ((projected - capacity) / rate
                              if projected > capacity else 0.0)
+            # Signed, as the source site's [days over]: negative = days still
+            # to reach full, positive = days past it. The shadow site shows it
+            # beside each stop. Open days to full count as calendar days, as
+            # days_until does above.
+            to_full = (capacity - projected) / rate
+            if open_months and to_full > 0:
+                to_full = calendar_days_for_open(asof, to_full, open_months)
+            days_past_full = -to_full
             periodicity = target / rate
 
     # Only a ranked row's capacity arithmetic is a route signal. Everywhere
@@ -1432,6 +1440,7 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
         "days_until_75pct": shown(days_until),
         "days_past_75pct": shown(days_past_75),
         "days_past_capacity": shown(days_past_cap),
+        "days_past_full": shown(days_past_full),
         "implied_periodicity_days": shown(periodicity),
         # The 50/50 arithmetic on every row, blanked or not. Detail only.
         "model_projected_gallons": projected,
@@ -1499,7 +1508,7 @@ MAIN_FIELDS = [
     "avg_collection", "collections_per_year", "oil_rate_gpd_projected",
     "current_projected_gallons", "projected_range_low", "projected_range_high",
     "capacity", "collections_over_capacity_all_time", "display_pct_full",
-    "days_until_75pct", "days_past_75pct", "days_past_capacity",
+    "days_until_75pct", "days_past_75pct", "days_past_capacity", "days_past_full",
     "implied_periodicity_days", "current_month", "current_month_index",
     "top_month", "top_month_index", "bottom_month", "bottom_month_index",
     "oil_rate_gpd_prev_year", "oil_rate_gpd_prev_6_pickups",
@@ -1511,7 +1520,7 @@ ROUNDING = {
     "oil_rate_gpd_projected": 3, "current_projected_gallons": 1,
     "projected_range_low": 1, "projected_range_high": 1,
     "capacity": 0, "display_pct_full": 1, "days_until_75pct": 1, "days_past_75pct": 1,
-    "days_past_capacity": 1, "implied_periodicity_days": 1,
+    "days_past_capacity": 1, "days_past_full": 1, "implied_periodicity_days": 1,
     "model_projected_gallons": 1, "raw_pct_of_listed_capacity": 1,
     "model_days_until_75pct": 1, "model_days_past_75pct": 1,
     "model_days_past_capacity": 1,
@@ -1628,6 +1637,7 @@ def write_json(rows, asof):
         "days_until_75": value(r, "days_until_75pct"),
         "days_past_75": value(r, "days_past_75pct"),
         "days_past_capacity": value(r, "days_past_capacity"),
+        "days_past_full": value(r, "days_past_full"),
         "periodicity_days": value(r, "implied_periodicity_days"),
         "restart_from": r.get("restart_from"),
         "restart_gap_days": r.get("restart_gap_days"),

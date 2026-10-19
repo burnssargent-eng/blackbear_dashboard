@@ -30,13 +30,16 @@ analysis/live_test.py ──> analysis/live_test_log.csv  (projected vs collecte
                       └─> oil_live_test.json          (the Live test section of projections.html)
 
 jamaal_routes.py ──> jamaal_routes.json   (source site's assigned routes, route names and Assign list; GET only)
+jamaal_outgoing.py ──> outgoing.json      (source site's outgoing log: stillage runs, Shop→Gebbie Schmutz; GET only)
+jamaal_customers.py ──> customer_details.json (address + map position per active customer; NO phones;
+                                           addresses public by Sarge's choice until the repo goes private)
 
 index.html      dashboard + Leaflet heatmap. Keeps its OWN inline styles.
 region.html     per-region page. The most complex page.
 year.html  town.html  customers.html  schmootz.html
 projections.html     beta pickup projections. In the nav as "Projections", after Dashboard.
 planner.html         route planner beta. UNLISTED (not in the nav). Reads the two JSONs above.
-ops-assign.html  ops-myroute.html  ops-calendar.html   SHADOW site: the source site's workflow on a copy of its
+ops-assign.html  ops-myroute.html  ops-calendar.html  ops-outgoing.html  ops-customer.html   SHADOW site: the source site's workflow on a copy of its
                      data, kept in each browser. Light Bootstrap look, own nav (ops-common.js),
                      ops.css. UNLISTED. Route maths for both betas: route-utils.js.
 dashboard-utils.js   shared helpers for the detail pages
@@ -74,6 +77,15 @@ assignment stays until someone removes it, so "Today's Routes" means "currently
 assigned", not today's. `planner.html` only adds exported per-customer figures:
 a shared barrel counts once, and a held-out customer's average pickup is shown
 as "typical", outside the projected total.
+
+**Door codes and phone numbers never go in the repo.** `jamaal_customers.py`
+cuts them out of customer notes before writing `customer_details.json`
+(published), and keeps the full notes in `customer_notes.local.json` for a
+local preview only. `*.local.json` is gitignored; `tests/ops_test.js` fails if
+one is ever tracked, and `validate_data.py` fails on a phone number or code in
+the published file. Making the repo private does not hide the GitHub Pages
+site, so getting codes to drivers needs encryption, a login-protected host or
+the database.
 
 ## Regenerating data
 

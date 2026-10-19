@@ -58,24 +58,21 @@ function visibleRows() {
   let rows = customerRows().filter(r =>
     matchesNameSearch(q, [r.name, r.town, ...((r.row && r.row.members) || []).map(m => m.name)]) &&
     (!view.region || (r.row && (r.row.regions || []).includes(view.region))));
-  if (view.sort === "urgent") {
-    rows = rows.slice().sort((a, b) =>
-      (urgencyRank.get(a.row && a.row.id) ?? Infinity) - (urgencyRank.get(b.row && b.row.id) ?? Infinity));
-  } else {
-    rows = rows.slice().sort((a, b) => (a.town || "~").localeCompare(b.town || "~"));
-  }
-  return rows;
+  const byOrder = view.sort === "urgent"
+    ? (a, b) => (urgencyRank.get(a.row && a.row.id) ?? Infinity) - (urgencyRank.get(b.row && b.row.id) ?? Infinity)
+    : (a, b) => (a.town || "~").localeCompare(b.town || "~");
+  // While searching, names that start with the text come first, then names
+  // with a word that does; the chosen order applies within each group.
+  return rows.slice().sort((a, b) => searchRank(q, a.name) - searchRank(q, b.name) || byOrder(a, b));
 }
 
 function rowHtml(r, onRoutes) {
   const on = onRoutes.get(r.customer_id) || [];
-  const badge = r.row ? projectionBadgeText(r.row) : "";
-  return `<tr class="${picked.has(r.customer_id) ? "ops-picked" : ""}">
+  return `<tr class="${picked.has(r.customer_id) ? "ops-picked" : ""}" data-row="${r.customer_id}">
     <td><input type="checkbox" data-pick="${r.customer_id}" ${picked.has(r.customer_id) ? "checked" : ""}
          aria-label="Select ${escapeHtml(r.name)}"></td>
-    <td>${escapeHtml(r.name || `(no name) #${r.customer_id}`)}
-      <span class="graytext">(${r.capacity ?? "—"})</span>
-      ${badge ? `<span class="ops-proj">${escapeHtml(badge)}</span>` : ""}
+    <td><a href="ops-customer.html?id=${r.customer_id}">${escapeHtml(r.name || `(no name) #${r.customer_id}`)}</a>
+      ${stopFiguresHtml(r.row, r.capacity)}
       ${r.added ? `<span class="ops-new">new · this browser only</span>` : ""}
       ${on.length ? `<div class="ops-on-route">On ${escapeHtml(on.join(", "))}</div>` : ""}
     </td>
@@ -86,15 +83,7 @@ function rowHtml(r, onRoutes) {
 function renderList() {
   const rows = visibleRows();
   const onRoutes = storeRoutesByCustomer(store, routeList, data.index);
-  let lastTown = null;
-  const body = rows.map(r => {
-    let head = "";
-    if (view.sort === "town" && r.town !== lastTown) {
-      lastTown = r.town;
-      head = `<tr class="ops-city-head"><td colspan="3">${escapeHtml(r.town || "No town")}</td></tr>`;
-    }
-    return head + rowHtml(r, onRoutes);
-  }).join("");
+  const body = rows.map(r => rowHtml(r, onRoutes)).join("");
   document.getElementById("list").innerHTML = rows.length
     ? `<table class="ops-assign-list w-100"><tbody>${body}</tbody></table>`
     : `<div class="text-muted">No customers match.</div>`;
@@ -122,35 +111,30 @@ function renderBar() {
   let routeLine = "";
   if (view.route) {
     const current = storeStops(store, view.route);
-    const before = routeSummary(current, data.index).totals;
-    const after = routeSummary([...current, ...stops.filter(s =>
-      !current.some(c => c.customer_id === s.customer_id))], data.index).totals;
+    // The route as it would be with the ticked customers added (as it is, when none are).
+    const merged = [...current, ...stops.filter(s => !current.some(c => c.customer_id === s.customer_id))];
+    const after = routeSummary(merged, data.index).totals;
     const name = routeList.find(r => String(r.route_id) === String(view.route)).name;
-    routeLine = stops.length
-      ? `<div class="mt-1">${escapeHtml(name)}: ${current.length} stops, ` +
-        `${formatWhole(before.projected)} gal → <strong>${projectedRangeText(after)}</strong>` +
-        ` after assigning${routeFillHtml(after, view.route)}</div>`
-      : `<div class="mt-1">${escapeHtml(name)}: ${current.length} stops, ` +
-        `${projectedRangeText(before)}${routeFillHtml(before, view.route)}</div>`;
+    routeLine = `<div class="mt-1">${escapeHtml(name)}: ${merged.length} stops, ` +
+      `~${formatWhole(after.projected)} gal${routeFillHtml(after, view.route)}</div>`;
   }
   bar.innerHTML = `
     <div>${stops.length
-      ? `<strong>${stops.length} selected:</strong> ${projectedRangeText(sel)} · capacity ${formatWhole(sel.capacity)}
+      ? `<strong>${stops.length} selected:</strong> ~${formatWhole(sel.projected)} gal / ${formatWhole(sel.capacity)} capacity
          <button type="button" class="btn btn-link btn-sm p-0 ms-2" data-clear>Clear</button>`
       : `Tick customers to assign them.`}</div>
-    <div class="d-flex flex-wrap gap-2 align-items-center mt-1">
-      <label for="route">Assign to:</label>
-      <select id="route" class="form-select form-select-sm w-auto">
-        <option value="">Route…</option>
+    <div class="d-flex gap-2 align-items-center mt-1">
+      <select id="route" class="form-select form-select-sm" aria-label="Assign to route">
+        <option value="">Assign to route…</option>
         ${routeList.map(r => `<option value="${r.route_id}"${String(r.route_id) === String(view.route) ? " selected" : ""}>` +
           `${escapeHtml(r.name)}</option>`).join("")}
       </select>
-      <label class="form-check-label"><input type="checkbox" class="form-check-input" id="must"
+      <label class="form-check-label text-nowrap"><input type="checkbox" class="form-check-input" id="must"
         ${view.mustGet ? "checked" : ""}> Must Get</label>
       <button type="button" class="btn btn-primary btn-sm" data-assign ${stops.length && view.route ? "" : "disabled"}>Assign</button>
-      ${flash ? `<span class="text-success">${flash}</span>` : ""}
     </div>
-    ${routeLine}`;
+    ${routeLine}
+    ${flash ? `<div class="text-success mt-1">${flash}</div>` : ""}`;
 }
 
 function render() {
@@ -163,7 +147,8 @@ function buildShell() {
   document.getElementById("page").innerHTML = `
     <h2>Assign Routes</h2>
     <div class="ops-muted mb-2">Projections as of ${escapeHtml(formatDate(data.projections.as_of))}.
-      Green figures are projected gallons and % full; a held-out customer shows why it has none.</div>
+      <span class="text-nowrap">(Projected gal (~) / capacity)</span>
+      <span class="text-nowrap">[days past full; − = days to full]</span></div>
 
     <div class="d-flex flex-wrap gap-2 align-items-center mb-2">
       <input type="search" id="search" class="form-control form-control-sm w-auto" placeholder="Search name or town">
@@ -196,6 +181,15 @@ function buildShell() {
   document.getElementById("search").addEventListener("input", e => { view.search = e.target.value.trim(); renderList(); });
   document.getElementById("region").addEventListener("change", e => { view.region = e.target.value; renderList(); });
   document.getElementById("sort").addEventListener("change", e => { view.sort = e.target.value; renderList(); });
+  // A tap anywhere on a row ticks it, as if on its checkbox.
+  page.addEventListener("click", e => {
+    const tr = e.target.closest && e.target.closest("tr[data-row]");
+    // The name is a link to the customer page: following it never ticks the row.
+    if (!tr || e.target.matches("input[type=checkbox]") || e.target.closest("a")) return;
+    const box = tr.querySelector("input[data-pick]");
+    box.checked = !box.checked;
+    box.dispatchEvent(new Event("change", { bubbles: true }));
+  });
   page.addEventListener("change", e => {
     const id = e.target.dataset && e.target.dataset.pick;
     if (id === undefined) return;
