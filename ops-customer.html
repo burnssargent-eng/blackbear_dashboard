@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Customer (shadow) — Black Bear Biodiesel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="stylesheet" href="ops.css">
+</head>
+
+<body>
+<div id="nav"></div>
+<div id="banner"></div>
+<div class="container py-3" id="page">Loading…</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="dashboard-utils.js"></script>
+<script src="route-utils.js"></script>
+<script src="ops-common.js"></script>
+<script>
+/*
+ * Customer page (shadow), after the source site's customer.php. Two tabs:
+ * Home (Add Collection, the details, Assign, a map pin) and Collections (every
+ * pickup with its total). Photos are left out for now.
+ *
+ * Read from: jamaal_routes.json (name, town), customer_details.json (address,
+ * position), oil_projections.json, capacity_cache.csv (the site's capacity and
+ * periodicity), oil_collections.json and oil_non_pickups.csv (history).
+ * No phone numbers: this site is public. Gallons and assignments entered here
+ * stay in this browser's shadow copy.
+ */
+
+
+let data = null, store = null, routeList = [];
+let customer = null;      // { customer_id, name, city }
+let details = {};         // this customer's customer_details.json entry
+let siteFigures = null;   // { capacity, periodicity_days } from capacity_cache.csv
+let history = [];         // [{ date, gallons, code }] newest first
+let flash = "";
+
+function param(name) { return getUrlParam(name); }
+
+/** This customer's row of capacity_cache.csv, or null. */
+function parseCapacityRow(text, id) {
+  const line = text.split(/\r?\n/).find(l => l.startsWith(`${id},`));
+  if (!line) return null;
+  const [, capacity, periodicity] = line.split(",");
+  return { capacity: Number(capacity) || null, periodicity_days: Number(periodicity) || null };
+}
+
+function historyFor(id, records, codesText) {
+  const rows = records.filter(r => r.customer_id === id).map(r => ({ date: r.date, gallons: r.gallons }));
+  codesText.split(/\r?\n/).forEach(l => {
+    const [cid, date, qty] = l.split(",");
+    if (Number(cid) === id && date) rows.push({ date, gallons: Number(qty), code: true });
+  });
+  return rows.sort((a, b) => b.date.localeCompare(a.date));
+}
+
+/** "07/24/2026", as the source site lists collections. */
+function usDate(iso) {
+  return `${iso.slice(5, 7)}/${iso.slice(8, 10)}/${iso.slice(0, 4)}`;
+}
+
+/** The Collections tab: every pickup, newest first, codes as words, then the total. */
+function collectionsHtml() {
+  if (!history.length) return `<div class="text-muted">No collections on record.</div>`;
+  const total = history.filter(h => !h.code).reduce((sum, h) => sum + h.gallons, 0);
+  return `<ul class="list-unstyled ops-history mb-1">${history.map(h =>
+    `<li>${usDate(h.date)} : ${h.code ? codeText(h.gallons) : formatNumber(h.gallons)}</li>`).join("")}</ul>
+    <div>Total: ${formatNumber(total)}</div>`;
+}
+
+/**
+ * The Home tab, in Sarge's order: Add Collection, then address, capacity,
+ * periodicity, last pickup, projection, on route, notes, Assign. Periodicity
+ * and days to/past full are the projections' own figures, never the source
+ * site's listed periodicity.
+ */
+function homeHtml(row, today, onRoutes, capacity) {
+  const est = stopEstimate(row);
+  const days = row && row.days_past_full;
+  const dd = (label, value) => `<dt class="col-4 col-md-2">${label}</dt><dd class="col-8 col-md-10">${value}</dd>`;
+  return `
+    <form id="add" class="d-flex flex-wrap gap-2 align-items-center my-3" autocomplete="off">
+      <input type="number" inputmode="numeric" min="0" name="gallons" class="form-control w-auto"
+             placeholder="# of gallons" required>
+      <button class="btn btn-primary">Add Collection</button>
+    </form>
+    ${today ? `<div class="alert alert-success py-2">Today: ${today.gallons <= 3 ? codeText(today.gallons)
+      : `${formatNumber(today.gallons)} gal`} — this browser only.
+      <button type="button" class="btn btn-link btn-sm p-0 ms-2" data-undo>Undo</button></div>` : ""}
+    ${flash ? `<div class="text-success mb-2">${flash}</div>` : ""}
+
+    <dl class="row ops-detail mb-2">
+      ${dd("Address", details.address
+        ? `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(details.address)}" target="_blank" rel="noopener">${escapeHtml(details.address)}</a>`
+        : "—")}
+      ${dd("Capacity", capacity ?? "—")}
+      ${dd("Periodicity", row && row.periodicity_days ? `${formatWhole(row.periodicity_days)} days` : "—")}
+      ${dd("Last pickup", row && row.last_pickup ? escapeHtml(formatDate(row.last_pickup)) : "—")}
+      ${dd("Projection", est.kind === "projected"
+        ? `<span class="ops-fill-${fillLevel(row)}">~${formatWhole(est.gal)} gal</span>` +
+          (days === null || days === undefined ? "" : ` <span class="ops-days">[${Math.round(days)}]</span>`)
+        : escapeHtml(row ? (row.status || row.section) : "—"))}
+      ${dd("On route", onRoutes.length ? escapeHtml(onRoutes.join(", ")) : "—")}
+      ${dd("Notes", details.notes ? notesHtml(customer.customer_id, details.notes) : "")}
+    </dl>
+
+    <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+      <select id="route" class="form-select w-auto" aria-label="Assign to route">
+        <option value="">Assign to route…</option>
+        ${routeList.map(r => `<option value="${r.route_id}">${escapeHtml(r.name)}</option>`).join("")}
+      </select>
+      <label class="form-check-label text-nowrap"><input type="checkbox" class="form-check-input" id="must"> Must Get</label>
+      <button type="button" class="btn btn-outline-primary" data-assign>Assign</button>
+    </div>
+
+    ${details.lat != null ? `<div id="map" class="ops-map ops-map-small mb-1"></div>
+      ${details.loc === "town" ? `<div class="ops-muted mb-3">Pin is the town centre; the street address did not match.</div>` : ""}` : ""}`;
+}
+
+let tab = "home";
+
+function render() {
+  const id = customer.customer_id;
+  const row = data.index.get(id) || null;
+  const today = todaysCollection(store, id);
+  const onRoutes = storeRoutesByCustomer(store, routeList, data.index).get(id) || [];
+  const capacity = (row && row.capacity) || (siteFigures && siteFigures.capacity);
+  const fromRoute = param("from") === "myroute";
+  const tabLink = (key, label) => `<li class="nav-item"><button type="button" class="nav-link${tab === key ? " active" : ""}"
+    data-tab="${key}">${label}</button></li>`;
+  document.getElementById("page").innerHTML = `
+    ${fromRoute ? `<a href="ops-myroute.html" class="d-inline-block mb-2">← My Route</a>` : ""}
+    <h2>${escapeHtml(customer.name || `#${id}`)}</h2>
+    ${row && row.members ? `<div class="ops-muted mb-2">Shared barrel: ${escapeHtml(row.members.map(m => m.name).join(" · "))}</div>` : ""}
+    <ul class="nav nav-tabs">${tabLink("home", "Home")}${tabLink("collections", "Collections")}</ul>
+    <div class="pt-2">${tab === "home" ? homeHtml(row, today, onRoutes, capacity) : collectionsHtml()}</div>`;
+
+  if (tab === "home" && details.lat != null) {
+    const map = L.map("map", { scrollWheelZoom: false }).setView([details.lat, details.lon], details.loc === "town" ? 12 : 15);
+    opsTileLayer().addTo(map);
+    L.marker([details.lat, details.lon], { icon: routePinIcon("•", !!today) }).addTo(map);
+  }
+}
+
+async function init() {
+  document.getElementById("nav").innerHTML = opsNavHtml("");
+  const id = Number(param("id"));
+  try {
+    const oilData = await loadOilData();
+    const [opsData, allDetails, payload, codesText, capText] = await Promise.all([
+      loadOpsData(), loadCustomerDetails(), loadCollectionsPayload(oilData),
+      fetch(`oil_non_pickups.csv?v=${encodeURIComponent(oilData.last_updated)}`).then(r => r.ok ? r.text() : ""),
+      fetch(`capacity_cache.csv?v=${encodeURIComponent(oilData.last_updated)}`).then(r => r.ok ? r.text() : ""),
+    ]);
+    data = opsData;
+    details = allDetails[String(id)] || {};
+    siteFigures = parseCapacityRow(capText, id);
+    history = historyFor(id, payload.records || [], codesText);
+  } catch (err) {
+    document.getElementById("page").innerHTML = `<div class="alert alert-danger">${escapeHtml(err.message)}</div>`;
+    return;
+  }
+  store = loadStore(data.snap);
+  routeList = opsRouteList(data.snap);
+  const listed = data.snap.assign_list.find(a => a.customer_id === id) ||
+    store.added.find(c => c.customer_id === id);
+  if (!listed) {
+    document.getElementById("page").innerHTML = `<div class="alert alert-warning">No active customer #${escapeHtml(String(param("id")))}.</div>`;
+    return;
+  }
+  customer = { customer_id: id, name: listed.name, city: listed.city };
+  document.title = `${customer.name} (shadow) — Black Bear Biodiesel`;
+  const banner = document.getElementById("banner");
+  banner.innerHTML = shadowBannerHtml(store, data.snap);
+  wireShadowReset(banner, data.snap, fresh => { store = fresh; banner.innerHTML = shadowBannerHtml(store, data.snap); render(); });
+
+  const page = document.getElementById("page");
+  page.addEventListener("submit", e => {
+    if (e.target.id !== "add") return;
+    e.preventDefault();
+    const gallons = parseInt(new FormData(e.target).get("gallons"), 10);
+    if (!Number.isFinite(gallons) || gallons < 0) return;
+    recordCollection(store, customer, gallons);
+    saveStore(store);
+    flash = "";
+    if (param("from") === "myroute") { window.location.href = "ops-myroute.html"; return; }
+    render();
+  });
+  page.addEventListener("click", e => {
+    const t = e.target.closest && e.target.closest("[data-tab]");
+    if (t) { tab = t.dataset.tab; render(); return; }
+    if (e.target.closest("[data-undo]")) {
+      store.collections = store.collections.filter(c =>
+        !(c.date === todayIso() && c.customer_id === customer.customer_id));
+      saveStore(store);
+      render();
+    } else if (e.target.closest("[data-assign]")) {
+      const routeId = Number(document.getElementById("route").value);
+      if (!routeId) return;
+      const row = data.index.get(customer.customer_id);
+      const n = assignToRoute(store, routeId, [{ customer_id: customer.customer_id, name: customer.name,
+        capacity: row && row.capacity != null ? row.capacity : (siteFigures && siteFigures.capacity) }],
+        document.getElementById("must").checked);
+      saveStore(store);
+      const name = routeList.find(r => r.route_id === routeId).name;
+      flash = n ? `Added to ${escapeHtml(name)}.` : `Already on ${escapeHtml(name)}.`;
+      render();
+    }
+  });
+  render();
+}
+
+init();
+</script>
+</body>
+</html>

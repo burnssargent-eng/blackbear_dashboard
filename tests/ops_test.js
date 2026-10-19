@@ -21,7 +21,8 @@ const code = ["dashboard-utils.js", "route-utils.js", "ops-common.js"]
   .map(f => fs.readFileSync(f, "utf8")).join("\n");
 const api = new Function("window", code + `
   return { freshStore, loadStore, saveStore, storeStops, assignToRoute, opsRouteList,
-    addShadowCustomer, storeRoutesByCustomer, buildIndex, opsNavHtml, OPS_NAV };`)(window);
+    addShadowCustomer, storeRoutesByCustomer, buildIndex, opsNavHtml, OPS_NAV,
+    recordCollection, todaysCollection, liveRouteTotals, routeSummary };`)(window);
 
 let fails = 0;
 const ok = (cond, msg) => {
@@ -87,7 +88,8 @@ const nav = api.opsNavHtml("assign");
 ["Assign Routes", "My Route", "Calendar", "Dashboard", "Projections", "Historical Totals", "Regions",
   "Years", "Customers", "Schmootz"].forEach(label => ok(nav.includes(label), `nav has ${label}`));
 ok(nav.includes('href="ops-calendar.html"'), "Calendar is linked");
-ok(!/Lucy|Time ?clock|Outgoing/i.test(nav), "nav leaves out Ms. Lucy, Timeclock and (for now) Outgoing");
+ok(!/Lucy|Time ?clock/i.test(nav), "nav leaves out Ms. Lucy and Timeclock");
+ok(nav.includes('href="ops-outgoing.html"'), "Outgoing is linked");
 
 // ── Calendar ──
 const calHtml = fs.readFileSync("ops-calendar.html", "utf8");
@@ -121,8 +123,89 @@ ok([...codes.values()].flat().every(c => c.qty >= 0 && c.qty <= 3), "every liste
 const cells = (cal.gridHtml("2026-02").match(/class="cal-day(?!s)/g) || []).length;
 ok(cells % 7 === 0 && cells >= 28, "a month grid fills whole weeks");
 
+// ── Outgoing ──
+const outHtml = fs.readFileSync("ops-outgoing.html", "utf8");
+const outScript = outHtml.slice(outHtml.indexOf("<script>\n/*") + 8, outHtml.lastIndexOf("</script>"))
+  .replace(/\n\s*init\(\);\s*$/, "\n");
+const outApi = new Function("window", "document", code + "\n" + outScript + `
+  return { set(o) { outgoing = o; }, monthSummary, runLabels, gridHtml, TRUCKS };`)(
+  window, { getElementById: () => ({}) });
+const outData = JSON.parse(fs.readFileSync("outgoing.json", "utf8"));
+outApi.set(outData);
+const histKeys = new Set(Object.values(outData.days).flatMap(d => Object.keys(d.stillage)));
+ok([...histKeys].every(k => outApi.TRUCKS.some(t => t.key === k)), `every truck in the log is a known truck (${[...histKeys].join(", ")})`);
+ok(Object.values(outData.days).every(d => d.schmutz.every(g => g > 0)), "every Schmutz entry is a positive volume");
+const outMonth = Object.keys(outData.days).sort().pop().slice(0, 7);
+const handRuns = Object.entries(outData.days).filter(([d]) => d.startsWith(outMonth))
+  .reduce((n, [, v]) => n + Object.values(v.stillage).reduce((a, b) => a + b, 0), 0);
+const sum = outApi.monthSummary(outMonth);
+ok(Object.values(sum.runs).reduce((a, b) => a + b, 0) === handRuns, `month run count matches the log (${outMonth}: ${handRuns})`);
+ok(outApi.runLabels({ babybird: 1, mammabear: 2 }).join(" ") === "MB (2) BB (1)",
+  "run labels follow the source site's style, in truck order");
+ok(outApi.TRUCKS.find(t => t.key === "newbiedoo").name === "Newbie Doo", "the new truck is Newbie Doo");
+const outCells = (outApi.gridHtml(outMonth).match(/class="cal-day(?!s)/g) || []).length;
+ok(outCells % 7 === 0, "the outgoing report grid fills whole weeks");
+
+// ── Customer details and gallons entered ──
+const det = JSON.parse(fs.readFileSync("customer_details.json", "utf8")).customers;
+const placed = Object.values(det).filter(d => d.lat != null);
+ok(placed.every(d => d.lat > 42 && d.lat < 45.5 && d.lon > -74.5 && d.lon < -70.5),
+  `every map position is in the region (${placed.length} placed)`);
+ok(Object.values(det).every(d => !/\(?\b\d{3}\)?[\s.-]*\d{3}[\s.-]*\d{4}\b/.test(`${d.address} ${d.notes || ""}`)),
+  "no phone numbers in customer addresses or notes");
+ok(Object.values(det).every(d => !/\b(pass\s*code|passcode|pass|code|combo|pin|keypad|alarm)\s*(#|:|is)?\s*[\w-]*\d/i.test(d.notes || "")),
+  "no door or lock codes in customer notes");
+ok(snap.assign_list.every(a => String(a.customer_id) in det), "every Assign Routes customer has a details entry");
+const s2 = api.freshStore(snap);
+const r0 = snap.routes[0];
+s2.my = { routeId: r0.route_id };
+const first = r0.stops[0];
+api.recordCollection(s2, { customer_id: first.customer_id, name: first.name }, 75);
+api.recordCollection(s2, { customer_id: first.customer_id, name: first.name }, 80);
+const today = s2.collections.filter(c => c.customer_id === first.customer_id);
+ok(today.length === 1 && today[0].gallons === 80 && today[0].assignment_id === first.assignment_id,
+  "a second entry the same day replaces the first, tied to the My Route stop");
+api.recordCollection(s2, { customer_id: -999, name: "Off route" }, 1);
+ok(api.todaysCollection(s2, -999).assignment_id === null, "an entry for a customer off My Route is kept, untied");
+
+// ── Live route totals: a collected stop counts its actual gallons ──
+{
+  const pc = payload.customers;
+  const ranked2 = pc.filter(c => c.section === "ranked" && !c.members && c.projected_gal > 5).slice(0, 2);
+  const shared2 = pc.find(c => c.section === "ranked" && c.members && c.members.length > 1);
+  const heldOut = pc.find(c => c.section !== "ranked");
+  const st = c => ({ customer_id: c.id, name: c.name });
+  const stops = [st(ranked2[0]), st(ranked2[1]), ...shared2.members.map(m => ({ customer_id: m.id, name: m.name })), st(heldOut)];
+  const lines = api.routeSummary(stops, byId).lines;
+  const y = ranked2[0].projected_gal, z = ranked2[1].projected_gal + shared2.projected_gal;
+  const s3 = api.freshStore(snap);
+  const close2 = (a, b) => Math.abs(a - b) < 1e-6;
+  ok(close2(api.liveRouteTotals(lines, s3).projected, y + z), "before any collection the route reads y + z");
+  api.recordCollection(s3, st(ranked2[0]), 120);
+  let t = api.liveRouteTotals(lines, s3);
+  ok(close2(t.projected, 120 + z) && t.collected === 120 && t.done === 1, "collecting x from the stop projected at y makes it x + z");
+  api.recordCollection(s3, st(ranked2[0]), 1);
+  ok(close2(api.liveRouteTotals(lines, s3).projected, z), "an Empty counts 0 in place of its projection");
+  api.recordCollection(s3, { customer_id: shared2.members[1].id, name: "member" }, 40);
+  t = api.liveRouteTotals(lines, s3);
+  ok(close2(t.projected, ranked2[1].projected_gal + 40), "collecting one member of a shared barrel replaces the barrel's projection once");
+  api.recordCollection(s3, st(heldOut), 75);
+  ok(close2(api.liveRouteTotals(lines, s3).projected, ranked2[1].projected_gal + 40 + 75),
+    "a held-out stop adds its actual gallons once collected");
+}
+
+// ── Full notes stay local ──
+{
+  const { execFileSync } = require("child_process");
+  let ignored = false;
+  try { execFileSync("git", ["check-ignore", "-q", "customer_notes.local.json"]); ignored = true; } catch (e) { /* not ignored */ }
+  ok(ignored, "customer_notes.local.json (door codes, phones) is gitignored");
+  const tracked = execFileSync("git", ["ls-files", "*.local.json"], { encoding: "utf8" }).trim();
+  ok(tracked === "", "no *.local.json file is tracked by git");
+}
+
 // ── No page posts to the source site ──
-["ops-assign.html", "ops-myroute.html", "ops-calendar.html", "ops-common.js"].forEach(f => {
+["ops-assign.html", "ops-myroute.html", "ops-calendar.html", "ops-outgoing.html", "ops-customer.html", "ops-common.js"].forEach(f => {
   const text = fs.readFileSync(f, "utf8");
   ok(!/<form[^>]+action=|method=["']?post|\.php["'?]?\s*,\s*\{|delete_routes|update_order|add_to_route/i.test(text),
     `${f} never submits to the source site`);

@@ -21,8 +21,9 @@ the system of record. **We only read from it.**
 - The planner scores each site route and drafts routes in the browser.
   Reordering is by arrows or typed stop numbers. Truck fill is shown against
   `TRUCKS`.
-- **Waiting on Sarge:** tank capacities for Mamma Bear, Mack Daddy, Baby Bird
-  and the new truck (all `null`). Also, whether a truck is tied to a route.
+- Tank capacities set (Sarge, 2026-10-18): Mamma Bear 1,350, Mack Daddy 2,000,
+  Baby Bird 750, Newbie Doo (the new truck) 1,200.
+- **Open:** whether a truck is tied to a route.
 - **Then Jim:** route names, and whether the totals help.
 - **Next (Phase 2):** a Ms. Lucy (`dayssince.php`) vs model comparison, and a
   route-level range calibrated from the live test log.
@@ -49,7 +50,63 @@ runs on a copy of its data, and every change stays in the viewer's browser.
   - Header as on the source site: two green buttons a month either side
     (09-18-26 | 11-18-26), and "This month / Last year" (the full same month).
   - Adds a month picker (10/26 back to 01/15).
-- Next: Outgoing (Schmutz logging), later.
+- Built (checkpoint 3): `ops-outgoing.html`.
+  - The source site's Outgoing page and its report in one page: a stillage
+    button per truck (Newbie Doo included), Schmutz volume, and the month
+    report.
+  - History from `outgoing.json` (`jamaal_outgoing.py`, Jul 2021 on; the
+    nightly re-reads the last two months).
+- Built (checkpoint 4, 2026-10-18):
+  - `ops-customer.html`: the customer page, with Add Collection, details,
+    projection, Assign, a map pin and history. No phone.
+  - The My Route driver view now matches the source site's My Route: linked
+    names with capacity and proj. gal, "Total:", and a numbered pin map.
+    Positions come from `customer_details.json`: the site's own when stored,
+    else the US Census geocoder, else the town centre.
+  - Label rule: one hedge only, "~", with figures beside the name as on the
+    source site. "Name (~87 gal / 300) [28]", where [28] is days past full
+    (negative = to full), from the new `days_past_full` export. % full only
+    sets the colour; it is not shown as a column. Only the route table's
+    total row is written out, in bold: "Total projected gal: 500 / 1000".
+  - The driver view enters gallons inline again (box, Save, Empty), with a
+    Details dropdown: address and directions, notes, barrel photos (shown
+    from the source site's uploads), the last 3 pickups, and a link to the
+    full customer page.
+- Live route totals (2026-10-19): on My Route, a stop collected today counts
+  its actual gallons in place of its projection (y + z → x + z), in the
+  collecting header, the route's line and its total row. The truck bar shows
+  collected gallons solid and the projected remainder light.
+- Collecting page rebuilt for phones (2026-10-19, from the stop-layout mock):
+  - One line per stop: the name, then "(~87 gal / 300) [28]", with no stop
+    numbers. Compact (on by default) shows controls on one stop only: the
+    next to collect, or whichever line is tapped. Save moves on; switching
+    stops closes Details.
+  - Controls are one 33px row: gallons, Save, Maps, Details. Empty is gone;
+    typing 1-3 means empty, as on the source site.
+  - Details shows the address (a Maps link), notes, and "Customer page ›".
+    The name itself is not a link.
+  - Collected stops drop below the rest. The tally ("Total: x of y projected
+    gal") and the truck bar sit under the list. The shadow banner is one line.
+  - About 11 stops fit at 375px.
+  - Door codes and phones: `customer_notes.local.json` holds the full notes
+    for a local preview only. It is gitignored, and a test fails if it is ever
+    tracked. The published file keeps them cut out, and the page links "on
+    Jamaal ›" in their place. Getting codes to drivers on the live site still
+    needs encryption, a login-protected host, or the database.
+- **Open:** the source site's My Route lists the stops in a different order
+  from Today's Routes; ask which order drivers follow.
+- **Schmutz check for Jim / Erin.** Jamaal's Schmutz is Shop → Gebbie only.
+  Its yearly totals are close to, but not equal to, the Schmootz workbook's
+  Shop → Gebbie block (2026-10-18):
+
+  | Year | Jamaal | Workbook |
+  |---|---|---|
+  | 2023 | 27,300 | 24,300 |
+  | 2024 | 47,750 | 46,850 |
+  | 2025 | 45,575 | 45,075 |
+  | 2026 | 29,000 | 21,550 (workbook last saved Sep 10) |
+
+  Barr Hill → Gebbie is only in Erin's spreadsheet.
 - Route names differ between the source site's pages. Ask Jim:
   - id 4 is "MamaBear" in the Assign dropdown but "Stowe/Wtbry/MRV" on
     Today's Routes;

@@ -11,11 +11,12 @@
 
 const OPS_STORAGE_KEY = "bbb-ops-shadow-v1";
 
-// Header nav. Outgoing is not built yet.
+// Header nav.
 const OPS_NAV = [
   { key: "assign", label: "Assign Routes", href: "ops-assign.html" },
   { key: "myroute", label: "My Route", href: "ops-myroute.html" },
   { key: "calendar", label: "Calendar", href: "ops-calendar.html" },
+  { key: "outgoing", label: "Outgoing", href: "ops-outgoing.html" },
   { key: "dashboard", label: "Dashboard", href: "index.html" },
   { key: "projections", label: "Projections", href: "projections.html" },
   { key: "history", label: "Historical Totals", children: [
@@ -104,13 +105,13 @@ function freshStore(snap) {
     }));
   });
   return { v: 1, base: snap.scraped_at, nextId: -1, routes, added: [], collections: [],
-    trucks: {}, my: null };
+    outgoing: [], trucks: {}, my: null };
 }
 
 function loadStore(snap) {
   try {
     const saved = JSON.parse(window.localStorage.getItem(OPS_STORAGE_KEY) || "null");
-    if (saved && saved.v === 1 && saved.routes) return saved;
+    if (saved && saved.v === 1 && saved.routes) return { outgoing: [], ...saved };
   } catch (err) { /* blocked storage: work in memory */ }
   return freshStore(snap);
 }
@@ -165,12 +166,12 @@ function todayIso() {
 /** The yellow strip on every shadow page, with the Reset button. */
 function shadowBannerHtml(store, snap) {
   const changed = store.base !== snap.scraped_at;
-  return `<div class="ops-shadow px-3 py-2">
-    <strong>Shadow copy.</strong> Changes here stay in this browser and never reach the
-    source site. Started from the source site's routes read
-    ${escapeHtml(new Date(store.base).toLocaleString())}.
-    ${changed ? `<strong>Newer routes were read ${escapeHtml(new Date(snap.scraped_at).toLocaleString())}.</strong>` : ""}
-    <button type="button" class="btn btn-sm btn-outline-dark ms-2" data-ops-reset>Reset to the source site's routes</button>
+  // One line, so it costs a phone screen as little as possible.
+  return `<div class="ops-shadow px-3 py-1 d-flex align-items-center gap-2">
+    <span class="flex-grow-1"><strong>Shadow copy</strong> · changes stay on this device${changed
+      ? ` · <strong>newer routes available</strong>` : ""}</span>
+    <button type="button" class="btn btn-sm btn-outline-dark py-0" data-ops-reset
+      title="Start again from the source site's routes read ${escapeHtml(new Date(snap.scraped_at).toLocaleString())}">Reset</button>
   </div>`;
 }
 
@@ -185,13 +186,255 @@ function wireShadowReset(container, snap, onReset) {
   });
 }
 
-/** "Name · Town" style line for one stop's projection: "~76 gal · 77% full". */
+/**
+ * Fill level for colour, as on the projections page: full at 100%, due from
+ * the 75% pickup point, ok below; "held" for a customer with no projection.
+ */
+function fillLevel(row) {
+  if (!row || row.pct_full === null || row.pct_full === undefined) return "held";
+  return row.pct_full >= 100 ? "full" : row.pct_full >= 75 ? "due" : "ok";
+}
+
+/** A projection badge coloured by fill level, or "" when there is nothing to show. */
+function projectionBadgeHtml(row) {
+  const text = row ? projectionBadgeText(row) : "";
+  return text ? `<span class="ops-proj ops-fill-${fillLevel(row)}">${escapeHtml(text)}</span>` : "";
+}
+
+/**
+ * How well a name matches a search, for ordering results: 0 when the name
+ * starts with it, 1 when a word in the name does, 2 for any other match.
+ */
+function searchRank(query, name) {
+  const n = (name || "").toLowerCase();
+  if (!query) return 0;
+  if (n.startsWith(query)) return 0;
+  if (n.split(/[^a-z0-9]+/).some(w => w.startsWith(query))) return 1;
+  return 2;
+}
+
+/**
+ * The figures after a customer's name, as the source site's Today's Routes
+ * puts "(capacity) [days]" there:
+ *   (~87 gal / 300) [28]   projected gallons over capacity, coloured by % full,
+ *                          then days past full (negative = days still to full)
+ *   (300) will-call        a customer with no projection: capacity, and why
+ * `capacity` is the stop's own when the caller has one.
+ */
+function stopFiguresHtml(row, capacity) {
+  const cap = capacity ?? (row && row.capacity) ?? null;
+  const capText = cap === null ? "—" : formatNumber(cap);
+  const est = stopEstimate(row);
+  if (est.kind !== "projected") {
+    return `<span class="graytext">(${capText})</span>` +
+      (row ? ` <span class="ops-muted">${escapeHtml(row.status || row.section)}</span>` : "");
+  }
+  const days = row.days_past_full;
+  return `<span class="ops-proj ops-fill-${fillLevel(row)}">(~${formatWhole(est.gal)} gal / ${capText})</span>` +
+    (days === null || days === undefined ? "" : ` <span class="ops-days">[${Math.round(days)}]</span>`);
+}
+
+/** One stop's projection, for a list line: "76 proj. gal · 77% full". */
 function projectionBadgeText(row) {
   const est = stopEstimate(row);
   if (est.kind === "projected") {
-    return `~${formatWhole(est.gal)} gal` + (row.pct_full !== null && row.pct_full !== undefined
+    return `${formatWhole(est.gal)} proj. gal` + (row.pct_full !== null && row.pct_full !== undefined
       ? ` · ${Math.round(row.pct_full)}% full` : "");
   }
   if (est.kind === "typical") return row.status || row.section;
   return "";
+}
+
+/* ── Month calendars (Calendar and Outgoing) ────────────── */
+
+function shiftMonth(ym, delta) {
+  const [y, m] = ym.split("-").map(Number);
+  const d = new Date(y, m - 1 + delta, 1);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+}
+
+function monthLabel(ym) {
+  const [y, m] = ym.split("-").map(Number);
+  return new Date(y, m - 1, 1).toLocaleDateString("default", { month: "long", year: "numeric" });
+}
+
+/**
+ * The same day of the month `delta` months away, as the source site's buttons
+ * step (09-18-26 | 11-18-26 around Oct 18). A day past the month's end becomes
+ * its last day.
+ */
+function shiftAnchor(date, delta) {
+  const [y, m, d] = date.split("-").map(Number);
+  const target = new Date(y, m - 1 + delta, 1);
+  const last = new Date(target.getFullYear(), target.getMonth() + 1, 0).getDate();
+  return `${target.getFullYear()}-${String(target.getMonth() + 1).padStart(2, "0")}-` +
+    `${String(Math.min(d, last)).padStart(2, "0")}`;
+}
+
+/** "2026-09-18" -> "09-18-26", the source site's button label. */
+function anchorLabel(date) {
+  return `${date.slice(5, 7)}-${date.slice(8, 10)}-${date.slice(2, 4)}`;
+}
+
+/** "YYYY-MM" months from `thisMonth` back to `firstMonth`, newest first. */
+function monthsBack(thisMonth, firstMonth) {
+  const out = [];
+  for (let ym = thisMonth; firstMonth && ym >= firstMonth; ym = shiftMonth(ym, -1)) out.push(ym);
+  return out;
+}
+
+/**
+ * The two green month buttons, centred, with the month picker and `extra` to
+ * their right. Pages handle [data-anchor] clicks and #cal-month-pick changes.
+ */
+function calendarNavHtml(anchor, months, extra) {
+  const prev = shiftAnchor(anchor, -1), next = shiftAnchor(anchor, 1);
+  const month = anchor.slice(0, 7);
+  return `<div class="cal-nav mb-2">
+      <div></div>
+      <div class="cal-nav-center">
+        <button type="button" class="btn btn-success btn-lg" data-anchor="${prev}">${anchorLabel(prev)}</button>
+        <button type="button" class="btn btn-success btn-lg" data-anchor="${next}">${anchorLabel(next)}</button>
+      </div>
+      <div class="cal-nav-right">
+        <select class="form-select form-select-sm w-auto" id="cal-month-pick" aria-label="Month">
+          ${months.map(ym => `<option value="${ym}"${ym === month ? " selected" : ""}>` +
+            `${ym.slice(5, 7)}/${ym.slice(2, 4)}</option>`).join("")}
+        </select>
+        ${extra || ""}
+      </div>
+    </div>`;
+}
+
+/**
+ * A month grid in the source site's style. `cell(date)` returns
+ * { clickable, html } for each day; a clickable day carries data-day.
+ */
+function calendarGridHtml(ym, selectedDay, cell) {
+  const [y, m] = ym.split("-").map(Number);
+  const days = new Date(y, m, 0).getDate();
+  const lead = new Date(y, m - 1, 1).getDay();
+  const prevDays = new Date(y, m - 1, 0).getDate();
+  const cells = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(n => `<div class="cal-name">${n}</div>`);
+  for (let i = lead - 1; i >= 0; i--) cells.push(`<div class="cal-day cal-ignore">${prevDays - i}</div>`);
+  for (let d = 1; d <= days; d++) {
+    const date = `${ym}-${String(d).padStart(2, "0")}`;
+    const c = cell(date);
+    cells.push(`<div class="cal-day${date === selectedDay ? " cal-selected" : ""}${c.clickable ? " cal-has" : ""}"
+        ${c.clickable ? `data-day="${date}" role="button" tabindex="0"` : ""}><span>${d}</span>${c.html}</div>`);
+  }
+  const tail = (7 - ((lead + days) % 7)) % 7;
+  for (let i = 1; i <= tail; i++) cells.push(`<div class="cal-day cal-ignore">${i}</div>`);
+  return `<div class="cal-days">${cells.join("")}</div>`;
+}
+
+/* ── Gallons entered in the shadow copy ─────────────────── */
+
+/**
+ * Record today's collection for a customer, as the source site's Add
+ * Collection does (it stamps the day of entry). Codes 0-3 are stored as typed.
+ * When the customer is a stop on My Route the entry is tied to that stop, so
+ * the route shows it as done. A second entry the same day replaces the first.
+ */
+function recordCollection(store, customer, gallons) {
+  const today = todayIso();
+  const routeId = store.my ? Number(store.my.routeId) : null;
+  const stop = routeId !== null
+    ? storeStops(store, routeId).find(s => s.customer_id === customer.customer_id) : null;
+  store.collections = store.collections.filter(c =>
+    !(c.date === today && c.customer_id === customer.customer_id));
+  store.collections.push({ customer_id: customer.customer_id, name: customer.name, gallons, date: today,
+    route_id: stop ? routeId : null, assignment_id: stop ? stop.assignment_id : null });
+}
+
+/** Today's shadow entry for a customer, or null. */
+function todaysCollection(store, customerId) {
+  const today = todayIso();
+  return store.collections.find(c => c.date === today && c.customer_id === customerId) || null;
+}
+
+/**
+ * customer_details.json (addresses, notes, map positions), or an empty set
+ * when missing. Its notes have phone numbers and door codes cut out, because
+ * the site is public. A local preview may also have customer_notes.local.json
+ * (gitignored, never published) with the full notes; when it loads, its notes
+ * replace the cut ones.
+ */
+async function loadCustomerDetails() {
+  let customers = {};
+  try {
+    const resp = await fetch(`customer_details.json?v=${Date.now()}`);
+    if (resp.ok) customers = (await resp.json()).customers || {};
+  } catch (err) { /* none */ }
+  try {
+    const resp = await fetch(`customer_notes.local.json?v=${Date.now()}`);
+    if (resp.ok) {
+      Object.entries(await resp.json()).forEach(([id, notes]) => {
+        if (customers[id]) customers[id] = { ...customers[id], notes };
+      });
+    }
+  } catch (err) { /* not a local preview */ }
+  return customers;
+}
+
+/** Where a phone number or code was cut from a note, a link to it on the source site. */
+const CUT_MARK = "[on source site]";
+function notesHtml(id, notes) {
+  return escapeHtml(notes).split(escapeHtml(CUT_MARK)).join(
+    `<a href="https://jammal28.dreamhosters.com/tracking/customer.php?id=${encodeURIComponent(id)}"
+       target="_blank" rel="noopener">on Jamaal ›</a>`);
+}
+
+/** A numbered red map pin, like the source site's route map. */
+function routePinIcon(n, done) {
+  return L.divIcon({
+    className: "ops-pin",
+    html: `<span class="ops-pin-dot${done ? " ops-pin-done" : ""}">${n}</span>`,
+    iconSize: [26, 26], iconAnchor: [13, 13],
+  });
+}
+
+function opsTileLayer() {
+  return L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 18, attribution: "&copy; OpenStreetMap contributors",
+  });
+}
+
+/** A 0-3 code as the customer pages show it: "1 empty", "2 sign-up call", "3 barrel delivery". */
+const CODE_WORDS = { 0: "empty", 1: "empty", 2: "sign-up call", 3: "barrel delivery" };
+function codeText(qty) {
+  return CODE_WORDS[qty] ? `${qty} ${CODE_WORDS[qty]}` : String(qty);
+}
+
+/**
+ * A route's projected total as the day goes on. A stop collected today counts
+ * its actual gallons (0 for an "empty"), every other stop its projection: a
+ * route projected at y + z reads x + z once the stop projected at y gives x.
+ * A shared barrel counts once, collected if any of its stops is. A held-out
+ * stop has no projection, so it adds nothing until collected.
+ *   collected  gallons collected today on the route
+ *   remaining  projected gallons still to collect (and `remainingHigh`, the
+ *              range's high end)
+ *   projected / high   collected + remaining, for the totals and the truck bar
+ *   done       stops collected today
+ */
+function liveRouteTotals(lines, store) {
+  const key = l => (l.row ? `r${l.row.id}` : `c${l.stop.customer_id}`);
+  const collectedKeys = new Set();
+  let collected = 0, done = 0;
+  lines.forEach(l => {
+    const c = todaysCollection(store, l.stop.customer_id);
+    if (!c) return;
+    done++;
+    collected += c.gallons > 3 ? c.gallons : 0;
+    collectedKeys.add(key(l));
+  });
+  let remaining = 0, remainingHigh = 0;
+  lines.forEach(l => {
+    if (l.dupOf !== null || collectedKeys.has(key(l)) || l.est.kind !== "projected") return;
+    remaining += l.est.gal;
+    remainingHigh += l.est.high ?? l.est.gal;
+  });
+  return { collected, remaining, remainingHigh, done,
+    projected: collected + remaining, high: collected + remainingHigh };
 }

@@ -1,0 +1,4923 @@
+{
+ "scraped_at": "2026-10-19T20:22:47+00:00",
+ "source": "customer.php (address, stored position); US Census geocoder; town centres",
+ "customers": {
+  "101": {
+   "address": "2374 Main St., Williamstown, VT, 05679",
+   "lat": 44.12469,
+   "lon": -72.54,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "102": {
+   "address": "110 Business Center Rd., Williamstown, VT, 05679",
+   "lat": 44.116657,
+   "lon": -72.538846,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "106": {
+   "address": "282 Berlin Mall Rd., Berlin, VT, 05602",
+   "lat": 44.217562,
+   "lon": -72.564222,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "107": {
+   "address": "159 Paine Turnpike N, Berlin, VT, 05602",
+   "lat": 44.21203,
+   "lon": -72.57543,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "108": {
+   "address": "130 Fisher Rd., Berlin, VT, 05602",
+   "lat": 44.21917,
+   "lon": -72.56075,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "110": {
+   "address": "414 East Montpelier Rd., Barre, VT, 05641",
+   "lat": 44.19362,
+   "lon": -72.49531,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "111": {
+   "address": "339 East Montpelier Rd., Barre, VT, 05641",
+   "lat": 44.217528,
+   "lon": -72.538371,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "112": {
+   "address": "9 Maple Ave., Barre, VT, 05641",
+   "lat": 44.20297,
+   "lon": -72.50693,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "112__IMG_1120.jpeg"
+   ]
+  },
+  "113": {
+   "address": "276 N. Main St., Barre, VT, 05641",
+   "lat": 44.18253,
+   "lon": -72.5004,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "113__616DC8DB-4B4F-4052-8833-2A71BC7CF5E5.jpeg"
+   ]
+  },
+  "115": {
+   "address": "47 N. Main St., Barre, VT, 05641",
+   "lat": 44.197729,
+   "lon": -72.501792,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "117": {
+   "address": "8 S. Main St., Barre, VT, 05641",
+   "lat": 44.196231,
+   "lon": -72.501241,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "117__IMG_3116.jpeg"
+   ]
+  },
+  "118": {
+   "address": "155 Ayers St, Barre, VT, 05641",
+   "lat": 44.189836,
+   "lon": -72.492904,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "119": {
+   "address": "61 Fisher Rd, Barre, VT, 05641",
+   "lat": 44.179499,
+   "lon": -72.492045,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "119__IMG_3062.jpeg"
+   ]
+  },
+  "121": {
+   "address": "302 Granger Rd., Berlin, VT, 05641",
+   "lat": 44.210804,
+   "lon": -72.564977,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "123": {
+   "address": "509 S. Barre Rd., S. Barre, VT, 05670",
+   "lat": 44.1730294,
+   "lon": -72.5075263,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "124": {
+   "address": "652 Graniteville Rd., Graniteville, VT, 05654",
+   "lat": 44.150635,
+   "lon": -72.488858,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "125": {
+   "address": "210 N Main St, Barre, VT, 05641",
+   "lat": 44.199037,
+   "lon": -72.503663,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "125__IMG_1119.jpeg"
+   ]
+  },
+  "126": {
+   "address": "452 Route 302, Orange, VT, 05649",
+   "lat": 44.18608,
+   "lon": -72.48479,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "127": {
+   "address": "83 Washington St, Barre, VT, 05641",
+   "lat": 44.19498,
+   "lon": -72.49749,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "130": {
+   "address": "108 main st, Montpelier, VT, 05602",
+   "lat": 44.260611,
+   "lon": -72.575027,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "130__IMG_6014.jpeg"
+   ]
+  },
+  "131": {
+   "address": "100 main st, Montpelier, VT, 05602",
+   "lat": 44.260469,
+   "lon": -72.575148,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "131__IMG_6014.jpeg"
+   ]
+  },
+  "133": {
+   "address": "14 Langdon st, Montpelier, VT, 05602",
+   "lat": 44.26083,
+   "lon": -72.575977,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "133__73461946548__4C167293-5216-4423-86EE-AA04C283583A.jpeg"
+   ]
+  },
+  "135": {
+   "address": "276 E Allen St, Winooski, VT 05404, Winooski, VT, 05602",
+   "lat": 44.249159,
+   "lon": -72.567194,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "137": {
+   "address": "38 Elm st, Montpelier, VT, 05602",
+   "lat": 44.261452,
+   "lon": -72.575923,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "140": {
+   "address": "22 State st, Montpelier, VT, 05602",
+   "lat": 44.260242,
+   "lon": -72.57601,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "143": {
+   "address": "54 State st, Montpelier, VT, 05602",
+   "lat": 44.260422,
+   "lon": -72.577049,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "143__73461767542__2E43A8C7-FAF7-48B3-BAE4-F1D0522B8868.jpeg"
+   ]
+  },
+  "145": {
+   "address": "107 State st, Montpelier, VT, 05602",
+   "lat": 44.260952,
+   "lon": -72.57916,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "145__73461813421__E30BB07B-1BC0-4616-AFAD-51BF722CB2C2.jpeg"
+   ]
+  },
+  "146": {
+   "address": "3 main st, Montpelier, VT, 05602",
+   "lat": 44.258316,
+   "lon": -72.57703,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "146__IMG_7831.jpeg"
+   ]
+  },
+  "147": {
+   "address": "15 Barre st, Montpelier, VT, 05602",
+   "lat": 44.258305,
+   "lon": -72.57622,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "149": {
+   "address": "1 National Life Dr, Montpelier, VT, 05602",
+   "lat": 44.254094,
+   "lon": -72.583777,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "149__IMG_9605.jpeg"
+   ]
+  },
+  "150": {
+   "address": "171 Westview Meadows rd, Montpelier, VT, 05602",
+   "lat": 44.24485,
+   "lon": -72.58062,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "151": {
+   "address": "114 River st #2, Montpelier, VT, 05602",
+   "lat": 44.25156,
+   "lon": -72.57135,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "152": {
+   "address": "1 Pioneer st, Montpelier, VT, 05602",
+   "lat": 44.250425,
+   "lon": -72.55934,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "153": {
+   "address": "15 Berlin st, Montpelier, VT, 05602",
+   "lat": 44.257065,
+   "lon": -72.577095,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "157": {
+   "address": "115 State st, Montpelier, VT, 05602",
+   "lat": 44.261257,
+   "lon": -72.580505,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "158": {
+   "address": "974 VT-12, Northfield, VT, 05633",
+   "lat": 44.136296,
+   "lon": -72.659376,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "159": {
+   "address": "40 Depot square #2, Northfield, VT, 05663",
+   "lat": 44.148826,
+   "lon": -72.656951,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "161": {
+   "address": "21 East st, Northfield, VT, 05663",
+   "lat": 44.148816,
+   "lon": -72.655855,
+   "loc": "census",
+   "notes": "Passcode [on source site]",
+   "photos": []
+  },
+  "162": {
+   "address": "40 Depot square, Northfield, VT, 05663",
+   "lat": 44.148826,
+   "lon": -72.656951,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "163": {
+   "address": "438 north main st, Northfield, VT, 05663",
+   "lat": 44.154663,
+   "lon": -72.656713,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "169": {
+   "address": "52 State st, Montpelier, VT, 05602",
+   "lat": 44.260413,
+   "lon": -72.577004,
+   "loc": "census",
+   "notes": "Pass [on source site]",
+   "photos": []
+  },
+  "204": {
+   "address": "4348 Main st, Waitsfield, VT, 05673",
+   "lat": 44.190826,
+   "lon": -72.82376,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "205": {
+   "address": "48 Carroll Rd, Waitsfield, VT, 05673",
+   "lat": 44.187256,
+   "lon": -72.832884,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "205__IMG_8210.jpeg"
+   ]
+  },
+  "206": {
+   "address": "8 VT-17, Waitsfield, VT, 05673",
+   "lat": 44.182974,
+   "lon": -72.855415,
+   "loc": "census",
+   "notes": "Marajuana Dispensary",
+   "photos": []
+  },
+  "207": {
+   "address": "5360 Main st, Waitsfield, VT, 05673",
+   "lat": 44.182217,
+   "lon": -72.83936,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "208": {
+   "address": "5351 Main st, Waitsfield, VT, 05673",
+   "lat": 44.182566,
+   "lon": -72.838747,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "209": {
+   "address": "1428 Mill Brook rd, Waitsfield, VT, 05673",
+   "lat": 44.1839688,
+   "lon": -72.8705995,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "210": {
+   "address": "1661 E Warren rd, Waitsfield, VT, 055673",
+   "lat": 44.168819,
+   "lon": -72.811821,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "211": {
+   "address": "5123 Main st, Waitsfield, VT, 05673",
+   "lat": 44.184374,
+   "lon": -72.836246,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "212": {
+   "address": "5121 Main st #6, Waitsfield, VT, 05673",
+   "lat": 44.18423,
+   "lon": -72.836555,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "213": {
+   "address": "203 Powderhound rd, Warren, VT, 05674",
+   "lat": 44.134323,
+   "lon": -72.847916,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "214": {
+   "address": "2849 Mill Brook rd, Waitsfield, VT, 05673",
+   "lat": 44.207655,
+   "lon": -72.928004,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "215": {
+   "address": "5101 Main st, Waitsfield, VT, 05673",
+   "lat": 44.184444,
+   "lon": -72.83625,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "218": {
+   "address": "1838 Sugarbush Access rd, Warren, VT, 05674",
+   "lat": 44.145078,
+   "lon": -72.878354,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "219": {
+   "address": "275 Main st, Warren, VT, 05674",
+   "lat": 44.11457,
+   "lon": -72.85565,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "221": {
+   "address": "59 Sugarbush Village Dr, Warren, VT, 05674",
+   "lat": 44.138477,
+   "lon": -72.89376,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "224": {
+   "address": "102 Forest Dr, Warren, VT, 05674",
+   "lat": 44.135933,
+   "lon": -72.89409,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "225": {
+   "address": "Upper Sugarbush , Waitsfield, VT, 05674",
+   "lat": 44.138073,
+   "lon": -72.892697,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "226": {
+   "address": "2367 Sugarbush Access rd, Warren, VT, 05674",
+   "lat": 44.14035,
+   "lon": -72.88475,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "227": {
+   "address": "1 South main st, Waterbury, VT, 05676",
+   "lat": 44.322483,
+   "lon": -72.756386,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "227__IMG_1069.jpeg"
+   ]
+  },
+  "229": {
+   "address": "23 South main st, Waterbury, VT, 05676",
+   "lat": 44.337162,
+   "lon": -72.75581,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "229__IMG_1066.jpeg"
+   ]
+  },
+  "231": {
+   "address": "22 N Main st, Waterbury, VT, 05676",
+   "lat": 44.339253,
+   "lon": -72.757884,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "232": {
+   "address": "52 North main st, Waterbury, VT, 05676",
+   "lat": 44.34246,
+   "lon": -72.76039,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "232__IMG_1089.jpeg"
+   ]
+  },
+  "233": {
+   "address": "47 North main st, Waterbury, VT, 05676",
+   "lat": 44.341923,
+   "lon": -72.759746,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "233__IMG_1088.jpeg"
+   ]
+  },
+  "234": {
+   "address": "92 Stowe st, Waterbury, VT, 05676",
+   "lat": 44.342025,
+   "lon": -72.747528,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "234__IMG_1067.jpeg"
+   ]
+  },
+  "238": {
+   "address": "179 Guptil rd, Waterbury, VT, 05677",
+   "lat": 44.355064,
+   "lon": -72.73081,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "238__IMG_1071.jpeg"
+   ]
+  },
+  "239": {
+   "address": "4182 Waterbury-Stowe rd, Waterbury, VT, 05677",
+   "lat": 44.392249,
+   "lon": -72.718777,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "239__IMG_1072.jpeg"
+   ]
+  },
+  "240": {
+   "address": "23 Commercial Dr, Waterbury, VT, 05676",
+   "lat": 44.32612,
+   "lon": -72.74447,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "241": {
+   "address": "3 S Main St, Waterbury, VT, 05676",
+   "lat": 44.322534,
+   "lon": -72.756489,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "241__IMG_1068.jpeg"
+   ]
+  },
+  "242": {
+   "address": "35 School st, Stowe, VT, 05676",
+   "lat": 44.46467,
+   "lon": -72.68461,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "243": {
+   "address": "350 Park st, Stowe, VT, 05672",
+   "lat": 44.461628,
+   "lon": -72.685216,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "244": {
+   "address": "18 Main st, Stowe, VT, 05672",
+   "lat": 44.465412,
+   "lon": -72.68705,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "244__IMG_1087.jpeg"
+   ]
+  },
+  "246": {
+   "address": "123 Mountain rd, Stowe, VT, 05672",
+   "lat": 44.466788,
+   "lon": -72.688565,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "246__IMG_1086.jpeg"
+   ]
+  },
+  "247": {
+   "address": "294 Mountain rd, Stowe, VT, 05672",
+   "lat": 44.469536,
+   "lon": -72.687584,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "247__IMG_1085.jpeg"
+   ]
+  },
+  "248": {
+   "address": "311 Mountain rd, Stowe, VT, 05672",
+   "lat": 44.46947,
+   "lon": -72.687705,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "248__IMG_1084.jpeg"
+   ]
+  },
+  "249": {
+   "address": "394 Mountain rd, Stowe, VT, 05672",
+   "lat": 44.470097,
+   "lon": -72.687416,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "249__IMG_1083.jpeg"
+   ]
+  },
+  "250": {
+   "address": "385 Moscow Rd, Stowe, VT, 05672",
+   "lat": 44.440363,
+   "lon": -72.714738,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "252": {
+   "address": "492 Mountain rd, Stowe, VT, 05672",
+   "lat": 44.472935,
+   "lon": -72.68981,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "252__IMG_1082.jpeg"
+   ]
+  },
+  "254": {
+   "address": "504 Mountain rd, Stowe, VT, 05672",
+   "lat": 44.472496,
+   "lon": -72.689022,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "254__IMG_1080.jpeg"
+   ]
+  },
+  "255": {
+   "address": "504 Mountain rd #5104, Stowe, VT, 05672",
+   "lat": 44.47296,
+   "lon": -72.689926,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "255__IMG_1081.jpeg"
+   ]
+  },
+  "258": {
+   "address": "1613 Mountain rd, Stowe, VT, 05672",
+   "lat": 44.47233,
+   "lon": -72.707406,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "258__IMG_3110.jpeg"
+   ]
+  },
+  "261": {
+   "address": "1899 Mountain rd, Stowe, VT, 05672",
+   "lat": 44.474064,
+   "lon": -72.714195,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "261__IMG_1077.jpeg"
+   ]
+  },
+  "262": {
+   "address": "1859 Mountain rd, Stowe, VT, 05672",
+   "lat": 44.47401,
+   "lon": -72.71326,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "262__IMG_1078.jpeg"
+   ]
+  },
+  "263": {
+   "address": "1500 Edson hill, Stowe, VT, 05672",
+   "lat": 44.508995,
+   "lon": -72.7356,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "265": {
+   "address": "4000 Mountain rd, Stowe, VT, 05672",
+   "lat": 44.490836,
+   "lon": -72.736536,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "265__IMG_1076.jpeg"
+   ]
+  },
+  "267": {
+   "address": "1333 Luce hill rd, Stowe, VT, 05672",
+   "lat": 44.474123,
+   "lon": -72.73586,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "267__IMG_1073.jpeg"
+   ]
+  },
+  "270": {
+   "address": "5781 Mountain rd, Stowe, VT, 05672",
+   "lat": 44.510728,
+   "lon": -72.765029,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "270__IMG_1074.jpeg"
+   ]
+  },
+  "273": {
+   "address": "454 Mountain rd, Stowe, VT, 05672",
+   "lat": 44.471786,
+   "lon": -72.688374,
+   "loc": "census",
+   "notes": "MICHELLE!",
+   "photos": []
+  },
+  "274": {
+   "address": "990 Mountain rd, Stowe, VT, 05672",
+   "lat": 44.47377,
+   "lon": -72.698105,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "275": {
+   "address": "91 Dump rd, Stowe, VT, 05672",
+   "lat": 44.470623,
+   "lon": -72.68627,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "276": {
+   "address": "151 Main st, Stowe, VT, 05672",
+   "lat": 44.46537,
+   "lon": -72.684604,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "278": {
+   "address": "4969 Mountain rd, Stowe, VT, 05672",
+   "lat": 44.502058,
+   "lon": -72.755873,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "278__IMG_1075.jpeg"
+   ]
+  },
+  "279": {
+   "address": "4302 Bolton Valley accesss rd, Bolton Valley, VT, 05477",
+   "lat": 44.420396,
+   "lon": -72.851155,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "282": {
+   "address": "30 Bridge St, Richmond, VT, 05477",
+   "lat": 44.40496,
+   "lon": -72.993294,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "282__IMG_6727.jpeg",
+    "282__IMG_9603.jpeg"
+   ]
+  },
+  "284": {
+   "address": "39 Bridge St, Richmond, VT, 05477",
+   "lat": 44.404904,
+   "lon": -72.993151,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "284__IMG_1064.jpeg"
+   ]
+  },
+  "285": {
+   "address": "25 Jericho Center Cir, Jericho Center, VT, 05465",
+   "lat": 44.469332,
+   "lon": -72.972103,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "287": {
+   "address": "395 Mountain Rd, Stowe, VT, 05672",
+   "lat": 44.470469,
+   "lon": -72.68764,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "287__IMG_1084.jpeg"
+   ]
+  },
+  "288": {
+   "address": "284 Main St, Warren, VT, 05674",
+   "lat": 44.114471,
+   "lon": -72.855719,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "300": {
+   "address": "317 Riverside Ave, Burlington, VT, 05401",
+   "lat": 44.487869,
+   "lon": -73.196006,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "302": {
+   "address": "Montpelier, VT, 05401",
+   "lat": 44.26342,
+   "lon": -72.56345,
+   "loc": "town",
+   "notes": "",
+   "photos": [
+    "302__IMG_8275.jpeg"
+   ]
+  },
+  "304": {
+   "address": "41 Cherry St., Burlington, VT, 05401",
+   "lat": 44.479121,
+   "lon": -73.216806,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "304__IMG_1114.jpeg"
+   ]
+  },
+  "308": {
+   "address": "159 Main St, Burlington, VT, 05401",
+   "lat": 44.475878,
+   "lon": -73.212959,
+   "loc": "census",
+   "notes": "Code [on source site]",
+   "photos": []
+  },
+  "310": {
+   "address": "167 Main St, Burlington, VT, 05401",
+   "lat": 44.475889,
+   "lon": -73.212732,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "311": {
+   "address": "163 Main St, Burlington, VT, 05401",
+   "lat": 44.475883,
+   "lon": -73.212846,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "315": {
+   "address": "180 Flynn Ave Bldg 2, Burlington, VT, 05401",
+   "lat": 44.45569,
+   "lon": -73.21933,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "317": {
+   "address": "400 Pine St, Burlington, VT, 05401",
+   "lat": 44.467915,
+   "lon": -73.21506,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "318": {
+   "address": "3060 Williston Rd, South Burlington, VT, 05403",
+   "lat": 44.458422,
+   "lon": -73.140484,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "321": {
+   "address": "189 Bank St, Burlington, VT, 05401",
+   "lat": 44.478174,
+   "lon": -73.211895,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "321__IMG_1110.jpeg"
+   ]
+  },
+  "322": {
+   "address": "155 Bank St, Burlington, VT, 05401",
+   "lat": 44.478135,
+   "lon": -73.213281,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "322__IMG_0975.jpeg"
+   ]
+  },
+  "323": {
+   "address": "83 Church St, Burlington, VT, 05401",
+   "lat": 44.477977,
+   "lon": -73.212716,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "323__IMG_1113.jpeg"
+   ]
+  },
+  "325": {
+   "address": "160 Bank St, Burlington, VT, 05401",
+   "lat": 44.478172,
+   "lon": -73.213806,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "325__IMG_1111.jpeg"
+   ]
+  },
+  "326": {
+   "address": "115 Church St, Burlington, VT, 05401",
+   "lat": 44.477154,
+   "lon": -73.212648,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "327": {
+   "address": "123 Church St, Burlington, VT, 05401",
+   "lat": 44.476845,
+   "lon": -73.212622,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "327__IMG_1107.jpeg",
+    "327__IMG_1321.jpeg"
+   ]
+  },
+  "328": {
+   "address": "120 Church St, Burlington, VT, 05401",
+   "lat": 44.476993,
+   "lon": -73.212476,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "328__IMG_1107.jpeg",
+    "328__IMG_1321.jpeg"
+   ]
+  },
+  "329": {
+   "address": "88 Church St, Burlington, VT, 05401",
+   "lat": 44.477921,
+   "lon": -73.21255,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "332": {
+   "address": "15 Center St., Burlington, VT, 05401",
+   "lat": 44.478033,
+   "lon": -73.21165,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "332__IMG_1109.jpeg"
+   ]
+  },
+  "335": {
+   "address": "325 N Winooski Ave, Burlington, VT, 05401",
+   "lat": 44.4885765,
+   "lon": -73.2072765,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "337": {
+   "address": "98 University Rd, Burlington, VT, 05401",
+   "lat": 44.480611,
+   "lon": -73.190519,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "339": {
+   "address": "8 N Winooski Ave, Burlington, VT, 05401",
+   "lat": 44.480733,
+   "lon": -73.211122,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "344": {
+   "address": "1696 Williston Rd, South Burlington, VT, 05403",
+   "lat": 44.47172,
+   "lon": -73.19659,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "345": {
+   "address": "207 Flynn Ave., Burlington, VT, 05401",
+   "lat": 44.455574,
+   "lon": -73.217865,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "351": {
+   "address": "88 Oak St, Burlington, VT, 05401",
+   "lat": 44.489659,
+   "lon": -73.210535,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "352": {
+   "address": "716 Pine St, Burlington, VT, 05401",
+   "lat": 44.459408,
+   "lon": -73.214382,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "352__IMG_1094.jpeg"
+   ]
+  },
+  "353": {
+   "address": "67 Spear St , Burlington, VT, 05403",
+   "lat": 44.4713394,
+   "lon": -73.1937554,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "353__IMG_1118.jpeg"
+   ]
+  },
+  "354": {
+   "address": "438 S Prospect St, Burlington, VT, 05405",
+   "lat": 44.4680932,
+   "lon": -73.2004625,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "354__IMG_1117.jpeg"
+   ]
+  },
+  "355": {
+   "address": "34 University Heights, Burlington, VT, 05405",
+   "lat": 44.473362,
+   "lon": -73.19618,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "355__IMG_1116.jpeg"
+   ]
+  },
+  "356": {
+   "address": "170 Carrigan Drive, Burlington, VT, 05405",
+   "lat": 44.475839,
+   "lon": -73.193995,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "356__IMG_1007.jpeg"
+   ]
+  },
+  "358": {
+   "address": "590 Main St, Burlington, VT, 05401",
+   "lat": 44.4759536,
+   "lon": -73.196759,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "358__IMG_1105.jpeg"
+   ]
+  },
+  "361": {
+   "address": "75 Penny Ln, Burlington, VT, 05401",
+   "lat": 44.51119,
+   "lon": -73.26145,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "365": {
+   "address": "South Burlington, VT, 05403",
+   "lat": 44.47172,
+   "lon": -73.19659,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "371": {
+   "address": "370 Shelburne Rd, Burlington, VT, 05401",
+   "lat": 44.455883,
+   "lon": -73.20852,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "374": {
+   "address": "1710 Shelburne Rd, South Burlington, VT, 05403",
+   "lat": 44.42533,
+   "lon": -73.211555,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "374__IMG_1097.jpeg"
+   ]
+  },
+  "401": {
+   "address": "192 Boxwood St, Williston, VT, 05495",
+   "lat": 44.44618,
+   "lon": -73.10945,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "402": {
+   "address": "28 Walnut St, Williston, VT, 05495",
+   "lat": 44.445534,
+   "lon": -73.109672,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "403": {
+   "address": "30 Hawthorne St, Williston, VT, 05495",
+   "lat": 44.4434,
+   "lon": -73.12857,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "405": {
+   "address": "422 Blair Park Rd, Williston, VT, 05495",
+   "lat": 44.454605,
+   "lon": -73.11328,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "406": {
+   "address": "34 Oak Hill Rd, Williston, VT, 05495",
+   "lat": 44.437134,
+   "lon": -73.06862,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "409": {
+   "address": "21 Essex Way #213, Essex Junction, VT, 05452",
+   "lat": 44.505238,
+   "lon": -73.143273,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "411": {
+   "address": "99 Pearl St, Essex Junction, VT, 05452",
+   "lat": 44.495319,
+   "lon": -73.121889,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "413": {
+   "address": "105 Pearl St, Essex Junction, VT, 05452",
+   "lat": 44.496224,
+   "lon": -73.123844,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "415": {
+   "address": "42 Allen Martin Dr, Essex Junction, VT, 05452",
+   "lat": 44.49666,
+   "lon": -73.046387,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "416": {
+   "address": "3671 US-2, North Hero, VT, 05474",
+   "lat": 44.81812,
+   "lon": -73.289657,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "417": {
+   "address": "15 Georgia Shore Rd, St. Albans City, VT, 05478",
+   "lat": 44.80743,
+   "lon": -73.139366,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "418": {
+   "address": "51 Federal St, St. Albans City, VT, 05478",
+   "lat": 44.812394,
+   "lon": -73.085281,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "421": {
+   "address": "133 N Main St, St. Albans City, VT, 05478",
+   "lat": 44.815169,
+   "lon": -73.082575,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "421__IMG_4329.jpeg"
+   ]
+  },
+  "422": {
+   "address": "158 Morse Dr, Fairfax, VT, 05454",
+   "lat": 44.69713,
+   "lon": -73.10291,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "423": {
+   "address": "147 Industrial Park Rd, Milton, VT, 05468",
+   "lat": 44.63492,
+   "lon": -73.17388,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "425": {
+   "address": "97 Blakely Rd, Colchester, VT, 05446",
+   "lat": 44.543515,
+   "lon": -73.214299,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "429": {
+   "address": "38 Main St, Winooski, VT, 05404",
+   "lat": 44.49058,
+   "lon": -73.186548,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "431": {
+   "address": "46 Main St, Winooski, VT, 05404",
+   "lat": 44.49112,
+   "lon": -73.186485,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "432": {
+   "address": "28 Main St, Winooski, VT, 05404",
+   "lat": 44.490374,
+   "lon": -73.186558,
+   "loc": "census",
+   "notes": "Jim talked to lifecycle. 1/13 about our missing container. We dropped a 50 gallon dumpster off",
+   "photos": []
+  },
+  "433": {
+   "address": "293 Main St, Winooski, VT, 05404",
+   "lat": 44.497713,
+   "lon": -73.184563,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "434": {
+   "address": "25 Winooski Falls Way #112, Winooski, VT, 05404",
+   "lat": 44.4904402,
+   "lon": -73.1852041,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "436": {
+   "address": "348 Main St, Winooski, VT, 05404",
+   "lat": 44.499004,
+   "lon": -73.18402,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "437": {
+   "address": "348 Main St., Winooski, VT, 05404",
+   "lat": 44.499004,
+   "lon": -73.18402,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "439": {
+   "address": "1353 North Ave, Burlington, VT, 05404",
+   "lat": 44.511353,
+   "lon": -73.250959,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "443": {
+   "address": "150 W Canal St, Winooski, VT, 05404",
+   "lat": 44.490801,
+   "lon": -73.191432,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "444": {
+   "address": "Burlington, VT",
+   "lat": 44.51119,
+   "lon": -73.26145,
+   "loc": "town",
+   "notes": "",
+   "photos": [
+    "444__IMG_1115.jpeg"
+   ]
+  },
+  "445": {
+   "address": "70 Main St, Winooski, VT, 05404",
+   "lat": 44.491814,
+   "lon": -73.186594,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "446": {
+   "address": "18 Severance Green, Colchester, VT, 05446",
+   "lat": 44.528545,
+   "lon": -73.17114,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "447": {
+   "address": "4 Pearl St., Essex Junction, VT, 05452",
+   "lat": 44.49057,
+   "lon": -73.111565,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "447__IMG_1092.jpeg"
+   ]
+  },
+  "500": {
+   "address": "4076 VT-15, Wolcott, VT, 05680",
+   "lat": 44.54865,
+   "lon": -72.464321,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "501": {
+   "address": "87 S Main st, Hardwick, VT, 05843",
+   "lat": 44.503926,
+   "lon": -72.367646,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "502": {
+   "address": "74 S Main st, Hardwick, VT, 05843",
+   "lat": 44.504085,
+   "lon": -72.367519,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "503": {
+   "address": "387 Wolcott st, Hardwick, VT, 05843",
+   "lat": 44.507996,
+   "lon": -72.371515,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "504": {
+   "address": "41 S Main st, Hardwick, VT, 05843",
+   "lat": 44.504178,
+   "lon": -72.366877,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "505": {
+   "address": "308 VT-14, Hardwick, VT, 05843",
+   "lat": 44.4947597,
+   "lon": -72.3741752,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "508": {
+   "address": "53 lower main st, Morrisville, VT, 05661",
+   "lat": 44.561538,
+   "lon": -72.599436,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "509": {
+   "address": "97 Portland st, Morristown, VT, 05661",
+   "lat": 44.56298,
+   "lon": -72.598465,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "510": {
+   "address": "10 Railroad st, Morristown, VT, 05661",
+   "lat": 44.565685,
+   "lon": -72.604899,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "510__IMG_7117.jpeg"
+   ]
+  },
+  "511": {
+   "address": "639 Morristown corners, Morristown, VT, 05661",
+   "lat": 44.555744,
+   "lon": -72.62187,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "512": {
+   "address": "73 Lower main st, Morrisville, VT, 05661",
+   "lat": 44.561615,
+   "lon": -72.59901,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "513": {
+   "address": "577 Washington HWY, Morrisville, VT, 05661",
+   "lat": 44.554066,
+   "lon": -72.58952,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "515": {
+   "address": "246 Main St, Hyde Park, VT, 05655",
+   "lat": 44.592854,
+   "lon": -72.61564,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "517": {
+   "address": "53 Elm St., Enosburg Falls, VT, 05450",
+   "lat": 44.911669,
+   "lon": -72.802178,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "518": {
+   "address": "264 Main St, Enosburg Falls, VT, 05450",
+   "lat": 44.90644,
+   "lon": -72.80554,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "519": {
+   "address": "2445 Sampsonville Rd, Enosburg Falls, VT, 05450",
+   "lat": 44.920967,
+   "lon": -72.75294,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "520": {
+   "address": "16 Sterling Dr, Craftsbury Common, VT, 05827",
+   "lat": 44.652077,
+   "lon": -72.382484,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "521": {
+   "address": "1037 S Craftsbury Rd, Craftsbury, VT, 05826",
+   "lat": 44.623985,
+   "lon": -72.361031,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "522": {
+   "address": "13 Main St, Montgomery Center, VT, 05471",
+   "lat": 44.877552,
+   "lon": -72.60826,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "523": {
+   "address": "241 Main St., Montgomery Center, VT, 05471",
+   "lat": 44.879406,
+   "lon": -72.61144,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "524": {
+   "address": "3709 Mountain Rd, Montgomery, VT, 05471",
+   "lat": 44.884935,
+   "lon": -72.539355,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "525": {
+   "address": "2057 N Main St, Montgomery, VT, 05470",
+   "lat": 44.9014677,
+   "lon": -72.6402682,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "526": {
+   "address": "830 Jay Peak Rd, Jay, VT, 05859",
+   "lat": 44.9380194,
+   "lon": -72.5047383,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "527": {
+   "address": "830 Jay Peak Rd, Jay, VT, 05859",
+   "lat": 44.96936,
+   "lon": -72.48468,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "528": {
+   "address": "830 Jay Peak Rd, Jay, VT, 05859",
+   "lat": 44.9380194,
+   "lon": -72.5047383,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "529": {
+   "address": "830 Jay Peak Rd, Jay, VT, 05859",
+   "lat": 44.9380194,
+   "lon": -72.5047383,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "530": {
+   "address": "1078 VT-242, Jay, VT, 05859",
+   "lat": 44.948074,
+   "lon": -72.438254,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "531": {
+   "address": "115 Seymour Dr, Newport, VT, 05855",
+   "lat": 44.936493,
+   "lon": -72.20963,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "533": {
+   "address": "590 Mt Vernon St, Newport, VT, 05855",
+   "lat": 44.933317,
+   "lon": -72.192321,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "534": {
+   "address": "158 Main St., Newport, VT, 05855",
+   "lat": 44.935387,
+   "lon": -72.2105,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "537": {
+   "address": "161 County Rd, West Glover, VT, 05875",
+   "lat": 44.72905,
+   "lon": -72.22718,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "540": {
+   "address": "4087 Vermont 108 South, Jeffersonville, VT, 05464",
+   "lat": 44.590797,
+   "lon": -72.793193,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "542": {
+   "address": "941 Wilson Rd, Johnson, VT, 05656",
+   "lat": 44.656422,
+   "lon": -72.616972,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "543": {
+   "address": "21 Lower main st W, Johnson, VT, 05656",
+   "lat": 44.635211,
+   "lon": -72.679352,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "544": {
+   "address": "17 Lower main st W, Johnson, VT, 05656",
+   "lat": 44.635386,
+   "lon": -72.679862,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "547": {
+   "address": "138 Cross St., Island Pond, VT, 05846",
+   "lat": 44.80006,
+   "lon": -71.895,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "548": {
+   "address": "99 Cross St., Island Pond, VT, 05846",
+   "lat": 44.814019,
+   "lon": -71.881029,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "550": {
+   "address": "Greensboro, VT",
+   "lat": 44.6053,
+   "lon": -72.29352,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "551": {
+   "address": "842 Main St., Albany, VT, 05820",
+   "lat": 44.731237,
+   "lon": -72.379731,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "600": {
+   "address": "69 Main St, Plainfield, VT, 05667",
+   "lat": 44.277751,
+   "lon": -72.42359,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "600__IMG_1018.jpeg"
+   ]
+  },
+  "603": {
+   "address": "Plainfield, VT, 05667",
+   "lat": 44.2481,
+   "lon": -72.42556,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "605": {
+   "address": "752 Danville Hill Rd, Cabot, VT, 05647",
+   "lat": 44.405166,
+   "lon": -72.297198,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "606": {
+   "address": "3109 Main St, Cabot, VT, 05647",
+   "lat": 44.40264,
+   "lon": -72.31095,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "608": {
+   "address": "1401 US Rte 2, Marshfield, VT, 05658",
+   "lat": 44.35178,
+   "lon": -72.347207,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "610": {
+   "address": "59 Parker Rd, Danville, VT, 05828",
+   "lat": 44.427401,
+   "lon": -72.105754,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "611": {
+   "address": "11 rt 2 , Danville, VT, 05873",
+   "lat": 44.399958,
+   "lon": -72.225618,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "617": {
+   "address": "1058 Main St, Concord, VT, 05824",
+   "lat": 44.43605,
+   "lon": -71.87898,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "620": {
+   "address": "48 Lower Waterford Rd, Lower Waterford, VT, 05848",
+   "lat": 44.354797,
+   "lon": -71.907131,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "622": {
+   "address": "176 Route 5, Fairlee, VT, 05045",
+   "lat": 43.91137,
+   "lon": -72.14935,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "624": {
+   "address": "44 Worcester Village Rd, Worcester, VT, 05682",
+   "lat": 44.370525,
+   "lon": -72.55085,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "700": {
+   "address": "195 Falls Rd, Shelburne, VT, 05482",
+   "lat": 44.37792,
+   "lon": -73.22657,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "703": {
+   "address": "2766 Mt Philo Rd, Charlotte, VT, 05445",
+   "lat": 44.315717,
+   "lon": -73.223821,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "704": {
+   "address": "67 New Haven Rd, Vergennes, VT, 05491",
+   "lat": 44.164364,
+   "lon": -73.24159,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "705": {
+   "address": "141 Main St, Vergennes, VT, 05491",
+   "lat": 44.156883,
+   "lon": -73.26632,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "705__IMG_1059.jpeg"
+   ]
+  },
+  "706": {
+   "address": "161 Main St, Vergennes, VT, 05491",
+   "lat": 44.168091,
+   "lon": -73.251431,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "706__IMG_1060.jpeg"
+   ]
+  },
+  "707": {
+   "address": "253 W Main St, Vergennes, VT, 05491",
+   "lat": 44.167173,
+   "lon": -73.253521,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "708": {
+   "address": "100 Panton ave, Vergennes, VT, 05491",
+   "lat": 44.16549,
+   "lon": -73.25448,
+   "loc": "town",
+   "notes": "[on source site]",
+   "photos": [
+    "708__IMG_1062.jpeg"
+   ]
+  },
+  "709": {
+   "address": "6035 VT-17 W, Vergennes, VT, 05491",
+   "lat": 44.145691,
+   "lon": -73.260487,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "710": {
+   "address": "1223 US-7, Middlebury, VT, 05753",
+   "lat": 43.992148,
+   "lon": -73.141111,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "711": {
+   "address": "5 Main St, Bristol, VT, 05443",
+   "lat": 44.13312,
+   "lon": -73.07833,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "711__73444752292__CA29BBC5-4331-47F0-97D0-FA29C3C97F32.jpeg"
+   ]
+  },
+  "714": {
+   "address": "86 Main St., Middlebury, VT, 05753",
+   "lat": 44.012016,
+   "lon": -73.16973,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "714__IMG_1057.jpeg"
+   ]
+  },
+  "715": {
+   "address": "7 Bakery Ln, Middlebury, VT, 05753",
+   "lat": 44.012826,
+   "lon": -73.168267,
+   "loc": "census",
+   "notes": "Caroline Corrente",
+   "photos": []
+  },
+  "717": {
+   "address": "10 Washington St, Middlebury, VT, 05753",
+   "lat": 44.015247,
+   "lon": -73.163788,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "720": {
+   "address": "350 Lodge Rd, Middlebury, VT, 05753",
+   "lat": 43.992704,
+   "lon": -73.155516,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "723": {
+   "address": "309 Court Street US Route 7, Middlebury, VT, 05753",
+   "lat": 44.002235,
+   "lon": -73.15193,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "724": {
+   "address": "3 Mill St, Middlebury, VT, 05753",
+   "lat": 44.01311,
+   "lon": -73.16967,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "732": {
+   "address": "607 Burnham Rd., Middlebury, VT, 05753",
+   "lat": 43.98998,
+   "lon": -73.08897,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "733": {
+   "address": "3835 Main St, Manchester, VT, 05254",
+   "lat": 43.1657,
+   "lon": -73.070006,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "734": {
+   "address": "410 Hunter Park Rd, Manchester Center, VT, 05255",
+   "lat": 43.17751,
+   "lon": -73.06329,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "802": {
+   "address": "1837 River St, Jct of Rte 12 & 107, Bethel, VT, 05032",
+   "lat": 43.810047,
+   "lon": -72.64852,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "803": {
+   "address": "2678 River St, Bethel, VT, 05032",
+   "lat": 43.801624,
+   "lon": -72.664249,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "804": {
+   "address": "462 VT-107, South Royalton, VT, 05068",
+   "lat": 43.723525,
+   "lon": -72.595991,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "806": {
+   "address": "57 Tweed River Dr Rd, Pittsfield, VT, 05762",
+   "lat": 43.756617,
+   "lon": -72.811362,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "807": {
+   "address": "3963 VT-100, Pittsfield, VT, 05762",
+   "lat": 43.772527,
+   "lon": -72.813143,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "809": {
+   "address": "1342 VT-106, Perkinsville, VT, 05151",
+   "lat": 43.375292,
+   "lon": -72.510258,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "815": {
+   "address": "200 Summit Rd, Killington, VT, 05751",
+   "lat": 43.655082,
+   "lon": -72.786994,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "817": {
+   "address": "247 Stage Rd, South Pomfret, VT, 05067",
+   "lat": 43.6650651,
+   "lon": -72.5432284,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "819": {
+   "address": "24 Elm St, Woodstock, VT, 05091",
+   "lat": 43.62618,
+   "lon": -72.518425,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "820": {
+   "address": "61 Central St, Woodstock, VT, 05091",
+   "lat": 43.625834,
+   "lon": -72.516487,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "822": {
+   "address": "28 Central St, Woodstock, VT, 05091",
+   "lat": 43.62558,
+   "lon": -72.51727,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "823": {
+   "address": "14 The Green, Woodstock, VT, 05091",
+   "lat": 43.60841,
+   "lon": -72.54224,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "824": {
+   "address": "863 W Woodstock Rd, Woodstock, VT, 05091",
+   "lat": 43.636218,
+   "lon": -72.497573,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "825": {
+   "address": "76 South St, Woodstock, VT, 05091",
+   "lat": 43.620834,
+   "lon": -72.51842,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "826": {
+   "address": "4374 West Woodstock Road, Rte. 4, Woodstock, VT, 05091",
+   "lat": 43.600523,
+   "lon": -72.579463,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "827": {
+   "address": "1760 Quechee Main St, Quechee, VT, 05059",
+   "lat": 43.646203,
+   "lon": -72.419377,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "829": {
+   "address": "1 Quechee Main St, Quechee, VT, 05059",
+   "lat": 43.6524865,
+   "lon": -72.3917265,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "833": {
+   "address": "44 S Main St, Randolph, VT, 05060",
+   "lat": 43.915407,
+   "lon": -72.66529,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "834": {
+   "address": "89 Tom Wicker Lane, Randolph Center, VT, 05061",
+   "lat": 43.94438,
+   "lon": -72.6099,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "836": {
+   "address": "1 Fairground Ln, Tunbridge, VT, 05077",
+   "lat": 44.055068,
+   "lon": -72.224621,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "836__909FE5E9-55E9-4D42-A0C7-C0E90B5F847C.jpeg"
+   ]
+  },
+  "837": {
+   "address": "1972 Bent Hill Rd, Braintree, VT, 05060",
+   "lat": 43.982193,
+   "lon": -72.721054,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "900": {
+   "address": "89 Grand Summit Way, West Dover, VT, 05356",
+   "lat": 42.966564,
+   "lon": -72.89623,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "900__IMG_1043.jpeg",
+    "900__IMG_1044.jpeg"
+   ]
+  },
+  "901": {
+   "address": "393 VT-100, Dover, VT, 05356",
+   "lat": 42.966121,
+   "lon": -72.886646,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "901__IMG_1042.jpeg"
+   ]
+  },
+  "902": {
+   "address": "1 Carinthia Rd, West Dover, VT, 05356",
+   "lat": 42.957726,
+   "lon": -72.89058,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "902__IMG_1041.jpeg"
+   ]
+  },
+  "903": {
+   "address": "39 Mount Snow Road, West Dover, VT, 05356",
+   "lat": 42.933284,
+   "lon": -72.775032,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "903__IMG_1043.jpeg",
+    "903__IMG_1044.jpeg"
+   ]
+  },
+  "904": {
+   "address": "178 VT-100, Dover, VT, 05356",
+   "lat": 42.966121,
+   "lon": -72.886646,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "904__IMG_1040.jpeg"
+   ]
+  },
+  "905": {
+   "address": "70 Spyglass Ln, Wilmington, VT, 05363",
+   "lat": 42.898905,
+   "lon": -72.8878341,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "910": {
+   "address": "164 Main St, Ludlow, VT, 05149",
+   "lat": 43.396066,
+   "lon": -72.699821,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "911": {
+   "address": "716 Belmont Rd, Belmont, VT, 05149",
+   "lat": 43.436894,
+   "lon": -72.827132,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "911__IMG_1045.jpeg"
+   ]
+  },
+  "923": {
+   "address": "5945 Woodstock rd, Quechee, VT, 05001",
+   "lat": 43.65436,
+   "lon": -72.33611,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "928": {
+   "address": "West Lebanon, VT, 03784",
+   "lat": null,
+   "lon": null,
+   "loc": null,
+   "notes": "",
+   "photos": []
+  },
+  "930": {
+   "address": "370 N Plainfield Rd, West Lebanon, VT, 03784",
+   "lat": 43.630168,
+   "lon": -72.321596,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "931": {
+   "address": "324 Washington St, Claremont, VT, 03743",
+   "lat": 43.365999,
+   "lon": -72.320913,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "931__IMG_1036.jpeg"
+   ]
+  },
+  "934": {
+   "address": "111 Jackson Gore Rd, Ludlow, VT, 05149",
+   "lat": 43.423617,
+   "lon": -72.715611,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "934__IMG_1046.jpeg"
+   ]
+  },
+  "1011": {
+   "address": "1305 route 14, East Montpelier, VT",
+   "lat": 44.28522,
+   "lon": -72.51327,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1020": {
+   "address": "25 main st, Stowe, VT, 05672",
+   "lat": 44.465466,
+   "lon": -72.686902,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1027": {
+   "address": "2709 W Woodstock Rd, Woodstock, VT, 05091",
+   "lat": 43.616805,
+   "lon": -72.542967,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1029": {
+   "address": "62 Institute Rd, Burlington, VT, 05408",
+   "lat": 44.494583,
+   "lon": -73.23588,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1030": {
+   "address": "10516 VT-116, Hinesburgh, VT, 05461",
+   "lat": 44.330577,
+   "lon": -73.110606,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1032": {
+   "address": "28 Walnut St, Williston, VT, 05495",
+   "lat": 44.445557,
+   "lon": -73.109604,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1037": {
+   "address": "Burlington, VT, 05401",
+   "lat": 44.51119,
+   "lon": -73.26145,
+   "loc": "town",
+   "notes": "",
+   "photos": [
+    "1037__IMG_1114.jpeg"
+   ]
+  },
+  "1053": {
+   "address": "34 park street, Essex Junction, VT, 05452",
+   "lat": 44.48624,
+   "lon": -73.113625,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1054": {
+   "address": "136 Main st , Brattleboro, VT",
+   "lat": 42.853181,
+   "lon": -72.558579,
+   "loc": "census",
+   "notes": "300g dumpster split with Tulip Cafe",
+   "photos": []
+  },
+  "1055": {
+   "address": "Main Street , Brattleboro, VT",
+   "lat": 42.86024,
+   "lon": -72.55587,
+   "loc": "town",
+   "notes": "300g split with Duo",
+   "photos": []
+  },
+  "1056": {
+   "address": "6053 Woodstock rd , Quechee, VT",
+   "lat": 43.65436,
+   "lon": -72.33611,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1058": {
+   "address": "6828 Main St , Readsboro, VT, 05350",
+   "lat": 42.7737244,
+   "lon": -72.9514156,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1059": {
+   "address": "Golf Course Rd, Warren, VT, 05674",
+   "lat": 44.128345,
+   "lon": -72.873233,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1070": {
+   "address": "180 Flynn Ave, Burlington, VT, 05401",
+   "lat": 44.4574901,
+   "lon": -73.2194358,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "1070__IMG_1095.jpeg"
+   ]
+  },
+  "1071": {
+   "address": "87 Old Creamery Road, Morrisville, VT, 05661",
+   "lat": 44.5659,
+   "lon": -72.63332,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1072": {
+   "address": "150 main st , Newport, VT",
+   "lat": 44.93587,
+   "lon": -72.209241,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1073": {
+   "address": "72 main st, Orleans, VT",
+   "lat": 44.8100806,
+   "lon": -72.2040614,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1074": {
+   "address": "125 Main Street, Newport, VT",
+   "lat": 44.93555,
+   "lon": -72.209802,
+   "loc": "census",
+   "notes": "Bronson Is Chef",
+   "photos": [
+    "1074__IMG_0945.jpeg"
+   ]
+  },
+  "1075": {
+   "address": "942 mountain road, Stowe, VT",
+   "lat": 44.473714,
+   "lon": -72.697612,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1075__IMG_1079.jpeg",
+    "1075__IMG_6804.jpeg"
+   ]
+  },
+  "1076": {
+   "address": "2800 Country Club Rd, Waterbury, VT",
+   "lat": 44.355358,
+   "lon": -72.733727,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1077": {
+   "address": "3488 Ethan Allen highway, Charlotte, VT",
+   "lat": 44.305783,
+   "lon": -73.244645,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1077__IMG_7388.jpeg"
+   ]
+  },
+  "1078": {
+   "address": "252 high street , Plainfield, VT, 05667",
+   "lat": 44.27803,
+   "lon": -72.430998,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1080": {
+   "address": "1214 main st, St. Johnsbury, VT",
+   "lat": 44.419035,
+   "lon": -72.020833,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1081": {
+   "address": "4752 Main St, Waitsfield, VT, 05673",
+   "lat": 44.1882957,
+   "lon": -72.831385,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1082": {
+   "address": "535 US 302, Barre, VT",
+   "lat": 44.207898,
+   "lon": -72.513493,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1085": {
+   "address": "454 vt 15, Hardwick, VT",
+   "lat": 44.5168844,
+   "lon": -72.3786722,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1086": {
+   "address": "79 Walnut st, St. Albans, VT",
+   "lat": 44.816143,
+   "lon": -73.097507,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1090": {
+   "address": "311 country club drive, Pittsford, VT, 05763",
+   "lat": 43.686295,
+   "lon": -73.006853,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1091": {
+   "address": "198 Main st, Burlington, VT",
+   "lat": 44.476047,
+   "lon": -73.211258,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1091__IMG_1106.jpeg"
+   ]
+  },
+  "1092": {
+   "address": "112 North St, Burlington, VT",
+   "lat": 44.484666,
+   "lon": -73.217505,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1093": {
+   "address": "Bethel, VT",
+   "lat": 43.83797,
+   "lon": -72.62301,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1094": {
+   "address": "57 Brainerd st, Danville, VT",
+   "lat": 44.4113508,
+   "lon": -72.1395124,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1095": {
+   "address": "25 mowry st, Pawtucket, VT",
+   "lat": null,
+   "lon": null,
+   "loc": null,
+   "notes": "",
+   "photos": []
+  },
+  "1096": {
+   "address": "7 High st, Brattleboro, VT, 05301",
+   "lat": 42.8533738,
+   "lon": -72.5595286,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "1096__IMG_1039.jpeg"
+   ]
+  },
+  "1097": {
+   "address": "192 Chelsea st, South Royalton, VT",
+   "lat": 43.820536,
+   "lon": -72.521452,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1099": {
+   "address": "211 main st , Winooski, VT",
+   "lat": 44.4955659,
+   "lon": -73.1856325,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1100": {
+   "address": "Main St , Montpelier, VT, 05602",
+   "lat": 44.26342,
+   "lon": -72.56345,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1103": {
+   "address": "2160 Mountain rd, Stowe, VT, 05672",
+   "lat": 44.476159,
+   "lon": -72.719157,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1106": {
+   "address": "166 Chelsea st, South Royalton, VT",
+   "lat": 43.820862,
+   "lon": -72.521149,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1106__IMG_8207.jpeg"
+   ]
+  },
+  "1109": {
+   "address": "8 main st, Bristol, VT",
+   "lat": 44.1332887,
+   "lon": -73.0781377,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "1109__73444903918__F607661C-787E-4B7F-9298-227869F9C41B.jpeg"
+   ]
+  },
+  "1113": {
+   "address": "10 Manseau St, Winooski, VT",
+   "lat": 44.493191,
+   "lon": -73.177546,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1116": {
+   "address": "618 South Main St , Stowe, VT",
+   "lat": 44.457528,
+   "lon": -72.694295,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1117": {
+   "address": "1215 Roxbury Rd, Roxbury, VT",
+   "lat": 44.097368,
+   "lon": -72.731931,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1118": {
+   "address": "Stowe, VT",
+   "lat": 44.48967,
+   "lon": -72.68941,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1119": {
+   "address": "8 market st , West Lebanon, VT",
+   "lat": 43.634799,
+   "lon": -72.31711,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1122": {
+   "address": "1127 North Ave, Burlington, VT",
+   "lat": 44.5071921,
+   "lon": -73.2465388,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1123": {
+   "address": "VT",
+   "lat": null,
+   "lon": null,
+   "loc": null,
+   "notes": "",
+   "photos": []
+  },
+  "1128": {
+   "address": "456 S Barre Rd, Barre, VT",
+   "lat": 44.17518,
+   "lon": -72.506362,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1129": {
+   "address": "7627 Vermont 9 east, Wilmington, VT",
+   "lat": 42.87397,
+   "lon": -72.85783,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1130": {
+   "address": "Williston, VT",
+   "lat": 44.4434,
+   "lon": -73.12857,
+   "loc": "town",
+   "notes": "Will be 28",
+   "photos": []
+  },
+  "1133": {
+   "address": "258 North Winooski Ave , Burlington, VT",
+   "lat": 44.4870246,
+   "lon": -73.2087215,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1134": {
+   "address": "71 South Union St, Burlington, VT",
+   "lat": 44.4781357,
+   "lon": -73.209684,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1135": {
+   "address": "20 Winooski Falls Wy, Winooski, VT",
+   "lat": 44.49018,
+   "lon": -73.18426,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1136": {
+   "address": "249 Golf Course Rd , Richford, VT",
+   "lat": 45.0084185,
+   "lon": -72.6393347,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1137": {
+   "address": "3158 7a , Arlington, VT",
+   "lat": 43.0643387,
+   "lon": -73.1574077,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1138": {
+   "address": "15 Center St, St. Albans City, VT",
+   "lat": 44.742218,
+   "lon": -72.343216,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1139": {
+   "address": "142 Hegeman , Colchester, VT",
+   "lat": 44.507568,
+   "lon": -73.148367,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1142": {
+   "address": "172 Alpine Lane, East Burke, VT",
+   "lat": 44.59109,
+   "lon": -71.905673,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1144": {
+   "address": "237 shore acres dr, North Hero, VT",
+   "lat": 44.8034442,
+   "lon": -73.2876937,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1145": {
+   "address": "201 Eastwood, Ryegate, VT",
+   "lat": 44.2091477,
+   "lon": -72.082876,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1146": {
+   "address": "Bellows Falls, VT",
+   "lat": 43.16285,
+   "lon": -72.45072,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1147": {
+   "address": "112 Rockledge Drive, North Hero, VT",
+   "lat": 44.8059055,
+   "lon": -73.2900899,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1149": {
+   "address": "71 Jayview Dr, Enosburg Falls, VT",
+   "lat": 44.88931,
+   "lon": -72.73851,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1155": {
+   "address": "277 Swanton Ave, St. Albans, VT",
+   "lat": 44.800772,
+   "lon": -72.290572,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1156": {
+   "address": "21 Essex Way, Essex Junction, VT",
+   "lat": 44.505238,
+   "lon": -73.143273,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1157": {
+   "address": "217 Dorset St, Burlington, VT",
+   "lat": 44.463263,
+   "lon": -73.180799,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1160": {
+   "address": "260 Court St, Middlebury, VT",
+   "lat": 44.002024,
+   "lon": -73.151442,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1161": {
+   "address": "10 prince st, Randolph, VT",
+   "lat": 43.926627,
+   "lon": -72.66598,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1162": {
+   "address": "458 hill farm rd , Sunderland, VT",
+   "lat": 43.1093152,
+   "lon": -73.1202051,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1163": {
+   "address": "1355 North Ave, Burlington, VT",
+   "lat": 44.51139,
+   "lon": -73.251008,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1164": {
+   "address": "Main St, Vergennes, VT",
+   "lat": 44.16549,
+   "lon": -73.25448,
+   "loc": "town",
+   "notes": "TEXT JOHN [on source site]",
+   "photos": [
+    "1164__IMG_1061.jpeg"
+   ]
+  },
+  "1165": {
+   "address": "193 East Main st, North Troy, VT",
+   "lat": 44.995323,
+   "lon": -72.397464,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1168": {
+   "address": "3 east Allen, Winooski, VT",
+   "lat": 44.4932288,
+   "lon": -73.1712717,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1169": {
+   "address": "Airport rd, West Dover, VT",
+   "lat": 42.95514,
+   "lon": -72.83189,
+   "loc": "town",
+   "notes": "Airport road.. slow road, turn left into Mount Snow Maintaince Area",
+   "photos": [
+    "1169__IMG_2816.jpeg",
+    "1169__IMG_4553.jpeg"
+   ]
+  },
+  "1171": {
+   "address": "59 Waterfront Plaza, Newport, VT",
+   "lat": 44.9399,
+   "lon": -72.20546,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1171__IMG_3033.jpeg"
+   ]
+  },
+  "1173": {
+   "address": "7 Pyramid Dr, Plattsburgh, VT",
+   "lat": 44.702658,
+   "lon": -73.495021,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1176": {
+   "address": "139 1st St, Swanton, VT",
+   "lat": 44.921664,
+   "lon": -73.110885,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1177": {
+   "address": "935 Shelburne Rd, South Burlington, South Burlington, VT",
+   "lat": 44.442834,
+   "lon": -73.209859,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1178": {
+   "address": "586 Lower Plain, Bradford, VT",
+   "lat": 43.984269,
+   "lon": -72.122006,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1179": {
+   "address": "Brandon, VT",
+   "lat": 44.51119,
+   "lon": -73.26145,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1180": {
+   "address": "259 US-7, Milton, VT",
+   "lat": 44.676548,
+   "lon": -73.110932,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1181": {
+   "address": "80 Fairground Plz Route 100, Morrisville, VT",
+   "lat": 44.5659,
+   "lon": -72.63332,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1182": {
+   "address": "Rutland, VT",
+   "lat": 43.60943,
+   "lon": -72.98657,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1183": {
+   "address": "Williston, VT",
+   "lat": 44.4434,
+   "lon": -73.12857,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1186": {
+   "address": "611 route 114, East Burke, VT",
+   "lat": 44.5888257,
+   "lon": -71.9416499,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1187": {
+   "address": "150 Dorset st suite 340, Burlington, VT",
+   "lat": 44.465464,
+   "lon": -73.18092,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1188": {
+   "address": "1076 Williston Rd, South Burlington, VT",
+   "lat": 44.47172,
+   "lon": -73.19659,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1189": {
+   "address": "Craftsbury, VT",
+   "lat": 44.64538,
+   "lon": -72.37511,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1191": {
+   "address": "1 West St, Montpelier, VT",
+   "lat": 44.255355,
+   "lon": -72.568513,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1191__IMG_8574.jpeg"
+   ]
+  },
+  "1192": {
+   "address": "Washington St, Claremont, VT",
+   "lat": null,
+   "lon": null,
+   "loc": null,
+   "notes": "",
+   "photos": [
+    "1192__IMG_1038.jpeg"
+   ]
+  },
+  "1193": {
+   "address": "5753 vt-100, Hyde Park, VT",
+   "lat": 44.60269,
+   "lon": -72.60481,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1194": {
+   "address": "Pomfret, VT",
+   "lat": 43.68791,
+   "lon": -72.49613,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1195": {
+   "address": "1160 Williston Rd, South Burlington, VT",
+   "lat": 44.4666904,
+   "lon": -73.1694997,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1197": {
+   "address": "5597 shelburne , Shelburne, VT",
+   "lat": 44.3768515,
+   "lon": -73.2288673,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "1197__IMG_1096.jpeg"
+   ]
+  },
+  "1202": {
+   "address": "388 pine st, Burlington, VT",
+   "lat": 44.468739,
+   "lon": -73.215021,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1204": {
+   "address": "Barre, VT",
+   "lat": null,
+   "lon": null,
+   "loc": null,
+   "notes": "",
+   "photos": []
+  },
+  "1205": {
+   "address": "Handle Rd, West Dover, VT",
+   "lat": 42.928616,
+   "lon": -72.888511,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1207": {
+   "address": "212 main St , Winooski, VT",
+   "lat": 44.49556,
+   "lon": -73.185845,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1209": {
+   "address": "Montpelier, VT",
+   "lat": 44.26342,
+   "lon": -72.56345,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1210": {
+   "address": "Berlin, VT",
+   "lat": 44.22392,
+   "lon": -72.58627,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1211": {
+   "address": "3 Taft Corner, Williston, VT",
+   "lat": 44.4434,
+   "lon": -73.12857,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1214": {
+   "address": "Colchester, VT",
+   "lat": 44.52816,
+   "lon": -73.22553,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1215": {
+   "address": "Colchester, VT",
+   "lat": 44.52816,
+   "lon": -73.22553,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1216": {
+   "address": "792 Shelburne Rd., South Burlington, VT, 05403",
+   "lat": 44.444883,
+   "lon": -73.209463,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1218": {
+   "address": "13 School St, Rochester, VT",
+   "lat": 43.875517,
+   "lon": -72.80801,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1219": {
+   "address": "57 Schuss Pass, Waitsfield, VT",
+   "lat": 44.201772,
+   "lon": -72.916701,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1220": {
+   "address": "Burlington, VT",
+   "lat": 44.51119,
+   "lon": -73.26145,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1223": {
+   "address": "Stowe Mtn Rd, Stowe, VT",
+   "lat": 44.48967,
+   "lon": -72.68941,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1225": {
+   "address": "Main St, Waterbury, VT",
+   "lat": 44.339332,
+   "lon": -72.757856,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1233": {
+   "address": "7161 Woodstock rd, Quechee, VT",
+   "lat": 43.6449916,
+   "lon": -72.4245836,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1234": {
+   "address": "4961 Main St., Manchester, VT",
+   "lat": 43.164121,
+   "lon": -73.072815,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1239": {
+   "address": "38 Lower Main St W, Johnson, VT",
+   "lat": 44.635467,
+   "lon": -72.679729,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1242": {
+   "address": "154 rt 15, Hardwick, VT",
+   "lat": 44.506101,
+   "lon": -72.369826,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1246": {
+   "address": "4278 Route 101, North Troy, VT",
+   "lat": 44.904497,
+   "lon": -72.405774,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1247": {
+   "address": "21 Essex Way, Essex Junction, VT",
+   "lat": 44.505238,
+   "lon": -73.143273,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1247__IMG_7171.jpeg"
+   ]
+  },
+  "1248": {
+   "address": "4 Lincoln Place , Essex Junction, VT, 05452",
+   "lat": 44.491785,
+   "lon": -73.111006,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1248__IMG_1091.jpeg"
+   ]
+  },
+  "1249": {
+   "address": "98 mill st , St. Johnsbury, VT",
+   "lat": 44.424693,
+   "lon": -72.014251,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1259": {
+   "address": "32 mallets bay, Winooski, VT",
+   "lat": 44.492554,
+   "lon": -73.190319,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1262": {
+   "address": "3314 Mountain Rd, Stowe, VT",
+   "lat": 44.488877,
+   "lon": -72.72937,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1266": {
+   "address": "Route 100, Waitsfield, VT",
+   "lat": 44.232489,
+   "lon": -72.782227,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1267": {
+   "address": "40 Bridge St, Waitsfield, VT",
+   "lat": 44.189652,
+   "lon": -72.823768,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1267__78647675880__29034F07-BEDF-4862-B94C-24C078C7C855.jpeg"
+   ]
+  },
+  "1268": {
+   "address": "192 Route 5, Fairlee, VT",
+   "lat": 43.91137,
+   "lon": -72.14935,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1269": {
+   "address": "7575 Main St, Waitsfield, VT",
+   "lat": 44.232489,
+   "lon": -72.782227,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1273": {
+   "address": "36 Thorsen , Burlington, VT",
+   "lat": 44.51119,
+   "lon": -73.26145,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1274": {
+   "address": "4800 Basin Harbor rd, Vergennes, VT",
+   "lat": 44.16549,
+   "lon": -73.25448,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1275": {
+   "address": "125 State St, Rutland, VT",
+   "lat": 43.6090793,
+   "lon": -72.9850067,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1276": {
+   "address": "4121 Route 100, Eden Mills, VT",
+   "lat": 44.713615,
+   "lon": -72.52283,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1280": {
+   "address": "3075 Main St, Cabot, VT",
+   "lat": 44.402234,
+   "lon": -72.311498,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1286": {
+   "address": "156 St Paul, Burlington, VT",
+   "lat": 44.474933,
+   "lon": -73.213868,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1287": {
+   "address": "154 St Paul, Burlington, VT",
+   "lat": 44.474965,
+   "lon": -73.213872,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1293": {
+   "address": "1786 Memorial Dr, St. Johnsbury, VT",
+   "lat": 44.457656,
+   "lon": -72.015428,
+   "loc": "census",
+   "notes": "Hannah contact",
+   "photos": []
+  },
+  "1294": {
+   "address": "27 east street, Barre, VT",
+   "lat": 44.197927,
+   "lon": -72.496221,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1296": {
+   "address": "216 Northside Drive, Bennington, VT",
+   "lat": 42.900019,
+   "lon": -73.210852,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1298": {
+   "address": "5247 Shelburne Rd., Shelburne, VT",
+   "lat": 44.381302,
+   "lon": -73.227206,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1299": {
+   "address": "31 cottonwood drive, Williston, VT",
+   "lat": 44.4434,
+   "lon": -73.12857,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1300": {
+   "address": "2977 Route 100, Jacksonville, VT",
+   "lat": 42.7991272,
+   "lon": -72.8229889,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1302": {
+   "address": "2 Educational Drive, Essex Junction, VT",
+   "lat": 44.497666,
+   "lon": -73.111527,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1304": {
+   "address": "69 Brennan rd , Fairlee, VT",
+   "lat": 43.9100774,
+   "lon": -72.1542561,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1305": {
+   "address": "614 Main St, Fairlee, VT, 05045",
+   "lat": 43.91137,
+   "lon": -72.14935,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1306": {
+   "address": "160 north winooski ave, Burlington, VT",
+   "lat": 44.485001,
+   "lon": -73.211258,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1306__73436834247__85FAE352-5EC4-4231-ADA1-D7CD35EAF7F0.jpeg"
+   ]
+  },
+  "1309": {
+   "address": "30 Cutler, East Montpelier, VT, 05602",
+   "lat": 44.28522,
+   "lon": -72.51327,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1312": {
+   "address": "252 High St, Plainfield, VT",
+   "lat": 44.27803,
+   "lon": -72.430998,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1313": {
+   "address": "207 Barre St, Montpelier, VT",
+   "lat": 44.25338,
+   "lon": -72.570165,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1313__IMG_1601.jpeg"
+   ]
+  },
+  "1314": {
+   "address": "298 Vermont 101, North Troy, VT",
+   "lat": 44.959914,
+   "lon": -72.413017,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1315": {
+   "address": "State Street, Montpelier, VT",
+   "lat": 44.26342,
+   "lon": -72.56345,
+   "loc": "town",
+   "notes": "",
+   "photos": [
+    "1315__73461844652__D399F62F-2850-4A17-A016-DA6E44BB63EA.jpeg"
+   ]
+  },
+  "1318": {
+   "address": "5134 main st, Waitsfield, VT",
+   "lat": 44.184271,
+   "lon": -72.836617,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1318__IMG_3604.jpeg"
+   ]
+  },
+  "1319": {
+   "address": "252 US Rt 2, South Hero, VT",
+   "lat": 44.646493,
+   "lon": -73.295025,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1321": {
+   "address": "6163 Main St, Waitsfield, VT",
+   "lat": 44.162023,
+   "lon": -72.834017,
+   "loc": "census",
+   "notes": "BARREL IN COOLER",
+   "photos": [
+    "1321__IMG_5550.jpeg"
+   ]
+  },
+  "1325": {
+   "address": "42 Center Street, Rutland, VT",
+   "lat": 43.6067883,
+   "lon": -72.9773971,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1327": {
+   "address": "252 high St, Plainfield, VT, 05602",
+   "lat": 44.27803,
+   "lon": -72.430998,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1333": {
+   "address": "5518 VT Rt. 12 , Barnard, VT",
+   "lat": 43.74173,
+   "lon": -72.60935,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1334": {
+   "address": "42 Main st, Wells River, VT",
+   "lat": 44.1529947,
+   "lon": -72.0462651,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1336": {
+   "address": "169 cherry St, Burlington, VT",
+   "lat": 44.479261,
+   "lon": -73.211664,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1336__IMG_7170.jpeg"
+   ]
+  },
+  "1337": {
+   "address": "70 Roosevelt Highway , Colchester, VT",
+   "lat": 44.600042,
+   "lon": -73.202128,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1338": {
+   "address": "Church Street, Burlington, VT",
+   "lat": 44.4781578,
+   "lon": -73.2126344,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "1338__IMG_1112.jpeg"
+   ]
+  },
+  "1345": {
+   "address": "Waterbury, VT",
+   "lat": 44.3379214,
+   "lon": -72.7563801,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "1345__IMG_7765.jpeg"
+   ]
+  },
+  "1346": {
+   "address": "3906 Case St , Middlebury, VT",
+   "lat": 44.026066,
+   "lon": -73.100026,
+   "loc": "census",
+   "notes": "Barrels locked in Garage Dustin will open",
+   "photos": [
+    "1346__IMG_9400.jpeg"
+   ]
+  },
+  "1349": {
+   "address": "163 Main St , Concord, VT",
+   "lat": 44.429725,
+   "lon": -71.892261,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1350": {
+   "address": "160 Flynn Ave, Burlington, VT",
+   "lat": 44.455735,
+   "lon": -73.219944,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1351": {
+   "address": "14312 route 116, Hinesburgh, VT",
+   "lat": 44.292749,
+   "lon": -73.070581,
+   "loc": "census",
+   "notes": "Travis",
+   "photos": []
+  },
+  "1352": {
+   "address": "28 Portland St, Morristown, VT",
+   "lat": 44.562094,
+   "lon": -72.598404,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1354": {
+   "address": "180 Battery Street, Burlington, VT",
+   "lat": 44.474482,
+   "lon": -73.2185,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1355": {
+   "address": "89 US 7 north, Milton, VT",
+   "lat": 44.651648,
+   "lon": -73.114887,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1357": {
+   "address": "484 US 7, Milton, VT",
+   "lat": 44.627628,
+   "lon": -73.143069,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1358": {
+   "address": "111 St Paul St , Burlington, VT",
+   "lat": 44.476592,
+   "lon": -73.21414,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1358__IMG_8132.jpeg"
+   ]
+  },
+  "1359": {
+   "address": "320 State St, Montpelier, VT",
+   "lat": 44.258747,
+   "lon": -72.607175,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1360": {
+   "address": "Main st, Plainfield, VT",
+   "lat": 44.2481,
+   "lon": -72.42556,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1361": {
+   "address": "876 Mountain Road , Stowe, VT",
+   "lat": 44.4739473,
+   "lon": -72.6960965,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "1361__IMG_8188.jpeg"
+   ]
+  },
+  "1362": {
+   "address": "332 VT-100 , West Dover, VT",
+   "lat": 42.942921,
+   "lon": -72.860223,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1363": {
+   "address": "509 South Barre, Barre, VT",
+   "lat": 44.173012,
+   "lon": -72.507745,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1364": {
+   "address": "1960 Vermont Rte 100, Eden, VT 056, Eden, VT",
+   "lat": 44.71251,
+   "lon": -72.54861,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1365": {
+   "address": "Main st , Barre, VT",
+   "lat": null,
+   "lon": null,
+   "loc": null,
+   "notes": "",
+   "photos": []
+  },
+  "1366": {
+   "address": "Montpelier, VT",
+   "lat": 44.2602244,
+   "lon": -72.5750364,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1367": {
+   "address": "252, High St, Plainfield, VT, 05602",
+   "lat": 44.27803,
+   "lon": -72.430998,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1368": {
+   "address": "252 High Street, Plainfield, VT",
+   "lat": 44.2781973,
+   "lon": -72.4303367,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1369": {
+   "address": "100 North Main St, West Lebanon, VT",
+   "lat": null,
+   "lon": null,
+   "loc": null,
+   "notes": "Contact :Balvin",
+   "photos": []
+  },
+  "1370": {
+   "address": "2543 Island Pond Road, East Haven, East Haven, VT, 05832",
+   "lat": 44.65194,
+   "lon": -71.82199,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1371": {
+   "address": "498 Highland Ave., Newport, VT, 05855",
+   "lat": 44.933879,
+   "lon": -72.226961,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1372": {
+   "address": "745 Main St, Stowe, VT",
+   "lat": 44.456751,
+   "lon": -72.694336,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1372__IMG_3109.jpeg"
+   ]
+  },
+  "1373": {
+   "address": "108 State St, Montpelier, VT",
+   "lat": 44.2608185,
+   "lon": -72.5792462,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1374": {
+   "address": "1 River Rd, Waterbury, VT",
+   "lat": 44.327193,
+   "lon": -72.75278,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1375": {
+   "address": "164 porters point road, Colchester, VT",
+   "lat": 44.537762,
+   "lon": -73.25001,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1375__IMG_2350.jpeg"
+   ]
+  },
+  "1376": {
+   "address": "108 state Street, Montpelier, VT",
+   "lat": 44.260913,
+   "lon": -72.579282,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1377": {
+   "address": "3761 Shelburne Rd, Shelburne, VT, 05482",
+   "lat": 44.399984,
+   "lon": -73.218485,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1377__IMG_2275.jpeg"
+   ]
+  },
+  "1379": {
+   "address": "100 State St, Montpelier, VT",
+   "lat": 44.26084,
+   "lon": -72.578952,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1379__IMG_6655.jpeg"
+   ]
+  },
+  "1380": {
+   "address": "2 Academy Dr, Barre, VT",
+   "lat": 44.196481,
+   "lon": -72.499441,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1381": {
+   "address": "294 North Winooski Avenue, Burlington, VT",
+   "lat": 44.487847,
+   "lon": -73.207888,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1382": {
+   "address": "31 main st, Bristol, VT",
+   "lat": 44.133079,
+   "lon": -73.078414,
+   "loc": "census",
+   "notes": "Andy Wohl",
+   "photos": [
+    "1382__IMG_1055.jpeg"
+   ]
+  },
+  "1386": {
+   "address": "55 Main St, Burlington, VT",
+   "lat": 44.475705,
+   "lon": -73.217409,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1386__IMG_3992.jpeg"
+   ]
+  },
+  "1387": {
+   "address": "135 N Main St, Barre, VT",
+   "lat": 44.198508,
+   "lon": -72.502743,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1387__IMG_1602.jpeg"
+   ]
+  },
+  "1388": {
+   "address": "77 Okemo Ridge Rd, Ludlow, VT",
+   "lat": 43.402272,
+   "lon": -72.716494,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1388__IMG_1047.jpeg"
+   ]
+  },
+  "1389": {
+   "address": "78 North St., Burlington, VT, 05401",
+   "lat": 44.484601,
+   "lon": -73.219212,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1390": {
+   "address": "Northfield, VT",
+   "lat": 44.1594,
+   "lon": -72.68117,
+   "loc": "town",
+   "notes": "",
+   "photos": [
+    "1390__IMG_0639.jpeg"
+   ]
+  },
+  "1391": {
+   "address": "831 Vermont Rte 100, Killington, VT, 05751",
+   "lat": 43.65534,
+   "lon": -72.80372,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1392": {
+   "address": "Vergennes, VT",
+   "lat": 44.1681052,
+   "lon": -73.2518037,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1393": {
+   "address": "Vergennes, VT",
+   "lat": 44.1681052,
+   "lon": -73.2518037,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1394": {
+   "address": "260 North Street, Burlington, VT, 05401",
+   "lat": 44.484884,
+   "lon": -73.211618,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1396": {
+   "address": "59 US route 2, South Hero, VT, 05486",
+   "lat": 44.634611,
+   "lon": -73.264938,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1398": {
+   "address": "32 C Mallets Bay Ave, Winooski, VT, 05446",
+   "lat": 44.492788,
+   "lon": -73.190494,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1399": {
+   "address": "163 Franklin Square, Burlington, VT, 05408",
+   "lat": 44.516815,
+   "lon": -73.255039,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1400": {
+   "address": "26 Common Rd., Westford, VT, 05494",
+   "lat": 44.611434,
+   "lon": -73.010018,
+   "loc": "census",
+   "notes": "Kimberly Harris Seagoatvt@gmail.com",
+   "photos": []
+  },
+  "1401": {
+   "address": "81 North Main St, Barre, VT",
+   "lat": 44.197793,
+   "lon": -72.501852,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1402": {
+   "address": "34 Park Street Suite 8, Essex Junction, VT",
+   "lat": 44.48624,
+   "lon": -73.113625,
+   "loc": "census",
+   "notes": "[on source site] Kasira",
+   "photos": []
+  },
+  "1404": {
+   "address": "51 South main, Cambridge, VT",
+   "lat": 44.64465,
+   "lon": -72.875436,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1407": {
+   "address": "Route 2, East Montpelier, VT",
+   "lat": 44.2434014,
+   "lon": -72.5464054,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1408": {
+   "address": "22 Main Street, Winooski, VT, 05404",
+   "lat": 44.49018,
+   "lon": -73.18657,
+   "loc": "census",
+   "notes": "Owner Summer Cao",
+   "photos": []
+  },
+  "1409": {
+   "address": "326 route 2 , South Hero, VT",
+   "lat": 44.645496,
+   "lon": -73.306397,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1410": {
+   "address": "Plainfield, VT",
+   "lat": 44.2481,
+   "lon": -72.42556,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1415": {
+   "address": "379 Railroad Street, St. Johnsbury, VT, 05819",
+   "lat": 44.417442,
+   "lon": -72.016047,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1416": {
+   "address": "1135 Wooster rd, Whiting, VT",
+   "lat": 43.920565,
+   "lon": -73.253878,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1417": {
+   "address": "South Burlington, VT",
+   "lat": 44.47172,
+   "lon": -73.19659,
+   "loc": "town",
+   "notes": "",
+   "photos": [
+    "1417__IMG_1052.jpeg",
+    "1417__IMG_2276.jpeg"
+   ]
+  },
+  "1418": {
+   "address": "600 swift st, South Burlington, VT",
+   "lat": 44.47172,
+   "lon": -73.19659,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1419": {
+   "address": "451 VT-12 N, Northfield Falls, VT , Northfield, VT",
+   "lat": 44.1594,
+   "lon": -72.68117,
+   "loc": "town",
+   "notes": "",
+   "photos": [
+    "1419__IMG_9341.jpeg"
+   ]
+  },
+  "1422": {
+   "address": "6305 route 7, Shelburne, VT",
+   "lat": 44.37655,
+   "lon": -73.25497,
+   "loc": "town",
+   "notes": "",
+   "photos": [
+    "1422__IMG_1998.jpeg"
+   ]
+  },
+  "1423": {
+   "address": "Plainfield, VT",
+   "lat": 44.2780796,
+   "lon": -72.425448,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1424": {
+   "address": "Plainfield, VT",
+   "lat": 44.2780796,
+   "lon": -72.425448,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1425": {
+   "address": "Plainfield, VT",
+   "lat": 44.2780796,
+   "lon": -72.425448,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1426": {
+   "address": "10 Susie Wilson Rd, Essex Junction, VT, 05468",
+   "lat": 44.509945,
+   "lon": -73.13111,
+   "loc": "census",
+   "notes": "Inside white fence",
+   "photos": [
+    "1426__IMG_1997.jpeg"
+   ]
+  },
+  "1429": {
+   "address": "195 Lake St, St. Albans City, VT",
+   "lat": 44.8111872,
+   "lon": -73.0905964,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1430": {
+   "address": "201 Lower Main St, Johnson, VT",
+   "lat": 44.636365,
+   "lon": -72.684337,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1430__IMG_2352.jpeg"
+   ]
+  },
+  "1432": {
+   "address": "177 Church, Burlington, VT",
+   "lat": 44.475314,
+   "lon": -73.212533,
+   "loc": "census",
+   "notes": "Parking in Flynn parking area.",
+   "photos": []
+  },
+  "1433": {
+   "address": "973 Roosevelt Highway, Colchester, VT",
+   "lat": 44.516091,
+   "lon": -73.179213,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1434": {
+   "address": "97 North Main St, St. Albans City, VT",
+   "lat": 44.813316,
+   "lon": -73.082909,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1434__IMG_2389.jpeg",
+    "1434__IMG_3085.jpeg"
+   ]
+  },
+  "1435": {
+   "address": "Plainfield, VT, 05667",
+   "lat": 44.2780796,
+   "lon": -72.425448,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1436": {
+   "address": "4278 route 101, North Troy, VT",
+   "lat": 44.904497,
+   "lon": -72.405774,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1437": {
+   "address": "2 Legion rd, Milton, VT",
+   "lat": 44.63492,
+   "lon": -73.17388,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1438": {
+   "address": "43 Senior Lane, Woodstock, VT",
+   "lat": 43.612442,
+   "lon": -72.549122,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1438__IMG_2475.jpeg"
+   ]
+  },
+  "1439": {
+   "address": "2179 Downingsville Rd Lincoln, VT , Lincoln, VT",
+   "lat": 44.1419972,
+   "lon": -72.9768275,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1440": {
+   "address": "169 Church st, Burlington, VT",
+   "lat": 44.4754845,
+   "lon": -73.2126217,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1441": {
+   "address": "61 Main St, Vergennes, VT",
+   "lat": 44.1715047,
+   "lon": -73.247725,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1442": {
+   "address": "1052 Portland St, Saint Johnsbury, VT",
+   "lat": 44.4212459,
+   "lon": -71.9946749,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1443": {
+   "address": "4478 Main St., Manchester Center, VT, 05255",
+   "lat": 43.172762,
+   "lon": -73.062219,
+   "loc": "census",
+   "notes": "Add restaurant name",
+   "photos": []
+  },
+  "1444": {
+   "address": "115 Granger Rd, Berlin, VT",
+   "lat": 44.2090455,
+   "lon": -72.5663865,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1445": {
+   "address": "700 Trapp Hill Rd, Stowe, VT",
+   "lat": 44.4654241,
+   "lon": -72.7451581,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "1445__IMG_3087.jpeg"
+   ]
+  },
+  "1447": {
+   "address": "High st, Plainfield, VT",
+   "lat": 44.2779936,
+   "lon": -72.4314254,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1448": {
+   "address": "1330 Shelburne Rd , South Burlington, VT",
+   "lat": 44.4342521,
+   "lon": -73.2100726,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1450": {
+   "address": "538 route 3 , Plattsburgh, VT, 12901",
+   "lat": 44.696128,
+   "lon": -73.500363,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1453": {
+   "address": "37 Depot St., Lyndonville, VT, 05851",
+   "lat": 44.5352484,
+   "lon": -72.0042307,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "1453__IMG_3551.jpeg"
+   ]
+  },
+  "1454": {
+   "address": "3866 route 242, North Troy, VT",
+   "lat": 44.9474107,
+   "lon": -72.414784,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1455": {
+   "address": "69 pleasant st, Woodstock, VT",
+   "lat": 43.626493,
+   "lon": -72.507533,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1456": {
+   "address": "24 stone rd , Brookfield, VT, 05306",
+   "lat": 44.042407,
+   "lon": -72.60343,
+   "loc": "census",
+   "notes": "Josh Jonestein owner",
+   "photos": []
+  },
+  "1457": {
+   "address": "377 Pine St., Burlington, VT, 05401",
+   "lat": 44.468608,
+   "lon": -73.215181,
+   "loc": "census",
+   "notes": "Henry Mizrahi",
+   "photos": [
+    "1457__IMG_3805.jpeg"
+   ]
+  },
+  "1458": {
+   "address": "225 Dorset St., unit E, South Burlington, VT, 05403",
+   "lat": 44.463198,
+   "lon": -73.180786,
+   "loc": "census",
+   "notes": "Marshal Brown",
+   "photos": [
+    "1458__IMG_3804.jpeg"
+   ]
+  },
+  "1459": {
+   "address": "69 Market Street, unit 2, Williston, VT, 05495",
+   "lat": 44.4434,
+   "lon": -73.12857,
+   "loc": "town",
+   "notes": "Marshal Brown",
+   "photos": [
+    "1459__IMG_3803.jpeg"
+   ]
+  },
+  "1460": {
+   "address": "528 Washington , Morrisville, VT",
+   "lat": 44.554108,
+   "lon": -72.591231,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1460__IMG_9718.jpeg"
+   ]
+  },
+  "1461": {
+   "address": "51 lake Morey rd, Fairlee, VT",
+   "lat": 43.904522,
+   "lon": -72.150392,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1462": {
+   "address": "4529 Main St, Manchester, VT",
+   "lat": 43.173512,
+   "lon": -73.06124,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1463": {
+   "address": "3489 Woodstock rd, Quechee, VT",
+   "lat": 43.65436,
+   "lon": -72.33611,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1464": {
+   "address": "86 Saint Paul St, Burlington, VT",
+   "lat": 44.477519,
+   "lon": -73.214072,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1465": {
+   "address": "12 Broad St , Lyndonville, VT, 05851",
+   "lat": 44.520377,
+   "lon": -72.001202,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1468": {
+   "address": "Gebbie Rd, Greensboro, VT",
+   "lat": 44.6053,
+   "lon": -72.29352,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1469": {
+   "address": "Gebbie Rd, Greensboro, VT",
+   "lat": 44.6053,
+   "lon": -72.29352,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1470": {
+   "address": "252 High St, Plainfield, VT",
+   "lat": 44.27803,
+   "lon": -72.430998,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1471": {
+   "address": "308 route 2 , South Hero, VT",
+   "lat": 44.645718,
+   "lon": -73.303838,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1472": {
+   "address": "51 Charles avenue, Middlebury, VT",
+   "lat": 44.007042,
+   "lon": -73.161919,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1473": {
+   "address": "4397 Route 5, Derby, VT, 05855",
+   "lat": 44.951565,
+   "lon": -72.157402,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1475": {
+   "address": "3260 Greenbush, Charlotte, VT",
+   "lat": 44.3047225,
+   "lon": -73.2561054,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "1475__78812086862__812BE27E-0208-48FF-95FD-FE3637080C25.jpeg"
+   ]
+  },
+  "1477": {
+   "address": "VT",
+   "lat": 44.5990718,
+   "lon": -72.5002608,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1479": {
+   "address": "447 Vt 15, Underhill, VT, 05489",
+   "lat": 44.53196,
+   "lon": -72.944811,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1479__IMG_4723.jpeg"
+   ]
+  },
+  "1480": {
+   "address": "10997 Vt Route 116, Hinesburg, VT, 05461",
+   "lat": 44.326883,
+   "lon": -73.106761,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1480__IMG_1063.jpeg"
+   ]
+  },
+  "1481": {
+   "address": "155 main st, Burlington, VT",
+   "lat": 44.475872,
+   "lon": -73.213072,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1481__IMG_1093.jpeg"
+   ]
+  },
+  "1482": {
+   "address": "36 Thorsen Way, Burlington, VT",
+   "lat": 44.4767056,
+   "lon": -73.2116763,
+   "loc": "site",
+   "notes": "",
+   "photos": [
+    "1482__IMG_1031.jpeg"
+   ]
+  },
+  "1483": {
+   "address": "10 Farrell st , South Burlington, VT",
+   "lat": 44.446496,
+   "lon": -73.204332,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1483__IMG_1004.jpeg",
+    "1483__IMG_1012.jpeg"
+   ]
+  },
+  "1484": {
+   "address": "72 south main st, Hanover, VT, 03755",
+   "lat": 43.699697,
+   "lon": -72.289542,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1484__IMG_4552.jpeg",
+    "1484__IMG_8668.jpeg",
+    "1484__IMG_8669.jpeg",
+    "1484__IMG_8670.jpeg"
+   ]
+  },
+  "1485": {
+   "address": "973 east barre rd, East Barre, VT",
+   "lat": 44.1614371,
+   "lon": -72.4494246,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1486": {
+   "address": "10 Glidden Street, Claremont, VT",
+   "lat": 43.370774,
+   "lon": -72.337047,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1486__IMG_1035.jpeg"
+   ]
+  },
+  "1487": {
+   "address": "1030 Palmer road Shoreham Vt05770, Shoreham, VT, 05770",
+   "lat": 43.911528,
+   "lon": -73.276739,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1487__IMG_4261.jpeg"
+   ]
+  },
+  "1488": {
+   "address": "146 Winch Hill, Northfield, VT",
+   "lat": 44.1203278,
+   "lon": -72.6650903,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1489": {
+   "address": "1 Gin Lane , Montpelier, VT, 05602",
+   "lat": 44.26342,
+   "lon": -72.56345,
+   "loc": "town",
+   "notes": "",
+   "photos": [
+    "1489__IMG_6457.jpeg"
+   ]
+  },
+  "1490": {
+   "address": "700 Blakslee Rd, Dalton, VT",
+   "lat": 44.00034,
+   "lon": -72.74983,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1491": {
+   "address": "2 North Winooski Ave, Burlington, VT",
+   "lat": 44.4805939,
+   "lon": -73.2110627,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1492": {
+   "address": "1490 US-302, Barre, VT 05641, Berlin, VT",
+   "lat": 44.229485,
+   "lon": -72.5531,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1493": {
+   "address": "124 Highgate Commons Rd , St Albans, VT",
+   "lat": 44.80704,
+   "lon": -73.157,
+   "loc": "town",
+   "notes": "",
+   "photos": [
+    "1493__IMG_6677.jpeg"
+   ]
+  },
+  "1495": {
+   "address": "129 market street unit 5, Williston, VT, 05495",
+   "lat": 44.4434,
+   "lon": -73.12857,
+   "loc": "town",
+   "notes": "",
+   "photos": [
+    "1495__IMG_6675.jpeg"
+   ]
+  },
+  "1496": {
+   "address": "3629 Ethan Allen , New Haven, VT",
+   "lat": 44.098538,
+   "lon": -73.173094,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1496__IMG_6735.jpeg"
+   ]
+  },
+  "1497": {
+   "address": "3107 Vermont Rte 15 E, Morrisville, VT",
+   "lat": 44.56907,
+   "lon": -72.534406,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1498": {
+   "address": "VT",
+   "lat": 44.51119,
+   "lon": -73.26145,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1499": {
+   "address": "105 Canal Street , Brattleboro, VT",
+   "lat": 42.84851,
+   "lon": -72.56084,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1500": {
+   "address": "179 Railroad St , North Troy, VT",
+   "lat": 44.997395,
+   "lon": -72.405742,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1500__IMG_7073.jpeg"
+   ]
+  },
+  "1502": {
+   "address": "925 North Ave, Burlington, VT",
+   "lat": 44.502657,
+   "lon": -73.23916,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1502__IMG_4428.jpeg"
+   ]
+  },
+  "1503": {
+   "address": "76 Deer Run Lane, North Hyde Park, North Hyde Park, VT",
+   "lat": 44.51119,
+   "lon": -73.26145,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1504": {
+   "address": "333 VT 14, Hardwick, VT",
+   "lat": 44.493805,
+   "lon": -72.375351,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1505": {
+   "address": "1834 Shelburne Rd, South Burlington, VT",
+   "lat": 44.47172,
+   "lon": -73.19659,
+   "loc": "town",
+   "notes": "",
+   "photos": [
+    "1505__IMG_4545.jpeg"
+   ]
+  },
+  "1506": {
+   "address": "1 Success Loop, Bethel, NH, VT, 03570",
+   "lat": 44.521302,
+   "lon": -71.15105,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1507": {
+   "address": "4357 Memorial Drive , St Johnsbury, VT",
+   "lat": 44.492651,
+   "lon": -72.005272,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1507__IMG_7046.jpeg",
+    "1507__IMG_7047.jpeg"
+   ]
+  },
+  "1508": {
+   "address": "496 Route 7 , Milton, VT",
+   "lat": 44.627409,
+   "lon": -73.144106,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1508__IMG_7044.jpeg",
+    "1508__IMG_7045.jpeg"
+   ]
+  },
+  "1509": {
+   "address": "VT",
+   "lat": 44.51119,
+   "lon": -73.26145,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1510": {
+   "address": "240 Market St, South Burlington, VT",
+   "lat": 44.465906,
+   "lon": -73.178211,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1510__IMG_4623.jpeg",
+    "1510__IMG_4625.jpeg"
+   ]
+  },
+  "1511": {
+   "address": "3795 Crosstown Rd, Northfield, VT",
+   "lat": 44.1594,
+   "lon": -72.68117,
+   "loc": "town",
+   "notes": "",
+   "photos": [
+    "1511__IMG_7100.jpeg"
+   ]
+  },
+  "1513": {
+   "address": "409 Breezy Ave , Greensboro, VT",
+   "lat": 44.570827,
+   "lon": -72.299176,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1513__IMG_1395.jpeg"
+   ]
+  },
+  "1515": {
+   "address": "337 College hill, Johnson, VT",
+   "lat": 44.640661,
+   "lon": -72.670362,
+   "loc": "census",
+   "notes": "Between Arthur and Stearns Hall",
+   "photos": [
+    "1515__IMG_4701.jpeg",
+    "1515__image000002.jpeg"
+   ]
+  },
+  "1516": {
+   "address": "Plainfield, VT",
+   "lat": 44.2780796,
+   "lon": -72.425448,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1517": {
+   "address": "357 Main St, Winooski, VT",
+   "lat": 44.499547,
+   "lon": -73.183648,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1518": {
+   "address": "140 Cottage Club, Stowe, VT",
+   "lat": 44.477077,
+   "lon": -72.715983,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1518__IMG_7644.jpeg"
+   ]
+  },
+  "1519": {
+   "address": "2000 Memorial Drive, St. Johnsbury, VT",
+   "lat": 44.459147,
+   "lon": -72.015097,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1519__IMG_1474.jpeg"
+   ]
+  },
+  "1521": {
+   "address": "East Montpelier, VT",
+   "lat": 44.28522,
+   "lon": -72.51327,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1522": {
+   "address": "Montpelier, VT",
+   "lat": 44.2602244,
+   "lon": -72.5750364,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1523": {
+   "address": "East Montpelier, VT",
+   "lat": 44.2715266,
+   "lon": -72.4857574,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1525": {
+   "address": "747 Killington Rd , Killington, VT",
+   "lat": 43.6596842,
+   "lon": -72.7947101,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1526": {
+   "address": "747 Killington Rd , Killington, VT",
+   "lat": 43.659367,
+   "lon": -72.794948,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1526__IMG_7912.jpeg"
+   ]
+  },
+  "1527": {
+   "address": "54 North Main St , St. Albans, VT",
+   "lat": 44.812222,
+   "lon": -73.083294,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1527__image000000.jpeg"
+   ]
+  },
+  "1528": {
+   "address": "427 Route 114, East Burke, VT",
+   "lat": 44.588282,
+   "lon": -71.943826,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1528__IMG_7635.jpeg"
+   ]
+  },
+  "1529": {
+   "address": "152 cherry st, Burlington, VT",
+   "lat": 44.479352,
+   "lon": -73.212435,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1530": {
+   "address": "2533 VT-14, Williamstown, VT",
+   "lat": 44.120036,
+   "lon": -72.541134,
+   "loc": "census",
+   "notes": "",
+   "photos": []
+  },
+  "1532": {
+   "address": "18 North Main St, Wilmington, VT",
+   "lat": 42.86917,
+   "lon": -72.869809,
+   "loc": "census",
+   "notes": "",
+   "photos": [
+    "1532__IMG_1663.jpeg"
+   ]
+  },
+  "1533": {
+   "address": "Plainfield, VT",
+   "lat": 44.2481,
+   "lon": -72.42556,
+   "loc": "town",
+   "notes": "",
+   "photos": []
+  },
+  "1534": {
+   "address": "736 Route 15, Hyde Park, VT",
+   "lat": 44.60269,
+   "lon": -72.60481,
+   "loc": "town",
+   "notes": "",
+   "photos": [
+    "1534__81239563112__171A81D8-E4F9-4F2B-8966-5C75E7171907.jpeg"
+   ]
+  },
+  "1535": {
+   "address": "14 Amidon Rd, Montgomery, VT",
+   "lat": 44.8816032,
+   "lon": -72.5667877,
+   "loc": "site",
+   "notes": "",
+   "photos": []
+  },
+  "1536": {
+   "address": "136 Route 100, Wilmington, VT",
+   "lat": 42.874649,
+   "lon": -72.8631363,
+   "loc": "site",
+   "notes": "David Petrie",
+   "photos": []
+  },
+  "1537": {
+   "address": "136 Route 100, Wilmington, VT",
+   "lat": 42.874649,
+   "lon": -72.8631363,
+   "loc": "site",
+   "notes": "David Petrie",
+   "photos": []
+  }
+ }
+}

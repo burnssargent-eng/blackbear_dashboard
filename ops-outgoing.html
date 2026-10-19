@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Outgoing (shadow) — Black Bear Biodiesel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="stylesheet" href="ops.css">
+</head>
+
+<body>
+<div id="nav"></div>
+<div id="banner"></div>
+<div class="container py-3" id="page">Loading…</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+<script src="dashboard-utils.js"></script>
+<script src="route-utils.js"></script>
+<script src="ops-common.js"></script>
+<script>
+/*
+ * Outgoing (shadow). The source site's Outgoing page and its Outgoing Report
+ * in one: a button per truck logs a stillage run for today, a box logs Schmutz
+ * gallons, and the month calendar below shows the log.
+ *
+ * Schmutz here is Black Bear Shop -> Gebbie Farm only (the Schmootz page's
+ * Shop -> Gebbie block). Barr Hill -> Gebbie is kept by Erin in a separate
+ * spreadsheet and never logged here. Neither is ever part of collection totals.
+ *
+ * Real history comes from outgoing.json (jamaal_outgoing.py, read-only). What
+ * is logged on this page stays in this browser's shadow copy and shows in
+ * yellow, apart from the real log.
+ */
+
+const OUTGOING_FILE = "outgoing.json";
+const FIRST_MONTH = "2021-07";
+
+let outgoing = null;   // outgoing.json
+let store = null, snap = null;
+let anchor = "", day = "", flash = "";
+
+const truckByKey = key => TRUCKS.find(t => t.key === key) || { name: key, abbr: key.slice(0, 2).toUpperCase() };
+
+/* ── Data ───────────────────────────────────────────────── */
+
+/** The real log for a day, as { stillage: {truckKey: runs}, schmutz: [gallons] }. */
+function realDay(date) {
+  return (outgoing && outgoing.days[date]) || { stillage: {}, schmutz: [] };
+}
+
+/** Shadow entries for a day, in the order logged. */
+function shadowDay(date) {
+  return ((store && store.outgoing) || []).filter(e => e.date === date);
+}
+
+/** Runs per truck and Schmutz gallons for a month, real log only. */
+function monthSummary(ym) {
+  const runs = {};
+  let schmutz = 0;
+  Object.entries((outgoing && outgoing.days) || {}).forEach(([date, d]) => {
+    if (date.slice(0, 7) !== ym) return;
+    Object.entries(d.stillage).forEach(([k, n]) => { runs[k] = (runs[k] || 0) + n; });
+    schmutz += d.schmutz.reduce((a, b) => a + b, 0);
+  });
+  return { runs, schmutz };
+}
+
+/** "MD (2)" labels for a day's runs, in the truck list's order. */
+function runLabels(stillage) {
+  const keys = [...TRUCKS.map(t => t.key), ...Object.keys(stillage).filter(k => !TRUCKS.some(t => t.key === k))];
+  return keys.filter(k => stillage[k]).map(k => `${truckByKey(k).abbr} (${stillage[k]})`);
+}
+
+function shadowStillage(entries) {
+  const out = {};
+  entries.filter(e => e.kind === "stillage").forEach(e => { out[e.truck] = (out[e.truck] || 0) + 1; });
+  return out;
+}
+
+/* ── Rendering ──────────────────────────────────────────── */
+
+function gridHtml(ym) {
+  return calendarGridHtml(ym, day, date => {
+    const real = realDay(date);
+    const shadow = shadowDay(date);
+    const realEvents = [...runLabels(real.stillage), ...real.schmutz.map(String)];
+    const shadowEvents = [...runLabels(shadowStillage(shadow)),
+      ...shadow.filter(e => e.kind === "schmutz").map(e => String(e.gallons))];
+    return {
+      clickable: realEvents.length + shadowEvents.length > 0,
+      html: realEvents.map(t => `<div class="cal-event cal-green">${escapeHtml(t)}</div>`).join("") +
+        shadowEvents.map(t => `<div class="cal-event cal-yellow" title="Logged in this browser">${escapeHtml(t)}</div>`).join(""),
+    };
+  });
+}
+
+function dayHtml(date) {
+  if (!date) return "";
+  const real = realDay(date);
+  const items = [];
+  TRUCKS.map(t => t.key).concat(Object.keys(real.stillage).filter(k => !TRUCKS.some(t => t.key === k)))
+    .forEach(k => { for (let i = 0; i < (real.stillage[k] || 0); i++) items.push(`Stillage: ${truckByKey(k).name}`); });
+  real.schmutz.forEach(g => items.push(`Schmutz: ${formatNumber(g)}`));
+  const shadow = shadowDay(date);
+  return `
+    <h3 class="mt-4" id="day">Outgoing for ${escapeHtml(formatDate(date))}</h3>
+    ${items.length ? `<ul class="list-group mb-2">${items.map(t =>
+      `<li class="list-group-item">${escapeHtml(t)}</li>`).join("")}</ul>`
+      : `<div class="text-muted mb-2">Nothing in the source site's log.</div>`}
+    ${shadow.length ? `<div class="ops-new mt-2">Logged in this browser (shadow copy, not real):</div>
+      <ul class="list-group">${shadow.map(e => `<li class="list-group-item d-flex justify-content-between align-items-center">
+        ${e.kind === "stillage" ? `Stillage: ${escapeHtml(truckByKey(e.truck).name)}` : `Schmutz: ${formatNumber(e.gallons)}`}
+        <button type="button" class="btn btn-sm btn-outline-secondary" data-remove="${e.id}">Remove</button></li>`).join("")}</ul>` : ""}`;
+}
+
+function render() {
+  const month = anchor.slice(0, 7);
+  const sum = monthSummary(month);
+  const runTotal = Object.values(sum.runs).reduce((a, b) => a + b, 0);
+  document.getElementById("page").innerHTML = `
+    <h3>Log Stillage Run</h3>
+    <div class="d-flex flex-wrap gap-2 mb-1">
+      ${TRUCKS.map(t => `<button type="button" class="btn btn-primary btn-lg" data-truck="${t.key}">${escapeHtml(t.name)}</button>`).join("")}
+    </div>
+    <div class="ops-muted mb-4">One press logs one run, dated today.</div>
+
+    <h3>Enter Shmutz Volume</h3>
+    <form id="schmutz" class="d-flex flex-wrap gap-2 align-items-center mb-1" autocomplete="off">
+      <input type="number" inputmode="numeric" min="1" class="form-control w-auto" name="volume" placeholder="Shmutz Volume" required>
+      <button class="btn btn-success">Add Shmutz Gallons</button>
+    </form>
+    <div class="ops-muted mb-2">Black Bear Shop → Gebbie Farm. Barr Hill loads go on Erin's spreadsheet, not here.</div>
+    ${flash ? `<div class="alert alert-success py-2">${flash}</div>` : ""}
+
+    <h3 class="mt-4">Outgoing Report</h3>
+    ${calendarNavHtml(anchor, monthsBack(todayIso().slice(0, 7), FIRST_MONTH))}
+    <div class="text-center mb-1">This month: ${runTotal} stillage run${runTotal === 1 ? "" : "s"}${runTotal
+      ? ` (${runLabels(sum.runs).join(" · ")})` : ""} · ${formatNumber(sum.schmutz)} gal Schmutz</div>
+    <div class="cal-month">${escapeHtml(monthLabel(month))}</div>
+    ${gridHtml(month)}
+    ${dayHtml(day)}`;
+}
+
+function setUrl() {
+  const url = new URL(window.location.href);
+  url.searchParams.set("startdate", anchor);
+  if (day) url.searchParams.set("day", day); else url.searchParams.delete("day");
+  window.history.replaceState(null, "", url);
+}
+
+function logEntry(entry) {
+  store.outgoing.push({ id: store.nextId--, date: todayIso(), ...entry });
+  saveStore(store);
+  day = todayIso();
+  anchor = shiftAnchor(`${day.slice(0, 7)}-${anchor.slice(8)}`, 0);
+  setUrl();
+  render();
+}
+
+async function init() {
+  document.getElementById("nav").innerHTML = opsNavHtml("outgoing");
+  try {
+    const [out, opsData] = await Promise.all([
+      fetch(`${OUTGOING_FILE}?v=${Date.now()}`).then(r => {
+        if (!r.ok) throw new Error(`Could not load ${OUTGOING_FILE} (HTTP ${r.status})`);
+        return r.json();
+      }),
+      loadOpsData(),
+    ]);
+    outgoing = out;
+    snap = opsData.snap;
+  } catch (err) {
+    document.getElementById("page").innerHTML = `<div class="alert alert-danger">${escapeHtml(err.message)}</div>`;
+    return;
+  }
+  store = loadStore(snap);
+  const banner = document.getElementById("banner");
+  banner.innerHTML = shadowBannerHtml(store, snap);
+  wireShadowReset(banner, snap, fresh => { store = fresh; banner.innerHTML = shadowBannerHtml(store, snap); render(); });
+
+  const start = getUrlParam("startdate"), d = getUrlParam("day");
+  day = /^\d{4}-\d{2}-\d{2}$/.test(d) ? d : "";
+  anchor = /^\d{4}-\d{2}-\d{2}$/.test(start) ? start : (day || todayIso());
+
+  const page = document.getElementById("page");
+  page.addEventListener("click", e => {
+    const t = e.target.closest && e.target.closest("[data-truck],[data-anchor],[data-day],[data-remove]");
+    if (!t) return;
+    if (t.dataset.truck) {
+      logEntry({ kind: "stillage", truck: t.dataset.truck });
+      flash = `Logged a ${escapeHtml(truckByKey(t.dataset.truck).name)} stillage run for today (this browser only).`;
+      render();
+    } else if (t.dataset.anchor) { anchor = t.dataset.anchor; day = ""; flash = ""; setUrl(); render(); }
+    else if (t.dataset.remove) {
+      store.outgoing = store.outgoing.filter(x => String(x.id) !== t.dataset.remove);
+      saveStore(store);
+      render();
+    } else {
+      day = t.dataset.day; flash = ""; setUrl(); render();
+      const el = document.getElementById("day");
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+  page.addEventListener("submit", e => {
+    if (e.target.id !== "schmutz") return;
+    e.preventDefault();
+    const gallons = parseInt(new FormData(e.target).get("volume"), 10);
+    if (!Number.isFinite(gallons) || gallons <= 0) return;
+    logEntry({ kind: "schmutz", gallons });
+    flash = `Logged ${formatNumber(gallons)} gal of Schmutz for today (this browser only).`;
+    render();
+  });
+  page.addEventListener("change", e => {
+    if (e.target.id !== "cal-month-pick") return;
+    anchor = shiftAnchor(`${e.target.value}-${anchor.slice(8)}`, 0);
+    day = ""; flash = "";
+    setUrl();
+    render();
+  });
+  page.addEventListener("keydown", e => {
+    if ((e.key === "Enter" || e.key === " ") && e.target.dataset && e.target.dataset.day) {
+      e.preventDefault();
+      e.target.click();
+    }
+  });
+  render();
+}
+
+init();
+</script>
+</body>
+</html>

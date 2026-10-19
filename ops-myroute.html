@@ -6,6 +6,7 @@
   <title>My Route (shadow) — Black Bear Biodiesel</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
   <link rel="stylesheet" href="ops.css">
 </head>
 
@@ -16,6 +17,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="dashboard-utils.js"></script>
 <script src="route-utils.js"></script>
 <script src="ops-common.js"></script>
@@ -37,6 +39,18 @@ let addSearch = {};                  // route id -> text in its Add stop box
 
 /* ── Route list ─────────────────────────────────────────── */
 
+/**
+ * "(~87 gal / 300) [28]" for a stop. A shared barrel's second stop points at
+ * the first by number in the route table; the collecting page has no stop
+ * numbers, so there it just says "(shared)".
+ */
+function stopLabelHtml(l, numbered = true) {
+  if (l.dupOf !== null) {
+    return `<span class="graytext" title="Same barrel as an earlier stop">(shared${numbered ? ` #${l.dupOf + 1}` : ""})</span>`;
+  }
+  return stopFiguresHtml(l.row, l.capacity ?? l.stop.capacity);
+}
+
 function stopRowsHtml(routeId, lines) {
   const n = lines.length;
   return lines.map((l, i) => `
@@ -49,21 +63,12 @@ function stopRowsHtml(routeId, lines) {
         <button type="button" class="btn btn-light btn-sm" data-act="down" data-route="${routeId}" data-i="${i}"
           ${i === n - 1 ? "disabled" : ""} aria-label="Move down">↓</button>
       </td>
-      <td><span class="${l.stop.must_get ? "hotlist" : ""}">${escapeHtml(l.stop.name)}</span>
+      <td class="ops-cust"><span class="${l.stop.must_get ? "hotlist" : ""}">${escapeHtml(l.stop.name)}</span>
+        ${stopLabelHtml(l)}
         <div class="ops-muted">${escapeHtml((l.row && l.row.town) || "")}${
-          l.row && l.row.section !== "ranked" ? ` · ${escapeHtml(l.row.status || l.row.section)}` : ""}${
           l.row && l.row.members ? " · shared barrel" : ""}</div></td>
-      <td class="text-end">${l.dupOf !== null ? `<span class="ops-muted">same barrel as #${l.dupOf + 1}</span>`
-        : l.est.kind === "projected" ? formatWhole(l.est.gal)
-        : l.est.kind === "typical" && l.est.gal ? `<span class="ops-muted">~${formatWhole(l.est.gal)} typical</span>` : "—"}</td>
-      <td class="text-end">${l.dupOf !== null ? `<span class="ops-muted">shared</span>` : formatWhole(l.capacity)}</td>
-      <td class="text-end">${l.row && l.row.pct_full != null ? `${Math.round(l.row.pct_full)}%` : "—"}</td>
-      <td class="text-nowrap">
-        <button type="button" class="btn btn-sm ${l.stop.must_get ? "btn-danger" : "btn-outline-danger"}"
-          data-act="must" data-route="${routeId}" data-i="${i}" title="Must Get">🚨</button>
-        <button type="button" class="btn btn-sm btn-outline-secondary" data-act="remove" data-route="${routeId}"
-          data-i="${i}" aria-label="Remove stop">✕</button>
-      </td>
+      <td><button type="button" class="btn btn-sm btn-outline-secondary" data-act="remove" data-route="${routeId}"
+          data-i="${i}" aria-label="Remove stop">✕</button></td>
     </tr>`).join("");
 }
 
@@ -100,13 +105,15 @@ function fillHtml(totals, routeId) {
 function routeHtml(route) {
   const stops = storeStops(store, route.route_id);
   const { totals, lines } = routeSummary(stops, data.index);
+  // Today's collections replace their stops' projections in every figure shown.
+  const live = { ...totals, ...liveRouteTotals(lines, store) };
   const id = route.route_id;
   return `
     <details class="ops-route" data-route-box="${id}" ${openRoutes.has(id) ? "open" : ""}>
       <summary>
         <span class="ops-route-name">${escapeHtml(route.name)}</span>
         <span class="ops-route-sum">${stops.length} stop${stops.length === 1 ? "" : "s"}${stops.length
-          ? ` · ${projectedRangeText(totals)} · capacity ${formatWhole(totals.capacity)}` : ""}</span>
+          ? ` · ~${formatWhole(live.projected)} gal` : ""}</span>
         ${store.trucks[id] ? `<span class="badge bg-secondary">${escapeHtml(store.trucks[id])}</span>` : ""}
       </summary>
       <div class="ops-route-body">
@@ -117,21 +124,18 @@ function routeHtml(route) {
           </select>
           <button type="button" class="btn btn-primary btn-sm" data-act="set" data-route="${id}"
             ${stops.length ? "" : "disabled"}>Set as My Route</button>
-          ${fillHtml(totals, id)}
+          ${fillHtml(live, id)}
         </div>
         ${route.aliases.length ? `<div class="ops-muted mb-2">Also called ${escapeHtml(route.aliases.join(", "))} on the source site.</div>` : ""}
         ${stops.length ? `
         <div class="table-responsive">
           <table class="table table-sm ops-stops mb-2">
-            <thead><tr><th>#</th><th>Move</th><th>Customer</th><th class="text-end">Projected gal</th>
-              <th class="text-end">Capacity</th><th class="text-end">% full</th><th></th></tr></thead>
+            <thead><tr><th>#</th><th>Move</th><th class="ops-cust">Customer</th>
+              <th></th></tr></thead>
             <tbody>${stopRowsHtml(id, lines)}</tbody>
-            <tfoot><tr><td>Total</td><td></td><td></td>
-              <td class="text-end">${formatWhole(totals.projected)}</td>
-              <td class="text-end">${formatWhole(totals.capacity)}</td><td></td><td></td></tr></tfoot>
+            <tfoot><tr><td colspan="4" class="ops-total-cap">Total projected gal: ${formatWhole(live.projected)} / ${formatWhole(totals.capacity)} capacity</td></tr></tfoot>
           </table>
-        </div>
-        <div class="mb-2"><strong>${projectedRangeText(totals)}</strong></div>` : `<div class="ops-muted mb-2">No stops.</div>`}
+        </div>` : `<div class="ops-muted mb-2">No stops.</div>`}
         <input type="search" class="form-control form-control-sm" data-add-search="${id}"
           placeholder="Add a stop: search name or town" value="${escapeHtml(addSearch[id] || "")}" autocomplete="off">
         <div data-add-results="${id}">${addMatchesHtml(id)}</div>
@@ -152,82 +156,129 @@ function renderList() {
 
 /* ── Driver view ────────────────────────────────────────── */
 
-/** Today's entries on this route in the shadow copy, by assignment id. */
-function todaysEntries(routeId) {
-  const today = todayIso();
-  const map = new Map();
-  store.collections.forEach(c => {
-    if (c.date === today && String(c.route_id) === String(routeId)) map.set(c.assignment_id, c);
-  });
-  return map;
-}
+let details = {};   // customer_details.json (+ local notes in a preview): address, notes, position
 
+let openDetails = null;   // customer id whose Details panel is open (one at a time)
+let activeId = null;      // customer id showing its controls; null = the next one to collect
+let compact = true;       // only the active stop shows controls (a per-phone preference)
+
+const COMPACT_KEY = "bbb-ops-compact";
+try { compact = window.localStorage.getItem(COMPACT_KEY) !== "off"; } catch (err) { /* default on */ }
+
+/**
+ * The route being driven, built for a phone in a cold truck:
+ *   - each stop is one line: name, then "(~87 gal / 300) [28]";
+ *   - in Compact (the default) only one stop shows its controls: the next one
+ *     to collect, or whichever line the driver taps. Save moves on to the next;
+ *   - controls are one row: gallons, Save, Maps, Details (1-3 typed = empty);
+ *   - collected stops turn green and drop below the rest, in the order collected;
+ *   - the tally and truck bar sit under the list, then the pin map.
+ */
 function renderDriver() {
   const route = routeList.find(r => String(r.route_id) === String(store.my.routeId));
   const stops = storeStops(store, store.my.routeId);
   if (!route || !stops.length) { store.my = null; saveStore(store); return renderList(); }
-  const { totals, lines } = routeSummary(stops, data.index);
-  const entries = todaysEntries(route.route_id);
-  const collected = [...entries.values()].reduce((s, c) => s + (c.gallons > 3 ? c.gallons : 0), 0);
+  const { lines } = routeSummary(stops, data.index);
   const truck = truckByName(store.trucks[route.route_id]);
-  const pct = truck ? Math.min(100, 100 * collected / truck.capacity) : 0;
+  const done = lines.map(l => todaysCollection(store, l.stop.customer_id));
+  const live = liveRouteTotals(lines, store);
+
+  // Uncollected stops in route order, then collected ones in the order entered.
+  const entered = new Map(store.collections.filter(c => c.date === todayIso()).map((c, k) => [c.customer_id, k]));
+  const order = lines.map((l, k) => k).sort((a, b) =>
+    (done[a] ? entered.get(lines[a].stop.customer_id) : -1) - (done[b] ? entered.get(lines[b].stop.customer_id) : -1) || a - b);
+  const next = order.find(k => !done[k]);
+  const current = activeId !== null && lines.some(l => l.stop.customer_id === activeId)
+    ? activeId : (next !== undefined ? lines[next].stop.customer_id : null);
+
+  const share = g => (truck ? Math.max(0, 100 * g / truck.capacity) : 0);
+  const solid = Math.min(100, share(live.collected));
+  const light = Math.min(100 - solid, share(live.remaining));
+  const over = truck && live.projected > truck.capacity;
 
   document.getElementById("page").innerHTML = `
-    <div class="ops-sticky py-2 mb-3">
-      <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2">
-        <h2 class="mb-0">${escapeHtml(route.name)}${truck ? ` <small class="text-muted">· ${escapeHtml(truck.name)}</small>` : ""}</h2>
-        <button type="button" class="btn btn-outline-secondary btn-sm" data-act="change">All routes</button>
-      </div>
-      <div class="ops-route-sum mt-1"><strong>${formatNumber(collected)} gal collected</strong> ·
-        ${entries.size} of ${lines.length} stops · ${projectedRangeText(totals)}</div>
-      ${truck ? `<div class="d-flex align-items-center gap-2 mt-1">
-        <div class="progress flex-grow-1"><div class="progress-bar ${pct > 90 ? "bg-danger" : "bg-success"}" style="width:${pct}%"></div></div>
-        <span class="small text-muted">${Math.round(pct)}% of ${formatNumber(truck.capacity)} gal</span></div>` : ""}
+    <div class="d-flex align-items-center gap-2 mb-2">
+      <div class="ops-drive-title flex-grow-1">${escapeHtml(route.name)}</div>
+      <label class="form-check-label text-nowrap small"><input type="checkbox" class="form-check-input" id="compact"
+        ${compact ? "checked" : ""}> Compact</label>
+      <button type="button" class="btn btn-outline-secondary btn-sm text-nowrap" data-act="change">All routes</button>
     </div>
-    ${lines.map((l, i) => {
-      const e = entries.get(l.stop.assignment_id);
-      const hint = l.dupOf !== null ? `same barrel as #${l.dupOf + 1}`
-        : l.est.kind === "projected" ? `~${formatWhole(l.est.gal)} gal projected`
-        : l.est.kind === "typical" && l.est.gal ? `~${formatWhole(l.est.gal)} gal typical` : "";
-      return `<div class="ops-stop${e ? " ops-done" : ""}">
-        <div class="d-flex flex-wrap justify-content-between gap-2">
-          <div>
-            <span class="ops-stop-num">${i + 1}.</span>
-            <span class="ops-stop-name ${l.stop.must_get ? "hotlist" : ""}">${escapeHtml(l.stop.name)}</span>
-            <span class="graytext">(${l.capacity ?? l.stop.capacity ?? "—"})</span>
-            ${l.stop.must_get ? `<span class="badge ops-badge-must">Must Get</span>` : ""}
-            <div class="small text-muted">${escapeHtml((l.row && l.row.town) || "")}${hint ? ` · ${hint}` : ""}${
-              l.stop.customer_id > 0 ? ` · <a href="${SOURCE_CUSTOMER_URL}${l.stop.customer_id}" target="_blank" rel="noopener">customer page</a>` : ""}</div>
-          </div>
-          <div class="ops-entry d-flex gap-2 align-items-center">
-            ${e ? `<span class="fs-5">${e.gallons <= 3 ? "Empty" : `${formatNumber(e.gallons)} gal`} ✓</span>
-                   <button type="button" class="btn btn-link btn-sm" data-act="undo" data-i="${i}">Edit</button>`
-                : `<input type="number" inputmode="numeric" min="0" class="form-control" id="gal-${i}" placeholder="gal">
-                   <button type="button" class="btn btn-success" data-act="save" data-i="${i}">Save</button>
-                   <button type="button" class="btn btn-outline-secondary" data-act="empty" data-i="${i}">Empty</button>`}
-          </div>
+    ${order.map(k => stopHtml(lines[k], k, done[k], !compact || lines[k].stop.customer_id === current)).join("")}
+    <div class="mt-2">
+      <div class="ops-route-sum"><strong>Total: ${formatNumber(live.collected)}</strong> of
+        ${formatWhole(live.projected)} projected gal · ${live.done} of ${lines.length} stops</div>
+      ${truck ? `<div class="d-flex align-items-center gap-2 mt-1">
+        <div class="progress flex-grow-1">
+          <div class="progress-bar ${over ? "bg-danger" : "bg-success"}" style="width:${solid}%"></div>
+          <div class="progress-bar ${over ? "bg-danger" : "bg-success"} ops-bar-pending" style="width:${light}%"></div>
         </div>
-      </div>`;
-    }).join("")}
-    <h5 class="mt-4">Today's totals</h5>
-    <pre class="border rounded p-2 bg-light">${escapeHtml(totalsText(lines, entries))}</pre>`;
+        <span class="small text-muted text-nowrap">${Math.round(share(live.projected))}% of ${escapeHtml(truck.name)}'s ${formatNumber(truck.capacity)} gal</span></div>` : ""}
+    </div>
+    <div id="route-map" class="ops-map mt-3 mb-1"></div>
+    <div class="ops-muted mb-3" id="map-note"></div>`;
+  drawRouteMap(lines, done);
 }
 
-/** The source site's Today's Totals shape: "Name: gallons", then the total. */
-function totalsText(lines, entries) {
-  const rows = lines.filter(l => entries.has(l.stop.assignment_id))
-    .map(l => `${l.stop.name}: ${entries.get(l.stop.assignment_id).gallons}`);
-  const total = [...entries.values()].reduce((s, c) => s + (c.gallons > 3 ? c.gallons : 0), 0);
-  return [...rows, `Total: ${formatNumber(total)}`].join("\n");
+function mapsUrl(id) {
+  const d = details[String(id)] || {};
+  const dest = d.lat != null && d.loc !== "town" ? `${d.lat},${d.lon}` : d.address;
+  return dest ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(dest)}` : null;
 }
 
-/** Record (or replace) today's entry for one stop. 1 = checked, empty. */
-function recordEntry(stop, gallons) {
-  const today = todayIso();
-  store.collections = store.collections.filter(c =>
-    !(c.date === today && c.assignment_id === stop.assignment_id));
-  store.collections.push({ customer_id: stop.customer_id, name: stop.name, gallons, date: today,
-    route_id: Number(store.my.routeId), assignment_id: stop.assignment_id });
+/** One stop: its line, then (when it is the one showing) its control row and Details. */
+function stopHtml(l, k, c, showing) {
+  const id = l.stop.customer_id;
+  const open = showing && openDetails === id;
+  const d = details[String(id)] || {};
+  const maps = mapsUrl(id);
+  const mapsBtn = maps
+    ? `<a class="btn ops-plain-btn" href="${maps}" target="_blank" rel="noopener">Maps</a>`
+    : `<button type="button" class="btn ops-plain-btn" disabled>Maps</button>`;
+  const detailsBtn = `<button type="button" class="btn ops-plain-btn${d.notes ? " ops-flag" : ""}" data-act="details"
+    data-id="${id}" aria-expanded="${open}">Details ${open ? "▴" : "▾"}</button>`;
+  const figures = !showing && c
+    ? `<span class="ops-line-figs text-success">✓ ${c.gallons <= 3 ? "Empty" : `${formatNumber(c.gallons)} gal`}</span>`
+    : `<span class="ops-line-figs">${stopLabelHtml(l, false)}</span>`;
+  return `<div class="ops-line${c ? " ops-done" : ""}${showing && compact ? " ops-current" : ""}" data-pick="${id}">
+    <div class="ops-line-head">
+      <span class="ops-line-name${l.stop.must_get ? " hotlist" : ""}" title="${escapeHtml(l.stop.name)}">${escapeHtml(l.stop.name)}</span>
+      ${figures}
+    </div>
+    ${showing ? `<div class="ops-row">
+      ${c ? `<span class="me-auto">${c.gallons <= 3 ? "Empty" : `${formatNumber(c.gallons)} gal`} ✓</span>
+             <button type="button" class="btn ops-plain-btn" data-act="undo" data-id="${id}">Edit</button>`
+          : `<input type="number" inputmode="numeric" min="0" class="form-control" id="gal-${k}" placeholder="gal"
+               aria-label="Gallons for ${escapeHtml(l.stop.name)}">
+             <button type="button" class="btn btn-success" data-act="save" data-i="${k}">Save</button>`}
+      ${mapsBtn}${detailsBtn}
+    </div>` : ""}
+    ${open ? `<div class="ops-line-details">
+      ${d.address ? (maps ? `<a href="${maps}" target="_blank" rel="noopener">${escapeHtml(d.address)}</a>` : escapeHtml(d.address)) : "No address on file"}
+      ${d.notes ? `<div>Notes: ${notesHtml(id, d.notes)}</div>` : ""}
+      <div class="mt-1"><a class="btn ops-plain-btn ops-cust-btn" href="ops-customer.html?id=${id}&from=myroute">Customer page ›</a></div>
+    </div>` : ""}
+  </div>`;
+}
+
+function drawRouteMap(lines, done) {
+  const map = L.map("route-map", { scrollWheelZoom: false });
+  opsTileLayer().addTo(map);
+  const pts = [];
+  let townOnly = 0, missing = 0;
+  lines.forEach((l, i) => {
+    const d = details[String(l.stop.customer_id)];
+    if (!d || d.lat == null) { missing++; return; }
+    if (d.loc === "town") townOnly++;
+    L.marker([d.lat, d.lon], { icon: routePinIcon("", !!done[i]) })
+      .bindTooltip(escapeHtml(l.stop.name)).addTo(map);
+    pts.push([d.lat, d.lon]);
+  });
+  if (pts.length) map.fitBounds(pts, { padding: [30, 30], maxZoom: 14 });
+  else map.setView([44.26, -72.58], 8);
+  const notes = [];
+  if (townOnly) notes.push(`${townOnly} pin${townOnly === 1 ? " is a town centre" : "s are town centres"} (address not matched)`);
+  if (missing) notes.push(`${missing} stop${missing === 1 ? " has" : "s have"} no position`);
+  document.getElementById("map-note").textContent = notes.join(" · ");
 }
 
 /* ── Events ─────────────────────────────────────────────── */
@@ -245,7 +296,6 @@ function onAct(b) {
     case "up": store.routes[routeId] = moveStop(stops, i, i - 1); break;
     case "down": store.routes[routeId] = moveStop(stops, i, i + 1); break;
     case "remove": store.routes[routeId] = removeStop(stops, i); break;
-    case "must": store.routes[routeId] = stops.map((s, j) => j === i ? { ...s, must_get: !s.must_get } : s); break;
     case "add": {
       const id = Number(d.id);
       const src = data.snap.assign_list.find(c => c.customer_id === id) ||
@@ -256,21 +306,28 @@ function onAct(b) {
       addSearch[routeId] = "";
       break;
     }
-    case "set": store.my = { routeId }; openRoutes.add(routeId); window.scrollTo(0, 0); break;
-    case "change": store.my = null; break;
+    case "set": store.my = { routeId }; activeId = null; openDetails = null; window.scrollTo(0, 0); break;
     case "save": {
-      const v = parseInt(document.getElementById(`gal-${i}`).value, 10);
-      if (!Number.isFinite(v) || v < 0) return;
-      recordEntry(storeStops(store, store.my.routeId)[i], v);
-      break;
-    }
-    case "empty": recordEntry(storeStops(store, store.my.routeId)[i], 1); break;
-    case "undo": {
       const stop = storeStops(store, store.my.routeId)[i];
-      store.collections = store.collections.filter(c =>
-        !(c.date === todayIso() && c.assignment_id === stop.assignment_id));
+      const gallons = parseInt(document.getElementById(`gal-${i}`).value, 10);
+      if (!Number.isFinite(gallons) || gallons < 0) return;
+      recordCollection(store, stop, gallons);
+      activeId = null;      // on to the next stop to collect
+      openDetails = null;
       break;
     }
+    case "undo":
+      store.collections = store.collections.filter(c =>
+        !(c.date === todayIso() && c.customer_id === Number(d.id)));
+      activeId = Number(d.id);   // stays open, back in its route place
+      break;
+    case "details": {
+      const id = Number(d.id);
+      openDetails = openDetails === id ? null : id;
+      render();
+      return;
+    }
+    case "change": store.my = null; activeId = null; openDetails = null; break;
     default: return;
   }
   saveStore(store);
@@ -281,7 +338,14 @@ function wire() {
   const page = document.getElementById("page");
   page.addEventListener("click", e => {
     const b = e.target.closest && e.target.closest("[data-act]");
-    if (b) onAct(b);
+    if (b) { onAct(b); return; }
+    // Compact: a tap on a stop's line shows that stop's controls, and closes
+    // any Details left open on another stop.
+    const line = e.target.closest && e.target.closest("[data-pick]");
+    if (store.my && compact && line && !e.target.closest("a, input, button, .ops-line-details")) {
+      const id = Number(line.dataset.pick);
+      if (id !== activeId) { activeId = id; openDetails = null; render(); }
+    }
   });
   page.addEventListener("toggle", e => {
     const id = e.target.dataset && e.target.dataset.routeBox;
@@ -290,6 +354,13 @@ function wire() {
   }, true);
   page.addEventListener("change", e => {
     const t = e.target;
+    if (t.id === "compact") {
+      compact = t.checked;
+      try { window.localStorage.setItem(COMPACT_KEY, compact ? "on" : "off"); } catch (err) { /* ignore */ }
+      activeId = null; openDetails = null;
+      render();
+      return;
+    }
     if (t.dataset.seq !== undefined) {
       const r = Number(t.dataset.route);
       store.routes[r] = setStopNumber(storeStops(store, r), Number(t.dataset.seq), t.value);
@@ -311,7 +382,7 @@ function wire() {
 async function init() {
   document.getElementById("nav").innerHTML = opsNavHtml("myroute");
   try {
-    data = await loadOpsData();
+    [data, details] = await Promise.all([loadOpsData(), loadCustomerDetails()]);
   } catch (err) {
     document.getElementById("page").innerHTML = `<div class="alert alert-danger">${escapeHtml(err.message)}</div>`;
     return;
