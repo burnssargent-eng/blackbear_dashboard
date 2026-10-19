@@ -311,6 +311,13 @@ MODEL_OVERRIDES = {
     529: Override(STATUS_TRUE_CLOSER, "Jay Peak-Stateside (loading dock)", "Nov-Jun",
                   "Quiet Jul, low Aug-Oct, repeatability 0.85. Close call: one "
                   "October pickup (2024)."),
+    # Golf courses under the detector's 300 gal/yr floor (Sarge, 2026-10-18):
+    # without these the return stage or the 50/50 kept them filling all winter.
+    1059: Override(STATUS_TRUE_CLOSER, "Sugarbush Resort Golf Course", "Jun-Oct",
+                   "Golf course: pickups only Jun-Oct since 2022 (its one November "
+                   "pickup, 2021-11-29, was its first). ~150 gal/yr."),
+    517: Override(STATUS_TRUE_CLOSER, "Enosburgh Falls Country Club", "Jun-Oct",
+                  "Golf course: pickups only Jun-Oct since 2018. ~100 gal/yr."),
 
     # ── semi-closer / call-driven: held out while off-season AND silent ──
     934: Override(STATUS_SEMI_CLOSER, "Okemo-Jackson Gore Inn", "Dec-Apr",
