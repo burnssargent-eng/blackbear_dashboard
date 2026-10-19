@@ -216,7 +216,10 @@ keep using it, so the cap changes no order.
 `analysis/replay_newcomers.md`): fewer than 3 pickups is insufficient (the
 first pickup only starts the clock; its gallons never enter a rate — and a
 customer back after more than 365 days counts its pickups from the return,
-`COMEBACK_HOLD_DAYS`, since 2026-10-15); *new* =
+`COMEBACK_HOLD_DAYS`, since 2026-10-15; back after 181–365 days from a
+closure that repeats an earlier year's, its 2nd and 3rd pickups back are a
+*return* — same time last year, then half that and half the first rate back —
+and any other such return is held, since 2026-10-18); *new* =
 pooled rate over at most the last 6 gaps — also used, from the reopening on,
 for a customer back after a gap longer than `STALE_DAYS` inside a rate window
 (`dormant_restart`, since 2026-10-09; `dormant_restart.md`); *established* (a previous-year rate

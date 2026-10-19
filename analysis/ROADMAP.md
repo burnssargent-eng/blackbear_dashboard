@@ -4,7 +4,7 @@ What comes next for the pickup projections, and what is in flight. The method
 and its history are in [`README.md`](README.md); read that first.
 
 Owner: Sarge. Business direction (regions, capacities, what a route means):
-Jim. Last updated 2026-10-11 — **update the "In flight" section whenever a step
+Jim. Last updated 2026-10-17 — **update the "In flight" section whenever a step
 finishes**, so a fresh session does not redo or skip it.
 
 ## In flight
@@ -58,11 +58,26 @@ runs on a copy of its data, and every change stays in the viewer's browser.
 ### Comeback hold (2026-10-15)
 
 Customers back after more than a year without a pickup are insufficient data
-until 3 pickups since the return (7 ranked rows today). Still open: returns
-after 181–365 days (mostly seasonal reopenings) are projected ~50% low on
-their first two pickups — tie it to asking Jim how the first visit of a
-season is timed. Re-test a 2-pickup hold in 2027, once its 2024–26 win (17
-pickups) has more behind it.
+until 3 pickups since the return (7 ranked rows today). Re-test a 2-pickup
+hold in 2027, once its 2024–26 win (17 pickups) has more behind it.
+
+### Return stage, seasonal reopenings after 181–365 days (2026-10-18)
+
+A reopening's 2nd and 3rd pickups back are projected from the same time last
+year (then half that, half the first rate back); any other 181–365-day return
+is held as insufficient data (`comeback_level_shift_research/return_guards.md`,
+V2). 5 return rows and 15 held today. **Sarge to decide: Sugarbush Resort Golf
+Course and Enosburgh Falls CC into `MODEL_OVERRIDES` as true closers
+(Jun–Oct?)** — both are under the detector's 300 gal/yr floor, so nothing stops
+Sugarbush's projection growing through the winter until it goes stale. **Watch the *return* stage in the live test through the 2027
+spring reopenings**: dev years alone were inconclusive, 2021 was worse, and
+the reopening split was chosen after seeing 2024–26. Also watch what the 15
+held rows do — the hold hides some real stops (the 50/50 caught 102 of 758
+pickup-weeks there). Enosburgh Falls CC is held as "not a reopening" although
+it is plainly seasonal: its earlier closures don't line up month-for-month. Still worth
+asking Jim how the first visit of a season is timed. From the same study, not
+adopted: open-day exposure (A1) and a smoothed level for the 50/50 (C4) —
+re-test C4 on 2027 pickups with D frozen at 90.
 
 ### Projection capped at capacity (2026-10-15)
 

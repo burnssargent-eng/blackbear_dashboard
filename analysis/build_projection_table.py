@@ -148,6 +148,35 @@ STALE_DAYS = 180
 # better and would empty ~20 rows each spring.
 COMEBACK_HOLD_DAYS = 365
 
+# Back after 181-365 days, the 50/50 divides the first pickups back by the
+# closed months: the 2nd and 3rd pickups back ran -51% (2018-26 replay).
+# Until the dormant restart takes over at NEW_MIN_PICKUPS since the return:
+#   - a REOPENING (the gap repeats an earlier closure: a gap over
+#     RETURN_PRIOR_GAP_DAYS, at least RETURN_PRIOR_MIN_DAYS earlier, whose
+#     midpoint is within a month of this one's) is a *return*:
+#       2nd pickup back  same time last year(s): production per day over the
+#                        date +/- RETURN_LY_HALF_WIDTH, 1-3 years back,
+#                        averaged over the years with data (window_rate)
+#       3rd pickup back  RETURN_RECENT_WEIGHT x the rate from the 1st to the
+#                        2nd pickup back + the rest x the same-time rate
+#   - any other return, or a reopening with no past year at that date, is
+#     held as insufficient data: a fading account's old same-time rate is a
+#     different business (What Ales You, 2026-10-18: 2023's 3.5 gal/day), and
+#     every rate tried for these overshot (return_guards.md V1, V5, V5b).
+# Closers keep their open-season rate; the seasonal stage keeps its own
+# formula. A small seasonal account the closer detector misses (under 300
+# gal/yr) belongs in MODEL_OVERRIDES, not in a second closed-months rule
+# (V3/V4 tested it: 8 closed-month flags in 8 years, at a cost in accuracy).
+# Backtest (Oct-15 replay, eval years, return_guards.md V2): reopenings
+# 60.3% -> 39.4% WAPE, bias -57% -> -16%, 7 of 8 years better, dev 2021-23
+# alone -13.7 (-23.0 to -0.6); flagged weeks with no pickup in 30 d 77% -> 51%.
+STAGE_RETURN = "return"
+RETURN_LY_HALF_WIDTH = 15
+RETURN_LY_YEARS = (1, 2, 3)
+RETURN_RECENT_WEIGHT = 0.5
+RETURN_PRIOR_GAP_DAYS = 120
+RETURN_PRIOR_MIN_DAYS = 300
+
 # The ladder (replay_newcomers.md, 2026-10-08).
 NEW_MIN_PICKUPS = 3             # the first is a starting point: 3 pickups = 2 gaps
 STAGE_NEW = "new"
@@ -155,6 +184,7 @@ STAGE_ESTABLISHED = "established"
 STAGE_SEASONAL = "seasonal"
 STAGE_CLOSER = "closer in season"
 STAGE_CLOSER_OFF = "closer off-season"   # ranked on a recent call; accrues on open days only
+# STAGE_RETURN ("return") is defined with the comeback rules above.
 
 # Will-call: chosen on 2021-23 gaps, confirmed on 2024-26.
 WILL_CALL_WINDOW_DAYS = 3 * 365
@@ -173,6 +203,7 @@ RANGE_FACTORS = {
     "new, 4+ gaps": (0.70, 1.35),
     STAGE_ESTABLISHED: (0.75, 1.45),
     STAGE_CLOSER: (0.62, 1.64),     # seasonal_closed.md, open-season rate
+    STAGE_RETURN: (0.64, 1.99),     # return_guards.md V2, dev 2021-23 (55 pickups: thin)
 }
 
 # A closer's in-season rate needs at least this many open-season gaps;
@@ -1120,6 +1151,76 @@ def route(override, has_rate, days_since, last_date, pickups, asof, will_call=No
 # Build
 # ─────────────────────────────────────────────
 
+def return_gap(pickups, low=STALE_DAYS, high=COMEBACK_HOLD_DAYS):
+    """
+    (index of the first pickup back, gap in days, pickups since) when the
+    latest gap in (low, high] has fewer than NEW_MIN_PICKUPS pickups after
+    it, else None.
+    """
+    n = len(pickups)
+    for i in range(n - 1, max(n - NEW_MIN_PICKUPS, 0), -1):
+        gap = (pickups[i]["date"] - pickups[i - 1]["date"]).days
+        if gap > low:
+            return (i, gap, n - i) if gap <= high else None
+    return None
+
+
+def rate_same_time_last_year(pickups, asof):
+    """
+    Production per day over asof +/- RETURN_LY_HALF_WIDTH, 1-3 years back,
+    averaged over the years with data; or None. Zero in every year counts as
+    no data: it means each window fell in a gap the spread leaves empty (Tata,
+    2026-10-16: 0 gal/day from inside its own 283-day gap). Partly empty
+    windows are kept -- dropping every window that touches a long gap made the
+    backtest worse (bias -50% -> +12%): last year's closure edge is real.
+    """
+    daily = ss.daily_production(pickups)
+    first = pickups[0]["date"]
+    years = [r for r in (window_rate(daily, first, asof - timedelta(days=YEAR_DAYS * back),
+                                     RETURN_LY_HALF_WIDTH) for back in RETURN_LY_YEARS)
+             if r is not None]
+    return statistics.fmean(years) if years and any(years) else None
+
+
+def repeats_closure(pickups, i):
+    """True when the gap before pickup i repeats an earlier year's closure (see STAGE_RETURN)."""
+    a, b = pickups[i - 1]["date"], pickups[i]["date"]
+    mid = a + (b - a) / 2
+    for j in range(1, i - 1):
+        pa, pb = pickups[j - 1]["date"], pickups[j]["date"]
+        if (pb - pa).days <= RETURN_PRIOR_GAP_DAYS:
+            continue
+        earlier = pa + (pb - pa) / 2
+        months_apart = min((mid.month - earlier.month) % 12, (earlier.month - mid.month) % 12)
+        if (mid - earlier).days >= RETURN_PRIOR_MIN_DAYS and months_apart <= 1:
+            return True
+    return False
+
+
+def return_rate(pickups, asof):
+    """
+    (rate or None, gap, pickups since) for a customer back after 181-365
+    days with 1-2 pickups since, else None. See STAGE_RETURN. A None rate
+    holds the row as insufficient data: not a reopening, or no past year at
+    this date.
+    """
+    back = return_gap(pickups)
+    if not back:
+        return None
+    i, gap, since = back
+    if not repeats_closure(pickups, i):
+        return None, gap, since
+    last_year = rate_same_time_last_year(pickups, asof)
+    if last_year is None:
+        return None, gap, since
+    if since == 1:
+        return last_year, gap, since
+    first_back = bsm.rate_span(pickups, i, i + 1)
+    if first_back is None:
+        return None, gap, since
+    return RETURN_RECENT_WEIGHT * first_back + (1 - RETURN_RECENT_WEIGHT) * last_year, gap, since
+
+
 def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
     last = pickups[-1]
     days_since = (asof - last["date"]).days
@@ -1185,6 +1286,18 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
         if closer_rate is not None:
             stage, rate = STAGE_CLOSER, closer_rate
             restart = None          # the open-season rate wins; no restart shown
+    # Back after 181-365 days, before the restart can fire: same time last
+    # year, not the 50/50 diluted by the closed months.
+    returning = None
+    if (stage in (STAGE_ESTABLISHED, STAGE_NEW) and not restart
+            and not (override and override.status in SEASONAL_STATUSES)
+            and days_since <= STALE_DAYS and not will_call):
+        returning = return_rate(pickups, asof)
+        if returning:
+            rate = returning[0]
+            stage = STAGE_RETURN if rate is not None else None
+            if rate is None:
+                comeback = returning[1:]   # held: not a reopening, or no past year
     # Stale and the off-season silence rule stay on the last PICKUP (a check is
     # not oil); "awaiting first pickup" uses the clock, so an in-season empty
     # check counts as a fresh start.
@@ -1235,13 +1348,14 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
     low = high = None
     band_used = ""
     if estimate is not None:
-        if stage not in (STAGE_NEW, STAGE_CLOSER, STAGE_CLOSER_OFF) and cid in wape:
+        if stage not in (STAGE_NEW, STAGE_CLOSER, STAGE_CLOSER_OFF, STAGE_RETURN) and cid in wape:
             band_pct = wape[cid]
             band_used = f"customer WAPE {band_pct:.1f}%"
             low = max(0.0, estimate * (1 - band_pct / 100))
             high = estimate * (1 + band_pct / 100)
         else:
             key = (STAGE_CLOSER if stage in (STAGE_CLOSER, STAGE_CLOSER_OFF)
+                   else STAGE_RETURN if stage == STAGE_RETURN
                    else STAGE_ESTABLISHED if stage != STAGE_NEW
                    else f"new, {gaps} gaps" if gaps <= 3 else "new, 4+ gaps")
             lo_f, hi_f = RANGE_FACTORS[key]
@@ -1298,6 +1412,8 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
         "avg_collection_all": average_collection_all(pickups),
         "restart_from": pickups[restart[0]]["date"].isoformat() if restart else None,
         "restart_gap_days": restart[1] if restart else None,
+        "return_gap_days": returning[1] if returning and rate is not None else None,
+        "return_pickups_since": returning[2] if returning and rate is not None else None,
         "collections_per_year": collections_per_year(pickups),
         "oil_rate_gpd_projected": rate,
         "current_projected_gallons": shown(estimate),
@@ -1423,7 +1539,7 @@ DETAIL_FIELDS = [
     "customer_id", "customer", "town", "table_section", "model_status", "stage",
     "routing_reason", "active_season", "inferred_active_season",
     "override_reason", "review_hint", "flags",
-    "restart_from", "restart_gap_days",
+    "restart_from", "restart_gap_days", "return_gap_days", "return_pickups_since",
     "shared_members_text", "history_start", "registry_note",
     "pickup_count", "first_pickup", "last_pickup_date",
     "days_since_last_pickup", "last_empty_check", "days_accumulating",
@@ -1508,6 +1624,8 @@ def write_json(rows, asof):
         "periodicity_days": value(r, "implied_periodicity_days"),
         "restart_from": r.get("restart_from"),
         "restart_gap_days": r.get("restart_gap_days"),
+        "return_gap_days": r.get("return_gap_days"),
+        "return_pickups_since": r.get("return_pickups_since"),
         "flags": r["flags"].split("; ") if r["flags"] else [],
     } for r in rows]
 
@@ -1523,6 +1641,7 @@ def write_json(rows, asof):
         "beta": True,
         "target_fraction": TARGET_FRACTION,
         "stale_days": STALE_DAYS,
+        "comeback_hold_days": COMEBACK_HOLD_DAYS,
         "section_order": SECTION_ORDER,
         "region_order": list(oil_data.get("region_names", [])) + ["Other"],
         "customers": customers,
@@ -1721,7 +1840,12 @@ precedence order:
    longest-since-pickup first.
 3. **insufficient data** -- fewer than {NEW_MIN_PICKUPS} pickups, or fewer
    than {NEW_MIN_PICKUPS} since a return after more than {COMEBACK_HOLD_DAYS}
-   days without one.
+   days without one. Back after {STALE_DAYS + 1}-{COMEBACK_HOLD_DAYS} days from a
+   closure that repeats an earlier year's, a row is a *{STAGE_RETURN}* until
+   then: the 2nd pickup back on its rate at the same time of year (date +/-
+   {RETURN_LY_HALF_WIDTH} days, 1-3 years back), the 3rd on half that and half
+   the rate from the 1st to the 2nd pickup back. Any other return after {STALE_DAYS + 1}-{COMEBACK_HOLD_DAYS} days,
+   or one with no past year at that date, is insufficient data too.
 4. **{STATUS_TRUE_CLOSER}** -- outside its configured month-level season it is
    held out as *off-season*, however long the silence. In season, if the last
    pickup came before the season opened, it is held out as *season open --
@@ -1762,7 +1886,7 @@ Capacity problems are reported in *flags*, separately from the model status.
 |---|---:|
 | Active customers considered | {counts['active']} |
 | Model-ready (a stage rate) | {counts['model_ready']} |
-| — stage new / established / seasonal / closer in season / closer off-season | {counts['stages']} |
+| — stage new / established / seasonal / closer in season / closer off-season / return | {counts['stages']} |
 | Detected closers (not in the registry) | {counts['detected_closers']} |
 | — ranked in the main table | {len(ranked)} |
 | — seasonal holdouts | {len(seasonal)} |
@@ -1967,7 +2091,7 @@ def main():
                            if r["oil_rate_gpd_projected"] is not None),
         "stages": " / ".join(str(sum(1 for r in rows if r["stage"] == st))
                              for st in (STAGE_NEW, STAGE_ESTABLISHED, STAGE_SEASONAL,
-                                        STAGE_CLOSER, STAGE_CLOSER_OFF)),
+                                        STAGE_CLOSER, STAGE_CLOSER_OFF, STAGE_RETURN)),
         "detected_closers": sum(1 for r in rows if r["model_status"] == STATUS_DETECTED_CLOSER),
         "with_wape": sum(1 for r in ranked if r["model_wape_if_available"] is not None),
         "capacity_warning": sum(1 for r in rows if FLAG_OVER_CAPACITY in r["flags"]

@@ -361,6 +361,13 @@ function restartNote(c) {
     `${formatNumber(c.restart_gap_days)}-day gap) — wide range`;
 }
 
+/** Back after 181-365 days: the rate from the same time last year (and the first pickup back). */
+function returnNote(c) {
+  return `Back after a ${formatNumber(c.return_gap_days)}-day gap: rate from the same time last year` +
+    (c.return_pickups_since === 2 ? ", blended with the first pickup back" : "") +
+    " — wide range";
+}
+
 /** Why the clock restarted after the last pickup. */
 function emptyCheckNote(c) {
   return `Checked empty ${formatDate(c.last_empty_check)}, counting from then`;
@@ -377,6 +384,7 @@ function notesHtml(c) {
   if (c.stage === "seasonal") lines.push("Seasonal rate (adjusted for the month)");
   if (c.stage === "closer in season") lines.push(`In-season rate (open ${c.season})`);
   if (c.stage === "closer off-season") lines.push(`Off-season: counting open-season days only (open ${c.season})`);
+  if (c.stage === "return") lines.push(returnNote(c));
   (c.flags || []).forEach(f => lines.push(f));
   return lines.length
     ? `<div class="proj-notes">${lines.map(escapeHtml).join("<br>")}</div>`
