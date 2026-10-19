@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-18T11:59:59.909495",
+  "last_updated": "2026-10-19T14:19:21.758488",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33699,6 +33699,12 @@
     },
     {
       "month": "2026-10",
+      "geo_town": "Bolton",
+      "gallons": 100,
+      "city": "Bolton"
+    },
+    {
+      "month": "2026-10",
       "geo_town": "Bradford",
       "gallons": 32,
       "city": "Bradford"
@@ -33880,7 +33886,7 @@
     {
       "month": "2026-10",
       "geo_town": "Waitsfield",
-      "gallons": 495,
+      "gallons": 525,
       "city": "Waitsfield"
     },
     {
@@ -41680,7 +41686,7 @@
     {
       "month": "2026-10",
       "county": "Chittenden",
-      "gallons": 5372
+      "gallons": 5472
     },
     {
       "month": "2026-10",
@@ -41710,7 +41716,7 @@
     {
       "month": "2026-10",
       "county": "Washington",
-      "gallons": 2765
+      "gallons": 2795
     },
     {
       "month": "2026-10",
@@ -41765,11 +41771,11 @@
     },
     {
       "year": 2026,
-      "gallons": 238064
+      "gallons": 238194
     }
   ],
-  "all_time_total": 2156831,
-  "current_year_total": 238064,
+  "all_time_total": 2156961,
+  "current_year_total": 238194,
   "customer_count": 802,
   "unmapped_total": 40059,
   "monthly_totals": [
@@ -42339,7 +42345,7 @@
     },
     {
       "month": "2026-10",
-      "gallons": 13008
+      "gallons": 13138
     }
   ],
   "monthly_by_region": [
@@ -54031,7 +54037,7 @@
     {
       "month": "2026-10",
       "region": "Ski Slopes",
-      "gallons": 580
+      "gallons": 680
     },
     {
       "month": "2026-10",
@@ -54056,17 +54062,17 @@
     {
       "month": "2026-10",
       "region": "Warren / Waitsfield",
-      "gallons": 690
+      "gallons": 720
     },
     {
       "month": "2026-10",
       "region": "Waterbury / Stowe",
-      "gallons": 1885
+      "gallons": 1985
     },
     {
       "month": "2026-10",
       "region": "Winter / Summer Combined",
-      "gallons": 1310
+      "gallons": 1410
     }
   ],
   "yearly_by_region": [
@@ -55153,7 +55159,7 @@
     {
       "year": 2026,
       "region": "Ski Slopes",
-      "gallons": 16305
+      "gallons": 16405
     },
     {
       "year": 2026,
@@ -55178,17 +55184,17 @@
     {
       "year": 2026,
       "region": "Warren / Waitsfield",
-      "gallons": 7880
+      "gallons": 7910
     },
     {
       "year": 2026,
       "region": "Waterbury / Stowe",
-      "gallons": 33160
+      "gallons": 33260
     },
     {
       "year": 2026,
       "region": "Winter / Summer Combined",
-      "gallons": 29380
+      "gallons": 29480
     }
   ],
   "region_names": [
@@ -55237,29 +55243,29 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 27758,
+  "collections_count": 27760,
   "out_of_state_total": 40059,
-  "active_customer_count": 530,
+  "active_customer_count": 527,
   "projection": {
-    "latest_data_date": "2026-10-16",
+    "latest_data_date": "2026-10-19",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 238064,
+    "current_ytd": 238194,
     "previous_year_full": 269909,
     "previous_through_prior_month": 208859,
     "previous_same_month_total": 21968,
-    "previous_prorated_ytd": 220197.32,
-    "projected_current_year": 291809,
-    "percent_vs_previous_year": 0.081139
+    "previous_prorated_ytd": 222323.26,
+    "projected_current_year": 289177,
+    "percent_vs_previous_year": 0.071386
   },
   "region_stats": {
     "Burlington / South Burlington": {
       "customers": 239,
-      "active": 89
+      "active": 88
     },
     "Central": {
       "customers": 98,
-      "active": 68
+      "active": 67
     },
     "Central South": {
       "customers": 43,
@@ -55323,7 +55329,7 @@
     },
     "Waterbury / Stowe": {
       "customers": 66,
-      "active": 50
+      "active": 49
     },
     "Winter / Summer Combined": {
       "customers": 50,
@@ -55412,8 +55418,8 @@
       "year": 2026,
       "places_serviced": 472,
       "gained": 40,
-      "lost": 6,
-      "net": 34
+      "lost": 9,
+      "net": 31
     }
   ],
   "dormant_cutoff": "2025-01-01",

@@ -1,41 +1,41 @@
 {
- "data_last_updated": "2026-10-18T11:59:59.909495",
- "latest_pickup": "2026-10-16",
+ "data_last_updated": "2026-10-19T14:19:21.758488",
+ "latest_pickup": "2026-10-19",
  "summary": [
   {
    "window": "Last 7 days",
-   "from": "2026-10-10",
-   "scored": 73,
-   "not_projected": 4,
-   "projected_total": 5880.7,
-   "actual_total": 6122,
-   "net_error": -241.3,
+   "from": "2026-10-13",
+   "scored": 60,
+   "not_projected": 3,
+   "projected_total": 5276.2,
+   "actual_total": 5532,
+   "net_error": -255.8,
    "wape": 29.0,
-   "bias": -3.9,
-   "median_miss": 13.0
+   "bias": -4.6,
+   "median_miss": 13.6
   },
   {
    "window": "Last 30 days",
-   "from": "2026-09-17",
-   "scored": 248,
+   "from": "2026-09-20",
+   "scored": 250,
    "not_projected": 31,
-   "projected_total": 17857.8,
-   "actual_total": 18768,
-   "net_error": -910.2,
-   "wape": 26.8,
-   "bias": -4.8,
+   "projected_total": 18136.2,
+   "actual_total": 18898,
+   "net_error": -761.8,
+   "wape": 27.5,
+   "bias": -4.0,
    "median_miss": 12.9
   },
   {
    "window": "All",
    "from": null,
-   "scored": 248,
+   "scored": 250,
    "not_projected": 31,
-   "projected_total": 17857.8,
-   "actual_total": 18768,
-   "net_error": -910.2,
-   "wape": 26.8,
-   "bias": -4.8,
+   "projected_total": 18136.2,
+   "actual_total": 18898,
+   "net_error": -761.8,
+   "wape": 27.5,
+   "bias": -4.0,
    "median_miss": 12.9
   }
  ],
@@ -53,25 +53,25 @@
   },
   {
    "stage": "established",
-   "scored": 62,
+   "scored": 63,
    "not_projected": 0,
-   "projected_total": 4704.9,
-   "actual_total": 4974,
-   "net_error": -269.1,
+   "projected_total": 4725.7,
+   "actual_total": 5004,
+   "net_error": -278.3,
    "wape": 30.7,
-   "bias": -5.4,
+   "bias": -5.6,
    "median_miss": 12.9
   },
   {
    "stage": "new",
-   "scored": 13,
+   "scored": 14,
    "not_projected": 0,
-   "projected_total": 934.5,
-   "actual_total": 940,
-   "net_error": -5.5,
-   "wape": 41.7,
-   "bias": -0.6,
-   "median_miss": 19.6
+   "projected_total": 1192.1,
+   "actual_total": 1040,
+   "net_error": 152.1,
+   "wape": 52.9,
+   "bias": 14.6,
+   "median_miss": 20.6
   },
   {
    "stage": "seasonal",
@@ -92,6 +92,49 @@
   "stale": 5
  },
  "days": [
+  {
+   "date": "2026-10-19",
+   "scored": 2,
+   "not_projected": 0,
+   "projected_total": 278.4,
+   "actual_total": 130,
+   "net_error": 148.4,
+   "wape": 128.3,
+   "bias": 114.2,
+   "median_miss": 83.4,
+   "rows": [
+    {
+     "id": 279,
+     "name": "Bolton Valley",
+     "town": "Bolton",
+     "stage": "new",
+     "section": "ranked",
+     "previous_pickup": "2026-08-11",
+     "predicted_as_of": "2026-10-16",
+     "projected": 257.6,
+     "range_low": 182.8,
+     "range_high": 300,
+     "actual": 100,
+     "error": 157.6,
+     "pct_error": 157.6
+    },
+    {
+     "id": 204,
+     "name": "Village Grocery",
+     "town": "Waitsfield",
+     "stage": "established",
+     "section": "ranked",
+     "previous_pickup": "2026-09-05",
+     "predicted_as_of": "2026-10-16",
+     "projected": 20.8,
+     "range_low": 15.6,
+     "range_high": 30.2,
+     "actual": 30,
+     "error": -9.2,
+     "pct_error": -30.7
+    }
+   ]
+  },
   {
    "date": "2026-10-16",
    "scored": 11,

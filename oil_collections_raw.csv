@@ -860,105 +860,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 127,The Meltdown-Barre,Barre,Washington,2021-05-04,2021,2021-05,65,True,Barre City
 127,The Meltdown-Barre,Barre,Washington,2021-01-13,2021,2021-01,25,True,Barre City
 127,The Meltdown-Barre,Barre,Washington,2020-11-12,2020,2020-11,60,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2026-08-19,2026,2026-08,7,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2026-08-18,2026,2026-08,20,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2026-07-20,2026,2026-07,65,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2026-06-25,2026,2026-06,45,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2026-05-29,2026,2026-05,55,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2026-05-08,2026,2026-05,75,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2026-04-17,2026,2026-04,65,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2026-03-25,2026,2026-03,110,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2026-02-24,2026,2026-02,35,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2026-02-03,2026,2026-02,20,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2026-01-14,2026,2026-01,55,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2025-12-09,2025,2025-12,10,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2025-11-24,2025,2025-11,70,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2025-10-30,2025,2025-10,40,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2025-10-10,2025,2025-10,65,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2025-09-15,2025,2025-09,20,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2025-09-04,2025,2025-09,90,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2025-08-18,2025,2025-08,90,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2025-07-22,2025,2025-07,60,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2025-06-30,2025,2025-06,70,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2025-06-06,2025,2025-06,40,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2025-05-12,2025,2025-05,20,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2025-05-01,2025,2025-05,45,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2025-04-07,2025,2025-04,60,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2025-03-14,2025,2025-03,80,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2025-01-29,2025,2025-01,45,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2024-12-31,2024,2024-12,30,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2024-12-07,2024,2024-12,60,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2024-11-05,2024,2024-11,40,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2024-10-11,2024,2024-10,60,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2024-09-26,2024,2024-09,35,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2024-09-02,2024,2024-09,50,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2024-08-07,2024,2024-08,30,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2024-07-17,2024,2024-07,65,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2024-05-30,2024,2024-05,30,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2024-05-06,2024,2024-05,40,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2024-04-11,2024,2024-04,90,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2024-02-23,2024,2024-02,65,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2024-01-25,2024,2024-01,45,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2023-12-20,2023,2023-12,85,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2023-10-30,2023,2023-10,65,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2023-10-03,2023,2023-10,100,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2023-07-27,2023,2023-07,35,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2023-06-28,2023,2023-06,10,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2023-06-12,2023,2023-06,65,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2023-05-03,2023,2023-05,70,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2023-04-03,2023,2023-04,60,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2023-02-14,2023,2023-02,30,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2023-01-19,2023,2023-01,60,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2022-12-27,2022,2022-12,65,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2022-11-28,2022,2022-11,80,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2022-10-28,2022,2022-10,80,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2022-09-28,2022,2022-09,70,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2022-08-12,2022,2022-08,50,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2022-07-05,2022,2022-07,50,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2022-06-01,2022,2022-06,50,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2022-04-28,2022,2022-04,70,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2022-03-24,2022,2022-03,250,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2022-03-02,2022,2022-03,40,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2022-02-03,2022,2022-02,30,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2021-12-30,2021,2021-12,180,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2021-12-15,2021,2021-12,150,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2021-11-15,2021,2021-11,70,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2021-10-26,2021,2021-10,60,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2021-10-11,2021,2021-10,125,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2021-09-13,2021,2021-09,100,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2021-08-09,2021,2021-08,100,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2021-07-26,2021,2021-07,75,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2021-07-12,2021,2021-07,50,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2021-06-27,2021,2021-06,80,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2021-06-14,2021,2021-06,150,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2021-05-26,2021,2021-05,80,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2021-03-20,2021,2021-03,170,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2021-02-23,2021,2021-02,25,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2021-02-01,2021,2021-02,60,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2021-01-13,2021,2021-01,90,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2020-12-22,2020,2020-12,60,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2020-11-12,2020,2020-11,50,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2020-11-03,2020,2020-11,70,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2020-10-19,2020,2020-10,50,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2020-10-11,2020,2020-10,175,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2020-09-09,2020,2020-09,200,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2020-07-30,2020,2020-07,175,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2020-06-15,2020,2020-06,180,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2020-05-09,2020,2020-05,175,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2020-04-01,2020,2020-04,160,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2020-02-27,2020,2020-02,75,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2020-02-18,2020,2020-02,75,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2020-02-12,2020,2020-02,125,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2020-01-15,2020,2020-01,150,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2019-12-19,2019,2019-12,75,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2019-12-05,2019,2019-12,125,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2019-11-14,2019,2019-11,80,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2019-10-23,2019,2019-10,100,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2019-10-01,2019,2019-10,100,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2019-09-11,2019,2019-09,100,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2019-08-19,2019,2019-08,100,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2019-07-30,2019,2019-07,80,True,Barre City
-125,The Quarry-Barre,Barre,Washington,2019-07-01,2019,2019-07,125,True,Barre City
 119,Thunder Road  4567,Barre,Washington,2026-10-15,2026,2026-10,145,True,Barre Town
 119,Thunder Road  4567,Barre,Washington,2026-09-09,2026,2026-09,115,True,Barre Town
 119,Thunder Road  4567,Barre,Washington,2026-08-20,2026,2026-08,130,True,Barre Town
@@ -1553,6 +1454,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 803,Toziers-,Bethel,Windsor,2016-08-03,2016,2016-08,25,True,Bethel
 803,Toziers-,Bethel,Windsor,2016-07-28,2016,2016-07,40,True,Bethel
 1506,NH State Penitentiary,Burlington,Chittenden,2026-07-21,2026,2026-07,145,True,Burlington
+279,Bolton Valley,Bolton Valley,Chittenden,2026-10-19,2026,2026-10,100,True,Bolton
 279,Bolton Valley,Bolton Valley,Chittenden,2026-08-11,2026,2026-08,250,True,Bolton
 279,Bolton Valley,Bolton Valley,Chittenden,2026-03-17,2026,2026-03,300,True,Bolton
 279,Bolton Valley,Bolton Valley,Chittenden,2026-02-10,2026,2026-02,260,True,Bolton
@@ -2619,58 +2521,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-02-06,2015,2015-02,50,True,Burlington
 321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-01-15,2015,2015-01,50,True,Burlington
 321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-01-02,2015,2015-01,60,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2026-05-26,2026,2026-05,100,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2026-04-24,2026,2026-04,50,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2026-03-31,2026,2026-03,85,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2026-02-24,2026,2026-02,65,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2026-01-29,2026,2026-01,65,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2026-01-06,2026,2026-01,70,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-12-04,2025,2025-12,65,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-11-04,2025,2025-11,60,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-10-09,2025,2025-10,75,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-09-08,2025,2025-09,65,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-08-12,2025,2025-08,65,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-07-15,2025,2025-07,55,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-06-25,2025,2025-06,65,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-06-03,2025,2025-06,60,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-05-22,2025,2025-05,65,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-04-30,2025,2025-04,50,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-04-15,2025,2025-04,110,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-03-18,2025,2025-03,80,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-02-28,2025,2025-02,90,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-01-31,2025,2025-01,80,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-01-04,2025,2025-01,80,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-12-06,2024,2024-12,25,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-11-27,2024,2024-11,65,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-11-11,2024,2024-11,100,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-10-15,2024,2024-10,100,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-09-16,2024,2024-09,95,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-08-15,2024,2024-08,100,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-07-18,2024,2024-07,80,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-06-28,2024,2024-06,135,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-05-31,2024,2024-05,130,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-04-29,2024,2024-04,80,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-04-02,2024,2024-04,60,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-03-22,2024,2024-03,75,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-02-19,2024,2024-02,115,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-01-11,2024,2024-01,75,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2023-12-13,2023,2023-12,60,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2023-11-16,2023,2023-11,90,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2023-10-18,2023,2023-10,90,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2023-09-18,2023,2023-09,80,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2023-08-30,2023,2023-08,130,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2023-07-17,2023,2023-07,100,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2023-06-19,2023,2023-06,90,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2023-05-17,2023,2023-05,125,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2023-04-05,2023,2023-04,115,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2023-02-21,2023,2023-02,80,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2023-01-08,2023,2023-01,90,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2022-11-09,2022,2022-11,50,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2022-09-21,2022,2022-09,100,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2022-07-25,2022,2022-07,115,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2022-05-27,2022,2022-05,105,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2022-03-23,2022,2022-03,115,True,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2021-12-28,2021,2021-12,100,True,Burlington
 315,Citizen Cider - 0316,Burlington,Chittenden,2026-10-07,2026,2026-10,100,True,Burlington
 315,Citizen Cider - 0316,Burlington,Chittenden,2026-09-21,2026,2026-09,65,True,Burlington
 315,Citizen Cider - 0316,Burlington,Chittenden,2026-09-08,2026,2026-09,50,True,Burlington
@@ -19332,6 +19182,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1081,Toast and Eggs,Waitsfield,Washington,2024-06-25,2024,2024-06,45,True,Waitsfield
 1081,Toast and Eggs,Waitsfield,Washington,2022-10-13,2022,2022-10,45,True,Waitsfield
 1081,Toast and Eggs,Waitsfield,Washington,2021-11-10,2021,2021-11,45,True,Waitsfield
+204,Village Grocery,Waitsfield,Washington,2026-10-19,2026,2026-10,30,True,Waitsfield
 204,Village Grocery,Waitsfield,Washington,2026-09-05,2026,2026-09,30,True,Waitsfield
 204,Village Grocery,Waitsfield,Washington,2026-07-16,2026,2026-07,40,True,Waitsfield
 204,Village Grocery,Waitsfield,Washington,2026-05-15,2026,2026-05,5,True,Waitsfield
@@ -20227,128 +20078,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2015-05-26,2015,2015-05,28,True,Waterbury
 241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2015-04-07,2015,2015-04,45,True,Waterbury
 241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2015-02-13,2015,2015-02,45,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2026-05-11,2026,2026-05,15,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2026-03-20,2026,2026-03,40,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2026-02-18,2026,2026-02,40,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2026-01-27,2026,2026-01,25,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2025-12-30,2025,2025-12,20,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2025-12-03,2025,2025-12,15,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2025-11-05,2025,2025-11,25,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2025-10-15,2025,2025-10,60,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2025-09-17,2025,2025-09,60,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2025-08-04,2025,2025-08,25,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2025-07-16,2025,2025-07,50,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2025-06-04,2025,2025-06,35,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2025-05-07,2025,2025-05,20,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2025-04-15,2025,2025-04,30,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2025-03-17,2025,2025-03,25,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2025-02-23,2025,2025-02,30,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2025-02-10,2025,2025-02,30,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2025-01-23,2025,2025-01,50,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2024-12-30,2024,2024-12,45,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2024-11-18,2024,2024-11,20,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2024-11-04,2024,2024-11,40,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2024-10-17,2024,2024-10,30,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2024-09-30,2024,2024-09,30,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2024-09-10,2024,2024-09,50,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2024-08-13,2024,2024-08,50,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2024-07-09,2024,2024-07,50,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2024-06-13,2024,2024-06,30,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2024-05-14,2024,2024-05,30,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2024-04-26,2024,2024-04,35,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2024-03-28,2024,2024-03,15,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2024-03-13,2024,2024-03,40,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2024-02-16,2024,2024-02,35,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2024-01-18,2024,2024-01,40,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2023-12-19,2023,2023-12,30,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2023-11-20,2023,2023-11,35,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2023-10-23,2023,2023-10,55,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2023-09-20,2023,2023-09,70,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2023-08-02,2023,2023-08,75,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2023-06-20,2023,2023-06,35,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2023-05-22,2023,2023-05,35,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2023-05-04,2023,2023-05,30,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2023-04-04,2023,2023-04,20,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2023-03-13,2023,2023-03,30,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2023-02-06,2023,2023-02,40,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2022-12-28,2022,2022-12,25,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2022-12-09,2022,2022-12,20,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2022-11-17,2022,2022-11,20,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2022-11-03,2022,2022-11,60,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2022-10-07,2022,2022-10,55,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2022-09-12,2022,2022-09,85,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2022-08-03,2022,2022-08,75,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2022-06-29,2022,2022-06,50,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2022-05-31,2022,2022-05,30,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2022-05-13,2022,2022-05,30,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2022-04-25,2022,2022-04,30,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2022-04-04,2022,2022-04,35,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2022-03-16,2022,2022-03,35,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2022-02-22,2022,2022-02,100,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2022-01-07,2022,2022-01,40,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2021-12-16,2021,2021-12,40,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2021-11-29,2021,2021-11,25,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2021-11-15,2021,2021-11,35,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2021-10-18,2021,2021-10,40,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2021-09-30,2021,2021-09,100,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2021-08-01,2021,2021-08,100,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2021-06-10,2021,2021-06,75,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2021-04-21,2021,2021-04,40,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2021-03-18,2021,2021-03,70,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2021-01-18,2021,2021-01,30,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2019-12-26,2019,2019-12,10,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2019-11-30,2019,2019-11,25,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2019-11-04,2019,2019-11,20,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2019-10-01,2019,2019-10,100,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2019-07-11,2019,2019-07,50,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2019-06-06,2019,2019-06,50,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2019-04-29,2019,2019-04,60,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2019-03-30,2019,2019-03,30,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2019-02-17,2019,2019-02,20,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2019-02-03,2019,2019-02,15,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2019-01-05,2019,2019-01,50,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2018-11-18,2018,2018-11,30,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2018-10-21,2018,2018-10,25,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2018-10-07,2018,2018-10,55,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2018-08-26,2018,2018-08,42,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2018-07-30,2018,2018-07,25,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2018-07-01,2018,2018-07,40,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2018-05-20,2018,2018-05,20,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2018-04-30,2018,2018-04,45,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2018-03-25,2018,2018-03,30,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2018-02-21,2018,2018-02,25,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2018-01-31,2018,2018-01,25,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2018-01-10,2018,2018-01,20,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2017-12-18,2017,2017-12,25,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2017-11-07,2017,2017-11,15,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2017-10-17,2017,2017-10,25,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2017-09-26,2017,2017-09,25,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2017-09-05,2017,2017-09,20,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2017-08-16,2017,2017-08,25,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2017-08-02,2017,2017-08,25,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2017-07-05,2017,2017-07,30,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2017-05-31,2017,2017-05,20,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2017-05-13,2017,2017-05,40,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2017-04-13,2017,2017-04,20,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2017-01-11,2017,2017-01,10,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2016-12-13,2016,2016-12,20,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2016-11-13,2016,2016-11,25,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2016-09-19,2016,2016-09,30,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2016-08-21,2016,2016-08,30,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2016-07-25,2016,2016-07,35,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2016-06-06,2016,2016-06,25,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2016-05-09,2016,2016-05,25,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2016-04-11,2016,2016-04,30,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2016-03-05,2016,2016-03,50,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2016-01-23,2016,2016-01,45,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2015-12-17,2015,2015-12,20,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2015-11-01,2015,2015-11,35,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2015-09-29,2015,2015-09,35,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2015-07-07,2015,2015-07,30,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2015-05-26,2015,2015-05,30,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2015-04-15,2015,2015-04,20,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2015-03-09,2015,2015-03,50,True,Waterbury
-239,Michael's on the Hill,Waterbury,Washington,2015-01-14,2015,2015-01,40,True,Waterbury
 1225,Old Stage Coach Inn,Waterbury,Washington,2023-08-02,2023,2023-08,10,True,Waterbury
 1225,Old Stage Coach Inn,Waterbury,Washington,2023-03-13,2023,2023-03,25,True,Waterbury
 229,Prohibition Pig,Waterbury,Washington,2026-10-15,2026,2026-10,170,True,Waterbury
@@ -23976,6 +23705,58 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 165,"Burgers, Dawgs and More",Burlington,Chittenden,2017-09-28,2017,2017-09,70,False,Burlington
 165,"Burgers, Dawgs and More",Burlington,Chittenden,2015-11-02,2015,2015-11,30,False,Burlington
 165,"Burgers, Dawgs and More",Burlington,Chittenden,2015-08-15,2015,2015-08,50,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2026-05-26,2026,2026-05,100,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2026-04-24,2026,2026-04,50,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2026-03-31,2026,2026-03,85,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2026-02-24,2026,2026-02,65,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2026-01-29,2026,2026-01,65,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2026-01-06,2026,2026-01,70,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2025-12-04,2025,2025-12,65,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2025-11-04,2025,2025-11,60,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2025-10-09,2025,2025-10,75,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2025-09-08,2025,2025-09,65,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2025-08-12,2025,2025-08,65,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2025-07-15,2025,2025-07,55,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2025-06-25,2025,2025-06,65,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2025-06-03,2025,2025-06,60,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2025-05-22,2025,2025-05,65,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2025-04-30,2025,2025-04,50,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2025-04-15,2025,2025-04,110,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2025-03-18,2025,2025-03,80,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2025-02-28,2025,2025-02,90,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2025-01-31,2025,2025-01,80,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2025-01-04,2025,2025-01,80,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2024-12-06,2024,2024-12,25,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2024-11-27,2024,2024-11,65,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2024-11-11,2024,2024-11,100,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2024-10-15,2024,2024-10,100,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2024-09-16,2024,2024-09,95,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2024-08-15,2024,2024-08,100,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2024-07-18,2024,2024-07,80,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2024-06-28,2024,2024-06,135,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2024-05-31,2024,2024-05,130,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2024-04-29,2024,2024-04,80,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2024-04-02,2024,2024-04,60,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2024-03-22,2024,2024-03,75,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2024-02-19,2024,2024-02,115,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2024-01-11,2024,2024-01,75,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2023-12-13,2023,2023-12,60,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2023-11-16,2023,2023-11,90,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2023-10-18,2023,2023-10,90,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2023-09-18,2023,2023-09,80,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2023-08-30,2023,2023-08,130,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2023-07-17,2023,2023-07,100,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2023-06-19,2023,2023-06,90,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2023-05-17,2023,2023-05,125,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2023-04-05,2023,2023-04,115,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2023-02-21,2023,2023-02,80,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2023-01-08,2023,2023-01,90,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2022-11-09,2022,2022-11,50,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2022-09-21,2022,2022-09,100,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2022-07-25,2022,2022-07,115,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2022-05-27,2022,2022-05,105,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2022-03-23,2022,2022-03,115,False,Burlington
+1091,Cafe Hot,Burlington,Chittenden,2021-12-28,2021,2021-12,100,False,Burlington
 1331,CafeMamaJuana 3-Colchester,Colchester,Chittenden,2024-06-18,2024,2024-06,20,False,Colchester
 1330,Cashew-Maddie,Colchester,Chittenden,2024-04-09,2024,2024-04,90,False,Colchester
 1260,CentralPerks-Berlin Mall,Berlin,Washington,2023-05-25,2023,2023-05,35,False,Berlin
@@ -25304,6 +25085,128 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 821,MeLaza,Woodstock,Windsor,2017-04-15,2017,2017-04,125,False,Woodstock
 821,MeLaza,Woodstock,Windsor,2017-02-19,2017,2017-02,35,False,Woodstock
 1007,Michael B. Charlotte,Burlington,Chittenden,2016-05-07,2016,2016-05,245,False,Burlington
+239,Michael's on the Hill,Waterbury,Washington,2026-05-11,2026,2026-05,15,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2026-03-20,2026,2026-03,40,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2026-02-18,2026,2026-02,40,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2026-01-27,2026,2026-01,25,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2025-12-30,2025,2025-12,20,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2025-12-03,2025,2025-12,15,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2025-11-05,2025,2025-11,25,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2025-10-15,2025,2025-10,60,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2025-09-17,2025,2025-09,60,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2025-08-04,2025,2025-08,25,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2025-07-16,2025,2025-07,50,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2025-06-04,2025,2025-06,35,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2025-05-07,2025,2025-05,20,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2025-04-15,2025,2025-04,30,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2025-03-17,2025,2025-03,25,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2025-02-23,2025,2025-02,30,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2025-02-10,2025,2025-02,30,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2025-01-23,2025,2025-01,50,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2024-12-30,2024,2024-12,45,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2024-11-18,2024,2024-11,20,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2024-11-04,2024,2024-11,40,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2024-10-17,2024,2024-10,30,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2024-09-30,2024,2024-09,30,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2024-09-10,2024,2024-09,50,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2024-08-13,2024,2024-08,50,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2024-07-09,2024,2024-07,50,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2024-06-13,2024,2024-06,30,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2024-05-14,2024,2024-05,30,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2024-04-26,2024,2024-04,35,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2024-03-28,2024,2024-03,15,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2024-03-13,2024,2024-03,40,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2024-02-16,2024,2024-02,35,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2024-01-18,2024,2024-01,40,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2023-12-19,2023,2023-12,30,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2023-11-20,2023,2023-11,35,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2023-10-23,2023,2023-10,55,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2023-09-20,2023,2023-09,70,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2023-08-02,2023,2023-08,75,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2023-06-20,2023,2023-06,35,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2023-05-22,2023,2023-05,35,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2023-05-04,2023,2023-05,30,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2023-04-04,2023,2023-04,20,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2023-03-13,2023,2023-03,30,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2023-02-06,2023,2023-02,40,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2022-12-28,2022,2022-12,25,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2022-12-09,2022,2022-12,20,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2022-11-17,2022,2022-11,20,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2022-11-03,2022,2022-11,60,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2022-10-07,2022,2022-10,55,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2022-09-12,2022,2022-09,85,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2022-08-03,2022,2022-08,75,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2022-06-29,2022,2022-06,50,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2022-05-31,2022,2022-05,30,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2022-05-13,2022,2022-05,30,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2022-04-25,2022,2022-04,30,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2022-04-04,2022,2022-04,35,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2022-03-16,2022,2022-03,35,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2022-02-22,2022,2022-02,100,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2022-01-07,2022,2022-01,40,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2021-12-16,2021,2021-12,40,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2021-11-29,2021,2021-11,25,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2021-11-15,2021,2021-11,35,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2021-10-18,2021,2021-10,40,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2021-09-30,2021,2021-09,100,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2021-08-01,2021,2021-08,100,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2021-06-10,2021,2021-06,75,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2021-04-21,2021,2021-04,40,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2021-03-18,2021,2021-03,70,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2021-01-18,2021,2021-01,30,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2019-12-26,2019,2019-12,10,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2019-11-30,2019,2019-11,25,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2019-11-04,2019,2019-11,20,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2019-10-01,2019,2019-10,100,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2019-07-11,2019,2019-07,50,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2019-06-06,2019,2019-06,50,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2019-04-29,2019,2019-04,60,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2019-03-30,2019,2019-03,30,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2019-02-17,2019,2019-02,20,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2019-02-03,2019,2019-02,15,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2019-01-05,2019,2019-01,50,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2018-11-18,2018,2018-11,30,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2018-10-21,2018,2018-10,25,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2018-10-07,2018,2018-10,55,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2018-08-26,2018,2018-08,42,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2018-07-30,2018,2018-07,25,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2018-07-01,2018,2018-07,40,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2018-05-20,2018,2018-05,20,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2018-04-30,2018,2018-04,45,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2018-03-25,2018,2018-03,30,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2018-02-21,2018,2018-02,25,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2018-01-31,2018,2018-01,25,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2018-01-10,2018,2018-01,20,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2017-12-18,2017,2017-12,25,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2017-11-07,2017,2017-11,15,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2017-10-17,2017,2017-10,25,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2017-09-26,2017,2017-09,25,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2017-09-05,2017,2017-09,20,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2017-08-16,2017,2017-08,25,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2017-08-02,2017,2017-08,25,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2017-07-05,2017,2017-07,30,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2017-05-31,2017,2017-05,20,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2017-05-13,2017,2017-05,40,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2017-04-13,2017,2017-04,20,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2017-01-11,2017,2017-01,10,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2016-12-13,2016,2016-12,20,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2016-11-13,2016,2016-11,25,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2016-09-19,2016,2016-09,30,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2016-08-21,2016,2016-08,30,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2016-07-25,2016,2016-07,35,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2016-06-06,2016,2016-06,25,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2016-05-09,2016,2016-05,25,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2016-04-11,2016,2016-04,30,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2016-03-05,2016,2016-03,50,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2016-01-23,2016,2016-01,45,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2015-12-17,2015,2015-12,20,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2015-11-01,2015,2015-11,35,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2015-09-29,2015,2015-09,35,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2015-07-07,2015,2015-07,30,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2015-05-26,2015,2015-05,30,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2015-04-15,2015,2015-04,20,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2015-03-09,2015,2015-03,50,False,Waterbury
+239,Michael's on the Hill,Waterbury,Washington,2015-01-14,2015,2015-01,40,False,Waterbury
 363,Michaels German Food,Burlington,Chittenden,2016-03-26,2016,2016-03,30,False,Burlington
 363,Michaels German Food,Burlington,Chittenden,2015-11-03,2015,2015-11,20,False,Burlington
 363,Michaels German Food,Burlington,Chittenden,2015-09-30,2015,2015-09,20,False,Burlington
@@ -27421,6 +27324,105 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1088,The Nest @ Golden Eagle,Stowe,Lamoille,2022-03-16,2022,2022-03,45,False,Stowe
 1088,The Nest @ Golden Eagle,Stowe,Lamoille,2022-01-10,2022,2022-01,25,False,Stowe
 1088,The Nest @ Golden Eagle,Stowe,Lamoille,2021-11-29,2021,2021-11,50,False,Stowe
+125,The Quarry-Barre,Barre,Washington,2026-08-19,2026,2026-08,7,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2026-08-18,2026,2026-08,20,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2026-07-20,2026,2026-07,65,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2026-06-25,2026,2026-06,45,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2026-05-29,2026,2026-05,55,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2026-05-08,2026,2026-05,75,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2026-04-17,2026,2026-04,65,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2026-03-25,2026,2026-03,110,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2026-02-24,2026,2026-02,35,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2026-02-03,2026,2026-02,20,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2026-01-14,2026,2026-01,55,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2025-12-09,2025,2025-12,10,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2025-11-24,2025,2025-11,70,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2025-10-30,2025,2025-10,40,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2025-10-10,2025,2025-10,65,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2025-09-15,2025,2025-09,20,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2025-09-04,2025,2025-09,90,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2025-08-18,2025,2025-08,90,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2025-07-22,2025,2025-07,60,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2025-06-30,2025,2025-06,70,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2025-06-06,2025,2025-06,40,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2025-05-12,2025,2025-05,20,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2025-05-01,2025,2025-05,45,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2025-04-07,2025,2025-04,60,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2025-03-14,2025,2025-03,80,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2025-01-29,2025,2025-01,45,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2024-12-31,2024,2024-12,30,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2024-12-07,2024,2024-12,60,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2024-11-05,2024,2024-11,40,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2024-10-11,2024,2024-10,60,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2024-09-26,2024,2024-09,35,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2024-09-02,2024,2024-09,50,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2024-08-07,2024,2024-08,30,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2024-07-17,2024,2024-07,65,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2024-05-30,2024,2024-05,30,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2024-05-06,2024,2024-05,40,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2024-04-11,2024,2024-04,90,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2024-02-23,2024,2024-02,65,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2024-01-25,2024,2024-01,45,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2023-12-20,2023,2023-12,85,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2023-10-30,2023,2023-10,65,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2023-10-03,2023,2023-10,100,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2023-07-27,2023,2023-07,35,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2023-06-28,2023,2023-06,10,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2023-06-12,2023,2023-06,65,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2023-05-03,2023,2023-05,70,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2023-04-03,2023,2023-04,60,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2023-02-14,2023,2023-02,30,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2023-01-19,2023,2023-01,60,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2022-12-27,2022,2022-12,65,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2022-11-28,2022,2022-11,80,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2022-10-28,2022,2022-10,80,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2022-09-28,2022,2022-09,70,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2022-08-12,2022,2022-08,50,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2022-07-05,2022,2022-07,50,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2022-06-01,2022,2022-06,50,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2022-04-28,2022,2022-04,70,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2022-03-24,2022,2022-03,250,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2022-03-02,2022,2022-03,40,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2022-02-03,2022,2022-02,30,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2021-12-30,2021,2021-12,180,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2021-12-15,2021,2021-12,150,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2021-11-15,2021,2021-11,70,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2021-10-26,2021,2021-10,60,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2021-10-11,2021,2021-10,125,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2021-09-13,2021,2021-09,100,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2021-08-09,2021,2021-08,100,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2021-07-26,2021,2021-07,75,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2021-07-12,2021,2021-07,50,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2021-06-27,2021,2021-06,80,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2021-06-14,2021,2021-06,150,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2021-05-26,2021,2021-05,80,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2021-03-20,2021,2021-03,170,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2021-02-23,2021,2021-02,25,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2021-02-01,2021,2021-02,60,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2021-01-13,2021,2021-01,90,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2020-12-22,2020,2020-12,60,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2020-11-12,2020,2020-11,50,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2020-11-03,2020,2020-11,70,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2020-10-19,2020,2020-10,50,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2020-10-11,2020,2020-10,175,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2020-09-09,2020,2020-09,200,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2020-07-30,2020,2020-07,175,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2020-06-15,2020,2020-06,180,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2020-05-09,2020,2020-05,175,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2020-04-01,2020,2020-04,160,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2020-02-27,2020,2020-02,75,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2020-02-18,2020,2020-02,75,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2020-02-12,2020,2020-02,125,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2020-01-15,2020,2020-01,150,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2019-12-19,2019,2019-12,75,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2019-12-05,2019,2019-12,125,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2019-11-14,2019,2019-11,80,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2019-10-23,2019,2019-10,100,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2019-10-01,2019,2019-10,100,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2019-09-11,2019,2019-09,100,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2019-08-19,2019,2019-08,100,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2019-07-30,2019,2019-07,80,False,Barre City
+125,The Quarry-Barre,Barre,Washington,2019-07-01,2019,2019-07,125,False,Barre City
 1115,The Shoppe Food Truck- Adam- Matt,Colchester,Chittenden,2024-09-05,2024,2024-09,65,False,Colchester
 1115,The Shoppe Food Truck- Adam- Matt,Colchester,Chittenden,2023-11-27,2023,2023-11,45,False,Colchester
 1115,The Shoppe Food Truck- Adam- Matt,Colchester,Chittenden,2023-06-30,2023,2023-06,45,False,Colchester
