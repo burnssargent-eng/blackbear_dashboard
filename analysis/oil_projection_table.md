@@ -52,7 +52,7 @@ is *will-call*: listed, never projected.
   with no pickups counts as a real zero.
 - *confidence range* -- the customer's own backtested 50/50 WAPE where one
   exists and the customer is past the *new* stage (117 of the
-  333 ranked rows), otherwise the projection x the replay's 20th
+  334 ranked rows), otherwise the projection x the replay's 20th
   and 80th percentile factors for its stage: new, 2 gaps x0.60-x1.64; new, 3 gaps x0.71-x1.49; new, 4+ gaps x0.70-x1.35; established x0.75-x1.45; closer in season x0.62-x1.64; return x0.64-x1.99. The
   low end is clamped at zero, since a few customers score over 100% WAPE.
   The factor ranges are wider above than below on purpose: misses run high
@@ -133,17 +133,17 @@ Capacity problems are reported in *flags*, separately from the model status.
 | | |
 |---|---:|
 | Active customers considered | 513 |
-| Model-ready (a stage rate) | 443 |
-| — stage new / established / seasonal / closer in season / closer off-season / return | 103 / 305 / 16 / 12 / 2 / 5 |
+| Model-ready (a stage rate) | 444 |
+| — stage new / established / seasonal / closer in season / closer off-season / return | 103 / 305 / 16 / 14 / 2 / 4 |
 | Detected closers (not in the registry) | 8 |
-| — ranked in the main table | 333 |
+| — ranked in the main table | 334 |
 | — seasonal holdouts | 9 |
 | — held out as stale | 62 |
 | Event-driven | 2 |
 | On-demand / unlimited | 1 |
 | Lump-sum / interval-based | 0 |
 | Will-call (detected) | 36 |
-| Insufficient data | 70 |
+| Insufficient data | 69 |
 | Missing capacity | 0 |
 | With a capacity warning | 78 |
 | Ranked and projected above listed capacity | 5 |
@@ -152,10 +152,11 @@ Capacity problems are reported in *flags*, separately from the model status.
 
 | Section | Model status | Customers |
 |---|---|---:|
-| ranked | 50/50 default | 319 |
+| ranked | 50/50 default | 318 |
 | ranked | closer (detected) | 6 |
 | ranked | seasonal open-ish | 4 |
 | ranked | semi-closer / call-driven | 4 |
+| ranked | true closer | 2 |
 | seasonal holdout | closer (detected) | 2 |
 | seasonal holdout | semi-closer / call-driven | 1 |
 | seasonal holdout | true closer | 6 |
@@ -163,7 +164,7 @@ Capacity problems are reported in *flags*, separately from the model status.
 | on-demand / unlimited | on-demand / unlimited | 1 |
 | will-call | will-call (detected) | 36 |
 | stale | stale - projection not meaningful | 62 |
-| insufficient data | insufficient data | 70 |
+| insufficient data | insufficient data | 69 |
 
 ## Top 25 urgent stops
 
@@ -277,7 +278,7 @@ built here.
 | Champlain Valley Expo | Essex Junction | event-driven | not a daily-rate account | 2026-09-17 | 29 | 42.55 | 569.2 | 2,000 | - |
 | Tunbridge Fair | Tunbridge | event-driven | not a daily-rate account | 2026-09-25 | 21 | 0.84 | 269.2 | 400 | Collection exceeds listed capacity - check capacity |
 
-## Model-status overrides (18)
+## Model-status overrides (20)
 
 | Id | Customer | Status | Season | Why |
 |---:|---|---|---|---|
@@ -294,13 +295,15 @@ built here.
 | 1056 | Quechee Gorge Snack Bar | semi-closer / call-driven | Mar-Oct | Quiet Dec-Feb with Nov/Dec off-season pickups. |
 | 803 | Toziers- | semi-closer / call-driven | Apr-Oct | 2,165 gal/yr; quiet Dec-Feb with November pickups in 2 of 3 years. |
 | 902 | Carinthia Lodge (Mt. Snow) | true closer | Oct-Apr | 3-month quiet block repeats, repeatability 0.80. Close call: one July pickup (2023) in three summers. |
+| 517 | Enosburgh Falls Country Club | true closer | Jun-Oct | Golf course: pickups only Jun-Oct since 2018. ~100 gal/yr. |
 | 529 | Jay Peak-Stateside (loading dock) | true closer | Nov-Jun | Quiet Jul, low Aug-Oct, repeatability 0.85. Close call: one October pickup (2024). |
 | 901 | Main Lodge (Mt. Snow) | true closer | Oct-Apr | Quiet Jun-Aug, repeatability 0.90; May pickups are season-end cleanouts. |
 | 225 | Mount Ellen | true closer | Nov-Apr | Quiet May-Oct, repeatability 0.97 over 3 years. |
 | 1388 | Okemo- Mountain Resort | true closer | Dec-Apr | Pickups only Dec-Apr in both seasons it has; May-Sep index 0.00. Two years only. |
+| 1059 | Sugarbush Resort Golf Course | true closer | Jun-Oct | Golf course: pickups only Jun-Oct since 2022 (its one November pickup, 2021-11-29, was its first). ~150 gal/yr. |
 | 817 | Suicide 6= Saskadena | true closer | Nov-Apr | Quiet May-Oct, repeatability 0.84 over 3 years. |
 
-Overridden customers still ranked: Gondola’s Downtown Morrisville (closer (detected)), Jay Peak-waterslide (seasonal open-ish), Texas Roadhouse-# 1122-Mahoney (closer (detected)), Toziers- (semi-closer / call-driven), Mad Taco-Middlebury (closer (detected)), Quechee Gorge Snack Bar (semi-closer / call-driven), Stowe Mountain-Spruce Peak (seasonal open-ish), White Cottage (closer (detected)), Sugarbush Resort (seasonal open-ish), Thunder Road  4567 (closer (detected)), Cravens Food Truck-Middlebury (closer (detected)), Mad River Glen (seasonal open-ish), Jay Peak- Hotel Jay -OutsideNow (semi-closer / call-driven), Okemo-Jackson Gore Inn (semi-closer / call-driven).
+Overridden customers still ranked: Gondola’s Downtown Morrisville (closer (detected)), Sugarbush Resort Golf Course (true closer), Jay Peak-waterslide (seasonal open-ish), Texas Roadhouse-# 1122-Mahoney (closer (detected)), Toziers- (semi-closer / call-driven), Mad Taco-Middlebury (closer (detected)), Quechee Gorge Snack Bar (semi-closer / call-driven), Enosburgh Falls Country Club (true closer), Stowe Mountain-Spruce Peak (seasonal open-ish), White Cottage (closer (detected)), Sugarbush Resort (seasonal open-ish), Thunder Road  4567 (closer (detected)), Cravens Food Truck-Middlebury (closer (detected)), Mad River Glen (seasonal open-ish), Jay Peak- Hotel Jay -OutsideNow (semi-closer / call-driven), Okemo-Jackson Gore Inn (semi-closer / call-driven).
 
 ## Top capacity problems
 
@@ -323,7 +326,7 @@ Customers whose recent collections do not fit the listed capacity. These are
 
 ## Customers excluded or low confidence
 
-**Insufficient data (70).** Fewer than 3
+**Insufficient data (69).** Fewer than 3
 pickups: the first only starts the clock, so a rate needs two more. A customer
 back after more than 365 days without a pickup counts its
 pickups from the return.
@@ -357,7 +360,7 @@ columns are in the CSV under `table_section = stale`.
 - Proctor-Pittsford Country Club (Pittsford) -- last pickup 2025-05-23, 511 days
 - Basin Harbor Resort (Vergennes) -- last pickup 2025-06-24, 479 days
 
-**Review hints (37).** Ranked on the 50/50 default and not
+**Review hints (36).** Ranked on the 50/50 default and not
 in the registry, but the heuristic says the default may not suit them.
 
 - Addison County Solid Waste Management District (Middlebury) -- likely seasonal / needs separate rule

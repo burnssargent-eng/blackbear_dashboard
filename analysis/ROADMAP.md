@@ -66,15 +66,16 @@ hold in 2027, once its 2024–26 win (17 pickups) has more behind it.
 A reopening's 2nd and 3rd pickups back are projected from the same time last
 year (then half that, half the first rate back); any other 181–365-day return
 is held as insufficient data (`comeback_level_shift_research/return_guards.md`,
-V2). 5 return rows and 15 held today. **Sarge to decide: Sugarbush Resort Golf
-Course and Enosburgh Falls CC into `MODEL_OVERRIDES` as true closers
-(Jun–Oct?)** — both are under the detector's 300 gal/yr floor, so nothing stops
-Sugarbush's projection growing through the winter until it goes stale. **Watch the *return* stage in the live test through the 2027
+V2). 5 return rows and 15 held today. Sugarbush Resort Golf Course and Enosburgh
+Falls CC, golf courses under the detector's 300 gal/yr floor, were made Jun–Oct
+true closers on 2026-10-18. Other small seasonal accounts may need the same:
+the detector cannot see them. **Watch the *return* stage in the live test through the 2027
 spring reopenings**: dev years alone were inconclusive, 2021 was worse, and
 the reopening split was chosen after seeing 2024–26. Also watch what the 15
 held rows do — the hold hides some real stops (the 50/50 caught 102 of 758
-pickup-weeks there). Enosburgh Falls CC is held as "not a reopening" although
-it is plainly seasonal: its earlier closures don't line up month-for-month. Still worth
+pickup-weeks there). The reopening test misses seasonal accounts whose earlier
+closures don't line up month-for-month (Enosburgh Falls CC, now a registry
+closer). Still worth
 asking Jim how the first visit of a season is timed. From the same study, not
 adopted: open-day exposure (A1) and a smoothed level for the 50/50 (C4) —
 re-test C4 on 2027 pickups with D frozen at 90.

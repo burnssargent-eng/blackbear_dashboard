@@ -69,6 +69,8 @@ ok(customers.filter(c => c.section !== "ranked").every(c =>
 const byId = Object.fromEntries(customers.map(c => [c.id, c]));
 ok(byId[423] && byId[423].section === "on-demand / unlimited", "Perrigo (423) is on-demand, not ranked");
 ok(byId[1388] && byId[1388].status === "true closer", "Okemo Mountain Resort (1388) is a true closer");
+ok([1059, 517].every(id => byId[id] && byId[id].status === "true closer" && byId[id].season === "Jun-Oct"),
+  "the golf courses under the detector's floor (Sugarbush Golf 1059, Enosburgh Falls CC 517) are Jun-Oct true closers");
 ok(byId[413] && byId[413].section === "event-driven", "Champlain Valley Expo (413) is event-driven");
 ok(byId[270] && byId[270].section === "ranked" && byId[270].status === "seasonal open-ish",
   "Spruce Peak (270) stays ranked as seasonal open-ish");
