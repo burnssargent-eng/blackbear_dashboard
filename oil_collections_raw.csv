@@ -1034,6 +1034,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 108,CVMC-Berlin Hospital,Berlin,Washington,2017-05-13,2017,2017-05,55,True,Berlin
 108,CVMC-Berlin Hospital,Berlin,Washington,2017-04-01,2017,2017-04,10,True,Berlin
 1444,Dan-Jockey Hollow 2025,Berlin,Washington,2025-08-21,2025,2025-08,85,True,Berlin
+107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2026-10-19,2026,2026-10,150,True,Berlin
 107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2026-09-29,2026,2026-09,110,True,Berlin
 107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2026-09-18,2026,2026-09,190,True,Berlin
 107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2026-08-25,2026,2026-08,140,True,Berlin
@@ -18453,29 +18454,30 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1266,1824 House,Waitsfield,Washington,2025-04-23,2025,2025-04,40,True,Waitsfield
 1266,1824 House,Waitsfield,Washington,2024-06-07,2024,2024-06,45,True,Waitsfield
 1266,1824 House,Waitsfield,Washington,2023-06-16,2023,2023-06,50,True,Waitsfield
-206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2026-07-16,2026,2026-07,20,True,Waitsfield
-206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2026-05-01,2026,2026-05,50,True,Waitsfield
-206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2026-03-02,2026,2026-03,35,True,Waitsfield
-206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2026-01-05,2026,2026-01,20,True,Waitsfield
-206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2025-12-16,2025,2025-12,20,True,Waitsfield
-206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2025-11-14,2025,2025-11,45,True,Waitsfield
-206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2025-10-02,2025,2025-10,50,True,Waitsfield
-206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2025-08-05,2025,2025-08,55,True,Waitsfield
-206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2025-06-16,2025,2025-06,10,True,Waitsfield
-206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2025-05-29,2025,2025-05,45,True,Waitsfield
-206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2025-04-23,2025,2025-04,30,True,Waitsfield
-206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2025-03-05,2025,2025-03,40,True,Waitsfield
-206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2023-09-29,2023,2023-09,7,True,Waitsfield
-206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2022-03-04,2022,2022-03,30,True,Waitsfield
-206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2021-10-28,2021,2021-10,115,True,Waitsfield
-206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2020-03-17,2020,2020-03,25,True,Waitsfield
-206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2020-03-03,2020,2020-03,40,True,Waitsfield
-206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2020-01-11,2020,2020-01,25,True,Waitsfield
-206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-11-21,2019,2019-11,35,True,Waitsfield
-206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-10-08,2019,2019-10,75,True,Waitsfield
-206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-06-20,2019,2019-06,25,True,Waitsfield
-206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-03-12,2019,2019-03,20,True,Waitsfield
-206,Afterthoughts/PEACE BURGER/ Sage-Code# 1980,Waitsfield,Washington,2019-02-19,2019,2019-02,20,True,Waitsfield
+206,Afterthoughts/Sage-Code# 1980 Twist lock,Waitsfield,Washington,2026-10-19,2026,2026-10,25,True,Waitsfield
+206,Afterthoughts/Sage-Code# 1980 Twist lock,Waitsfield,Washington,2026-07-16,2026,2026-07,20,True,Waitsfield
+206,Afterthoughts/Sage-Code# 1980 Twist lock,Waitsfield,Washington,2026-05-01,2026,2026-05,50,True,Waitsfield
+206,Afterthoughts/Sage-Code# 1980 Twist lock,Waitsfield,Washington,2026-03-02,2026,2026-03,35,True,Waitsfield
+206,Afterthoughts/Sage-Code# 1980 Twist lock,Waitsfield,Washington,2026-01-05,2026,2026-01,20,True,Waitsfield
+206,Afterthoughts/Sage-Code# 1980 Twist lock,Waitsfield,Washington,2025-12-16,2025,2025-12,20,True,Waitsfield
+206,Afterthoughts/Sage-Code# 1980 Twist lock,Waitsfield,Washington,2025-11-14,2025,2025-11,45,True,Waitsfield
+206,Afterthoughts/Sage-Code# 1980 Twist lock,Waitsfield,Washington,2025-10-02,2025,2025-10,50,True,Waitsfield
+206,Afterthoughts/Sage-Code# 1980 Twist lock,Waitsfield,Washington,2025-08-05,2025,2025-08,55,True,Waitsfield
+206,Afterthoughts/Sage-Code# 1980 Twist lock,Waitsfield,Washington,2025-06-16,2025,2025-06,10,True,Waitsfield
+206,Afterthoughts/Sage-Code# 1980 Twist lock,Waitsfield,Washington,2025-05-29,2025,2025-05,45,True,Waitsfield
+206,Afterthoughts/Sage-Code# 1980 Twist lock,Waitsfield,Washington,2025-04-23,2025,2025-04,30,True,Waitsfield
+206,Afterthoughts/Sage-Code# 1980 Twist lock,Waitsfield,Washington,2025-03-05,2025,2025-03,40,True,Waitsfield
+206,Afterthoughts/Sage-Code# 1980 Twist lock,Waitsfield,Washington,2023-09-29,2023,2023-09,7,True,Waitsfield
+206,Afterthoughts/Sage-Code# 1980 Twist lock,Waitsfield,Washington,2022-03-04,2022,2022-03,30,True,Waitsfield
+206,Afterthoughts/Sage-Code# 1980 Twist lock,Waitsfield,Washington,2021-10-28,2021,2021-10,115,True,Waitsfield
+206,Afterthoughts/Sage-Code# 1980 Twist lock,Waitsfield,Washington,2020-03-17,2020,2020-03,25,True,Waitsfield
+206,Afterthoughts/Sage-Code# 1980 Twist lock,Waitsfield,Washington,2020-03-03,2020,2020-03,40,True,Waitsfield
+206,Afterthoughts/Sage-Code# 1980 Twist lock,Waitsfield,Washington,2020-01-11,2020,2020-01,25,True,Waitsfield
+206,Afterthoughts/Sage-Code# 1980 Twist lock,Waitsfield,Washington,2019-11-21,2019,2019-11,35,True,Waitsfield
+206,Afterthoughts/Sage-Code# 1980 Twist lock,Waitsfield,Washington,2019-10-08,2019,2019-10,75,True,Waitsfield
+206,Afterthoughts/Sage-Code# 1980 Twist lock,Waitsfield,Washington,2019-06-20,2019,2019-06,25,True,Waitsfield
+206,Afterthoughts/Sage-Code# 1980 Twist lock,Waitsfield,Washington,2019-03-12,2019,2019-03,20,True,Waitsfield
+206,Afterthoughts/Sage-Code# 1980 Twist lock,Waitsfield,Washington,2019-02-19,2019,2019-02,20,True,Waitsfield
 205,Big Picture Theater,Waitsfield,Washington,2024-11-19,2024,2024-11,50,True,Waitsfield
 205,Big Picture Theater,Waitsfield,Washington,2024-02-23,2024,2024-02,25,True,Waitsfield
 205,Big Picture Theater,Waitsfield,Washington,2024-01-05,2024,2024-01,20,True,Waitsfield
@@ -18507,6 +18509,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 205,Big Picture Theater,Waitsfield,Washington,2017-12-13,2017,2017-12,50,True,Waitsfield
 205,Big Picture Theater,Waitsfield,Washington,2017-09-05,2017,2017-09,50,True,Waitsfield
 205,Big Picture Theater,Waitsfield,Washington,2017-02-14,2017,2017-02,10,True,Waitsfield
+211,Canteen Creemee Company,Waitsfield,Washington,2026-10-19,2026,2026-10,120,True,Waitsfield
 211,Canteen Creemee Company,Waitsfield,Washington,2026-09-05,2026,2026-09,65,True,Waitsfield
 211,Canteen Creemee Company,Waitsfield,Washington,2026-08-18,2026,2026-08,90,True,Waitsfield
 211,Canteen Creemee Company,Waitsfield,Washington,2026-07-16,2026,2026-07,170,True,Waitsfield
@@ -18597,6 +18600,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 211,Canteen Creemee Company,Waitsfield,Washington,2016-07-28,2016,2016-07,10,True,Waitsfield
 211,Canteen Creemee Company,Waitsfield,Washington,2016-06-20,2016,2016-06,30,True,Waitsfield
 211,Canteen Creemee Company,Waitsfield,Washington,2016-06-04,2016,2016-06,50,True,Waitsfield
+207,China Fun,Waitsfield,Washington,2026-10-19,2026,2026-10,15,True,Waitsfield
 207,China Fun,Waitsfield,Washington,2026-05-01,2026,2026-05,15,True,Waitsfield
 207,China Fun,Waitsfield,Washington,2026-03-02,2026,2026-03,15,True,Waitsfield
 207,China Fun,Waitsfield,Washington,2026-01-05,2026,2026-01,20,True,Waitsfield
@@ -18997,6 +19001,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1219,Mad River Glen,Waitsfield,Washington,2023-03-23,2023,2023-03,30,True,Waitsfield
 1219,Mad River Glen,Waitsfield,Washington,2023-03-10,2023,2023-03,90,True,Waitsfield
 1219,Mad River Glen,Waitsfield,Washington,2023-02-12,2023,2023-02,100,True,Waitsfield
+215,Mad Taco-Waitsfield,Waitsfield,Washington,2026-10-19,2026,2026-10,35,True,Waitsfield
 215,Mad Taco-Waitsfield,Waitsfield,Washington,2026-08-18,2026,2026-08,20,True,Waitsfield
 215,Mad Taco-Waitsfield,Waitsfield,Washington,2026-07-16,2026,2026-07,45,True,Waitsfield
 215,Mad Taco-Waitsfield,Waitsfield,Washington,2026-05-01,2026,2026-05,20,True,Waitsfield
@@ -19060,6 +19065,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 215,Mad Taco-Waitsfield,Waitsfield,Washington,2020-06-22,2020,2020-06,50,True,Waitsfield
 215,Mad Taco-Waitsfield,Waitsfield,Washington,2020-06-02,2020,2020-06,15,True,Waitsfield
 215,Mad Taco-Waitsfield,Waitsfield,Washington,2020-02-01,2020,2020-02,50,True,Waitsfield
+212,Mehurons Supermarket,Waitsfield,Washington,2026-10-19,2026,2026-10,40,True,Waitsfield
 212,Mehurons Supermarket,Waitsfield,Washington,2026-07-16,2026,2026-07,25,True,Waitsfield
 212,Mehurons Supermarket,Waitsfield,Washington,2026-05-01,2026,2026-05,20,True,Waitsfield
 212,Mehurons Supermarket,Waitsfield,Washington,2026-03-02,2026,2026-03,15,True,Waitsfield
@@ -19134,6 +19140,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 225,Mount Ellen,Waitsfield,Washington,2017-02-27,2017,2017-02,175,True,Waitsfield
 225,Mount Ellen,Waitsfield,Washington,2016-03-29,2016,2016-03,100,True,Waitsfield
 225,Mount Ellen,Waitsfield,Washington,2016-02-15,2016,2016-02,120,True,Waitsfield
+1321,MRD-KYLE,Waitsfield,Washington,2026-10-19,2026,2026-10,30,True,Waitsfield
 1321,MRD-KYLE,Waitsfield,Washington,2026-03-02,2026,2026-03,55,True,Waitsfield
 1321,MRD-KYLE,Waitsfield,Washington,2025-11-25,2025,2025-11,50,True,Waitsfield
 1321,MRD-KYLE,Waitsfield,Washington,2025-03-06,2025,2025-03,55,True,Waitsfield
@@ -19225,6 +19232,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 204,Village Grocery,Waitsfield,Washington,2017-05-05,2017,2017-05,40,True,Waitsfield
 204,Village Grocery,Waitsfield,Washington,2016-10-18,2016,2016-10,6,True,Waitsfield
 204,Village Grocery,Waitsfield,Washington,2016-09-05,2016,2016-09,45,True,Waitsfield
+213,Hostel Tevere,Warren,Washington,2026-10-19,2026,2026-10,40,True,Warren
 213,Hostel Tevere,Warren,Washington,2026-09-05,2026,2026-09,35,True,Warren
 213,Hostel Tevere,Warren,Washington,2026-07-16,2026,2026-07,40,True,Warren
 213,Hostel Tevere,Warren,Washington,2026-06-12,2026,2026-06,40,True,Warren
@@ -19296,6 +19304,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 221,MotherStuffas,Warren,Washington,2018-04-29,2018,2018-04,50,True,Warren
 221,MotherStuffas,Warren,Washington,2018-04-17,2018,2018-04,50,True,Warren
 221,MotherStuffas,Warren,Washington,2017-09-21,2017,2017-09,115,True,Warren
+226,Paradise Provisions,Warren,Washington,2026-10-19,2026,2026-10,45,True,Warren
 226,Paradise Provisions,Warren,Washington,2026-08-18,2026,2026-08,45,True,Warren
 226,Paradise Provisions,Warren,Washington,2026-06-12,2026,2026-06,45,True,Warren
 226,Paradise Provisions,Warren,Washington,2026-04-02,2026,2026-04,10,True,Warren
@@ -19488,6 +19497,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 224,Sugarbush Resort,Warren,Washington,2016-02-11,2016,2016-02,230,True,Warren
 224,Sugarbush Resort,Warren,Washington,2016-01-03,2016,2016-01,120,True,Warren
 224,Sugarbush Resort,Warren,Washington,2015-11-30,2015,2015-11,70,True,Warren
+1059,Sugarbush Resort Golf Course,Warren,Washington,2026-10-19,2026,2026-10,50,True,Warren
 1059,Sugarbush Resort Golf Course,Warren,Washington,2026-08-18,2026,2026-08,45,True,Warren
 1059,Sugarbush Resort Golf Course,Warren,Washington,2026-07-16,2026,2026-07,45,True,Warren
 1059,Sugarbush Resort Golf Course,Warren,Washington,2025-08-27,2025,2025-08,45,True,Warren

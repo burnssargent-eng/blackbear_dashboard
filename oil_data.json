@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-19T14:19:21.758488",
+  "last_updated": "2026-10-20T12:33:37.694777",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33693,6 +33693,12 @@
     },
     {
       "month": "2026-10",
+      "geo_town": "Berlin",
+      "gallons": 150,
+      "city": "Berlin"
+    },
+    {
+      "month": "2026-10",
       "geo_town": "Bethel",
       "gallons": 130,
       "city": "Bethel"
@@ -33886,13 +33892,13 @@
     {
       "month": "2026-10",
       "geo_town": "Waitsfield",
-      "gallons": 525,
+      "gallons": 790,
       "city": "Waitsfield"
     },
     {
       "month": "2026-10",
       "geo_town": "Warren",
-      "gallons": 195,
+      "gallons": 330,
       "city": "Warren"
     },
     {
@@ -41716,7 +41722,7 @@
     {
       "month": "2026-10",
       "county": "Washington",
-      "gallons": 2795
+      "gallons": 3345
     },
     {
       "month": "2026-10",
@@ -41771,11 +41777,11 @@
     },
     {
       "year": 2026,
-      "gallons": 238194
+      "gallons": 238744
     }
   ],
-  "all_time_total": 2156961,
-  "current_year_total": 238194,
+  "all_time_total": 2157511,
+  "current_year_total": 238744,
   "customer_count": 802,
   "unmapped_total": 40059,
   "monthly_totals": [
@@ -42345,7 +42351,7 @@
     },
     {
       "month": "2026-10",
-      "gallons": 13138
+      "gallons": 13688
     }
   ],
   "monthly_by_region": [
@@ -53992,7 +53998,7 @@
     {
       "month": "2026-10",
       "region": "Central",
-      "gallons": 1100
+      "gallons": 1250
     },
     {
       "month": "2026-10",
@@ -54057,12 +54063,12 @@
     {
       "month": "2026-10",
       "region": "Summer Snack Stops",
-      "gallons": 730
+      "gallons": 780
     },
     {
       "month": "2026-10",
       "region": "Warren / Waitsfield",
-      "gallons": 720
+      "gallons": 1120
     },
     {
       "month": "2026-10",
@@ -54072,7 +54078,7 @@
     {
       "month": "2026-10",
       "region": "Winter / Summer Combined",
-      "gallons": 1410
+      "gallons": 1460
     }
   ],
   "yearly_by_region": [
@@ -55109,7 +55115,7 @@
     {
       "year": 2026,
       "region": "Central",
-      "gallons": 23732
+      "gallons": 23882
     },
     {
       "year": 2026,
@@ -55179,12 +55185,12 @@
     {
       "year": 2026,
       "region": "Summer Snack Stops",
-      "gallons": 13075
+      "gallons": 13125
     },
     {
       "year": 2026,
       "region": "Warren / Waitsfield",
-      "gallons": 7910
+      "gallons": 8310
     },
     {
       "year": 2026,
@@ -55194,7 +55200,7 @@
     {
       "year": 2026,
       "region": "Winter / Summer Combined",
-      "gallons": 29480
+      "gallons": 29530
     }
   ],
   "region_names": [
@@ -55243,20 +55249,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 27760,
+  "collections_count": 27770,
   "out_of_state_total": 40059,
   "active_customer_count": 527,
   "projection": {
     "latest_data_date": "2026-10-19",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 238194,
+    "current_ytd": 238744,
     "previous_year_full": 269909,
     "previous_through_prior_month": 208859,
     "previous_same_month_total": 21968,
     "previous_prorated_ytd": 222323.26,
-    "projected_current_year": 289177,
-    "percent_vs_previous_year": 0.071386
+    "projected_current_year": 289844,
+    "percent_vs_previous_year": 0.07386
   },
   "region_stats": {
     "Burlington / South Burlington": {
