@@ -1,6 +1,7 @@
 customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1498,Barre Country Club-Plainfield,Burlington,Chittenden,2026-07-29,2026,2026-07,150,True,Burlington
 1509,"Champlain Valley Fairgrounds, Lot P",Burlington,Chittenden,2026-06-13,2026,2026-06,2700,True,Burlington
+551,The Genny- Albany General Store,Albany,Orleans,2026-10-20,2026,2026-10,150,True,Albany
 551,The Genny- Albany General Store,Albany,Orleans,2026-08-31,2026,2026-08,145,True,Albany
 551,The Genny- Albany General Store,Albany,Orleans,2026-07-05,2026,2026-07,165,True,Albany
 551,The Genny- Albany General Store,Albany,Orleans,2026-04-15,2026,2026-04,95,True,Albany
@@ -8412,6 +8413,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1300,Jacksonville General Store,Jacksonville,Windham,2024-10-14,2024,2024-10,40,True,Whitingham
 1300,Jacksonville General Store,Jacksonville,Windham,2024-08-15,2024,2024-08,90,True,Whitingham
 1300,Jacksonville General Store,Jacksonville,Windham,2024-03-25,2024,2024-03,70,True,Whitingham
+528,Jay Peak- Golf Course,Jay,Orleans,2026-10-20,2026,2026-10,150,True,Jay
 528,Jay Peak- Golf Course,Jay,Orleans,2026-08-31,2026,2026-08,130,True,Jay
 528,Jay Peak- Golf Course,Jay,Orleans,2026-07-09,2026,2026-07,140,True,Jay
 528,Jay Peak- Golf Course,Jay,Orleans,2026-04-13,2026,2026-04,10,True,Jay
@@ -8522,6 +8524,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 529,Jay Peak-Stateside (loading dock),Jay,Orleans,2016-08-18,2016,2016-08,30,True,Jay
 529,Jay Peak-Stateside (loading dock),Jay,Orleans,2016-07-07,2016,2016-07,80,True,Jay
 529,Jay Peak-Stateside (loading dock),Jay,Orleans,2015-02-09,2015,2015-02,70,True,Jay
+526,Jay Peak-waterslide,Jay,Orleans,2026-10-20,2026,2026-10,190,True,Jay
 526,Jay Peak-waterslide,Jay,Orleans,2026-08-31,2026,2026-08,70,True,Jay
 526,Jay Peak-waterslide,Jay,Orleans,2026-07-09,2026,2026-07,150,True,Jay
 526,Jay Peak-waterslide,Jay,Orleans,2026-05-11,2026,2026-05,130,True,Jay
@@ -8613,6 +8616,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 526,Jay Peak-waterslide,Jay,Orleans,2015-04-16,2015,2015-04,1000,True,Jay
 526,Jay Peak-waterslide,Jay,Orleans,2015-04-07,2015,2015-04,250,True,Jay
 526,Jay Peak-waterslide,Jay,Orleans,2015-04-03,2015,2015-04,500,True,Jay
+530,Jay Village Inn,Jay,Orleans,2026-10-20,2026,2026-10,125,True,Jay
 530,Jay Village Inn,Jay,Orleans,2026-08-20,2026,2026-08,65,True,Jay
 530,Jay Village Inn,Jay,Orleans,2026-07-24,2026,2026-07,80,True,Jay
 530,Jay Village Inn,Jay,Orleans,2026-06-12,2026,2026-06,80,True,Jay
@@ -12183,6 +12187,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1496,Tourterelle -just north of MIDDLEBURY,Burlington,Chittenden,2026-08-24,2026,2026-08,20,True,Burlington
 1496,Tourterelle -just north of MIDDLEBURY,Burlington,Chittenden,2026-07-06,2026,2026-07,100,True,Burlington
 1496,Tourterelle -just north of MIDDLEBURY,Burlington,Chittenden,2026-04-30,2026,2026-04,75,True,Burlington
+534,Dusit Thai,Newport,Orleans,2026-10-20,2026,2026-10,40,True,Newport City
 534,Dusit Thai,Newport,Orleans,2026-08-06,2026,2026-08,75,True,Newport City
 534,Dusit Thai,Newport,Orleans,2026-04-29,2026,2026-04,70,True,Newport City
 534,Dusit Thai,Newport,Orleans,2026-01-16,2026,2026-01,80,True,Newport City
@@ -12231,6 +12236,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 534,Dusit Thai,Newport,Orleans,2017-02-21,2017,2017-02,15,True,Newport City
 534,Dusit Thai,Newport,Orleans,2017-01-31,2017,2017-01,40,True,Newport City
 534,Dusit Thai,Newport,Orleans,2016-12-09,2016,2016-12,20,True,Newport City
+1171,Hoagies-Newport,Newport,Orleans,2026-10-20,2026,2026-10,180,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2026-10-06,2026,2026-10,250,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2026-09-15,2026,2026-09,165,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2026-08-31,2026,2026-08,140,True,Newport City
@@ -12290,6 +12296,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1171,Hoagies-Newport,Newport,Orleans,2022-12-22,2022,2022-12,135,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2022-11-01,2022,2022-11,115,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2022-09-07,2022,2022-09,525,True,Newport City
+1074,JumbleBite/Hilmers on Main,Newport,Orleans,2026-10-20,2026,2026-10,60,True,Newport City
 1074,JumbleBite/Hilmers on Main,Newport,Orleans,2026-09-15,2026,2026-09,35,True,Newport City
 1074,JumbleBite/Hilmers on Main,Newport,Orleans,2026-08-06,2026,2026-08,70,True,Newport City
 1074,JumbleBite/Hilmers on Main,Newport,Orleans,2026-07-02,2026,2026-07,120,True,Newport City
@@ -12382,6 +12389,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1072,The Warehouse/Cider,Newport,Orleans,2022-01-03,2022,2022-01,70,True,Newport City
 1072,The Warehouse/Cider,Newport,Orleans,2021-11-09,2021,2021-11,40,True,Newport City
 1072,The Warehouse/Cider,Newport,Orleans,2021-10-14,2021,2021-10,70,True,Newport City
+531,"Wal-mart,Newport",Newport,Orleans,2026-10-20,2026,2026-10,242,True,Newport City
 531,"Wal-mart,Newport",Newport,Orleans,2026-08-06,2026,2026-08,143,True,Newport City
 531,"Wal-mart,Newport",Newport,Orleans,2026-07-24,2026,2026-07,230,True,Newport City
 531,"Wal-mart,Newport",Newport,Orleans,2026-04-29,2026,2026-04,224,True,Newport City
@@ -12513,9 +12521,11 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1144,Shore Acres-North Hero,North Hero,Grand Isle,2022-09-13,2022,2022-09,25,True,North Hero
 1144,Shore Acres-North Hero,North Hero,Grand Isle,2022-08-12,2022,2022-08,25,True,North Hero
 1503,Way Out Wax,Burlington,Chittenden,2026-05-27,2026,2026-05,60,True,Burlington
+1500,802 Deli and Market,North Troy,Orleans,2026-10-20,2026,2026-10,30,True,Troy
 1500,802 Deli and Market,North Troy,Orleans,2026-09-15,2026,2026-09,40,True,Troy
 1500,802 Deli and Market,North Troy,Orleans,2026-07-24,2026,2026-07,80,True,Troy
 1500,802 Deli and Market,North Troy,Orleans,2026-06-12,2026,2026-06,100,True,Troy
+1314,Hoagies in North Troy,North Troy,Orleans,2026-10-20,2026,2026-10,125,True,Troy
 1314,Hoagies in North Troy,North Troy,Orleans,2026-08-20,2026,2026-08,65,True,Troy
 1314,Hoagies in North Troy,North Troy,Orleans,2026-07-24,2026,2026-07,130,True,Troy
 1314,Hoagies in North Troy,North Troy,Orleans,2026-06-12,2026,2026-06,80,True,Troy
@@ -12576,6 +12586,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1246,Junction Restaurant-50%-North Troy,North Troy,Orleans,2023-06-27,2023,2023-06,100,True,Troy
 1246,Junction Restaurant-50%-North Troy,North Troy,Orleans,2023-05-11,2023,2023-05,35,True,Troy
 1246,Junction Restaurant-50%-North Troy,North Troy,Orleans,2023-04-26,2023,2023-04,10,True,Troy
+1165,Toasted Bun-North Troy,North Troy,Orleans,2026-10-20,2026,2026-10,35,True,Troy
 1165,Toasted Bun-North Troy,North Troy,Orleans,2026-09-15,2026,2026-09,80,True,Troy
 1165,Toasted Bun-North Troy,North Troy,Orleans,2026-08-20,2026,2026-08,135,True,Troy
 1165,Toasted Bun-North Troy,North Troy,Orleans,2026-07-24,2026,2026-07,145,True,Troy
