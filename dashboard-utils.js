@@ -452,7 +452,8 @@ function navHtml(current, latestYear, defaultRegion) {
     { key: "region", href: `region.html?region=${encodeURIComponent(region)}`, label: "Regions" },
     { key: "year", href: `year.html?year=${encodeURIComponent(year)}`, label: "Years" },
     { key: "customers", href: "customers.html", label: "Customers" },
-    { key: "schmootz", href: "schmootz.html", label: "Schmootz" }
+    { key: "schmootz", href: "schmootz.html", label: "Schmootz" },
+    { key: "ops", href: "ops-assign.html", label: "Ops" }
   ];
 
   return links
