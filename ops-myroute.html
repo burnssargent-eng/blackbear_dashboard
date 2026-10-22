@@ -25,7 +25,7 @@
 /*
  * My Route (shadow): the source site's "My Route" and "Today's Routes" in one
  * page. Every route is listed collapsed; opening one shows its stops, which
- * can be reordered (arrows or a typed stop number), flagged Must Get, removed,
+ * can be reordered (hold a stop a third of a second and drag it, or the arrows), flagged Must Get, removed,
  * or added to straight from a search. "Set as My Route" opens the driver view
  * for entering gallons. Everything is saved in the shadow copy, in this
  * browser only.
@@ -36,6 +36,7 @@ const SOURCE_CUSTOMER_URL = "https://jammal28.dreamhosters.com/tracking/customer
 let data = null, store = null, routeList = [];
 let openRoutes = new Set();          // route ids expanded in the list
 let addSearch = {};                  // route id -> text in its Add stop box
+let lastMoved = null;                // { route, i } of the stop just dragged, flashed once
 
 /* ── Route list ─────────────────────────────────────────── */
 
@@ -53,10 +54,10 @@ function stopLabelHtml(l, numbered = true) {
 
 function stopRowsHtml(routeId, lines) {
   const n = lines.length;
+  const moved = lastMoved && lastMoved.route === routeId ? lastMoved.i : null;
   return lines.map((l, i) => `
-    <tr>
-      <td><input type="number" class="form-control form-control-sm ops-seq" min="1" max="${n}" value="${i + 1}"
-            data-seq="${i}" data-route="${routeId}" aria-label="Stop number"></td>
+    <tr data-drag="${i}" data-route="${routeId}"${i === moved ? ` class="ops-flash"` : ""}>
+      <td class="ops-seq">${i + 1}</td>
       <td class="text-nowrap">
         <button type="button" class="btn btn-light btn-sm" data-act="up" data-route="${routeId}" data-i="${i}"
           ${i === 0 ? "disabled" : ""} aria-label="Move up">↑</button>
@@ -146,12 +147,139 @@ function routeHtml(route) {
 function renderList() {
   const withStops = routeList.filter(r => storeStops(store, r.route_id).length);
   const empty = routeList.filter(r => !storeStops(store, r.route_id).length);
-  document.getElementById("page").innerHTML = `
+  const html = `
     <h2>My Route</h2>
     <div class="ops-muted mb-3">Open a route to see and change its stops; Set as My Route to start entering gallons.
       Projections as of ${escapeHtml(formatDate(data.projections.as_of))}.</div>
     ${withStops.map(routeHtml).join("")}
     ${empty.length ? `<div class="ops-muted mt-3 mb-1">Routes with no stops</div>${empty.map(routeHtml).join("")}` : ""}`;
+  document.getElementById("page").innerHTML = html;
+  lastMoved = null;
+}
+
+/* ── Reordering stops by dragging ───────────────────────────
+ * Hold a stop for a third of a second, then drag: the stop lifts and the
+ * others slide out of the way. A press that moves more than 10px before the
+ * hold is up was a scroll, and nothing happens (0.2 s caught scrolls on a
+ * phone; 0.3-0.4 s did not, 2026-10-22). Once lifted, touchmove is cancelled
+ * so the page stops scrolling; near the top or bottom edge it auto-scrolls.
+ * The arrows still move a stop one place. Mouse works the same way. */
+const HOLD_MS = 333, SLOP = 10, EDGE = 70;
+let press = null;
+
+function startPress(row, x, y) {
+  press = { row, route: Number(row.dataset.route), i: Number(row.dataset.drag),
+    x0: x, y0: y, x, y, active: false };
+  // The fill sweeping across tells the finger to stay put.
+  const b = row.getBoundingClientRect();
+  press.fill = document.createElement("div");
+  press.fill.className = "ops-hold-fill";
+  Object.assign(press.fill.style, { left: `${b.left + scrollX}px`, top: `${b.top + scrollY}px`,
+    width: `${b.width}px`, height: `${b.height}px` });
+  document.body.appendChild(press.fill);
+  press.fill.getBoundingClientRect();   // start from scaleX(0)
+  press.fill.classList.add("ops-sweep");
+  press.timer = setTimeout(liftStop, HOLD_MS);
+}
+
+function cancelPress() {
+  if (!press) return;
+  clearTimeout(press.timer);
+  cancelAnimationFrame(press.raf);
+  press.fill.remove();
+  press = null;
+}
+
+function liftStop() {
+  const p = press;
+  p.active = true;
+  p.fill.remove();
+  if (navigator.vibrate) navigator.vibrate(25);
+  p.rows = [...p.row.parentElement.querySelectorAll("tr[data-drag]")];
+  p.rects = p.rows.map(r => { const b = r.getBoundingClientRect(); return { top: b.top + scrollY, h: b.height }; });
+  p.grab = p.y + scrollY - p.rects[p.i].top;
+  p.row.classList.add("ops-lifted");
+  p.rows.forEach((r, k) => { if (k !== p.i) r.classList.add("ops-sliding"); });
+  dragTo();
+  edgeScroll();
+}
+
+/** Follow the finger; the stops between the old and new place slide by one row. */
+function dragTo() {
+  const p = press;
+  const top = p.y + scrollY - p.grab;
+  const centre = top + p.rects[p.i].h / 2;
+  p.target = p.rects.filter((r, k) => k !== p.i && centre > r.top + r.h / 2).length;
+  const h = p.rects[p.i].h;
+  p.row.style.transform = `translateY(${top - p.rects[p.i].top}px)`;
+  p.rows.forEach((r, k) => {
+    if (k === p.i) return;
+    const dy = p.i < k && k <= p.target ? -h : p.target <= k && k < p.i ? h : 0;
+    r.style.transform = dy ? `translateY(${dy}px)` : "";
+  });
+}
+
+function edgeScroll() {
+  const p = press;
+  if (!p || !p.active) return;
+  const dy = p.y < EDGE ? -Math.ceil((EDGE - p.y) / 6)
+    : p.y > innerHeight - EDGE ? Math.ceil((p.y - (innerHeight - EDGE)) / 6) : 0;
+  if (dy) { scrollBy(0, dy); dragTo(); }
+  p.raf = requestAnimationFrame(edgeScroll);
+}
+
+function dropStop() {
+  const p = press;
+  if (!p) return;
+  cancelPress();
+  if (!p.active) return;
+  if (p.target !== p.i) {
+    store.routes[p.route] = moveStop(storeStops(store, p.route), p.i, p.target);
+    saveStore(store);
+    lastMoved = { route: p.route, i: p.target };
+  }
+  render();
+}
+
+function dragRow(e) {
+  if (store.my || e.target.closest("button, a, input, select")) return null;
+  return e.target.closest("tr[data-drag]");
+}
+
+function wireDrag(page) {
+  page.addEventListener("touchstart", e => {
+    if (e.touches.length !== 1) { cancelPress(); return; }
+    const row = dragRow(e);
+    if (row) startPress(row, e.touches[0].clientX, e.touches[0].clientY);
+  }, { passive: true });
+  document.addEventListener("touchmove", e => {
+    if (!press) return;
+    press.x = e.touches[0].clientX; press.y = e.touches[0].clientY;
+    if (!press.active) {
+      if (Math.hypot(press.x - press.x0, press.y - press.y0) > SLOP) cancelPress();   // a scroll
+      return;
+    }
+    e.preventDefault();
+    dragTo();
+  }, { passive: false });
+  document.addEventListener("touchend", dropStop);
+  document.addEventListener("touchcancel", () => { if (press && press.active) dropStop(); else cancelPress(); });
+  page.addEventListener("contextmenu", e => { if (e.target.closest("tr[data-drag]")) e.preventDefault(); });
+  page.addEventListener("mousedown", e => {
+    if (e.button !== 0) return;
+    const row = dragRow(e);
+    if (row) { e.preventDefault(); startPress(row, e.clientX, e.clientY); }
+  });
+  document.addEventListener("mousemove", e => {
+    if (!press) return;
+    press.x = e.clientX; press.y = e.clientY;
+    if (!press.active) {
+      if (Math.hypot(press.x - press.x0, press.y - press.y0) > SLOP) cancelPress();
+      return;
+    }
+    dragTo();
+  });
+  document.addEventListener("mouseup", dropStop);
 }
 
 /* ── Driver view ────────────────────────────────────────── */
@@ -380,6 +508,7 @@ function onAct(b) {
 
 function wire() {
   const page = document.getElementById("page");
+  wireDrag(page);
   page.addEventListener("click", e => {
     const b = e.target.closest && e.target.closest("[data-act]");
     if (b) { onAct(b); return; }
@@ -405,10 +534,7 @@ function wire() {
       render();
       return;
     }
-    if (t.dataset.seq !== undefined) {
-      const r = Number(t.dataset.route);
-      store.routes[r] = setStopNumber(storeStops(store, r), Number(t.dataset.seq), t.value);
-    } else if (t.dataset.truck !== undefined) {
+    if (t.dataset.truck !== undefined) {
       store.trucks[t.dataset.truck] = t.value;
     } else return;
     saveStore(store);
