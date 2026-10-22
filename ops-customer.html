@@ -91,7 +91,10 @@ function homeHtml(row, today, onRoutes, capacity) {
              placeholder="# of gallons" required>
       <button class="btn btn-primary">Add Collection</button>
     </form>
-    ${today ? `<div class="alert alert-success py-2">Today: ${today.gallons <= 3 ? codeText(today.gallons)
+    ${today && today.theft ? `<div class="alert alert-danger py-2">Today: ${theftGallonsText(today)} — this browser only.
+      <button type="button" class="btn btn-link btn-sm p-0 ms-2" data-undo>Undo</button>
+      ${today.theft.note ? `<div style="overflow-wrap:anywhere">${escapeHtml(today.theft.note)}</div>` : ""}</div>`
+    : today ? `<div class="alert alert-success py-2">Today: ${today.gallons <= 3 ? codeText(today.gallons)
       : `${formatNumber(today.gallons)} gal`} — this browser only.
       <button type="button" class="btn btn-link btn-sm p-0 ms-2" data-undo>Undo</button></div>` : ""}
     ${flash ? `<div class="text-success mb-2">${flash}</div>` : ""}

@@ -354,6 +354,29 @@ function todaysCollection(store, customerId) {
 }
 
 /**
+ * Record a theft found at a stop: today's collection (the gallons still in the
+ * barrel, 0 when it was emptied) marked as a theft, with the driver's note.
+ * Every save is kept in `versions` with the time it was made, so the first
+ * account survives later edits — the record is evidence. `recorded_at` is the
+ * first save. The shadow copy has no logins yet, so who recorded it is not known.
+ */
+function recordTheft(store, customer, gallons, note, now = new Date()) {
+  const prev = todaysCollection(store, customer.customer_id);
+  const versions = prev && prev.theft ? prev.theft.versions : [];
+  recordCollection(store, customer, gallons);
+  const entry = todaysCollection(store, customer.customer_id);
+  const at = now.toISOString();
+  entry.theft = { note, recorded_at: versions.length ? versions[0].at : at,
+    versions: [...versions, { at, gallons, note }] };
+  return entry;
+}
+
+/** A theft's figures: "Theft · 15 gal", or "Theft · empty" for 0-3. */
+function theftGallonsText(c) {
+  return `Theft · ${c.gallons <= 3 ? "empty" : `${formatNumber(c.gallons)} gal`}`;
+}
+
+/**
  * customer_details.json (addresses, notes, map positions), or an empty set
  * when missing. Its notes have phone numbers and door codes cut out, because
  * the site is public. A local preview may also have customer_notes.local.json

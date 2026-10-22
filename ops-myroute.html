@@ -25,7 +25,7 @@
 /*
  * My Route (shadow): the source site's "My Route" and "Today's Routes" in one
  * page. Every route is listed collapsed; opening one shows its stops, which
- * can be reordered (arrows or a typed stop number), flagged Must Get, removed,
+ * can be reordered (hold a stop a third of a second and drag it, or the arrows), flagged Must Get, removed,
  * or added to straight from a search. "Set as My Route" opens the driver view
  * for entering gallons. Everything is saved in the shadow copy, in this
  * browser only.
@@ -36,6 +36,7 @@ const SOURCE_CUSTOMER_URL = "https://jammal28.dreamhosters.com/tracking/customer
 let data = null, store = null, routeList = [];
 let openRoutes = new Set();          // route ids expanded in the list
 let addSearch = {};                  // route id -> text in its Add stop box
+let lastMoved = null;                // { route, i } of the stop just dragged, flashed once
 
 /* ── Route list ─────────────────────────────────────────── */
 
@@ -53,10 +54,10 @@ function stopLabelHtml(l, numbered = true) {
 
 function stopRowsHtml(routeId, lines) {
   const n = lines.length;
+  const moved = lastMoved && lastMoved.route === routeId ? lastMoved.i : null;
   return lines.map((l, i) => `
-    <tr>
-      <td><input type="number" class="form-control form-control-sm ops-seq" min="1" max="${n}" value="${i + 1}"
-            data-seq="${i}" data-route="${routeId}" aria-label="Stop number"></td>
+    <tr data-drag="${i}" data-route="${routeId}"${i === moved ? ` class="ops-flash"` : ""}>
+      <td class="ops-seq">${i + 1}</td>
       <td class="text-nowrap">
         <button type="button" class="btn btn-light btn-sm" data-act="up" data-route="${routeId}" data-i="${i}"
           ${i === 0 ? "disabled" : ""} aria-label="Move up">↑</button>
@@ -146,19 +147,147 @@ function routeHtml(route) {
 function renderList() {
   const withStops = routeList.filter(r => storeStops(store, r.route_id).length);
   const empty = routeList.filter(r => !storeStops(store, r.route_id).length);
-  document.getElementById("page").innerHTML = `
+  const html = `
     <h2>My Route</h2>
     <div class="ops-muted mb-3">Open a route to see and change its stops; Set as My Route to start entering gallons.
       Projections as of ${escapeHtml(formatDate(data.projections.as_of))}.</div>
     ${withStops.map(routeHtml).join("")}
     ${empty.length ? `<div class="ops-muted mt-3 mb-1">Routes with no stops</div>${empty.map(routeHtml).join("")}` : ""}`;
+  document.getElementById("page").innerHTML = html;
+  lastMoved = null;
+}
+
+/* ── Reordering stops by dragging ───────────────────────────
+ * Hold a stop for a third of a second, then drag: the stop lifts and the
+ * others slide out of the way. A press that moves more than 10px before the
+ * hold is up was a scroll, and nothing happens (0.2 s caught scrolls on a
+ * phone; 0.3-0.4 s did not, 2026-10-22). Once lifted, touchmove is cancelled
+ * so the page stops scrolling; near the top or bottom edge it auto-scrolls.
+ * The arrows still move a stop one place. Mouse works the same way. */
+const HOLD_MS = 333, SLOP = 10, EDGE = 70;
+let press = null;
+
+function startPress(row, x, y) {
+  press = { row, route: Number(row.dataset.route), i: Number(row.dataset.drag),
+    x0: x, y0: y, x, y, active: false };
+  // The fill sweeping across tells the finger to stay put.
+  const b = row.getBoundingClientRect();
+  press.fill = document.createElement("div");
+  press.fill.className = "ops-hold-fill";
+  Object.assign(press.fill.style, { left: `${b.left + scrollX}px`, top: `${b.top + scrollY}px`,
+    width: `${b.width}px`, height: `${b.height}px` });
+  document.body.appendChild(press.fill);
+  press.fill.getBoundingClientRect();   // start from scaleX(0)
+  press.fill.classList.add("ops-sweep");
+  press.timer = setTimeout(liftStop, HOLD_MS);
+}
+
+function cancelPress() {
+  if (!press) return;
+  clearTimeout(press.timer);
+  cancelAnimationFrame(press.raf);
+  press.fill.remove();
+  press = null;
+}
+
+function liftStop() {
+  const p = press;
+  p.active = true;
+  p.fill.remove();
+  if (navigator.vibrate) navigator.vibrate(25);
+  p.rows = [...p.row.parentElement.querySelectorAll("tr[data-drag]")];
+  p.rects = p.rows.map(r => { const b = r.getBoundingClientRect(); return { top: b.top + scrollY, h: b.height }; });
+  p.grab = p.y + scrollY - p.rects[p.i].top;
+  p.row.classList.add("ops-lifted");
+  p.rows.forEach((r, k) => { if (k !== p.i) r.classList.add("ops-sliding"); });
+  dragTo();
+  edgeScroll();
+}
+
+/** Follow the finger; the stops between the old and new place slide by one row. */
+function dragTo() {
+  const p = press;
+  const top = p.y + scrollY - p.grab;
+  const centre = top + p.rects[p.i].h / 2;
+  p.target = p.rects.filter((r, k) => k !== p.i && centre > r.top + r.h / 2).length;
+  const h = p.rects[p.i].h;
+  p.row.style.transform = `translateY(${top - p.rects[p.i].top}px)`;
+  p.rows.forEach((r, k) => {
+    if (k === p.i) return;
+    const dy = p.i < k && k <= p.target ? -h : p.target <= k && k < p.i ? h : 0;
+    r.style.transform = dy ? `translateY(${dy}px)` : "";
+  });
+}
+
+function edgeScroll() {
+  const p = press;
+  if (!p || !p.active) return;
+  const dy = p.y < EDGE ? -Math.ceil((EDGE - p.y) / 6)
+    : p.y > innerHeight - EDGE ? Math.ceil((p.y - (innerHeight - EDGE)) / 6) : 0;
+  if (dy) { scrollBy(0, dy); dragTo(); }
+  p.raf = requestAnimationFrame(edgeScroll);
+}
+
+function dropStop() {
+  const p = press;
+  if (!p) return;
+  cancelPress();
+  if (!p.active) return;
+  if (p.target !== p.i) {
+    store.routes[p.route] = moveStop(storeStops(store, p.route), p.i, p.target);
+    saveStore(store);
+    lastMoved = { route: p.route, i: p.target };
+  }
+  render();
+}
+
+function dragRow(e) {
+  if (store.my || e.target.closest("button, a, input, select")) return null;
+  return e.target.closest("tr[data-drag]");
+}
+
+function wireDrag(page) {
+  page.addEventListener("touchstart", e => {
+    if (e.touches.length !== 1) { cancelPress(); return; }
+    const row = dragRow(e);
+    if (row) startPress(row, e.touches[0].clientX, e.touches[0].clientY);
+  }, { passive: true });
+  document.addEventListener("touchmove", e => {
+    if (!press) return;
+    press.x = e.touches[0].clientX; press.y = e.touches[0].clientY;
+    if (!press.active) {
+      if (Math.hypot(press.x - press.x0, press.y - press.y0) > SLOP) cancelPress();   // a scroll
+      return;
+    }
+    e.preventDefault();
+    dragTo();
+  }, { passive: false });
+  document.addEventListener("touchend", dropStop);
+  document.addEventListener("touchcancel", () => { if (press && press.active) dropStop(); else cancelPress(); });
+  page.addEventListener("contextmenu", e => { if (e.target.closest("tr[data-drag]")) e.preventDefault(); });
+  page.addEventListener("mousedown", e => {
+    if (e.button !== 0) return;
+    const row = dragRow(e);
+    if (row) { e.preventDefault(); startPress(row, e.clientX, e.clientY); }
+  });
+  document.addEventListener("mousemove", e => {
+    if (!press) return;
+    press.x = e.clientX; press.y = e.clientY;
+    if (!press.active) {
+      if (Math.hypot(press.x - press.x0, press.y - press.y0) > SLOP) cancelPress();
+      return;
+    }
+    dragTo();
+  });
+  document.addEventListener("mouseup", dropStop);
 }
 
 /* ── Driver view ────────────────────────────────────────── */
 
 let details = {};   // customer_details.json (+ local notes in a preview): address, notes, position
 
-let openDetails = null;   // customer id whose Details panel is open (one at a time)
+let openDetails = null;   // customer id whose Notes panel is open (one at a time)
+let theftOpen = null;     // customer id whose theft form is open
 let activeId = null;      // customer id showing its controls; null = the next one to collect
 let compact = true;       // only the active stop shows controls (a per-phone preference)
 
@@ -170,7 +299,10 @@ try { compact = window.localStorage.getItem(COMPACT_KEY) !== "off"; } catch (err
  *   - each stop is one line: name, then "(~87 gal / 300) [28]";
  *   - in Compact (the default) only one stop shows its controls: the next one
  *     to collect, or whichever line the driver taps. Save moves on to the next;
- *   - controls are one row: gallons, Save, Maps, Details (1-3 typed = empty);
+ *   - controls are one row: gallons, Save, Maps, Notes (1-3 typed = empty);
+ *   - Theft sits in the Notes panel, beside Customer page, so it is never one
+ *     slip from Save. It opens a form (gallons still in the barrel, an optional
+ *     note); a saved theft is a collection in red, its note under the name;
  *   - collected stops turn green and drop below the rest, in the order collected;
  *   - the tally and truck bar sit under the list, then the pin map.
  */
@@ -182,6 +314,7 @@ function renderDriver() {
   const truck = truckByName(store.trucks[route.route_id]);
   const done = lines.map(l => todaysCollection(store, l.stop.customer_id));
   const live = liveRouteTotals(lines, store);
+  const thefts = done.filter(c => c && c.theft).length;
 
   // Uncollected stops in route order, then collected ones in the order entered.
   const entered = new Map(store.collections.filter(c => c.date === todayIso()).map((c, k) => [c.customer_id, k]));
@@ -206,7 +339,8 @@ function renderDriver() {
     ${order.map(k => stopHtml(lines[k], k, done[k], !compact || lines[k].stop.customer_id === current)).join("")}
     <div class="mt-2">
       <div class="ops-route-sum"><strong>Total: ${formatNumber(live.collected)}</strong> of
-        ${formatWhole(live.projected)} projected gal · ${live.done} of ${lines.length} stops</div>
+        ${formatWhole(live.projected)} projected gal · ${live.done} of ${lines.length} stops${thefts
+        ? ` · ${thefts} theft${thefts === 1 ? "" : "s"}` : ""}</div>
       ${truck ? `<div class="d-flex align-items-center gap-2 mt-1">
         <div class="progress flex-grow-1">
           <div class="progress-bar ${over ? "bg-danger" : "bg-success"}" style="width:${solid}%"></div>
@@ -225,7 +359,7 @@ function mapsUrl(id) {
   return dest ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(dest)}` : null;
 }
 
-/** One stop: its line, then (when it is the one showing) its control row and Details. */
+/** One stop: its line, then (when it is the one showing) its control row, theft form or Notes. */
 function stopHtml(l, k, c, showing) {
   const id = l.stop.customer_id;
   const open = showing && openDetails === id;
@@ -235,27 +369,48 @@ function stopHtml(l, k, c, showing) {
     ? `<a class="btn ops-plain-btn" href="${maps}" target="_blank" rel="noopener">Maps</a>`
     : `<button type="button" class="btn ops-plain-btn" disabled>Maps</button>`;
   const detailsBtn = `<button type="button" class="btn ops-plain-btn${d.notes ? " ops-flag" : ""}" data-act="details"
-    data-id="${id}" aria-expanded="${open}">Details ${open ? "▴" : "▾"}</button>`;
-  const figures = !showing && c
+    data-id="${id}" aria-expanded="${open}">Notes ${open ? "▴" : "▾"}</button>`;
+  const theft = c && c.theft;
+  const theftForm = showing && theftOpen === id;
+  const figures = theft && !showing
+    ? `<span class="ops-line-figs ops-theft-text">${theftGallonsText(c)}</span>`
+    : !showing && c
     ? `<span class="ops-line-figs text-success">✓ ${c.gallons <= 3 ? "Empty" : `${formatNumber(c.gallons)} gal`}</span>`
     : `<span class="ops-line-figs">${stopLabelHtml(l, false)}</span>`;
-  return `<div class="ops-line${c ? " ops-done" : ""}${showing && compact ? " ops-current" : ""}" data-pick="${id}">
+  const cls = theftForm ? " ops-theft-open" : (theft ? " ops-theft" : (c ? " ops-done" : ""));
+  return `<div class="ops-line${cls}${showing && compact ? " ops-current" : ""}" data-pick="${id}">
     <div class="ops-line-head">
       <span class="ops-line-name${l.stop.must_get ? " hotlist" : ""}" title="${escapeHtml(l.stop.name)}">${escapeHtml(l.stop.name)}</span>
       ${figures}
     </div>
-    ${showing ? `<div class="ops-row">
-      ${c ? `<span class="me-auto">${c.gallons <= 3 ? "Empty" : `${formatNumber(c.gallons)} gal`} ✓</span>
+    ${theft && theft.note && !theftForm ? `<div class="ops-theft-note">${escapeHtml(theft.note)}</div>` : ""}
+    ${theftForm ? `<div class="ops-theft-form">
+      <label for="theft-gal-${k}" class="ops-theft-label">Theft. Gallons still in barrel:</label>
+      <input type="number" inputmode="numeric" min="0" class="form-control" id="theft-gal-${k}" placeholder="gal"
+        value="${theft ? c.gallons : ""}">
+      <label for="theft-note-${k}">Note <span class="text-muted">(optional)</span></label>
+      <textarea class="form-control" id="theft-note-${k}" rows="2" placeholder="What happened?">${theft ? escapeHtml(theft.note) : ""}</textarea>
+      <div class="d-flex gap-2">
+        <button type="button" class="btn btn-danger" data-act="theft-save" data-i="${k}">Save</button>
+        <button type="button" class="btn ops-plain-btn" data-act="theft-cancel">Cancel</button>
+      </div>
+    </div>` : showing ? `<div class="ops-row">
+      ${theft ? `<span class="me-auto ops-theft-text">${theftGallonsText(c)}</span>
+             <button type="button" class="btn ops-plain-btn" data-act="theft" data-id="${id}">Edit</button>`
+        : c ? `<span class="me-auto">${c.gallons <= 3 ? "Empty" : `${formatNumber(c.gallons)} gal`} ✓</span>
              <button type="button" class="btn ops-plain-btn" data-act="undo" data-id="${id}">Edit</button>`
           : `<input type="number" inputmode="numeric" min="0" class="form-control" id="gal-${k}" placeholder="gal"
                aria-label="Gallons for ${escapeHtml(l.stop.name)}">
              <button type="button" class="btn btn-success" data-act="save" data-i="${k}">Save</button>`}
       ${mapsBtn}${detailsBtn}
     </div>` : ""}
-    ${open ? `<div class="ops-line-details">
+    ${open && !theftForm ? `<div class="ops-line-details">
       ${d.address ? (maps ? `<a href="${maps}" target="_blank" rel="noopener">${escapeHtml(d.address)}</a>` : escapeHtml(d.address)) : "No address on file"}
       ${d.notes ? `<div>Notes: ${notesHtml(id, d.notes)}</div>` : ""}
-      <div class="mt-1"><a class="btn ops-plain-btn ops-cust-btn" href="ops-customer.html?id=${id}&from=myroute">Customer page ›</a></div>
+      <div class="mt-1 d-flex gap-2 align-items-center">
+        <a class="btn ops-plain-btn ops-cust-btn" href="ops-customer.html?id=${id}&from=myroute">Customer page ›</a>
+        ${c ? "" : `<button type="button" class="btn btn-danger ops-theft-btn ms-auto" data-act="theft" data-id="${id}">Theft</button>`}
+      </div>
     </div>` : ""}
   </div>`;
 }
@@ -306,7 +461,7 @@ function onAct(b) {
       addSearch[routeId] = "";
       break;
     }
-    case "set": store.my = { routeId }; activeId = null; openDetails = null; window.scrollTo(0, 0); break;
+    case "set": store.my = { routeId }; activeId = null; openDetails = null; theftOpen = null; window.scrollTo(0, 0); break;
     case "save": {
       const stop = storeStops(store, store.my.routeId)[i];
       const gallons = parseInt(document.getElementById(`gal-${i}`).value, 10);
@@ -321,13 +476,30 @@ function onAct(b) {
         !(c.date === todayIso() && c.customer_id === Number(d.id)));
       activeId = Number(d.id);   // stays open, back in its route place
       break;
+    case "theft":   // open the theft form (Edit on a saved theft reopens it filled in)
+      theftOpen = activeId = Number(d.id);
+      openDetails = null;
+      render();
+      return;
+    case "theft-cancel": theftOpen = null; render(); return;
+    case "theft-save": {
+      const stop = storeStops(store, store.my.routeId)[i];
+      const typed = document.getElementById(`theft-gal-${i}`).value.trim();
+      const gallons = typed === "" ? 0 : parseInt(typed, 10);
+      if (!Number.isFinite(gallons) || gallons < 0) return;
+      recordTheft(store, stop, gallons, document.getElementById(`theft-note-${i}`).value.trim());
+      theftOpen = null;
+      activeId = null;      // on to the next stop to collect
+      openDetails = null;
+      break;
+    }
     case "details": {
       const id = Number(d.id);
       openDetails = openDetails === id ? null : id;
       render();
       return;
     }
-    case "change": store.my = null; activeId = null; openDetails = null; break;
+    case "change": store.my = null; activeId = null; openDetails = null; theftOpen = null; break;
     default: return;
   }
   saveStore(store);
@@ -336,15 +508,16 @@ function onAct(b) {
 
 function wire() {
   const page = document.getElementById("page");
+  wireDrag(page);
   page.addEventListener("click", e => {
     const b = e.target.closest && e.target.closest("[data-act]");
     if (b) { onAct(b); return; }
     // Compact: a tap on a stop's line shows that stop's controls, and closes
-    // any Details left open on another stop.
+    // any Notes or theft form left open on another stop.
     const line = e.target.closest && e.target.closest("[data-pick]");
-    if (store.my && compact && line && !e.target.closest("a, input, button, .ops-line-details")) {
+    if (store.my && compact && line && !e.target.closest("a, input, textarea, label, button, .ops-line-details")) {
       const id = Number(line.dataset.pick);
-      if (id !== activeId) { activeId = id; openDetails = null; render(); }
+      if (id !== activeId) { activeId = id; openDetails = null; theftOpen = null; render(); }
     }
   });
   page.addEventListener("toggle", e => {
@@ -357,14 +530,11 @@ function wire() {
     if (t.id === "compact") {
       compact = t.checked;
       try { window.localStorage.setItem(COMPACT_KEY, compact ? "on" : "off"); } catch (err) { /* ignore */ }
-      activeId = null; openDetails = null;
+      activeId = null; openDetails = null; theftOpen = null;
       render();
       return;
     }
-    if (t.dataset.seq !== undefined) {
-      const r = Number(t.dataset.route);
-      store.routes[r] = setStopNumber(storeStops(store, r), Number(t.dataset.seq), t.value);
-    } else if (t.dataset.truck !== undefined) {
+    if (t.dataset.truck !== undefined) {
       store.trucks[t.dataset.truck] = t.value;
     } else return;
     saveStore(store);
