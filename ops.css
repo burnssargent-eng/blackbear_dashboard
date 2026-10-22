@@ -39,46 +39,61 @@ body { background: #fff; }
 .ops-assign-bar .form-select, .ops-assign-bar .btn { font-size: 16px; }
 .ops-assign-bar .form-select { flex: 1 1 auto; min-width: 0; max-width: 260px; }
 
-/* My Route: routes collapsed in a list. */
-details.ops-route { border: 1px solid #dee2e6; border-radius: 6px; margin-bottom: 8px; }
+/* My Route: routes collapsed in a list, in the collecting page's style:
+   white boxes, light borders, the stops as cards. */
+details.ops-route { border: 1px solid #dee2e6; border-radius: 8px; margin-bottom: 8px; background: #fff; }
 details.ops-route > summary {
-  list-style: none; cursor: pointer; padding: 12px 14px; background: #f8f9fa; border-radius: 6px;
-  display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline;
+  list-style: none; cursor: pointer; padding: 10px 12px; border-radius: 8px;
+  display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline;
 }
 details.ops-route > summary::-webkit-details-marker { display: none; }
-details.ops-route > summary::before { content: "▸"; color: #888; }
+details.ops-route > summary::before { content: "▸"; color: #888; font-size: 13px; }
 details.ops-route[open] > summary::before { content: "▾"; }
-details.ops-route[open] > summary { border-bottom: 1px solid #dee2e6; border-radius: 6px 6px 0 0; }
-.ops-route-name { font-weight: bold; font-size: 18px; }
-.ops-route-sum { font-size: 14px; color: #555; }
-.ops-route-body { padding: 10px 14px; }
-.ops-stops td, .ops-stops th { vertical-align: middle; }
-.ops-stops .ops-seq { width: 2em; text-align: right; font-weight: 600; color: #6c757d; }
-/* Dragging a stop (My Route list), as in the samples: while the finger holds
-   for a third of a second a light fill sweeps across the row left to right;
-   once lifted the row is white with a shadow and a blue edge, and the others
-   slide. The fill is a box laid over the row (.ops-hold-fill): table rows
-   cannot carry a positioned ::before. */
-.ops-stops tr[data-drag] { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none;
+.ops-route-name { font-weight: 600; font-size: 20px; }
+.ops-route-sum { font-size: 14px; color: #6c757d; }
+.ops-route-body { padding: 0 10px 12px; }
+
+/* A stop: remove | name over figures | Page. Remove and Page are at opposite
+   ends so a slip cannot hit the other. Page is 36px tall; remove, the rare
+   action, a quieter 30px. */
+.ops-card { display: flex; align-items: center; gap: 10px; border: 1px solid #dee2e6; border-radius: 6px;
+  padding: 6px 8px; margin-bottom: 5px; background: #fff;
+  -webkit-user-select: none; user-select: none; -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent; touch-action: manipulation; cursor: grab; }
+.ops-card-main { flex: 1 1 auto; min-width: 0; }
+.ops-card-name { font-size: 16px; font-weight: 500; color: #212529; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ops-card-name.hotlist { color: #d00; }
+.ops-card-figs { font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ops-card-figs .ops-proj, .ops-card-figs .ops-days, .ops-card-figs .graytext, .ops-card-figs .ops-muted { font-size: 13px; }
+.ops-card-x, .ops-card-page { flex: 0 0 auto; height: 36px; display: inline-flex; align-items: center;
+  justify-content: center; font-size: 14px; }
+.ops-card-x { width: 30px; height: 30px; padding: 0; font-size: 13px; color: #6c757d; }
+.ops-card-page { min-width: 44px; padding: 0 8px; }
+/* The running total between the last stop and Add a stop. */
+.ops-route-total { font-size: 14px; color: #495057; padding: 4px 2px 10px; }
+.ops-route-total .progress { height: 10px; margin-top: 4px; }
+
+/* Dragging a stop, as in the samples: while the finger holds for a quarter
+   of a second a light fill sweeps across the card (.ops-hold-fill, a box laid
+   over it); then the card lights up (2px blue border, blue flash, shadow) so
+   the driver knows it is ready, follows the finger, and the others slide. */
 .ops-hold-fill { position: absolute; z-index: 5; pointer-events: none; background: rgba(13, 110, 253, 0.12);
-  transform: scaleX(0); transform-origin: left; }
-.ops-hold-fill.ops-sweep { transform: scaleX(1); transition: transform 333ms linear; }
-/* The moment the hold completes the stop lights up: a 2px blue border and a
-   blue flash that fades to white, so the driver knows it is ready to drag.
-   Drawn on the cells, not the row: Safari paints no border or shadow on a <tr>. */
-.ops-stops tr.ops-lifted { position: relative; z-index: 10; cursor: grabbing; }
-.ops-stops tr.ops-lifted > td { background-color: #fff; animation: ops-ready 450ms ease-out;
-  box-shadow: inset 0 2px 0 #0d6efd, inset 0 -2px 0 #0d6efd; }
-.ops-stops tr.ops-lifted > td:first-child { box-shadow: inset 2px 0 0 #0d6efd, inset 0 2px 0 #0d6efd, inset 0 -2px 0 #0d6efd; }
-.ops-stops tr.ops-lifted > td:last-child { box-shadow: inset -2px 0 0 #0d6efd, inset 0 2px 0 #0d6efd, inset 0 -2px 0 #0d6efd; }
+  border-radius: 6px; transform: scaleX(0); transform-origin: left; }
+.ops-hold-fill.ops-sweep { transform: scaleX(1); transition: transform 250ms linear; }
+.ops-card.ops-lifted { position: relative; z-index: 10; cursor: grabbing; border-color: #0d6efd;
+  box-shadow: 0 0 0 1px #0d6efd, 0 8px 20px rgba(0, 0, 0, 0.25); animation: ops-ready 450ms ease-out; }
 @keyframes ops-ready { from { background-color: rgba(13, 110, 253, 0.3); } to { background-color: #fff; } }
-.ops-stops tr.ops-sliding { transition: transform 150ms ease; }
-.ops-stops tr.ops-flash > td { animation: ops-flash 900ms ease; }
+.ops-card.ops-sliding { transition: transform 150ms ease; }
+.ops-card.ops-flash { animation: ops-flash 900ms ease; }
 @keyframes ops-flash { from { background-color: #fff3bf; } }
-.ops-stops tfoot td { font-weight: bold; border-top: 2px solid #555; }
-.ops-fill { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; }
-.ops-fill .progress { width: 110px; height: 8px; }
+
+/* Undo after removing a stop: a dark bar at the foot of the screen for a few seconds. */
+.ops-undo { position: fixed; left: 12px; right: 12px; bottom: 16px; z-index: 30; max-width: 520px; margin: 0 auto;
+  display: flex; align-items: center; gap: 10px; padding: 8px 8px 8px 14px; border-radius: 8px;
+  background: #212529; color: #fff; font-size: 15px; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25); }
+.ops-undo-text { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ops-undo-btn { color: #6ea8fe; font-weight: 600; font-size: 15px; min-height: 40px; }
+.ops-undo-btn:hover, .ops-undo-btn:focus { color: #9ec5fe; }
 
 /* Driver view. */
 .ops-sticky { position: sticky; top: 0; z-index: 5; background: #fff; border-bottom: 1px solid #dee2e6; }
@@ -133,16 +148,6 @@ details.ops-route[open] > summary { border-bottom: 1px solid #dee2e6; border-rad
   .cal-nav-right { justify-content: center; }
 }
 
-/* My Route stops table: customer text smaller so it fits a phone; the stop
-   number box and arrows keep their size. */
-.ops-stops .ops-cust { font-size: 14px; overflow-wrap: anywhere; }
-.ops-stops td.text-end, .ops-stops th.text-end { white-space: nowrap; overflow-wrap: normal; }
-.ops-stops .ops-cust .ops-muted { font-size: 12px; }
-@media (max-width: 576px) {
-  .ops-route-body { padding: 8px 6px; }
-  .ops-stops > :not(caption) > * > * { padding-left: 3px; padding-right: 3px; }
-}
-.ops-stops tfoot td.ops-total-cap { font-weight: bold; text-align: left; font-size: 14px; }
 
 /* Map pins: numbered red dots, green once collected today. */
 .ops-pin { background: none; border: none; }

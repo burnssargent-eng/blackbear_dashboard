@@ -25,8 +25,8 @@
 /*
  * My Route (shadow): the source site's "My Route" and "Today's Routes" in one
  * page. Every route is listed collapsed; opening one shows its stops, which
- * can be reordered (hold a stop a third of a second and drag it, or the arrows), flagged Must Get, removed,
- * or added to straight from a search. "Set as My Route" opens the driver view
+ * can be reordered (hold a stop a quarter of a second and drag it), opened on
+ * their customer page, removed (with Undo), or added to straight from a search. "Set as My Route" opens the driver view
  * for entering gallons. Everything is saved in the shadow copy, in this
  * browser only.
  */
@@ -37,40 +37,44 @@ let data = null, store = null, routeList = [];
 let openRoutes = new Set();          // route ids expanded in the list
 let addSearch = {};                  // route id -> text in its Add stop box
 let lastMoved = null;                // { route, i } of the stop just dragged, flashed once
+let removed = null;                  // { route, i, stop, timer }: the last stop removed, until Undo times out
+
+const UNDO_MS = 6000;
 
 /* ── Route list ─────────────────────────────────────────── */
 
 /**
- * "(~87 gal / 300) [28]" for a stop. A shared barrel's second stop points at
- * the first by number in the route table; the collecting page has no stop
- * numbers, so there it just says "(shared)".
+ * "(~87 gal / 300) [28]" for a stop. A shared barrel's second stop names the
+ * first in the route list ("(shared with Namaste)"); the collecting page just
+ * says "(shared)".
  */
-function stopLabelHtml(l, numbered = true) {
+function stopLabelHtml(l, sharedWith = null) {
   if (l.dupOf !== null) {
-    return `<span class="graytext" title="Same barrel as an earlier stop">(shared${numbered ? ` #${l.dupOf + 1}` : ""})</span>`;
+    return `<span class="graytext" title="Same barrel as an earlier stop">(shared${
+      sharedWith ? ` with ${escapeHtml(sharedWith)}` : ""})</span>`;
   }
   return stopFiguresHtml(l.row, l.capacity ?? l.stop.capacity);
 }
 
-function stopRowsHtml(routeId, lines) {
-  const n = lines.length;
+/**
+ * The route's stops as cards, styled like the collecting page's lines: remove
+ * on the left, the name over its figures, Page (the customer page) on the
+ * right. Remove and Page sit at opposite ends so a slip cannot hit the other.
+ * No stop numbers or arrows: a stop is moved by holding and dragging it.
+ */
+function stopCardsHtml(routeId, lines) {
   const moved = lastMoved && lastMoved.route === routeId ? lastMoved.i : null;
   return lines.map((l, i) => `
-    <tr data-drag="${i}" data-route="${routeId}"${i === moved ? ` class="ops-flash"` : ""}>
-      <td class="ops-seq">${i + 1}</td>
-      <td class="text-nowrap">
-        <button type="button" class="btn btn-light btn-sm" data-act="up" data-route="${routeId}" data-i="${i}"
-          ${i === 0 ? "disabled" : ""} aria-label="Move up">↑</button>
-        <button type="button" class="btn btn-light btn-sm" data-act="down" data-route="${routeId}" data-i="${i}"
-          ${i === n - 1 ? "disabled" : ""} aria-label="Move down">↓</button>
-      </td>
-      <td class="ops-cust"><span class="${l.stop.must_get ? "hotlist" : ""}">${escapeHtml(l.stop.name)}</span>
-        ${stopLabelHtml(l)}
-        <div class="ops-muted">${escapeHtml((l.row && l.row.town) || "")}${
-          l.row && l.row.members ? " · shared barrel" : ""}</div></td>
-      <td><button type="button" class="btn btn-sm btn-outline-secondary" data-act="remove" data-route="${routeId}"
-          data-i="${i}" aria-label="Remove stop">✕</button></td>
-    </tr>`).join("");
+    <div class="ops-card${i === moved ? " ops-flash" : ""}" data-drag="${i}" data-route="${routeId}">
+      <button type="button" class="btn ops-plain-btn ops-card-x" data-act="remove" data-route="${routeId}"
+        data-i="${i}" aria-label="Remove ${escapeHtml(l.stop.name)}">✕</button>
+      <div class="ops-card-main">
+        <div class="ops-card-name${l.stop.must_get ? " hotlist" : ""}">${escapeHtml(l.stop.name)}</div>
+        <div class="ops-card-figs">${stopLabelHtml(l, l.dupOf !== null ? lines[l.dupOf].stop.name : null)}</div>
+      </div>
+      <a class="btn ops-plain-btn ops-card-page" href="ops-customer.html?id=${l.stop.customer_id}&from=myroute"
+        aria-label="Customer page for ${escapeHtml(l.stop.name)}">Page ›</a>
+    </div>`).join("");
 }
 
 /** Up to 8 customers matching the route's Add stop box, not already on it. */
@@ -93,14 +97,21 @@ function addMatchesHtml(routeId) {
   }).join("")}</div>`;
 }
 
-function fillHtml(totals, routeId) {
+/**
+ * The route's total and truck bar, once, under the last stop and just above
+ * Add a stop, so it can be watched adding up:
+ * "Total ~1,010 gal · 51% of Mack Daddy's 2,000 gal", with the bar beneath.
+ */
+function routeTotalHtml(totals, routeId) {
   const fill = truckFill(totals, store.trucks[routeId]);
-  if (!fill) return "";
-  return `<span class="ops-fill"><span class="progress"><span class="progress-bar ${
-    fill.level === "full" ? "bg-danger" : fill.level === "due" ? "bg-warning" : "bg-success"}"
-    style="width:${Math.min(100, fill.pct)}%"></span></span>${Math.round(fill.pct)}% of
-    ${escapeHtml(fill.truck.name)}'s ${formatNumber(fill.truck.capacity)} gal${
-    fill.pct > 100 ? " — over the tank" : fill.highPct > 100 ? " — could overflow at the high end" : ""}</span>`;
+  const warn = !fill ? "" : fill.pct > 100 ? " — over the tank"
+    : fill.highPct > 100 ? " — could overflow at the high end" : "";
+  return `<div class="ops-route-total${fill && fill.pct > 100 ? " text-danger" : ""}">
+    <div><strong>Total ~${formatWhole(totals.projected)} gal</strong>${fill
+      ? ` · ${Math.round(fill.pct)}% of ${escapeHtml(fill.truck.name)}'s ${formatNumber(fill.truck.capacity)} gal${warn}` : ""}</div>
+    ${fill ? `<div class="progress"><div class="progress-bar ${
+      fill.level === "full" ? "bg-danger" : fill.level === "due" ? "bg-warning" : "bg-success"}"
+      style="width:${Math.min(100, fill.pct)}%"></div></div>` : ""}</div>`;
 }
 
 function routeHtml(route) {
@@ -125,18 +136,12 @@ function routeHtml(route) {
           </select>
           <button type="button" class="btn btn-primary btn-sm" data-act="set" data-route="${id}"
             ${stops.length ? "" : "disabled"}>Set as My Route</button>
-          ${fillHtml(live, id)}
         </div>
         ${route.aliases.length ? `<div class="ops-muted mb-2">Also called ${escapeHtml(route.aliases.join(", "))} on the source site.</div>` : ""}
         ${stops.length ? `
-        <div class="table-responsive">
-          <table class="table table-sm ops-stops mb-2">
-            <thead><tr><th>#</th><th>Move</th><th class="ops-cust">Customer</th>
-              <th></th></tr></thead>
-            <tbody>${stopRowsHtml(id, lines)}</tbody>
-            <tfoot><tr><td colspan="4" class="ops-total-cap">Total projected gal: ${formatWhole(live.projected)} / ${formatWhole(totals.capacity)} capacity</td></tr></tfoot>
-          </table>
-        </div>` : `<div class="ops-muted mb-2">No stops.</div>`}
+        <div class="ops-muted mb-1">Hold a stop to drag it.</div>
+        <div class="ops-cards">${stopCardsHtml(id, lines)}</div>` : `<div class="ops-muted mb-2">No stops.</div>`}
+        ${stops.length ? routeTotalHtml(live, id) : ""}
         <input type="search" class="form-control form-control-sm" data-add-search="${id}"
           placeholder="Add a stop: search name or town" value="${escapeHtml(addSearch[id] || "")}" autocomplete="off">
         <div data-add-results="${id}">${addMatchesHtml(id)}</div>
@@ -152,19 +157,23 @@ function renderList() {
     <div class="ops-muted mb-3">Open a route to see and change its stops; Set as My Route to start entering gallons.
       Projections as of ${escapeHtml(formatDate(data.projections.as_of))}.</div>
     ${withStops.map(routeHtml).join("")}
-    ${empty.length ? `<div class="ops-muted mt-3 mb-1">Routes with no stops</div>${empty.map(routeHtml).join("")}` : ""}`;
+    ${empty.length ? `<div class="ops-muted mt-3 mb-1">Routes with no stops</div>${empty.map(routeHtml).join("")}` : ""}
+    ${removed ? `<div class="ops-undo" role="status">
+      <span class="ops-undo-text">Removed ${escapeHtml(removed.stop.name)}</span>
+      <button type="button" class="btn ops-undo-btn" data-act="unremove">Undo</button></div>` : ""}`;
   document.getElementById("page").innerHTML = html;
   lastMoved = null;
 }
 
 /* ── Reordering stops by dragging ───────────────────────────
- * Hold a stop for a third of a second, then drag: the stop lifts and the
+ * Hold a stop for a quarter of a second, then drag: the stop lifts and the
  * others slide out of the way. A press that moves more than 10px before the
- * hold is up was a scroll, and nothing happens (0.2 s caught scrolls on a
- * phone; 0.3-0.4 s did not, 2026-10-22). Once lifted, touchmove is cancelled
+ * hold is up was a scroll, and nothing happens. Phone tests (2026-10-22):
+ * 0.2 s occasionally caught a scroll, 0.3-0.4 s did not; Sarge chose 0.25 s.
+ * Platform long-press is longer (iOS 0.5 s). Once lifted, touchmove is cancelled
  * so the page stops scrolling; near the top or bottom edge it auto-scrolls.
- * The arrows still move a stop one place. Mouse works the same way. */
-const HOLD_MS = 333, SLOP = 10, EDGE = 70;
+ * Mouse works the same way. */
+const HOLD_MS = 250, SLOP = 10, EDGE = 70;
 let press = null;
 
 function startPress(row, x, y) {
@@ -195,8 +204,13 @@ function liftStop() {
   p.active = true;
   p.fill.remove();
   if (navigator.vibrate) navigator.vibrate(25);
-  p.rows = [...p.row.parentElement.querySelectorAll("tr[data-drag]")];
-  p.rects = p.rows.map(r => { const b = r.getBoundingClientRect(); return { top: b.top + scrollY, h: b.height }; });
+  p.rows = [...p.row.parentElement.querySelectorAll("[data-drag]")];
+  // Each stop's slot: its height plus the gap to the next card.
+  p.rects = p.rows.map((r, k) => {
+    const b = r.getBoundingClientRect(), next = p.rows[k + 1];
+    const h = next ? next.getBoundingClientRect().top - b.top : b.height + 5;
+    return { top: b.top + scrollY, h };
+  });
   p.grab = p.y + scrollY - p.rects[p.i].top;
   p.row.classList.add("ops-lifted");
   p.rows.forEach((r, k) => { if (k !== p.i) r.classList.add("ops-sliding"); });
@@ -243,7 +257,7 @@ function dropStop() {
 
 function dragRow(e) {
   if (store.my || e.target.closest("button, a, input, select")) return null;
-  return e.target.closest("tr[data-drag]");
+  return e.target.closest("[data-drag]");
 }
 
 function wireDrag(page) {
@@ -264,7 +278,7 @@ function wireDrag(page) {
   }, { passive: false });
   document.addEventListener("touchend", dropStop);
   document.addEventListener("touchcancel", () => { if (press && press.active) dropStop(); else cancelPress(); });
-  page.addEventListener("contextmenu", e => { if (e.target.closest("tr[data-drag]")) e.preventDefault(); });
+  page.addEventListener("contextmenu", e => { if (e.target.closest("[data-drag]")) e.preventDefault(); });
   page.addEventListener("mousedown", e => {
     if (e.button !== 0) return;
     const row = dragRow(e);
@@ -376,7 +390,7 @@ function stopHtml(l, k, c, showing) {
     ? `<span class="ops-line-figs ops-theft-text">${theftGallonsText(c)}</span>`
     : !showing && c
     ? `<span class="ops-line-figs text-success">✓ ${c.gallons <= 3 ? "Empty" : `${formatNumber(c.gallons)} gal`}</span>`
-    : `<span class="ops-line-figs">${stopLabelHtml(l, false)}</span>`;
+    : `<span class="ops-line-figs">${stopLabelHtml(l)}</span>`;
   const cls = theftForm ? " ops-theft-open" : (theft ? " ops-theft" : (c ? " ops-done" : ""));
   return `<div class="ops-line${cls}${showing && compact ? " ops-current" : ""}" data-pick="${id}">
     <div class="ops-line-head">
@@ -448,9 +462,22 @@ function onAct(b) {
   const i = Number(d.i);
   const stops = routeId !== null ? storeStops(store, routeId) : null;
   switch (d.act) {
-    case "up": store.routes[routeId] = moveStop(stops, i, i - 1); break;
-    case "down": store.routes[routeId] = moveStop(stops, i, i + 1); break;
-    case "remove": store.routes[routeId] = removeStop(stops, i); break;
+    case "remove":   // gone at once; Undo puts it back in its place for a few seconds
+      if (removed) clearTimeout(removed.timer);
+      removed = { route: routeId, i, stop: stops[i],
+        timer: setTimeout(() => { removed = null; render(); }, UNDO_MS) };
+      store.routes[routeId] = removeStop(stops, i);
+      break;
+    case "unremove": {
+      if (!removed) return;
+      clearTimeout(removed.timer);
+      const back = storeStops(store, removed.route).slice();
+      if (!back.some(s => s.customer_id === removed.stop.customer_id)) back.splice(removed.i, 0, removed.stop);
+      store.routes[removed.route] = back;
+      lastMoved = { route: removed.route, i: removed.i };
+      removed = null;
+      break;
+    }
     case "add": {
       const id = Number(d.id);
       const src = data.snap.assign_list.find(c => c.customer_id === id) ||
