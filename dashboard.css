@@ -72,9 +72,9 @@ header img {
   height: 60px;
   width: auto;
   margin-left: auto;
-  /* Centres the image in the gap: right margin = 134 - width/2. The truck
-     art is 2.42:1, so 145px wide at this height. */
-  margin-right: 61px;
+  /* Centres the image in the gap at a ~1464px window: right margin =
+     127 - width/2. The truck art is 2.42:1, so 145px wide at this height. */
+  margin-right: 55px;
   align-self: center;
 }
 
@@ -141,7 +141,7 @@ header h1 {
 
 .main-nav {
   display: flex;
-  gap: 22px;
+  gap: 18px;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -866,9 +866,9 @@ select:disabled {
   .hero-value { font-size: 34px; }
   .stat-val { font-size: 22px; }
   .stats-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  /* Six links on one line from a 375px phone up: 12px text, 7px gaps. */
-  .main-nav { gap: 7px; }
-  .main-nav a { font-size: 12px; }
+  /* Seven links on one line from a 375px phone up: 11px text, 6px gaps. */
+  .main-nav { gap: 6px; }
+  .main-nav a { font-size: 11px; }
   /* Tables stay readable by scrolling sideways rather than squashing. */
   .data-table { font-size: 12px; }
   .data-table th, .data-table td { padding: 7px 10px; }
