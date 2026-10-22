@@ -187,6 +187,20 @@ details.ops-route[open] > summary { border-bottom: 1px solid #dee2e6; border-rad
 .ops-flag::after { content: "•"; color: #d93025; margin-left: 3px; }
 .ops-line-details { border-top: 1px dashed #ccc; margin-top: 5px; padding-top: 5px; font-size: 15px; cursor: default; }
 .ops-cust-btn { height: 33px; padding: 0 12px; font-size: 14px; display: inline-flex; align-items: center; }
+/* A theft at a stop: red once saved, red outline while the form is open. The
+   note under the name is cut to 2 lines here; the customer page shows it whole. */
+.ops-line.ops-theft { background: #fdecea; border-color: #f1aeb5; }
+.ops-line.ops-theft-open { border-color: #dc3545; box-shadow: 0 0 0 1px #dc3545; background: #fff5f5; }
+.ops-theft-text { color: #b02a37; font-weight: 600; }
+.ops-theft-note { font-size: 13px; color: #b02a37; font-weight: 600; overflow-wrap: anywhere;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.ops-theft-form { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; cursor: default; }
+.ops-theft-form label { font-size: 14px; margin: 0; }
+.ops-theft-form .ops-theft-label { color: #b02a37; font-weight: 600; }
+.ops-theft-form input { width: 90px; height: 33px; padding: 2px 8px; font-size: 16px; }
+.ops-theft-form textarea { min-height: 64px; font-size: 16px; }
+.ops-theft-form .btn, .ops-theft-btn { height: 33px; padding: 0 12px; font-size: 14px;
+  display: inline-flex; align-items: center; }
 .ops-drive-title { font-size: 20px; font-weight: 600; line-height: 1.2; min-width: 0;
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ops-shadow .btn { font-size: 12px; }

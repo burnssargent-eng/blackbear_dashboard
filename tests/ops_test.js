@@ -22,7 +22,7 @@ const code = ["dashboard-utils.js", "route-utils.js", "ops-common.js"]
 const api = new Function("window", code + `
   return { freshStore, loadStore, saveStore, storeStops, assignToRoute, opsRouteList,
     addShadowCustomer, storeRoutesByCustomer, buildIndex, opsNavHtml, OPS_NAV,
-    recordCollection, todaysCollection, liveRouteTotals, routeSummary };`)(window);
+    recordCollection, todaysCollection, liveRouteTotals, routeSummary, recordTheft, theftGallonsText };`)(window);
 
 let fails = 0;
 const ok = (cond, msg) => {
@@ -192,6 +192,30 @@ ok(api.todaysCollection(s2, -999).assignment_id === null, "an entry for a custom
   api.recordCollection(s3, st(heldOut), 75);
   ok(close2(api.liveRouteTotals(lines, s3).projected, ranked2[1].projected_gal + 40 + 75),
     "a held-out stop adds its actual gallons once collected");
+}
+
+// ── A theft is a collection in red, and keeps every version it was saved as ──
+{
+  const pc = payload.customers;
+  const [a, b] = pc.filter(c => c.section === "ranked" && !c.members && c.projected_gal > 5).slice(0, 2);
+  const st = c => ({ customer_id: c.id, name: c.name });
+  const lines = api.routeSummary([st(a), st(b)], byId).lines;
+  const s4 = api.freshStore(snap);
+  const first = api.recordTheft(s4, st(a), 15, "Stolen 10/12, lock on barrel", new Date("2026-10-21T14:00:00Z"));
+  let t = api.liveRouteTotals(lines, s4);
+  ok(t.collected === 15 && t.done === 1, "gallons left after a theft count as collected, and the stop is done");
+  ok(api.theftGallonsText(first) === "Theft · 15 gal", "a theft reads \"Theft · 15 gal\"");
+  api.recordTheft(s4, st(a), 0, "", new Date("2026-10-21T15:00:00Z"));
+  const e = api.todaysCollection(s4, a.id);
+  ok(s4.collections.filter(c => c.customer_id === a.id).length === 1, "an edited theft is still one entry");
+  ok(e.gallons === 0 && e.theft.note === "" && api.theftGallonsText(e) === "Theft · empty",
+    "an edit replaces the shown gallons and note; 0 reads \"empty\"");
+  ok(e.theft.versions.length === 2 && e.theft.versions[0].gallons === 15
+    && e.theft.versions[0].note === "Stolen 10/12, lock on barrel" && e.theft.recorded_at === "2026-10-21T14:00:00.000Z",
+    "the first account and its time survive the edit");
+  ok(api.liveRouteTotals(lines, s4).collected === 0, "an emptied barrel counts 0, like an Empty");
+  api.recordCollection(s4, st(b), 90);
+  ok(!api.todaysCollection(s4, b.id).theft, "an ordinary collection carries no theft mark");
 }
 
 // ── Full notes stay local ──
