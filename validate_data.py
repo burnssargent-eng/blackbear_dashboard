@@ -1008,11 +1008,11 @@ def check_region_customers(report, data, coll_payload):
 
 
 def check_schmootz(report):
-    report.section("S", "Schmootz displacement data")
+    report.section("S", "Schmutz displacement data")
 
     path = "schmootz_data.json"
     if not os.path.exists(path):
-        report.warn(f"{path} not found. The Schmootz page will say the data is "
+        report.warn(f"{path} not found. The Schmutz page will say the data is "
                     "unavailable. Run: python3 export_schmootz.py")
         return
 
@@ -1094,18 +1094,18 @@ def check_schmootz(report):
     report.info(f"Generated {data.get('generated_at', '—')} from "
                 f"{data.get('source_file', '—')} · sheet "
                 f"{data.get('source_sheet', '—')}.")
-    report.info("Schmootz is site-to-site displacement and is deliberately NOT "
+    report.info("Schmutz is site-to-site displacement and is deliberately NOT "
                 "part of any oil collection total.")
 
 
 def check_schmootz_isolation(report, data):
-    """Schmootz gallons must never leak into the collection totals."""
+    """Schmutz gallons must never leak into the collection totals."""
     leaked = [k for k in data if "schmootz" in k.lower()]
     if leaked:
-        report.fail(f"oil_data.json contains Schmootz field(s): {leaked}. "
-                    "Schmootz must stay separate from collection totals.")
+        report.fail(f"oil_data.json contains Schmutz field(s): {leaked}. "
+                    "Schmutz must stay separate from collection totals.")
     else:
-        report.ok("oil_data.json contains no Schmootz fields — kept separate.")
+        report.ok("oil_data.json contains no Schmutz fields — kept separate.")
 
 
 def check_reconciliation(report, data):

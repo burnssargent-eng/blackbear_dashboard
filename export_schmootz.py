@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Schmootz exporter.
+Schmutz exporter.
 
 Reads the Schmootz workbook and writes a small JSON file for schmootz.html.
 
 Why a separate exporter rather than part of oil_scraper.py:
-  * Schmootz is displacement between sites, NOT oil collected from customers.
+  * Schmutz is displacement between sites, NOT oil collected from customers.
     It must never be mixed into the collection totals.
   * The workbook is updated by hand, not by the nightly scrape, so there is no
     reason to re-read it every night.
@@ -95,7 +95,7 @@ def find_source():
         if os.path.exists(path):
             return path
     raise SystemExit(
-        "Could not find the Schmootz workbook. Looked for:\n  "
+        "Could not find the Schmutz workbook. Looked for:\n  "
         + "\n  ".join(SOURCE_CANDIDATES)
         + "\nPut it at data/Schmootz.xlsx and run this again."
     )

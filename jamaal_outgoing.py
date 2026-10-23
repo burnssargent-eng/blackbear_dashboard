@@ -7,7 +7,7 @@ The report is a month calendar. Each day lists:
   "MB (2)"  two stillage runs by Mamma Bear (MD = Mack Daddy, BB = Baby Bird);
             a run has no volume
   "800"     800 gallons of Schmutz, Black Bear Shop -> Gebbie Farm. This is the
-            same material as the Schmootz page's Shop -> Gebbie block; Barr Hill
+            same material as the Schmutz page's Shop -> Gebbie block; Barr Hill
             -> Gebbie is NOT logged here (Erin keeps it in a separate spreadsheet)
 
 Like jamaal_routes.py this only ever GETs. Never request add_outgoing.php or

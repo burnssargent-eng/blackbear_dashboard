@@ -139,7 +139,6 @@ function routeHtml(route) {
         </div>
         ${route.aliases.length ? `<div class="ops-muted mb-2">Also called ${escapeHtml(route.aliases.join(", "))} on the source site.</div>` : ""}
         ${stops.length ? `
-        <div class="ops-muted mb-1">Hold a stop to drag it.</div>
         <div class="ops-cards">${stopCardsHtml(id, lines)}</div>` : `<div class="ops-muted mb-2">No stops.</div>`}
         ${stops.length ? routeTotalHtml(live, id) : ""}
         <input type="search" class="form-control form-control-sm" data-add-search="${id}"
@@ -154,7 +153,7 @@ function renderList() {
   const empty = routeList.filter(r => !storeStops(store, r.route_id).length);
   const html = `
     <h2>My Route</h2>
-    <div class="ops-muted mb-3">Open a route to see and change its stops; Set as My Route to start entering gallons.
+    <div class="ops-muted mb-3">Open a route to see and change its stops; hold a stop to drag it; Set as My Route to start entering gallons.
       Projections as of ${escapeHtml(formatDate(data.projections.as_of))}.</div>
     ${withStops.map(routeHtml).join("")}
     ${empty.length ? `<div class="ops-muted mt-3 mb-1">Routes with no stops</div>${empty.map(routeHtml).join("")}` : ""}
@@ -508,7 +507,12 @@ function onAct(b) {
       openDetails = null;
       render();
       return;
-    case "theft-cancel": theftOpen = null; render(); return;
+    case "theft-cancel":   // back to the plain gallons row; a saved theft is cleared too (a mistaken press)
+      store.collections = store.collections.filter(c =>
+        !(c.date === todayIso() && c.customer_id === theftOpen && c.theft));
+      activeId = theftOpen;
+      theftOpen = null;
+      break;
     case "theft-save": {
       const stop = storeStops(store, store.my.routeId)[i];
       const typed = document.getElementById(`theft-gal-${i}`).value.trim();

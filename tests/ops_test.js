@@ -86,7 +86,7 @@ ok(api.loadStore(snap).routes[route].length === before, "a broken saved copy fal
 // ── Nav ──
 const nav = api.opsNavHtml("assign");
 ["Assign Routes", "My Route", "Calendar", "Dashboard", "Projections", "Historical Totals", "Regions",
-  "Years", "Customers", "Schmootz"].forEach(label => ok(nav.includes(label), `nav has ${label}`));
+  "Years", "Customers", "Schmutz"].forEach(label => ok(nav.includes(label), `nav has ${label}`));
 ok(nav.includes('href="ops-calendar.html"'), "Calendar is linked");
 ok(!/Lucy|Time ?clock/i.test(nav), "nav leaves out Ms. Lucy and Timeclock");
 ok(nav.includes('href="ops-outgoing.html"'), "Outgoing is linked");
