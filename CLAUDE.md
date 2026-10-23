@@ -41,7 +41,9 @@ projections.html     beta pickup projections. In the nav as "Projections", after
 planner.html         route planner beta. UNLISTED (not in the nav). Reads the two JSONs above.
 ops-assign.html  ops-myroute.html  ops-calendar.html  ops-outgoing.html  ops-customer.html   SHADOW site: the source site's workflow on a copy of its
                      data, kept in each browser. Light Bootstrap look, own nav (ops-common.js),
-                     ops.css. UNLISTED. Route maths for both betas: route-utils.js.
+                     ops.css. Linked from the dashboard nav as "Ops" (7th, since #48;
+                     seven links just fit a 375px phone, so an 8th wraps).
+                     Route maths for both betas: route-utils.js.
 dashboard-utils.js   shared helpers for the detail pages
 dashboard.css        shared styles for the detail pages — NOT index.html
 ```
