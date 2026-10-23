@@ -24,7 +24,7 @@ const OPS_NAV = [
     { label: "Years", href: "year.html" },
     { label: "Customers", href: "customers.html" },
   ] },
-  { key: "schmootz", label: "Schmootz", href: "schmootz.html" },
+  { key: "schmootz", label: "Schmutz", href: "schmootz.html" },
 ];
 
 function opsNavHtml(current) {

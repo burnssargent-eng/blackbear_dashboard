@@ -34,7 +34,7 @@ This is the first step towards replacing Jamaal. The source site's workflow
 runs on a copy of its data, and every change stays in the viewer's browser.
 
 - Target nav: Assign Routes · My Route · Calendar · Outgoing · Dashboard ·
-  Projections · Historical Totals (Regions, Years, Customers) · Schmootz.
+  Projections · Historical Totals (Regions, Years, Customers) · Schmutz.
 - Dropped: Ms. Lucy, Timeclock and Home.
 - Built (checkpoint 1):
   - `ops-assign.html`: the list by town or by urgency, region filter, a
