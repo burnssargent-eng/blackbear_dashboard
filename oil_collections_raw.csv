@@ -426,6 +426,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1128,Hannaford-South Barre,Barre,Washington,2022-08-23,2022,2022-08,114,True,Barre Town
 1128,Hannaford-South Barre,Barre,Washington,2022-07-26,2022,2022-07,85,True,Barre Town
 1128,Hannaford-South Barre,Barre,Washington,2022-06-29,2022,2022-06,110,True,Barre Town
+117,Ladder 1-Barre,Barre,Washington,2026-10-22,2026,2026-10,30,True,Barre City
 117,Ladder 1-Barre,Barre,Washington,2026-09-29,2026,2026-09,30,True,Barre City
 117,Ladder 1-Barre,Barre,Washington,2026-09-09,2026,2026-09,30,True,Barre City
 117,Ladder 1-Barre,Barre,Washington,2026-08-18,2026,2026-08,40,True,Barre City
@@ -824,6 +825,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1401,Tasty Bites,Barre,Washington,2025-04-17,2025,2025-04,35,True,Barre City
 1401,Tasty Bites,Barre,Washington,2025-03-21,2025,2025-03,40,True,Barre City
 1401,Tasty Bites,Barre,Washington,2025-03-11,2025,2025-03,45,True,Barre City
+127,The Meltdown-Barre,Barre,Washington,2026-10-22,2026,2026-10,50,True,Barre City
 127,The Meltdown-Barre,Barre,Washington,2026-08-18,2026,2026-08,80,True,Barre City
 127,The Meltdown-Barre,Barre,Washington,2026-06-23,2026,2026-06,120,True,Barre City
 127,The Meltdown-Barre,Barre,Washington,2026-04-03,2026,2026-04,85,True,Barre City
@@ -2105,6 +2107,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 300,Blue Bird BBQ - blue keychain in mack,Burlington,Chittenden,2015-03-05,2015,2015-03,25,True,Burlington
 300,Blue Bird BBQ - blue keychain in mack,Burlington,Chittenden,2015-02-12,2015,2015-02,40,True,Burlington
 300,Blue Bird BBQ - blue keychain in mack,Burlington,Chittenden,2015-01-07,2015,2015-01,30,True,Burlington
+1070,Burlington Beer Co,Burlington,Chittenden,2026-10-22,2026,2026-10,120,True,Burlington
 1070,Burlington Beer Co,Burlington,Chittenden,2026-10-07,2026,2026-10,150,True,Burlington
 1070,Burlington Beer Co,Burlington,Chittenden,2026-09-21,2026,2026-09,80,True,Burlington
 1070,Burlington Beer Co,Burlington,Chittenden,2026-09-08,2026,2026-09,90,True,Burlington
@@ -2527,6 +2530,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-02-06,2015,2015-02,50,True,Burlington
 321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-01-15,2015,2015-01,50,True,Burlington
 321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-01-02,2015,2015-01,60,True,Burlington
+315,Citizen Cider - 0316,Burlington,Chittenden,2026-10-22,2026,2026-10,85,True,Burlington
 315,Citizen Cider - 0316,Burlington,Chittenden,2026-10-07,2026,2026-10,100,True,Burlington
 315,Citizen Cider - 0316,Burlington,Chittenden,2026-09-21,2026,2026-09,65,True,Burlington
 315,Citizen Cider - 0316,Burlington,Chittenden,2026-09-08,2026,2026-09,50,True,Burlington
@@ -2688,6 +2692,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 315,Citizen Cider - 0316,Burlington,Chittenden,2015-04-14,2015,2015-04,25,True,Burlington
 315,Citizen Cider - 0316,Burlington,Chittenden,2015-03-24,2015,2015-03,30,True,Burlington
 315,Citizen Cider - 0316,Burlington,Chittenden,2015-02-06,2015,2015-02,45,True,Burlington
+345,City Market,Burlington,Chittenden,2026-10-22,2026,2026-10,20,True,Burlington
 345,City Market,Burlington,Chittenden,2026-07-29,2026,2026-07,20,True,Burlington
 345,City Market,Burlington,Chittenden,2026-04-28,2026,2026-04,45,True,Burlington
 345,City Market,Burlington,Chittenden,2025-08-26,2025,2025-08,40,True,Burlington
@@ -3590,6 +3595,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 352,Great Northern,Burlington,Chittenden,2021-08-04,2021,2021-08,75,True,Burlington
 352,Great Northern,Burlington,Chittenden,2021-07-05,2021,2021-07,120,True,Burlington
 352,Great Northern,Burlington,Chittenden,2021-06-08,2021,2021-06,100,True,Burlington
+1187,Hana-Japanese-Dorset,Burlington,Chittenden,2026-10-22,2026,2026-10,90,True,Burlington
 1187,Hana-Japanese-Dorset,Burlington,Chittenden,2026-08-13,2026,2026-08,40,True,Burlington
 1187,Hana-Japanese-Dorset,Burlington,Chittenden,2026-07-17,2026,2026-07,85,True,Burlington
 1187,Hana-Japanese-Dorset,Burlington,Chittenden,2026-06-02,2026,2026-06,70,True,Burlington
@@ -3622,6 +3628,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1187,Hana-Japanese-Dorset,Burlington,Chittenden,2023-02-21,2023,2023-02,45,True,Burlington
 1187,Hana-Japanese-Dorset,Burlington,Chittenden,2023-01-23,2023,2023-01,70,True,Burlington
 1187,Hana-Japanese-Dorset,Burlington,Chittenden,2022-11-27,2022,2022-11,40,True,Burlington
+1157,Hannaford-217 Dorset St,Burlington,Chittenden,2026-10-22,2026,2026-10,99,True,Burlington
 1157,Hannaford-217 Dorset St,Burlington,Chittenden,2026-08-17,2026,2026-08,165,True,Burlington
 1157,Hannaford-217 Dorset St,Burlington,Chittenden,2026-06-02,2026,2026-06,24,True,Burlington
 1157,Hannaford-217 Dorset St,Burlington,Chittenden,2026-04-20,2026,2026-04,96,True,Burlington
@@ -9808,6 +9815,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1180,Hannaford- Milton,Milton,Chittenden,2023-02-12,2023,2023-02,69,True,Milton
 1180,Hannaford- Milton,Milton,Chittenden,2022-10-27,2022,2022-10,25,True,Milton
 1180,Hannaford- Milton,Milton,Chittenden,2022-09-22,2022,2022-09,92,True,Milton
+423,Perrigo Nutritionals,Milton,Chittenden,2026-10-22,2026,2026-10,650,True,Milton
 423,Perrigo Nutritionals,Milton,Chittenden,2026-07-02,2026,2026-07,1600,True,Milton
 423,Perrigo Nutritionals,Milton,Chittenden,2026-06-24,2026,2026-06,3300,True,Milton
 423,Perrigo Nutritionals,Milton,Chittenden,2026-06-16,2026,2026-06,4000,True,Milton
@@ -14074,6 +14082,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 123,Ricky's (Indian food gas station),S. Barre,Washington,2017-09-02,2017,2017-09,50,True,Barre Town
 123,Ricky's (Indian food gas station),S. Barre,Washington,2016-03-27,2016,2016-03,25,True,Barre Town
 1442,Maple Grove Farms of Vermont,Saint Johnsbury,Caledonia,2025-08-07,2025,2025-08,275,True,Saint Johnsbury
+1377,Chef Leu -Shelburne,Shelburne,Chittenden,2026-10-22,2026,2026-10,25,True,Shelburne
 1377,Chef Leu -Shelburne,Shelburne,Chittenden,2026-08-28,2026,2026-08,25,True,Shelburne
 1377,Chef Leu -Shelburne,Shelburne,Chittenden,2026-07-13,2026,2026-07,15,True,Shelburne
 1377,Chef Leu -Shelburne,Shelburne,Chittenden,2026-06-19,2026,2026-06,30,True,Shelburne
@@ -14099,6 +14108,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1298,Electras-Shelburne,Shelburne,Chittenden,2024-04-12,2024,2024-04,75,True,Shelburne
 1298,Electras-Shelburne,Shelburne,Chittenden,2024-02-19,2024,2024-02,25,True,Shelburne
 1298,Electras-Shelburne,Shelburne,Chittenden,2024-01-17,2024,2024-01,70,True,Shelburne
+1422,Folignos Pizza-Shelburne,Shelburne,Chittenden,2026-10-22,2026,2026-10,35,True,Shelburne
 1422,Folignos Pizza-Shelburne,Shelburne,Chittenden,2026-10-01,2026,2026-10,70,True,Shelburne
 1422,Folignos Pizza-Shelburne,Shelburne,Chittenden,2026-08-28,2026,2026-08,30,True,Shelburne
 1422,Folignos Pizza-Shelburne,Shelburne,Chittenden,2026-07-13,2026,2026-07,130,True,Shelburne
@@ -14112,6 +14122,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1422,Folignos Pizza-Shelburne,Shelburne,Chittenden,2025-08-28,2025,2025-08,80,True,Shelburne
 1422,Folignos Pizza-Shelburne,Shelburne,Chittenden,2025-07-30,2025,2025-07,100,True,Shelburne
 1422,Folignos Pizza-Shelburne,Shelburne,Chittenden,2025-06-11,2025,2025-06,80,True,Shelburne
+1197,Le~Marche~Cafe,Shelburne,Chittenden,2026-10-22,2026,2026-10,50,True,Shelburne
 1197,Le~Marche~Cafe,Shelburne,Chittenden,2026-07-13,2026,2026-07,45,True,Shelburne
 1197,Le~Marche~Cafe,Shelburne,Chittenden,2026-03-26,2026,2026-03,100,True,Shelburne
 1197,Le~Marche~Cafe,Shelburne,Chittenden,2026-02-20,2026,2026-02,15,True,Shelburne
@@ -14179,6 +14190,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1510,Folinos Pizza-South Burlington,South Burlington,Chittenden,2026-10-01,2026,2026-10,50,True,South Burlington
 1510,Folinos Pizza-South Burlington,South Burlington,Chittenden,2026-08-17,2026,2026-08,55,True,South Burlington
 1510,Folinos Pizza-South Burlington,South Burlington,Chittenden,2026-07-17,2026,2026-07,40,True,South Burlington
+1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,Chittenden,2026-10-22,2026,2026-10,90,True,South Burlington
 1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,Chittenden,2026-10-01,2026,2026-10,125,True,South Burlington
 1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,Chittenden,2026-09-17,2026,2026-09,115,True,South Burlington
 1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,Chittenden,2026-08-21,2026,2026-08,150,True,South Burlington
@@ -14218,6 +14230,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1418,Cairns Arena,South Burlington,Chittenden,2025-04-29,2025,2025-04,90,True,South Burlington
 1418,Cairns Arena,South Burlington,Chittenden,2025-04-18,2025,2025-04,90,True,South Burlington
 1418,Cairns Arena,South Burlington,Chittenden,2025-04-10,2025,2025-04,90,True,South Burlington
+1195,Chicken Charlies,South Burlington,Chittenden,2026-10-22,2026,2026-10,35,True,South Burlington
 1195,Chicken Charlies,South Burlington,Chittenden,2026-10-01,2026,2026-10,30,True,South Burlington
 1195,Chicken Charlies,South Burlington,Chittenden,2026-09-17,2026,2026-09,30,True,South Burlington
 1195,Chicken Charlies,South Burlington,Chittenden,2026-09-01,2026,2026-09,40,True,South Burlington
@@ -14543,6 +14556,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 365,Skinny Pancake- BTV airport,South Burlington,Chittenden,2019-03-29,2019,2019-03,105,True,South Burlington
 365,Skinny Pancake- BTV airport,South Burlington,Chittenden,2019-02-27,2019,2019-02,80,True,South Burlington
 365,Skinny Pancake- BTV airport,South Burlington,Chittenden,2019-02-05,2019,2019-02,60,True,South Burlington
+1188,Windjammer,South Burlington,Chittenden,2026-10-22,2026,2026-10,80,True,South Burlington
 1188,Windjammer,South Burlington,Chittenden,2026-10-01,2026,2026-10,100,True,South Burlington
 1188,Windjammer,South Burlington,Chittenden,2026-09-17,2026,2026-09,130,True,South Burlington
 1188,Windjammer,South Burlington,Chittenden,2026-09-01,2026,2026-09,100,True,South Burlington
@@ -21432,6 +21446,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1299,Cannoli,Williston,Chittenden,2024-04-25,2024,2024-04,55,True,Williston
 1299,Cannoli,Williston,Chittenden,2024-03-26,2024,2024-03,55,True,Williston
 1299,Cannoli,Williston,Chittenden,2024-02-26,2024,2024-02,35,True,Williston
+1495,Folinos-Williston,Williston,Chittenden,2026-10-22,2026,2026-10,75,True,Williston
 1495,Folinos-Williston,Williston,Chittenden,2026-10-01,2026,2026-10,60,True,Williston
 1495,Folinos-Williston,Williston,Chittenden,2026-09-16,2026,2026-09,60,True,Williston
 1495,Folinos-Williston,Williston,Chittenden,2026-08-21,2026,2026-08,80,True,Williston
@@ -21643,6 +21658,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-05-01,2026,2026-05,125,True,Williston
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-04-24,2026,2026-04,55,True,Williston
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-03-31,2026,2026-03,15,True,Williston
+1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2026-10-22,2026,2026-10,50,True,Williston
 1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2026-10-01,2026,2026-10,70,True,Williston
 1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2026-09-16,2026,2026-09,40,True,Williston
 1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2026-08-21,2026,2026-08,70,True,Williston
@@ -23104,6 +23120,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 823,Woodstock Inn,Woodstock,Windsor,2018-04-24,2018,2018-04,50,True,Woodstock
 823,Woodstock Inn,Woodstock,Windsor,2018-03-22,2018,2018-03,75,True,Woodstock
 823,Woodstock Inn,Woodstock,Windsor,2018-02-23,2018,2018-02,175,True,Woodstock
+624,LBJ Country Store-Worcester,Burlington,Chittenden,2026-10-23,2026,2026-10,25,True,Burlington
 624,LBJ Country Store-Worcester,Burlington,Chittenden,2024-10-03,2024,2024-10,10,True,Burlington
 624,LBJ Country Store-Worcester,Burlington,Chittenden,2022-11-10,2022,2022-11,20,True,Burlington
 624,LBJ Country Store-Worcester,Burlington,Chittenden,2021-10-18,2021,2021-10,20,True,Burlington

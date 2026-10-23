@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-22T12:47:53.659178",
+  "last_updated": "2026-10-23T12:25:43.872749",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33688,7 +33688,7 @@
     {
       "month": "2026-10",
       "geo_town": "Barre City",
-      "gallons": 215,
+      "gallons": 295,
       "city": "Barre City"
     },
     {
@@ -33736,7 +33736,7 @@
     {
       "month": "2026-10",
       "geo_town": "Burlington",
-      "gallons": 3992,
+      "gallons": 4431,
       "city": "Burlington"
     },
     {
@@ -33837,6 +33837,12 @@
     },
     {
       "month": "2026-10",
+      "geo_town": "Milton",
+      "gallons": 650,
+      "city": "Milton"
+    },
+    {
+      "month": "2026-10",
       "geo_town": "Montpelier",
       "gallons": 450,
       "city": "Montpelier"
@@ -33874,13 +33880,13 @@
     {
       "month": "2026-10",
       "geo_town": "Shelburne",
-      "gallons": 70,
+      "gallons": 180,
       "city": "Shelburne"
     },
     {
       "month": "2026-10",
       "geo_town": "South Burlington",
-      "gallons": 540,
+      "gallons": 745,
       "city": "South Burlington"
     },
     {
@@ -33940,7 +33946,7 @@
     {
       "month": "2026-10",
       "geo_town": "Williston",
-      "gallons": 680,
+      "gallons": 805,
       "city": "Williston"
     },
     {
@@ -41710,7 +41716,7 @@
     {
       "month": "2026-10",
       "county": "Chittenden",
-      "gallons": 6772
+      "gallons": 8301
     },
     {
       "month": "2026-10",
@@ -41740,7 +41746,7 @@
     {
       "month": "2026-10",
       "county": "Washington",
-      "gallons": 3500
+      "gallons": 3580
     },
     {
       "month": "2026-10",
@@ -41795,11 +41801,11 @@
     },
     {
       "year": 2026,
-      "gallons": 241526
+      "gallons": 243135
     }
   ],
-  "all_time_total": 2160293,
-  "current_year_total": 241526,
+  "all_time_total": 2161902,
+  "current_year_total": 243135,
   "customer_count": 802,
   "unmapped_total": 40059,
   "monthly_totals": [
@@ -42369,7 +42375,7 @@
     },
     {
       "month": "2026-10",
-      "gallons": 16470
+      "gallons": 18079
     }
   ],
   "monthly_by_region": [
@@ -54011,12 +54017,12 @@
     {
       "month": "2026-10",
       "region": "Burlington / South Burlington",
-      "gallons": 4532
+      "gallons": 5176
     },
     {
       "month": "2026-10",
       "region": "Central",
-      "gallons": 1405
+      "gallons": 1485
     },
     {
       "month": "2026-10",
@@ -54041,7 +54047,12 @@
     {
       "month": "2026-10",
       "region": "Outer Burlington",
-      "gallons": 1715
+      "gallons": 1840
+    },
+    {
+      "month": "2026-10",
+      "region": "Perrigo",
+      "gallons": 650
     },
     {
       "month": "2026-10",
@@ -54056,7 +54067,7 @@
     {
       "month": "2026-10",
       "region": "Route 7",
-      "gallons": 735
+      "gallons": 845
     },
     {
       "month": "2026-10",
@@ -55128,12 +55139,12 @@
     {
       "year": 2026,
       "region": "Burlington / South Burlington",
-      "gallons": 47994
+      "gallons": 48638
     },
     {
       "year": 2026,
       "region": "Central",
-      "gallons": 24037
+      "gallons": 24117
     },
     {
       "year": 2026,
@@ -55158,12 +55169,12 @@
     {
       "year": 2026,
       "region": "Outer Burlington",
-      "gallons": 21803
+      "gallons": 21928
     },
     {
       "year": 2026,
       "region": "Perrigo",
-      "gallons": 19675
+      "gallons": 20325
     },
     {
       "year": 2026,
@@ -55178,7 +55189,7 @@
     {
       "year": 2026,
       "region": "Route 7",
-      "gallons": 10480
+      "gallons": 10590
     },
     {
       "year": 2026,
@@ -55267,20 +55278,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 27801,
+  "collections_count": 27818,
   "out_of_state_total": 40059,
   "active_customer_count": 527,
   "projection": {
-    "latest_data_date": "2026-10-22",
+    "latest_data_date": "2026-10-23",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 241526,
+    "current_ytd": 243135,
     "previous_year_full": 269909,
     "previous_through_prior_month": 208859,
     "previous_same_month_total": 21968,
-    "previous_prorated_ytd": 224449.19,
-    "projected_current_year": 290445,
-    "percent_vs_previous_year": 0.076083
+    "previous_prorated_ytd": 225157.84,
+    "projected_current_year": 291459,
+    "percent_vs_previous_year": 0.079842
   },
   "region_stats": {
     "Burlington / South Burlington": {
@@ -55428,8 +55439,8 @@
       "year": 2024,
       "places_serviced": 451,
       "gained": 60,
-      "lost": 43,
-      "net": 17
+      "lost": 42,
+      "net": 18
     },
     {
       "year": 2025,
@@ -55440,7 +55451,7 @@
     },
     {
       "year": 2026,
-      "places_serviced": 472,
+      "places_serviced": 473,
       "gained": 40,
       "lost": 9,
       "net": 31

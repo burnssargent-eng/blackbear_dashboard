@@ -302,7 +302,7 @@ pickup_date,customer_id,member_ids,customer,town,stage,status,section,previous_p
 2026-10-20,1314,1314,Hoagies in North Troy,Troy,established,50/50 default,ranked,2026-08-20,2026-10-19,2026-10-20,153.0,114.8,221.9,125,28.0,22.4
 2026-10-20,1500,1500,802 Deli and Market,Troy,new,50/50 default,ranked,2026-09-15,2026-10-19,2026-10-20,44.2,26.6,55.0,30,14.2,47.3
 2026-10-21,304,304;1037,Hotel Vermont + Hen of the Wood,Burlington,established,50/50 default,ranked,2026-09-21,2026-10-20,2026-10-21,126.2,79.8,172.5,180,-53.8,-29.9
-2026-10-21,308,308;311,Ruben James + Ahli Baba's,Burlington,established,50/50 default,ranked,2026-07-29,2026-10-20,2026-10-21,163.3,81.3,200,140,23.3,16.6
+2026-10-21,308,308;311,Ruben James + Ahli Baba's,Burlington,established,50/50 default,ranked,2026-07-29,2026-10-20,2026-10-21,163.3,81.3,200.0,140,23.3,16.6
 2026-10-21,322,322;323,Henrys Diner + Pascolo,Burlington,established,50/50 default,ranked,2026-10-07,2026-10-20,2026-10-21,71.4,47.3,95.4,100,-28.6,-28.6
 2026-10-21,326,326,Leunigs Bistro,Burlington,established,50/50 default,ranked,2026-09-21,2026-10-20,2026-10-21,31.4,20.1,42.8,50,-18.6,-37.2
 2026-10-21,327,327;328;1273,RiRa's + Sweetwaters + BKK-inTheAlley,Burlington,established,50/50 default,ranked,2026-10-07,2026-10-20,2026-10-21,129.1,96.8,187.2,150,-20.9,-13.9
@@ -315,4 +315,21 @@ pickup_date,customer_id,member_ids,customer,town,stage,status,section,previous_p
 2026-10-21,1354,1354,Kismet Mediterranean - 22222#,Burlington,established,will-call (detected),will-call,2026-05-26,2026-10-20,2026-10-21,,,,50,,
 2026-10-21,1481,1481,Kountry Kart,Burlington,,insufficient data,insufficient data,2026-09-03,2026-10-20,2026-10-21,,,,190,,
 2026-10-22,112,112,Mulligans-Barre,Barre City,established,50/50 default,ranked,2026-10-06,2026-10-20,2026-10-21,127.7,102.6,152.7,135,-7.3,-5.4
+2026-10-22,117,117,Ladder 1-Barre,Barre City,established,50/50 default,ranked,2026-09-29,2026-10-22,2026-10-22,36.1,28.0,44.2,30,6.1,20.3
+2026-10-22,127,127,The Meltdown-Barre,Barre City,established,50/50 default,ranked,2026-08-18,2026-10-22,2026-10-22,77.6,58.2,112.5,50,27.6,55.2
+2026-10-22,315,315,Citizen Cider - 0316,Burlington,established,50/50 default,ranked,2026-10-07,2026-10-22,2026-10-22,55.3,34.9,75.7,85,-29.7,-34.9
+2026-10-22,345,345,City Market,Burlington,established,will-call (detected),will-call,2026-07-29,2026-10-22,2026-10-22,,,,20,,
+2026-10-22,423,423,Perrigo Nutritionals,Milton,established,on-demand / unlimited,on-demand / unlimited,2026-07-02,2026-10-22,2026-10-22,,,,650,,
+2026-10-22,1032,1032,McGillicuddy's Alehouse-Williston,Williston,established,50/50 default,ranked,2026-10-01,2026-10-22,2026-10-22,68.7,51.9,85.5,50,18.7,37.4
+2026-10-22,1070,1070,Burlington Beer Co,Burlington,established,50/50 default,ranked,2026-10-07,2026-10-22,2026-10-22,107.7,88.8,126.7,120,-12.3,-10.2
+2026-10-22,1157,1157,Hannaford-217 Dorset St,Burlington,established,50/50 default,ranked,2026-08-17,2026-10-22,2026-10-22,135.3,107.4,163.2,99,36.3,36.7
+2026-10-22,1187,1187,Hana-Japanese-Dorset,Burlington,established,50/50 default,ranked,2026-08-13,2026-10-22,2026-10-22,137.3,77.5,150.0,90,47.3,52.6
+2026-10-22,1188,1188,Windjammer,South Burlington,established,50/50 default,ranked,2026-10-01,2026-10-22,2026-10-22,133.4,93.5,150.0,80,53.4,66.8
+2026-10-22,1195,1195,Chicken Charlies,South Burlington,established,50/50 default,ranked,2026-10-01,2026-10-22,2026-10-22,56.6,38.6,74.6,35,21.6,61.7
+2026-10-22,1197,1197,Le~Marche~Cafe,Shelburne,established,50/50 default,ranked,2026-07-13,2026-10-22,2026-10-22,79.3,59.5,100.0,50,29.3,58.6
 2026-10-22,1294,1294,Warren Miller-Jamaican food truck,Barre City,established,50/50 default,ranked,2026-09-09,2026-10-20,2026-10-21,18.9,14.2,27.5,20,-1.1,-5.5
+2026-10-22,1377,1377,Chef Leu -Shelburne,Shelburne,established,50/50 default,ranked,2026-08-28,2026-10-22,2026-10-22,26.4,19.8,38.2,25,1.4,5.6
+2026-10-22,1417,1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,established,50/50 default,ranked,2026-10-01,2026-10-22,2026-10-22,125.8,94.4,150.0,90,35.8,39.8
+2026-10-22,1422,1422,Folignos Pizza-Shelburne,Shelburne,established,50/50 default,ranked,2026-10-01,2026-10-22,2026-10-22,38.3,28.8,55.6,35,3.3,9.4
+2026-10-22,1495,1495,Folinos-Williston,Williston,new,50/50 default,ranked,2026-10-01,2026-10-22,2026-10-22,65.3,45.7,88.1,75,-9.7,-12.9
+2026-10-23,624,624,LBJ Country Store-Worcester,Burlington,new,stale - projection not meaningful,stale,2024-10-03,2026-10-22,2026-10-22,,,,25,,
