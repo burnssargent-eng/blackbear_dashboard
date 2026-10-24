@@ -420,35 +420,13 @@ function theftGallonsText(c) {
 }
 
 /**
- * customer_details.json (addresses, notes, map positions), or an empty set
- * when missing. Its notes have phone numbers and door codes cut out, because
- * the site is public. A local preview may also have customer_notes.local.json
- * (gitignored, never published) with the full notes; when it loads, its notes
- * replace the cut ones.
+ * Addresses, notes (codes included) and map positions, from the shared
+ * database (ops-db.js; signed-in team members only), or an empty set. They are
+ * never in a published file (step 6, 2026-10-24).
  */
 async function loadCustomerDetails() {
-  let customers = {};
-  try {
-    const resp = await fetch(`customer_details.json?v=${Date.now()}`);
-    if (resp.ok) customers = (await resp.json()).customers || {};
-  } catch (err) { /* none */ }
-  try {
-    const resp = await fetch(`customer_notes.local.json?v=${Date.now()}`);
-    if (resp.ok) {
-      Object.entries(await resp.json()).forEach(([id, notes]) => {
-        if (customers[id]) customers[id] = { ...customers[id], notes };
-      });
-    }
-  } catch (err) { /* not a local preview */ }
-  // Signed in: the database's full notes, codes included (ops-db.js).
   const shared = typeof opsDbCustomerDetails === "function" ? await opsDbCustomerDetails() : null;
-  if (shared) {
-    Object.entries(shared).forEach(([id, d]) => {
-      customers[id] = { ...(customers[id] || {}), ...d, ...(d.lat == null && customers[id]
-        ? { lat: customers[id].lat, lon: customers[id].lon, loc: customers[id].loc } : {}) };
-    });
-  }
-  return customers;
+  return shared || {};
 }
 
 /** Where a phone number or code was cut from a note, a link to it on the source site. */

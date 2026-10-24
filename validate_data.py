@@ -762,14 +762,23 @@ def check_outgoing(report):
 
 def check_customer_details(report):
     """
-    customer_details.json: addresses and map positions for the shadow site,
-    read by jamaal_customers.py. Positions must fall in the region; no phones.
+    customer_details.json: addresses and map positions, written from the shared
+    database for jamaal_customers.py (supabase_sync.py --export-details). Never
+    committed since step 6 (2026-10-24): addresses and notes live only in the
+    database. When present, positions must fall in the region; no phones.
     """
     import re
+    import subprocess
     report.section("CD", "Customer details (shadow site)")
     path = "customer_details.json"
+    try:
+        tracked = subprocess.run(["git", "ls-files", "--error-unmatch", path], capture_output=True).returncode == 0
+    except OSError:
+        tracked = False
+    if tracked:
+        report.fail(f"{path} is tracked by git; addresses and notes must stay out of the public repo.")
     if not os.path.exists(path):
-        report.warn(f"{path} missing; shadow customer pages show no address or map.")
+        report.ok(f"{path} not present (addresses and notes are in the shared database).")
         return
     with open(path) as f:
         details = json.load(f).get("customers", {})
@@ -790,9 +799,9 @@ def check_customer_details(report):
     phones = [k for k, d in details.items() if phone.search(f"{d.get('address', '')} | {d.get('notes', '')}")]
     codes = [k for k, d in details.items() if code.search(d.get("notes", ""))]
     if phones:
-        report.fail(f"Phone number(s) in customer_details.json for {phones}; they must never be published.")
+        report.fail(f"Phone number(s) in customer_details.json for {phones}; only customer_notes.local.json may hold them.")
     if codes:
-        report.fail(f"Door or lock code(s) in customer_details.json notes for {codes}; they must never be published.")
+        report.fail(f"Door or lock code(s) in customer_details.json notes for {codes}; only customer_notes.local.json may hold them.")
     if not phones and not codes:
         report.ok("No phone numbers or door codes in addresses or notes.")
 

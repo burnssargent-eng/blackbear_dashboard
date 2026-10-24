@@ -121,5 +121,35 @@ ok([x["id"] for x in p["only_jamaal"]] == [], "a source-site pickup on a day the
 p = ss.pickup_differences(site, {**jam, (7, "2026-10-20"): 90}, "2026-10-23", {})
 ok([x["id"] for x in p["only_jamaal"]] == [7], "a source-site pickup on a day the site was used is listed")
 
+# ── Details only in the database (step 6) ──
+import tempfile  # noqa: E402
+from jamaal_customers import scrub  # noqa: E402
+rows = [{"id": 5, "address": "1 Main St., Stowe, VT", "lat": 44.4, "lon": -72.7, "loc": "census",
+         "notes": "Barrel out back, code 4321"},
+        {"id": 6, "address": None, "lat": None, "lon": None, "loc": None, "notes": None},
+        {"id": -3, "address": "made on the site", "notes": "x"}]
+customers, local = ss.details_from_rows(rows, scrub)
+ok(set(customers) == {"5", "6"}, "the export leaves out customers made on the site")
+ok("4321" not in customers["5"]["notes"] and local == {"5": "Barrel out back, code 4321"},
+   "the export cuts codes from the details file and keeps the full notes in the local file")
+ok(customers["6"]["address"] == "" and customers["6"]["notes"] == "", "a customer with nothing stored exports as blanks")
+tmp = tempfile.mkdtemp()
+out, notes_out = os.path.join(tmp, "d.json"), os.path.join(tmp, "n.json")
+ss.export_details(FakeDb({"customers": rows}), out, notes_out)
+ok(json.load(open(out))["customers"]["5"]["lat"] == 44.4 and json.load(open(notes_out)) == local, "the export writes both files")
+try:
+    ss.export_details(FakeDb({"customers": []}), out, notes_out)
+    ok(False, "an empty database exports nothing")
+except ss.SyncError:
+    ok(True, "an empty database exports nothing (the nightly then skips the details read and the sync)")
+saved = ss.DETAILS_FILE
+ss.DETAILS_FILE = os.path.join(tmp, "missing.json")
+try:
+    ss.sync(FakeDb(), today=date(2026, 10, 24))
+    ok(False, "without the details file the sync refuses")
+except ss.SyncError:
+    ok(True, "without the details file the sync refuses, so no address is blanked")
+ss.DETAILS_FILE = saved
+
 print(f"\n{'FAILED' if failures else 'All passed'} ({failures} failure(s))")
 sys.exit(1 if failures else 0)

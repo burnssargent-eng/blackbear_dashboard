@@ -31,8 +31,9 @@ analysis/live_test.py ──> analysis/live_test_log.csv  (projected vs collecte
 
 jamaal_routes.py ──> jamaal_routes.json   (source site's assigned routes, route names and Assign list; GET only)
 jamaal_outgoing.py ──> outgoing.json      (source site's outgoing log: stillage runs, Shop→Gebbie Schmutz; GET only)
-jamaal_customers.py ──> customer_details.json (address + map position per active customer; NO phones;
-                                           addresses public by Sarge's choice until the repo goes private)
+jamaal_customers.py ──> customer_details.json (address + map position per active customer; NO phones).
+                     NOT committed since step 6 (2026-10-24): the nightly writes it from the database
+                     (supabase_sync.py --export-details), reads only new customers, and the sync writes back.
 
 supabase_sync.py ──> the shared database (Supabase; db/schema.sql). Nightly: source-site customers and
                      route names, plus a sync_reports row on where routes and pickups differ. Never writes a
@@ -97,16 +98,14 @@ assigned", not today's. `planner.html` only adds exported per-customer figures:
 a shared barrel counts once, and a held-out customer's average pickup is shown
 as "typical", outside the projected total.
 
-**Door codes and phone numbers never go in the repo.** `jamaal_customers.py`
-cuts them out of customer notes before writing `customer_details.json`
-(published), and keeps the full notes in `customer_notes.local.json` for a
-local preview only. `*.local.json` is gitignored; `tests/ops_test.js` fails if
-one is ever tracked, and `validate_data.py` fails on a phone number or code in
-the published file. Making the repo private does not hide the GitHub Pages
-site, so getting codes to drivers needs encryption, a login-protected host or
-the database. The shared database now holds the full notes, codes included,
-behind a login (`customers.notes`); they reach it from GitHub Actions only,
-never through a committed file.
+**Addresses, notes, door codes and phone numbers never go in the repo.** They
+live only in the shared database, behind the login (`customers.address`,
+`customers.notes`, codes included), and the pages read them from there.
+`customer_details.json` and `customer_notes.local.json` are working files the
+nightly writes from the database and never commits; both are gitignored, and
+`tests/ops_test.js` and `validate_data.py` fail if either is ever tracked.
+Before 2026-10-24 `customer_details.json` WAS committed (addresses and cut
+notes, no codes), so it is still in the public git history.
 
 ## Regenerating data
 

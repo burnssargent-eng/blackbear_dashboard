@@ -48,7 +48,9 @@ a browser, not by these.
 committed data files and a stand-in database (no network, no key): the seed
 copies every customer and the assigned routes in order, a second seed never
 writes over the site's routes, the nightly never overwrites notes or writes
-stops, and the route and pickup comparisons.
+stops, the route and pickup comparisons, and the details export (codes cut
+from the details file, full notes kept apart, site-made customers left out; an
+empty database exports nothing and a missing details file stops the sync).
 
 ## Adding one
 

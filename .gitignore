@@ -18,3 +18,6 @@ analysis/*.csv
 
 # Full customer notes (door codes, phones) for a local preview only. Never commit.
 *.local.json
+# Addresses and notes live only in the shared database (step 6, 2026-10-24);
+# the nightly writes this file from it for jamaal_customers.py and never commits it.
+/customer_details.json

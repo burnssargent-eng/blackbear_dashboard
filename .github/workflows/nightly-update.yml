@@ -65,10 +65,16 @@ jobs:
           python jamaal_outgoing.py || echo "::warning::Outgoing read failed; outgoing.json left as-is"
 
       # Shadow site customer pages and maps: address and position for customers
-      # new to the Assign list (existing ones are kept; --refresh re-reads all).
+      # new to the Assign list. Addresses and notes live only in the shared
+      # database (never committed), so the details files are first written from
+      # it; the read then covers only customers the database does not have yet.
+      # If the export fails, the read is skipped and the sync below refuses to
+      # run, so no address is ever blanked.
       - name: Read new customers' details
+        env:
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
         run: |
-          python jamaal_customers.py || echo "::warning::Customer details read failed; customer_details.json left as-is"
+          (python supabase_sync.py --export-details && python jamaal_customers.py) || echo "::warning::Customer details read failed; the database keeps its details"
 
       # Shared database: the source site's customers and route names, plus a
       # report of where routes and pickups differ between the two. Never
@@ -84,6 +90,6 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add oil_data.json oil_collections.json oil_collections_raw.csv oil_collection_report.xlsx capacity_cache.csv oil_non_pickups.csv oil_projections.json analysis/live_test_log.csv oil_live_test.json jamaal_routes.json outgoing.json customer_details.json
+          git add oil_data.json oil_collections.json oil_collections_raw.csv oil_collection_report.xlsx capacity_cache.csv oil_non_pickups.csv oil_projections.json analysis/live_test_log.csv oil_live_test.json jamaal_routes.json outgoing.json
           git commit -m "Nightly oil data update" || echo "No changes to commit"
           git push

@@ -61,7 +61,7 @@ runs on a copy of its data, and every change stays in the viewer's browser.
     projection, Assign, a map pin and history. No phone.
   - The My Route driver view now matches the source site's My Route: linked
     names with capacity and proj. gal, "Total:", and a numbered pin map.
-    Positions come from `customer_details.json`: the site's own when stored,
+    Positions come from the customer details (the shared database since step 6): the site's own when stored,
     else the US Census geocoder, else the town centre.
   - Label rule: one hedge only, "~", with figures beside the name as on the
     source site. "Name (~87 gal / 300) [28]", where [28] is days past full
@@ -133,8 +133,15 @@ counts twice. Logins: Sarge (added 2026-10-24); Jim to be invited.
 - **Sign-in (this branch):** `site-gate.js`, one email-and-password card in
   front of every page, analytics included (Sarge, 2026-10-24: the emailed link
   was too many steps). A screen only until step 6: the data files are public.
-- **Then:** addresses and notes out of the public repo (step 6); thefts from
-  `theft_log` into `THEFTS`; show `sync_reports` on the pages; invite Jim.
+- **Sign-in, done (#56, #57).**
+- **Step 6 (this branch):** addresses and notes live only in the database.
+  `customer_details.json` is no longer committed: the nightly writes it from
+  the database, reads only new customers from the source site, and the sync
+  writes them back; the pages read the database. Older copies stay in the
+  public git history by choice (Sarge, 2026-10-24: leave it; the addresses are
+  on the source site anyway, and codes and phones were never committed).
+- **Then:** thefts from `theft_log` into `THEFTS`; show `sync_reports` on the
+  pages; Jim's account.
 
 ### Theft registry (2026-10-23)
 

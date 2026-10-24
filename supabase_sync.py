@@ -19,12 +19,20 @@ script never overwrites a route or a pickup. It:
   report     where the site's routes differ from the source site's, and
              pickups entered on one but not the other, saved to sync_reports.
 
+Addresses and notes live only in the database (step 6, 2026-10-24):
+customer_details.json is no longer committed. --export-details writes it, and
+customer_notes.local.json, from the database at the start of the nightly, so
+jamaal_customers.py reads only customers new to the database and the sync
+writes everyone's address back. Without that file the sync refuses to run,
+rather than blank every address.
+
     python3 supabase_sync.py --seed   # first fill (run after jamaal_customers.py --refresh)
+    python3 supabase_sync.py --export-details   # nightly, first: the details files from the database
     python3 supabase_sync.py          # nightly
     python3 supabase_sync.py --dry-run  # print what would be sent, touch nothing
 
 Needs SUPABASE_SERVICE_KEY (a secret key: the nightly reads it from GitHub
-secrets). Reads only committed files plus customer_notes.local.json; it never
+secrets). Reads only committed files plus the two details files; it never
 contacts the source site itself.
 """
 
@@ -299,7 +307,45 @@ class Db:
                                  headers={"Prefer": "return=minimal"}, timeout=60), f"update {table}")
 
 
+def details_from_rows(rows, scrub):
+    """
+    The database's customers as the two files jamaal_customers.py keeps:
+    customer_details.json (notes with codes and phones cut) and the full notes
+    where cutting changed them. Customers made on the site (negative ids) are
+    not on the source site, so they are left out.
+    """
+    customers, local = {}, {}
+    for r in sorted(rows, key=lambda r: r["id"]):
+        if r["id"] <= 0:
+            continue
+        cid, full = str(r["id"]), r.get("notes") or ""
+        cut = scrub(full)
+        if cut != full:
+            local[cid] = full
+        customers[cid] = {"address": r.get("address") or "", "lat": r.get("lat"), "lon": r.get("lon"),
+                          "loc": r.get("loc"), "notes": cut, "photos": []}
+    return customers, local
+
+
+def export_details(db, out=DETAILS_FILE, notes_out=LOCAL_NOTES):
+    from jamaal_customers import scrub
+    from jamaal_routes import write_atomic
+    rows = db.select("customers", "select=id,address,lat,lon,loc,notes")
+    if not any(r["id"] > 0 for r in rows):
+        raise SyncError("the database has no source-site customers: nothing exported")
+    customers, local = details_from_rows(rows, scrub)
+    write_atomic(out, {"scraped_at": datetime.now(VERMONT).isoformat(timespec="seconds"),
+                       "source": "the shared database (supabase_sync.py --export-details)",
+                       "customers": customers})
+    write_atomic(notes_out, local)
+    print(f"Exported {len(customers)} customers' details from the database ({len(local)} with full notes)")
+    return customers, local
+
+
 def sync(db, seed=False, today=None):
+    if not os.path.exists(DETAILS_FILE):
+        raise SyncError(f"{DETAILS_FILE} is missing (run --export-details first): nothing synced, "
+                        "so no address is blanked")
     snap = load_json(ROUTES_FILE)
     details = load_json(DETAILS_FILE, {"customers": {}}).get("customers", {})
     local_notes = load_json(LOCAL_NOTES, {})
@@ -360,13 +406,19 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--seed", action="store_true", help="also copy the source site's routes into an empty route_stops")
     ap.add_argument("--dry-run", action="store_true", help="read the database, write nothing")
+    ap.add_argument("--export-details", action="store_true",
+                    help=f"write {DETAILS_FILE} and {LOCAL_NOTES} from the database, and nothing else")
     args = ap.parse_args()
     key = os.environ.get("SUPABASE_SERVICE_KEY", "").strip()
     if not key:
         print("SUPABASE_SERVICE_KEY is not set: nothing synced", file=sys.stderr)
         return 1
     try:
-        sync(Db(SUPABASE_URL, key, dry_run=args.dry_run), seed=args.seed)
+        db = Db(SUPABASE_URL, key, dry_run=args.dry_run)
+        if args.export_details:
+            export_details(db)
+        else:
+            sync(db, seed=args.seed)
     except (SyncError, requests.RequestException) as exc:
         print(f"Sync failed: {exc}", file=sys.stderr)
         return 1
