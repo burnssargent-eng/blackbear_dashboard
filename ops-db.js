@@ -272,9 +272,11 @@ async function opsFetchRows() {
     all(() => c.from("routes").select("id,name,sort").order("id"), "routes"),
     all(() => c.from("route_stops").select("id,route_id,customer_id,position,must_get,jamaal_assignment_id").order("id"), "stops"),
     all(() => c.from("customers").select("id,name,city,address,capacity,periodicity_days,phone,notes,shared_with,created_on,lat,lon,loc").order("id"), "customers"),
+    // Only this site's entries: the source site's history is in the database
+    // too (source 'jamaal'), but the pages already show it from the nightly files.
     all(() => c.from("collections").select("customer_id,picked_on,gallons,route_id,client_id,theft,theft_note,entered_at")
-      .gte("picked_on", since).order("id"), "pickups"),
-    all(() => c.from("outgoing").select("client_id,day,kind,truck,gallons").order("id"), "outgoing"),
+      .eq("source", "site").gte("picked_on", since).order("id"), "pickups"),
+    all(() => c.from("outgoing").select("client_id,day,kind,truck,gallons").eq("source", "site").order("id"), "outgoing"),
     all(() => c.from("route_trucks").select("route_id,day,truck"), "trucks"),
   ]);
   return { routes, stops, customers, collections, outgoing, trucks };

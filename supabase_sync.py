@@ -16,6 +16,12 @@ script never overwrites a route or a pickup. It:
   routes     upserts the source site's route ids and names.
   stops      --seed only, and only into an empty table: the source site's
              assigned routes as the starting point.
+  history    the source site's whole record (Sarge, 2026-10-24): every pickup
+             and 0-3 code from the scrape, and its outgoing log, as rows with
+             source = 'jamaal'. The first run copies everything; after that the
+             last HISTORY_DAYS are refreshed each night (new entries added, edits
+             and removals on the source site followed); --history redoes it all.
+             Customers seen only in that history are added, not active.
   report     where the site's routes differ from the source site's, and
              pickups entered on one but not the other, saved to sync_reports.
 
@@ -29,6 +35,7 @@ rather than blank every address.
     python3 supabase_sync.py --seed   # first fill (run after jamaal_customers.py --refresh)
     python3 supabase_sync.py --export-details   # nightly, first: the details files from the database
     python3 supabase_sync.py          # nightly
+    python3 supabase_sync.py --history  # also re-copy the source site's whole history
     python3 supabase_sync.py --dry-run  # print what would be sent, touch nothing
 
 Needs SUPABASE_SERVICE_KEY (a secret key: the nightly reads it from GitHub
@@ -53,6 +60,9 @@ LOCAL_NOTES = "customer_notes.local.json"
 CAPACITY_FILE = "capacity_cache.csv"
 COLLECTIONS_FILE = "oil_collections.json"
 CODES_FILE = "oil_non_pickups.csv"
+RAW_FILE = "oil_collections_raw.csv"
+OUTGOING_FILE = "outgoing.json"
+HISTORY_DAYS = 90         # how far back the nightly follows edits on the source site
 REPORT_DAYS = 30          # how far back pickups are compared
 BATCH = 500
 VERMONT = ZoneInfo("America/New_York")
@@ -207,6 +217,76 @@ def jamaal_entries(collections, codes_path, since):
     return out
 
 
+def jamaal_collection_rows(raw_path=None, codes_path=None):
+    """
+    Every source-site pickup (the scrape's cache) and 0-3 code, as collections
+    rows keyed customer:date:n. The source site has no pickup ids, so n numbers
+    a customer's entries on one day in order of gallons, which keeps the key of
+    an unchanged entry the same from night to night.
+    """
+    raw_path, codes_path = raw_path or RAW_FILE, codes_path or CODES_FILE
+    if not os.path.exists(raw_path):
+        raise SyncError(f"{raw_path} is missing")
+    entries = {}
+    for path, col in ((raw_path, "gallons"), (codes_path, "qty")):
+        if not os.path.exists(path):
+            continue
+        with open(path, encoding="utf-8") as fh:
+            for row in csv.DictReader(fh):
+                entries.setdefault((int(row["customer_id"]), row["date"]), []).append(int(float(row[col])))
+    out = {}
+    for (cid, day), gallons in sorted(entries.items()):
+        for n, g in enumerate(sorted(gallons)):
+            key = f"{cid}:{day}:{n}"
+            out[key] = {"jamaal_key": key, "source": "jamaal", "customer_id": cid, "picked_on": day,
+                        "gallons": g, "entered_at": None}
+    return out
+
+
+def jamaal_outgoing_rows(path=None):
+    """The source site's outgoing log, one row per stillage run or Schmutz volume."""
+    out = {}
+    for day, d in sorted(load_json(path or OUTGOING_FILE, {"days": {}}).get("days", {}).items()):
+        for truck, count in sorted(d.get("stillage", {}).items()):
+            for n in range(count):
+                key = f"{day}:stillage:{truck}:{n}"
+                out[key] = {"jamaal_key": key, "source": "jamaal", "day": day, "kind": "stillage",
+                            "truck": truck, "gallons": None, "entered_at": None}
+        for n, g in enumerate(sorted(d.get("schmutz", []))):
+            key = f"{day}:schmutz:{n}"
+            out[key] = {"jamaal_key": key, "source": "jamaal", "day": day, "kind": "schmutz",
+                        "truck": None, "gallons": g, "entered_at": None}
+    return out
+
+
+def history_customers(ids, roster, known):
+    """Customers in the source site's history but not in the database, as inactive rows."""
+    rows = []
+    for cid in sorted(set(ids) - set(known)):
+        r = roster.get(cid) or {}
+        rows.append({"id": cid, "name": r.get("name") or f"Customer {cid} (name not on file)",
+                     "city": r.get("city") or None, "active": False})
+    return rows
+
+
+def sync_history(db, table, date_col, wanted, since=None):
+    """
+    Make the database's source-site rows in `table` match `wanted`: on or after
+    `since` only, or all of them when `since` is None. Rows entered on this site
+    are never touched.
+    """
+    if since:
+        wanted = {k: r for k, r in wanted.items() if r[date_col] >= since}
+    query = "select=jamaal_key&source=eq.jamaal" + (f"&{date_col}=gte.{since}" if since else "")
+    have = {r["jamaal_key"] for r in db.select(table, query)}
+    stale = sorted(have - set(wanted))
+    if stale:
+        db.delete(table, "jamaal_key", stale)
+    if wanted:
+        db.upsert(table, list(wanted.values()), on_conflict="jamaal_key")
+    return {"rows": len(wanted), "removed": len(stale), "since": since or "all"}
+
+
 def pickup_differences(site_rows, jamaal, through, names):
     """
     Pickups entered on one system and not the other, up to `through` (the last
@@ -291,6 +371,19 @@ class Db:
                                     headers={"Prefer": "resolution=merge-duplicates,return=minimal"},
                                     timeout=60), f"upsert {table}")
 
+    def exists(self, table, filters):
+        resp = self._check(self.s.get(f"{self.base}/{table}?select=id&{filters}&limit=1", timeout=30), f"read {table}")
+        return bool(resp.json())
+
+    def delete(self, table, column, values):
+        if self.dry_run:
+            print(f"[dry run] delete {len(values)} row(s) from {table}")
+            return
+        for i in range(0, len(values), 100):
+            quoted = ",".join('"' + str(v).replace('"', '') + '"' for v in values[i:i + 100])
+            self._check(self.s.delete(f"{self.base}/{table}?{column}=in.({quoted})",
+                                      headers={"Prefer": "return=minimal"}, timeout=60), f"delete {table}")
+
     def insert(self, table, rows):
         if self.dry_run:
             print(f"[dry run] insert {len(rows)} row(s) into {table}")
@@ -342,7 +435,7 @@ def export_details(db, out=DETAILS_FILE, notes_out=LOCAL_NOTES):
     return customers, local
 
 
-def sync(db, seed=False, today=None):
+def sync(db, seed=False, today=None, history=False):
     if not os.path.exists(DETAILS_FILE):
         raise SyncError(f"{DETAILS_FILE} is missing (run --export-details first): nothing synced, "
                         "so no address is blanked")
@@ -372,6 +465,20 @@ def sync(db, seed=False, today=None):
     # Routes: ids and names from the source site; routes made on the site (negative ids) untouched.
     db.upsert("routes", route_rows(snap))
 
+    # The source site's history: everything on the first run (or --history), then the last HISTORY_DAYS.
+    now = today or datetime.now(VERMONT).date()
+    full = history or not db.exists("collections", "source=eq.jamaal")
+    since = None if full else (now - timedelta(days=HISTORY_DAYS)).isoformat()
+    pickups_wanted = jamaal_collection_rows()
+    roster = {c["customer_id"]: c for c in load_json(COLLECTIONS_FILE, {}).get("customers", [])}
+    added = history_customers({r["customer_id"] for r in pickups_wanted.values()}, roster,
+                              set(existing) | set(wanted))
+    if added:
+        db.insert("customers", added)
+    copied = {"collections": sync_history(db, "collections", "picked_on", pickups_wanted, since),
+              "outgoing": sync_history(db, "outgoing", "day", jamaal_outgoing_rows(), since),
+              "customers_added": len(added)}
+
     seeded = 0
     db_stops = db.select("route_stops", "select=route_id,customer_id,position,must_get")
     if seed:
@@ -383,11 +490,10 @@ def sync(db, seed=False, today=None):
             seeded = len(stops)
             db_stops = stops
 
-    # The report.
-    now = today or datetime.now(VERMONT).date()
+    # The report: this site's entries against the source site's.
     through = (now - timedelta(days=1)).isoformat()
     since = (now - timedelta(days=REPORT_DAYS)).isoformat()
-    site_pickups = db.select("collections", f"select=customer_id,picked_on,gallons&picked_on=gte.{since}")
+    site_pickups = db.select("collections", f"select=customer_id,picked_on,gallons&source=eq.site&picked_on=gte.{since}")
     pickups = pickup_differences(site_pickups, jamaal_entries(load_json(COLLECTIONS_FILE, {}), CODES_FILE, since),
                                  through, names)
     routes = route_differences(snap, db_stops, names)
@@ -395,10 +501,13 @@ def sync(db, seed=False, today=None):
     report = {"routes_read_at": snap.get("scraped_at"), "pickups_since": since, "pickups_through": through,
               "routes": routes, "pickups": pickups,
               "customers": {"with_notes": len(new), "without_notes": len(known), "marked_inactive": len(gone)},
-              "stops_seeded": seeded}
+              "stops_seeded": seeded, "history": copied}
     db.insert("sync_reports", [{"kind": "seed" if seed else "nightly", "summary": summary, "report": report}])
     print(f"Customers: {len(new)} with notes, {len(known)} without, {len(gone)} marked inactive. "
-          f"Routes: {len(route_rows(snap))}. Stops seeded: {seeded}. {summary}.")
+          f"Routes: {len(route_rows(snap))}. Stops seeded: {seeded}. "
+          f"Source-site history ({copied['collections']['since']}): {copied['collections']['rows']} pickups and codes, "
+          f"{copied['outgoing']['rows']} outgoing, {copied['collections']['removed'] + copied['outgoing']['removed']} "
+          f"removed, {copied['customers_added']} customers added. {summary}.")
     return report
 
 
@@ -406,6 +515,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--seed", action="store_true", help="also copy the source site's routes into an empty route_stops")
     ap.add_argument("--dry-run", action="store_true", help="read the database, write nothing")
+    ap.add_argument("--history", action="store_true", help="re-copy the source site's whole history, not just the last 90 days")
     ap.add_argument("--export-details", action="store_true",
                     help=f"write {DETAILS_FILE} and {LOCAL_NOTES} from the database, and nothing else")
     args = ap.parse_args()
@@ -418,7 +528,7 @@ def main():
         if args.export_details:
             export_details(db)
         else:
-            sync(db, seed=args.seed)
+            sync(db, seed=args.seed, history=args.history)
     except (SyncError, requests.RequestException) as exc:
         print(f"Sync failed: {exc}", file=sys.stderr)
         return 1

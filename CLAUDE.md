@@ -36,8 +36,11 @@ jamaal_customers.py ──> customer_details.json (address + map position per ac
                      (supabase_sync.py --export-details), reads only new customers, and the sync writes back.
 
 supabase_sync.py ──> the shared database (Supabase; db/schema.sql). Nightly: source-site customers and
-                     route names, plus a sync_reports row on where routes and pickups differ. Never writes a
-                     stop or a pickup. --seed (supabase-seed.yml, by hand, once) also copies the assigned routes
+                     route names, the source site's whole history (every pickup, 0-3 code and outgoing run, as
+                     rows with source='jamaal'; the last 90 days refreshed each night, --history redoes all), and
+                     a sync_reports row on where routes and pickups differ. 'jamaal' rows and the site's own
+                     'site' rows record the SAME pickups: never add them together; the pages read only 'site'.
+                     Never writes a stop or a site pickup. --seed (supabase-seed.yml, by hand, once) also copies the assigned routes
                      into an EMPTY route_stops, with the full notes from a fresh jamaal_customers.py --refresh.
 db/schema.sql        the database's whole definition. Idempotent: change it, then paste ALL of it into
                      Supabase's SQL editor. Every table is login-only (RLS + `people`); nothing is open to the
