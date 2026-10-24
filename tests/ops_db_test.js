@@ -72,6 +72,13 @@ ok(notListed.includes("not on the team list") && notListed.includes("data-gate-s
   } catch (e) { err = e; }
   ok(!err && res.client === null && !res.available,
     "ops-db.js without site-gate.js stays on the browser copy instead of failing" + (err ? ` (${err.message})` : ""));
+  const session = {};
+  let reloads = 0;
+  const stale = { ...w, location: { reload: () => { reloads++; } },
+    sessionStorage: { getItem: k => session[k] || null, setItem: (k, v) => { session[k] = v; }, removeItem: k => { delete session[k]; } } };
+  const run = () => new Function("window", "const document = { getElementById: () => null };\n" + lone)(stale);
+  run(); run();
+  ok(reloads === 1, "a saved older page reloads itself once to fetch the current page, never in a loop");
   let older = null;
   try { older = require("child_process").execSync("git show 5e414a7:ops-db.js", { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }); } catch (e) { /* shallow clone */ }
   if (older) {
