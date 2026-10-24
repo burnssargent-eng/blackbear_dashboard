@@ -287,6 +287,15 @@ details.ops-route[open] > summary::before { content: "▾"; }
 .ops-theft-form textarea { min-height: 64px; font-size: 16px; }
 .ops-theft-form .btn, .ops-theft-btn { height: 33px; padding: 0 12px; font-size: 14px;
   display: inline-flex; align-items: center; }
+/* Oil Left: gallons seen in a barrel and not collected. Blue, never red: it
+   is a reading, not an alarm. */
+.ops-left-note { font-size: 13px; color: #0a58ca; font-weight: 600; }
+.ops-line.ops-left-open { border-color: #0d6efd; box-shadow: 0 0 0 1px #0d6efd; }
+.ops-left-form { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; cursor: default; }
+.ops-left-form label { font-size: 14px; margin: 0; color: #0a58ca; font-weight: 600; }
+.ops-left-form input { width: 90px; height: 33px; padding: 2px 8px; font-size: 16px; }
+.ops-left-form .btn, .ops-left-btn { height: 33px; padding: 0 12px; font-size: 14px;
+  display: inline-flex; align-items: center; }
 .ops-drive-title { font-size: 20px; font-weight: 600; line-height: 1.2; min-width: 0;
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ops-shadow .btn { font-size: 12px; }

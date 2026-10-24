@@ -226,5 +226,19 @@ except ss.SyncError:
     ok(True, "without the details file the sync refuses, so no address is blanked")
 ss.DETAILS_FILE = saved
 
+# ── Oil Left export (for the projections) ──
+left_db = FakeDb({"oil_left": [
+    {"customer_id": 325, "checked_on": "2026-10-23", "gallons_left": 40},
+    {"customer_id": 12, "checked_on": "2026-10-24", "gallons_left": 0},
+    {"customer_id": 12, "checked_on": "2026-10-20", "gallons_left": 15}]})
+left_out = os.path.join(tmp, "oil_left.csv")
+ss.export_oil_left(left_db, left_out)
+ok(open(left_out).read() == "customer_id,date,gallons_left\n12,2026-10-20,15\n12,2026-10-24,0\n325,2026-10-23,40\n",
+   "the Oil Left export is id, day and gallons only, by customer then day (0 left kept)")
+ss.export_oil_left(FakeDb({"oil_left": []}), left_out)
+ok(open(left_out).read() == "customer_id,date,gallons_left\n", "no checks yet exports just the header")
+ok(not left_db.writes, "the Oil Left export writes nothing to the database")
+ok(open(ss.OIL_LEFT_FILE).readline().strip() == "customer_id,date,gallons_left", "the committed oil_left.csv has the export's header")
+
 print(f"\n{'FAILED' if failures else 'All passed'} ({failures} failure(s))")
 sys.exit(1 if failures else 0)

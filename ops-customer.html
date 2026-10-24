@@ -27,7 +27,7 @@
 <script>
 /*
  * Customer page (shadow), after the source site's customer.php. Two tabs:
- * Home (Add Collection, the details, Assign, a map pin) and Collections (every
+ * Home (Add Collection, Oil Left, the details, Assign, a map pin) and Collections (every
  * pickup with its total). Photos are left out for now.
  *
  * Read from: jamaal_routes.json (name, town), the shared database (address,
@@ -84,7 +84,11 @@ function collectionsHtml() {
  * and days to/past full are the projections' own figures, never the source
  * site's listed periodicity.
  */
-function homeHtml(row, today, onRoutes, capacity) {
+// A browser can pair this page with an older ops-common.js for a few minutes
+// after a deploy: Oil Left then stays hidden instead of breaking the page.
+const oilLeftReady = typeof recordOilLeft === "function";
+
+function homeHtml(row, today, onRoutes, capacity, left) {
   const est = stopEstimate(row);
   const days = row && row.days_past_full;
   const dd = (label, value) => `<dt class="col-4 col-md-2">${label}</dt><dd class="col-8 col-md-10">${value}</dd>`;
@@ -94,6 +98,13 @@ function homeHtml(row, today, onRoutes, capacity) {
              placeholder="# of gallons" required>
       <button class="btn btn-primary">Add Collection</button>
     </form>
+    ${oilLeftReady ? `<form id="left" class="d-flex flex-wrap gap-2 align-items-center mb-3" autocomplete="off">
+      <input type="number" inputmode="numeric" min="0" name="gallons" class="form-control w-auto"
+             placeholder="# of gallons left" required aria-label="Gallons left in the barrel">
+      <button class="btn btn-outline-primary">Oil Left</button>
+    </form>` : ""}
+    ${left ? `<div class="alert alert-primary py-2">Today: ${formatNumber(left.gallons)} gal left in the barrel, not collected — ${opsWhere()}.
+      <button type="button" class="btn btn-link btn-sm p-0 ms-2" data-left-undo>Undo</button></div>` : ""}
     ${today && today.theft ? `<div class="alert alert-danger py-2">Today: ${theftGallonsText(today)} — ${opsWhere()}.
       <button type="button" class="btn btn-link btn-sm p-0 ms-2" data-undo>Undo</button>
       ${today.theft.note ? `<div style="overflow-wrap:anywhere">${escapeHtml(today.theft.note)}</div>` : ""}</div>`
@@ -150,7 +161,8 @@ function render() {
     <h2>${escapeHtml(customer.name || `#${id}`)}</h2>
     ${row && row.members ? `<div class="ops-muted mb-2">Shared barrel: ${escapeHtml(row.members.map(m => m.name).join(" · "))}</div>` : ""}
     <ul class="nav nav-tabs">${tabLink("home", "Home")}${tabLink("collections", "Collections")}</ul>
-    <div class="pt-2">${tab === "home" ? homeHtml(row, today, onRoutes, capacity) : collectionsHtml()}</div>`;
+    <div class="pt-2">${tab === "home" ? homeHtml(row, today, onRoutes, capacity,
+      oilLeftReady ? todaysOilLeft(store, id) : null) : collectionsHtml()}</div>`;
 
   if (tab === "home" && details.lat != null) {
     const map = L.map("map", { scrollWheelZoom: false }).setView([details.lat, details.lon], details.loc === "town" ? 12 : 15);
@@ -208,6 +220,16 @@ async function init() {
 
   const page = document.getElementById("page");
   page.addEventListener("submit", e => {
+    if (e.target.id === "left") {
+      e.preventDefault();
+      const gallons = parseInt(new FormData(e.target).get("gallons"), 10);
+      if (!Number.isFinite(gallons) || gallons < 0) return;
+      recordOilLeft(store, customer, gallons);
+      saveStore(store);
+      flash = "";
+      render();
+      return;
+    }
     if (e.target.id !== "add") return;
     e.preventDefault();
     const gallons = parseInt(new FormData(e.target).get("gallons"), 10);
@@ -221,7 +243,11 @@ async function init() {
   page.addEventListener("click", e => {
     const t = e.target.closest && e.target.closest("[data-tab]");
     if (t) { tab = t.dataset.tab; render(); return; }
-    if (e.target.closest("[data-undo]")) {
+    if (e.target.closest("[data-left-undo]")) {
+      clearOilLeft(store, customer.customer_id);
+      saveStore(store);
+      render();
+    } else if (e.target.closest("[data-undo]")) {
       store.collections = store.collections.filter(c =>
         !(c.date === todayIso() && c.customer_id === customer.customer_id));
       saveStore(store);

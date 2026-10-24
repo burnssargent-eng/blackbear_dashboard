@@ -22,7 +22,7 @@ const code = ["dashboard-utils.js", "route-utils.js", "ops-common.js", "site-gat
   .map(f => fs.readFileSync(f, "utf8")).join("\n");
 const api = new Function("window", "const document = { getElementById: () => null };\n" + code + `
   return { gateCardHtml, setDb: v => { opsDb = v; }, getDb: () => opsDb, opsFlush, freshStore, saveStore, loadStore, assignToRoute, moveStop, removeStop, recordCollection, recordTheft,
-    addShadowCustomer, createRoute, renameRoute, todaysCollection, todayIso, opsDiff, opsSharedPart,
+    recordOilLeft, clearOilLeft, todaysOilLeft, oilLeftText, addShadowCustomer, createRoute, renameRoute, todaysCollection, todayIso, opsDiff, opsSharedPart,
     opsEnsureClientIds, opsStoreFromRows, opsDbAvailable, opsShared, opsWhere, shadowBannerHtml, OPS_STORAGE_KEY };`)(window);
 
 let fails = 0;
@@ -101,6 +101,7 @@ const rows = {
     client_id: "c-old", theft: true, theft_note: "lock cut", entered_at: "2026-10-24T13:00:00Z" }],
   outgoing: [{ client_id: "o-old", day: today, kind: "stillage", truck: "mammabear", gallons: null }],
   trucks: [{ route_id: rid, day: "2026-10-20", truck: "babybird" }, { route_id: rid, day: "2026-10-23", truck: "mackdaddy" }],
+  oilLeft: [{ customer_id: route.stops[2].customer_id, checked_on: today, gallons_left: 30, route_id: rid }],
 };
 const shared = api.opsStoreFromRows(rows, snap, { my: { routeId: rid } });
 ok(shared.routes[rid].map(s => s.customer_id).join() === route.stops.map(s => s.customer_id).join(),
@@ -114,6 +115,10 @@ ok(shared.trucks[rid] === "Mack Daddy", "a route's truck is its latest choice");
 ok(shared.collections[0].theft && shared.collections[0].theft.note === "lock cut", "a theft comes back with its note");
 ok(shared.outgoing[0].truck === "mammabear" && shared.outgoing[0].gallons === undefined, "a stillage run comes back");
 ok(shared.my.routeId === rid, "My Route stays the device's own");
+ok(api.todaysOilLeft(shared, route.stops[2].customer_id).gallons === 30 && shared.collections.length === 1,
+  "Oil Left comes back as its own entry, not a pickup");
+ok(api.opsStoreFromRows({ ...rows, oilLeft: undefined }, snap).oilLeft.length === 0,
+  "before the oil_left table exists the store still loads, with no Oil Left");
 ok(shared.nextId < -1000000000 && shared.nextId > -2147483648, "new ids start at a random point, inside the column's range");
 
 // ── Page actions -> writes ──
@@ -165,6 +170,37 @@ const firstTheft = api.opsSharedPart(s);
 api.recordTheft(s, s.routes[rid][1], 5, "barrel empty, lid off; 5 gal left", new Date());
 ops = send(firstTheft, s);
 ok(ops.length === 1 && ops[0].t === "pickup-edit" && ops[0].values.gallons === 5, "editing a theft is an edit (the history keeps the first)");
+
+s = JSON.parse(JSON.stringify(shared));
+s.my = { routeId: rid };
+const part = s.routes[rid][1];
+api.recordCollection(s, part, 40);
+send(synced, s);   // the pickup goes first, with its id
+const afterPart = api.opsSharedPart(s);
+api.recordOilLeft(s, part, 35);
+ops = send(afterPart, s);
+ok(ops.length === 1 && ops[0].t === "left-set" && ops[0].row.gallons_left === 35 && ops[0].row.checked_on === today &&
+  ops[0].row.route_id === rid && ops[0].row.customer_id === part.customer_id,
+  "Oil Left after a part pickup sends one oil_left row and leaves the pickup alone");
+ok(api.todaysCollection(s, part.customer_id).gallons === 40 && api.oilLeftText(api.todaysOilLeft(s, part.customer_id)) === "Oil left: 35 gal",
+  "the pickup still reads 40 collected; the 35 left is shown apart");
+const afterLeft = api.opsSharedPart(s);
+api.recordOilLeft(s, part, 20);
+ops = send(afterLeft, s);
+ok(ops.length === 1 && ops[0].t === "left-set" && ops[0].row.gallons_left === 20 && s.oilLeft.length === 2,
+  "a second Oil Left the same day replaces the first");
+api.clearOilLeft(s, part.customer_id);
+ops = send(afterLeft, s);
+ok(ops.length === 1 && ops[0].t === "left-delete" && ops[0].customer_id === part.customer_id && ops[0].day === today,
+  "Remove deletes that day's Oil Left");
+s = JSON.parse(JSON.stringify(shared));
+api.recordOilLeft(s, { customer_id: extra.customer_id, name: extra.name }, 0);
+ops = send(synced, s);
+ok(ops.length === 1 && ops[0].row.gallons_left === 0 && ops[0].row.route_id === null,
+  "0 left is recorded; a customer not on My Route has no route");
+const browser = api.freshStore(snap);
+api.recordOilLeft(browser, { customer_id: extra.customer_id, name: extra.name }, 12);
+ok(browser.oilLeft.length === 1 && browser.collections.length === 0, "the browser copy keeps Oil Left too, outside collections");
 
 s = JSON.parse(JSON.stringify(shared));
 s.trucks[rid] = "Newbie Doo";

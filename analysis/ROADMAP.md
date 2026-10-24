@@ -147,6 +147,28 @@ counts twice. Logins: Sarge (added 2026-10-24); Jim to be invited.
 - **Then:** thefts from `theft_log` into `THEFTS`; show `sync_reports` on the
   pages; Jim's account.
 
+### Oil Left (2026-10-24)
+
+Drivers record the gallons they saw left in a barrel and did not collect: a
+part pickup when the truck is filling, or a stop a full truck checks and
+skips. "Oil Left" beside Theft in a My Route stop's Notes panel, and on the
+customer page. Its own table (`oil_left`, one per customer and day), never a
+collection: no total, no history, no live-test score moves. The nightly
+exports it to the committed `oil_left.csv` before the build, and the builder
+applies two arithmetic rules (`gap_oil`, `apply_oil_left`; `tests/oil_left_test.py`):
+
+- **Rate:** a gap's oil = collected + left after this pickup − left after
+  the previous one, so a part pickup stops reading as low production.
+- **Level:** a check on or after the last pickup (and not before a later
+  empty check) starts the projection at what was left: left + rate × days
+  since the check, capped at capacity as before.
+
+With no checks yet the export is empty and every projection is unchanged
+(511 rows identical on 2026-10-24). Known limits: a check is tied to a
+pickup only on the same day, so a pickup entered on the source site a day
+late leaves the reading as a check before that pickup (ignored); a part
+pickup will still score as an over-projection in the live test.
+
 ### Theft registry (2026-10-23)
 
 `THEFTS` in the builder: a confirmed theft leaves its gap out of every rate and

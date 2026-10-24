@@ -14,8 +14,19 @@ Both component rates come from analysis/backtest_steady_rate.py, where the
 50/50 blend was chosen (see analysis/README.md). Nothing here is re-derived:
 the last-6 rate is bt.rate_rolling's window, and the previous-year rate is
 the same formula keyed to a date instead of a pickup index -- see
-rate_prev_year_asof below. The one departure: a gap that spans a theft
-(THEFTS) is left out of every rate.
+rate_prev_year_asof below. Two departures: a gap that spans a theft
+(THEFTS) is left out of every rate, and Oil Left (below) adds back what a
+driver left in the barrel.
+
+OIL LEFT (oil_left.csv, Sarge, 2026-10-24): gallons a driver saw left in a
+barrel and did not collect, exported nightly from the shared database. Never a
+collection, so no total or history moves. Two rules, both arithmetic:
+
+    rate   oil over a gap = collected + left after this pickup
+                                      - left after the previous one
+           (a part pickup no longer reads as low production)
+    level  a check on or after the last pickup starts the projection from
+           what was left: left + rate x days since the check
 
 WHAT THIS IS NOT. The projection estimates oil PRODUCED since the last pickup.
 It is not a promise of how many gallons the truck will collect: that depends on
@@ -109,6 +120,7 @@ COLLECTIONS = ROOT / "oil_collections.json"
 OIL_DATA = ROOT / "oil_data.json"
 CAPACITY_CACHE = ROOT / "capacity_cache.csv"
 NON_PICKUPS = ROOT / "oil_non_pickups.csv"
+OIL_LEFT = ROOT / "oil_left.csv"
 
 # Quantities that mean "checked, container empty": the oil clock restarts at
 # the latest one after the last pickup. MUST MATCH oil_scraper.RESET_QTYS;
@@ -598,16 +610,70 @@ def apply_thefts(pickups, asof):
     return thefts, flags
 
 
+def load_oil_left(asof):
+    """customer_id -> {date: gallons left} for Oil Left checks on or before `asof`."""
+    left = defaultdict(dict)
+    if not OIL_LEFT.exists():
+        print(f"  note: {OIL_LEFT.name} missing; no Oil Left applied")
+        return left
+    with open(OIL_LEFT, newline="") as f:
+        for row in csv.DictReader(f):
+            day = date.fromisoformat(row["date"])
+            if day <= asof:
+                left[int(row["customer_id"])][day] = int(row["gallons_left"])
+    return left
+
+
+def apply_oil_left(pickups, oil_left):
+    """
+    After apply_history_starts and combine_shared. A shared member's check
+    lands on its group (the largest when two members record the same barrel
+    that day), and checks before a HISTORY_STARTS date are dropped. A check on
+    a pickup's day is what that pickup left, so it is set as `left` on the
+    day's last pickup, in place, for gap_oil. Returns customer_id ->
+    [(date, gallons left)] in date order, for the level anchor in build_row.
+    """
+    group_of = {cid: min(g.members) for g in SHARED_CONTAINERS for cid in g.members}
+    merged = defaultdict(dict)
+    for cid, days in oil_left.items():
+        key = group_of.get(cid, cid)
+        start = HISTORY_STARTS[key].start if key in HISTORY_STARTS else None
+        for day, gallons in days.items():
+            if start is None or day >= start:
+                merged[key][day] = max(gallons, merged[key].get(day, 0))
+    out = {}
+    for key, days in merged.items():
+        last_on = {p["date"]: p for p in pickups.get(key, [])}
+        for day, gallons in days.items():
+            if day in last_on:
+                last_on[day]["left"] = gallons
+        out[key] = sorted(days.items())
+    return out
+
+
 def theft_gap(pickups, i):
     """True when the gap ending at pickup i spans a theft (THEFTS)."""
     return "theft_gap" in pickups[i]
 
 
+def gap_oil(pickups, i):
+    """
+    Oil produced over the gap ending at pickup i: what was collected, plus
+    what was left in the barrel after it, less what was left after the
+    previous pickup (Oil Left). Never below zero. Without Oil Left it is the
+    gallons collected.
+    """
+    oil = pickups[i]["gallons"] + pickups[i].get("left", 0)
+    if i > 0:
+        oil -= pickups[i - 1].get("left", 0)
+    return max(oil, 0)
+
+
 def span_rate(pickups, lo, hi):
     """
     bsm.rate_span -- gallons at pickups lo+1 .. hi over the days from lo to
-    hi -- with any gap that spans a theft left out of both. Without a theft
-    it is bsm.rate_span exactly.
+    hi -- with any gap that spans a theft left out of both, and Oil Left
+    added back (gap_oil). Without either it is bsm.rate_span exactly.
     """
     if lo is None or hi is None or lo < 0 or hi <= lo:
         return None
@@ -615,7 +681,7 @@ def span_rate(pickups, lo, hi):
     for i in range(lo + 1, hi + 1):
         if theft_gap(pickups, i):
             continue
-        gallons += pickups[i]["gallons"]
+        gallons += gap_oil(pickups, i)
         days += (pickups[i]["date"] - pickups[i - 1]["date"]).days
     return gallons / days if days > 0 else None
 
@@ -624,13 +690,15 @@ def production(pickups):
     """
     (ss.daily_production, the days of any theft gap). A theft gap's gallons are
     zeroed and its days returned, so a window over them is measured on the
-    other days instead of reading the theft as low production.
+    other days instead of reading the theft as low production. Each gap's
+    gallons are its gap_oil, so Oil Left counts as production.
     """
     marked = [i for i in range(1, len(pickups)) if theft_gap(pickups, i)]
-    if not marked:
+    if not marked and not any("left" in p for p in pickups):
         return ss.daily_production(pickups), frozenset()
-    daily = ss.daily_production([dict(p, gallons=0) if "theft_gap" in p else p
-                                 for p in pickups])
+    daily = ss.daily_production(
+        [pickups[0]] + [dict(p, gallons=0 if i in marked else gap_oil(pickups, i))
+                        for i, p in enumerate(pickups) if i > 0])
     lost = {pickups[i]["date"] - timedelta(days=d) for i in marked
             for d in range((pickups[i]["date"] - pickups[i - 1]["date"]).days)}
     return daily, lost
@@ -892,7 +960,7 @@ def rate_open_season(pickups, spec):
                 (a + timedelta(days=d)).month - 1 not in open_months
                 for d in range(1, span + 1)):
             continue
-        gallons += pickups[i]["gallons"]
+        gallons += gap_oil(pickups, i)
         days += span
         used += 1
         if used == WINDOW:
@@ -1333,7 +1401,8 @@ def return_rate(pickups, asof):
     return RETURN_RECENT_WEIGHT * first_back + (1 - RETURN_RECENT_WEIGHT) * last_year, gap, since
 
 
-def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thefts=()):
+def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thefts=(),
+              oil_left=()):
     last = pickups[-1]
     days_since = (asof - last["date"]).days
 
@@ -1346,6 +1415,14 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thef
                    | {d for d, _ in thefts if d > last["date"]})
     last_check = later[-1] if later else None
     clock_start = last_check or last["date"]
+    # Oil Left: a check on or after the last pickup, and not before a later
+    # empty check, starts the barrel at what was left instead of at zero.
+    left_from = next(((d, g) for d, g in reversed(oil_left)
+                      if d >= clock_start), None)
+    level = 0
+    if left_from:
+        clock_start = left_from[0]
+        level = min(left_from[1], capacity) if capacity else left_from[1]
     days_accumulating = (asof - clock_start).days
 
     # The ladder. last6 is kept for the detail column; pooled equals it once
@@ -1443,7 +1520,10 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thef
     target = capacity * TARGET_FRACTION if capacity is not None else None
     exposure_days = (open_days(clock_start, asof, open_months) if open_months
                      else days_accumulating)
-    projected = rate * exposure_days if rate is not None else None
+    projected = level + rate * exposure_days if rate is not None else None
+    if left_from and rate is not None:
+        routing_reason += (f"; from {left_from[1]:g} gal left on "
+                           f"{left_from[0].isoformat()}")
 
     # The shown estimate is capped at listed capacity: a container cannot
     # hold more than it holds, and rate x days keeps growing after it is full.
@@ -1529,6 +1609,8 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thef
         "last_pickup_date": last["date"].isoformat(),
         "days_since_last_pickup": days_since,
         "last_empty_check": last_check.isoformat() if last_check else None,
+        "oil_left_date": left_from[0].isoformat() if left_from else None,
+        "oil_left_gallons": left_from[1] if left_from else None,
         "days_accumulating": days_accumulating,
         "avg_collection": avg_collection,
         "avg_collection_all": average_collection_all(pickups),
@@ -1691,7 +1773,8 @@ DETAIL_FIELDS = [
     "restart_from", "restart_gap_days", "return_gap_days", "return_pickups_since",
     "shared_members_text", "history_start", "registry_note",
     "pickup_count", "first_pickup", "last_pickup_date",
-    "days_since_last_pickup", "last_empty_check", "days_accumulating",
+    "days_since_last_pickup", "last_empty_check", "oil_left_date", "oil_left_gallons",
+    "days_accumulating",
     "oil_rate_gpd_prev_6_pickups", "oil_rate_gpd_pooled",
     "seasonal_last_year_gpd", "seasonal_recent_indexed_gpd",
     "oil_rate_gpd_prev_year", "oil_rate_gpd_projected",
@@ -1754,6 +1837,8 @@ def write_json(rows, asof):
         "last_pickup": r["last_pickup_date"],
         "days_since": r["days_since_last_pickup"],
         "last_empty_check": r["last_empty_check"],
+        "oil_left_date": r.get("oil_left_date"),
+        "oil_left_gallons": r.get("oil_left_gallons"),
         "days_accumulating": r["days_accumulating"],
         "shared_label": r.get("shared_label"),
         "members": [{"id": m["id"], "name": m["name"]} for m in r["shared_members"]]
@@ -2216,6 +2301,7 @@ def main():
     owner_extras = apply_history_starts(pickups, empty_checks)
     shared_extras = combine_shared(pickups, empty_checks, capacities, regions, active)
     thefts, theft_flags = apply_thefts(pickups, asof)
+    oil_left = apply_oil_left(pickups, load_oil_left(asof))
 
     rows = []
     for cid in sorted(active):
@@ -2226,7 +2312,8 @@ def main():
                                           regions, asof))
             continue
         row = build_row(cid, history, asof, capacities.get(cid), regions, wape,
-                        empty_checks.get(cid, ()), thefts.get(cid, ()))
+                        empty_checks.get(cid, ()), thefts.get(cid, ()),
+                        oil_left.get(cid, ()))
         if theft_flags.get(cid):
             row["flags"] = "; ".join(f for f in [row["flags"], *theft_flags[cid]] if f)
         extra = shared_extras.get(cid) or owner_extras.get(cid)

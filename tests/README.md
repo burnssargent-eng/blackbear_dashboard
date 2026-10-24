@@ -39,9 +39,16 @@ a browser, not by these.
 | `customers_regression.js` | The `applyPeriodPickers` contract shared by the customers and region pages. |
 | `customers_table_test.js` | Customers page table: Region column (one non-theme region per customer, Perrigo as Perrigo), column sorting both ways with `#` restoring the preset order, the preset buttons, and the search. |
 | `planner_test.js` | Route planner beta (`planner.html` + `route-utils.js`): route totals add a shared barrel once (gallons and capacity), held-out stops stay out of the projected total, each source-site route's total matches a hand sum, reordering by arrows and typed stop numbers, truck fill, and that the page never calls the source site. |
-| `ops_test.js` | Shadow operations site (`ops-*.html`, `ops-common.js`): the shadow copy starts as the source site's routes stop for stop, Assign skips duplicates, route ids are named as Today's Routes names them, the nav, the calendar's day and month totals (no 0-3 codes), its 09-18-26-style month buttons and month picker, the Outgoing report (run counts, truck labels, every logged truck known), customer details (positions in the region, no phone numbers), Add Collection tying an entry to its My Route stop, and that no page submits to the source site. |
-| `ops_db_test.js` | Shared database on the shadow pages (`ops-db.js`, `site-gate.js`), no network: the sign-in card (email and password, password-manager fields; "not on the team list" with Sign out), without the library every page keeps its browser copy, the queue is sent after an empty flush and after going offline, a store built from database rows reads back as the same routes (stop order, assignment ids, new routes and customers, latest truck, thefts), and each page action becomes exactly the right writes: a reorder or Assign sends that route once, a second same-day save is an edit, Undo deletes, a theft is a flagged pickup, a truck choice is today's, a new route and customer go before the stop that points at them. |
+| `ops_test.js` | Shadow operations site (`ops-*.html`, `ops-common.js`): the shadow copy starts as the source site's routes stop for stop, Assign skips duplicates, route ids are named as Today's Routes names them, the nav, the calendar's day and month totals (no 0-3 codes), its 09-18-26-style month buttons and month picker, Oil Left never counting as collected, the Outgoing report (run counts, truck labels, every logged truck known), customer details (positions in the region, no phone numbers), Add Collection tying an entry to its My Route stop, and that no page submits to the source site. |
+| `ops_db_test.js` | Shared database on the shadow pages (`ops-db.js`, `site-gate.js`), no network: the sign-in card (email and password, password-manager fields; "not on the team list" with Sign out), without the library every page keeps its browser copy, the queue is sent after an empty flush and after going offline, a store built from database rows reads back as the same routes (stop order, assignment ids, new routes and customers, latest truck, thefts), and each page action becomes exactly the right writes: a reorder or Assign sends that route once, a second same-day save is an edit, Undo deletes, a theft is a flagged pickup, Oil Left is its own row (set, replaced the same day, removed; never a pickup), a truck choice is today's, a new route and customer go before the stop that points at them. |
 | `projections_test.js` | Beta projections page against `oil_projections.json`: renders the export's order by default, column sorting (projected gallons, # back to default), search, Show all, the five header boxes, % full never above 100, held-out sections show no fill figures, the region filter, the stale-build warning, and that Perrigo, Okemo, Champlain Valley Expo and Spruce Peak land in their override sections. |
+
+`oil_left_test.py` is Python too: `python3 tests/oil_left_test.py`. It runs the
+projection builder's Oil Left rules on a made-up steady customer: a part pickup
+plus what it left reads as the full rate, a check starts the barrel at what was
+left (on a pickup day or between pickups), a later empty check wins, a level
+above capacity starts at capacity, and shared barrels and new owners map like
+the other registries.
 
 `supabase_sync_test.py` is Python, so `run_all.js` does not run it: run it with
 `python3 tests/supabase_sync_test.py`. It runs `supabase_sync.py` against the
@@ -54,7 +61,8 @@ empty database exports nothing and a missing details file stops the sync), and t
 stable from night to night (two pickups on one day included), every run's
 truck accepted, history-only customers added as not active, the first run
 copying everything, the nightly sending only the last 90 days, removing a
-pickup gone from the source site and never touching the site's own entries).
+pickup gone from the source site and never touching the site's own entries),
+and the Oil Left export (id, day and gallons only).
 
 ## Adding one
 

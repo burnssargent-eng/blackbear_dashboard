@@ -227,6 +227,29 @@ left join lateral (
 ) first_report on true
 where c.theft;
 
+-- Oil Left (Sarge, 2026-10-24): gallons a driver saw left in a barrel and did
+-- not collect -- after a part pickup when the truck is filling, or a look at a
+-- stop the full truck has to skip. Never a collection: it is in no total and
+-- no history, and the source site has no such field. The nightly exports it
+-- (supabase_sync.py --export-oil-left, oil_left.csv: id, day, gallons) for the
+-- projections, which start the barrel's level from it. One per customer and
+-- day: a second save that day is an edit.
+create table if not exists public.oil_left (
+  id           bigint generated always as identity primary key,
+  customer_id  integer not null references public.customers (id),
+  checked_on   date not null default ((now() at time zone 'America/New_York')::date),
+  gallons_left integer not null check (gallons_left >= 0),
+  route_id     integer references public.routes (id) on delete set null,
+  entered_by   uuid default auth.uid(),
+  entered_at   timestamptz not null default now(),
+  updated_at   timestamptz,
+  updated_by   uuid,
+  unique (customer_id, checked_on)
+);
+drop trigger if exists oil_left_stamp on public.oil_left;
+create trigger oil_left_stamp before update on public.oil_left
+  for each row execute function public.stamp_collection_update();
+
 -- Photos: files in the private Storage bucket `photos`, one row each here. A
 -- photo belongs to a customer (the barrel, the spot) and optionally to one
 -- collection (a theft, a spill). Members may add and view; nobody deletes
@@ -284,6 +307,7 @@ alter table public.collections  enable row level security;
 alter table public.outgoing     enable row level security;
 alter table public.collection_history enable row level security;
 alter table public.photos       enable row level security;
+alter table public.oil_left     enable row level security;
 
 drop policy if exists "members read history" on public.collection_history;
 create policy "members read history" on public.collection_history
@@ -302,7 +326,7 @@ create policy "members read people" on public.people
 do $$
 declare t text;
 begin
-  foreach t in array array['customers', 'routes', 'route_stops', 'route_trucks', 'collections', 'outgoing'] loop
+  foreach t in array array['customers', 'routes', 'route_stops', 'route_trucks', 'collections', 'outgoing', 'oil_left'] loop
     execute format('drop policy if exists "members only" on public.%I', t);
     execute format('create policy "members only" on public.%I for all to authenticated
                     using ((select public.is_member())) with check ((select public.is_member()))', t);
@@ -331,7 +355,7 @@ end $$;
 -- The public key alone (role anon) gets nothing.
 revoke all on public.people, public.customers, public.routes, public.route_stops,
               public.route_trucks, public.collections, public.outgoing,
-              public.collection_history, public.photos, public.theft_log from anon;
+              public.collection_history, public.photos, public.theft_log, public.oil_left from anon;
 grant select on public.people to authenticated;
 -- History is read-only to the site (the trigger writes it); photos are
 -- add-and-view only.
@@ -340,14 +364,14 @@ grant select on public.collection_history, public.theft_log to authenticated;
 revoke update, delete on public.photos from authenticated;
 grant select, insert on public.photos to authenticated;
 grant select, insert, update, delete on public.customers, public.routes, public.route_stops,
-      public.route_trucks, public.collections, public.outgoing to authenticated;
+      public.route_trucks, public.collections, public.outgoing, public.oil_left to authenticated;
 
 -- Live updates: Jim sees Sarge's route edits without reloading. Realtime still
 -- applies the policies above.
 do $$
 declare t text;
 begin
-  foreach t in array array['route_stops', 'route_trucks', 'collections', 'outgoing'] loop
+  foreach t in array array['route_stops', 'route_trucks', 'collections', 'outgoing', 'oil_left'] loop
     if not exists (select 1 from pg_publication_tables
                    where pubname = 'supabase_realtime' and schemaname = 'public' and tablename = t) then
       execute format('alter publication supabase_realtime add table public.%I', t);
