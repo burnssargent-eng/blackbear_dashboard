@@ -70,6 +70,16 @@ jobs:
         run: |
           python jamaal_customers.py || echo "::warning::Customer details read failed; customer_details.json left as-is"
 
+      # Shared database: the source site's customers and route names, plus a
+      # report of where routes and pickups differ between the two. Never
+      # writes a route stop or a pickup. Writes no repo file, so it cannot
+      # affect the commit below.
+      - name: Sync shared database
+        env:
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          python supabase_sync.py || echo "::warning::Shared database sync failed; database left as-is"
+
       - name: Commit updated data files
         run: |
           git config user.name "github-actions"

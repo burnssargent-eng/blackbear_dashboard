@@ -42,6 +42,13 @@ a browser, not by these.
 | `ops_test.js` | Shadow operations site (`ops-*.html`, `ops-common.js`): the shadow copy starts as the source site's routes stop for stop, Assign skips duplicates, route ids are named as Today's Routes names them, the nav, the calendar's day and month totals (no 0-3 codes), its 09-18-26-style month buttons and month picker, the Outgoing report (run counts, truck labels, every logged truck known), customer details (positions in the region, no phone numbers), Add Collection tying an entry to its My Route stop, and that no page submits to the source site. |
 | `projections_test.js` | Beta projections page against `oil_projections.json`: renders the export's order by default, column sorting (projected gallons, # back to default), search, Show all, the five header boxes, % full never above 100, held-out sections show no fill figures, the region filter, the stale-build warning, and that Perrigo, Okemo, Champlain Valley Expo and Spruce Peak land in their override sections. |
 
+`supabase_sync_test.py` is Python, so `run_all.js` does not run it: run it with
+`python3 tests/supabase_sync_test.py`. It runs `supabase_sync.py` against the
+committed data files and a stand-in database (no network, no key): the seed
+copies every customer and the assigned routes in order, a second seed never
+writes over the site's routes, the nightly never overwrites notes or writes
+stops, and the route and pickup comparisons.
+
 ## Adding one
 
 Anchor the working directory first, so the suite runs from anywhere:

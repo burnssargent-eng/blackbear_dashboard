@@ -112,6 +112,27 @@ runs on a copy of its data, and every change stays in the viewer's browser.
     Today's Routes;
   - id 15 appears twice.
 
+### Shared database (Supabase, started 2026-10-21)
+
+The shadow site's copy moves from each browser into one database, so Sarge and
+Jim see the same routes and gallons. Both systems are sources for now (Sarge,
+2026-10-21): routes are copied in once, then edited on the site; gallons are
+entered in both, and projections still read only the source site's, so nothing
+counts twice. Logins: Sarge (added 2026-10-24); Jim to be invited.
+
+- **Done:** project `blackbear-ops`; `db/schema.sql` run (tables, login-only
+  rules, theft fields and history, photos bucket); public sign-up off; secret
+  key in GitHub secrets.
+- **Step 3 (this branch):** `supabase_sync.py`. The seed workflow copies
+  customers (full notes), routes and the assigned stops; the nightly keeps
+  customers and route names current and writes a `sync_reports` row listing
+  route and pickup differences. It never overwrites a route or a pickup.
+- **Step 4, next:** sign-in on the shadow pages, which then read and save to
+  the database with live updates; the browser copy stays for anyone not signed
+  in.
+- **Then:** offline saves (step 5); addresses and notes out of the public repo
+  (step 6); thefts from `theft_log` into `THEFTS`.
+
 ### Theft registry (2026-10-23)
 
 `THEFTS` in the builder: a confirmed theft leaves its gap out of every rate and
