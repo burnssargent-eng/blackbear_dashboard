@@ -347,7 +347,8 @@ try { compact = window.localStorage.getItem(COMPACT_KEY) !== "off"; } catch (err
  *     note); a saved theft is a collection in red, its note under the name;
  *   - Oil Left sits beside Theft, collected or not: the gallons seen left in
  *     the barrel (a part pickup, or a stop the full truck checks and skips).
- *     It is not a collection; it shows in blue under the name;
+ *     It is not a collection; it shows in blue under the name. Cancel in its
+ *     form clears a saved reading, as Cancel does for a theft;
  *   - collected stops turn green and drop below the rest, in the order collected;
  *   - the tally and truck bar sit under the list, then the pin map.
  */
@@ -440,7 +441,6 @@ function stopHtml(l, k, c, showing) {
       <div class="d-flex gap-2">
         <button type="button" class="btn btn-primary" data-act="left-save" data-i="${k}">Save</button>
         <button type="button" class="btn ops-plain-btn" data-act="left-cancel">Cancel</button>
-        ${left ? `<button type="button" class="btn ops-plain-btn ms-auto" data-act="left-clear" data-id="${id}">Remove</button>` : ""}
       </div>
     </div>` : theftForm ? `<div class="ops-theft-form">
       <label for="theft-gal-${k}" class="ops-theft-label">Theft. Gallons collected:</label>
@@ -574,12 +574,9 @@ function onAct(b) {
       theftOpen = null;
       render();
       return;
-    case "left-cancel":
-      leftOpen = null;
-      render();
-      return;
-    case "left-clear":
-      clearOilLeft(store, Number(d.id));
+    case "left-cancel":   // back to the stop as it was before Oil Left; a saved reading is cleared too, as for a theft
+      clearOilLeft(store, leftOpen);
+      activeId = leftOpen;
       leftOpen = null;
       break;
     case "left-save": {
