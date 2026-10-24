@@ -112,6 +112,19 @@ runs on a copy of its data, and every change stays in the viewer's browser.
     Today's Routes;
   - id 15 appears twice.
 
+### Theft registry (2026-10-23)
+
+`THEFTS` in the builder: a confirmed theft leaves its gap out of every rate and
+restarts the clock (README decision log, 2026-10-23).
+Farmhouse (325, 2026-10-21) is the only entry; it changes a rate from its next
+pickup on.
+
+- **Next:** the review list for Jim — qty-1 checks in the last 12 months
+  projected over half full, off-season closers left out, sorted by projected
+  gallons, with an empty "Theft? Y/N" column. Only a Y enters `THEFTS`.
+- **Then:** thefts recorded on the shadow site reach the registry through the
+  shared database (Supabase plan), instead of by hand.
+
 ### Comeback hold (2026-10-15)
 
 Customers back after more than a year without a pickup are insufficient data
