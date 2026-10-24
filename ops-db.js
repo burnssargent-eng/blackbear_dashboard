@@ -9,15 +9,21 @@
  * so a save in a dead zone goes out once there is signal. Changes made by
  * anyone else arrive live and the page redraws.
  *
- * Not signed in, nothing changes: the store stays in this browser, as before.
+ * Not signed in, a page shows only the sign-in screen (email and password;
+ * a device stays signed in until Sign out). Only if the library cannot load
+ * does a page fall back to this browser's own copy, as before.
  *
  * Kept on the device: the queue, the last copy loaded (to open offline), and
  * which route is My Route (each phone drives its own).
  */
 
-const OPS_DB_URL = "https://gaxpuvcfgtebklvwfpik.supabase.co";
-// The publishable key: public by design. Every table refuses it without a login.
-const OPS_DB_KEY = "sb_publishable_xPXWLsADDA0KdhPUX1l0PQ_LOVccktL";
+// The project address and key come from site-gate.js, loaded just before.
+// A browser can pair a saved older page (no site-gate.js) with this file for a
+// few minutes after a deploy: then the page stays on this browser's copy for
+// that one load instead of failing.
+const opsGateLoaded = typeof gateShow === "function";
+const OPS_DB_URL = opsGateLoaded ? GATE_DB_URL : "";
+const OPS_DB_KEY = opsGateLoaded ? GATE_DB_KEY : "";
 const OPS_QUEUE_KEY = "bbb-ops-queue-v1";
 const OPS_CACHE_KEY = "bbb-ops-shared-cache-v1";
 const OPS_COLLECTION_DAYS = 60;   // how far back pickups are loaded
@@ -163,7 +169,7 @@ function opsStoreFromRows(rows, snap, keep = {}) {
 /* ── The connection ──────────────────────────────────────── */
 
 function opsDbAvailable() {
-  return typeof window !== "undefined" && !!window.supabase && typeof window.supabase.createClient === "function";
+  return opsGateLoaded && typeof window !== "undefined" && !!window.supabase && typeof window.supabase.createClient === "function";
 }
 
 function opsReadJson(key, fallback) {
@@ -233,6 +239,7 @@ const opsDbSession = (async () => {
       // Offline: trust a copy this same person loaded before.
       return cache && cache.user_id === user.id ? { user, person: cache.person, offline: true } : null;
     }
+    gateRemember(people.length ? user.id : null);
     if (!people.length) return { user, person: null };
     return { user, person: people[0] };
   } catch (err) { return null; }
@@ -269,9 +276,10 @@ async function opsFetchRows() {
  */
 async function opsOpenStore(snap, { index = null, onRemote = null } = {}) {
   const session = await opsDbSession;
+  if (!opsDbClient) return loadStore(snap);   // library did not load: this browser's copy
   if (!session || !session.person) {
-    opsDb = session ? { client: opsDbClient, user: session.user, person: null } : null;
-    return loadStore(snap);
+    gateShow(opsDbClient, session);
+    return new Promise(() => {});   // the page waits behind the sign-in screen; signing in reloads it
   }
   const cache = opsReadJson(OPS_CACHE_KEY, null);
   const mine = cache && cache.user_id === session.user.id ? cache : null;
@@ -474,54 +482,43 @@ function opsDbBannerHtml() {
   return `<div class="ops-shadow ops-shared px-3 py-1 d-flex align-items-center gap-2">
     <span class="flex-grow-1"><strong>Shared</strong> · ${escapeHtml(opsDb.person.name)} ·
       <span id="ops-sync-status">${escapeHtml(opsStatusText())}</span></span>
+    <button type="button" class="btn btn-sm btn-outline-dark py-0" data-ops-password>Password</button>
     <button type="button" class="btn btn-sm btn-outline-dark py-0" data-ops-signout>Sign out</button>
   </div>`;
 }
 
-/** The sign-in button for the browser-copy banner ("" when the library did not load). */
-function opsSignInButtonHtml() {
-  if (!opsDbClient) return "";
-  if (opsDb && opsDb.user && !opsDb.person) {
-    return `<span class="small">${escapeHtml(opsDb.user.email || "")} is not on the team list</span>
-      <button type="button" class="btn btn-sm btn-outline-dark py-0" data-ops-signout>Sign out</button>`;
-  }
-  return `<button type="button" class="btn btn-sm btn-dark py-0" data-ops-signin>Sign in</button>`;
-}
-
-function opsSignInFormHtml(message = "") {
-  return `<form class="ops-signin px-3 py-2 d-flex flex-wrap align-items-center gap-2" data-ops-signin-form>
-    <input type="email" class="form-control form-control-sm w-auto" name="email" placeholder="Email" required
-      autocomplete="email" inputmode="email">
-    <button class="btn btn-sm btn-dark">Email me a link</button>
-    <span class="small">${message || "Team members only. The link signs this device in."}</span>
-  </form>`;
-}
-
-/** Sign-in and sign-out clicks in the banner. */
+/** Sign-out and change-password clicks in the green banner (signing in is site-gate.js's card). */
 function opsWireSignIn(container) {
   container.addEventListener("click", async e => {
     if (!e.target.closest) return;
-    if (e.target.closest("[data-ops-signin]")) {
-      if (!container.querySelector("[data-ops-signin-form]")) container.insertAdjacentHTML("beforeend", opsSignInFormHtml());
-      container.querySelector("[data-ops-signin-form] input").focus();
+    if (e.target.closest("[data-ops-password]")) {
+      const open = container.querySelector("[data-ops-password-form]");
+      if (open) { open.remove(); return; }
+      container.insertAdjacentHTML("beforeend", `<form class="ops-signin px-3 py-2 d-flex flex-wrap align-items-center gap-2" data-ops-password-form>
+        <input type="password" class="form-control form-control-sm w-auto" name="password" placeholder="New password"
+          required minlength="8" autocomplete="new-password">
+        <button class="btn btn-sm btn-dark">Save password</button>
+        <span class="small" data-ops-password-msg>At least 8 characters.</span>
+      </form>`);
+      container.querySelector("[data-ops-password-form] input").focus();
     } else if (e.target.closest("[data-ops-signout]")) {
       if (opsDb && opsDb.queue && opsDb.queue.length &&
           !window.confirm(`${opsDb.queue.length} change(s) have not been sent yet. Sign out and lose them?`)) return;
       await opsDbClient.auth.signOut();
+      gateRemember(null);
       [OPS_QUEUE_KEY, OPS_CACHE_KEY].forEach(k => { try { window.localStorage.removeItem(k); } catch (err) { /* */ } });
       window.location.reload();
     }
   });
   container.addEventListener("submit", async e => {
-    const form = e.target.closest && e.target.closest("[data-ops-signin-form]");
+    const form = e.target.closest && e.target.closest("[data-ops-password-form]");
     if (!form) return;
     e.preventDefault();
-    const email = new FormData(form).get("email").trim();
-    const { error } = await opsDbClient.auth.signInWithOtp({ email,
-      options: { shouldCreateUser: false, emailRedirectTo: window.location.href.split("#")[0] } });
-    form.outerHTML = opsSignInFormHtml(error
-      ? `Could not send a link: ${escapeHtml(error.message)}`
-      : `Link sent to ${escapeHtml(email)}. Open it on this device.`);
+    form.querySelector("button").disabled = true;
+    const { error } = await opsDbClient.auth.updateUser({ password: String(new FormData(form).get("password")) });
+    form.querySelector("[data-ops-password-msg]").textContent = error ? `Not saved: ${error.message}` : "Password saved.";
+    form.querySelector("input").value = "";
+    form.querySelector("button").disabled = false;
   });
 }
 
