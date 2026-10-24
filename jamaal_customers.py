@@ -14,9 +14,10 @@ customer page (GET only) and keeps:
            folder; the shadow site shows them from there, nothing is copied
 Phone numbers are never kept.
 
-PRIVACY: the repo is public, so this file publishes addresses. Sarge accepted
-that on 2026-10-18 because the same addresses are public on the source site;
-they move with the repo when it goes private.
+PRIVACY: neither output is committed (step 6, 2026-10-24). Addresses and notes
+live only in the shared database; the nightly writes customer_details.json from
+it first (supabase_sync.py --export-details), so only customers new to the
+database are read here, and supabase_sync.py writes them back.
 
     python3 jamaal_customers.py            # only customers not yet in the file
     python3 jamaal_customers.py --refresh  # re-read every customer page

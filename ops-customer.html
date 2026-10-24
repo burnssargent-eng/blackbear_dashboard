@@ -30,8 +30,8 @@
  * Home (Add Collection, the details, Assign, a map pin) and Collections (every
  * pickup with its total). Photos are left out for now.
  *
- * Read from: jamaal_routes.json (name, town), customer_details.json (address,
- * position), oil_projections.json, capacity_cache.csv (the site's capacity and
+ * Read from: jamaal_routes.json (name, town), the shared database (address,
+ * notes, position), oil_projections.json, capacity_cache.csv (the site's capacity and
  * periodicity), oil_collections.json and oil_non_pickups.csv (history).
  * No phone numbers: this site is public. Gallons and assignments entered here
  * stay in this browser's shadow copy.
@@ -40,7 +40,7 @@
 
 let data = null, store = null, routeList = [];
 let customer = null;      // { customer_id, name, city }
-let details = {};         // this customer's customer_details.json entry
+let details = {};         // this customer's address, notes and position (shared database)
 let siteFigures = null;   // { capacity, periodicity_days } from capacity_cache.csv
 let history = [];         // [{ date, gallons, code }] newest first
 let flash = "";

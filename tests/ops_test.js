@@ -166,7 +166,11 @@ const outCells = (outApi.gridHtml(outMonth).match(/class="cal-day(?!s)/g) || [])
 ok(outCells % 7 === 0, "the outgoing report grid fills whole weeks");
 
 // ── Customer details and gallons entered ──
-const det = JSON.parse(fs.readFileSync("customer_details.json", "utf8")).customers;
+// customer_details.json is written from the shared database and never
+// committed (step 6), so a fresh clone has none: the checks below then skip.
+const det = fs.existsSync("customer_details.json")
+  ? JSON.parse(fs.readFileSync("customer_details.json", "utf8")).customers : null;
+if (det) {
 const placed = Object.values(det).filter(d => d.lat != null);
 ok(placed.every(d => d.lat > 42 && d.lat < 45.5 && d.lon > -74.5 && d.lon < -70.5),
   `every map position is in the region (${placed.length} placed)`);
@@ -175,6 +179,7 @@ ok(Object.values(det).every(d => !/\(?\b\d{3}\)?[\s.-]*\d{3}[\s.-]*\d{4}\b/.test
 ok(Object.values(det).every(d => !/\b(pass\s*code|passcode|pass|code|combo|pin|keypad|alarm)\s*(#|:|is)?\s*[\w-]*\d/i.test(d.notes || "")),
   "no door or lock codes in customer notes");
 ok(snap.assign_list.every(a => String(a.customer_id) in det), "every Assign Routes customer has a details entry");
+}
 const s2 = api.freshStore(snap);
 const r0 = snap.routes[0];
 s2.my = { routeId: r0.route_id };
@@ -245,6 +250,8 @@ ok(api.todaysCollection(s2, -999).assignment_id === null, "an entry for a custom
   ok(ignored, "customer_notes.local.json (door codes, phones) is gitignored");
   const tracked = execFileSync("git", ["ls-files", "*.local.json"], { encoding: "utf8" }).trim();
   ok(tracked === "", "no *.local.json file is tracked by git");
+  const details = execFileSync("git", ["ls-files", "customer_details.json"], { encoding: "utf8" }).trim();
+  ok(details === "", "customer_details.json (addresses, notes) is not tracked by git");
 }
 
 // ── No page posts to the source site ──
