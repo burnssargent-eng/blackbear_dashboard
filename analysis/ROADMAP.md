@@ -119,11 +119,11 @@ restarts the clock (README decision log, 2026-10-23).
 Farmhouse (325, 2026-10-21) is the only entry; it changes a rate from its next
 pickup on.
 
-- **Next:** the review list for Jim — qty-1 checks in the last 12 months
-  projected over half full, off-season closers left out, sorted by projected
-  gallons, with an empty "Theft? Y/N" column. Only a Y enters `THEFTS`.
-- **Then:** thefts recorded on the shadow site reach the registry through the
-  shared database (Supabase plan), instead of by hand.
+- **Next:** thefts marked on the shadow site reach the registry through the
+  shared database (Supabase plan), instead of by hand; then the theft
+  calculator (gallons only, no dollar figure), reading the `theft_log` view.
+- **Shelved (Sarge, 2026-10-23):** a review list of past qty-1s for Jim. The
+  focus is marking thefts from now on.
 
 ### Comeback hold (2026-10-15)
 
