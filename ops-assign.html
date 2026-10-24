@@ -20,6 +20,8 @@
 <script src="dashboard-utils.js"></script>
 <script src="route-utils.js"></script>
 <script src="ops-common.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.js" integrity="sha384-rwykjmWNwVxboyFmvK9OXN0wj9hnMHA2aAHtits54DuACyCq0M2PrSNxhRb+hvXT" crossorigin="anonymous"></script>
+<script src="ops-db.js"></script>
 <script>
 /*
  * Assign Routes (shadow). The source site's list of active customers, one
@@ -281,7 +283,7 @@ function buildShell() {
         <button class="btn btn-primary ops-add-go">Add</button>
         <button type="button" class="btn ops-plain-btn ops-add-go" id="add-cancel">Cancel</button>
       </div>
-      <div class="ops-muted">Saved in this browser only; nothing reaches the source site or the repo.
+      <div class="ops-muted">${opsShared() ? "Saved for the team, behind the login" : "Saved in this browser only"}; nothing reaches the source site or the repo.
         A shared barrel takes the other customer's capacity when Capacity is left blank.</div>
     </form>
 
@@ -416,7 +418,18 @@ async function init() {
       `<div class="alert alert-warning">The routes file has no Assign Routes list yet; rerun jamaal_routes.py.</div>`;
     return;
   }
-  store = loadStore(data.snap);
+  try {
+    store = await opsOpenStore(data.snap, { index: data.index, onRemote: s => {
+    store = s;
+    rowCache = null;
+    routeList = opsRouteList(data.snap, store);
+    if (!routeList.some(r => String(r.route_id) === String(view.route)) && view.route !== NEW_ROUTE) view.route = "";
+    render();
+  } });
+  } catch (err) {
+    document.getElementById("page").innerHTML = `<div class="alert alert-danger">${escapeHtml(err.message)}</div>`;
+    return;
+  }
   routeList = opsRouteList(data.snap, store);
   urgencyRank = new Map(data.projections.customers.filter(c => c.section === "ranked").map((c, i) => [c.id, i]));
   const banner = document.getElementById("banner");

@@ -21,6 +21,8 @@
 <script src="dashboard-utils.js"></script>
 <script src="route-utils.js"></script>
 <script src="ops-common.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.js" integrity="sha384-rwykjmWNwVxboyFmvK9OXN0wj9hnMHA2aAHtits54DuACyCq0M2PrSNxhRb+hvXT" crossorigin="anonymous"></script>
+<script src="ops-db.js"></script>
 <script>
 /*
  * My Route (shadow): the source site's "My Route" and "Today's Routes" in one
@@ -629,7 +631,16 @@ async function init() {
     document.getElementById("page").innerHTML = `<div class="alert alert-danger">${escapeHtml(err.message)}</div>`;
     return;
   }
-  store = loadStore(data.snap);
+  try {
+    store = await opsOpenStore(data.snap, { index: data.index, onRemote: s => {
+    store = s;
+    routeList = opsRouteList(data.snap, store);
+    render();
+  } });
+  } catch (err) {
+    document.getElementById("page").innerHTML = `<div class="alert alert-danger">${escapeHtml(err.message)}</div>`;
+    return;
+  }
   routeList = opsRouteList(data.snap, store);
   // Arriving from Assign Routes' "New Route…": open the new route, its name ready to type.
   const made = routeList.find(r => r.shadow && String(r.route_id) === getUrlParam("new"));

@@ -19,6 +19,8 @@
 <script src="dashboard-utils.js"></script>
 <script src="route-utils.js"></script>
 <script src="ops-common.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.js" integrity="sha384-rwykjmWNwVxboyFmvK9OXN0wj9hnMHA2aAHtits54DuACyCq0M2PrSNxhRb+hvXT" crossorigin="anonymous"></script>
+<script src="ops-db.js"></script>
 <script>
 /*
  * Calendar (shadow). The source site's month grid of gallons per day, with a
@@ -95,7 +97,7 @@ function gridHtml(ym) {
       clickable: !!(real || shadow || codesByDay.has(date)),
       // Plain numbers in the grid ("1345"), as on the source site, so they fit a phone.
       html: (real ? `<div class="cal-event cal-green">${real.gallons}</div>` : "") +
-        (shadow ? `<div class="cal-event cal-yellow" title="Entered in this browser">${shadow}</div>` : ""),
+        (shadow ? `<div class="cal-event cal-yellow" title="${opsShared() ? "Entered on this site" : "Entered in this browser"}">${shadow}</div>` : ""),
     };
   });
 }
@@ -115,7 +117,7 @@ function dayHtml(date) {
     ${codes.length ? `<div class="mt-3 ops-muted">Not gallons (codes 0–3):</div>
       <ul class="cal-list ops-muted">${codes.map(c =>
         `<li>${escapeHtml(names.get(c.customer_id) || `#${c.customer_id}`)}: ${c.qty} - ${CODE_LABELS[c.qty] || "code"}</li>`).join("")}</ul>` : ""}
-    ${shadow.length ? `<div class="mt-3 ops-new">Entered in this browser (shadow copy, not real):</div>
+    ${shadow.length ? `<div class="mt-3 ops-new">${opsShared() ? "Entered on this site:" : "Entered in this browser (shadow copy, not real):"}</div>
       <ul class="cal-list">${shadow.map(c =>
         `<li>${escapeHtml(c.name)}: ${c.gallons}${c.gallons <= 3 ? ` - ${CODE_LABELS[c.gallons]}` : ""}</li>`).join("")}</ul>` : ""}`;
 }
@@ -168,7 +170,12 @@ async function init() {
     return;
   }
   latestDay = [...byDay.keys()].sort().pop() || todayIso();
-  store = loadStore(snap);
+  try {
+    store = await opsOpenStore(snap, { onRemote: s => { store = s; render(); } });
+  } catch (err) {
+    document.getElementById("page").innerHTML = `<div class="alert alert-danger">${escapeHtml(err.message)}</div>`;
+    return;
+  }
   const banner = document.getElementById("banner");
   banner.innerHTML = shadowBannerHtml(store, snap);
   wireShadowReset(banner, snap, fresh => { store = fresh; banner.innerHTML = shadowBannerHtml(store, snap); render(); });

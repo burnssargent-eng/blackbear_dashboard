@@ -19,6 +19,8 @@
 <script src="dashboard-utils.js"></script>
 <script src="route-utils.js"></script>
 <script src="ops-common.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.js" integrity="sha384-rwykjmWNwVxboyFmvK9OXN0wj9hnMHA2aAHtits54DuACyCq0M2PrSNxhRb+hvXT" crossorigin="anonymous"></script>
+<script src="ops-db.js"></script>
 <script>
 /*
  * Outgoing (shadow). The source site's Outgoing page and its Outgoing Report
@@ -91,7 +93,7 @@ function gridHtml(ym) {
     return {
       clickable: realEvents.length + shadowEvents.length > 0,
       html: realEvents.map(t => `<div class="cal-event cal-green">${escapeHtml(t)}</div>`).join("") +
-        shadowEvents.map(t => `<div class="cal-event cal-yellow" title="Logged in this browser">${escapeHtml(t)}</div>`).join(""),
+        shadowEvents.map(t => `<div class="cal-event cal-yellow" title="${opsShared() ? "Logged on this site" : "Logged in this browser"}">${escapeHtml(t)}</div>`).join(""),
     };
   });
 }
@@ -109,7 +111,7 @@ function dayHtml(date) {
     ${items.length ? `<ul class="list-group mb-2">${items.map(t =>
       `<li class="list-group-item">${escapeHtml(t)}</li>`).join("")}</ul>`
       : `<div class="text-muted mb-2">Nothing in the source site's log.</div>`}
-    ${shadow.length ? `<div class="ops-new mt-2">Logged in this browser (shadow copy, not real):</div>
+    ${shadow.length ? `<div class="ops-new mt-2">${opsShared() ? "Logged on this site:" : "Logged in this browser (shadow copy, not real):"}</div>
       <ul class="list-group">${shadow.map(e => `<li class="list-group-item d-flex justify-content-between align-items-center">
         ${e.kind === "stillage" ? `Stillage: ${escapeHtml(truckByKey(e.truck).name)}` : `Schmutz: ${formatNumber(e.gallons)}`}
         <button type="button" class="btn btn-sm btn-outline-secondary" data-remove="${e.id}">Remove</button></li>`).join("")}</ul>` : ""}`;
@@ -175,7 +177,12 @@ async function init() {
     document.getElementById("page").innerHTML = `<div class="alert alert-danger">${escapeHtml(err.message)}</div>`;
     return;
   }
-  store = loadStore(snap);
+  try {
+    store = await opsOpenStore(snap, { onRemote: s => { store = s; render(); } });
+  } catch (err) {
+    document.getElementById("page").innerHTML = `<div class="alert alert-danger">${escapeHtml(err.message)}</div>`;
+    return;
+  }
   const banner = document.getElementById("banner");
   banner.innerHTML = shadowBannerHtml(store, snap);
   wireShadowReset(banner, snap, fresh => { store = fresh; banner.innerHTML = shadowBannerHtml(store, snap); render(); });
@@ -190,7 +197,7 @@ async function init() {
     if (!t) return;
     if (t.dataset.truck) {
       logEntry({ kind: "stillage", truck: t.dataset.truck });
-      flash = `Logged a ${escapeHtml(truckByKey(t.dataset.truck).name)} stillage run for today (this browser only).`;
+      flash = `Logged a ${escapeHtml(truckByKey(t.dataset.truck).name)} stillage run for today (${opsWhere()}).`;
       render();
     } else if (t.dataset.anchor) { anchor = t.dataset.anchor; day = ""; flash = ""; setUrl(); render(); }
     else if (t.dataset.remove) {
@@ -209,7 +216,7 @@ async function init() {
     const gallons = parseInt(new FormData(e.target).get("volume"), 10);
     if (!Number.isFinite(gallons) || gallons <= 0) return;
     logEntry({ kind: "schmutz", gallons });
-    flash = `Logged ${formatNumber(gallons)} gal of Schmutz for today (this browser only).`;
+    flash = `Logged ${formatNumber(gallons)} gal of Schmutz for today (${opsWhere()}).`;
     render();
   });
   page.addEventListener("change", e => {
