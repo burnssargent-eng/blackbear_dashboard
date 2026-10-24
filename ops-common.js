@@ -378,8 +378,9 @@ function todaysCollection(store, customerId) {
 }
 
 /**
- * Record a theft found at a stop: today's collection (the gallons still in the
- * barrel, 0 when it was emptied) marked as a theft, with the driver's note.
+ * Record a theft found at a stop: today's collection (the gallons collected --
+ * what was left after the theft, 0 when it was emptied) marked as a theft,
+ * with the driver's note.
  * Every save is kept in `versions` with the time it was made, so the first
  * account survives later edits — the record is evidence. `recorded_at` is the
  * first save. The shadow copy has no logins yet, so who recorded it is not known.
