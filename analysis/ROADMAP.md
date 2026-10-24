@@ -123,15 +123,16 @@ counts twice. Logins: Sarge (added 2026-10-24); Jim to be invited.
 - **Done:** project `blackbear-ops`; `db/schema.sql` run (tables, login-only
   rules, theft fields and history, photos bucket); public sign-up off; secret
   key in GitHub secrets.
-- **Step 3 (this branch):** `supabase_sync.py`. The seed workflow copies
-  customers (full notes), routes and the assigned stops; the nightly keeps
+- **Step 3, done (#54):** `supabase_sync.py`. The seed (2026-10-24) copied
+  572 customers with full notes, 15 routes and 35 stops; the nightly keeps
   customers and route names current and writes a `sync_reports` row listing
   route and pickup differences. It never overwrites a route or a pickup.
-- **Step 4, next:** sign-in on the shadow pages, which then read and save to
-  the database with live updates; the browser copy stays for anyone not signed
-  in.
-- **Then:** offline saves (step 5); addresses and notes out of the public repo
-  (step 6); thefts from `theft_log` into `THEFTS`.
+- **Step 4 (this branch):** `ops-db.js`. Sign-in on the shadow pages (emailed
+  link, no sign-up); signed in, every page reads and saves to the database
+  with live updates, and saves made offline wait in a queue (most of step 5).
+  Sarge signed in 2026-10-24. Signed out, the browser copy stays.
+- **Then:** addresses and notes out of the public repo (step 6); thefts from
+  `theft_log` into `THEFTS`; show `sync_reports` on the pages; invite Jim.
 
 ### Theft registry (2026-10-23)
 

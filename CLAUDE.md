@@ -42,6 +42,11 @@ db/schema.sql        the database's whole definition. Idempotent: change it, the
                      Supabase's SQL editor. Every table is login-only (RLS + `people`); nothing is open to the
                      public key. The secret key lives only in GitHub secrets (SUPABASE_SERVICE_KEY).
 
+ops-db.js            the shadow pages' database link. Signed in (Sign in in the banner, emailed link) and on
+                     the team list, a page's store comes from the database; saveStore diffs it against the last
+                     copy sent and queues the writes (kept in localStorage until sent, so offline saves wait).
+                     Signed out, every page keeps its browser copy as before. Uses only the publishable key.
+
 index.html      dashboard + Leaflet heatmap. Keeps its OWN inline styles.
 region.html     per-region page. The most complex page.
 year.html  town.html  customers.html  schmootz.html

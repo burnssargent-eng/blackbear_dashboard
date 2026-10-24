@@ -7,6 +7,10 @@
 body { background: #fff; }
 
 .ops-shadow { background: #fff8e1; border-bottom: 1px solid #f0d78c; font-size: 13px; }
+/* Signed in: the shared database (ops-db.js). Green, and amber while changes wait to send. */
+.ops-shadow.ops-shared { background: #e8f5e9; border-bottom-color: #a5d6a7; }
+.ops-sync-wait { color: #b26a00; font-weight: bold; }
+.ops-signin { background: #fff8e1; border-bottom: 1px solid #f0d78c; font-size: 13px; }
 
 .graytext { color: #888; }
 .hotlist { color: #d00; }

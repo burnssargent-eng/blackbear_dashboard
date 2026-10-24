@@ -3,10 +3,10 @@
  * dashboard-utils.js and route-utils.js.
  *
  * The shadow site replays the source site's routing workflow on a COPY of its
- * data. The copy starts from jamaal_routes.json and lives in this browser's
- * storage: assignments, reorders and gallons entered here never reach the
- * source site, and never reach anyone else's browser. "Reset" starts over from
- * the latest snapshot.
+ * data. Not signed in, the copy starts from jamaal_routes.json and lives in
+ * this browser's storage, and "Reset" starts over from the latest snapshot.
+ * Signed in as a team member, the copy is the shared database (ops-db.js),
+ * which Sarge and Jim both edit. Nothing here ever reaches the source site.
  */
 
 const OPS_STORAGE_KEY = "bbb-ops-shadow-v1";
@@ -120,6 +120,8 @@ function loadStore(snap) {
 }
 
 function saveStore(store) {
+  // Signed in (ops-db.js): the change goes to the shared database instead.
+  if (typeof opsDbSave === "function" && opsDbSave(store)) return;
   try { window.localStorage.setItem(OPS_STORAGE_KEY, JSON.stringify(store)); } catch (err) { /* ignore */ }
 }
 
@@ -182,6 +184,16 @@ function renameRoute(store, routeId, name) {
   if (r && name.trim()) r.name = name.trim();
 }
 
+/** True when the page is on the shared database (ops-db.js, signed in as a team member). */
+function opsShared() {
+  return typeof opsDb !== "undefined" && !!(opsDb && opsDb.person);
+}
+
+/** Where a change is kept, for the pages' messages. */
+function opsWhere() {
+  return opsShared() ? "saved for the team" : "this browser only";
+}
+
 function todayIso() {
   const d = new Date();
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
@@ -189,6 +201,8 @@ function todayIso() {
 
 /** The yellow strip on every shadow page, with the Reset button. */
 function shadowBannerHtml(store, snap) {
+  const shared = typeof opsDbBannerHtml === "function" ? opsDbBannerHtml() : null;
+  if (shared) return shared;
   const changed = store.base !== snap.scraped_at;
   // One line, so it costs a phone screen as little as possible.
   return `<div class="ops-shadow px-3 py-1 d-flex align-items-center gap-2">
@@ -196,11 +210,13 @@ function shadowBannerHtml(store, snap) {
       ? ` · <strong>newer routes available</strong>` : ""}</span>
     <button type="button" class="btn btn-sm btn-outline-dark py-0" data-ops-reset
       title="Start again from the source site's routes read ${escapeHtml(new Date(snap.scraped_at).toLocaleString())}">Reset</button>
+    ${typeof opsSignInButtonHtml === "function" ? opsSignInButtonHtml() : ""}
   </div>`;
 }
 
 /** Wire the Reset button; `onReset` re-renders the page. */
 function wireShadowReset(container, snap, onReset) {
+  if (typeof opsWireSignIn === "function") opsWireSignIn(container);
   container.addEventListener("click", e => {
     if (!e.target.closest || !e.target.closest("[data-ops-reset]")) return;
     if (!window.confirm("Throw away every change in this browser and start again from the source site's routes?")) return;
@@ -365,10 +381,13 @@ function recordCollection(store, customer, gallons) {
   const routeId = store.my ? Number(store.my.routeId) : null;
   const stop = routeId !== null
     ? storeStops(store, routeId).find(s => s.customer_id === customer.customer_id) : null;
+  const prev = todaysCollection(store, customer.customer_id);
   store.collections = store.collections.filter(c =>
     !(c.date === today && c.customer_id === customer.customer_id));
+  // A re-save keeps the entry's id, so the shared database records an edit.
   store.collections.push({ customer_id: customer.customer_id, name: customer.name, gallons, date: today,
-    route_id: stop ? routeId : null, assignment_id: stop ? stop.assignment_id : null });
+    route_id: stop ? routeId : null, assignment_id: stop ? stop.assignment_id : null,
+    ...(prev && prev.client_id ? { client_id: prev.client_id } : {}) });
 }
 
 /** Today's shadow entry for a customer, or null. */
@@ -422,6 +441,14 @@ async function loadCustomerDetails() {
       });
     }
   } catch (err) { /* not a local preview */ }
+  // Signed in: the database's full notes, codes included (ops-db.js).
+  const shared = typeof opsDbCustomerDetails === "function" ? await opsDbCustomerDetails() : null;
+  if (shared) {
+    Object.entries(shared).forEach(([id, d]) => {
+      customers[id] = { ...(customers[id] || {}), ...d, ...(d.lat == null && customers[id]
+        ? { lat: customers[id].lat, lon: customers[id].lon, loc: customers[id].loc } : {}) };
+    });
+  }
   return customers;
 }
 

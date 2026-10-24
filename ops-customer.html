@@ -21,6 +21,8 @@
 <script src="dashboard-utils.js"></script>
 <script src="route-utils.js"></script>
 <script src="ops-common.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.js" integrity="sha384-rwykjmWNwVxboyFmvK9OXN0wj9hnMHA2aAHtits54DuACyCq0M2PrSNxhRb+hvXT" crossorigin="anonymous"></script>
+<script src="ops-db.js"></script>
 <script>
 /*
  * Customer page (shadow), after the source site's customer.php. Two tabs:
@@ -91,11 +93,11 @@ function homeHtml(row, today, onRoutes, capacity) {
              placeholder="# of gallons" required>
       <button class="btn btn-primary">Add Collection</button>
     </form>
-    ${today && today.theft ? `<div class="alert alert-danger py-2">Today: ${theftGallonsText(today)} — this browser only.
+    ${today && today.theft ? `<div class="alert alert-danger py-2">Today: ${theftGallonsText(today)} — ${opsWhere()}.
       <button type="button" class="btn btn-link btn-sm p-0 ms-2" data-undo>Undo</button>
       ${today.theft.note ? `<div style="overflow-wrap:anywhere">${escapeHtml(today.theft.note)}</div>` : ""}</div>`
     : today ? `<div class="alert alert-success py-2">Today: ${today.gallons <= 3 ? codeText(today.gallons)
-      : `${formatNumber(today.gallons)} gal`} — this browser only.
+      : `${formatNumber(today.gallons)} gal`} — ${opsWhere()}.
       <button type="button" class="btn btn-link btn-sm p-0 ms-2" data-undo>Undo</button></div>` : ""}
     ${flash ? `<div class="text-success mb-2">${flash}</div>` : ""}
 
@@ -174,7 +176,12 @@ async function init() {
     document.getElementById("page").innerHTML = `<div class="alert alert-danger">${escapeHtml(err.message)}</div>`;
     return;
   }
-  store = loadStore(data.snap);
+  try {
+    store = await opsOpenStore(data.snap, { index: data.index, onRemote: s => { store = s; render(); } });
+  } catch (err) {
+    document.getElementById("page").innerHTML = `<div class="alert alert-danger">${escapeHtml(err.message)}</div>`;
+    return;
+  }
   routeList = opsRouteList(data.snap, store);
   const listed = data.snap.assign_list.find(a => a.customer_id === id) ||
     store.added.find(c => c.customer_id === id);
