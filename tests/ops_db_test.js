@@ -18,10 +18,10 @@ const window = {
   // No supabase library: the page stays on this browser's copy.
 };
 
-const code = ["dashboard-utils.js", "route-utils.js", "ops-common.js", "ops-db.js"]
+const code = ["dashboard-utils.js", "route-utils.js", "ops-common.js", "site-gate.js", "ops-db.js"]
   .map(f => fs.readFileSync(f, "utf8")).join("\n");
 const api = new Function("window", "const document = { getElementById: () => null };\n" + code + `
-  return { setDb: v => { opsDb = v; }, getDb: () => opsDb, opsFlush, freshStore, saveStore, loadStore, assignToRoute, moveStop, removeStop, recordCollection, recordTheft,
+  return { gateCardHtml, setDb: v => { opsDb = v; }, getDb: () => opsDb, opsFlush, freshStore, saveStore, loadStore, assignToRoute, moveStop, removeStop, recordCollection, recordTheft,
     addShadowCustomer, createRoute, renameRoute, todaysCollection, todayIso, opsDiff, opsSharedPart,
     opsEnsureClientIds, opsStoreFromRows, opsDbAvailable, opsShared, opsWhere, shadowBannerHtml, OPS_STORAGE_KEY };`)(window);
 
@@ -47,7 +47,16 @@ ok(!api.opsShared() && api.opsWhere() === "this browser only", "pages say 'this 
 const local = api.freshStore(snap);
 api.saveStore(local);
 ok(memory[api.OPS_STORAGE_KEY] !== undefined, "saveStore still keeps this browser's copy");
-ok(!api.shadowBannerHtml(local, snap).includes("Sign in"), "no Sign in button without the library");
+ok(!api.shadowBannerHtml(local, snap).includes("Sign in"), "without the library the page falls back to this browser's copy");
+
+// ── Sign-in screen: email and password, no emailed link ──
+const gate = api.gateCardHtml(null);
+ok(/type="email"[^>]*autocomplete="username"/.test(gate) && /type="password"[^>]*autocomplete="current-password"/.test(gate),
+  "the sign-in screen asks for email and password, in a form password managers fill");
+ok(!/link/i.test(gate), "no emailed link");
+const notListed = api.gateCardHtml({ user: { email: "x@example.com" }, person: null });
+ok(notListed.includes("not on the team list") && notListed.includes("data-gate-signout") && !notListed.includes("password"),
+  "signed in but not on the team list: told so, with Sign out");
 
 // ── A store from the database reads as the same routes ──
 const customers = snap.assign_list.map(a => ({ id: a.customer_id, name: a.name, capacity: 100 }));

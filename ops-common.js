@@ -210,7 +210,6 @@ function shadowBannerHtml(store, snap) {
       ? ` · <strong>newer routes available</strong>` : ""}</span>
     <button type="button" class="btn btn-sm btn-outline-dark py-0" data-ops-reset
       title="Start again from the source site's routes read ${escapeHtml(new Date(snap.scraped_at).toLocaleString())}">Reset</button>
-    ${typeof opsSignInButtonHtml === "function" ? opsSignInButtonHtml() : ""}
   </div>`;
 }
 

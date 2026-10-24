@@ -127,10 +127,12 @@ counts twice. Logins: Sarge (added 2026-10-24); Jim to be invited.
   572 customers with full notes, 15 routes and 35 stops; the nightly keeps
   customers and route names current and writes a `sync_reports` row listing
   route and pickup differences. It never overwrites a route or a pickup.
-- **Step 4 (this branch):** `ops-db.js`. Sign-in on the shadow pages (emailed
-  link, no sign-up); signed in, every page reads and saves to the database
-  with live updates, and saves made offline wait in a queue (most of step 5).
-  Sarge signed in 2026-10-24. Signed out, the browser copy stays.
+- **Step 4, done (#55):** `ops-db.js`. Signed in, every shadow page reads and
+  saves to the database with live updates, and saves made offline wait in a
+  queue (most of step 5).
+- **Sign-in (this branch):** `site-gate.js`, one email-and-password card in
+  front of every page, analytics included (Sarge, 2026-10-24: the emailed link
+  was too many steps). A screen only until step 6: the data files are public.
 - **Then:** addresses and notes out of the public repo (step 6); thefts from
   `theft_log` into `THEFTS`; show `sync_reports` on the pages; invite Jim.
 
