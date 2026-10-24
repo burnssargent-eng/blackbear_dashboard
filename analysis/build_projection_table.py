@@ -12,9 +12,10 @@ the container right now, and how close is that to the point we want to collect?
 
 Both component rates come from analysis/backtest_steady_rate.py, where the
 50/50 blend was chosen (see analysis/README.md). Nothing here is re-derived:
-the last-6 rate calls bt.rate_rolling directly, and the previous-year rate is
+the last-6 rate is bt.rate_rolling's window, and the previous-year rate is
 the same formula keyed to a date instead of a pickup index -- see
-rate_prev_year_asof below.
+rate_prev_year_asof below. The one departure: a gap that spans a theft
+(THEFTS) is left out of every rate.
 
 WHAT THIS IS NOT. The projection estimates oil PRODUCED since the last pickup.
 It is not a promise of how many gallons the truck will collect: that depends on
@@ -421,6 +422,27 @@ SHARED_CONTAINERS = [
 ]
 
 
+class Theft(NamedTuple):
+    name: str
+    note: str
+
+
+# Confirmed thefts, keyed by (customer id, date the theft was found). Sarge's
+# rule (2026-10-23): the gap from the last pickup to the next one spans the
+# theft, and its gallons are short by what was stolen, so it is left out of
+# every rate -- the rate comes from the other gaps in the window (5 of the
+# last 6, not reaching further back), and no stolen gallons are estimated
+# into it. The oil clock restarts at the theft from zero: what the driver
+# enters is what was collected (Sarge, 2026-10-23) -- a 1 means nothing was
+# left, x gallons means x were left and pumped, so either way the barrel is
+# empty and the entry is already a check or a pickup. A qty-1 check is never
+# labelled a theft automatically: Jim confirms each one first. Name checked,
+# flagged on mismatch.
+THEFTS = {
+    (325, date(2026, 10, 21)): Theft("Farmhouse", "Barrel found robbed; recorded as qty 1"),
+}
+
+
 class HistoryStart(NamedTuple):
     name: str
     start: date
@@ -547,6 +569,73 @@ def combine_shared(pickups, empty_checks, capacities, regions, active):
     return extras
 
 
+def apply_thefts(pickups, asof):
+    """
+    Mark the pickup that ends each theft's gap with `theft_gap`, in place,
+    after combine_shared (a shared member's theft lands on its group). Returns
+    customer_id -> [(date found, Theft)] for thefts on or before `asof`, and
+    customer_id -> rename flags.
+    """
+    group_of = {cid: g for g in SHARED_CONTAINERS for cid in g.members}
+    thefts, flags = defaultdict(list), defaultdict(list)
+    for (cid, day), theft in sorted(THEFTS.items()):
+        if day > asof:
+            continue
+        group = group_of.get(cid)
+        key = min(group.members) if group else cid
+        history = pickups.get(key, [])
+        if group and group.members[cid] != theft.name:
+            flags[key].append(f"THEFTS[{cid}] names {theft.name!r} but the group "
+                              f"lists {group.members[cid]!r}; check the registry")
+        elif not group:
+            flag = _renamed(cid, theft.name, history)
+            if flag:
+                flags[key].append(flag)
+        thefts[key].append((day, theft))
+        after = next((p for p in history if p["date"] >= day), None)
+        if after is not None:
+            after["theft_gap"] = day
+    return thefts, flags
+
+
+def theft_gap(pickups, i):
+    """True when the gap ending at pickup i spans a theft (THEFTS)."""
+    return "theft_gap" in pickups[i]
+
+
+def span_rate(pickups, lo, hi):
+    """
+    bsm.rate_span -- gallons at pickups lo+1 .. hi over the days from lo to
+    hi -- with any gap that spans a theft left out of both. Without a theft
+    it is bsm.rate_span exactly.
+    """
+    if lo is None or hi is None or lo < 0 or hi <= lo:
+        return None
+    gallons = days = 0
+    for i in range(lo + 1, hi + 1):
+        if theft_gap(pickups, i):
+            continue
+        gallons += pickups[i]["gallons"]
+        days += (pickups[i]["date"] - pickups[i - 1]["date"]).days
+    return gallons / days if days > 0 else None
+
+
+def production(pickups):
+    """
+    (ss.daily_production, the days of any theft gap). A theft gap's gallons are
+    zeroed and its days returned, so a window over them is measured on the
+    other days instead of reading the theft as low production.
+    """
+    marked = [i for i in range(1, len(pickups)) if theft_gap(pickups, i)]
+    if not marked:
+        return ss.daily_production(pickups), frozenset()
+    daily = ss.daily_production([dict(p, gallons=0) if "theft_gap" in p else p
+                                 for p in pickups])
+    lost = {pickups[i]["date"] - timedelta(days=d) for i in marked
+            for d in range((pickups[i]["date"] - pickups[i - 1]["date"]).days)}
+    return daily, lost
+
+
 def new_owner_row(cid, extra, capacity, regions, asof):
     """The row for a HISTORY_STARTS account with no pickup since its start."""
     start = extra["history_start"]
@@ -592,11 +681,11 @@ def rate_last_six(pickups):
     """The last-6 rate at the live edge, or None."""
     if len(pickups) < WINDOW + 1:
         return None
-    # k = len(pickups) treats "the next pickup" as the thing being predicted,
-    # so this is bt.rate_rolling's own window: gallons at x-6..x-1 over the
-    # days from x-7 to x-1.
-    rate, _ = bt.rate_rolling(pickups, len(pickups), WINDOW)
-    return rate
+    # bt.rate_rolling's own window at k = len(pickups): gallons at x-6..x-1
+    # over the days from x-7 to x-1. A theft gap inside it is dropped, not
+    # replaced: 5 gaps (Sarge, 2026-10-23).
+    n = len(pickups)
+    return span_rate(pickups, n - 1 - WINDOW, n - 1)
 
 
 def rate_prev_year_asof(pickups, asof, lookback=YEAR_DAYS):
@@ -620,10 +709,7 @@ def rate_prev_year_asof(pickups, asof, lookback=YEAR_DAYS):
     if i is None or i == len(pickups) - 1:
         return None
 
-    days = (pickups[-1]["date"] - pickups[i]["date"]).days
-    if days <= 0:
-        return None
-    return sum(p["gallons"] for p in pickups[i + 1:]) / days
+    return span_rate(pickups, i, len(pickups) - 1)
 
 
 def rate_pooled(pickups):
@@ -637,7 +723,7 @@ def rate_pooled(pickups):
     n = len(pickups)
     if n < 2:
         return None
-    return bsm.rate_span(pickups, max(0, n - 1 - WINDOW), n - 1)
+    return span_rate(pickups, max(0, n - 1 - WINDOW), n - 1)
 
 
 def dormant_restart(pickups, asof, threshold=STALE_DAYS):
@@ -688,17 +774,20 @@ SEASONAL_LY_HALF_WIDTH = 21      # days either side of the date, a year back
 # (recent_override.md; Skinny Pancake Quechee projected 151 gal vs ~100).
 
 
-def window_rate(daily, first_date, center, half_width):
+def window_rate(daily, first_date, center, half_width, lost=frozenset()):
     """
     Gallons per day over center +/- half_width, from spread production.
     THE SAME FORMULA AS backtest_phase2_rates.window_rate, which imports this
     module and so cannot be imported here. IF ONE CHANGES, CHANGE BOTH.
+    `lost` (theft-gap days, from production()) is left out; the backtest has
+    no thefts.
     """
     start, end = center - timedelta(days=half_width), center + timedelta(days=half_width)
     if start <= first_date + timedelta(days=60):
         return None
-    days = (end - start).days + 1
-    return sum(daily.get(start + timedelta(days=i), 0.0) for i in range(days)) / days
+    days = [start + timedelta(days=i) for i in range((end - start).days + 1)]
+    days = [d for d in days if d not in lost]
+    return sum(daily.get(d, 0.0) for d in days) / len(days) if days else None
 
 
 def seasonal_rate(pickups, factor, clock_start, asof):
@@ -714,25 +803,40 @@ def seasonal_rate(pickups, factor, clock_start, asof):
     Returns (rate, A, B); rate is None when neither half can be formed.
     """
     n = len(pickups)
-    daily = ss.daily_production(pickups)
+    daily, lost = production(pickups)
     first = pickups[0]["date"]
     years = [r for r in (window_rate(daily, first, asof - timedelta(days=YEAR_DAYS * back),
-                                     SEASONAL_LY_HALF_WIDTH) for back in (1, 2))
+                                     SEASONAL_LY_HALF_WIDTH, lost) for back in (1, 2))
              if r is not None]
     last_year = statistics.fmean(years) if years else None
-    last2 = bsm.rate_span(pickups, n - 3, n - 1) if n >= 3 else None
+    last2 = span_rate(pickups, n - 3, n - 1) if n >= 3 else None
     a = (SEASONAL_LY_WEIGHT * last_year + (1 - SEASONAL_LY_WEIGHT) * last2
          if last_year is not None and last2 is not None else None)
 
     b = None
     if n >= 4:
-        last3 = bsm.rate_span(pickups, n - 4, n - 1)
-        covered = cf.gap_weighted(factor, pickups[n - 4]["date"], pickups[n - 1]["date"])
+        last3 = span_rate(pickups, n - 4, n - 1)
+        covered = covered_index(factor, pickups, n - 4, n - 1)
         if last3 is not None and covered > 0:
             b = last3 / covered * cf.gap_weighted(factor, clock_start, asof)
 
     halves = [h for h in (a, b) if h is not None]
     return (statistics.fmean(halves) if halves else None), a, b
+
+
+def covered_index(factor, pickups, lo, hi):
+    """cf.gap_weighted over pickups lo..hi, leaving out any theft gap."""
+    marked = [i for i in range(lo + 1, hi + 1) if theft_gap(pickups, i)]
+    if not marked:
+        return cf.gap_weighted(factor, pickups[lo]["date"], pickups[hi]["date"])
+    total = days = 0
+    for i in range(lo + 1, hi + 1):
+        if i in marked:
+            continue
+        a, b = pickups[i - 1]["date"], pickups[i]["date"]
+        total += cf.gap_weighted(factor, a, b) * (b - a).days
+        days += (b - a).days
+    return total / days if days else 0.0
 
 
 def seasonal_factor(cid, pickups, asof):
@@ -784,8 +888,9 @@ def rate_open_season(pickups, spec):
     for i in range(len(pickups) - 1, 0, -1):
         a, b = pickups[i - 1]["date"], pickups[i]["date"]
         span = (b - a).days
-        if span <= 0 or any((a + timedelta(days=d)).month - 1 not in open_months
-                            for d in range(1, span + 1)):
+        if span <= 0 or theft_gap(pickups, i) or any(
+                (a + timedelta(days=d)).month - 1 not in open_months
+                for d in range(1, span + 1)):
             continue
         gallons += pickups[i]["gallons"]
         days += span
@@ -1181,10 +1286,10 @@ def rate_same_time_last_year(pickups, asof):
     windows are kept -- dropping every window that touches a long gap made the
     backtest worse (bias -50% -> +12%): last year's closure edge is real.
     """
-    daily = ss.daily_production(pickups)
+    daily, lost = production(pickups)
     first = pickups[0]["date"]
     years = [r for r in (window_rate(daily, first, asof - timedelta(days=YEAR_DAYS * back),
-                                     RETURN_LY_HALF_WIDTH) for back in RETURN_LY_YEARS)
+                                     RETURN_LY_HALF_WIDTH, lost) for back in RETURN_LY_YEARS)
              if r is not None]
     return statistics.fmean(years) if years and any(years) else None
 
@@ -1222,21 +1327,23 @@ def return_rate(pickups, asof):
         return None, gap, since
     if since == 1:
         return last_year, gap, since
-    first_back = bsm.rate_span(pickups, i, i + 1)
+    first_back = span_rate(pickups, i, i + 1)
     if first_back is None:
         return None, gap, since
     return RETURN_RECENT_WEIGHT * first_back + (1 - RETURN_RECENT_WEIGHT) * last_year, gap, since
 
 
-def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
+def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thefts=()):
     last = pickups[-1]
     days_since = (asof - last["date"]).days
 
     # The oil clock starts at the last pickup, or at a later empty check: the
     # truck looked and found nothing worth pumping, so nothing had built up.
     # The RATE is untouched -- gallons over days between pickups is still the
-    # right average production -- only where the counting starts moves.
-    later = [d for d in empty_checks if d > last["date"]]
+    # right average production -- only where the counting starts moves. A
+    # theft restarts it too (it is normally a qty-1 check already).
+    later = sorted({d for d in empty_checks if d > last["date"]}
+                   | {d for d, _ in thefts if d > last["date"]})
     last_check = later[-1] if later else None
     clock_start = last_check or last["date"]
     days_accumulating = (asof - clock_start).days
@@ -1469,6 +1576,32 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=()):
         "_season": season,
         "_findings": findings,
         "_recent_gallons": [p["gallons"] for p in pickups[-RECENT_PICKUPS:]],
+        "_thefts": [theft_log_entry(day, theft, pickups, rate, capacity)
+                    for day, theft in thefts],
+    }
+
+
+def theft_log_entry(day, theft, pickups, rate, capacity):
+    """
+    One report-log line per theft. The stolen figure is an estimate for the
+    record only -- today's rate x days from the last pickup to the theft,
+    capped at capacity, less what was collected that day -- and never enters
+    a rate.
+    """
+    before = [p for p in pickups if p["date"] < day]
+    after = next((p for p in pickups if p.get("theft_gap") == day), None)
+    collected = sum(p["gallons"] for p in pickups if p["date"] == day)
+    stolen = None
+    if before and rate is not None:
+        held = rate * (day - before[-1]["date"]).days
+        stolen = max(0.0, (min(held, capacity) if capacity else held) - collected)
+    return {
+        "date": day.isoformat(),
+        "collected": collected,
+        "last_pickup": before[-1]["date"].isoformat() if before else None,
+        "stolen_estimate": stolen,
+        "gap_left_out": after["date"].isoformat() if after else None,
+        "note": theft.note,
     }
 
 
@@ -1738,6 +1871,19 @@ def overrides_table():
     return "\n".join(lines)
 
 
+def theft_table(rows):
+    lines = ["| Customer | Found | Collected (gal) | Last pickup before | Stolen (est.) "
+             "| Gap left out (pickup) | Note |",
+             "|---|---|---:|---|---:|---|---|"]
+    for r in rows:
+        for t in r["_thefts"]:
+            lines.append(f"| {r['customer']} ({r['customer_id']}) | {t['date']} "
+                         f"| {t['collected']:g} | {t['last_pickup'] or '-'} "
+                         f"| {fmt(t['stolen_estimate'], 0)} "
+                         f"| {t['gap_left_out'] or 'none yet'} | {t['note']} |")
+    return "\n".join(lines) if len(lines) > 2 else "_none_"
+
+
 def status_counts_table(rows):
     counts = defaultdict(int)
     for r in rows:
@@ -1955,6 +2101,15 @@ built here.
 
 {held_out_table(event)}
 
+## Thefts ({sum(len(r["_thefts"]) for r in rows)})
+
+Confirmed thefts in `THEFTS`. The gap spanning each is left out of every rate;
+the clock restarts at the theft. *Stolen (est.)* is today's rate x days from
+the last pickup to the theft, capped at capacity, less what was collected that
+day: an upper bound, for the record only, never used in a rate.
+
+{theft_table(rows)}
+
 ## Model-status overrides ({len(MODEL_OVERRIDES)})
 
 {overrides_table()}
@@ -2060,6 +2215,7 @@ def main():
     _check_registries()
     owner_extras = apply_history_starts(pickups, empty_checks)
     shared_extras = combine_shared(pickups, empty_checks, capacities, regions, active)
+    thefts, theft_flags = apply_thefts(pickups, asof)
 
     rows = []
     for cid in sorted(active):
@@ -2070,7 +2226,9 @@ def main():
                                           regions, asof))
             continue
         row = build_row(cid, history, asof, capacities.get(cid), regions, wape,
-                        empty_checks.get(cid, ()))
+                        empty_checks.get(cid, ()), thefts.get(cid, ()))
+        if theft_flags.get(cid):
+            row["flags"] = "; ".join(f for f in [row["flags"], *theft_flags[cid]] if f)
         extra = shared_extras.get(cid) or owner_extras.get(cid)
         if extra:
             if extra["flags"]:
