@@ -12,9 +12,9 @@
  * until it goes private (ROADMAP, shared database, step 6).
  */
 
-const OPS_DB_URL = "https://gaxpuvcfgtebklvwfpik.supabase.co";
+const GATE_DB_URL = "https://gaxpuvcfgtebklvwfpik.supabase.co";
 // The publishable key: public by design. Every table refuses it without a login.
-const OPS_DB_KEY = "sb_publishable_xPXWLsADDA0KdhPUX1l0PQ_LOVccktL";
+const GATE_DB_KEY = "sb_publishable_xPXWLsADDA0KdhPUX1l0PQ_LOVccktL";
 // The signed-in user last confirmed on the team list, so a page opens at once
 // and is re-checked in the background.
 const GATE_MEMBER_KEY = "bbb-gate-member";
@@ -127,7 +127,7 @@ if (typeof document !== "undefined" && document.currentScript && document.curren
   gateStyles();
   const unlock = () => document.documentElement.classList.remove("gate-locked");
   const client = window.supabase
-    ? window.supabase.createClient(OPS_DB_URL, OPS_DB_KEY, { auth: { persistSession: true } })
+    ? window.supabase.createClient(GATE_DB_URL, GATE_DB_KEY, { auth: { persistSession: true } })
     : null;
   if (!client) unlock();   // the library did not load: the page stays as it always was
   else {

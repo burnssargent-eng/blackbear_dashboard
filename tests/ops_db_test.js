@@ -58,6 +58,29 @@ const notListed = api.gateCardHtml({ user: { email: "x@example.com" }, person: n
 ok(notListed.includes("not on the team list") && notListed.includes("data-gate-signout") && !notListed.includes("password"),
   "signed in but not on the team list: told so, with Sign out");
 
+// ── Mixed versions after a deploy: a saved older page can load this ops-db.js
+// without site-gate.js (Safari did, 2026-10-24), and a new page can load an
+// older ops-db.js. Neither may crash. ──
+{
+  const fakeSupabase = { createClient: () => { throw new Error("no client without site-gate.js"); } };
+  const w = { ...window, supabase: fakeSupabase };
+  const lone = ["dashboard-utils.js", "route-utils.js", "ops-common.js", "ops-db.js"].map(f => fs.readFileSync(f, "utf8")).join("\n");
+  let res = null, err = null;
+  try {
+    res = new Function("window", "const document = { getElementById: () => null };\n" + lone +
+      "\nreturn { client: opsDbClient, available: opsDbAvailable() };")(w);
+  } catch (e) { err = e; }
+  ok(!err && res.client === null && !res.available,
+    "ops-db.js without site-gate.js stays on the browser copy instead of failing" + (err ? ` (${err.message})` : ""));
+  let older = null;
+  try { older = require("child_process").execSync("git show 5e414a7:ops-db.js", { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }); } catch (e) { /* shallow clone */ }
+  if (older) {
+    let clash = null;
+    try { new Function("window", fs.readFileSync("site-gate.js", "utf8") + "\n" + older); } catch (e) { clash = e; }
+    ok(!clash, "site-gate.js declares nothing an older ops-db.js also declares" + (clash ? ` (${clash.message})` : ""));
+  }
+}
+
 // ── A store from the database reads as the same routes ──
 const customers = snap.assign_list.map(a => ({ id: a.customer_id, name: a.name, capacity: 100 }));
 route.stops.forEach(s => { if (!customers.some(c => c.id === s.customer_id)) customers.push({ id: s.customer_id, name: s.name }); });

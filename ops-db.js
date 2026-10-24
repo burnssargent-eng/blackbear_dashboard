@@ -17,7 +17,13 @@
  * which route is My Route (each phone drives its own).
  */
 
-// OPS_DB_URL and OPS_DB_KEY come from site-gate.js, loaded just before.
+// The project address and key come from site-gate.js, loaded just before.
+// A browser can pair a saved older page (no site-gate.js) with this file for a
+// few minutes after a deploy: then the page stays on this browser's copy for
+// that one load instead of failing.
+const opsGateLoaded = typeof gateShow === "function";
+const OPS_DB_URL = opsGateLoaded ? GATE_DB_URL : "";
+const OPS_DB_KEY = opsGateLoaded ? GATE_DB_KEY : "";
 const OPS_QUEUE_KEY = "bbb-ops-queue-v1";
 const OPS_CACHE_KEY = "bbb-ops-shared-cache-v1";
 const OPS_COLLECTION_DAYS = 60;   // how far back pickups are loaded
@@ -163,7 +169,7 @@ function opsStoreFromRows(rows, snap, keep = {}) {
 /* ── The connection ──────────────────────────────────────── */
 
 function opsDbAvailable() {
-  return typeof window !== "undefined" && !!window.supabase && typeof window.supabase.createClient === "function";
+  return opsGateLoaded && typeof window !== "undefined" && !!window.supabase && typeof window.supabase.createClient === "function";
 }
 
 function opsReadJson(key, fallback) {
