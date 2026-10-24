@@ -34,6 +34,14 @@ jamaal_outgoing.py ──> outgoing.json      (source site's outgoing log: still
 jamaal_customers.py ──> customer_details.json (address + map position per active customer; NO phones;
                                            addresses public by Sarge's choice until the repo goes private)
 
+supabase_sync.py ──> the shared database (Supabase; db/schema.sql). Nightly: source-site customers and
+                     route names, plus a sync_reports row on where routes and pickups differ. Never writes a
+                     stop or a pickup. --seed (supabase-seed.yml, by hand, once) also copies the assigned routes
+                     into an EMPTY route_stops, with the full notes from a fresh jamaal_customers.py --refresh.
+db/schema.sql        the database's whole definition. Idempotent: change it, then paste ALL of it into
+                     Supabase's SQL editor. Every table is login-only (RLS + `people`); nothing is open to the
+                     public key. The secret key lives only in GitHub secrets (SUPABASE_SERVICE_KEY).
+
 index.html      dashboard + Leaflet heatmap. Keeps its OWN inline styles.
 region.html     per-region page. The most complex page.
 year.html  town.html  customers.html  schmootz.html
@@ -87,7 +95,9 @@ local preview only. `*.local.json` is gitignored; `tests/ops_test.js` fails if
 one is ever tracked, and `validate_data.py` fails on a phone number or code in
 the published file. Making the repo private does not hide the GitHub Pages
 site, so getting codes to drivers needs encryption, a login-protected host or
-the database.
+the database. The shared database now holds the full notes, codes included,
+behind a login (`customers.notes`); they reach it from GitHub Actions only,
+never through a committed file.
 
 ## Regenerating data
 
