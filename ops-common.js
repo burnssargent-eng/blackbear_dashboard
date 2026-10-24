@@ -108,13 +108,13 @@ function freshStore(snap) {
     }));
   });
   return { v: 1, base: snap.scraped_at, nextId: -1, routes, added: [], collections: [],
-    outgoing: [], trucks: {}, my: null, newRoutes: [] };
+    outgoing: [], oilLeft: [], trucks: {}, my: null, newRoutes: [] };
 }
 
 function loadStore(snap) {
   try {
     const saved = JSON.parse(window.localStorage.getItem(OPS_STORAGE_KEY) || "null");
-    if (saved && saved.v === 1 && saved.routes) return { outgoing: [], newRoutes: [], ...saved };
+    if (saved && saved.v === 1 && saved.routes) return { outgoing: [], newRoutes: [], oilLeft: [], ...saved };
   } catch (err) { /* blocked storage: work in memory */ }
   return freshStore(snap);
 }
@@ -417,6 +417,41 @@ function recordTheft(store, customer, gallons, note, now = new Date()) {
 /** A theft's figures: "Theft · 15 gal", or "Theft · empty" for 0-3. */
 function theftGallonsText(c) {
   return `Theft · ${c.gallons <= 3 ? "empty" : `${formatNumber(c.gallons)} gal`}`;
+}
+
+/* ── Oil Left ───────────────────────────────────────────── */
+
+/**
+ * Gallons a driver saw left in a barrel and did not collect (Sarge,
+ * 2026-10-24): after a part pickup when the truck is filling, or at a stop a
+ * full truck checks and skips. Never a collection, so no total counts it.
+ * One per customer and day: a second save that day replaces the first. The
+ * nightly exports it to oil_left.csv, where the projections start the barrel
+ * at what was left.
+ */
+function recordOilLeft(store, customer, gallons) {
+  const today = todayIso();
+  const routeId = store.my ? Number(store.my.routeId) : null;
+  const onRoute = routeId !== null && storeStops(store, routeId).some(s => s.customer_id === customer.customer_id);
+  clearOilLeft(store, customer.customer_id);
+  store.oilLeft.push({ customer_id: customer.customer_id, date: today, gallons,
+    route_id: onRoute ? routeId : null });
+}
+
+/** Today's Oil Left for a customer, or null. */
+function todaysOilLeft(store, customerId) {
+  const today = todayIso();
+  return (store.oilLeft || []).find(e => e.date === today && e.customer_id === customerId) || null;
+}
+
+function clearOilLeft(store, customerId) {
+  const today = todayIso();
+  store.oilLeft = (store.oilLeft || []).filter(e => !(e.date === today && e.customer_id === customerId));
+}
+
+/** "Oil left: 30 gal" */
+function oilLeftText(e) {
+  return `Oil left: ${formatNumber(e.gallons)} gal`;
 }
 
 /**

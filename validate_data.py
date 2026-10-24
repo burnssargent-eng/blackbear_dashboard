@@ -628,6 +628,51 @@ def check_non_pickups(report, coll):
             report.ok("No empty check shares a day with a pickup for the same customer.")
 
 
+def check_oil_left(report, coll):
+    """
+    oil_left.csv: gallons drivers saw left in a barrel and did not collect,
+    exported nightly from the shared database (supabase_sync.py
+    --export-oil-left) for the projections. Never a collection. Customer id,
+    day and gallons only: nothing private belongs in it.
+    """
+    import csv
+    from datetime import date
+    report.section("OL", "Oil Left export")
+    path = "oil_left.csv"
+    if not os.path.exists(path):
+        report.fail(f"{path} missing; the nightly commits it, and the projections read it.")
+        return
+    with open(path, newline="") as f:
+        reader = csv.DictReader(f)
+        header = reader.fieldnames
+        rows = list(reader)
+    if header != ["customer_id", "date", "gallons_left"]:
+        report.fail(f"{path} has columns {header}; expected customer_id, date, gallons_left only.")
+        return
+    bad, seen, dupes = [], set(), 0
+    for r in rows:
+        try:
+            cid, day, gal = int(r["customer_id"]), date.fromisoformat(r["date"]), int(r["gallons_left"])
+        except (TypeError, ValueError):
+            bad.append(r)
+            continue
+        if gal < 0:
+            bad.append(r)
+        dupes += (cid, day) in seen
+        seen.add((cid, day))
+    if bad:
+        report.fail(f"{len(bad)} row(s) in {path} are not a whole id, a date and gallons >= 0, e.g. {bad[0]}.")
+    if dupes:
+        report.fail(f"{dupes} customer-day(s) appear twice in {path}; the database keeps one per day.")
+    if not bad and not dupes:
+        report.ok(f"{path}: {len(rows)} check(s), one per customer and day.")
+    if coll and rows and not bad:
+        pickup_days = {(r.get("customer_id"), str(r.get("date", ""))[:10]) for r in coll}
+        on_pickup = sum(1 for r in rows if (int(r["customer_id"]), r["date"]) in pickup_days)
+        report.ok(f"{on_pickup} of {len(rows)} fall on a pickup day (left after a part pickup); "
+                  "the rest are checks at stops not collected.")
+
+
 def check_live_test(report):
     """
     analysis/live_test_log.csv holds frozen predictions, one per pickup. Each
@@ -1594,6 +1639,7 @@ def main():
     coll_payload = load_collections_payload(data)
 
     check_quantity_rule(report, coll)
+    check_oil_left(report, coll)
     check_projection(report, data)
     check_live_test(report)
     check_route_snapshot(report)

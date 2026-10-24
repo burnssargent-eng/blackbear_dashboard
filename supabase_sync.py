@@ -32,8 +32,14 @@ jamaal_customers.py reads only customers new to the database and the sync
 writes everyone's address back. Without that file the sync refuses to run,
 rather than blank every address.
 
+Oil Left (gallons a driver saw left in a barrel and did not collect) is
+entered only on the site. --export-oil-left writes it to oil_left.csv
+(customer id, day, gallons: nothing private), which is committed so the
+projection builder can read it; the builder never contacts the database.
+
     python3 supabase_sync.py --seed   # first fill (run after jamaal_customers.py --refresh)
     python3 supabase_sync.py --export-details   # nightly, first: the details files from the database
+    python3 supabase_sync.py --export-oil-left  # nightly, before the projections: oil_left.csv
     python3 supabase_sync.py          # nightly
     python3 supabase_sync.py --history  # also re-copy the source site's whole history
     python3 supabase_sync.py --dry-run  # print what would be sent, touch nothing
@@ -62,6 +68,7 @@ COLLECTIONS_FILE = "oil_collections.json"
 CODES_FILE = "oil_non_pickups.csv"
 RAW_FILE = "oil_collections_raw.csv"
 OUTGOING_FILE = "outgoing.json"
+OIL_LEFT_FILE = "oil_left.csv"
 HISTORY_DAYS = 90         # how far back the nightly follows edits on the source site
 REPORT_DAYS = 30          # how far back pickups are compared
 BATCH = 500
@@ -435,6 +442,23 @@ def export_details(db, out=DETAILS_FILE, notes_out=LOCAL_NOTES):
     return customers, local
 
 
+def oil_left_lines(rows):
+    """The database's Oil Left rows as oil_left.csv rows, by customer then day."""
+    return sorted((int(r["customer_id"]), r["checked_on"], int(r["gallons_left"])) for r in rows)
+
+
+def export_oil_left(db, out=OIL_LEFT_FILE):
+    rows = oil_left_lines(db.select("oil_left", "select=customer_id,checked_on,gallons_left"))
+    tmp = out + ".tmp"
+    with open(tmp, "w", newline="") as fh:
+        w = csv.writer(fh, lineterminator="\n")
+        w.writerow(["customer_id", "date", "gallons_left"])
+        w.writerows(rows)
+    os.replace(tmp, out)
+    print(f"Exported {len(rows)} Oil Left check(s) to {out}")
+    return rows
+
+
 def sync(db, seed=False, today=None, history=False):
     if not os.path.exists(DETAILS_FILE):
         raise SyncError(f"{DETAILS_FILE} is missing (run --export-details first): nothing synced, "
@@ -518,6 +542,8 @@ def main():
     ap.add_argument("--history", action="store_true", help="re-copy the source site's whole history, not just the last 90 days")
     ap.add_argument("--export-details", action="store_true",
                     help=f"write {DETAILS_FILE} and {LOCAL_NOTES} from the database, and nothing else")
+    ap.add_argument("--export-oil-left", action="store_true",
+                    help=f"write {OIL_LEFT_FILE} from the database, and nothing else")
     args = ap.parse_args()
     key = os.environ.get("SUPABASE_SERVICE_KEY", "").strip()
     if not key:
@@ -527,6 +553,8 @@ def main():
         db = Db(SUPABASE_URL, key, dry_run=args.dry_run)
         if args.export_details:
             export_details(db)
+        elif args.export_oil_left:
+            export_oil_left(db)
         else:
             sync(db, seed=args.seed, history=args.history)
     except (SyncError, requests.RequestException) as exc:

@@ -22,7 +22,8 @@ const code = ["dashboard-utils.js", "route-utils.js", "ops-common.js"]
 const api = new Function("window", code + `
   return { freshStore, loadStore, saveStore, storeStops, assignToRoute, opsRouteList,
     addShadowCustomer, createRoute, renameRoute, storeRoutesByCustomer, buildIndex, opsNavHtml, OPS_NAV,
-    recordCollection, todaysCollection, liveRouteTotals, routeSummary, recordTheft, theftGallonsText };`)(window);
+    recordCollection, todaysCollection, liveRouteTotals, routeSummary, recordTheft, theftGallonsText,
+    recordOilLeft, todaysOilLeft, clearOilLeft };`)(window);
 
 let fails = 0;
 const ok = (cond, msg) => {
@@ -240,6 +241,28 @@ ok(api.todaysCollection(s2, -999).assignment_id === null, "an entry for a custom
   ok(api.liveRouteTotals(lines, s4).collected === 0, "an emptied barrel counts 0, like an Empty");
   api.recordCollection(s4, st(b), 90);
   ok(!api.todaysCollection(s4, b.id).theft, "an ordinary collection carries no theft mark");
+}
+
+// ── Oil Left is a reading, never a collection ──
+{
+  const pc = payload.customers;
+  const [a, b] = pc.filter(c => c.section === "ranked" && !c.members && c.projected_gal > 5).slice(0, 2);
+  const st = c => ({ customer_id: c.id, name: c.name });
+  const lines = api.routeSummary([st(a), st(b)], byId).lines;
+  const s5 = api.freshStore(snap);
+  const before = api.liveRouteTotals(lines, s5);
+  api.recordOilLeft(s5, st(b), 120);
+  let t = api.liveRouteTotals(lines, s5);
+  ok(t.collected === 0 && t.done === 0 && t.projected === before.projected,
+    "Oil Left at a skipped stop collects nothing, marks nothing done and leaves the route total alone");
+  api.recordCollection(s5, st(a), 40);
+  api.recordOilLeft(s5, st(a), 35);
+  t = api.liveRouteTotals(lines, s5);
+  ok(t.collected === 40 && t.done === 1 && s5.collections.length === 1,
+    "after a part pickup only the 40 collected counts; the 35 left is not a pickup");
+  ok(api.todaysOilLeft(s5, a.id).gallons === 35 && s5.oilLeft.length === 2, "each stop keeps its own Oil Left");
+  api.clearOilLeft(s5, a.id);
+  ok(!api.todaysOilLeft(s5, a.id) && api.todaysCollection(s5, a.id).gallons === 40, "removing Oil Left keeps the pickup");
 }
 
 // ── Full notes stay local ──

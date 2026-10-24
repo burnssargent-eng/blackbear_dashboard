@@ -325,6 +325,11 @@ let details = {};   // address, notes and position per customer (shared database
 
 let openDetails = null;   // customer id whose Notes panel is open (one at a time)
 let theftOpen = null;     // customer id whose theft form is open
+let leftOpen = null;      // customer id whose Oil Left form is open
+// A browser can pair this page with an older ops-common.js for a few minutes
+// after a deploy: Oil Left then stays hidden instead of breaking the route.
+const oilLeftReady = typeof recordOilLeft === "function";
+const leftFor = id => (oilLeftReady ? todaysOilLeft(store, id) : null);
 let activeId = null;      // customer id showing its controls; null = the next one to collect
 let compact = true;       // only the active stop shows controls (a per-phone preference)
 
@@ -340,6 +345,9 @@ try { compact = window.localStorage.getItem(COMPACT_KEY) !== "off"; } catch (err
  *   - Theft sits in the Notes panel, beside Customer page, so it is never one
  *     slip from Save. It opens a form (gallons collected, an optional
  *     note); a saved theft is a collection in red, its note under the name;
+ *   - Oil Left sits beside Theft, collected or not: the gallons seen left in
+ *     the barrel (a part pickup, or a stop the full truck checks and skips).
+ *     It is not a collection; it shows in blue under the name;
  *   - collected stops turn green and drop below the rest, in the order collected;
  *   - the tally and truck bar sit under the list, then the pin map.
  */
@@ -396,7 +404,7 @@ function mapsUrl(id) {
   return dest ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(dest)}` : null;
 }
 
-/** One stop: its line, then (when it is the one showing) its control row, theft form or Notes. */
+/** One stop: its line, then (when it is the one showing) its control row, Oil Left or theft form, or Notes. */
 function stopHtml(l, k, c, showing) {
   const id = l.stop.customer_id;
   const open = showing && openDetails === id;
@@ -409,19 +417,32 @@ function stopHtml(l, k, c, showing) {
     data-id="${id}" aria-expanded="${open}">Notes ${open ? "▴" : "▾"}</button>`;
   const theft = c && c.theft;
   const theftForm = showing && theftOpen === id;
+  const left = leftFor(id);
+  const leftForm = showing && leftOpen === id && !theftForm;
   const figures = theft && !showing
     ? `<span class="ops-line-figs ops-theft-text">${theftGallonsText(c)}</span>`
     : !showing && c
     ? `<span class="ops-line-figs text-success">✓ ${c.gallons <= 3 ? "Empty" : `${formatNumber(c.gallons)} gal`}</span>`
     : `<span class="ops-line-figs">${stopLabelHtml(l)}</span>`;
-  const cls = theftForm ? " ops-theft-open" : (theft ? " ops-theft" : (c ? " ops-done" : ""));
+  const cls = theftForm ? " ops-theft-open" : leftForm ? " ops-left-open"
+    : (theft ? " ops-theft" : (c ? " ops-done" : ""));
   return `<div class="ops-line${cls}${showing && compact ? " ops-current" : ""}" data-pick="${id}">
     <div class="ops-line-head">
       <span class="ops-line-name${l.stop.must_get ? " hotlist" : ""}" title="${escapeHtml(l.stop.name)}">${escapeHtml(l.stop.name)}</span>
       ${figures}
     </div>
     ${theft && theft.note && !theftForm ? `<div class="ops-theft-note">${escapeHtml(theft.note)}</div>` : ""}
-    ${theftForm ? `<div class="ops-theft-form">
+    ${left && !leftForm ? `<div class="ops-left-note">${oilLeftText(left)}</div>` : ""}
+    ${leftForm ? `<div class="ops-left-form">
+      <label for="left-gal-${k}">Oil Left. Gallons left in the barrel:</label>
+      <input type="number" inputmode="numeric" min="0" class="form-control" id="left-gal-${k}" placeholder="gal"
+        value="${left ? left.gallons : ""}">
+      <div class="d-flex gap-2">
+        <button type="button" class="btn btn-primary" data-act="left-save" data-i="${k}">Save</button>
+        <button type="button" class="btn ops-plain-btn" data-act="left-cancel">Cancel</button>
+        ${left ? `<button type="button" class="btn ops-plain-btn ms-auto" data-act="left-clear" data-id="${id}">Remove</button>` : ""}
+      </div>
+    </div>` : theftForm ? `<div class="ops-theft-form">
       <label for="theft-gal-${k}" class="ops-theft-label">Theft. Gallons collected:</label>
       <input type="number" inputmode="numeric" min="0" class="form-control" id="theft-gal-${k}" placeholder="gal"
         value="${theft ? c.gallons : ""}">
@@ -441,12 +462,14 @@ function stopHtml(l, k, c, showing) {
              <button type="button" class="btn btn-success" data-act="save" data-i="${k}">Save</button>`}
       ${mapsBtn}${detailsBtn}
     </div>` : ""}
-    ${open && !theftForm ? `<div class="ops-line-details">
+    ${open && !theftForm && !leftForm ? `<div class="ops-line-details">
       ${d.address ? (maps ? `<a href="${maps}" target="_blank" rel="noopener">${escapeHtml(d.address)}</a>` : escapeHtml(d.address)) : "No address on file"}
       ${d.notes ? `<div>Notes: ${notesHtml(id, d.notes)}</div>` : ""}
       <div class="mt-1 d-flex gap-2 align-items-center">
         <a class="btn ops-plain-btn ops-cust-btn" href="ops-customer.html?id=${id}&from=myroute">Customer page ›</a>
-        ${c ? "" : `<button type="button" class="btn btn-danger ops-theft-btn ms-auto" data-act="theft" data-id="${id}">Theft</button>`}
+        ${oilLeftReady ? `<button type="button" class="btn btn-outline-primary ops-left-btn ms-auto" data-act="left"
+          data-id="${id}">Oil Left</button>` : ""}
+        ${c ? "" : `<button type="button" class="btn btn-danger ops-theft-btn${oilLeftReady ? "" : " ms-auto"}" data-act="theft" data-id="${id}">Theft</button>`}
       </div>
     </div>` : ""}
   </div>`;
@@ -524,7 +547,7 @@ function onAct(b) {
       naming = null;
       break;
     }
-    case "set": store.my = { routeId }; activeId = null; openDetails = null; theftOpen = null; window.scrollTo(0, 0); break;
+    case "set": store.my = { routeId }; activeId = null; openDetails = null; theftOpen = null; leftOpen = null; window.scrollTo(0, 0); break;
     case "save": {
       const stop = storeStops(store, store.my.routeId)[i];
       const gallons = parseInt(document.getElementById(`gal-${i}`).value, 10);
@@ -542,8 +565,31 @@ function onAct(b) {
     case "theft":   // open the theft form (Edit on a saved theft reopens it filled in)
       theftOpen = activeId = Number(d.id);
       openDetails = null;
+      leftOpen = null;
       render();
       return;
+    case "left":   // open the Oil Left form (filled in when one is saved today)
+      leftOpen = activeId = Number(d.id);
+      openDetails = null;
+      theftOpen = null;
+      render();
+      return;
+    case "left-cancel":
+      leftOpen = null;
+      render();
+      return;
+    case "left-clear":
+      clearOilLeft(store, Number(d.id));
+      leftOpen = null;
+      break;
+    case "left-save": {
+      const stop = storeStops(store, store.my.routeId)[i];
+      const gallons = parseInt(document.getElementById(`left-gal-${i}`).value, 10);
+      if (!Number.isFinite(gallons) || gallons < 0) return;
+      recordOilLeft(store, stop, gallons);
+      leftOpen = null;      // the stop stays showing: a skipped stop is still to collect
+      break;
+    }
     case "theft-cancel":   // back to the plain gallons row; a saved theft is cleared too (a mistaken press)
       store.collections = store.collections.filter(c =>
         !(c.date === todayIso() && c.customer_id === theftOpen && c.theft));
@@ -567,7 +613,7 @@ function onAct(b) {
       render();
       return;
     }
-    case "change": store.my = null; activeId = null; openDetails = null; theftOpen = null; break;
+    case "change": store.my = null; activeId = null; openDetails = null; theftOpen = null; leftOpen = null; break;
     default: return;
   }
   saveStore(store);
@@ -585,7 +631,7 @@ function wire() {
     const line = e.target.closest && e.target.closest("[data-pick]");
     if (store.my && compact && line && !e.target.closest("a, input, textarea, label, button, .ops-line-details")) {
       const id = Number(line.dataset.pick);
-      if (id !== activeId) { activeId = id; openDetails = null; theftOpen = null; render(); }
+      if (id !== activeId) { activeId = id; openDetails = null; theftOpen = null; leftOpen = null; render(); }
     }
   });
   page.addEventListener("toggle", e => {
@@ -598,7 +644,7 @@ function wire() {
     if (t.id === "compact") {
       compact = t.checked;
       try { window.localStorage.setItem(COMPACT_KEY, compact ? "on" : "off"); } catch (err) { /* ignore */ }
-      activeId = null; openDetails = null; theftOpen = null;
+      activeId = null; openDetails = null; theftOpen = null; leftOpen = null;
       render();
       return;
     }

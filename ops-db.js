@@ -49,7 +49,8 @@ const opsClone = x => JSON.parse(JSON.stringify(x));
 /** The parts of a store that live in the database. */
 function opsSharedPart(store) {
   return opsClone({ routes: store.routes || {}, newRoutes: store.newRoutes || [], added: store.added || [],
-    collections: store.collections || [], outgoing: store.outgoing || [], trucks: store.trucks || {} });
+    collections: store.collections || [], outgoing: store.outgoing || [], oilLeft: store.oilLeft || [],
+    trucks: store.trucks || {} });
 }
 
 /** Give each new pickup and outgoing entry the id that makes a resent save land once. */
@@ -114,6 +115,21 @@ function opsDiff(prev, next, { today, projectedFor = () => null }) {
   });
   prevColl.forEach((c, id) => { if (!nextColl.has(id)) ops.push({ t: "pickup-delete", client_id: id }); });
 
+  // Oil Left: one row per customer and day, so the pair is the key.
+  const leftKey = e => `${e.customer_id}|${e.date}`;
+  const leftRow = e => ({ customer_id: e.customer_id, checked_on: e.date, gallons_left: e.gallons,
+    route_id: e.route_id ?? null });
+  const prevLeft = new Map((prev.oilLeft || []).map(e => [leftKey(e), e]));
+  const nextLeft = new Set();
+  (next.oilLeft || []).forEach(e => {
+    nextLeft.add(leftKey(e));
+    const p = prevLeft.get(leftKey(e));
+    if (!p || JSON.stringify(leftRow(p)) !== JSON.stringify(leftRow(e))) ops.push({ t: "left-set", row: leftRow(e) });
+  });
+  prevLeft.forEach((e, k) => {
+    if (!nextLeft.has(k)) ops.push({ t: "left-delete", customer_id: e.customer_id, day: e.date });
+  });
+
   const prevOut = new Set((prev.outgoing || []).map(e => e.client_id));
   const nextOut = new Set();
   (next.outgoing || []).forEach(e => {
@@ -170,6 +186,8 @@ function opsStoreFromRows(rows, snap, keep = {}) {
       name: (names.get(c.customer_id) || {}).name || `#${c.customer_id}`, gallons: c.gallons,
       date: c.picked_on, route_id: c.route_id, assignment_id: null, client_id: c.client_id,
       ...(c.theft ? { theft: { note: c.theft_note || "", recorded_at: c.entered_at, versions: [] } } : {}) })),
+    oilLeft: (rows.oilLeft || []).map(e => ({ customer_id: e.customer_id, date: e.checked_on,
+      gallons: e.gallons_left, route_id: e.route_id })),
     outgoing: rows.outgoing.map(e => ({ id: e.client_id, client_id: e.client_id, date: e.day, kind: e.kind,
       ...(e.truck ? { truck: e.truck } : {}), ...(e.gallons !== null ? { gallons: e.gallons } : {}) })),
     trucks,
@@ -268,7 +286,7 @@ async function opsFetchRows() {
     }
   };
   const c = opsDbClient;
-  const [routes, stops, customers, collections, outgoing, trucks] = await Promise.all([
+  const [routes, stops, customers, collections, outgoing, trucks, oilLeft] = await Promise.all([
     all(() => c.from("routes").select("id,name,sort").order("id"), "routes"),
     all(() => c.from("route_stops").select("id,route_id,customer_id,position,must_get,jamaal_assignment_id").order("id"), "stops"),
     all(() => c.from("customers").select("id,name,city,address,capacity,periodicity_days,phone,notes,shared_with,created_on,lat,lon,loc").order("id"), "customers"),
@@ -278,8 +296,11 @@ async function opsFetchRows() {
       .eq("source", "site").gte("picked_on", since).order("id"), "pickups"),
     all(() => c.from("outgoing").select("client_id,day,kind,truck,gallons").eq("source", "site").order("id"), "outgoing"),
     all(() => c.from("route_trucks").select("route_id,day,truck"), "trucks"),
+    // Before the oil_left table exists the pages still load, without it.
+    all(() => c.from("oil_left").select("customer_id,checked_on,gallons_left,route_id")
+      .gte("checked_on", since).order("id"), "oil left").catch(() => []),
   ]);
-  return { routes, stops, customers, collections, outgoing, trucks };
+  return { routes, stops, customers, collections, outgoing, trucks, oilLeft };
 }
 
 /**
@@ -382,6 +403,10 @@ async function opsSend(op) {
     case "outgoing-new":
       res = await c.from("outgoing").upsert(op.row, { onConflict: "client_id", ignoreDuplicates: true }); break;
     case "outgoing-delete": res = await c.from("outgoing").delete().eq("client_id", op.client_id); break;
+    case "left-set":
+      res = await c.from("oil_left").upsert(op.row, { onConflict: "customer_id,checked_on" }); break;
+    case "left-delete":
+      res = await c.from("oil_left").delete().eq("customer_id", op.customer_id).eq("checked_on", op.day); break;
     case "truck":
       res = await c.from("route_trucks").upsert({ route_id: op.route_id, day: op.day, truck: op.truck },
         { onConflict: "route_id,day" });

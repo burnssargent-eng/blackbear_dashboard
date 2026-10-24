@@ -42,6 +42,10 @@ supabase_sync.py ──> the shared database (Supabase; db/schema.sql). Nightly:
                      'site' rows record the SAME pickups: never add them together; the pages read only 'site'.
                      Never writes a stop or a site pickup. --seed (supabase-seed.yml, by hand, once) also copies the assigned routes
                      into an EMPTY route_stops, with the full notes from a fresh jamaal_customers.py --refresh.
+supabase_sync.py --export-oil-left ──> oil_left.csv  (committed: customer id, day, gallons left; nightly,
+                     before the projection build). Oil Left = gallons a driver saw left in a barrel and did
+                     not collect; its own table, never a collection. The builder starts the barrel's level
+                     from it and adds it back into the gap's rate (analysis/ROADMAP.md, Oil Left).
 db/schema.sql        the database's whole definition. Idempotent: change it, then paste ALL of it into
                      Supabase's SQL editor. Every table is login-only (RLS + `people`); nothing is open to the
                      public key. The secret key lives only in GitHub secrets (SUPABASE_SERVICE_KEY).
