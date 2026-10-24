@@ -22,6 +22,17 @@
 // few minutes after a deploy: then the page stays on this browser's copy for
 // that one load instead of failing.
 const opsGateLoaded = typeof gateShow === "function";
+// A saved older page (it loads the library but not site-gate.js) reloads
+// once, which fetches the current page; the flag stops a reload loop.
+(function opsReloadStalePage() {
+  if (typeof window === "undefined" || !window.location || !window.sessionStorage) return;
+  try {
+    if (opsGateLoaded) { window.sessionStorage.removeItem("bbb-stale-reload"); return; }
+    if (!window.supabase || window.sessionStorage.getItem("bbb-stale-reload")) return;
+    window.sessionStorage.setItem("bbb-stale-reload", "1");
+    window.location.reload();
+  } catch (err) { /* storage blocked: stay on the browser copy */ }
+})();
 const OPS_DB_URL = opsGateLoaded ? GATE_DB_URL : "";
 const OPS_DB_KEY = opsGateLoaded ? GATE_DB_KEY : "";
 const OPS_QUEUE_KEY = "bbb-ops-queue-v1";
