@@ -1,5 +1,5 @@
 {
- "scraped_at": "2026-10-23T12:25:48+00:00",
+ "scraped_at": "2026-10-24T11:52:55+00:00",
  "source": "customer.php (address, stored position); US Census geocoder; town centres",
  "customers": {
   "101": {
@@ -4917,6 +4917,14 @@
    "lon": -72.8631363,
    "loc": "site",
    "notes": "David Petrie",
+   "photos": []
+  },
+  "1538": {
+   "address": "111 Winooski Falls Way , Winooski, VT",
+   "lat": 44.490366,
+   "lon": -73.1815332,
+   "loc": "site",
+   "notes": "",
    "photos": []
   }
  }
