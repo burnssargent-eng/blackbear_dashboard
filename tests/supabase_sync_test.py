@@ -33,20 +33,32 @@ class FakeDb:
         self.t = {k: [dict(r) for r in v] for k, v in (tables or {}).items()}
         self.writes = []
 
+    def _filter(self, rows, query):
+        for part in query.split("&"):
+            col, _, cond = part.partition("=")
+            if cond.startswith("eq."):
+                rows = [r for r in rows if str(r.get(col, "site" if col == "source" else None)) == cond[3:]]
+            elif cond.startswith("gte."):
+                rows = [r for r in rows if r.get(col) is not None and r[col] >= cond[4:]]
+        return rows
+
     def select(self, table, query="select=*"):
-        rows = self.t.get(table, [])
-        if "picked_on=gte." in query:
-            since = query.split("picked_on=gte.")[1].split("&")[0]
-            rows = [r for r in rows if r["picked_on"] >= since]
-        return [dict(r) for r in rows]
+        return [dict(r) for r in self._filter(self.t.get(table, []), query)]
+
+    def exists(self, table, filters):
+        return bool(self._filter(self.t.get(table, []), filters))
+
+    def delete(self, table, column, values):
+        self.writes.append(("delete", table, values))
+        self.t[table] = [r for r in self.t.get(table, []) if r.get(column) not in set(values)]
 
     def upsert(self, table, rows, on_conflict="id"):
         self.writes.append(("upsert", table, rows))
         keys = set(rows[0]) if rows else set()
         ok(all(set(r) == keys for r in rows), f"upsert {table}: every row has the same keys (PostgREST bulk rule)")
-        cur = {r["id"]: r for r in self.t.setdefault(table, [])}
+        cur = {r.get(on_conflict, id(r)): r for r in self.t.setdefault(table, [])}
         for r in rows:
-            cur[r["id"]] = {**cur.get(r["id"], {}), **r}
+            cur[r[on_conflict]] = {**cur.get(r[on_conflict], {}), **r}
         self.t[table] = list(cur.values())
 
     def insert(self, table, rows):
@@ -61,6 +73,13 @@ class FakeDb:
                 r.update(values)
 
 
+import tempfile  # noqa: E402
+# customer_details.json is written from the database and never committed, so
+# the test brings its own (empty: addresses are not what is tested here).
+_tmp = tempfile.mkdtemp()
+ss.DETAILS_FILE = os.path.join(_tmp, "customer_details.json")
+json.dump({"customers": {}}, open(ss.DETAILS_FILE, "w"))
+
 snap = json.load(open(ss.ROUTES_FILE))
 assign_ids = {a["customer_id"] for a in snap["assign_list"]}
 stop_ids = {s["customer_id"] for r in snap["routes"] for s in r["stops"] if s["customer_id"] is not None}
@@ -69,10 +88,12 @@ stop_ids = {s["customer_id"] for r in snap["routes"] for s in r["stops"] if s["c
 db = FakeDb()
 report = ss.sync(db, seed=True, today=date(2026, 10, 24))
 cust = {r["id"]: r for r in db.t["customers"]}
-ok(set(cust) == assign_ids | stop_ids, "every Assign-list and on-route customer is copied")
+ok(set(cust) >= assign_ids | stop_ids, "every Assign-list and on-route customer is copied")
+ok(all(not cust[c]["active"] for c in set(cust) - assign_ids - stop_ids),
+   "the others (customers only in the source site's history) are not active")
 ok(all(cust[c]["active"] for c in assign_ids), "Assign-list customers are active")
 ok(all(not cust[c]["active"] for c in stop_ids - assign_ids), "an on-route customer missing from Assign is kept, not active")
-ok(all("notes" in r for r in cust.values()), "a seed writes notes for everyone")
+ok(all("notes" in cust[c] for c in assign_ids | stop_ids), "a seed writes notes for every current customer")
 ok(len(db.t["route_stops"]) == len(ss.stop_rows(snap)) > 0, "the seed copies the source site's stops")
 first = snap["routes"][0]
 seeded = sorted((s for s in db.t["route_stops"] if s["route_id"] == first["route_id"]), key=lambda s: s["position"])
@@ -121,8 +142,62 @@ ok([x["id"] for x in p["only_jamaal"]] == [], "a source-site pickup on a day the
 p = ss.pickup_differences(site, {**jam, (7, "2026-10-20"): 90}, "2026-10-23", {})
 ok([x["id"] for x in p["only_jamaal"]] == [7], "a source-site pickup on a day the site was used is listed")
 
+# ── The source site's history (2026-10-24) ──
+import csv as _csv  # noqa: E402
+pickups = ss.jamaal_collection_rows()
+raw_n = sum(1 for _ in _csv.DictReader(open(ss.RAW_FILE)))
+codes_n = sum(1 for _ in _csv.DictReader(open(ss.CODES_FILE)))
+ok(len(pickups) == raw_n + codes_n, f"every source-site pickup and code becomes one row ({raw_n} + {codes_n})")
+ok(len({r["jamaal_key"] for r in pickups.values()}) == len(pickups), "keys are unique, two pickups on one day included")
+ok(pickups == ss.jamaal_collection_rows(), "keys are the same from run to run")
+out = ss.jamaal_outgoing_rows()
+days = json.load(open(ss.OUTGOING_FILE))["days"]
+ok(sum(1 for r in out.values() if r["kind"] == "stillage") == sum(sum(d.get("stillage", {}).values()) for d in days.values()),
+   "one outgoing row per stillage run")
+ok(all(r["truck"] in ("mammabear", "mackdaddy", "babybird", "newbiedoo") for r in out.values() if r["kind"] == "stillage"),
+   "every run's truck is one the database accepts")
+cust = set(ss.customer_rows(snap, {}, {}))
+missing = {r["customer_id"] for r in pickups.values()} - cust
+ok(missing and all(r["active"] is False for r in ss.history_customers(missing, {}, cust)),
+   "customers only in the history are added, not active")
+ok(ss.history_customers({123456}, {}, set())[0]["name"] == "Customer 123456 (name not on file)",
+   "a customer with no name on file gets a placeholder name")
+
+hist = FakeDb({k: [dict(r) for r in v] for k, v in db.t.items()})
+hist.t["collections"] = [{"id": 1, "source": "site", "customer_id": seeded[0]["customer_id"], "picked_on": "2026-10-23",
+                          "gallons": 50, "client_id": "c1"}]
+ss.sync(hist, today=date(2026, 10, 24))
+jam = [r for r in hist.t["collections"] if r.get("source") == "jamaal"]
+ok(len(jam) == len(pickups), "the first run copies the whole history")
+ok(any(r.get("source", "site") == "site" for r in hist.t["collections"]), "the site's own pickup is untouched")
+ok({r["customer_id"] for r in jam} <= {r["id"] for r in hist.t["customers"]}, "every copied pickup's customer exists")
+old = next(r for r in jam if r["picked_on"] < "2026-01-01")
+recent = max(jam, key=lambda r: r["picked_on"])
+old["gallons"] = 9999          # stands in for an edit older than the nightly window
+hist.writes = []
+saved_raw = ss.RAW_FILE
+tmp2 = tempfile.mkdtemp()
+rows_raw = list(_csv.DictReader(open(ss.RAW_FILE)))
+drop = next(r for r in rows_raw if r["date"] == recent["picked_on"] and int(r["customer_id"]) == recent["customer_id"])
+ss.RAW_FILE = os.path.join(tmp2, "raw.csv")
+with open(ss.RAW_FILE, "w", newline="") as fh:
+    w = _csv.DictWriter(fh, fieldnames=rows_raw[0].keys())
+    w.writeheader()
+    w.writerows(r for r in rows_raw if r is not drop)
+rep = ss.sync(hist, today=date(2026, 10, 24))
+ss.RAW_FILE = saved_raw
+ok(rep["history"]["collections"]["since"] != "all", "after the first run the nightly refreshes only recent days")
+day_keys = lambda: sorted(r["jamaal_key"] for r in hist.t["collections"]
+                         if r.get("jamaal_key", "").startswith(f"{recent['customer_id']}:{recent['picked_on']}:"))
+ok(rep["history"]["collections"]["removed"] == 1 and len(day_keys()) == sum(
+   1 for r in rows_raw if r["date"] == recent["picked_on"] and int(r["customer_id"]) == recent["customer_id"]) - 1,
+   "a recent pickup gone from the source site is removed")
+ok(next(r for r in hist.t["collections"] if r.get("jamaal_key") == old["jamaal_key"])["gallons"] == 9999,
+   "older history is left as it is by the nightly")
+q = [w for w in hist.writes if w[0] == "upsert" and w[1] == "collections"]
+ok(q and all(r["picked_on"] >= "2026-07-26" for r in q[0][2]), "the nightly sends only the last 90 days")
+
 # ── Details only in the database (step 6) ──
-import tempfile  # noqa: E402
 from jamaal_customers import scrub  # noqa: E402
 rows = [{"id": 5, "address": "1 Main St., Stowe, VT", "lat": 44.4, "lon": -72.7, "loc": "census",
          "notes": "Barrel out back, code 4321"},

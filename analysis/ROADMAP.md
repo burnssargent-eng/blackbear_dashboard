@@ -140,6 +140,10 @@ counts twice. Logins: Sarge (added 2026-10-24); Jim to be invited.
   writes them back; the pages read the database. Older copies stay in the
   public git history by choice (Sarge, 2026-10-24: leave it; the addresses are
   on the source site anyway, and codes and phones were never committed).
+- **Source-site history in the database (this branch):** every Jamaal pickup
+  since 2015, every 0-3 code and the outgoing log, labelled `source = jamaal`
+  and read-only to the site; the nightly keeps the last 90 days in step.
+  The site's own entries stay `source = site`; the two are never summed.
 - **Then:** thefts from `theft_log` into `THEFTS`; show `sync_reports` on the
   pages; Jim's account.
 

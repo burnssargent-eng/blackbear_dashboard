@@ -130,6 +130,22 @@ alter table public.collections add column if not exists updated_by    uuid;
 alter table public.collections add column if not exists jamaal_collection_id integer unique;
 create index if not exists collections_theft_idx on public.collections (picked_on) where theft;
 
+-- The source site's whole history lives here too (Sarge, 2026-10-24): every
+-- pickup since 2015 and every 0-3 code, copied by supabase_sync.py from the
+-- nightly scrape, with `source` = 'jamaal'. Entries made on this site are
+-- 'site'. The two are never added together: they record the same pickups
+-- (gallons are entered in both systems), the pages and the nightly comparison
+-- read only 'site' rows, and the site can neither change nor delete a 'jamaal'
+-- row (policies below). `jamaal_key` is customer:date:n (n = 0, 1, ... for the
+-- same customer and day, ordered by gallons): the source site has no pickup ids
+-- or times, so `entered_at` is empty on those rows.
+alter table public.collections add column if not exists source text not null default 'site';
+alter table public.collections drop constraint if exists collections_source_check;
+alter table public.collections add constraint collections_source_check check (source in ('site', 'jamaal'));
+alter table public.collections add column if not exists jamaal_key text unique;
+alter table public.collections alter column entered_at drop not null;
+create index if not exists collections_source_day_idx on public.collections (source, picked_on);
+
 -- Every insert, update and delete of a collection, appended by trigger. The
 -- site can read it but never write it, so the first account of a theft
 -- survives later edits and a deleted pickup is still on record. No foreign
@@ -169,6 +185,8 @@ as $$
 declare r public.collections;
 begin
   if tg_op = 'DELETE' then r := old; else r := new; end if;
+  -- Copies of the source site's history are not this site's actions.
+  if r.source = 'jamaal' then return null; end if;
   insert into public.collection_history
     (collection_id, op, customer_id, picked_on, gallons, theft, theft_note, changed_by)
   values (r.id, lower(tg_op), r.customer_id, r.picked_on, r.gallons, r.theft, r.theft_note,
@@ -248,6 +266,13 @@ create table if not exists public.outgoing (
   entered_at timestamptz not null default now(),
   check ((kind = 'stillage' and truck is not null) or (kind = 'schmutz' and gallons is not null))
 );
+-- The source site's outgoing log, as for collections: `source` = 'jamaal', one
+-- row per stillage run or Schmutz volume, `jamaal_key` = day:kind[:truck]:n.
+alter table public.outgoing add column if not exists source text not null default 'site';
+alter table public.outgoing drop constraint if exists outgoing_source_check;
+alter table public.outgoing add constraint outgoing_source_check check (source in ('site', 'jamaal'));
+alter table public.outgoing add column if not exists jamaal_key text unique;
+alter table public.outgoing alter column entered_at drop not null;
 
 -- Row-level security: on for every table, one "members only" policy each.
 alter table public.people       enable row level security;
@@ -281,6 +306,24 @@ begin
     execute format('drop policy if exists "members only" on public.%I', t);
     execute format('create policy "members only" on public.%I for all to authenticated
                     using ((select public.is_member())) with check ((select public.is_member()))', t);
+  end loop;
+end $$;
+
+-- The source site's rows are read-only to the site: members may add, change
+-- and delete only 'site' rows. (Restrictive policies narrow "members only".)
+do $$
+declare t text;
+begin
+  foreach t in array array['collections', 'outgoing'] loop
+    execute format('drop policy if exists "site rows only: add" on public.%I', t);
+    execute format('create policy "site rows only: add" on public.%I as restrictive for insert to authenticated
+                    with check (source = ''site'')', t);
+    execute format('drop policy if exists "site rows only: change" on public.%I', t);
+    execute format('create policy "site rows only: change" on public.%I as restrictive for update to authenticated
+                    using (source = ''site'') with check (source = ''site'')', t);
+    execute format('drop policy if exists "site rows only: delete" on public.%I', t);
+    execute format('create policy "site rows only: delete" on public.%I as restrictive for delete to authenticated
+                    using (source = ''site'')', t);
   end loop;
 end $$;
 

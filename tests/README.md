@@ -50,7 +50,11 @@ copies every customer and the assigned routes in order, a second seed never
 writes over the site's routes, the nightly never overwrites notes or writes
 stops, the route and pickup comparisons, and the details export (codes cut
 from the details file, full notes kept apart, site-made customers left out; an
-empty database exports nothing and a missing details file stops the sync).
+empty database exports nothing and a missing details file stops the sync), and the source site's history: one row per pickup and code with keys
+stable from night to night (two pickups on one day included), every run's
+truck accepted, history-only customers added as not active, the first run
+copying everything, the nightly sending only the last 90 days, removing a
+pickup gone from the source site and never touching the site's own entries).
 
 ## Adding one
 
