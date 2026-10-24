@@ -22,12 +22,16 @@
 <script src="ops-common.js"></script>
 <script>
 /*
- * Assign Routes (shadow). The source site's list of active customers, by town,
- * with a checkbox each and "Assign to" at the bottom. Added here:
- *   - each customer's projected gallons and % full in place of [days over];
- *   - a running total of the ticked customers, and what the chosen route
- *     totals before and after assigning them, against its truck;
- *   - a region filter (in place of Wheelhouse) and a most-urgent-first sort;
+ * Assign Routes (shadow). The source site's list of active customers, one
+ * line each in My Route's card style so many fit a phone screen, with a tick
+ * box each and "Assign to route" in a bar at the foot. Added here:
+ *   - each customer's projected gallons over capacity and [days past full];
+ *   - by town, a heading per town with Select all, so a
+ *     swath of stops is one tap; Urgent lists the builder's ranking instead;
+ *   - a running total of the ticked customers, and the chosen route's stops,
+ *     gallons and truck fill before → after assigning them;
+ *   - "+ New Route…" in the route list: makes a route of the ticked customers
+ *     and opens it on My Route with its name ready to type;
  *   - Add customer, kept in this browser like every other change.
  */
 
@@ -36,10 +40,22 @@ let store = null;         // the shadow copy (ops-common.js)
 let routeList = [];
 let picked = new Set();   // ticked customer ids
 let view = { search: "", region: "", sort: "town", route: "", mustGet: false };
+let groups = [];          // the town groups last drawn, for Select all
 let flash = "";
+let sharedSearch = "";    // text in Add customer's "Shares a barrel with" box
+let sharedWith = null;    // { customer_id, name, capacity } picked there
+
+const NEW_ROUTE = "new";
+
+let rowCache = null;      // customerRows(), until a customer is added or the copy reset
 
 /** The list: the source site's rows plus customers added in the shadow copy. */
 function customerRows() {
+  if (!rowCache) rowCache = buildCustomerRows();
+  return rowCache;
+}
+
+function buildCustomerRows() {
   const rows = data.snap.assign_list.map(a => ({ ...a, added: false }));
   store.added.forEach(c => rows.push({ customer_id: c.customer_id, name: c.name, city: c.city,
     days_over: null, added: true, capacity: c.capacity }));
@@ -58,49 +74,126 @@ function visibleRows() {
   let rows = customerRows().filter(r =>
     matchesNameSearch(q, [r.name, r.town, ...((r.row && r.row.members) || []).map(m => m.name)]) &&
     (!view.region || (r.row && (r.row.regions || []).includes(view.region))));
-  const byOrder = view.sort === "urgent"
-    ? (a, b) => (urgencyRank.get(a.row && a.row.id) ?? Infinity) - (urgencyRank.get(b.row && b.row.id) ?? Infinity)
-    : (a, b) => (a.town || "~").localeCompare(b.town || "~");
-  // While searching, names that start with the text come first, then names
-  // with a word that does; the chosen order applies within each group.
-  return rows.slice().sort((a, b) => searchRank(q, a.name) - searchRank(q, b.name) || byOrder(a, b));
+  if (view.sort === "town") {
+    // Towns in order, a town's customers in the site's order; while searching,
+    // names that start with the text come first within each town.
+    return rows.slice().sort((a, b) => !a.town - !b.town || a.town.localeCompare(b.town) ||
+      searchRank(q, a.name) - searchRank(q, b.name));
+  }
+  const rank = r => urgencyRank.get(r.row && r.row.id) ?? Infinity;
+  return rows.slice().sort((a, b) => searchRank(q, a.name) - searchRank(q, b.name) || rank(a) - rank(b));
 }
 
-function rowHtml(r, onRoutes) {
+const asStop = r => ({ customer_id: r.customer_id, name: r.name, capacity: r.capacity });
+
+/**
+ * A customer on one line: tick box, name, its figures, and › (the customer
+ * page). A tap anywhere but › ticks it. A dot after the name means it is on a
+ * route already (the routes are in its tooltip). In Urgent order the town
+ * follows the name, as there is no town heading above.
+ */
+function cardHtml(r, onRoutes, k = "") {
   const on = onRoutes.get(r.customer_id) || [];
-  return `<tr class="${picked.has(r.customer_id) ? "ops-picked" : ""}" data-row="${r.customer_id}">
-    <td><input type="checkbox" data-pick="${r.customer_id}" ${picked.has(r.customer_id) ? "checked" : ""}
-         aria-label="Select ${escapeHtml(r.name)}"></td>
-    <td><a href="ops-customer.html?id=${r.customer_id}">${escapeHtml(r.name || `(no name) #${r.customer_id}`)}</a>
-      ${stopFiguresHtml(r.row, r.capacity)}
-      ${r.added ? `<span class="ops-new">new · this browser only</span>` : ""}
-      ${on.length ? `<div class="ops-on-route">On ${escapeHtml(on.join(", "))}</div>` : ""}
-    </td>
-    <td class="ops-muted">${escapeHtml(r.town)}</td>
-  </tr>`;
+  const sel = picked.has(r.customer_id);
+  return `<div class="ops-pick-line${sel ? " ops-picked" : ""}" data-row="${r.customer_id}" data-group="${k}">
+    <input type="checkbox" class="ops-card-check" data-pick="${r.customer_id}" ${sel ? "checked" : ""}
+      aria-label="Select ${escapeHtml(r.name)}">
+    <span class="ops-pick-name">${escapeHtml(r.name || `(no name) #${r.customer_id}`)}${on.length
+      ? `<span class="ops-on-dot" title="On ${escapeHtml(on.join(", "))}" aria-label="On ${escapeHtml(on.join(", "))}"></span>` : ""}${
+      r.added ? ` <span class="ops-new">new</span>` : ""}${view.sort === "town" || !r.town ? ""
+      : ` <span class="ops-muted">· ${escapeHtml(r.town)}</span>`}</span>
+    <span class="ops-pick-figs${stopEstimate(r.row).kind === "projected" ? "" : " ops-pick-status"}">${stopFiguresHtml(r.row, r.capacity)}</span>
+    <a class="btn ops-plain-btn ops-pick-page" href="ops-customer.html?id=${r.customer_id}&from=assign"
+      aria-label="Customer page for ${escapeHtml(r.name)}">›</a>
+  </div>`;
+}
+
+/** The town's name, and Select all (Unselect all, filled, once every one is ticked). */
+function townHeadHtml(g, k) {
+  const all = g.rows.every(r => picked.has(r.customer_id));
+  return `<div class="ops-town-head">
+    <span class="ops-town-name">${escapeHtml(g.town || "(no town)")}</span>
+    <button type="button" class="btn ops-town-tick${all ? " ops-all" : ""}" data-tick-group="${k}">${all ? "Unselect all" : "Select all"}</button>
+  </div>`;
 }
 
 function renderList() {
   const rows = visibleRows();
   const onRoutes = storeRoutesByCustomer(store, routeList, data.index);
-  const body = rows.map(r => rowHtml(r, onRoutes)).join("");
-  document.getElementById("list").innerHTML = rows.length
-    ? `<table class="ops-assign-list w-100"><tbody>${body}</tbody></table>`
-    : `<div class="text-muted">No customers match.</div>`;
-  document.getElementById("count").textContent = `${rows.length} shown`;
+  let body;
+  if (view.sort === "town") {
+    groups = [];
+    rows.forEach(r => {
+      const last = groups[groups.length - 1];
+      if (last && last.town === r.town) last.rows.push(r); else groups.push({ town: r.town, rows: [r] });
+    });
+    body = groups.map((g, k) => townHeadHtml(g, k) + g.rows.map(r => cardHtml(r, onRoutes, k)).join("")).join("");
+  } else {
+    groups = [];
+    body = rows.map(r => cardHtml(r, onRoutes)).join("");
+  }
+  document.getElementById("list").innerHTML = rows.length ? body : `<div class="text-muted">No customers match.</div>`;
+  document.getElementById("count").innerHTML = `${rows.length} shown · <span class="ops-on-dot"></span> on a route`;
 }
+
+/**
+ * Tick or untick customers. Only their lines and their towns' Select all labels
+ * change in place, and the bar redraws: redrawing the whole list on every tap
+ * made the tick show late on a phone.
+ */
+function setPicked(ids, on) {
+  ids.forEach(id => (on ? picked.add(id) : picked.delete(id)));
+  const list = document.getElementById("list");
+  const touched = new Set();
+  ids.forEach(id => {
+    const line = list.querySelector(`[data-row="${id}"]`);
+    if (!line) return;
+    line.classList.toggle("ops-picked", on);
+    line.querySelector("input[data-pick]").checked = on;
+    if (line.dataset.group !== "") touched.add(Number(line.dataset.group));
+  });
+  touched.forEach(k => {
+    const all = groups[k].rows.every(r => picked.has(r.customer_id));
+    const btn = list.querySelector(`[data-tick-group="${k}"]`);
+    btn.textContent = all ? "Unselect all" : "Select all";
+    btn.classList.toggle("ops-all", all);
+  });
+  flash = "";
+  renderBar();
+}
+
+let rowsById = null;
 
 function pickedStops() {
-  const byId = new Map(customerRows().map(r => [r.customer_id, r]));
-  return [...picked].map(id => byId.get(id)).filter(Boolean)
-    .map(r => ({ customer_id: r.customer_id, name: r.name, capacity: r.capacity }));
+  if (!rowsById || rowsById.rows !== customerRows()) {
+    rowsById = { rows: customerRows(), map: new Map(customerRows().map(r => [r.customer_id, r])) };
+  }
+  const byId = rowsById.map;
+  return [...picked].map(id => byId.get(id)).filter(Boolean).map(asStop);
 }
 
-function routeFillHtml(totals, routeId) {
-  const fill = truckFill(totals, store.trucks[routeId]);
-  if (!fill) return "";
-  return ` · ${Math.round(fill.pct)}% of ${escapeHtml(fill.truck.name)}` +
-    (fill.pct > 100 ? " <strong class=\"text-danger\">over the tank</strong>" : "");
+/**
+ * The chosen route on one line: "9 → 12 stops · ~640 gal · 32% MD" (the
+ * gallons and fill are after assigning), with the truck bar beneath when the
+ * route has a truck. "New route: 3 stops · ~155 gal" for New Route….
+ */
+function routeLineHtml(stops) {
+  if (view.route === NEW_ROUTE) {
+    const t = routeSummary(stops, data.index).totals;
+    return `<div class="ops-assign-route">New route: ${stops.length} stop${stops.length === 1 ? "" : "s"}${stops.length
+      ? ` · ~${formatWhole(t.projected)} gal` : ""}</div>`;
+  }
+  const current = storeStops(store, view.route);
+  const merged = [...current, ...stops.filter(s => !current.some(c => c.customer_id === s.customer_id))];
+  const after = routeSummary(merged, data.index).totals;
+  const fill = truckFill(after, store.trucks[view.route]);
+  const count = merged.length === current.length ? `${current.length}` : `${current.length} → ${merged.length}`;
+  return `<div class="ops-assign-route${fill && fill.pct > 100 ? " text-danger" : ""}">${count} stop${merged.length === 1 ? "" : "s"}` +
+    ` · ~${formatWhole(after.projected)} gal${fill ? ` · ${Math.round(fill.pct)}% ${escapeHtml(fill.truck.abbr)}` +
+      (fill.pct > 100 ? " · over the tank" : "") : ""}
+    ${fill ? `<div class="progress"><div class="progress-bar ${
+      fill.level === "full" ? "bg-danger" : fill.level === "due" ? "bg-warning" : "bg-success"}"
+      style="width:${Math.min(100, fill.pct)}%"></div></div>` : ""}</div>`;
 }
 
 function renderBar() {
@@ -108,33 +201,27 @@ function renderBar() {
   bar.hidden = false;
   const stops = pickedStops();
   const sel = routeSummary(stops, data.index).totals;
-  let routeLine = "";
-  if (view.route) {
-    const current = storeStops(store, view.route);
-    // The route as it would be with the ticked customers added (as it is, when none are).
-    const merged = [...current, ...stops.filter(s => !current.some(c => c.customer_id === s.customer_id))];
-    const after = routeSummary(merged, data.index).totals;
-    const name = routeList.find(r => String(r.route_id) === String(view.route)).name;
-    routeLine = `<div class="mt-1">${escapeHtml(name)}: ${merged.length} stops, ` +
-      `~${formatWhole(after.projected)} gal${routeFillHtml(after, view.route)}</div>`;
-  }
+  const isNew = view.route === NEW_ROUTE;
+  // Bottom up: the dropdown row is always there, with the same space above it
+  // as below; the selection, the chosen route and any message stack above it.
   bar.innerHTML = `
-    <div>${stops.length
-      ? `<strong>${stops.length} selected:</strong> ~${formatWhole(sel.projected)} gal / ${formatWhole(sel.capacity)} capacity
-         <button type="button" class="btn btn-link btn-sm p-0 ms-2" data-clear>Clear</button>`
-      : `Tick customers to assign them.`}</div>
-    <div class="d-flex gap-2 align-items-center mt-1">
-      <select id="route" class="form-select form-select-sm" aria-label="Assign to route">
+    ${flash ? `<div class="text-success">${flash}</div>` : ""}
+    ${stops.length ? `<div class="ops-assign-sel">
+      <div class="flex-grow-1"><strong>${stops.length} selected</strong> · ~${formatWhole(sel.projected)} gal / ${formatWhole(sel.capacity)} capacity</div>
+      <button type="button" class="btn ops-plain-btn ops-assign-clear" data-clear>Clear</button>
+    </div>` : ""}
+    ${view.route ? routeLineHtml(stops) : ""}
+    <div class="ops-assign-row">
+      <select id="route" class="form-select" aria-label="Assign to route">
         <option value="">Assign to route…</option>
         ${routeList.map(r => `<option value="${r.route_id}"${String(r.route_id) === String(view.route) ? " selected" : ""}>` +
           `${escapeHtml(r.name)}</option>`).join("")}
+        <option value="${NEW_ROUTE}"${isNew ? " selected" : ""}>+ New Route…</option>
       </select>
-      <label class="form-check-label text-nowrap"><input type="checkbox" class="form-check-input" id="must"
-        ${view.mustGet ? "checked" : ""}> Must Get</label>
-      <button type="button" class="btn btn-primary btn-sm" data-assign ${stops.length && view.route ? "" : "disabled"}>Assign</button>
-    </div>
-    ${routeLine}
-    ${flash ? `<div class="text-success mt-1">${flash}</div>` : ""}`;
+      <label class="ops-assign-must"><input type="checkbox" class="form-check-input" id="must"
+        ${view.mustGet ? "checked" : ""}> Must get</label>
+      <button type="button" class="btn btn-primary" data-assign ${stops.length && view.route ? "" : "disabled"}>${isNew ? "Create" : "Assign"}</button>
+    </div>`;
 }
 
 function render() {
@@ -142,71 +229,146 @@ function render() {
   renderBar();
 }
 
+/** Up to 6 customers matching the "Shares a barrel with" box. */
+function sharedMatchesHtml() {
+  const q = sharedSearch.trim().toLowerCase();
+  if (sharedWith) {
+    return `<div class="ops-shared-pick">Shares with <strong>${escapeHtml(sharedWith.name)}</strong>
+      <button type="button" class="btn ops-plain-btn ops-card-x" data-unshare aria-label="Not shared">✕</button></div>`;
+  }
+  if (!q) return "";
+  const hits = customerRows().filter(r => matchesNameSearch(q, [r.name, r.town]))
+    .sort((a, b) => searchRank(q, a.name) - searchRank(q, b.name)).slice(0, 6);
+  if (!hits.length) return `<div class="ops-muted mt-1">No match.</div>`;
+  return `<div class="list-group mt-1">${hits.map(r => `<button type="button" class="list-group-item list-group-item-action"
+      data-share="${r.customer_id}">${escapeHtml(r.name || `#${r.customer_id}`)}
+      <span class="ops-muted">${escapeHtml(r.town)}${r.capacity != null ? ` · ${formatNumber(r.capacity)} gal barrel` : ""}</span></button>`).join("")}</div>`;
+}
+
+function drawShared() {
+  document.getElementById("shared-results").innerHTML = sharedMatchesHtml();
+  document.getElementById("shared-search").hidden = !!sharedWith;
+}
+
 function buildShell() {
   const regions = [...new Set(data.projections.region_order || [])];
+  const field = (name, label, attrs = "") => `<div class="ops-add-field"><label for="add-${name}">${label}</label>
+    <input class="form-control" id="add-${name}" name="${name}" ${attrs}></div>`;
   document.getElementById("page").innerHTML = `
-    <h2>Assign Routes</h2>
+    <div class="d-flex align-items-center gap-2 mb-1">
+      <h2 class="ops-page-title flex-grow-1">Assign Routes</h2>
+      <button type="button" class="btn ops-plain-btn ops-add-btn" id="add-open" aria-expanded="false">+ Add customer</button>
+    </div>
     <div class="ops-muted mb-2">Projections as of ${escapeHtml(formatDate(data.projections.as_of))}.
       <span class="text-nowrap">(Projected gal (~) / capacity)</span>
       <span class="text-nowrap">[days past full; − = days to full]</span></div>
 
-    <div class="d-flex flex-wrap gap-2 align-items-center mb-2">
-      <input type="search" id="search" class="form-control form-control-sm w-auto" placeholder="Search name or town">
-      <select id="region" class="form-select form-select-sm w-auto">
+    <form id="add" class="ops-add-form" autocomplete="off" hidden>
+      ${field("name", "Name", "required")}
+      ${field("address", "Street address", 'placeholder="e.g. 12 Main St"')}
+      ${field("city", "Town")}
+      <div class="ops-add-pair">
+        ${field("capacity", "Capacity (gal)", 'type="number" inputmode="numeric" min="0"')}
+        ${field("periodicity", "Periodicity (days)", 'type="number" inputmode="numeric" min="0"')}
+      </div>
+      ${field("phone", "Phone", 'type="tel"')}
+      <div class="ops-add-field"><label for="add-notes">Notes</label>
+        <textarea class="form-control" id="add-notes" name="notes" rows="2" placeholder="Directions, where the barrel is"></textarea></div>
+      <div class="ops-add-field"><label for="shared-search">Shares a barrel with <span class="text-muted">(optional)</span></label>
+        <input type="search" class="form-control" id="shared-search" placeholder="Search name or town" autocomplete="off">
+        <div id="shared-results"></div></div>
+      <div class="d-flex gap-2 mt-1">
+        <button class="btn btn-primary ops-add-go">Add</button>
+        <button type="button" class="btn ops-plain-btn ops-add-go" id="add-cancel">Cancel</button>
+      </div>
+      <div class="ops-muted">Saved in this browser only; nothing reaches the source site or the repo.
+        A shared barrel takes the other customer's capacity when Capacity is left blank.</div>
+    </form>
+
+    <input type="search" id="search" class="form-control ops-ctl mb-2" placeholder="Search name or town" aria-label="Search name or town">
+    <div class="d-flex gap-2 mb-1">
+      <div class="ops-seg" role="group" aria-label="Order">
+        <button type="button" data-sort="town" aria-pressed="true">Town</button>
+        <button type="button" data-sort="urgent" aria-pressed="false">Urgent</button>
+      </div>
+      <select id="region" class="form-select ops-ctl" aria-label="Region">
         <option value="">All regions</option>
         ${regions.map(r => `<option value="${escapeHtml(r)}">${escapeHtml(r)}</option>`).join("")}
       </select>
-      <select id="sort" class="form-select form-select-sm w-auto">
-        <option value="town">By town (as on the site)</option>
-        <option value="urgent">Most urgent first</option>
-      </select>
-      <span class="ops-muted" id="count"></span>
     </div>
-
-    <details class="mb-3">
-      <summary class="btn btn-outline-secondary btn-sm">+ Add customer</summary>
-      <form id="add" class="row g-2 mt-1" autocomplete="off">
-        <div class="col-12 col-md-4"><input class="form-control form-control-sm" name="name" placeholder="Name" required></div>
-        <div class="col-6 col-md-3"><input class="form-control form-control-sm" name="city" placeholder="Town"></div>
-        <div class="col-3 col-md-2"><input class="form-control form-control-sm" name="capacity" type="number" min="0" placeholder="Capacity"></div>
-        <div class="col-3 col-md-2"><input class="form-control form-control-sm" name="periodicity" type="number" min="0" placeholder="Periodicity (days)"></div>
-        <div class="col-12 col-md-1"><button class="btn btn-success btn-sm w-100">Add</button></div>
-        <div class="col-12 ops-muted">Saved in this browser only. No address or phone: this site is public.</div>
-      </form>
-    </details>
+    <div class="ops-muted mb-1" id="count"></div>
 
     <div id="list"></div>`;
 
   const page = document.getElementById("page");
+  const form = document.getElementById("add");
+  const openAdd = open => {
+    form.hidden = !open;
+    document.getElementById("add-open").setAttribute("aria-expanded", String(open));
+    if (open) document.getElementById("add-name").focus();
+  };
+  document.getElementById("add-open").addEventListener("click", () => openAdd(form.hidden));
+  document.getElementById("add-cancel").addEventListener("click", () => {
+    form.reset(); sharedSearch = ""; sharedWith = null; drawShared(); openAdd(false);
+  });
   document.getElementById("search").addEventListener("input", e => { view.search = e.target.value.trim(); renderList(); });
   document.getElementById("region").addEventListener("change", e => { view.region = e.target.value; renderList(); });
-  document.getElementById("sort").addEventListener("change", e => { view.sort = e.target.value; renderList(); });
-  // A tap anywhere on a row ticks it, as if on its checkbox.
+  document.getElementById("shared-search").addEventListener("input", e => { sharedSearch = e.target.value; drawShared(); });
   page.addEventListener("click", e => {
-    const tr = e.target.closest && e.target.closest("tr[data-row]");
-    // The name is a link to the customer page: following it never ticks the row.
-    if (!tr || e.target.matches("input[type=checkbox]") || e.target.closest("a")) return;
-    const box = tr.querySelector("input[data-pick]");
-    box.checked = !box.checked;
-    box.dispatchEvent(new Event("change", { bubbles: true }));
+    const sort = e.target.closest("[data-sort]");
+    if (sort) {
+      view.sort = sort.dataset.sort;
+      page.querySelectorAll("[data-sort]").forEach(b => b.setAttribute("aria-pressed", String(b === sort)));
+      renderList();
+      return;
+    }
+    const share = e.target.closest("[data-share]");
+    if (share) {
+      const r = customerRows().find(x => x.customer_id === Number(share.dataset.share));
+      sharedWith = asStop(r);
+      drawShared();
+      return;
+    }
+    if (e.target.closest("[data-unshare]")) {
+      sharedWith = null; sharedSearch = "";
+      document.getElementById("shared-search").value = "";
+      drawShared();
+      return;
+    }
+    const tick = e.target.closest("[data-tick-group]");
+    if (tick) {
+      const ids = groups[Number(tick.dataset.tickGroup)].rows.map(r => r.customer_id);
+      setPicked(ids, !ids.every(id => picked.has(id)));
+      return;
+    }
+    // A tap anywhere on a line ticks it, as if on its tick box; › never does.
+    const card = e.target.closest("[data-row]");
+    if (!card || e.target.matches("input[type=checkbox]") || e.target.closest("a")) return;
+    const id = Number(card.dataset.row);
+    setPicked([id], !picked.has(id));
   });
   page.addEventListener("change", e => {
     const id = e.target.dataset && e.target.dataset.pick;
     if (id === undefined) return;
-    if (e.target.checked) picked.add(Number(id)); else picked.delete(Number(id));
-    e.target.closest("tr").classList.toggle("ops-picked", e.target.checked);
-    flash = "";
-    renderBar();
+    setPicked([Number(id)], e.target.checked);
   });
-  document.getElementById("add").addEventListener("submit", e => {
+  form.addEventListener("submit", e => {
     e.preventDefault();
-    const f = new FormData(e.target);
-    if (!String(f.get("name") || "").trim()) return;
-    const c = addShadowCustomer(store, Object.fromEntries(f));
+    const fields = Object.fromEntries(new FormData(e.target));
+    if (!String(fields.name || "").trim()) return;
+    if (sharedWith) {
+      fields.shared_with = sharedWith.customer_id;
+      // Each member of a shared barrel lists the whole barrel's capacity.
+      if (!String(fields.capacity || "").trim() && sharedWith.capacity != null) fields.capacity = sharedWith.capacity;
+    }
+    const c = addShadowCustomer(store, fields);
     saveStore(store);
+    rowCache = null;
     e.target.reset();
+    sharedSearch = ""; sharedWith = null; drawShared();
+    openAdd(false);
     picked.add(c.customer_id);
-    flash = `Added ${escapeHtml(c.name)}; it is ticked below.`;
+    flash = `Added ${escapeHtml(c.name)}; it is ticked.`;
     render();
   });
 
@@ -218,6 +380,14 @@ function buildShell() {
   bar.addEventListener("click", e => {
     if (e.target.closest("[data-clear]")) { picked.clear(); flash = ""; render(); return; }
     if (!e.target.closest("[data-assign]")) return;
+    if (view.route === NEW_ROUTE) {
+      // The route is made here; My Route opens it with its name ready to type.
+      const id = createRoute(store);
+      assignToRoute(store, id, pickedStops(), view.mustGet);
+      saveStore(store);
+      window.location.href = `ops-myroute.html?new=${id}`;
+      return;
+    }
     const n = assignToRoute(store, Number(view.route), pickedStops(), view.mustGet);
     saveStore(store);
     const name = routeList.find(r => String(r.route_id) === String(view.route)).name;
@@ -228,6 +398,10 @@ function buildShell() {
     render();
   });
 }
+
+// iOS Safari applies :active (the pressed shade on a line) only once a page
+// listens for touches; this listener does nothing else.
+document.addEventListener("touchstart", () => {}, { passive: true });
 
 async function init() {
   document.getElementById("nav").innerHTML = opsNavHtml("assign");
@@ -243,12 +417,15 @@ async function init() {
     return;
   }
   store = loadStore(data.snap);
-  routeList = opsRouteList(data.snap);
+  routeList = opsRouteList(data.snap, store);
   urgencyRank = new Map(data.projections.customers.filter(c => c.section === "ranked").map((c, i) => [c.id, i]));
   const banner = document.getElementById("banner");
   banner.innerHTML = shadowBannerHtml(store, data.snap);
   wireShadowReset(banner, data.snap, fresh => {
     store = fresh;
+    rowCache = null;
+    routeList = opsRouteList(data.snap, store);
+    if (!routeList.some(r => String(r.route_id) === String(view.route)) && view.route !== NEW_ROUTE) view.route = "";
     banner.innerHTML = shadowBannerHtml(store, data.snap);
     picked.clear();
     render();

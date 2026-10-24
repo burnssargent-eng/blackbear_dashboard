@@ -74,9 +74,10 @@ async function loadOpsData() {
 /**
  * Every route id once, in the Assign dropdown's order, named as Today's Routes
  * names it where it has stops (the two pages disagree: route 4 is "MamaBear"
- * in the dropdown and "Stowe/Wtbry/MRV" on Today's Routes).
+ * in the dropdown and "Stowe/Wtbry/MRV" on Today's Routes). With the shadow
+ * copy, the routes made in it ("New Route…") follow, under their own names.
  */
-function opsRouteList(snap) {
+function opsRouteList(snap, store = null) {
   const todays = new Map((snap.routes || []).map(r => [r.route_id, r.name]));
   const seen = new Map();
   (snap.route_names || []).forEach(r => {
@@ -91,6 +92,8 @@ function opsRouteList(snap) {
   (snap.routes || []).forEach(r => {
     if (!seen.has(r.route_id)) seen.set(r.route_id, { route_id: r.route_id, name: r.name, aliases: [] });
   });
+  ((store && store.newRoutes) || []).forEach(r =>
+    seen.set(r.route_id, { route_id: r.route_id, name: r.name, aliases: [], shadow: true }));
   return [...seen.values()];
 }
 
@@ -105,13 +108,13 @@ function freshStore(snap) {
     }));
   });
   return { v: 1, base: snap.scraped_at, nextId: -1, routes, added: [], collections: [],
-    outgoing: [], trucks: {}, my: null };
+    outgoing: [], trucks: {}, my: null, newRoutes: [] };
 }
 
 function loadStore(snap) {
   try {
     const saved = JSON.parse(window.localStorage.getItem(OPS_STORAGE_KEY) || "null");
-    if (saved && saved.v === 1 && saved.routes) return { outgoing: [], ...saved };
+    if (saved && saved.v === 1 && saved.routes) return { outgoing: [], newRoutes: [], ...saved };
   } catch (err) { /* blocked storage: work in memory */ }
   return freshStore(snap);
 }
@@ -148,14 +151,35 @@ function storeRoutesByCustomer(store, routeList, byId) {
     ({ name: r.name, stops: storeStops(store, r.route_id) })) }, byId);
 }
 
-/** A new customer added in the shadow copy; negative ids never clash with the site's. */
+/**
+ * A new customer added in the shadow copy; negative ids never clash with the
+ * site's. The source site's Add Customer fields, less zip code. The phone
+ * stays in this browser's storage: it never reaches the repo or the site.
+ * `shared_with` is the customer id whose barrel this one shares.
+ */
 function addShadowCustomer(store, fields) {
   const id = store.nextId--;
-  const c = { customer_id: id, name: fields.name.trim(), city: (fields.city || "").trim(),
+  const text = k => String(fields[k] || "").trim();
+  const c = { customer_id: id, name: text("name"), address: text("address"), city: text("city"),
     capacity: Number(fields.capacity) || null, periodicity: Number(fields.periodicity) || null,
+    phone: text("phone"), notes: text("notes"), shared_with: Number(fields.shared_with) || null,
     added: new Date().toISOString().slice(0, 10) };
   store.added.push(c);
   return c;
+}
+
+/** A route made in the shadow copy (Assign Routes' "New Route…"); its id is negative. */
+function createRoute(store, name = "New route") {
+  const id = store.nextId--;
+  store.newRoutes = [...(store.newRoutes || []), { route_id: id, name }];
+  store.routes[id] = [];
+  return id;
+}
+
+/** Rename a route made in the shadow copy; a blank name keeps the old one. */
+function renameRoute(store, routeId, name) {
+  const r = (store.newRoutes || []).find(x => x.route_id === routeId);
+  if (r && name.trim()) r.name = name.trim();
 }
 
 function todayIso() {

@@ -26,7 +26,9 @@
  * My Route (shadow): the source site's "My Route" and "Today's Routes" in one
  * page. Every route is listed collapsed; opening one shows its stops, which
  * can be reordered (hold a stop a quarter of a second and drag it), opened on
- * their customer page, removed (with Undo), or added to straight from a search. "Set as My Route" opens the driver view
+ * their customer page, removed (with Undo), or added to straight from a search. A route made with
+ * Assign Routes' "New Route…" arrives as ?new=<id>: it opens first, its name ready to type.
+ * "Set as My Route" opens the driver view
  * for entering gallons. Everything is saved in the shadow copy, in this
  * browser only.
  */
@@ -38,6 +40,8 @@ let openRoutes = new Set();          // route ids expanded in the list
 let addSearch = {};                  // route id -> text in its Add stop box
 let lastMoved = null;                // { route, i } of the stop just dragged, flashed once
 let removed = null;                  // { route, i, stop, timer }: the last stop removed, until Undo times out
+let naming = null;                   // { route, text }: a shadow-made route whose name box is open
+let madeNow = null;                  // the route just made with "New Route…": listed first on this visit
 
 const UNDO_MS = 6000;
 
@@ -120,15 +124,26 @@ function routeHtml(route) {
   // Today's collections replace their stops' projections in every figure shown.
   const live = { ...totals, ...liveRouteTotals(lines, store) };
   const id = route.route_id;
+  const sum = `${stops.length} stop${stops.length === 1 ? "" : "s"}${stops.length
+    ? ` · ~${formatWhole(live.projected)} gal` : ""}`;
+  // While its name is being typed the route is a plain box, not a <details>:
+  // keys typed in a <summary> can fold it.
+  const isNaming = naming && naming.route === id;
   return `
-    <details class="ops-route" data-route-box="${id}" ${openRoutes.has(id) ? "open" : ""}>
+    ${isNaming ? `<div class="ops-route" data-route-box="${id}">
+      <div class="ops-route-naming">
+        <input class="form-control ops-route-name-input" data-name="${id}" value="${escapeHtml(naming.text)}"
+          aria-label="Route name" enterkeyhint="done" autocomplete="off">
+        <button type="button" class="btn btn-primary" data-act="name-done">Done</button>
+      </div>
+      <div class="ops-route-body"><div class="ops-route-sum mb-2">${sum}</div>`
+    : `<details class="ops-route" data-route-box="${id}" ${openRoutes.has(id) ? "open" : ""}>
       <summary>
         <span class="ops-route-name">${escapeHtml(route.name)}</span>
-        <span class="ops-route-sum">${stops.length} stop${stops.length === 1 ? "" : "s"}${stops.length
-          ? ` · ~${formatWhole(live.projected)} gal` : ""}</span>
+        <span class="ops-route-sum">${sum}</span>
         ${store.trucks[id] ? `<span class="badge bg-secondary">${escapeHtml(store.trucks[id])}</span>` : ""}
       </summary>
-      <div class="ops-route-body">
+      <div class="ops-route-body">`}
         <div class="d-flex flex-wrap gap-2 align-items-center mb-2">
           <select class="form-select form-select-sm w-auto" data-truck="${id}" aria-label="Truck">
             <option value="">Truck…</option>
@@ -136,6 +151,8 @@ function routeHtml(route) {
           </select>
           <button type="button" class="btn btn-primary btn-sm" data-act="set" data-route="${id}"
             ${stops.length ? "" : "disabled"}>Set as My Route</button>
+          ${route.shadow && !isNaming ? `<button type="button" class="btn ops-plain-btn btn-sm" data-act="rename"
+            data-route="${id}">Rename</button>` : ""}
         </div>
         ${route.aliases.length ? `<div class="ops-muted mb-2">Also called ${escapeHtml(route.aliases.join(", "))} on the source site.</div>` : ""}
         ${stops.length ? `
@@ -145,11 +162,13 @@ function routeHtml(route) {
           placeholder="Add a stop: search name or town" value="${escapeHtml(addSearch[id] || "")}" autocomplete="off">
         <div data-add-results="${id}">${addMatchesHtml(id)}</div>
       </div>
-    </details>`;
+    ${isNaming ? "</div>" : "</details>"}`;
 }
 
 function renderList() {
-  const withStops = routeList.filter(r => storeStops(store, r.route_id).length);
+  // The route just made comes first, so it is in view as the page opens and after naming it.
+  const first = r => (r.route_id === madeNow ? 0 : 1);
+  const withStops = routeList.filter(r => storeStops(store, r.route_id).length).sort((a, b) => first(a) - first(b));
   const empty = routeList.filter(r => !storeStops(store, r.route_id).length);
   const html = `
     <h2>My Route</h2>
@@ -162,6 +181,8 @@ function renderList() {
       <button type="button" class="btn ops-undo-btn" data-act="unremove">Undo</button></div>` : ""}`;
   document.getElementById("page").innerHTML = html;
   lastMoved = null;
+  const box = naming && document.querySelector(`[data-name="${naming.route}"]`);
+  if (box) { box.focus(); box.select(); }
 }
 
 /* ── Reordering stops by dragging ───────────────────────────
@@ -487,6 +508,19 @@ function onAct(b) {
       addSearch[routeId] = "";
       break;
     }
+    case "rename": {
+      naming = { route: routeId, text: routeList.find(r => r.route_id === routeId).name };
+      render();
+      return;
+    }
+    case "name-done": {
+      if (!naming) return;
+      renameRoute(store, naming.route, naming.text);
+      openRoutes.add(naming.route);
+      routeList = opsRouteList(data.snap, store);
+      naming = null;
+      break;
+    }
     case "set": store.my = { routeId }; activeId = null; openDetails = null; theftOpen = null; window.scrollTo(0, 0); break;
     case "save": {
       const stop = storeStops(store, store.my.routeId)[i];
@@ -571,7 +605,14 @@ function wire() {
     saveStore(store);
     render();
   });
+  page.addEventListener("keydown", e => {
+    if (e.key === "Enter" && e.target.dataset && e.target.dataset.name !== undefined) {
+      e.preventDefault();
+      onAct({ dataset: { act: "name-done" } });
+    }
+  });
   page.addEventListener("input", e => {
+    if (naming && e.target.dataset && e.target.dataset.name !== undefined) { naming.text = e.target.value; return; }
     const id = e.target.dataset && e.target.dataset.addSearch;
     if (id === undefined) return;
     addSearch[id] = e.target.value;
@@ -589,11 +630,22 @@ async function init() {
     return;
   }
   store = loadStore(data.snap);
-  routeList = opsRouteList(data.snap);
+  routeList = opsRouteList(data.snap, store);
+  // Arriving from Assign Routes' "New Route…": open the new route, its name ready to type.
+  const made = routeList.find(r => r.shadow && String(r.route_id) === getUrlParam("new"));
+  if (made) {
+    naming = { route: made.route_id, text: made.name };
+    madeNow = made.route_id;
+    openRoutes.add(made.route_id);
+    store.my = null;
+    history.replaceState(null, "", "ops-myroute.html");
+  }
   const banner = document.getElementById("banner");
   banner.innerHTML = shadowBannerHtml(store, data.snap);
   wireShadowReset(banner, data.snap, fresh => {
     store = fresh;
+    routeList = opsRouteList(data.snap, store);
+    naming = null;
     banner.innerHTML = shadowBannerHtml(store, data.snap);
     render();
   });

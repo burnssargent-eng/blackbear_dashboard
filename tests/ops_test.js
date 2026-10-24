@@ -21,7 +21,7 @@ const code = ["dashboard-utils.js", "route-utils.js", "ops-common.js"]
   .map(f => fs.readFileSync(f, "utf8")).join("\n");
 const api = new Function("window", code + `
   return { freshStore, loadStore, saveStore, storeStops, assignToRoute, opsRouteList,
-    addShadowCustomer, storeRoutesByCustomer, buildIndex, opsNavHtml, OPS_NAV,
+    addShadowCustomer, createRoute, renameRoute, storeRoutesByCustomer, buildIndex, opsNavHtml, OPS_NAV,
     recordCollection, todaysCollection, liveRouteTotals, routeSummary, recordTheft, theftGallonsText };`)(window);
 
 let fails = 0;
@@ -72,6 +72,24 @@ ok(c.customer_id < 0 && c.name === "Test Diner" && c.capacity === 150 && c.perio
   "an added customer gets a negative id and tidy fields");
 ok(store.nextId < last.assignment_id && store.nextId < c.customer_id, "ids are never reused");
 
+const c2 = api.addShadowCustomer(store, { name: "Test Annex", address: " 12 Main St ", city: "Barre",
+  phone: "802-555-0100", notes: "back door", shared_with: String(c.customer_id) });
+ok(c2.address === "12 Main St" && c2.phone === "802-555-0100" && c2.notes === "back door" &&
+  c2.shared_with === c.customer_id, "an added customer keeps address, phone, notes and its shared barrel");
+
+// ── New Route… ──
+const made = api.createRoute(store);
+api.assignToRoute(store, made, [fresh], false);
+api.renameRoute(store, made, "  Barre loop ");
+api.renameRoute(store, made, "   ");
+const withNew = api.opsRouteList(snap, store);
+ok(made < 0 && withNew.slice(-1)[0].route_id === made && withNew.slice(-1)[0].name === "Barre loop" &&
+  withNew.slice(-1)[0].shadow, "a new route gets a negative id, comes last, and keeps its name over a blank rename");
+ok(api.opsRouteList(snap).length === withNew.length - 1, "without the copy, the list is the source site's routes only");
+api.renameRoute(store, route, "Hijack");
+ok(api.opsRouteList(snap, store).find(r => r.route_id === route).name !== "Hijack",
+  "the source site's routes cannot be renamed");
+
 const on = api.storeRoutesByCustomer(store, list, byId);
 ok((on.get(fresh.customer_id) || []).includes(list.find(r => r.route_id === route).name),
   "the on-route lookup sees the shadow copy, not the snapshot");
@@ -79,7 +97,8 @@ ok((on.get(fresh.customer_id) || []).includes(list.find(r => r.route_id === rout
 // ── Saving ──
 api.saveStore(store);
 const back = api.loadStore(snap);
-ok(back.routes[route].length === before + 1 && back.added.length === 1, "the copy survives a reload");
+ok(back.routes[route].length === before + 1 && back.added.length === 2 && back.newRoutes.length === 1,
+  "the copy survives a reload");
 memory["bbb-ops-shadow-v1"] = "{not json";
 ok(api.loadStore(snap).routes[route].length === before, "a broken saved copy falls back to a fresh one");
 

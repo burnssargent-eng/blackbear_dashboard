@@ -20,28 +20,83 @@ body { background: #fff; }
 .ops-on-route { color: #212529; font-weight: bold; font-size: 0.85em; }
 .ops-new { color: #b35c00; font-size: 0.85em; }
 
-/* Assign Routes: the source site's plain striped list (16px, as there), with a
-   sticky assign bar in the same size. A tap anywhere on a row ticks it. */
-.ops-assign-list { font-size: 16px; table-layout: fixed; }
-.ops-assign-list td { padding: 6px; vertical-align: top; overflow-wrap: anywhere; }
-.ops-assign-list td:first-child { width: 34px; }
-.ops-assign-list td:last-child { width: 28%; }
-.ops-assign-list .ops-proj { white-space: normal; font-size: 0.85em; }
-.ops-assign-list tr { cursor: pointer; }
-.ops-assign-list tbody tr:nth-child(odd) td { background: #f2f2f2; }
-.ops-assign-list input[type=checkbox] { width: 1.1em; height: 1.1em; margin-top: 0.2em; }
-.ops-assign-list tr.ops-picked td { background: #dbeafe; }
+/* Assign Routes: My Route's cards, under a heading per town, with the assign
+   bar stuck to the foot of the screen. A tap anywhere on a card but Page
+   ticks it; a ticked card is outlined in blue. Controls are 32-40px. */
+.ops-page-title { font-size: 24px; font-weight: 600; margin: 0; }
+.ops-ctl { height: 40px; font-size: 16px; }
+.ops-add-btn { height: 36px; padding: 0 12px; font-size: 14px; display: inline-flex; align-items: center; }
+/* Town | Urgent: a two-way switch, the chosen side dark. */
+.ops-seg { display: flex; flex: 0 0 auto; height: 40px; border: 1px solid #ced4da; border-radius: 6px; overflow: hidden; }
+.ops-seg button { border: 0; background: #fff; color: #212529; font-size: 15px; padding: 0 14px; }
+.ops-seg button + button { border-left: 1px solid #ced4da; }
+.ops-seg button[aria-pressed="true"] { background: #212529; color: #fff; font-weight: 600; }
+/* Town headings as in the A3 sample: small grey capitals, no rule, spaced
+   like the lines; Select all right after the name. Sticky, on white. */
+.ops-town-head { position: sticky; top: 0; z-index: 3; display: flex; align-items: center; gap: 8px;
+  background: #fff; padding: 2px; margin: 6px 0 2px; }
+.ops-town-name { min-width: 0; font-size: 13px; font-weight: 700; color: #495057; text-transform: uppercase;
+  letter-spacing: 0.04em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* Select all: light-blue outline, filled once the whole town is ticked
+   (Unselect all). Drawn 24px tall to keep the heading slim; the tap area
+   reaches 36px (6px above and below) for a gloved thumb. */
+.ops-town-tick { position: relative; flex: 0 0 auto; height: 24px; padding: 0 8px; font-size: 12px; font-weight: 600;
+  display: inline-flex; align-items: center; touch-action: manipulation; transition: none;
+  color: #0d6efd; background: #fff; border: 1px solid #9ec5fe; border-radius: 6px; }
+.ops-town-tick:hover, .ops-town-tick:focus { color: #0d6efd; }
+.ops-town-tick.ops-all { background: #e7f1ff; border-color: #0d6efd; }
+.ops-town-tick::after { content: ""; position: absolute; left: 0; right: 0; top: -6px; bottom: -6px; }
+/* One line per customer, 40px tall: tick | name (cut short when long) | figures | ›.
+   Projected figures are never cut; a status instead ("stale - projection not
+   meaningful") is, so the name keeps at least 90px. */
+.ops-pick-line { display: flex; align-items: center; gap: 8px; height: 40px; padding: 3px 6px; margin-bottom: 4px;
+  border: 1px solid #dee2e6; border-radius: 6px; background: #fff; cursor: pointer;
+  -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+.ops-pick-line.ops-picked { border-color: #0d6efd; box-shadow: 0 0 0 1px #0d6efd; background: #eef4ff; }
+/* Shown the moment a finger lands; the tick itself waits for the lift, so a
+   scroll that starts on a line never ticks it. */
+.ops-pick-line:active { background: #dbe7fb; }
+.ops-town-tick:active { background: #cfe2ff; }
+.ops-card-check { flex: 0 0 auto; width: 24px; height: 24px; margin: 0; accent-color: #0d6efd; touch-action: manipulation; }
+.ops-pick-name { flex: 1 1 auto; min-width: 90px; font-size: 16px; font-weight: 500; color: #212529;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ops-pick-figs { flex: 0 0 auto; font-size: 13px; white-space: nowrap; }
+.ops-pick-figs.ops-pick-status { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.ops-pick-figs .ops-proj, .ops-pick-figs .ops-days, .ops-pick-figs .graytext, .ops-pick-figs .ops-muted { font-size: 13px; }
+.ops-pick-page { flex: 0 0 auto; width: 36px; height: 32px; padding: 0; font-size: 16px;
+  display: inline-flex; align-items: center; justify-content: center; }
+.ops-on-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #212529;
+  margin-left: 5px; vertical-align: middle; }
 
 .ops-assign-bar {
-  position: sticky; bottom: 0; z-index: 10; background: #f8f9fa;
-  border-top: 1px solid #dee2e6; padding: 10px 12px; font-size: 16px;
+  position: sticky; bottom: 0; z-index: 10; background: #fff; border-top: 1px solid #dee2e6;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.06); padding: 12px; font-size: 16px;
+  display: flex; flex-direction: column; gap: 8px;
 }
-.ops-assign-bar .form-select, .ops-assign-bar .btn { font-size: 16px; }
-.ops-assign-bar .form-select { flex: 1 1 auto; min-width: 0; max-width: 260px; }
+.ops-assign-sel { display: flex; align-items: center; gap: 8px; min-height: 32px; }
+.ops-assign-clear { height: 32px; padding: 0 10px; font-size: 14px; display: inline-flex; align-items: center; }
+.ops-assign-row { display: flex; align-items: center; gap: 8px; }
+.ops-assign-row .form-select { flex: 1 1 auto; min-width: 0; max-width: 320px; height: 40px; font-size: 16px; }
+.ops-assign-row .btn { height: 40px; padding: 0 16px; font-size: 16px; font-weight: 600; }
+.ops-assign-must { display: flex; align-items: center; gap: 6px; height: 40px; font-size: 15px; white-space: nowrap; }
+.ops-assign-must .form-check-input { width: 22px; height: 22px; margin: 0; }
+.ops-assign-route { font-size: 14px; color: #495057; }
+.ops-assign-route .progress { height: 10px; margin-top: 4px; }
+
+/* Add customer: stacked, labelled 40px fields. */
+.ops-add-form { border: 1px solid #dee2e6; border-radius: 8px; padding: 10px 12px; margin-bottom: 12px;
+  display: flex; flex-direction: column; gap: 8px; max-width: 560px; }
+.ops-add-form[hidden] { display: none; }
+.ops-add-field label { font-size: 14px; color: #495057; margin-bottom: 2px; }
+.ops-add-field input { height: 40px; font-size: 16px; }
+.ops-add-field textarea { font-size: 16px; }
+.ops-add-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.ops-add-go { height: 40px; padding: 0 18px; font-size: 16px; display: inline-flex; align-items: center; }
+.ops-shared-pick { display: flex; align-items: center; gap: 8px; min-height: 40px; font-size: 15px; }
 
 /* My Route: routes collapsed in a list, in the collecting page's style:
    white boxes, light borders, the stops as cards. */
-details.ops-route { border: 1px solid #dee2e6; border-radius: 8px; margin-bottom: 8px; background: #fff; }
+.ops-route { border: 1px solid #dee2e6; border-radius: 8px; margin-bottom: 8px; background: #fff; }
 details.ops-route > summary {
   list-style: none; cursor: pointer; padding: 10px 12px; border-radius: 8px;
   display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline;
@@ -231,3 +286,8 @@ details.ops-route[open] > summary::before { content: "▾"; }
 .ops-drive-title { font-size: 20px; font-weight: 600; line-height: 1.2; min-width: 0;
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ops-shadow .btn { font-size: 12px; }
+
+/* My Route: a route made with "New Route…", its name being typed. */
+.ops-route-naming { display: flex; gap: 8px; align-items: center; padding: 10px 12px; }
+.ops-route-name-input { flex: 1 1 auto; min-width: 0; height: 40px; font-size: 20px; font-weight: 600; }
+.ops-route-naming .btn { height: 40px; padding: 0 14px; font-size: 15px; font-weight: 600; }

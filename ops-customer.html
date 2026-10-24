@@ -104,13 +104,16 @@ function homeHtml(row, today, onRoutes, capacity) {
         ? `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(details.address)}" target="_blank" rel="noopener">${escapeHtml(details.address)}</a>`
         : "—")}
       ${dd("Capacity", capacity ?? "—")}
-      ${dd("Periodicity", row && row.periodicity_days ? `${formatWhole(row.periodicity_days)} days` : "—")}
+      ${dd("Periodicity", row && row.periodicity_days ? `${formatWhole(row.periodicity_days)} days`
+        : customer.customer_id < 0 && siteFigures.periodicity_days ? `${formatWhole(siteFigures.periodicity_days)} days (as entered)` : "—")}
       ${dd("Last pickup", row && row.last_pickup ? escapeHtml(formatDate(row.last_pickup)) : "—")}
       ${dd("Projection", est.kind === "projected"
         ? `<span class="ops-fill-${fillLevel(row)}">~${formatWhole(est.gal)} gal</span>` +
           (days === null || days === undefined ? "" : ` <span class="ops-days">[${Math.round(days)}]</span>`)
         : escapeHtml(row ? (row.status || row.section) : "—"))}
       ${dd("On route", onRoutes.length ? escapeHtml(onRoutes.join(", ")) : "—")}
+      ${customer.phone ? dd("Phone", `<a href="tel:${escapeHtml(customer.phone)}">${escapeHtml(customer.phone)}</a>`) : ""}
+      ${customer.sharedWith ? dd("Shared barrel", `with ${escapeHtml(customer.sharedWith)}`) : ""}
       ${dd("Notes", details.notes ? notesHtml(customer.customer_id, details.notes) : "")}
     </dl>
 
@@ -135,11 +138,12 @@ function render() {
   const today = todaysCollection(store, id);
   const onRoutes = storeRoutesByCustomer(store, routeList, data.index).get(id) || [];
   const capacity = (row && row.capacity) || (siteFigures && siteFigures.capacity);
-  const fromRoute = param("from") === "myroute";
+  const from = param("from");
   const tabLink = (key, label) => `<li class="nav-item"><button type="button" class="nav-link${tab === key ? " active" : ""}"
     data-tab="${key}">${label}</button></li>`;
   document.getElementById("page").innerHTML = `
-    ${fromRoute ? `<a href="ops-myroute.html" class="d-inline-block mb-2">← My Route</a>` : ""}
+    ${from === "myroute" ? `<a href="ops-myroute.html" class="d-inline-block mb-2">← My Route</a>`
+      : from === "assign" ? `<a href="ops-assign.html" class="d-inline-block mb-2">← Assign Routes</a>` : ""}
     <h2>${escapeHtml(customer.name || `#${id}`)}</h2>
     ${row && row.members ? `<div class="ops-muted mb-2">Shared barrel: ${escapeHtml(row.members.map(m => m.name).join(" · "))}</div>` : ""}
     <ul class="nav nav-tabs">${tabLink("home", "Home")}${tabLink("collections", "Collections")}</ul>
@@ -171,7 +175,7 @@ async function init() {
     return;
   }
   store = loadStore(data.snap);
-  routeList = opsRouteList(data.snap);
+  routeList = opsRouteList(data.snap, store);
   const listed = data.snap.assign_list.find(a => a.customer_id === id) ||
     store.added.find(c => c.customer_id === id);
   if (!listed) {
@@ -179,6 +183,16 @@ async function init() {
     return;
   }
   customer = { customer_id: id, name: listed.name, city: listed.city };
+  if (id < 0) {
+    // Added in this browser: its own fields stand in for the scraped ones.
+    // The phone lives only in this browser's storage, never in the repo.
+    details = { address: [listed.address, listed.city].filter(Boolean).join(", "), notes: listed.notes || "" };
+    siteFigures = { capacity: listed.capacity, periodicity_days: listed.periodicity };
+    customer.phone = listed.phone || "";
+    const partner = listed.shared_with && (data.snap.assign_list.find(a => a.customer_id === listed.shared_with) ||
+      store.added.find(c => c.customer_id === listed.shared_with));
+    customer.sharedWith = partner ? partner.name : "";
+  }
   document.title = `${customer.name} (shadow) — Black Bear Biodiesel`;
   const banner = document.getElementById("banner");
   banner.innerHTML = shadowBannerHtml(store, data.snap);
