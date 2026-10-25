@@ -170,9 +170,11 @@ function routeHtml(route) {
 }
 
 function renderList() {
-  // The route just made comes first, so it is in view as the page opens and after naming it.
+  // The route just made comes first, so it is in view as the page opens and after naming it;
+  // then most stops first (Sarge, 2026-10-25), ties in the Assign dropdown's order.
   const first = r => (r.route_id === madeNow ? 0 : 1);
-  const withStops = routeList.filter(r => storeStops(store, r.route_id).length).sort((a, b) => first(a) - first(b));
+  const count = r => storeStops(store, r.route_id).length;
+  const withStops = routeList.filter(count).sort((a, b) => first(a) - first(b) || count(b) - count(a));
   const empty = routeList.filter(r => !storeStops(store, r.route_id).length);
   const html = `
     <h2>My Route</h2>
