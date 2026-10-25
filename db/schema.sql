@@ -252,8 +252,11 @@ create trigger oil_left_stamp before update on public.oil_left
 
 -- Photos: files in the private Storage bucket `photos`, one row each here. A
 -- photo belongs to a customer (the barrel, the spot) and optionally to one
--- collection (a theft, a spill). Members may add and view; nobody deletes
--- through the site, since a theft photo is evidence.
+-- collection (a theft, a spill). Members may add and view, edit a caption and
+-- Remove; nobody deletes through the site, since a theft photo is evidence:
+-- Remove only sets `removed_at`, the pages skip those rows, and Undo clears it.
+-- The phone uploads two JPEGs per photo, `<customer>/<uuid>.jpg` (1600 px) and
+-- `<customer>/<uuid>_t.jpg` (400 px thumbnail; no resizing on the free plan).
 create table if not exists public.photos (
   id            bigint generated always as identity primary key,
   customer_id   integer not null references public.customers (id),
@@ -265,10 +268,19 @@ create table if not exists public.photos (
   uploaded_at   timestamptz not null default now()
 );
 create index if not exists photos_customer_idx on public.photos (customer_id, uploaded_at);
+alter table public.photos add column if not exists removed_at timestamptz;
+alter table public.photos add column if not exists removed_by uuid;
+alter table public.photos drop constraint if exists photos_caption_len;
+alter table public.photos add constraint photos_caption_len
+  check (caption is null or char_length(caption) <= 200);
 
 insert into storage.buckets (id, name, public)
 values ('photos', 'photos', false)
 on conflict (id) do nothing;
+-- The phone downscales before upload; the bucket refuses anything else.
+update storage.buckets
+   set file_size_limit = 2097152, allowed_mime_types = array['image/jpeg']
+ where id = 'photos';
 
 drop policy if exists "members read photos" on storage.objects;
 create policy "members read photos" on storage.objects
@@ -318,6 +330,9 @@ create policy "members read photos" on public.photos
 drop policy if exists "members add photos" on public.photos;
 create policy "members add photos" on public.photos
   for insert to authenticated with check ((select public.is_member()));
+drop policy if exists "members change photos" on public.photos;
+create policy "members change photos" on public.photos
+  for update to authenticated using ((select public.is_member())) with check ((select public.is_member()));
 
 drop policy if exists "members read people" on public.people;
 create policy "members read people" on public.people
@@ -357,12 +372,14 @@ revoke all on public.people, public.customers, public.routes, public.route_stops
               public.route_trucks, public.collections, public.outgoing,
               public.collection_history, public.photos, public.theft_log, public.oil_left from anon;
 grant select on public.people to authenticated;
--- History is read-only to the site (the trigger writes it); photos are
--- add-and-view only.
+-- History is read-only to the site (the trigger writes it). Photos: add, view,
+-- and change only the caption and the Remove mark -- after the revoke, which
+-- would otherwise take the column grant back.
 revoke insert, update, delete on public.collection_history from authenticated;
 grant select on public.collection_history, public.theft_log to authenticated;
 revoke update, delete on public.photos from authenticated;
 grant select, insert on public.photos to authenticated;
+grant update (caption, removed_at, removed_by) on public.photos to authenticated;
 grant select, insert, update, delete on public.customers, public.routes, public.route_stops,
       public.route_trucks, public.collections, public.outgoing, public.oil_left to authenticated;
 

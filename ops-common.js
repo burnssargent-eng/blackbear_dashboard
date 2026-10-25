@@ -487,6 +487,22 @@ function opsTileLayer() {
   });
 }
 
+/**
+ * A customer's Collections list: the source site's history (`history`, from the
+ * nightly files: { date, gallons, code }) and this site's own entries
+ * (`siteRows`: { client_id, date, gallons, theft }), newest first. The two
+ * record the same pickups (gallons go into both systems), so on a day with a
+ * site entry the site's entries stand in for the source site's and are never
+ * added to them. Site lines carry `client_id`, which makes them editable.
+ */
+function collectionLines(history, siteRows) {
+  const siteDays = new Set(siteRows.map(r => r.date));
+  const lines = history.filter(h => !siteDays.has(h.date)).map(h => ({ ...h, site: false }))
+    .concat(siteRows.map(r => ({ date: r.date, gallons: r.gallons, code: r.gallons <= 3, site: true,
+      client_id: r.client_id, theft: !!r.theft })));
+  return lines.sort((a, b) => b.date.localeCompare(a.date));
+}
+
 /** A 0-3 code as the customer pages show it: "1 empty", "2 sign-up call", "3 barrel delivery". */
 const CODE_WORDS = { 0: "empty", 1: "empty", 2: "sign-up call", 3: "barrel delivery" };
 function codeText(qty) {

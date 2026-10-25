@@ -156,6 +156,17 @@ api.recordCollection(s, stop, 80);
 ops = send(afterSave, s);
 ok(ops.length === 1 && ops[0].t === "pickup-edit" && ops[0].values.gallons === 80, "saving again the same day is an edit, not a new pickup");
 const afterEdit = api.opsSharedPart(s);
+{
+  // The customer page's edit form on a pickup the store holds: gallons and date.
+  const t = JSON.parse(JSON.stringify(s));
+  const c = t.collections.find(x => x.customer_id === stop.customer_id);
+  c.gallons = 64;
+  c.date = "2026-10-01";
+  const edit = send(afterEdit, t);
+  ok(edit.length === 1 && edit[0].t === "pickup-edit" && edit[0].client_id === c.client_id &&
+    edit[0].values.gallons === 64 && edit[0].values.picked_on === "2026-10-01",
+    "the customer page's Update on a pickup is one edit, with its new gallons and date");
+}
 s.collections = s.collections.filter(c => c.customer_id !== stop.customer_id);   // My Route's Undo
 ops = send(afterEdit, s);
 ok(ops.length === 1 && ops[0].t === "pickup-delete" && ops[0].client_id === afterSave.collections[1].client_id,

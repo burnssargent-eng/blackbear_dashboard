@@ -24,6 +24,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.js" integrity="sha384-rwykjmWNwVxboyFmvK9OXN0wj9hnMHA2aAHtits54DuACyCq0M2PrSNxhRb+hvXT" crossorigin="anonymous"></script>
 <script src="site-gate.js"></script>
 <script src="ops-db.js"></script>
+<script src="ops-photos.js"></script>
 <script>
 /*
  * My Route (shadow): the source site's "My Route" and "Today's Routes" in one
@@ -330,6 +331,9 @@ let leftOpen = null;      // customer id whose Oil Left form is open
 // after a deploy: Oil Left then stays hidden instead of breaking the route.
 const oilLeftReady = typeof recordOilLeft === "function";
 const leftFor = id => (oilLeftReady ? todaysOilLeft(store, id) : null);
+// Likewise without ops-photos.js: the Notes panel then shows no photos.
+const photosReady = typeof opsPhotoStripHtml === "function";
+let photosKey = "";       // the route's customers whose photos are loaded
 let activeId = null;      // customer id showing its controls; null = the next one to collect
 let compact = true;       // only the active stop shows controls (a per-phone preference)
 
@@ -465,6 +469,7 @@ function stopHtml(l, k, c, showing) {
     ${open && !theftForm && !leftForm ? `<div class="ops-line-details">
       ${d.address ? (maps ? `<a href="${maps}" target="_blank" rel="noopener">${escapeHtml(d.address)}</a>` : escapeHtml(d.address)) : "No address on file"}
       ${d.notes ? `<div>Notes: ${notesHtml(id, d.notes)}</div>` : ""}
+      ${photosReady ? opsPhotoStripHtml(id) : ""}
       <div class="mt-1 d-flex gap-2 align-items-center">
         <a class="btn ops-plain-btn ops-cust-btn" href="ops-customer.html?id=${id}&from=myroute">Customer page ›</a>
         ${oilLeftReady ? `<button type="button" class="btn btn-outline-primary ops-left-btn ms-auto" data-act="left"
@@ -500,6 +505,25 @@ function drawRouteMap(lines, done) {
 
 function render() {
   if (store.my) renderDriver(); else renderList();
+  loadRoutePhotos();
+}
+
+/**
+ * Photos for the Notes panels (view only; they are added on the customer page),
+ * loaded once per set of stops on My Route. A redraw waits while a box is being typed in.
+ */
+function loadRoutePhotos() {
+  if (!photosReady || !opsPhotosOn() || !store.my) return;
+  const ids = storeStops(store, store.my.routeId).map(s => s.customer_id);
+  const key = ids.slice().sort((a, b) => a - b).join(",");
+  if (key === photosKey) return;
+  photosKey = key;
+  opsPhotosLoad(ids).then(ok => {
+    if (!ok) { photosKey = ""; return; }
+    const el = document.activeElement;
+    if (el && el.matches("input, textarea, select")) el.addEventListener("blur", () => setTimeout(render, 50), { once: true });
+    else render();
+  });
 }
 
 function onAct(b) {
@@ -621,6 +645,9 @@ function wire() {
   const page = document.getElementById("page");
   wireDrag(page);
   page.addEventListener("click", e => {
+    const ph = e.target.closest && e.target.closest("[data-photo]");
+    const phLine = ph && ph.closest("[data-pick]");
+    if (phLine) { opsPhotoViewer(Number(phLine.dataset.pick), Number(ph.dataset.photo)); return; }
     const b = e.target.closest && e.target.closest("[data-act]");
     if (b) { onAct(b); return; }
     // Compact: a tap on a stop's line shows that stop's controls, and closes
@@ -706,6 +733,7 @@ async function init() {
   });
   wire();
   render();
+  if (photosReady) opsPhotosWatch(render);
 }
 
 init();

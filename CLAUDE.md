@@ -69,6 +69,11 @@ ops-assign.html  ops-myroute.html  ops-calendar.html  ops-outgoing.html  ops-cus
                      ops.css. Linked from the dashboard nav as "Ops" (7th, since #48;
                      seven links just fit a 375px phone, so an 8th wraps).
                      Route maths for both betas: route-utils.js.
+ops-photos.js        customer photos (barrel, spot, lock): private bucket `photos` + table, members only. The phone
+                     shrinks each to a 1600 px JPEG + 400 px thumbnail (free plan: 1 GB, no server resizing).
+                     Added/removed on ops-customer's Home tab; view-only in My Route's Notes. Remove only hides
+                     (`removed_at`): a theft photo is evidence. ops-customer's Collections tab edits/deletes
+                     SITE pickups of any age; Jamaal's are fixed in Jamaal and arrive overnight.
 dashboard-utils.js   shared helpers for the detail pages
 dashboard.css        shared styles for the detail pages — NOT index.html
 ```

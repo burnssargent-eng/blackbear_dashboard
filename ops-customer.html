@@ -24,11 +24,13 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.js" integrity="sha384-rwykjmWNwVxboyFmvK9OXN0wj9hnMHA2aAHtits54DuACyCq0M2PrSNxhRb+hvXT" crossorigin="anonymous"></script>
 <script src="site-gate.js"></script>
 <script src="ops-db.js"></script>
+<script src="ops-photos.js"></script>
 <script>
 /*
  * Customer page (shadow), after the source site's customer.php. Two tabs:
- * Home (Add Collection, Oil Left, the details, Assign, a map pin) and Collections (every
- * pickup with its total). Photos are left out for now.
+ * Home (Add Collection, Oil Left, the details, Assign, photos, a map pin) and
+ * Collections (every pickup with its total; a pickup entered on this site opens
+ * its edit form from its gallons, as on the source site).
  *
  * Read from: jamaal_routes.json (name, town), the shared database (address,
  * notes, position), oil_projections.json, capacity_cache.csv (the site's capacity and
@@ -43,6 +45,10 @@ let customer = null;      // { customer_id, name, city }
 let details = {};         // this customer's address, notes and position (shared database)
 let siteFigures = null;   // { capacity, periodicity_days } from capacity_cache.csv
 let history = [];         // [{ date, gallons, code }] newest first
+let siteOld = [];         // this site's pickups older than the store holds (any age)
+let editing = null;       // client_id whose edit form is open
+let undo = null;          // { text, run } for the Undo bar after a delete or a removed photo
+let newPhoto = null;      // { file, url, caption, busy, msg } while a picked photo waits for its caption
 let flash = "";
 
 function param(name) { return getUrlParam(name); }
@@ -69,13 +75,126 @@ function usDate(iso) {
   return `${iso.slice(5, 7)}/${iso.slice(8, 10)}/${iso.slice(0, 4)}`;
 }
 
-/** The Collections tab: every pickup, newest first, codes as words, then the total. */
+// A browser can pair this page with an older ops-db.js or no ops-photos.js for
+// a few minutes after a deploy: editing old pickups and photos then stay hidden.
+const editReady = typeof opsSitePickups === "function";
+const photosReady = typeof opsPhotoPick === "function" && typeof opsRandomId === "function";
+
+/** This customer's pickups entered on this site: the store's, then older ones from the database. */
+function siteRows() {
+  const id = customer.customer_id;
+  const mine = store.collections.filter(c => c.customer_id === id);
+  // Signed in, saving gives every entry its id; the browser copy needs its own.
+  mine.forEach(c => { if (!c.client_id) c.client_id = typeof opsRandomId === "function" ? opsRandomId() : crypto.randomUUID(); });
+  const held = new Set(mine.map(c => c.client_id));
+  return mine.map(c => ({ client_id: c.client_id, date: c.date, gallons: c.gallons, theft: !!c.theft }))
+    .concat(siteOld.filter(r => !held.has(r.client_id)));
+}
+
+/** Load this customer's site pickups of any age (signed in); the list redraws. */
+async function loadSiteOld() {
+  if (!editReady) return;
+  const rows = await opsSitePickups(customer.customer_id);
+  if (!rows) return;
+  siteOld = rows;
+  if (tab === "collections" && !editing) render();
+}
+
+async function loadPhotos() {
+  if (!photosReady || !opsPhotosOn()) return;
+  if (await opsPhotosLoad([customer.customer_id])) render();
+}
+
+const pickText = (date, gallons) => `${usDate(date)} · ${gallons <= 3 ? codeText(gallons) : `${formatNumber(gallons)} gal`}`;
+
+/**
+ * Edit a site pickup: through the store when it holds it (the last
+ * OPS_COLLECTION_DAYS), so every page agrees, else straight to the queue.
+ */
+function updatePickup(clientId, gallons, date) {
+  const c = store.collections.find(x => x.client_id === clientId);
+  if (c) { c.gallons = gallons; c.date = date; saveStore(store); return; }
+  const r = siteOld.find(x => x.client_id === clientId);
+  if (!r) return;
+  r.gallons = gallons;
+  r.date = date;
+  opsQueueOps([{ t: "pickup-edit", client_id: clientId, values: { gallons, picked_on: date } }]);
+}
+
+/** Delete a site pickup, with an Undo bar that puts the same entry back. */
+function deletePickup(clientId) {
+  const k = store.collections.findIndex(x => x.client_id === clientId);
+  const old = siteOld.find(x => x.client_id === clientId);
+  siteOld = siteOld.filter(x => x.client_id !== clientId);
+  if (k >= 0) {
+    const [c] = store.collections.splice(k, 1);
+    saveStore(store);
+    undo = { text: `Deleted ${pickText(c.date, c.gallons)}`, run: () => { store.collections.push(c); saveStore(store); } };
+  } else if (old) {
+    opsQueueOps([{ t: "pickup-delete", client_id: clientId }]);
+    undo = { text: `Deleted ${pickText(old.date, old.gallons)}`, run: () => {
+      siteOld.push(old);
+      opsQueueOps([{ t: "pickup-new", row: { customer_id: customer.customer_id, picked_on: old.date,
+        gallons: old.gallons, route_id: old.route_id ?? null, theft: !!old.theft, theft_note: old.theft_note || null,
+        client_id: old.client_id, projected_gal: old.projected_gal ?? null,
+        ...(old.entered_at ? { entered_at: old.entered_at } : {}) } }]);
+    } };
+  }
+  editing = null;
+}
+
+function editFormHtml(line) {
+  return `<form class="ops-edit-pick" data-edit-form="${escapeHtml(line.client_id)}" autocomplete="off">
+    <div class="d-flex gap-2">
+      <label>Gallons <input type="number" inputmode="numeric" min="0" name="gallons" class="form-control"
+        style="width: 90px" value="${line.gallons}" required></label>
+      <label>Date <input type="date" name="date" class="form-control" value="${line.date}" max="${todayIso()}" required></label>
+    </div>
+    <div class="d-flex gap-2 align-items-center mt-2">
+      <button class="btn btn-primary">Update</button>
+      <button type="button" class="btn ops-plain-btn" data-edit-cancel>Cancel</button>
+      <button type="button" class="btn ops-edit-delete ms-auto" data-edit-delete>Delete</button>
+    </div>
+  </form>`;
+}
+
+/**
+ * The Collections tab: every pickup, newest first, codes as words, then the
+ * total. A pickup entered on this site has its gallons as a link to its edit
+ * form; the source site's own pickups are plain (they are fixed there).
+ */
 function collectionsHtml() {
-  if (!history.length) return `<div class="text-muted">No collections on record.</div>`;
-  const total = history.filter(h => !h.code).reduce((sum, h) => sum + h.gallons, 0);
-  return `<ul class="list-unstyled ops-history mb-1">${history.map(h =>
-    `<li>${usDate(h.date)} : ${h.code ? codeText(h.gallons) : formatNumber(h.gallons)}</li>`).join("")}</ul>
-    <div>Total: ${formatNumber(total)}</div>`;
+  const lines = collectionLines(history, siteRows());
+  if (!lines.length) return `<div class="text-muted">No collections on record.</div>`;
+  const total = lines.filter(h => !h.code).reduce((sum, h) => sum + h.gallons, 0);
+  const figure = h => (h.code ? codeText(h.gallons) : formatNumber(h.gallons));
+  return `<ul class="list-unstyled ops-history mb-1">${lines.map(h => !h.site
+    ? `<li>${usDate(h.date)} : ${figure(h)}</li>`
+    : `<li>${usDate(h.date)} : <button type="button" class="ops-pick-link" data-edit="${escapeHtml(h.client_id)}"
+        aria-expanded="${editing === h.client_id}">${figure(h)}</button>${h.theft
+        ? ` <span class="ops-theft-text">· Theft</span>` : ""}
+      ${editing === h.client_id ? editFormHtml(h) : ""}</li>`).join("")}</ul>
+    <div>Total: ${formatNumber(total)}</div>
+    ${lines.some(h => h.site) ? `<div class="ops-muted mt-2">Blue numbers were entered on this site and can be edited.
+      The rest come from Jamaal: fix those there, and the change arrives overnight.</div>` : ""}`;
+}
+
+/** The photos on Home: a strip with Add photo, and the caption form for a picked one. */
+function photosHtml() {
+  if (!photosReady || !opsPhotosOn()) return "";
+  const n = opsPhotosFor(customer.customer_id).length;
+  return `<div class="mb-3">
+    <div class="ops-photo-head">PHOTOS${n ? ` · ${n}` : ""}</div>
+    ${opsPhotoStripHtml(customer.customer_id, { add: true })}
+    ${newPhoto ? `<form class="ops-photo-new" data-photo-form autocomplete="off">
+      <img src="${newPhoto.url}" alt="">
+      <input type="text" class="form-control" name="caption" maxlength="200" placeholder="Caption (optional)"
+        aria-label="Caption" value="${escapeHtml(newPhoto.caption)}" data-photo-caption ${newPhoto.busy ? "disabled" : ""}>
+      <button class="btn btn-primary" ${newPhoto.busy ? "disabled" : ""}>${newPhoto.busy ? "Saving…" : "Save photo"}</button>
+      <button type="button" class="btn ops-plain-btn" data-photo-cancel ${newPhoto.busy ? "disabled" : ""}>Cancel</button>
+      ${newPhoto.msg ? `<div class="w-100 text-danger small">${escapeHtml(newPhoto.msg)}</div>` : ""}
+    </form>` : ""}
+  </div>`;
 }
 
 /**
@@ -140,6 +259,8 @@ function homeHtml(row, today, onRoutes, capacity, left) {
       <button type="button" class="btn btn-outline-primary" data-assign>Assign</button>
     </div>
 
+    ${photosHtml()}
+
     ${details.lat != null ? `<div id="map" class="ops-map ops-map-small mb-1"></div>
       ${details.loc === "town" ? `<div class="ops-muted mb-3">Pin is the town centre; the street address did not match.</div>` : ""}` : ""}`;
 }
@@ -162,7 +283,9 @@ function render() {
     ${row && row.members ? `<div class="ops-muted mb-2">Shared barrel: ${escapeHtml(row.members.map(m => m.name).join(" · "))}</div>` : ""}
     <ul class="nav nav-tabs">${tabLink("home", "Home")}${tabLink("collections", "Collections")}</ul>
     <div class="pt-2">${tab === "home" ? homeHtml(row, today, onRoutes, capacity,
-      oilLeftReady ? todaysOilLeft(store, id) : null) : collectionsHtml()}</div>`;
+      oilLeftReady ? todaysOilLeft(store, id) : null) : collectionsHtml()}</div>
+    ${undo ? `<div class="ops-undo" role="status"><span class="ops-undo-text">${escapeHtml(undo.text)}</span>
+      <button type="button" class="btn ops-undo-btn" data-undo-bar>Undo</button></div>` : ""}`;
 
   if (tab === "home" && details.lat != null) {
     const map = L.map("map", { scrollWheelZoom: false }).setView([details.lat, details.lon], details.loc === "town" ? 12 : 15);
@@ -190,7 +313,7 @@ async function init() {
     return;
   }
   try {
-    store = await opsOpenStore(data.snap, { index: data.index, onRemote: s => { store = s; render(); } });
+    store = await opsOpenStore(data.snap, { index: data.index, onRemote: s => { store = s; render(); loadSiteOld(); } });
   } catch (err) {
     document.getElementById("page").innerHTML = `<div class="alert alert-danger">${escapeHtml(err.message)}</div>`;
     return;
@@ -219,7 +342,41 @@ async function init() {
   wireShadowReset(banner, data.snap, fresh => { store = fresh; banner.innerHTML = shadowBannerHtml(store, data.snap); render(); });
 
   const page = document.getElementById("page");
-  page.addEventListener("submit", e => {
+  page.addEventListener("input", e => {
+    if (newPhoto && e.target.matches && e.target.matches("[data-photo-caption]")) newPhoto.caption = e.target.value;
+  });
+  page.addEventListener("submit", async e => {
+    if (e.target.matches("[data-photo-form]")) {
+      e.preventDefault();
+      if (!newPhoto || newPhoto.busy) return;
+      const caption = String(new FormData(e.target).get("caption") || "").trim();
+      newPhoto.busy = true;
+      newPhoto.msg = "";
+      render();
+      try {
+        await opsPhotoUpload(customer.customer_id, newPhoto.file, caption);
+        URL.revokeObjectURL(newPhoto.url);
+        newPhoto = null;
+        await loadPhotos();
+      } catch (err) {
+        if (typeof opsLog === "function") opsLog("photo upload FAILED", err.message);
+        newPhoto.busy = false;
+        newPhoto.msg = err.message;
+      }
+      render();
+      return;
+    }
+    if (e.target.matches("[data-edit-form]")) {
+      e.preventDefault();
+      const form = new FormData(e.target);
+      const gallons = parseInt(form.get("gallons"), 10);
+      const date = String(form.get("date") || "");
+      if (!Number.isFinite(gallons) || gallons < 0 || !/^\d{4}-\d{2}-\d{2}$/.test(date) || date > todayIso()) return;
+      updatePickup(e.target.dataset.editForm, gallons, date);
+      editing = null;
+      render();
+      return;
+    }
     if (e.target.id === "left") {
       e.preventDefault();
       const gallons = parseInt(new FormData(e.target).get("gallons"), 10);
@@ -242,7 +399,39 @@ async function init() {
   });
   page.addEventListener("click", e => {
     const t = e.target.closest && e.target.closest("[data-tab]");
-    if (t) { tab = t.dataset.tab; render(); return; }
+    if (t) { tab = t.dataset.tab; editing = null; undo = null; render(); return; }
+    const ed = e.target.closest("[data-edit]");
+    if (ed) { editing = editing === ed.dataset.edit ? null : ed.dataset.edit; undo = null; render(); return; }
+    if (e.target.closest("[data-edit-cancel]")) { editing = null; render(); return; }
+    if (e.target.closest("[data-edit-delete]")) { if (editing) deletePickup(editing); render(); return; }
+    if (e.target.closest("[data-undo-bar]")) { const u = undo; undo = null; if (u) u.run(); render(); return; }
+    if (e.target.closest("[data-photo-add]")) {
+      opsPhotoPick(file => {
+        if (newPhoto) URL.revokeObjectURL(newPhoto.url);
+        newPhoto = { file, url: URL.createObjectURL(file), caption: "", busy: false, msg: "" };
+        render();
+      });
+      return;
+    }
+    if (e.target.closest("[data-photo-cancel]")) {
+      if (newPhoto) URL.revokeObjectURL(newPhoto.url);
+      newPhoto = null;
+      render();
+      return;
+    }
+    const ph = e.target.closest("[data-photo]");
+    if (ph) {
+      const id = customer.customer_id;
+      opsPhotoViewer(id, Number(ph.dataset.photo), { editable: true, onChange: (kind, r) => {
+        if (kind === "removed") {
+          opsPhotos.byCustomer.set(id, opsPhotosFor(id).filter(x => x.id !== r.id));
+          undo = { text: "Photo removed", run: () => opsPhotoRemove(r.id, false).then(loadPhotos)
+            .catch(err => { flash = escapeHtml(err.message); render(); }) };
+        }
+        render();
+      } });
+      return;
+    }
     if (e.target.closest("[data-left-undo]")) {
       clearOilLeft(store, customer.customer_id);
       saveStore(store);
@@ -266,6 +455,8 @@ async function init() {
     }
   });
   render();
+  loadSiteOld();
+  if (photosReady) { loadPhotos(); opsPhotosWatch(render); }
 }
 
 init();
