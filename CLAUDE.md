@@ -42,6 +42,11 @@ supabase_sync.py ──> the shared database (Supabase; db/schema.sql). Nightly:
                      'site' rows record the SAME pickups: never add them together; the pages read only 'site'.
                      Never writes a stop or a site pickup. --seed (supabase-seed.yml, by hand, once) also copies the assigned routes
                      into an EMPTY route_stops, with the full notes from a fresh jamaal_customers.py --refresh.
+jamaal_photos.py ──> the shared database's private `photos` bucket: the source site's uploads/ photos (GET only),
+                     shrunk like the phone does (1600 px + 400 px thumb), blank caption, `photos.jamaal_file` = the
+                     source file name (unique: copied once; removed on the site stays removed). First copy by hand
+                     (jamaal-photos.yml: dry-run, then copy); the nightly then copies new ones (--nightly does
+                     nothing before that first copy). Photos of customers not yet in the database wait a night.
 supabase_sync.py --export-oil-left ──> oil_left.csv  (committed: customer id, day, gallons left; nightly,
                      before the projection build). Oil Left = gallons a driver saw left in a barrel and did
                      not collect; its own table, never a collection. The builder starts the barrel's level

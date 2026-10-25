@@ -94,6 +94,16 @@ jobs:
         run: |
           python supabase_sync.py || echo "::warning::Shared database sync failed; database left as-is"
 
+      # Photos added on the source site since last night, into the shared
+      # database's private bucket (after the sync, so new customers exist).
+      # Does nothing until the first copy is run by hand (jamaal-photos.yml).
+      # Writes no repo file.
+      - name: Copy new source-site photos
+        env:
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          python jamaal_photos.py --nightly || echo "::warning::Photo copy had failures; the next night retries them"
+
       - name: Commit updated data files
         run: |
           git config user.name "github-actions"

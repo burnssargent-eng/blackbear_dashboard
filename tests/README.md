@@ -51,6 +51,14 @@ left (on a pickup day or between pickups), a later empty check wins, a level
 above capacity starts at capacity, and shared barrels and new owners map like
 the other registries.
 
+`jamaal_photos_test.py` is Python too: `python3 tests/jamaal_photos_test.py`. It
+runs `jamaal_photos.py` against a stand-in source site, bucket and database:
+the folder listing's photos and days, stable paths with the `_t.jpg`
+thumbnail beside them, upright 1600/400 px shrinking under the 2 MB limit, the
+nightly doing nothing before a first copy by hand, skipped customers not yet in
+the database, a broken file reported while the rest copy and retried the next
+night, a photo removed on the site never copied back, and dry runs writing nothing.
+
 `supabase_sync_test.py` is Python, so `run_all.js` does not run it: run it with
 `python3 tests/supabase_sync_test.py`. It runs `supabase_sync.py` against the
 committed data files and a stand-in database (no network, no key): the seed
