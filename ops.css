@@ -269,16 +269,33 @@ details.ops-route[open] > summary .ops-row-chev { transform: rotate(90deg); }
 .ops-line-name.hotlist { color: #d00; }
 .ops-line-figs { flex: 0 0 auto; white-space: nowrap; font-size: 13px; }
 .ops-line-figs .ops-proj, .ops-line-figs .ops-days, .ops-line-figs .graytext, .ops-line-figs .ops-muted { font-size: 13px; }
-/* The control row: gallons, Save, Maps, Details. 33px tall, gloved-thumb wide. */
+/* The control row: Maps, gallons and Save together on the left (gallons as wide as Save, 64px);
+   More ▾ evenly between Save and Page › at the right end (an auto margin before each). 33px tall,
+   gloved-thumb wide. Maps: a pin and a ring in Google Maps' four colours, blended, on white. */
 .ops-row { display: flex; gap: 6px; align-items: center; margin-top: 4px; }
-.ops-row .form-control { flex: 1 1 60px; min-width: 60px; max-width: 110px; height: 33px; min-height: 33px;
+.ops-row .form-control { flex: 0 0 64px; width: 64px; height: 33px; min-height: 33px;
   padding: 2px 8px; font-size: 16px; }
 .ops-row .btn { height: 33px; padding: 0 10px; white-space: nowrap; font-size: 14px;
   display: inline-flex; align-items: center; justify-content: center; }
-.ops-flag { font-weight: bold; }
-.ops-flag::after { content: "•"; color: #d93025; margin-left: 3px; }
-.ops-line-details { border-top: 1px dashed #ccc; margin-top: 5px; padding-top: 5px; font-size: 15px; cursor: default; }
-.ops-cust-btn { height: 33px; padding: 0 12px; font-size: 14px; display: inline-flex; align-items: center; }
+.ops-row .btn[data-act="save"] { width: 64px; padding: 0; font-size: 15px; font-weight: 600; }
+.ops-row .ops-more-btn, .ops-row .ops-pick-page { margin-left: auto; }
+.ops-row .ops-pick-page { width: auto; min-width: 44px; height: 33px; padding: 0 8px; font-size: 14px; }
+.ops-row .ops-maps-btn { padding: 0 8px; color: #212529; border: 2px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box,
+    conic-gradient(from 210deg, #4285F4, #EA4335, #FBBC04, #34A853, #4285F4) border-box; }
+.ops-row .ops-maps-btn:hover, .ops-row .ops-maps-btn:focus { color: #000;
+  background: linear-gradient(#f1f3f5, #f1f3f5) padding-box,
+    conic-gradient(from 210deg, #4285F4, #EA4335, #FBBC04, #34A853, #4285F4) border-box; }
+.ops-btn-icon { flex: 0 0 auto; margin-right: 3px; }
+/* The More ▾ line: ✎ Note, 📷 Photo, Oil Left, Report Theft spread evenly (321px of a 375px
+   phone's ~333; a narrower phone wraps). Then the note being edited, or the note and photos. */
+.ops-more-line { display: flex; gap: 6px; flex-wrap: wrap; justify-content: space-between; align-items: center;
+  margin-top: 6px; padding-top: 6px; border-top: 1px dashed #ccc; cursor: default; }
+.ops-line .ops-more-line .btn { height: 33px; padding: 0 8px; font-size: 14px; white-space: nowrap;
+  display: inline-flex; align-items: center; }
+.ops-note-edit { margin-top: 6px; display: flex; flex-direction: column; gap: 6px; cursor: default; }
+.ops-note-edit textarea { font-size: 16px; }
+.ops-auto-notes { margin-top: 6px; font-size: 14px; cursor: default; }
 /* A theft at a stop: red once saved, red outline while the form is open. The
    note under the name is cut to 2 lines here; the customer page shows it whole. */
 .ops-line.ops-theft { background: #fdecea; border-color: #f1aeb5; }
@@ -291,7 +308,7 @@ details.ops-route[open] > summary .ops-row-chev { transform: rotate(90deg); }
 .ops-theft-form .ops-theft-label { color: #b02a37; font-weight: 600; }
 .ops-theft-form input { width: 90px; height: 33px; padding: 2px 8px; font-size: 16px; }
 .ops-theft-form textarea { min-height: 64px; font-size: 16px; }
-.ops-theft-form .btn, .ops-theft-btn { height: 33px; padding: 0 12px; font-size: 14px;
+.ops-theft-form .btn { height: 33px; padding: 0 12px; font-size: 14px;
   display: inline-flex; align-items: center; }
 /* Oil Left: gallons seen in a barrel and not collected. Blue, never red: it
    is a reading, not an alarm. */
@@ -300,7 +317,7 @@ details.ops-route[open] > summary .ops-row-chev { transform: rotate(90deg); }
 .ops-left-form { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; cursor: default; }
 .ops-left-form label { font-size: 14px; margin: 0; color: #0a58ca; font-weight: 600; }
 .ops-left-form input { width: 90px; height: 33px; padding: 2px 8px; font-size: 16px; }
-.ops-left-form .btn, .ops-left-btn { height: 33px; padding: 0 12px; font-size: 14px;
+.ops-left-form .btn { height: 33px; padding: 0 12px; font-size: 14px;
   display: inline-flex; align-items: center; }
 .ops-drive-title { font-size: 20px; font-weight: 600; line-height: 1.2; min-width: 0;
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
