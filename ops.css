@@ -147,7 +147,7 @@ details.ops-route[open] > summary::before { content: "▾"; }
 @keyframes ops-flash { from { background-color: #fff3bf; } }
 
 /* Undo after removing a stop: a dark bar at the foot of the screen for a few seconds. */
-.ops-undo { position: fixed; left: 12px; right: 12px; bottom: 16px; z-index: 30; max-width: 520px; margin: 0 auto;
+.ops-undo { position: fixed; left: 12px; right: 12px; bottom: 16px; z-index: 1100; max-width: 520px; margin: 0 auto;
   display: flex; align-items: center; gap: 10px; padding: 8px 8px 8px 14px; border-radius: 8px;
   background: #212529; color: #fff; font-size: 15px; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25); }
 .ops-undo-text { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -335,7 +335,8 @@ details.ops-route[open] > summary::before { content: "▾"; }
 .ops-photo-new .btn { height: 38px; padding: 0 14px; font-size: 15px; display: inline-flex; align-items: center; }
 
 body.ops-viewer-open { overflow: hidden; }
-.ops-viewer { position: fixed; inset: 0; z-index: 40; display: flex; flex-direction: column; background: #111418; color: #f8f9fa; }
+/* Above Leaflet, whose map panes sit at z-index 400 and its controls at 1000 (the Undo bar too). */
+.ops-viewer { position: fixed; inset: 0; z-index: 2000; display: flex; flex-direction: column; background: #111418; color: #f8f9fa; }
 .ops-viewer-top { display: flex; align-items: center; justify-content: space-between; height: 56px; padding: 0 8px 0 16px;
   font-size: 15px; color: #ced4da; }
 .ops-viewer-close { width: 44px; height: 44px; border: 0; background: transparent; color: #f8f9fa; font-size: 30px; line-height: 1; }
