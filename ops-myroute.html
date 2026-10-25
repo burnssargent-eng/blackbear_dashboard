@@ -330,9 +330,11 @@ function wireDrag(page) {
 
 let details = {};   // address, notes and position per customer (shared database)
 
-let openDetails = null;   // customer id whose Notes panel is open (one at a time)
+let openDetails = null;   // customer id whose More line is open (one at a time)
 let theftOpen = null;     // customer id whose theft form is open
 let leftOpen = null;      // customer id whose Oil Left form is open
+let noteEdit = null;      // { id, text, busy, msg }: the note being edited
+let photoAdd = null;      // { id, msg }: a photo uploading from My Route
 // A browser can pair this page with an older ops-common.js for a few minutes
 // after a deploy: Oil Left then stays hidden instead of breaking the route.
 const oilLeftReady = typeof recordOilLeft === "function";
@@ -345,6 +347,8 @@ let compact = true;       // only the active stop shows controls (a per-phone pr
 
 const COMPACT_KEY = "bbb-ops-compact";
 try { compact = window.localStorage.getItem(COMPACT_KEY) !== "off"; } catch (err) { /* default on */ }
+// Page › remembers its stop, so coming back from the customer page reopens that stop, not the next to collect.
+const BACK_KEY = "bbb-ops-myroute-back";
 
 /**
  * The route being driven, built for a phone in a cold truck:
@@ -415,17 +419,102 @@ function mapsUrl(id) {
   return dest ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(dest)}` : null;
 }
 
-/** One stop: its line, then (when it is the one showing) its control row, Oil Left or theft form, or Notes. */
+/** A stop's note and photos, shown as it opens (nothing when it has neither). */
+function notesPhotosHtml(id, d) {
+  const photos = photosReady && opsPhotosFor(id).length;
+  return d.notes || photos ? `<div class="ops-auto-notes">
+      ${d.notes ? `<div>${notesHtml(id, d.notes)}</div>` : ""}
+      ${photos ? opsPhotoStripHtml(id) : ""}</div>` : "";
+}
+
+const PIN_ICON = `<svg class="ops-btn-icon" width="14" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-7.4 7-12.5A7 7 0 0 0 5 9.5C5 14.6 12 22 12 22z"></path><circle cx="12" cy="9.5" r="2.6"></circle></svg>`;
+const PENCIL_ICON = `<svg class="ops-btn-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"></path></svg>`;
+const CAMERA_ICON = `<svg class="ops-btn-icon" width="14" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h4l2-3h6l2 3h4v11H3z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>`;
+
+/**
+ * Under the control row: the More line when open (✎ Note, 📷 Photo, Oil Left, Report Theft; one line
+ * on a 375px phone), then the note being edited, or the note and photos.
+ */
+function moreHtml(id, d, c, open) {
+  const editing = noteEdit && noteEdit.id === id;
+  const busy = photoAdd && photoAdd.id === id;
+  const more = open && !editing ? `<div class="ops-more-line">
+      <button type="button" class="btn ops-plain-btn" data-act="note-edit" data-id="${id}"
+        aria-label="${d.notes ? "Edit note" : "Add a note"}">${PENCIL_ICON}Note</button>
+      ${photosReady ? `<button type="button" class="btn ops-plain-btn" data-act="photo-add" data-id="${id}" aria-label="Add a photo"${busy && !photoAdd.msg ? " disabled" : ""}>
+        ${CAMERA_ICON}${busy && !photoAdd.msg ? "Adding…" : "Photo"}</button>` : ""}
+      ${oilLeftReady ? `<button type="button" class="btn btn-outline-primary" data-act="left" data-id="${id}">Oil Left</button>` : ""}
+      ${c ? "" : `<button type="button" class="btn btn-danger" data-act="theft" data-id="${id}">Report Theft</button>`}
+    </div>` : "";
+  const msg = busy && photoAdd.msg ? `<div class="text-danger small mt-1">${escapeHtml(photoAdd.msg)}</div>` : "";
+  if (editing) return `${more}<div class="ops-note-edit">
+      <label for="note-${id}" class="visually-hidden">Note</label>
+      <textarea class="form-control" id="note-${id}" rows="3" data-note-draft>${escapeHtml(noteEdit.text)}</textarea>
+      ${noteEdit.msg ? `<div class="text-danger small">${escapeHtml(noteEdit.msg)}</div>` : ""}
+      <div class="d-flex gap-2">
+        <button type="button" class="btn btn-primary" data-act="note-save"${noteEdit.busy ? " disabled" : ""}>${noteEdit.busy ? "Saving…" : "Save note"}</button>
+        <button type="button" class="btn ops-plain-btn" data-act="note-cancel">Cancel</button>
+      </div></div>`;
+  return more + msg + notesPhotosHtml(id, d);
+}
+
+/**
+ * Write the edited note to the shared database: every signed-in driver sees it. The nightly
+ * copies notes only for new customers, so the edit stays (it never reaches the source site).
+ */
+async function saveNote() {
+  const n = noteEdit;
+  if (!n || n.busy) return;
+  const text = (document.getElementById(`note-${n.id}`) || {}).value;
+  if (typeof text === "string") n.text = text;
+  n.busy = true; n.msg = ""; render();
+  const notes = n.text.trim();
+  const { error } = typeof opsDb !== "undefined" && opsDb.client
+    ? await opsDb.client.from("customers").update({ notes: notes || null }).eq("id", n.id)
+    : { error: { message: "sign in to edit notes" } };
+  if (error) { n.busy = false; n.msg = `Not saved (${error.message}).`; render(); return; }
+  details[String(n.id)] = { ...(details[String(n.id)] || {}), notes };
+  const row = opsDb.rows && opsDb.rows.customers && opsDb.rows.customers.find(r => r.id === n.id);
+  if (row) row.notes = notes;
+  noteEdit = null;
+  openDetails = null;
+  render();
+}
+
+/** Pick a photo (from the tap itself, as iPhone requires), upload it, reload the strip. */
+function addPhoto(id) {
+  opsPhotoPick(async file => {
+    photoAdd = { id, msg: "" };
+    render();
+    try {
+      await opsPhotoUpload(id, file, "");
+      photoAdd = null;
+      openDetails = null;
+      photosKey = "";
+      loadRoutePhotos();
+    } catch (err) {
+      photoAdd = { id, msg: err.message };
+    }
+    render();
+  });
+}
+
+/** One stop: its line, then (when it is the one showing) its control row or Oil Left or theft form, and More. */
 function stopHtml(l, k, c, showing) {
   const id = l.stop.customer_id;
   const open = showing && openDetails === id;
   const d = details[String(id)] || {};
   const maps = mapsUrl(id);
+  const mapsText = `${PIN_ICON}Maps`;
   const mapsBtn = maps
-    ? `<a class="btn ops-plain-btn" href="${maps}" target="_blank" rel="noopener">Maps</a>`
-    : `<button type="button" class="btn ops-plain-btn" disabled>Maps</button>`;
-  const detailsBtn = `<button type="button" class="btn ops-plain-btn${d.notes ? " ops-flag" : ""}" data-act="details"
-    data-id="${id}" aria-expanded="${open}">Notes ${open ? "▴" : "▾"}</button>`;
+    ? `<a class="btn ops-plain-btn ops-maps-btn" href="${maps}" target="_blank" rel="noopener">${mapsText}</a>`
+    : `<button type="button" class="btn ops-plain-btn ops-maps-btn" disabled>${mapsText}</button>`;
+  // Maps, gallons and Save on the left; More ▾ evenly between Save and Page › at the right end.
+  const pageBtn = `<a class="btn ops-plain-btn ops-pick-page" href="ops-customer.html?id=${id}&from=myroute"
+    data-page-for="${id}" aria-label="Customer page for ${escapeHtml(l.stop.name)}">Page ›</a>`;
   const theft = c && c.theft;
   const theftForm = showing && theftOpen === id;
   const left = leftFor(id);
@@ -462,27 +551,18 @@ function stopHtml(l, k, c, showing) {
         <button type="button" class="btn btn-danger" data-act="theft-save" data-i="${k}">Save</button>
         <button type="button" class="btn ops-plain-btn" data-act="theft-cancel">Cancel</button>
       </div>
-    </div>` : showing ? `<div class="ops-row">
-      ${theft ? `<span class="me-auto ops-theft-text">${theftGallonsText(c)}</span>
+    </div>` : showing ? `<div class="ops-row">${mapsBtn}
+      ${theft ? `<span class="ops-theft-text">${theftGallonsText(c)}</span>
              <button type="button" class="btn ops-plain-btn" data-act="theft" data-id="${id}">Edit</button>`
-        : c ? `<span class="me-auto">${c.gallons <= 3 ? "Empty" : `${formatNumber(c.gallons)} gal`} ✓</span>
+        : c ? `<span>${c.gallons <= 3 ? "Empty" : `${formatNumber(c.gallons)} gal`} ✓</span>
              <button type="button" class="btn ops-plain-btn" data-act="undo" data-id="${id}">Edit</button>`
           : `<input type="number" inputmode="numeric" min="0" class="form-control" id="gal-${k}" placeholder="gal"
                aria-label="Gallons for ${escapeHtml(l.stop.name)}">
              <button type="button" class="btn btn-success" data-act="save" data-i="${k}">Save</button>`}
-      ${mapsBtn}${detailsBtn}
+      <button type="button" class="btn ops-plain-btn ops-more-btn" data-act="details" data-id="${id}"
+        aria-expanded="${open}">More ${open ? "▴" : "▾"}</button>${pageBtn}
     </div>` : ""}
-    ${open && !theftForm && !leftForm ? `<div class="ops-line-details">
-      ${d.address ? (maps ? `<a href="${maps}" target="_blank" rel="noopener">${escapeHtml(d.address)}</a>` : escapeHtml(d.address)) : "No address on file"}
-      ${d.notes ? `<div>Notes: ${notesHtml(id, d.notes)}</div>` : ""}
-      ${photosReady ? opsPhotoStripHtml(id) : ""}
-      <div class="mt-1 d-flex gap-2 align-items-center">
-        <a class="btn ops-plain-btn ops-cust-btn" href="ops-customer.html?id=${id}&from=myroute">Customer page ›</a>
-        ${oilLeftReady ? `<button type="button" class="btn btn-outline-primary ops-left-btn ms-auto" data-act="left"
-          data-id="${id}">Oil Left</button>` : ""}
-        ${c ? "" : `<button type="button" class="btn btn-danger ops-theft-btn${oilLeftReady ? "" : " ms-auto"}" data-act="theft" data-id="${id}">Theft</button>`}
-      </div>
-    </div>` : ""}
+    ${showing && !theftForm && !leftForm ? moreHtml(id, d, c, open) : ""}
   </div>`;
 }
 
@@ -634,9 +714,17 @@ function onAct(b) {
       openDetails = null;
       break;
     }
+    case "note-edit":
+      noteEdit = { id: Number(d.id), text: (details[d.id] || {}).notes || "", busy: false, msg: "" };
+      render();
+      return;
+    case "note-cancel": noteEdit = null; render(); return;
+    case "note-save": saveNote(); return;
+    case "photo-add": addPhoto(Number(d.id)); return;
     case "details": {
       const id = Number(d.id);
       openDetails = openDetails === id ? null : id;
+      noteEdit = null;
       render();
       return;
     }
@@ -654,14 +742,22 @@ function wire() {
     const ph = e.target.closest && e.target.closest("[data-photo]");
     const phLine = ph && ph.closest("[data-pick]");
     if (phLine) { opsPhotoViewer(Number(phLine.dataset.pick), Number(ph.dataset.photo)); return; }
+    const pg = e.target.closest && e.target.closest("[data-page-for]");
+    if (pg && store.my) {
+      const id = Number(pg.dataset.pageFor);
+      try {
+        window.sessionStorage.setItem(BACK_KEY, JSON.stringify({ route: store.my.routeId, id, more: openDetails === id }));
+      } catch (err) { /* back to the next stop instead */ }
+      return;   // the link goes on to the customer page
+    }
     const b = e.target.closest && e.target.closest("[data-act]");
     if (b) { onAct(b); return; }
     // Compact: a tap on a stop's line shows that stop's controls, and closes
     // any Notes or theft form left open on another stop.
     const line = e.target.closest && e.target.closest("[data-pick]");
-    if (store.my && compact && line && !e.target.closest("a, input, textarea, label, button, .ops-line-details")) {
+    if (store.my && compact && line && !e.target.closest("a, input, textarea, label, button, .ops-more-line, .ops-note-edit, .ops-auto-notes")) {
       const id = Number(line.dataset.pick);
-      if (id !== activeId) { activeId = id; openDetails = null; theftOpen = null; leftOpen = null; render(); }
+      if (id !== activeId) { activeId = id; openDetails = null; theftOpen = null; leftOpen = null; noteEdit = null; render(); }
     }
   });
   page.addEventListener("toggle", e => {
@@ -692,6 +788,7 @@ function wire() {
   });
   page.addEventListener("input", e => {
     if (naming && e.target.dataset && e.target.dataset.name !== undefined) { naming.text = e.target.value; return; }
+    if (noteEdit && e.target.dataset && e.target.dataset.noteDraft !== undefined) { noteEdit.text = e.target.value; return; }
     const id = e.target.dataset && e.target.dataset.addSearch;
     if (id === undefined) return;
     addSearch[id] = e.target.value;
@@ -737,10 +834,28 @@ async function init() {
     banner.innerHTML = shadowBannerHtml(store, data.snap);
     render();
   });
+  // Back from a stop's Page ›: that stop, opened as it was, in view.
+  let back = null;
+  try {
+    back = JSON.parse(window.sessionStorage.getItem(BACK_KEY));
+    window.sessionStorage.removeItem(BACK_KEY);
+  } catch (err) { back = null; }
+  if (back && store.my && store.my.routeId === back.route) {
+    activeId = back.id;
+    if (back.more) openDetails = back.id;
+  } else back = null;
   wire();
   render();
+  if (back) {
+    const line = document.querySelector(`[data-pick="${back.id}"]`);
+    if (line) line.scrollIntoView({ block: "center" });
+  }
   if (photosReady) opsPhotosWatch(render);
 }
+// The browser's Back can restore this page as it was, stop and all: drop the note so a later visit starts fresh.
+window.addEventListener("pageshow", e => {
+  if (e.persisted) try { window.sessionStorage.removeItem(BACK_KEY); } catch (err) { /* ignore */ }
+});
 
 init();
 </script>
