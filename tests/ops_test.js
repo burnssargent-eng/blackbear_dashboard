@@ -23,7 +23,7 @@ const api = new Function("window", code + `
   return { freshStore, loadStore, saveStore, storeStops, assignToRoute, opsRouteList,
     addShadowCustomer, createRoute, renameRoute, storeRoutesByCustomer, buildIndex, opsNavHtml, OPS_NAV,
     recordCollection, todaysCollection, liveRouteTotals, routeSummary, recordTheft, theftGallonsText,
-    recordOilLeft, todaysOilLeft, clearOilLeft };`)(window);
+    recordOilLeft, todaysOilLeft, clearOilLeft, collectionLines };`)(window);
 
 let fails = 0;
 const ok = (cond, msg) => {
@@ -275,6 +275,23 @@ ok(api.todaysCollection(s2, -999).assignment_id === null, "an entry for a custom
   ok(tracked === "", "no *.local.json file is tracked by git");
   const details = execFileSync("git", ["ls-files", "customer_details.json"], { encoding: "utf8" }).trim();
   ok(details === "", "customer_details.json (addresses, notes) is not tracked by git");
+}
+
+// ── Collections tab: this site's entries stand in for the source site's on their day ──
+{
+  const history = [
+    { date: "2026-10-14", gallons: 48 }, { date: "2026-10-09", gallons: 1, code: true },
+    { date: "2026-09-30", gallons: 55 }, { date: "2026-09-30", gallons: 10 }];
+  const site = [{ client_id: "a", date: "2026-10-14", gallons: 50 }, { client_id: "b", date: "2026-10-24", gallons: 2 },
+    { client_id: "c", date: "2026-10-09", gallons: 1, theft: true }];
+  const lines = api.collectionLines(history, site);
+  ok(lines.map(l => l.date).join() === "2026-10-24,2026-10-14,2026-10-09,2026-09-30,2026-09-30", "newest first, one line per pickup");
+  ok(lines[1].site && lines[1].gallons === 50 && lines[1].client_id === "a",
+    "a day with a site entry shows the site's figure, never both added together");
+  ok(lines[0].code && lines[2].code && lines[2].theft, "site 0-3 entries are codes; a theft stays marked");
+  ok(lines.filter(l => !l.site).every(l => l.client_id === undefined) && lines.filter(l => !l.site).length === 2,
+    "the source site's own pickups carry no id, so they are not editable here");
+  ok(api.collectionLines(history, []).length === history.length, "without site entries the list is the source site's");
 }
 
 // ── No page posts to the source site ──

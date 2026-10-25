@@ -304,3 +304,54 @@ details.ops-route[open] > summary::before { content: "▾"; }
 .ops-route-naming { display: flex; gap: 8px; align-items: center; padding: 10px 12px; }
 .ops-route-name-input { flex: 1 1 auto; min-width: 0; height: 40px; font-size: 20px; font-weight: 600; }
 .ops-route-naming .btn { height: 40px; padding: 0 14px; font-size: 15px; font-weight: 600; }
+
+/* Customer page, Collections tab: a site pickup's gallons open its edit form. */
+.ops-pick-link { padding: 0; border: 0; background: none; color: #0d6efd; text-decoration: underline; font-size: inherit; }
+.ops-edit-pick { border: 1px solid #0d6efd; box-shadow: 0 0 0 1px #0d6efd; border-radius: 6px; padding: 8px 10px;
+  margin: 4px 0 8px; max-width: 420px; }
+.ops-edit-pick label { display: flex; flex-direction: column; gap: 2px; font-size: 14px; color: #495057; }
+.ops-edit-pick input { height: 38px; font-size: 16px; }
+.ops-edit-pick .btn { height: 38px; padding: 0 14px; font-size: 15px; display: inline-flex; align-items: center; }
+.ops-edit-delete { color: #495057; background: #fff; border: 1px solid #adb5bd; }
+.ops-edit-delete:hover, .ops-edit-delete:focus, .ops-edit-delete:active { color: #212529; background: #f1f3f5; border-color: #adb5bd; }
+
+/* Photos: a strip of thumbnails (customer page, My Route's Notes) and the full view. */
+.ops-photo-head { font-size: 13px; font-weight: 700; color: #495057; letter-spacing: 0.04em; margin-bottom: 6px; }
+.ops-photo-strip { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; }
+.ops-photo { flex: 0 0 auto; width: 96px; }
+.ops-photo-thumb { display: block; width: 96px; height: 96px; padding: 0; border: 0; border-radius: 6px;
+  overflow: hidden; background: #dee2e6; }
+.ops-photo-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ops-photo-cap { font-size: 12px; color: #495057; margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ops-photo-strip-sm { gap: 6px; margin-top: 6px; }
+.ops-photo-strip-sm .ops-photo, .ops-photo-strip-sm .ops-photo-thumb { width: 84px; height: 84px; }
+.ops-photo-add { flex: 0 0 auto; width: 96px; height: 96px; margin: 0; padding: 0; border: 2px dashed #adb5bd; border-radius: 6px;
+  background: #f8f9fa; color: #495057; font-size: 14px; display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 4px; cursor: pointer; }
+.ops-photo-add:active { background: #e9ecef; }
+.ops-photo-new { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 8px; max-width: 420px; }
+.ops-photo-new img { width: 64px; height: 64px; object-fit: cover; border-radius: 6px; }
+.ops-photo-new input[type="text"] { flex: 1 1 160px; min-width: 0; height: 38px; font-size: 16px; }
+.ops-photo-new .btn { height: 38px; padding: 0 14px; font-size: 15px; display: inline-flex; align-items: center; }
+
+body.ops-viewer-open { overflow: hidden; }
+.ops-viewer { position: fixed; inset: 0; z-index: 40; display: flex; flex-direction: column; background: #111418; color: #f8f9fa; }
+.ops-viewer-top { display: flex; align-items: center; justify-content: space-between; height: 56px; padding: 0 8px 0 16px;
+  font-size: 15px; color: #ced4da; }
+.ops-viewer-close { width: 44px; height: 44px; border: 0; background: transparent; color: #f8f9fa; font-size: 30px; line-height: 1; }
+.ops-viewer-img { position: relative; flex: 1 1 auto; min-height: 0; display: flex; align-items: center; justify-content: center; }
+.ops-viewer-img img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.ops-viewer-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border: 0;
+  border-radius: 22px; background: rgba(0, 0, 0, 0.45); color: #fff; font-size: 28px; line-height: 1; }
+.ops-viewer-prev { left: 8px; }
+.ops-viewer-next { right: 8px; }
+.ops-viewer-foot { padding: 12px 16px 20px; max-width: 640px; width: 100%; margin: 0 auto; box-sizing: border-box; }
+.ops-viewer-cap { font-size: 17px; overflow-wrap: anywhere; }
+.ops-viewer-by { font-size: 13px; color: #adb5bd; margin-top: 2px; }
+.ops-viewer-msg { font-size: 14px; color: #ffc107; margin-top: 6px; }
+.ops-viewer-acts { display: flex; gap: 8px; margin-top: 14px; }
+.ops-viewer-btn { height: 40px; padding: 0 14px; font-size: 15px; color: #f8f9fa; background: transparent; border: 1px solid #6c757d; }
+.ops-viewer-btn:hover, .ops-viewer-btn:focus, .ops-viewer-btn:active { color: #fff; background: #212529; border-color: #adb5bd; }
+.ops-viewer-edit { display: flex; gap: 8px; align-items: center; }
+.ops-viewer-edit input { flex: 1 1 auto; min-width: 0; height: 40px; font-size: 16px; }
+.ops-viewer-edit .btn { height: 40px; padding: 0 14px; font-size: 15px; }

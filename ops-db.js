@@ -53,6 +53,19 @@ function opsSharedPart(store) {
     trucks: store.trucks || {} });
 }
 
+/**
+ * A random id. crypto.randomUUID exists only on secure pages (https, localhost),
+ * so a phone testing over the LAN (http://10.x...) builds one from random bytes.
+ */
+function opsRandomId() {
+  if (crypto.randomUUID) return crypto.randomUUID();
+  const b = crypto.getRandomValues(new Uint8Array(16));
+  b[6] = (b[6] & 0x0f) | 0x40;
+  b[8] = (b[8] & 0x3f) | 0x80;
+  const h = Array.from(b, x => x.toString(16).padStart(2, "0")).join("");
+  return `${h.slice(0, 8)}-${h.slice(8, 12)}-${h.slice(12, 16)}-${h.slice(16, 20)}-${h.slice(20)}`;
+}
+
 /** Give each new pickup and outgoing entry the id that makes a resent save land once. */
 function opsEnsureClientIds(store, makeId) {
   (store.collections || []).forEach(c => { if (!c.client_id) c.client_id = makeId(); });
@@ -275,7 +288,7 @@ const opsDbSession = (async () => {
 })();
 
 async function opsFetchRows() {
-  const since = new Date(Date.now() - OPS_COLLECTION_DAYS * 86400000).toISOString().slice(0, 10);
+  const since = opsStoreSince();
   const all = async (q, label) => {
     const out = [];
     for (let from = 0; ; from += 1000) {
@@ -351,7 +364,7 @@ function opsCacheStore(store) {
  */
 function opsDbSave(store) {
   if (!opsDb || !opsDb.person || !store.shared) return false;
-  opsEnsureClientIds(store, () => crypto.randomUUID());
+  opsEnsureClientIds(store, opsRandomId);
   const row = opsDb.index ? id => opsDb.index.get(id) : () => null;
   const ops = opsDiff(opsDb.synced, opsSharedPart(store), { today: todayIso(),
     projectedFor: id => {
@@ -368,6 +381,35 @@ function opsDbSave(store) {
   }
   opsShowStatus();
   return true;
+}
+
+/**
+ * Changes sent straight to the queue, for pickups older than the store holds
+ * (the customer page edits a site pickup of any age). Waits offline like the rest.
+ */
+function opsQueueOps(ops) {
+  if (!opsDb || !opsDb.person) return false;
+  opsDb.queue.push(...ops);
+  opsWriteJson(OPS_QUEUE_KEY, opsDb.queue);
+  opsFlush();
+  opsShowStatus();
+  return true;
+}
+
+/** The first day the store holds pickups for; older ones come from opsSitePickups. */
+function opsStoreSince() {
+  return new Date(Date.now() - OPS_COLLECTION_DAYS * 86400000).toISOString().slice(0, 10);
+}
+
+/** Every pickup entered on this site for one customer, any age, or null when signed out or offline. */
+async function opsSitePickups(customerId) {
+  if (!opsDb || !opsDb.person) return null;
+  const { data, error } = await opsDb.client.from("collections")
+    .select("client_id,picked_on,gallons,route_id,theft,theft_note,projected_gal,entered_at")
+    .eq("source", "site").eq("customer_id", customerId).order("picked_on", { ascending: false });
+  if (error) return null;
+  return data.map(r => ({ client_id: r.client_id, date: r.picked_on, gallons: r.gallons, route_id: r.route_id,
+    theft: r.theft, theft_note: r.theft_note, projected_gal: r.projected_gal, entered_at: r.entered_at }));
 }
 
 /** One write. Returns "ok", "retry" (no signal: keep it) or "failed" (refused: set aside). */
