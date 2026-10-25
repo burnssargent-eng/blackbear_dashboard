@@ -143,9 +143,12 @@ function routeHtml(route) {
       <div class="ops-route-body"><div class="ops-route-sum mb-2">${sum}</div>`
     : `<details class="ops-route" data-route-box="${id}" ${openRoutes.has(id) ? "open" : ""}>
       <summary>
-        <span class="ops-route-name">${escapeHtml(route.name)}</span>
-        <span class="ops-route-sum">${sum}</span>
+        <div class="ops-row-main">
+          <span class="ops-route-name">${escapeHtml(route.name)}</span>
+          <span class="ops-route-sum">${sum}</span>
+        </div>
         ${store.trucks[id] ? `<span class="badge bg-secondary">${escapeHtml(store.trucks[id])}</span>` : ""}
+        <span class="ops-row-chev" aria-hidden="true">›</span>
       </summary>
       <div class="ops-route-body">`}
         <div class="d-flex flex-wrap gap-2 align-items-center mb-2">
@@ -180,8 +183,9 @@ function renderList() {
     <h2>My Route</h2>
     <div class="ops-muted mb-3">Open a route to see and change its stops; hold a stop to drag it; Set as My Route to start entering gallons.
       Projections as of ${escapeHtml(formatDate(data.projections.as_of))}.</div>
-    ${withStops.map(routeHtml).join("")}
-    ${empty.length ? `<div class="ops-muted mt-3 mb-1">Routes with no stops</div>${empty.map(routeHtml).join("")}` : ""}
+    <div class="ops-route-list">${withStops.map(routeHtml).join("")}</div>
+    ${empty.length ? `<div class="ops-muted mt-3 mb-1">Routes with no stops</div>
+      <div class="ops-route-list">${empty.map(routeHtml).join("")}</div>` : ""}
     ${removed ? `<div class="ops-undo" role="status">
       <span class="ops-undo-text">Removed ${escapeHtml(removed.stop.name)}</span>
       <button type="button" class="btn ops-undo-btn" data-act="unremove">Undo</button></div>` : ""}`;
