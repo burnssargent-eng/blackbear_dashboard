@@ -270,6 +270,10 @@ create table if not exists public.photos (
 create index if not exists photos_customer_idx on public.photos (customer_id, uploaded_at);
 alter table public.photos add column if not exists removed_at timestamptz;
 alter table public.photos add column if not exists removed_by uuid;
+-- A photo copied from the source site's uploads/ folder (jamaal_photos.py,
+-- nightly): its file name there, so each is copied once and one removed on the
+-- site is never copied back. Empty for photos added on the site.
+alter table public.photos add column if not exists jamaal_file text unique;
 alter table public.photos drop constraint if exists photos_caption_len;
 alter table public.photos add constraint photos_caption_len
   check (caption is null or char_length(caption) <= 200);

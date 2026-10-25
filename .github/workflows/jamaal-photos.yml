@@ -1,0 +1,48 @@
+name: Copy source-site photos
+
+# Run by hand (Actions tab > this workflow > Run workflow). First with
+# "dry-run": downloads and shrinks every photo and prints what would be
+# copied, writing nothing. Then "copy-5" (five photos: check them on the
+# customer pages), then "copy": stores each new photo in the
+# shared database's private bucket. A photo already copied is skipped, so a
+# run that stopped halfway is simply run again. After the first copy the
+# nightly picks up new ones. GET only on the source site; commits nothing.
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "dry-run (write nothing), copy-5 (five photos, to check), or copy (all new)"
+        type: choice
+        options: [dry-run, copy-5, copy]
+        default: dry-run
+
+permissions:
+  contents: read
+
+jobs:
+  photos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Copy photos
+        env:
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          case "${{ inputs.mode }}" in
+            dry-run) python jamaal_photos.py --dry-run ;;
+            copy-5)  python jamaal_photos.py --limit 5 ;;
+            *)       python jamaal_photos.py ;;
+          esac
