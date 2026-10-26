@@ -1,146 +1,18 @@
 {
- "scraped_at": "2026-10-26T13:52:58+00:00",
+ "scraped_at": "2026-10-26T20:48:05+00:00",
  "source": "routes_assigned.php, assign_routes.php",
  "routes": [
   {
    "route_id": 10,
    "name": "Route 7",
-   "assigned_capacity": 2530,
+   "assigned_capacity": 50,
    "stops": [
     {
-     "assignment_id": 24283,
-     "customer_id": 1093,
-     "name": "Bethel Sandwhich Shop",
-     "capacity": 55,
-     "days_over": 56,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24284,
-     "customer_id": 802,
-     "name": "Creek House Diner",
-     "capacity": 100,
-     "days_over": 10,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24285,
-     "customer_id": 803,
-     "name": "Toziers-",
-     "capacity": 300,
-     "days_over": -1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24302,
-     "customer_id": 1333,
-     "name": "Barnard Inn",
-     "capacity": 100,
-     "days_over": 60,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24293,
-     "customer_id": 824,
-     "name": "White Cottage",
-     "capacity": 150,
-     "days_over": -8,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24292,
-     "customer_id": 1438,
-     "name": "Oakes and Evelyn- WOODSTOCK",
-     "capacity": 55,
-     "days_over": -4,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24294,
-     "customer_id": 825,
-     "name": "Woodstock Country Club",
-     "capacity": 100,
-     "days_over": -313,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24295,
-     "customer_id": 823,
-     "name": "Woodstock Inn",
-     "capacity": 300,
-     "days_over": -12,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24291,
-     "customer_id": 1455,
-     "name": "Farmer and the Bell",
-     "capacity": 200,
-     "days_over": -15,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24289,
-     "customer_id": 827,
-     "name": "Simon Pearce~100%",
-     "capacity": 90,
-     "days_over": -15,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24290,
-     "customer_id": 1233,
-     "name": "Skinny Pancake- Quechee",
-     "capacity": 150,
-     "days_over": -15,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24288,
-     "customer_id": 1056,
-     "name": "Quechee Gorge Snack Bar",
-     "capacity": 200,
-     "days_over": -4,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24259,
-     "customer_id": 1369,
-     "name": "The Karribean-West Lebanon",
-     "capacity": 100,
-     "days_over": 40,
-     "must_get": true
-    },
-    {
-     "assignment_id": 24297,
-     "customer_id": 1119,
-     "name": "Hannaford-West Lebanon",
-     "capacity": 170,
-     "days_over": -15,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24296,
-     "customer_id": 928,
-     "name": "Burger King-West Lebanon",
-     "capacity": 200,
-     "days_over": -21,
-     "must_get": false
-    },
-    {
-     "assignment_id": 23552,
-     "customer_id": 1484,
-     "name": "Sushiya-Hanover NH",
-     "capacity": 110,
-     "days_over": 66,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24287,
-     "customer_id": 600,
-     "name": "Positive Pie-Plainfield",
-     "capacity": 150,
-     "days_over": -17,
+     "assignment_id": 24326,
+     "customer_id": 1113,
+     "name": "Saroms",
+     "capacity": 50,
+     "days_over": 59,
      "must_get": false
     }
    ]
@@ -148,7 +20,7 @@
   {
    "route_id": 14,
    "name": "Central Vt 2",
-   "assigned_capacity": 1100,
+   "assigned_capacity": 1035,
    "stops": [
     {
      "assignment_id": 24279,
@@ -212,14 +84,6 @@
      "name": "Sugar House Hotel",
      "capacity": 200,
      "days_over": -25,
-     "must_get": true
-    },
-    {
-     "assignment_id": 24277,
-     "customer_id": 1116,
-     "name": "GreenGoddess",
-     "capacity": 65,
-     "days_over": -24,
      "must_get": true
     }
    ]
@@ -290,14 +154,14 @@
   {
    "route_id": 2,
    "name": "Central Vt",
-   "assigned_capacity": 110,
+   "assigned_capacity": 150,
    "stops": [
     {
-     "assignment_id": 24274,
-     "customer_id": 1404,
-     "name": "ERICAS-Cambridge",
-     "capacity": 110,
-     "days_over": -3,
+     "assignment_id": 24184,
+     "customer_id": 1498,
+     "name": "Barre Country Club-Plainfield",
+     "capacity": 150,
+     "days_over": 31,
      "must_get": false
     }
    ]
@@ -320,14 +184,134 @@
   {
    "route_id": 4,
    "name": "Stowe/Wtbry/MRV",
-   "assigned_capacity": 360,
+   "assigned_capacity": 2317,
    "stops": [
     {
-     "assignment_id": 24184,
-     "customer_id": 1498,
-     "name": "Barre Country Club-Plainfield",
+     "assignment_id": 24315,
+     "customer_id": 1366,
+     "name": "Barr Hill -Load",
+     "capacity": 1,
+     "days_over": 33,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24314,
+     "customer_id": 1469,
+     "name": "Maplehurst Gebbie Farm",
+     "capacity": 1,
+     "days_over": -99,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24321,
+     "customer_id": 1497,
+     "name": "Gondola Seasonal Snack Shack Route 15",
      "capacity": 150,
-     "days_over": 31,
+     "days_over": 6,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24306,
+     "customer_id": 1239,
+     "name": "Jennas Coffee House- two sons bakehouse",
+     "capacity": 90,
+     "days_over": -20,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24309,
+     "customer_id": 543,
+     "name": "Marsala Salsa/ Pizzeria -Johnson-10%",
+     "capacity": 150,
+     "days_over": -20,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24308,
+     "customer_id": 544,
+     "name": "Johnsons Chinese Kitchen 90%",
+     "capacity": 150,
+     "days_over": -20,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24310,
+     "customer_id": 1515,
+     "name": "NVU-Johnson",
+     "capacity": 150,
+     "days_over": -7,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24274,
+     "customer_id": 1404,
+     "name": "ERICAS-Cambridge",
+     "capacity": 110,
+     "days_over": -3,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24323,
+     "customer_id": 1071,
+     "name": "Lost Nation Brewery",
+     "capacity": 110,
+     "days_over": 6,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24322,
+     "customer_id": 1181,
+     "name": "Hannaford- Morrisville",
+     "capacity": 170,
+     "days_over": -26,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24324,
+     "customer_id": 512,
+     "name": "North Country Donuts",
+     "capacity": 100,
+     "days_over": -1,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24320,
+     "customer_id": 509,
+     "name": "Moogs Place- Morrisville",
+     "capacity": 150,
+     "days_over": -1,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24319,
+     "customer_id": 1352,
+     "name": "Gondola’s Downtown Morrisville",
+     "capacity": 165,
+     "days_over": 13,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24318,
+     "customer_id": 511,
+     "name": "Black Diamond BBQ",
+     "capacity": 195,
+     "days_over": -7,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24317,
+     "customer_id": 510,
+     "name": "10 Railroad Street",
+     "capacity": 100,
+     "days_over": -1,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24305,
+     "customer_id": 515,
+     "name": "Two Sons Bakery/Fork and Gavel-HydePark",
+     "capacity": 150,
+     "days_over": -20,
      "must_get": false
     },
     {
@@ -345,6 +329,22 @@
      "capacity": 110,
      "days_over": 15,
      "must_get": false
+    },
+    {
+     "assignment_id": 24313,
+     "customer_id": 244,
+     "name": "Whip Bar & Grill at Green Mt Inn",
+     "capacity": 100,
+     "days_over": -2,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24277,
+     "customer_id": 1116,
+     "name": "GreenGoddess",
+     "capacity": 65,
+     "days_over": -24,
+     "must_get": true
     }
    ]
   },
@@ -517,7 +517,7 @@
    "customer_id": 1333,
    "name": "Barnard Inn",
    "city": "Barnard",
-   "days_over": 60
+   "days_over": -100
   },
   {
    "customer_id": 1082,
@@ -691,19 +691,19 @@
    "customer_id": 1093,
    "name": "Bethel Sandwhich Shop",
    "city": "Bethel",
-   "days_over": 56
+   "days_over": -110
   },
   {
    "customer_id": 802,
    "name": "Creek House Diner",
    "city": "Bethel",
-   "days_over": 10
+   "days_over": -42
   },
   {
    "customer_id": 803,
    "name": "Toziers-",
    "city": "Bethel",
-   "days_over": -1
+   "days_over": -18
   },
   {
    "customer_id": 1506,
@@ -1597,7 +1597,7 @@
    "customer_id": 1484,
    "name": "Sushiya-Hanover NH",
    "city": "Hanover",
-   "days_over": 66
+   "days_over": -28
   },
   {
    "customer_id": 1242,
@@ -2551,7 +2551,7 @@
    "customer_id": 600,
    "name": "Positive Pie-Plainfield",
    "city": "Plainfield",
-   "days_over": -17
+   "days_over": -45
   },
   {
    "customer_id": 1360,
@@ -2593,19 +2593,19 @@
    "customer_id": 1056,
    "name": "Quechee Gorge Snack Bar",
    "city": "Quechee",
-   "days_over": -4
+   "days_over": -17
   },
   {
    "customer_id": 827,
    "name": "Simon Pearce~100%",
    "city": "Quechee",
-   "days_over": -15
+   "days_over": -28
   },
   {
    "customer_id": 1233,
    "name": "Skinny Pancake- Quechee",
    "city": "Quechee",
-   "days_over": -15
+   "days_over": -28
   },
   {
    "customer_id": 923,
@@ -3565,13 +3565,13 @@
    "customer_id": 928,
    "name": "Burger King-West Lebanon",
    "city": "West Lebanon",
-   "days_over": -21
+   "days_over": -34
   },
   {
    "customer_id": 1119,
    "name": "Hannaford-West Lebanon",
    "city": "West Lebanon",
-   "days_over": -15
+   "days_over": -28
   },
   {
    "customer_id": 930,
@@ -3583,7 +3583,7 @@
    "customer_id": 1369,
    "name": "The Karribean-West Lebanon",
    "city": "West Lebanon",
-   "days_over": 40
+   "days_over": -48
   },
   {
    "customer_id": 1400,
@@ -3847,7 +3847,7 @@
    "customer_id": 1455,
    "name": "Farmer and the Bell",
    "city": "Woodstock",
-   "days_over": -15
+   "days_over": -28
   },
   {
    "customer_id": 1027,
@@ -3871,7 +3871,7 @@
    "customer_id": 1438,
    "name": "Oakes and Evelyn- WOODSTOCK",
    "city": "Woodstock",
-   "days_over": -4
+   "days_over": -56
   },
   {
    "customer_id": 819,
@@ -3889,19 +3889,19 @@
    "customer_id": 824,
    "name": "White Cottage",
    "city": "Woodstock",
-   "days_over": -8
+   "days_over": -21
   },
   {
    "customer_id": 825,
    "name": "Woodstock Country Club",
    "city": "Woodstock",
-   "days_over": -313
+   "days_over": -365
   },
   {
    "customer_id": 823,
    "name": "Woodstock Inn",
    "city": "Woodstock",
-   "days_over": -12
+   "days_over": -25
   },
   {
    "customer_id": 624,
