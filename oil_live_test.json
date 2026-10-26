@@ -1,41 +1,41 @@
 {
- "data_last_updated": "2026-10-25T12:21:09.498308",
- "latest_pickup": "2026-10-23",
+ "data_last_updated": "2026-10-26T13:52:53.358012",
+ "latest_pickup": "2026-10-26",
  "summary": [
   {
    "window": "Last 7 days",
-   "from": "2026-10-17",
-   "scored": 59,
-   "not_projected": 8,
-   "projected_total": 4933.3,
-   "actual_total": 4876,
-   "net_error": 57.3,
-   "wape": 34.5,
-   "bias": 1.2,
-   "median_miss": 20.9
+   "from": "2026-10-20",
+   "scored": 49,
+   "not_projected": 7,
+   "projected_total": 4238.2,
+   "actual_total": 4316,
+   "net_error": -77.8,
+   "wape": 32.0,
+   "bias": -1.8,
+   "median_miss": 21.0
   },
   {
    "window": "Last 30 days",
-   "from": "2026-09-24",
-   "scored": 268,
-   "not_projected": 31,
-   "projected_total": 20609.8,
-   "actual_total": 21317,
-   "net_error": -707.2,
-   "wape": 29.0,
-   "bias": -3.3,
-   "median_miss": 14.2
+   "from": "2026-09-27",
+   "scored": 260,
+   "not_projected": 29,
+   "projected_total": 20012.4,
+   "actual_total": 20812,
+   "net_error": -799.6,
+   "wape": 28.7,
+   "bias": -3.8,
+   "median_miss": 14.1
   },
   {
    "window": "All",
    "from": null,
-   "scored": 307,
+   "scored": 308,
    "not_projected": 39,
-   "projected_total": 22791.1,
-   "actual_total": 23644,
-   "net_error": -852.9,
+   "projected_total": 22864.0,
+   "actual_total": 23734,
+   "net_error": -870.0,
    "wape": 28.4,
-   "bias": -3.6,
+   "bias": -3.7,
    "median_miss": 13.7
   }
  ],
@@ -53,14 +53,14 @@
   },
   {
    "stage": "established",
-   "scored": 109,
+   "scored": 110,
    "not_projected": 0,
-   "projected_total": 8624.7,
-   "actual_total": 8970,
-   "net_error": -345.3,
-   "wape": 29.3,
-   "bias": -3.8,
-   "median_miss": 15.0
+   "projected_total": 8697.6,
+   "actual_total": 9060,
+   "net_error": -362.4,
+   "wape": 29.2,
+   "bias": -4.0,
+   "median_miss": 15.1
   },
   {
    "stage": "new",
@@ -94,6 +94,34 @@
   "will-call": 2
  },
  "days": [
+  {
+   "date": "2026-10-26",
+   "scored": 1,
+   "not_projected": 0,
+   "projected_total": 72.9,
+   "actual_total": 90,
+   "net_error": -17.1,
+   "wape": 19.0,
+   "bias": -19.0,
+   "median_miss": 17.1,
+   "rows": [
+    {
+     "id": 161,
+     "name": "GOOD MEASURE!!!!-(1980)",
+     "town": "Northfield",
+     "stage": "established",
+     "section": "ranked",
+     "previous_pickup": "2026-10-12",
+     "predicted_as_of": "2026-10-23",
+     "projected": 72.9,
+     "range_low": 56.4,
+     "range_high": 89.6,
+     "actual": 90,
+     "error": -17.1,
+     "pct_error": -19.0
+    }
+   ]
+  },
   {
    "date": "2026-10-23",
    "scored": 10,
