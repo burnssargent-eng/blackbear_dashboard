@@ -40,8 +40,10 @@ supabase_sync.py ──> the shared database (Supabase; db/schema.sql). Nightly:
                      rows with source='jamaal'; the last 90 days refreshed each night, --history redoes all), and
                      a sync_reports row on where routes and pickups differ. 'jamaal' rows and the site's own
                      'site' rows record the SAME pickups: never add them together; the pages read only 'site'.
-                     Never writes a stop or a site pickup. --seed (supabase-seed.yml, by hand, once) also copies the assigned routes
-                     into an EMPTY route_stops, with the full notes from a fresh jamaal_customers.py --refresh.
+                     Never writes a site pickup. Stops: --routes (refresh-routes.yml, started at 7am Vermont
+                     time by the database's pg_cron, since GitHub schedules ran hours late) sets every source-site
+                     route to Jamaal's Today's Routes; site edits stand until the next morning. --seed
+                     (supabase-seed.yml, by hand, once) also copies the assigned routes into an EMPTY route_stops, with the full notes from a fresh jamaal_customers.py --refresh.
 jamaal_photos.py ──> the shared database's private `photos` bucket: the source site's uploads/ photos (GET only),
                      shrunk like the phone does (1600 px + 400 px thumb), blank caption, `photos.jamaal_file` = the
                      source file name (unique: copied once; removed on the site stays removed). First copy by hand
@@ -131,6 +133,12 @@ python3 oil_scraper.py            # reuses the committed CSV — no network
 python3 oil_scraper.py --rescrape # live scrape; the nightly does this, you rarely should
 python3 analysis/build_projection_table.py   # after either: rebuilds oil_projections.json
 ```
+
+The nightly builds with `--today`: the file is dated today (Vermont), not the
+latest pickup, which lags after a day with no pickups (Saturday 2026-10-25's
+file was dated Thursday, so My Route showed a 3-day-old figure). A plain local
+run dates it to the latest pickup, so it matches the nightly only on a day
+that had pickups.
 
 A plain run rewrites the CSV, the Excel report and both JSONs, and is
 idempotent. `.github/workflows/nightly-update.yml` runs `--rescrape` at 07:00

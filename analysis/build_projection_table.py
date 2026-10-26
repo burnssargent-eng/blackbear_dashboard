@@ -86,6 +86,7 @@ All percentage fields are written in percent units: 23.4 means 23.4%.
 
     python3 analysis/build_projection_table.py
     python3 analysis/build_projection_table.py --as-of 2026-06-30
+    python3 analysis/build_projection_table.py --today   # the nightly: dated to today
 
     python3 analysis/build_projection_table.py --refresh-wape
 
@@ -102,9 +103,10 @@ import json
 import random
 import statistics
 from collections import defaultdict
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import NamedTuple
+from zoneinfo import ZoneInfo
 
 import backtest_seasonal_models as bsm
 import backtest_steady_rate as bt
@@ -2274,6 +2276,12 @@ def main():
     parser.add_argument("--as-of", type=date.fromisoformat, metavar="YYYY-MM-DD",
                         help="projection date (default: latest pickup in the CSV); "
                              "a dated run does not touch oil_projections.json")
+    # The live file dated to today, not to the latest pickup, which lags after
+    # a day with no pickups (Saturday's file was dated Thursday, 2026-10-25),
+    # so My Route showed a 3-day-old figure. Still writes oil_projections.json.
+    parser.add_argument("--today", action="store_true",
+                        help="date the live projection to today in Vermont (or the latest "
+                             "pickup, if later); the nightly uses it")
     parser.add_argument("--refresh-wape", action="store_true",
                         help=f"rebuild analysis/{WAPE_SNAPSHOT.name} from the "
                              "backtest CSVs, then exit")
@@ -2291,6 +2299,8 @@ def main():
 
     latest = max(p["date"] for ps in pickups.values() for p in ps)
     asof = args.as_of or latest
+    if args.today and args.as_of is None:
+        asof = max(latest, datetime.now(ZoneInfo("America/New_York")).date())
     if asof < latest:
         print(f"  note: --as-of {asof} is before the latest pickup {latest}; "
               "later pickups are still in the history and will leak")

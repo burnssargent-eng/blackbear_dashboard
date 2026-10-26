@@ -502,6 +502,14 @@ function opsFlush() {
 let opsRefreshTimer = null;
 
 function opsListen() {
+  // A phone left asleep misses live updates, and a route edited from its old
+  // copy would send yesterday's stops back over the 7am reset
+  // (refresh-routes.yml): reload whenever the page is shown again.
+  if (typeof document !== "undefined" && document.addEventListener) {
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible") opsRefresh();
+    });
+  }
   if (!opsDb.client.channel) return;
   opsDb.client.channel("ops-shared")
     .on("postgres_changes", { event: "*", schema: "public" }, () => {

@@ -1,8 +1,16 @@
 name: Refresh Assigned Routes
 
-# Run by hand (Actions tab > Refresh Assigned Routes > Run workflow) to update
-# the route planner's copy of the source site's routes during the day. Only
-# reads one page there; never writes to it.
+# Reads the source site's Today's Routes (one page, GET only; never writes to
+# it), commits the snapshot, and sets the shared database's routes to match
+# (supabase_sync.py --routes: Sarge, 2026-10-26, so the site and the source
+# site start each day the same during the trial). Route edits made on the site
+# after that stand until the next run.
+#
+# Started at 7am Vermont time by the shared database itself
+# (db/schema.sql, public.dispatch_morning_routes), not by a schedule here:
+# GitHub started the nightly's 07:00 UTC schedule 5-7 hours late in October
+# 2026. Run it by hand (Actions tab > Refresh Assigned Routes > Run workflow)
+# to set the routes again later in the day.
 on:
   workflow_dispatch:
 
@@ -31,11 +39,23 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests beautifulsoup4
 
+      # On a failed read nothing is written and the job stops here, so the
+      # routes are never set from an old snapshot.
       - name: Read assigned routes
+        id: read
         run: |
           python jamaal_routes.py
 
+      - name: Set the site's routes to the source site's
+        env:
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          python supabase_sync.py --routes
+
+      # Commit the snapshot even when setting the routes failed (the step above
+      # shows red), so the planner still gets the fresh read.
       - name: Commit the snapshot
+        if: ${{ !cancelled() && steps.read.outcome == 'success' }}
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
