@@ -2,9 +2,9 @@
 """
 Keep the shared database (Supabase, db/schema.sql) in step with the source site.
 
-The site and the source site are both sources (Sarge, 2026-10-21): routes are
-copied in once, then edited on the site; gallons are entered in both. So this
-script never overwrites a route or a pickup. It:
+The site and the source site are both sources (Sarge, 2026-10-21): gallons
+are entered in both, and the nightly never overwrites a route or a pickup.
+Routes are the one exception, by --routes (below). The nightly:
 
   customers  upserts the source site's active customers (name, town, capacity,
              periodicity, address, map position) and marks ones no longer
@@ -25,6 +25,17 @@ script never overwrites a route or a pickup. It:
   report     where the site's routes differ from the source site's, and
              pickups entered on one but not the other, saved to sync_reports.
 
+--routes sets the site's routes to the source site's Today's Routes
+(Sarge, 2026-10-26: during the trial the two must start each day the same).
+refresh-routes.yml runs it at 7am Vermont time, after a fresh read of the
+source site; edits made on the site after that stand until the next morning.
+Every route the source site has is set to its stops, in its order, with its
+Must Get; one with no stops there is emptied. Routes made on the site
+(negative ids) are left alone. A stop whose customer the database does not
+have yet is skipped and listed: the nightly adds the customer, and the next
+morning's run the stop. What the site had that differed is kept in the
+sync_reports row, so an overwritten edit can be seen.
+
 Addresses and notes live only in the database (step 6, 2026-10-24):
 customer_details.json is no longer committed. --export-details writes it, and
 customer_notes.local.json, from the database at the start of the nightly, so
@@ -41,6 +52,7 @@ projection builder can read it; the builder never contacts the database.
     python3 supabase_sync.py --export-details   # nightly, first: the details files from the database
     python3 supabase_sync.py --export-oil-left  # nightly, before the projections: oil_left.csv
     python3 supabase_sync.py          # nightly
+    python3 supabase_sync.py --routes   # 7am: the site's routes set to the source site's
     python3 supabase_sync.py --history  # also re-copy the source site's whole history
     python3 supabase_sync.py --dry-run  # print what would be sent, touch nothing
 
@@ -69,6 +81,7 @@ CODES_FILE = "oil_non_pickups.csv"
 RAW_FILE = "oil_collections_raw.csv"
 OUTGOING_FILE = "outgoing.json"
 OIL_LEFT_FILE = "oil_left.csv"
+ROUTES_MAX_AGE = timedelta(hours=1)   # --routes refuses an older jamaal_routes.json
 HISTORY_DAYS = 90         # how far back the nightly follows edits on the source site
 REPORT_DAYS = 30          # how far back pickups are compared
 BATCH = 500
@@ -160,7 +173,7 @@ def full_notes(cid, details, local_notes):
 
 
 def stop_rows(snap):
-    """The source site's assigned routes as route_stops rows (seed only)."""
+    """The source site's assigned routes as route_stops rows (--seed and --routes)."""
     out = []
     for r in snap.get("routes", []):
         seen = set()
@@ -535,10 +548,68 @@ def sync(db, seed=False, today=None, history=False):
     return report
 
 
+def mirror_routes(db, now=None):
+    """
+    --routes: the site's routes set to the source site's (module docstring).
+    Writes the wanted stops first, then removes the rest, so a failure part
+    way leaves extra stops rather than an emptied route.
+    """
+    snap = load_json(ROUTES_FILE)
+    now = now or datetime.now(VERMONT)
+    read_at = datetime.fromisoformat(snap.get("scraped_at") or "1970-01-01T00:00:00+00:00")
+    if now - read_at > ROUTES_MAX_AGE:
+        raise SyncError(f"{ROUTES_FILE} was read at {snap.get('scraped_at')}, over an hour ago: "
+                        "run jamaal_routes.py first; routes left as they are")
+    wanted = stop_rows(snap)
+    if not wanted:
+        raise SyncError(f"{ROUTES_FILE} has no assigned stops at all: likely a bad read; routes left as they are")
+
+    routes = route_rows(snap)
+    db.upsert("routes", routes)
+    jamaal_ids = {r["id"] for r in routes}
+    customers = {r["id"]: r["name"] for r in db.select("customers", "select=id,name")}
+    waiting = [s for s in wanted if s["customer_id"] not in customers]
+    wanted = [s for s in wanted if s["customer_id"] in customers]
+    before = [s for s in db.select("route_stops", "select=id,route_id,customer_id,position,must_get")
+              if s["route_id"] in jamaal_ids]
+    names = dict(customers)
+    for r in snap.get("routes", []):
+        for s in r["stops"]:
+            names.setdefault(s.get("customer_id"), s["name"])
+    differed = route_differences(snap, before, names)
+    keep = {(s["route_id"], s["customer_id"]) for s in wanted}
+    stale = sorted(s["id"] for s in before if (s["route_id"], s["customer_id"]) not in keep)
+    if wanted:
+        db.upsert("route_stops", wanted, on_conflict="route_id,customer_id")
+    if stale:
+        db.delete("route_stops", "id", stale)
+
+    on_routes = len({s["route_id"] for s in wanted})
+    summary = (f"routes set to the source site's: {len(wanted)} stop(s) on {on_routes} route(s); "
+               f"{len(differed)} route(s) had differed, {len(stale)} stop(s) removed")
+    if waiting:
+        summary += f"; {len(waiting)} stop(s) wait for the nightly to add their customer"
+    report = {"routes_read_at": snap.get("scraped_at"), "stops": len(wanted), "removed": len(stale),
+              "differed_before": differed,
+              "waiting": [{"id": s["customer_id"], "name": names.get(s["customer_id"], f"#{s['customer_id']}"),
+                           "route_id": s["route_id"]} for s in waiting]}
+    db.insert("sync_reports", [{"kind": "routes", "summary": summary, "report": report}])
+    print(summary[0].upper() + summary[1:] + ".")
+    for r in differed:
+        print(f"  {r['route']}: {len(r['only_jamaal'])} added, {len(r['only_site'])} removed"
+              + (", order reset" if r["order_differs"] else "")
+              + (f", Must Get reset on {len(r['must_get_differs'])}" if r["must_get_differs"] else ""))
+    for w in report["waiting"]:
+        print(f"  waiting: {w['name']} ({w['id']}) on route {w['route_id']}")
+    return report
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--seed", action="store_true", help="also copy the source site's routes into an empty route_stops")
     ap.add_argument("--dry-run", action="store_true", help="read the database, write nothing")
+    ap.add_argument("--routes", action="store_true",
+                    help="set the site's routes to the source site's Today's Routes, and nothing else")
     ap.add_argument("--history", action="store_true", help="re-copy the source site's whole history, not just the last 90 days")
     ap.add_argument("--export-details", action="store_true",
                     help=f"write {DETAILS_FILE} and {LOCAL_NOTES} from the database, and nothing else")
@@ -555,6 +626,8 @@ def main():
             export_details(db)
         elif args.export_oil_left:
             export_oil_left(db)
+        elif args.routes:
+            mirror_routes(db)
         else:
             sync(db, seed=args.seed, history=args.history)
     except (SyncError, requests.RequestException) as exc:

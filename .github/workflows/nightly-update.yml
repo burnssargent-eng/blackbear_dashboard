@@ -53,10 +53,11 @@ jobs:
 
       # Beta projections page. A failure here must never block the data commit
       # below: the previous oil_projections.json is kept, and projections.html
-      # warns that it was built from an older scrape.
+      # warns that it was built from an older scrape. --today dates it to
+      # today, so My Route reads today's figure even after a day with no pickups.
       - name: Build projections
         run: |
-          python analysis/build_projection_table.py || echo "::warning::Projection build failed; oil_projections.json left as-is"
+          python analysis/build_projection_table.py --today || echo "::warning::Projection build failed; oil_projections.json left as-is"
 
       # Route planner beta: a read-only snapshot of the routes currently assigned
       # on the source site. Independent of the steps above; on failure the old

@@ -411,14 +411,18 @@ end $$;
 
 -- What the nightly sync found (supabase_sync.py): where the site and the source
 -- site disagree on routes, and pickups entered in one but not the other.
+-- 'routes' rows are the 7am reset (below): what the site had that it replaced.
 -- Written by the sync (service key) only; members read it.
 create table if not exists public.sync_reports (
   id      bigint generated always as identity primary key,
   ran_at  timestamptz not null default now(),
-  kind    text not null check (kind in ('seed', 'nightly')),
+  kind    text not null check (kind in ('seed', 'nightly', 'routes')),
   summary text not null,
   report  jsonb not null default '{}'
 );
+alter table public.sync_reports drop constraint if exists sync_reports_kind_check;
+alter table public.sync_reports add constraint sync_reports_kind_check
+  check (kind in ('seed', 'nightly', 'routes'));
 alter table public.sync_reports enable row level security;
 drop policy if exists "members read sync reports" on public.sync_reports;
 create policy "members read sync reports" on public.sync_reports
@@ -431,6 +435,49 @@ grant select on public.sync_reports to authenticated;
 -- automatically on this project.
 grant usage on schema public to service_role;
 grant select, insert, update, delete on all tables in schema public to service_role;
+
+-- 7am routes (Sarge, 2026-10-26): every morning at 7:00 Vermont time the site's
+-- routes are set to the source site's Today's Routes, before the drivers leave
+-- at 7:30-8:30. This starts the GitHub workflow refresh-routes.yml, which reads
+-- the source site and runs supabase_sync.py --routes. GitHub's own schedules
+-- ran hours late, so the database keeps the clock. pg_cron counts in UTC: it
+-- fires at 11:00 and 12:00 UTC and only the one that is 7am in Vermont calls
+-- GitHub, so daylight saving needs no change.
+-- Needs a GitHub token in the vault, created once by hand and never in this
+-- file (fine-grained, this repository only, Actions: read and write):
+--   select vault.create_secret('<the token>', 'github_dispatch_token');
+-- To replace it later:
+--   select vault.update_secret((select id from vault.secrets where name = 'github_dispatch_token'), '<new token>');
+-- To start the workflow now (a test): select public.dispatch_morning_routes();
+-- then look at Actions on GitHub, and at the reply:
+--   select status_code, left(content, 200) from net._http_response order by created desc limit 1;
+-- (204 = started; 401 = bad or expired token.)
+create extension if not exists pg_cron;
+create extension if not exists pg_net;
+
+create or replace function public.dispatch_morning_routes()
+returns bigint
+language sql
+security definer
+set search_path = ''
+as $$
+  select net.http_post(
+    url := 'https://api.github.com/repos/burnssargent-eng/blackbear_dashboard/actions/workflows/refresh-routes.yml/dispatches',
+    headers := jsonb_build_object(
+      'Authorization', 'Bearer ' || (select decrypted_secret from vault.decrypted_secrets
+                                      where name = 'github_dispatch_token'),
+      'Accept', 'application/vnd.github+json',
+      'X-GitHub-Api-Version', '2022-11-28',
+      'User-Agent', 'blackbear-morning-routes'),
+    body := '{"ref": "main"}'::jsonb);
+$$;
+revoke all on function public.dispatch_morning_routes() from public, anon, authenticated;
+
+-- Scheduling under an existing name replaces that job, so a re-run is safe.
+select cron.schedule('morning-routes', '0 11,12 * * *', $cron$
+  select public.dispatch_morning_routes()
+  where extract(hour from now() at time zone 'America/New_York') = 7
+$cron$);
 
 -- ---------------------------------------------------------------------------
 -- AFTER inviting yourself and Jim (Authentication > Users > Invite user) and

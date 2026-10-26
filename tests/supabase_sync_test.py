@@ -56,14 +56,23 @@ class FakeDb:
         self.writes.append(("upsert", table, rows))
         keys = set(rows[0]) if rows else set()
         ok(all(set(r) == keys for r in rows), f"upsert {table}: every row has the same keys (PostgREST bulk rule)")
-        cur = {r.get(on_conflict, id(r)): r for r in self.t.setdefault(table, [])}
+        cols = on_conflict.split(",")
+        key = lambda r: tuple(r.get(c) for c in cols) if all(c in r for c in cols) else id(r)
+        cur = {key(r): r for r in self.t.setdefault(table, [])}
         for r in rows:
-            cur[r[on_conflict]] = {**cur.get(r[on_conflict], {}), **r}
+            cur[key(r)] = self._numbered(table, {**cur.get(key(r), {}), **r})
         self.t[table] = list(cur.values())
+
+    def _numbered(self, table, r):
+        """route_stops rows get an id, as the real table's identity column gives them."""
+        if table == "route_stops" and "id" not in r:
+            self.next_id = getattr(self, "next_id", 0) + 1
+            r = {**r, "id": self.next_id}
+        return r
 
     def insert(self, table, rows):
         self.writes.append(("insert", table, rows))
-        self.t.setdefault(table, []).extend(dict(r) for r in rows)
+        self.t.setdefault(table, []).extend(self._numbered(table, dict(r)) for r in rows)
 
     def update(self, table, filters, values):
         self.writes.append(("update", table, filters, values))
@@ -225,6 +234,62 @@ try:
 except ss.SyncError:
     ok(True, "without the details file the sync refuses, so no address is blanked")
 ss.DETAILS_FILE = saved
+
+# ── Morning routes: the site's routes set to the source site's (--routes) ──
+from datetime import datetime, timedelta  # noqa: E402
+read_at = datetime.fromisoformat(snap["scraped_at"])
+mdb = FakeDb()
+ss.sync(mdb, seed=True, today=date(2026, 10, 24))
+by_route = lambda d, rid: [s["customer_id"] for s in sorted((s for s in d.t["route_stops"] if s["route_id"] == rid),
+                                                            key=lambda s: s["position"])]
+want = {r["route_id"]: [s["customer_id"] for s in r["stops"] if s["customer_id"] is not None] for r in snap["routes"]}
+r1, r2 = snap["routes"][0]["route_id"], snap["routes"][1]["route_id"]
+# The site's day: a stop removed, one reordered, one moved to another route,
+# Must Get changed, a stranger added, and a route made on the site.
+s1 = sorted((s for s in mdb.t["route_stops"] if s["route_id"] == r1), key=lambda s: s["position"])
+mdb.t["route_stops"].remove(s1[0])
+s1[1]["position"], s1[2]["position"] = s1[2]["position"], s1[1]["position"]
+s1[3]["route_id"] = r2
+s1[4]["must_get"] = not s1[4]["must_get"]
+stranger = next(c for c in assign_ids if c not in stop_ids)
+mdb.insert("route_stops", [{"route_id": r1, "customer_id": stranger, "position": 99, "must_get": False}])
+mdb.t["routes"].append({"id": -3, "name": "Site route"})
+mdb.insert("route_stops", [{"route_id": -3, "customer_id": stranger, "position": 1, "must_get": False}])
+idle = next(r["id"] for r in ss.route_rows(snap) if r["id"] not in want)
+mdb.insert("route_stops", [{"route_id": idle, "customer_id": stranger, "position": 1, "must_get": False}])
+mdb.writes = []
+rep_r = ss.mirror_routes(mdb, now=read_at + timedelta(minutes=5))
+ok(all(by_route(mdb, rid) == ids for rid, ids in want.items()), "every source-site route is set to its stops, in its order")
+mine = {(s["route_id"], s["customer_id"]): s for s in mdb.t["route_stops"]}
+ok(all(mine[(r["route_id"], s["customer_id"])]["must_get"] == bool(s["must_get"])
+       for r in snap["routes"] for s in r["stops"] if s["customer_id"] is not None), "Must Get is set to the source site's")
+ok(by_route(mdb, -3) == [stranger], "a route made on the site is left alone")
+ok(by_route(mdb, idle) == [], "a route with no stops on the source site is emptied")
+ok({r["route_id"] for r in rep_r["differed_before"]} >= {r1, r2}, "what the site had that differed is kept in the report")
+ok(mdb.t["sync_reports"][-1]["kind"] == "routes", "the morning run leaves a 'routes' report")
+ok([w[0] for w in mdb.writes if w[1] == "route_stops"] == ["upsert", "delete"],
+   "the wanted stops are written before the rest are removed")
+again = ss.mirror_routes(mdb, now=read_at + timedelta(minutes=5))
+ok(again["differed_before"] == [] and again["removed"] == 0, "a second run changes nothing")
+# A stop whose customer is new to the source site waits for the nightly.
+newcomer = want[r1][0]
+mdb.t["customers"] = [c for c in mdb.t["customers"] if c["id"] != newcomer]
+w = ss.mirror_routes(mdb, now=read_at + timedelta(minutes=5))
+ok([x["id"] for x in w["waiting"]] == [newcomer] and newcomer not in by_route(mdb, r1),
+   "a stop whose customer is not in the database yet is skipped and listed")
+for label, when, bad in [("an old read", read_at + timedelta(hours=2), None),
+                         ("a read with no stops", read_at, {**snap, "routes": [{**r, "stops": []} for r in snap["routes"]]})]:
+    before = [dict(s) for s in mdb.t["route_stops"]]
+    saved_file = ss.ROUTES_FILE
+    if bad:
+        ss.ROUTES_FILE = os.path.join(_tmp, "bad_routes.json")
+        json.dump(bad, open(ss.ROUTES_FILE, "w"))
+    try:
+        ss.mirror_routes(mdb, now=when)
+        ok(False, f"{label} is refused")
+    except ss.SyncError:
+        ok(mdb.t["route_stops"] == before, f"{label} is refused and the routes are left as they are")
+    ss.ROUTES_FILE = saved_file
 
 # ── Oil Left export (for the projections) ──
 left_db = FakeDb({"oil_left": [
