@@ -147,6 +147,37 @@ counts twice. Logins: Sarge (added 2026-10-24); Jim to be invited.
 - **Then:** thefts from `theft_log` into `THEFTS`; show `sync_reports` on the
   pages; Jim's account.
 
+### Cutover from Jamaal (planned 2026-10-27, not built)
+
+Today the site's pickups are saved but count nowhere official: the
+dashboard, regions, projections, the Live test and the calendar's green
+figures all read the Jamaal scrape (`oil_collections_raw.csv`,
+`oil_non_pickups.csv`). Only My Route (today's figures) and Oil Left use
+site entries. If Jamaal stopped now, green would freeze and every analytics
+page would go quietly stale while pickups kept being entered on the site.
+
+- **One cutover date.** Before it, Jamaal stays the record. From it, the
+  nightly writes the site's `source = site` pickups from the database into
+  the same two files the scrape fills (gallons above 3 into
+  `oil_collections_raw.csv`, 0–3 codes into `oil_non_pickups.csv`), so
+  every page downstream keeps working without knowing the source changed.
+  The scrape stops adding days on or after the date, so no day is read
+  from both.
+- **Calendar:** green becomes Jamaal before the date and the site after.
+  Site entries from before the date stay in the database but leave the
+  yellow figure (Jamaal's copy of those days is the record), or show grey.
+- **Ready when** the nightly `sync_reports` reads 0 only on the site,
+  0 only on the source site and 0 with different gallons for a week or two
+  of real days. On 2026-10-27 it read 12 only on the source site, because
+  that day's site entries were part-done.
+- **Decide (Sarge and Jim):** the date, and whether Jamaal keeps running in
+  parallel as a backup after it (the report would then keep checking, the
+  other way round).
+- **Check before building:** the Live test's frozen predictions and
+  `RESET_QTYS` must read site codes exactly as they read Jamaal's; capacity
+  and periodicity still come from Jamaal's customer pages (`capacity_cache.csv`)
+  and need a site-side source too.
+
 ### Oil Left (2026-10-24)
 
 Drivers record the gallons they saw left in a barrel and did not collect: a
