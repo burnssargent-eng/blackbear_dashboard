@@ -1,5 +1,5 @@
 {
- "scraped_at": "2026-10-27T11:00:17+00:00",
+ "scraped_at": "2026-10-27T12:59:59+00:00",
  "source": "routes_assigned.php, assign_routes.php",
  "routes": [
   {
@@ -200,16 +200,8 @@
   {
    "route_id": 4,
    "name": "Stowe/Wtbry/MRV",
-   "assigned_capacity": 2317,
+   "assigned_capacity": 2316,
    "stops": [
-    {
-     "assignment_id": 24315,
-     "customer_id": 1366,
-     "name": "Barr Hill -Load",
-     "capacity": 1,
-     "days_over": 34,
-     "must_get": false
-    },
     {
      "assignment_id": 24314,
      "customer_id": 1469,
@@ -2045,7 +2037,7 @@
    "customer_id": 1366,
    "name": "Barr Hill -Load",
    "city": "Montpelier",
-   "days_over": 34
+   "days_over": -28
   },
   {
    "customer_id": 1489,

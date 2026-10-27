@@ -1256,6 +1256,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 106,"Wal-mart Berlin ,Vt",Berlin,Washington,2016-12-10,2016,2016-12,70,True,Berlin
 106,"Wal-mart Berlin ,Vt",Berlin,Washington,2016-10-22,2016,2016-10,150,True,Berlin
 106,"Wal-mart Berlin ,Vt",Berlin,Washington,2016-08-06,2016,2016-08,150,True,Berlin
+1093,Bethel Sandwhich Shop,Bethel,Windsor,2026-10-26,2026,2026-10,40,True,Bethel
 1093,Bethel Sandwhich Shop,Bethel,Windsor,2026-05-13,2026,2026-05,50,True,Bethel
 1093,Bethel Sandwhich Shop,Bethel,Windsor,2026-01-28,2026,2026-01,25,True,Bethel
 1093,Bethel Sandwhich Shop,Bethel,Windsor,2025-08-11,2025,2025-08,45,True,Bethel
@@ -1267,6 +1268,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1093,Bethel Sandwhich Shop,Bethel,Windsor,2023-05-01,2023,2023-05,40,True,Bethel
 1093,Bethel Sandwhich Shop,Bethel,Windsor,2022-10-28,2022,2022-10,40,True,Bethel
 1093,Bethel Sandwhich Shop,Bethel,Windsor,2021-12-22,2021,2021-12,40,True,Bethel
+802,Creek House Diner,Bethel,Windsor,2026-10-26,2026,2026-10,30,True,Bethel
 802,Creek House Diner,Bethel,Windsor,2026-09-04,2026,2026-09,25,True,Bethel
 802,Creek House Diner,Bethel,Windsor,2026-07-30,2026,2026-07,35,True,Bethel
 802,Creek House Diner,Bethel,Windsor,2026-04-30,2026,2026-04,20,True,Bethel
@@ -1346,6 +1348,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 802,Creek House Diner,Bethel,Windsor,2015-04-20,2015,2015-04,25,True,Bethel
 802,Creek House Diner,Bethel,Windsor,2015-03-10,2015,2015-03,25,True,Bethel
 802,Creek House Diner,Bethel,Windsor,2015-01-29,2015,2015-01,25,True,Bethel
+803,Toziers-,Bethel,Windsor,2026-10-26,2026,2026-10,40,True,Bethel
 803,Toziers-,Bethel,Windsor,2026-10-09,2026,2026-10,130,True,Bethel
 803,Toziers-,Bethel,Windsor,2026-09-23,2026,2026-09,100,True,Bethel
 803,Toziers-,Bethel,Windsor,2026-09-10,2026,2026-09,80,True,Bethel
@@ -7692,6 +7695,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 550,Highland Lodge- Elsa,Greensboro,Caledonia,2023-01-24,2023,2023-01,25,True,Greensboro
 550,Highland Lodge- Elsa,Greensboro,Caledonia,2022-08-19,2022,2022-08,45,True,Greensboro
 550,Highland Lodge- Elsa,Greensboro,Caledonia,2021-08-29,2021,2021-08,65,True,Greensboro
+1484,Sushiya-Hanover NH,Hanover,Out-of-State (NH),2026-10-26,2026,2026-10,75,True,
 1484,Sushiya-Hanover NH,Hanover,Out-of-State (NH),2026-07-24,2026,2026-07,20,True,
 1484,Sushiya-Hanover NH,Hanover,Out-of-State (NH),2026-06-02,2026,2026-06,50,True,
 1484,Sushiya-Hanover NH,Hanover,Out-of-State (NH),2026-04-01,2026,2026-04,100,True,
@@ -12676,7 +12680,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1390,Folignos Pizza-Northfield,Northfield,Washington,2025-03-14,2025,2025-03,30,True,Northfield
 1390,Folignos Pizza-Northfield,Northfield,Washington,2025-02-18,2025,2025-02,20,True,Northfield
 1390,Folignos Pizza-Northfield,Northfield,Washington,2025-01-29,2025,2025-01,10,True,Northfield
-161,GOOD MEASURE!!!!-(1980),Northfield,Washington,2026-10-26,2026,2026-10,90,True,Northfield
+161,GOOD MEASURE!!!!-(1980),Northfield,Washington,2026-10-26,2026,2026-10,80,True,Northfield
 161,GOOD MEASURE!!!!-(1980),Northfield,Washington,2026-10-12,2026,2026-10,30,True,Northfield
 161,GOOD MEASURE!!!!-(1980),Northfield,Washington,2026-09-18,2026,2026-09,160,True,Northfield
 161,GOOD MEASURE!!!!-(1980),Northfield,Washington,2026-08-27,2026,2026-08,80,True,Northfield
@@ -13203,6 +13207,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 603,HAYBARN-Goddard College- 7532,Plainfield,Washington,2016-06-27,2016,2016-06,45,True,Plainfield
 603,HAYBARN-Goddard College- 7532,Plainfield,Washington,2015-11-24,2015,2015-11,38,True,Plainfield
 603,HAYBARN-Goddard College- 7532,Plainfield,Washington,2015-07-09,2015,2015-07,45,True,Plainfield
+600,Positive Pie-Plainfield,Plainfield,Washington,2026-10-26,2026,2026-10,50,True,Plainfield
 600,Positive Pie-Plainfield,Plainfield,Washington,2026-09-28,2026,2026-09,40,True,Plainfield
 600,Positive Pie-Plainfield,Plainfield,Washington,2026-08-28,2026,2026-08,65,True,Plainfield
 600,Positive Pie-Plainfield,Plainfield,Washington,2026-07-15,2026,2026-07,55,True,Plainfield
@@ -13346,6 +13351,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 829,Chef Brad Crazy Sides,Quechee,Windsor,2016-10-30,2016,2016-10,50,True,Hartford
 1463,Mobil Station,Quechee,Windsor,2025-11-14,2025,2025-11,7,True,Hartford
 1463,Mobil Station,Quechee,Windsor,2025-11-14,2025,2025-11,30,True,Hartford
+1056,Quechee Gorge Snack Bar,Quechee,Windsor,2026-10-26,2026,2026-10,60,True,Hartford
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2026-10-13,2026,2026-10,240,True,Hartford
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2026-09-23,2026,2026-09,200,True,Hartford
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2026-09-04,2026,2026-09,190,True,Hartford
@@ -13404,6 +13410,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2022-05-16,2022,2022-05,100,True,Hartford
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2021-12-13,2021,2021-12,20,True,Hartford
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2021-10-21,2021,2021-10,100,True,Hartford
+827,Simon Pearce~100%,Quechee,Windsor,2026-10-26,2026,2026-10,35,True,Hartford
 827,Simon Pearce~100%,Quechee,Windsor,2026-10-13,2026,2026-10,120,True,Hartford
 827,Simon Pearce~100%,Quechee,Windsor,2026-09-04,2026,2026-09,50,True,Hartford
 827,Simon Pearce~100%,Quechee,Windsor,2026-08-20,2026,2026-08,55,True,Hartford
@@ -13538,6 +13545,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 827,Simon Pearce~100%,Quechee,Windsor,2015-04-20,2015,2015-04,75,True,Hartford
 827,Simon Pearce~100%,Quechee,Windsor,2015-03-10,2015,2015-03,50,True,Hartford
 827,Simon Pearce~100%,Quechee,Windsor,2015-01-29,2015,2015-01,60,True,Hartford
+1233,Skinny Pancake- Quechee,Quechee,Windsor,2026-10-26,2026,2026-10,55,True,Hartford
 1233,Skinny Pancake- Quechee,Quechee,Windsor,2026-09-04,2026,2026-09,45,True,Hartford
 1233,Skinny Pancake- Quechee,Quechee,Windsor,2026-08-20,2026,2026-08,40,True,Hartford
 1233,Skinny Pancake- Quechee,Quechee,Windsor,2026-07-30,2026,2026-07,65,True,Hartford
@@ -20917,6 +20925,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 537,Parker Pie- West Glover,West Glover,Orleans,2017-03-30,2017,2017-03,95,True,Glover
 537,Parker Pie- West Glover,West Glover,Orleans,2017-03-14,2017,2017-03,50,True,Glover
 537,Parker Pie- West Glover,West Glover,Orleans,2017-01-25,2017,2017-01,50,True,Glover
+928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2026-10-26,2026,2026-10,65,True,
 928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2026-10-13,2026,2026-10,150,True,
 928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2026-09-10,2026,2026-09,95,True,
 928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2026-08-20,2026,2026-08,70,True,
@@ -21043,6 +21052,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2016-09-03,2016,2016-09,75,True,
 928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2016-08-06,2016,2016-08,75,True,
 928,Burger King-West Lebanon,West Lebanon,Out-of-State (NH),2016-07-10,2016,2016-07,150,True,
+1119,Hannaford-West Lebanon,West Lebanon,Out-of-State (NH),2026-10-26,2026,2026-10,106,True,
 1119,Hannaford-West Lebanon,West Lebanon,Out-of-State (NH),2026-10-13,2026,2026-10,57,True,
 1119,Hannaford-West Lebanon,West Lebanon,Out-of-State (NH),2026-09-10,2026,2026-09,114,True,
 1119,Hannaford-West Lebanon,West Lebanon,Out-of-State (NH),2026-08-20,2026,2026-08,131,True,
@@ -21126,6 +21136,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 930,Lebanon SWMD,West Lebanon,Out-of-State (NH),2018-03-20,2018,2018-03,30,True,
 930,Lebanon SWMD,West Lebanon,Out-of-State (NH),2018-02-08,2018,2018-02,75,True,
 930,Lebanon SWMD,West Lebanon,Out-of-State (NH),2017-11-06,2017,2017-11,100,True,
+1369,The Karribean-West Lebanon,West Lebanon,Out-of-State (NH),2026-10-26,2026,2026-10,55,True,
 1369,The Karribean-West Lebanon,West Lebanon,Out-of-State (NH),2026-07-10,2026,2026-07,15,True,
 1369,The Karribean-West Lebanon,West Lebanon,Out-of-State (NH),2026-06-15,2026,2026-06,20,True,
 1369,The Karribean-West Lebanon,West Lebanon,Out-of-State (NH),2026-04-30,2026,2026-04,10,True,
@@ -22871,6 +22882,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 500,Wolcott General Store,Wolcott,Lamoille,2015-06-02,2015,2015-06,25,True,Wolcott
 500,Wolcott General Store,Wolcott,Lamoille,2015-03-02,2015,2015-03,45,True,Wolcott
 500,Wolcott General Store,Wolcott,Lamoille,2015-01-05,2015,2015-01,50,True,Wolcott
+1455,Farmer and the Bell,Woodstock,Windsor,2026-10-26,2026,2026-10,25,True,Woodstock
 1455,Farmer and the Bell,Woodstock,Windsor,2026-10-13,2026,2026-10,110,True,Woodstock
 1455,Farmer and the Bell,Woodstock,Windsor,2026-09-04,2026,2026-09,25,True,Woodstock
 1455,Farmer and the Bell,Woodstock,Windsor,2026-08-20,2026,2026-08,70,True,Woodstock
@@ -22906,6 +22918,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 826,Mountain Creamery,Woodstock,Windsor,2019-12-05,2019,2019-12,150,True,Woodstock
 826,Mountain Creamery,Woodstock,Windsor,2019-07-26,2019,2019-07,150,True,Woodstock
 826,Mountain Creamery,Woodstock,Windsor,2018-09-17,2018,2018-09,150,True,Woodstock
+1438,Oakes and Evelyn- WOODSTOCK,Woodstock,Windsor,2026-10-26,2026,2026-10,45,True,Woodstock
 1438,Oakes and Evelyn- WOODSTOCK,Woodstock,Windsor,2026-09-04,2026,2026-09,35,True,Woodstock
 1438,Oakes and Evelyn- WOODSTOCK,Woodstock,Windsor,2026-06-30,2026,2026-06,20,True,Woodstock
 1438,Oakes and Evelyn- WOODSTOCK,Woodstock,Windsor,2026-04-30,2026,2026-04,45,True,Woodstock
@@ -23026,6 +23039,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 824,White Cottage,Woodstock,Windsor,2019-06-09,2019,2019-06,50,True,Woodstock
 824,White Cottage,Woodstock,Windsor,2019-05-17,2019,2019-05,40,True,Woodstock
 824,White Cottage,Woodstock,Windsor,2019-05-04,2019,2019-05,100,True,Woodstock
+825,Woodstock Country Club,Woodstock,Windsor,2026-10-26,2026,2026-10,15,True,Woodstock
 825,Woodstock Country Club,Woodstock,Windsor,2026-09-04,2026,2026-09,25,True,Woodstock
 825,Woodstock Country Club,Woodstock,Windsor,2026-07-30,2026,2026-07,35,True,Woodstock
 825,Woodstock Country Club,Woodstock,Windsor,2026-06-15,2026,2026-06,60,True,Woodstock
@@ -23041,6 +23055,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 825,Woodstock Country Club,Woodstock,Windsor,2021-08-17,2021,2021-08,75,True,Woodstock
 825,Woodstock Country Club,Woodstock,Windsor,2019-12-05,2019,2019-12,50,True,Woodstock
 825,Woodstock Country Club,Woodstock,Windsor,2019-04-26,2019,2019-04,50,True,Woodstock
+823,Woodstock Inn,Woodstock,Windsor,2026-10-26,2026,2026-10,30,True,Woodstock
 823,Woodstock Inn,Woodstock,Windsor,2026-10-13,2026,2026-10,160,True,Woodstock
 823,Woodstock Inn,Woodstock,Windsor,2026-09-23,2026,2026-09,120,True,Woodstock
 823,Woodstock Inn,Woodstock,Windsor,2026-09-04,2026,2026-09,70,True,Woodstock
