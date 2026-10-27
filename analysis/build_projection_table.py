@@ -225,6 +225,15 @@ RANGE_FACTORS = {
 # with fewer it keeps its stage's rate.
 CLOSER_MIN_OPEN_GAPS = 3
 
+# A closer on its open-season rate accrues the season's LAST month at this
+# fraction of the rate: oil slows as a seasonal business winds down. Chosen on
+# 2019, 2021-23 (whole last month x0.8 beat a back-half cut and a ramp), then
+# confirmed on 2024-26: closer WAPE 36.0 -> 34.1 (95% CI -2.7 to -1.2), last-
+# month WAPE 53 -> 43 and bias +46% -> +30%; overall bias -2% -> -5%. A ramp
+# into the month after the season did worse:
+# those pickups were already over-projected (season_end_taper.md).
+SEASON_END_TAPER = 0.8
+
 RECENT_PICKUPS = 10             # "recent" for the strong capacity flag
 SOFT_FLAG_YEARS = 2             # "recent" for the soft capacity flag
 
@@ -1221,21 +1230,32 @@ def season_months(spec):
     return {(start + i) % 12 for i in range((end - start) % 12 + 1)}
 
 
-def open_days(start, end, months):
-    """Days in (start, end] that fall in the open months (0-11)."""
-    return sum(1 for d in range(1, (end - start).days + 1)
-               if (start + timedelta(days=d)).month - 1 in months)
+def day_weight(day, months, last=None):
+    """A day's share of the open-season rate: 0 closed, SEASON_END_TAPER in
+    the season's last month (`last`, 0-11) when given, else 1."""
+    if day.month - 1 not in months:
+        return 0.0
+    return SEASON_END_TAPER if day.month - 1 == last else 1.0
 
 
-def calendar_days_for_open(start, needed, months):
-    """Calendar days after `start` until `needed` open days have passed."""
+def open_days(start, end, months, last=None):
+    """Days in (start, end] that fall in the open months (0-11), the last
+    month's weighted by SEASON_END_TAPER when `last` is given."""
+    return sum(day_weight(start + timedelta(days=d), months, last)
+               for d in range(1, (end - start).days + 1))
+
+
+def calendar_days_for_open(start, needed, months, last=None):
+    """Calendar days after `start` until `needed` open days have passed,
+    weighted as open_days weights them."""
     elapsed = 0
     while needed > 0:
         elapsed += 1
-        if (start + timedelta(days=elapsed)).month - 1 in months:
-            if needed <= 1:
-                return elapsed - 1 + needed
-            needed -= 1
+        w = day_weight(start + timedelta(days=elapsed), months, last)
+        if w:
+            if needed <= w:
+                return elapsed - 1 + needed / w
+            needed -= w
     return float(elapsed)
 
 
@@ -1513,14 +1533,23 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thef
         if open_rate is not None:
             stage, rate = STAGE_CLOSER_OFF, open_rate
             restart = None
-        routing_reason += (f"; projected on {open_days(clock_start, asof, open_months)} "
+        routing_reason += (f"; projected on {open_days(clock_start, asof, open_months):g} "
                            f"open-season days since {clock_start.isoformat()}"
                            + ("" if open_rate is not None else
                               ", at the stage rate (too few open-season gaps)"))
+    # A closer on its open-season rate, in season or off, accrues the season's
+    # last month at SEASON_END_TAPER, and its closed months add none.
+    taper_last = None
+    if stage in (STAGE_CLOSER, STAGE_CLOSER_OFF):
+        open_months = season_months(override.season)
+        taper_last = MONTHS.index(override.season.split("-")[1])
+    if taper_last is not None and open_days(clock_start, asof, {taper_last}):
+        routing_reason += (f"; {MONTHS[taper_last]}, the season's last month, "
+                           f"at x{SEASON_END_TAPER:g} the rate")
     hint = None if override else review_hint(season)
 
     target = capacity * TARGET_FRACTION if capacity is not None else None
-    exposure_days = (open_days(clock_start, asof, open_months) if open_months
+    exposure_days = (open_days(clock_start, asof, open_months, taper_last) if open_months
                      else days_accumulating)
     projected = level + rate * exposure_days if rate is not None else None
     if left_from and rate is not None:
@@ -1567,7 +1596,7 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thef
             days_until = (target - projected) / rate
             if open_months and days_until > 0:
                 # Open days to 75% -> calendar days, the closed months passing first.
-                days_until = calendar_days_for_open(asof, days_until, open_months)
+                days_until = calendar_days_for_open(asof, days_until, open_months, taper_last)
             days_past_75 = abs(days_until) if projected > target else 0.0
             days_past_cap = ((projected - capacity) / rate
                              if projected > capacity else 0.0)
@@ -1577,7 +1606,7 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thef
             # days_until does above.
             to_full = (capacity - projected) / rate
             if open_months and to_full > 0:
-                to_full = calendar_days_for_open(asof, to_full, open_months)
+                to_full = calendar_days_for_open(asof, to_full, open_months, taper_last)
             days_past_full = -to_full
             periodicity = target / rate
 
@@ -2114,6 +2143,9 @@ precedence order:
    or detected) is ranked on a pooled rate over its open-season gaps when it
    has {CLOSER_MIN_OPEN_GAPS}+, not the 50/50, which averages in the closed
    months; range x{RANGE_FACTORS[STAGE_CLOSER][0]:.2f}-x{RANGE_FACTORS[STAGE_CLOSER][1]:.2f}.
+   On that rate, in season or off, the season's last month accrues at
+   x{SEASON_END_TAPER:g} and its closed months add nothing; days to 75% and to
+   full count the same way (`season_end_taper.md`).
 6. **stale** -- no pickup in {STALE_DAYS} days.
 7. Everything else is ranked, on its stage's rate. **{STATUS_OPEN_ISH}**
    customers are ranked like anyone else; those that pass the seasonal-open
