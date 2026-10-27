@@ -1,81 +1,34 @@
 {
- "scraped_at": "2026-10-26T20:48:05+00:00",
+ "scraped_at": "2026-10-27T11:00:17+00:00",
  "source": "routes_assigned.php, assign_routes.php",
  "routes": [
   {
    "route_id": 10,
    "name": "Route 7",
-   "assigned_capacity": 50,
+   "assigned_capacity": 845,
    "stops": [
     {
-     "assignment_id": 24326,
-     "customer_id": 1113,
-     "name": "Saroms",
+     "assignment_id": 24327,
+     "customer_id": 434,
+     "name": "Asian Bistro-Winooski",
      "capacity": 50,
-     "days_over": 59,
-     "must_get": false
-    }
-   ]
-  },
-  {
-   "route_id": 14,
-   "name": "Central Vt 2",
-   "assigned_capacity": 1035,
-   "stops": [
-    {
-     "assignment_id": 24279,
-     "customer_id": 113,
-     "name": "Asia Gourmet-Barre",
-     "capacity": 150,
-     "days_over": -1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24282,
-     "customer_id": 1401,
-     "name": "Tasty Bites",
-     "capacity": 90,
-     "days_over": -1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24280,
-     "customer_id": 115,
-     "name": "Cornerstone Pub & Kitchen-pass 2720",
-     "capacity": 200,
-     "days_over": -18,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24303,
-     "customer_id": 1142,
-     "name": "Burke Academy",
-     "capacity": 55,
-     "days_over": -3,
+     "days_over": 18,
      "must_get": true
     },
     {
-     "assignment_id": 24304,
-     "customer_id": 1410,
-     "name": "BBB-Load Metal  Barrel with Clamping ring",
-     "capacity": 55,
-     "days_over": -52,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24278,
-     "customer_id": 1173,
-     "name": "Hannaford-Plattsburgh",
-     "capacity": 175,
-     "days_over": -8,
-     "must_get": false
+     "assignment_id": 24328,
+     "customer_id": 1408,
+     "name": "*NEW *Donwoori-Winooski",
+     "capacity": 150,
+     "days_over": 13,
+     "must_get": true
     },
     {
      "assignment_id": 24300,
      "customer_id": 703,
      "name": "Philo Ridge Farm",
      "capacity": 110,
-     "days_over": -253,
+     "days_over": -252,
      "must_get": true
     },
     {
@@ -83,8 +36,71 @@
      "customer_id": 1538,
      "name": "Sugar House Hotel",
      "capacity": 200,
-     "days_over": -25,
+     "days_over": -24,
      "must_get": true
+    },
+    {
+     "assignment_id": 24326,
+     "customer_id": 1113,
+     "name": "Saroms",
+     "capacity": 50,
+     "days_over": 60,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24303,
+     "customer_id": 1142,
+     "name": "Burke Academy",
+     "capacity": 55,
+     "days_over": -2,
+     "must_get": true
+    },
+    {
+     "assignment_id": 24304,
+     "customer_id": 1410,
+     "name": "BBB-Load Metal  Barrel with Clamping ring",
+     "capacity": 55,
+     "days_over": -51,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24278,
+     "customer_id": 1173,
+     "name": "Hannaford-Plattsburgh",
+     "capacity": 175,
+     "days_over": -7,
+     "must_get": false
+    }
+   ]
+  },
+  {
+   "route_id": 14,
+   "name": "Central Vt 2",
+   "assigned_capacity": 440,
+   "stops": [
+    {
+     "assignment_id": 24279,
+     "customer_id": 113,
+     "name": "Asia Gourmet-Barre",
+     "capacity": 150,
+     "days_over": 0,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24282,
+     "customer_id": 1401,
+     "name": "Tasty Bites",
+     "capacity": 90,
+     "days_over": 0,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24280,
+     "customer_id": 115,
+     "name": "Cornerstone Pub & Kitchen-pass 2720",
+     "capacity": 200,
+     "days_over": -17,
+     "must_get": false
     }
    ]
   },
@@ -98,7 +114,7 @@
      "customer_id": 624,
      "name": "LBJ Country Store-Worcester",
      "capacity": 100,
-     "days_over": -177,
+     "days_over": -176,
      "must_get": true
     },
     {
@@ -106,7 +122,7 @@
      "customer_id": 329,
      "name": "Asiana Noodle-6974",
      "capacity": 200,
-     "days_over": 83,
+     "days_over": 84,
      "must_get": true
     },
     {
@@ -114,7 +130,7 @@
      "customer_id": 1481,
      "name": "Kountry Kart",
      "capacity": 200,
-     "days_over": 2,
+     "days_over": 3,
      "must_get": true
     },
     {
@@ -122,7 +138,7 @@
      "customer_id": 422,
      "name": "Northwest Solid Waste Management District",
      "capacity": 150,
-     "days_over": -228,
+     "days_over": -227,
      "must_get": false
     },
     {
@@ -130,7 +146,7 @@
      "customer_id": 1537,
      "name": "Farmhouse Market-Wilmington",
      "capacity": 110,
-     "days_over": -20,
+     "days_over": -19,
      "must_get": true
     },
     {
@@ -138,7 +154,7 @@
      "customer_id": 1129,
      "name": "Hog back Mountain country store",
      "capacity": 150,
-     "days_over": 325,
+     "days_over": 326,
      "must_get": true
     },
     {
@@ -146,7 +162,7 @@
      "customer_id": 902,
      "name": "Carinthia Lodge (Mt. Snow)",
      "capacity": 300,
-     "days_over": 66,
+     "days_over": 67,
      "must_get": true
     }
    ]
@@ -161,7 +177,7 @@
      "customer_id": 1498,
      "name": "Barre Country Club-Plainfield",
      "capacity": 150,
-     "days_over": 31,
+     "days_over": 32,
      "must_get": false
     }
    ]
@@ -176,7 +192,7 @@
      "customer_id": 1524,
      "name": "SNORLAX",
      "capacity": 1,
-     "days_over": 73,
+     "days_over": 74,
      "must_get": true
     }
    ]
@@ -191,7 +207,7 @@
      "customer_id": 1366,
      "name": "Barr Hill -Load",
      "capacity": 1,
-     "days_over": 33,
+     "days_over": 34,
      "must_get": false
     },
     {
@@ -199,7 +215,7 @@
      "customer_id": 1469,
      "name": "Maplehurst Gebbie Farm",
      "capacity": 1,
-     "days_over": -99,
+     "days_over": -98,
      "must_get": false
     },
     {
@@ -207,7 +223,7 @@
      "customer_id": 1497,
      "name": "Gondola Seasonal Snack Shack Route 15",
      "capacity": 150,
-     "days_over": 6,
+     "days_over": 7,
      "must_get": false
     },
     {
@@ -215,7 +231,7 @@
      "customer_id": 1239,
      "name": "Jennas Coffee House- two sons bakehouse",
      "capacity": 90,
-     "days_over": -20,
+     "days_over": -19,
      "must_get": false
     },
     {
@@ -223,7 +239,7 @@
      "customer_id": 543,
      "name": "Marsala Salsa/ Pizzeria -Johnson-10%",
      "capacity": 150,
-     "days_over": -20,
+     "days_over": -19,
      "must_get": false
     },
     {
@@ -231,7 +247,7 @@
      "customer_id": 544,
      "name": "Johnsons Chinese Kitchen 90%",
      "capacity": 150,
-     "days_over": -20,
+     "days_over": -19,
      "must_get": false
     },
     {
@@ -239,7 +255,7 @@
      "customer_id": 1515,
      "name": "NVU-Johnson",
      "capacity": 150,
-     "days_over": -7,
+     "days_over": -6,
      "must_get": false
     },
     {
@@ -247,7 +263,7 @@
      "customer_id": 1404,
      "name": "ERICAS-Cambridge",
      "capacity": 110,
-     "days_over": -3,
+     "days_over": -2,
      "must_get": false
     },
     {
@@ -255,7 +271,7 @@
      "customer_id": 1071,
      "name": "Lost Nation Brewery",
      "capacity": 110,
-     "days_over": 6,
+     "days_over": 7,
      "must_get": false
     },
     {
@@ -263,7 +279,7 @@
      "customer_id": 1181,
      "name": "Hannaford- Morrisville",
      "capacity": 170,
-     "days_over": -26,
+     "days_over": -25,
      "must_get": false
     },
     {
@@ -271,7 +287,7 @@
      "customer_id": 512,
      "name": "North Country Donuts",
      "capacity": 100,
-     "days_over": -1,
+     "days_over": 0,
      "must_get": false
     },
     {
@@ -279,7 +295,7 @@
      "customer_id": 509,
      "name": "Moogs Place- Morrisville",
      "capacity": 150,
-     "days_over": -1,
+     "days_over": 0,
      "must_get": false
     },
     {
@@ -287,7 +303,7 @@
      "customer_id": 1352,
      "name": "Gondola’s Downtown Morrisville",
      "capacity": 165,
-     "days_over": 13,
+     "days_over": 14,
      "must_get": false
     },
     {
@@ -295,7 +311,7 @@
      "customer_id": 511,
      "name": "Black Diamond BBQ",
      "capacity": 195,
-     "days_over": -7,
+     "days_over": -6,
      "must_get": false
     },
     {
@@ -303,7 +319,7 @@
      "customer_id": 510,
      "name": "10 Railroad Street",
      "capacity": 100,
-     "days_over": -1,
+     "days_over": 0,
      "must_get": false
     },
     {
@@ -311,7 +327,7 @@
      "customer_id": 515,
      "name": "Two Sons Bakery/Fork and Gavel-HydePark",
      "capacity": 150,
-     "days_over": -20,
+     "days_over": -19,
      "must_get": false
     },
     {
@@ -319,7 +335,7 @@
      "customer_id": 242,
      "name": "Cork Wine Bar-Stowe",
      "capacity": 100,
-     "days_over": 14,
+     "days_over": 15,
      "must_get": false
     },
     {
@@ -327,7 +343,7 @@
      "customer_id": 1020,
      "name": "Harrison's Restaurant & Bar",
      "capacity": 110,
-     "days_over": 15,
+     "days_over": 16,
      "must_get": false
     },
     {
@@ -335,7 +351,7 @@
      "customer_id": 244,
      "name": "Whip Bar & Grill at Green Mt Inn",
      "capacity": 100,
-     "days_over": -2,
+     "days_over": -1,
      "must_get": false
     },
     {
@@ -343,7 +359,7 @@
      "customer_id": 1116,
      "name": "GreenGoddess",
      "capacity": 65,
-     "days_over": -24,
+     "days_over": -23,
      "must_get": true
     }
    ]
@@ -358,7 +374,7 @@
      "customer_id": 1144,
      "name": "Shore Acres-North Hero",
      "capacity": 90,
-     "days_over": -58,
+     "days_over": -57,
      "must_get": false
     },
     {
@@ -366,7 +382,7 @@
      "customer_id": 1319,
      "name": "Two Heros Public House",
      "capacity": 100,
-     "days_over": 42,
+     "days_over": 43,
      "must_get": false
     }
    ]
@@ -381,7 +397,7 @@
      "customer_id": 1220,
      "name": "Nectars",
      "capacity": 150,
-     "days_over": 484,
+     "days_over": 485,
      "must_get": false
     }
    ]
@@ -396,7 +412,7 @@
      "customer_id": 1099,
      "name": "Fusion cafe and bar",
      "capacity": 150,
-     "days_over": -12,
+     "days_over": -11,
      "must_get": true
     },
     {
@@ -404,7 +420,7 @@
      "customer_id": 1370,
      "name": "The Coffee Cabin",
      "capacity": 100,
-     "days_over": 458,
+     "days_over": 459,
      "must_get": false
     }
    ]
@@ -487,697 +503,697 @@
    "customer_id": 1498,
    "name": "Barre Country Club-Plainfield",
    "city": "",
-   "days_over": 31
+   "days_over": 32
   },
   {
    "customer_id": 1509,
    "name": "Champlain Valley Fairgrounds, Lot P",
    "city": "",
-   "days_over": -230
+   "days_over": -229
   },
   {
    "customer_id": 1477,
    "name": "PUT EXTENDO ON TRUCK",
    "city": "",
-   "days_over": -700
+   "days_over": -699
   },
   {
    "customer_id": 551,
    "name": "The Genny- Albany General Store",
    "city": "Albany",
-   "days_over": -54
+   "days_over": -53
   },
   {
    "customer_id": 1137,
    "name": "Arlington Dairy Bar",
    "city": "Arlington",
-   "days_over": -303
+   "days_over": -302
   },
   {
    "customer_id": 1333,
    "name": "Barnard Inn",
    "city": "Barnard",
-   "days_over": -100
+   "days_over": -99
   },
   {
    "customer_id": 1082,
    "name": "Arandas Mexican-Barre",
    "city": "Barre",
-   "days_over": -27
+   "days_over": -26
   },
   {
    "customer_id": 113,
    "name": "Asia Gourmet-Barre",
    "city": "Barre",
-   "days_over": -1
+   "days_over": 0
   },
   {
    "customer_id": 1365,
    "name": "Aubuchon Barre-Ken",
    "city": "Barre",
-   "days_over": 67
+   "days_over": 68
   },
   {
    "customer_id": 110,
    "name": "Canadian Club",
    "city": "Barre",
-   "days_over": -39
+   "days_over": -38
   },
   {
    "customer_id": 115,
    "name": "Cornerstone Pub & Kitchen-pass 2720",
    "city": "Barre",
-   "days_over": -18
+   "days_over": -17
   },
   {
    "customer_id": 1363,
    "name": "GE-South Barre Gas Station",
    "city": "Barre",
-   "days_over": -28
+   "days_over": -27
   },
   {
    "customer_id": 111,
    "name": "Gunner Brook (Brookside Mkt)",
    "city": "Barre",
-   "days_over": -20
+   "days_over": -19
   },
   {
    "customer_id": 1128,
    "name": "Hannaford-South Barre",
    "city": "Barre",
-   "days_over": -28
+   "days_over": -27
   },
   {
    "customer_id": 117,
    "name": "Ladder 1-Barre",
    "city": "Barre",
-   "days_over": -24
+   "days_over": -23
   },
   {
    "customer_id": 1380,
    "name": "Masonic Lodge-Barre",
    "city": "Barre",
-   "days_over": -101
+   "days_over": -100
   },
   {
    "customer_id": 1204,
    "name": "McLeods",
    "city": "Barre",
-   "days_over": 38
+   "days_over": 39
   },
   {
    "customer_id": 112,
    "name": "Mulligans-Barre",
    "city": "Barre",
-   "days_over": -16
+   "days_over": -15
   },
   {
    "customer_id": 1387,
    "name": "SARKY’s/Foxys Barre",
    "city": "Barre",
-   "days_over": -1
+   "days_over": 0
   },
   {
    "customer_id": 118,
    "name": "Spaulding High School",
    "city": "Barre",
-   "days_over": -327
+   "days_over": -326
   },
   {
    "customer_id": 1401,
    "name": "Tasty Bites",
    "city": "Barre",
-   "days_over": -1
+   "days_over": 0
   },
   {
    "customer_id": 127,
    "name": "The Meltdown-Barre",
    "city": "Barre",
-   "days_over": -66
+   "days_over": -65
   },
   {
    "customer_id": 119,
    "name": "Thunder Road  4567",
    "city": "Barre",
-   "days_over": -12
+   "days_over": -11
   },
   {
    "customer_id": 1294,
    "name": "Warren Miller-Jamaican food truck",
    "city": "Barre",
-   "days_over": -26
+   "days_over": -25
   },
   {
    "customer_id": 1146,
    "name": "Par 13 @ Bellows Falls Country Club",
    "city": "Bellows Falls",
-   "days_over": 371
+   "days_over": 372
   },
   {
    "customer_id": 911,
    "name": "The Mojo Cafe-Belmont",
    "city": "Belmont",
-   "days_over": 14
+   "days_over": 15
   },
   {
    "customer_id": 1296,
    "name": "Burger King- Bennington/Mahoney",
    "city": "Bennington",
-   "days_over": -11
+   "days_over": -10
   },
   {
    "customer_id": 121,
    "name": "Central Vermont Solid Waste Management District",
    "city": "Berlin",
-   "days_over": 18
+   "days_over": 19
   },
   {
    "customer_id": 108,
    "name": "CVMC-Berlin Hospital",
    "city": "Berlin",
-   "days_over": -73
+   "days_over": -72
   },
   {
    "customer_id": 1444,
    "name": "Dan-Jockey Hollow 2025",
    "city": "Berlin",
-   "days_over": 311
+   "days_over": 312
   },
   {
    "customer_id": 107,
    "name": "Exit 7, Berlin Rest Area-Maplewoods",
    "city": "Berlin",
-   "days_over": -13
+   "days_over": -12
   },
   {
    "customer_id": 1210,
    "name": "Market 32/Price Chopper",
    "city": "Berlin",
-   "days_over": 32
+   "days_over": 33
   },
   {
    "customer_id": 1492,
    "name": "Pizza Hut Berlin",
    "city": "Berlin",
-   "days_over": -1
+   "days_over": 0
   },
   {
    "customer_id": 106,
    "name": "Wal-mart Berlin ,Vt",
    "city": "Berlin",
-   "days_over": -63
+   "days_over": -62
   },
   {
    "customer_id": 1093,
    "name": "Bethel Sandwhich Shop",
    "city": "Bethel",
-   "days_over": -110
+   "days_over": -109
   },
   {
    "customer_id": 802,
    "name": "Creek House Diner",
    "city": "Bethel",
-   "days_over": -42
+   "days_over": -41
   },
   {
    "customer_id": 803,
    "name": "Toziers-",
    "city": "Bethel",
-   "days_over": -18
+   "days_over": -17
   },
   {
    "customer_id": 1506,
    "name": "NH State Penitentiary",
    "city": "Bethel, NH",
-   "days_over": 69
+   "days_over": 70
   },
   {
    "customer_id": 279,
    "name": "Bolton Valley",
    "city": "Bolton Valley",
-   "days_over": -33
+   "days_over": -32
   },
   {
    "customer_id": 1178,
    "name": "Hannaford- Bradford",
    "city": "Bradford",
-   "days_over": -80
+   "days_over": -79
   },
   {
    "customer_id": 837,
    "name": "Bent Hill Brewery",
    "city": "Braintree",
-   "days_over": -32
+   "days_over": -31
   },
   {
    "customer_id": 1179,
    "name": "Hannaford- Brandon",
    "city": "Brandon",
-   "days_over": -12
+   "days_over": -11
   },
   {
    "customer_id": 1054,
    "name": "Duo Restaurant 50%-LOCK",
    "city": "Brattleboro",
-   "days_over": 76
+   "days_over": 77
   },
   {
    "customer_id": 1096,
    "name": "High Thai",
    "city": "Brattleboro",
-   "days_over": 138
+   "days_over": 139
   },
   {
    "customer_id": 1055,
    "name": "Tulip Bar and Cafe 50%-LOCK",
    "city": "Brattleboro",
-   "days_over": 76
+   "days_over": 77
   },
   {
    "customer_id": 1499,
    "name": "Vegan AF",
    "city": "Brattleboro",
-   "days_over": 166
+   "days_over": 167
   },
   {
    "customer_id": 711,
    "name": "Bobcat Brewery",
    "city": "Bristol",
-   "days_over": -31
+   "days_over": -30
   },
   {
    "customer_id": 1109,
    "name": "Cubbers",
    "city": "Bristol",
-   "days_over": -24
+   "days_over": -23
   },
   {
    "customer_id": 1382,
    "name": "South Mountain Tavern",
    "city": "Bristol",
-   "days_over": -15
+   "days_over": -14
   },
   {
    "customer_id": 1456,
    "name": "Green Trails/Pond Village",
    "city": "Brookfield",
-   "days_over": 2
+   "days_over": 3
   },
   {
    "customer_id": 311,
    "name": "Ahli Baba's (split with RJs)",
    "city": "Burlington",
-   "days_over": -16
+   "days_over": -15
   },
   {
    "customer_id": 317,
    "name": "Arts Riot",
    "city": "Burlington",
-   "days_over": 440
+   "days_over": 441
   },
   {
    "customer_id": 329,
    "name": "Asiana Noodle-6974",
    "city": "Burlington",
-   "days_over": 83
+   "days_over": 84
   },
   {
    "customer_id": 1482,
    "name": "Bangkok Alley",
    "city": "Burlington",
-   "days_over": 241
+   "days_over": 242
   },
   {
    "customer_id": 1273,
    "name": "BKK-inTheAlley 10%",
    "city": "Burlington",
-   "days_over": -23
+   "days_over": -22
   },
   {
    "customer_id": 300,
    "name": "Blue Bird BBQ - blue keychain in mack",
    "city": "Burlington",
-   "days_over": -10
+   "days_over": -9
   },
   {
    "customer_id": 1070,
    "name": "Burlington Beer Co",
    "city": "Burlington",
-   "days_over": -10
+   "days_over": -9
   },
   {
    "customer_id": 321,
    "name": "BURLS/El Cortijo-Burlington",
    "city": "Burlington",
-   "days_over": -9
+   "days_over": -8
   },
   {
    "customer_id": 315,
    "name": "Citizen Cider - 0316",
    "city": "Burlington",
-   "days_over": -17
+   "days_over": -16
   },
   {
    "customer_id": 345,
    "name": "City Market",
    "city": "Burlington",
-   "days_over": -86
+   "days_over": -85
   },
   {
    "customer_id": 1389,
    "name": "CK Dumplings House - North St.",
    "city": "Burlington",
-   "days_over": 157
+   "days_over": 158
   },
   {
    "customer_id": 1491,
    "name": "CNX THAI",
    "city": "Burlington",
-   "days_over": 184
+   "days_over": 185
   },
   {
    "customer_id": 1306,
    "name": "Crispy Burger- Jason (Volcano)",
    "city": "Burlington",
-   "days_over": -9
+   "days_over": -8
   },
   {
    "customer_id": 332,
    "name": "Daily Planet-65270",
    "city": "Burlington",
-   "days_over": -9
+   "days_over": -8
   },
   {
    "customer_id": 1358,
    "name": "Devil Takes a Holiday Cocktail Lounge",
    "city": "Burlington",
-   "days_over": 62
+   "days_over": 63
   },
   {
    "customer_id": 1202,
    "name": "DOMA/Paradiso Hifi",
    "city": "Burlington",
-   "days_over": -45
+   "days_over": -44
   },
   {
    "customer_id": 1440,
    "name": "East West Cafe",
    "city": "Burlington",
-   "days_over": -18
+   "days_over": -17
   },
   {
    "customer_id": 1502,
    "name": "ElksClub -Burlington",
    "city": "Burlington",
-   "days_over": 104
+   "days_over": 105
   },
   {
    "customer_id": 351,
    "name": "FANCYS/PAUL Trom.../Cafe Mamajuana",
    "city": "Burlington",
-   "days_over": -42
+   "days_over": -41
   },
   {
    "customer_id": 361,
    "name": "Farmers & Foragers 4560 (Lauren food truck)",
    "city": "Burlington",
-   "days_over": -18
+   "days_over": -17
   },
   {
    "customer_id": 325,
    "name": "Farmhouse",
    "city": "Burlington",
-   "days_over": -9
+   "days_over": -8
   },
   {
    "customer_id": 1381,
    "name": "Fire and Gold-North Winooski Ave - 100%",
    "city": "Burlington",
-   "days_over": -18
+   "days_over": -17
   },
   {
    "customer_id": 1336,
    "name": "Frankie’s/Old Penny Cluse",
    "city": "Burlington",
-   "days_over": -2
+   "days_over": -1
   },
   {
    "customer_id": 1464,
    "name": "Friendly Toast #3251",
    "city": "Burlington",
-   "days_over": -35
+   "days_over": -34
   },
   {
    "customer_id": 352,
    "name": "Great Northern",
    "city": "Burlington",
-   "days_over": -12
+   "days_over": -11
   },
   {
    "customer_id": 1187,
    "name": "Hana-Japanese-Dorset",
    "city": "Burlington",
-   "days_over": -23
+   "days_over": -22
   },
   {
    "customer_id": 1157,
    "name": "Hannaford-217 Dorset St",
    "city": "Burlington",
-   "days_over": -86
+   "days_over": -85
   },
   {
    "customer_id": 1122,
    "name": "Hannaford-Burlington North Ave",
    "city": "Burlington",
-   "days_over": -10
+   "days_over": -9
   },
   {
    "customer_id": 1037,
    "name": "Hen of the Wood - 50%",
    "city": "Burlington",
-   "days_over": -16
+   "days_over": -15
   },
   {
    "customer_id": 322,
    "name": "Henrys Diner-50%",
    "city": "Burlington",
-   "days_over": -9
+   "days_over": -8
   },
   {
    "customer_id": 304,
    "name": "Hotel Vermont - 50%",
    "city": "Burlington",
-   "days_over": -16
+   "days_over": -15
   },
   {
    "customer_id": 1338,
    "name": "Ken’s Pizza",
    "city": "Burlington",
-   "days_over": -9
+   "days_over": -8
   },
   {
    "customer_id": 1354,
    "name": "Kismet Mediterranean - 22222#",
    "city": "Burlington",
-   "days_over": -95
+   "days_over": -94
   },
   {
    "customer_id": 1481,
    "name": "Kountry Kart",
    "city": "Burlington",
-   "days_over": 2
+   "days_over": 3
   },
   {
    "customer_id": 337,
    "name": "Lake Monsters",
    "city": "Burlington",
-   "days_over": -222
+   "days_over": -221
   },
   {
    "customer_id": 326,
    "name": "Leunigs Bistro",
    "city": "Burlington",
-   "days_over": -23
+   "days_over": -22
   },
   {
    "customer_id": 1133,
    "name": "May Day",
    "city": "Burlington",
-   "days_over": -25
+   "days_over": -24
   },
   {
    "customer_id": 1457,
    "name": "Mr. Creemee",
    "city": "Burlington",
-   "days_over": 31
+   "days_over": 32
   },
   {
    "customer_id": 1220,
    "name": "Nectars",
    "city": "Burlington",
-   "days_over": 484
+   "days_over": 485
   },
   {
    "customer_id": 1432,
    "name": "Nomad-Church St-1638",
    "city": "Burlington",
-   "days_over": 173
+   "days_over": 174
   },
   {
    "customer_id": 323,
    "name": "Pascolo 50% with Henrys",
    "city": "Burlington",
-   "days_over": -9
+   "days_over": -8
   },
   {
    "customer_id": 335,
    "name": "Pho Hong",
    "city": "Burlington",
-   "days_over": -41
+   "days_over": -40
   },
   {
    "customer_id": 439,
    "name": "Pingala Cafe- North Ave",
    "city": "Burlington",
-   "days_over": -6
+   "days_over": -5
   },
   {
    "customer_id": 1386,
    "name": "Poco- Burlington",
    "city": "Burlington",
-   "days_over": -9
+   "days_over": -8
   },
   {
    "customer_id": 327,
    "name": "RiRa's 40%",
    "city": "Burlington",
-   "days_over": -16
+   "days_over": -15
   },
   {
    "customer_id": 308,
    "name": "Ruben James (RJs) (Ali Babas)- 0421",
    "city": "Burlington",
-   "days_over": -16
+   "days_over": -15
   },
   {
    "customer_id": 1399,
    "name": "Said's House, Jahlib’s Jiblets",
    "city": "Burlington",
-   "days_over": -10
+   "days_over": -9
   },
   {
    "customer_id": 1092,
    "name": "Saigon Kitchen-NorthAveBurlington",
    "city": "Burlington",
-   "days_over": 54
+   "days_over": 55
   },
   {
    "customer_id": 339,
    "name": "Shalamar Indian/ Radio Bean- 7419",
    "city": "Burlington",
-   "days_over": 257
+   "days_over": 258
   },
   {
    "customer_id": 444,
    "name": "Skinny Pancake-Burlington LakeFront8741",
    "city": "Burlington",
-   "days_over": -17
+   "days_over": -16
   },
   {
    "customer_id": 328,
    "name": "Sweetwaters 2.0!!!- 50%",
    "city": "Burlington",
-   "days_over": -14
+   "days_over": -13
   },
   {
    "customer_id": 1350,
    "name": "Switchback",
    "city": "Burlington",
-   "days_over": -9
+   "days_over": -8
   },
   {
    "customer_id": 1029,
    "name": "The Beach House- NORTH BEACH",
    "city": "Burlington",
-   "days_over": -101
+   "days_over": -100
   },
   {
    "customer_id": 1286,
    "name": "The PizzeriaVeritas50%",
    "city": "Burlington",
-   "days_over": -11
+   "days_over": -10
   },
   {
    "customer_id": 1394,
    "name": "The Wise Fool",
    "city": "Burlington",
-   "days_over": -9
+   "days_over": -8
   },
   {
    "customer_id": 1529,
    "name": "Thingz from Yaad Jamaican Restaurant",
    "city": "Burlington",
-   "days_over": 25
+   "days_over": 26
   },
   {
    "customer_id": 1287,
    "name": "Trattoria Delia 50%",
    "city": "Burlington",
-   "days_over": -11
+   "days_over": -10
   },
   {
    "customer_id": 371,
    "name": "Union Jacks",
    "city": "Burlington",
-   "days_over": 881
+   "days_over": 882
   },
   {
    "customer_id": 356,
    "name": "UVM -Central. Residence",
    "city": "Burlington",
-   "days_over": -10
+   "days_over": -9
   },
   {
    "customer_id": 353,
    "name": "UVM Harris-Milles",
    "city": "Burlington",
-   "days_over": -10
+   "days_over": -9
   },
   {
    "customer_id": 358,
    "name": "UVM- Davis Campus",
    "city": "Burlington",
-   "days_over": -10
+   "days_over": -9
   },
   {
    "customer_id": 354,
    "name": "UVM- Red Stone",
    "city": "Burlington",
-   "days_over": -10
+   "days_over": -9
   },
   {
    "customer_id": 355,
    "name": "UVM-Living Learning",
    "city": "Burlington",
-   "days_over": -10
+   "days_over": -9
   },
   {
    "customer_id": 1163,
    "name": "Volcano-50% NorthAve",
    "city": "Burlington",
-   "days_over": 136
+   "days_over": 137
   },
   {
    "customer_id": 310,
    "name": "WHAT ALES YOU/Manhattan Pizza-17395",
    "city": "Burlington",
-   "days_over": 130
+   "days_over": 131
   },
   {
    "customer_id": 1134,
    "name": "Willows Bagels",
    "city": "Burlington",
-   "days_over": -26
+   "days_over": -25
   },
   {
    "customer_id": 606,
@@ -1189,829 +1205,829 @@
    "customer_id": 1280,
    "name": "JETS BRUNCH/Headwaters-Cabot",
    "city": "Cabot",
-   "days_over": 26
+   "days_over": 27
   },
   {
    "customer_id": 605,
    "name": "Rhapsody Natural Foods",
    "city": "Cabot",
-   "days_over": -148
+   "days_over": -147
   },
   {
    "customer_id": 1404,
    "name": "ERICAS-Cambridge",
    "city": "Cambridge",
-   "days_over": -3
+   "days_over": -2
   },
   {
    "customer_id": 1077,
    "name": "Backyard bistro",
    "city": "Charlotte",
-   "days_over": -19
+   "days_over": -18
   },
   {
    "customer_id": 1475,
    "name": "Old Lantern-Red Event Barn",
    "city": "Charlotte",
-   "days_over": -17
+   "days_over": -16
   },
   {
    "customer_id": 703,
    "name": "Philo Ridge Farm",
    "city": "Charlotte",
-   "days_over": -253
+   "days_over": -252
   },
   {
    "customer_id": 931,
    "name": "Burger King-Claremont",
    "city": "Claremont",
-   "days_over": -17
+   "days_over": -16
   },
   {
    "customer_id": 1486,
    "name": "Cardinal Cafe-Claremont",
    "city": "Claremont",
-   "days_over": 5
+   "days_over": 6
   },
   {
    "customer_id": 1192,
    "name": "Hannaford-Claremont",
    "city": "Claremont",
-   "days_over": -18
+   "days_over": -17
   },
   {
    "customer_id": 1337,
    "name": "Adventure Diner",
    "city": "Colchester",
-   "days_over": 249
+   "days_over": 250
   },
   {
    "customer_id": 1375,
    "name": "Cafe Mammajuana-Colchester2025",
    "city": "Colchester",
-   "days_over": 11
+   "days_over": 12
   },
   {
    "customer_id": 1139,
    "name": "Cloud 9 catering- Sarah-COOK-Food Truck",
    "city": "Colchester",
-   "days_over": 40
+   "days_over": 41
   },
   {
    "customer_id": 446,
    "name": "McGillicuddy's On The Green",
    "city": "Colchester",
-   "days_over": -14
+   "days_over": -13
   },
   {
    "customer_id": 1215,
    "name": "NY Oven Pizza 50%",
    "city": "Colchester",
-   "days_over": -18
+   "days_over": -17
   },
   {
    "customer_id": 425,
    "name": "Pickled Perch",
    "city": "Colchester",
-   "days_over": -30
+   "days_over": -29
   },
   {
    "customer_id": 1214,
    "name": "Pioneer Lakeshore Cafe 50%",
    "city": "Colchester",
-   "days_over": -18
+   "days_over": -17
   },
   {
    "customer_id": 1433,
    "name": "Three Brothers Pizza-Colchester",
    "city": "Colchester",
-   "days_over": -39
+   "days_over": -38
   },
   {
    "customer_id": 1349,
    "name": "Concord, Vt Gas Station",
    "city": "Concord",
-   "days_over": -8
+   "days_over": -7
   },
   {
    "customer_id": 617,
    "name": "Moose Look Diner",
    "city": "Concord",
-   "days_over": -17
+   "days_over": -16
   },
   {
    "customer_id": 521,
    "name": "Black Bird Bistro",
    "city": "Craftsbury",
-   "days_over": -87
+   "days_over": -86
   },
   {
    "customer_id": 1189,
    "name": "Craftsbury Outdoor Center",
    "city": "Craftsbury",
-   "days_over": 62
+   "days_over": 63
   },
   {
    "customer_id": 520,
    "name": "Sterling College - Craftsbury",
    "city": "Craftsbury Common",
-   "days_over": 18
+   "days_over": 19
   },
   {
    "customer_id": 1490,
    "name": "Under Canvas Camping",
    "city": "Dalton",
-   "days_over": 145
+   "days_over": 146
   },
   {
    "customer_id": 610,
    "name": "GoodFellas / Nacho Mama",
    "city": "Danville",
-   "days_over": -7
+   "days_over": -6
   },
   {
    "customer_id": 1094,
    "name": "HUANGS NOODLE/Papa Tirozzi’s-Danville",
    "city": "Danville",
-   "days_over": -17
+   "days_over": -16
   },
   {
    "customer_id": 611,
    "name": "Three Ponds",
    "city": "Danville",
-   "days_over": -7
+   "days_over": -6
   },
   {
    "customer_id": 1473,
    "name": "Hoagies-Derby",
    "city": "Derby",
-   "days_over": -20
+   "days_over": -19
   },
   {
    "customer_id": 901,
    "name": "Main Lodge (Mt. Snow)",
    "city": "Dover",
-   "days_over": 131
+   "days_over": 132
   },
   {
    "customer_id": 904,
    "name": "TCs",
    "city": "Dover",
-   "days_over": 131
+   "days_over": 132
   },
   {
    "customer_id": 1485,
    "name": "ROLANDS-Lifecycle",
    "city": "East Barre",
-   "days_over": 96
+   "days_over": 97
   },
   {
    "customer_id": 1142,
    "name": "Burke Academy",
    "city": "East Burke",
-   "days_over": -3
+   "days_over": -2
   },
   {
    "customer_id": 1186,
    "name": "East Burke School",
    "city": "East Burke",
-   "days_over": 10
+   "days_over": 11
   },
   {
    "customer_id": 1528,
    "name": "Orange Rind-East Burke",
    "city": "East Burke",
-   "days_over": 0
+   "days_over": 1
   },
   {
    "customer_id": 1370,
    "name": "The Coffee Cabin",
    "city": "East Haven",
-   "days_over": 458
+   "days_over": 459
   },
   {
    "customer_id": 1011,
    "name": "Bernie Noe-East Montpelier",
    "city": "East Montpelier",
-   "days_over": -31
+   "days_over": -30
   },
   {
    "customer_id": 1309,
    "name": "CUTLER",
    "city": "East Montpelier",
-   "days_over": 26
+   "days_over": 27
   },
   {
    "customer_id": 1407,
    "name": "Fox Market-East Montpelier",
    "city": "East Montpelier",
-   "days_over": 496
+   "days_over": 497
   },
   {
    "customer_id": 1521,
    "name": "Jake Audet-Dumpster Move",
    "city": "East Montpelier",
-   "days_over": -301
+   "days_over": -300
   },
   {
    "customer_id": 1523,
    "name": "SNORLAX",
    "city": "East Montpelier",
-   "days_over": 73
+   "days_over": 74
   },
   {
    "customer_id": 1364,
    "name": "Snake and Apple",
    "city": "Eden",
-   "days_over": -25
+   "days_over": -24
   },
   {
    "customer_id": 1276,
    "name": "Lake Eden Country Store",
    "city": "Eden Mills",
-   "days_over": -57
+   "days_over": -56
   },
   {
    "customer_id": 518,
    "name": "Bumble Bee/Parkside-Enosburgh",
    "city": "Enosburg Falls",
-   "days_over": 30
+   "days_over": 31
   },
   {
    "customer_id": 519,
    "name": "Dairy Center-Enosburgh Falls",
    "city": "Enosburg Falls",
-   "days_over": -30
+   "days_over": -29
   },
   {
    "customer_id": 517,
    "name": "Enosburgh Falls Country Club",
    "city": "Enosburg Falls",
-   "days_over": -24
+   "days_over": -23
   },
   {
    "customer_id": 1149,
    "name": "Hannaford-Enosburg Falls",
    "city": "Enosburg Falls",
-   "days_over": -30
+   "days_over": -29
   },
   {
    "customer_id": 1426,
    "name": "AL’s FF food truck-ESSEX at Lowes",
    "city": "Essex Junction",
-   "days_over": 0
+   "days_over": 1
   },
   {
    "customer_id": 415,
    "name": "Blodgett ovens",
    "city": "Essex Junction",
-   "days_over": -236
+   "days_over": -235
   },
   {
    "customer_id": 1247,
    "name": "Bramble",
    "city": "Essex Junction",
-   "days_over": 153
+   "days_over": 154
   },
   {
    "customer_id": 413,
    "name": "Champlain Valley Expo",
    "city": "Essex Junction",
-   "days_over": -161
+   "days_over": -160
   },
   {
    "customer_id": 1302,
    "name": "Essex HS-Center of Technology",
    "city": "Essex Junction",
-   "days_over": -862
+   "days_over": -861
   },
   {
    "customer_id": 1156,
    "name": "Hannafords-Essex Jct",
    "city": "Essex Junction",
-   "days_over": 19
+   "days_over": 20
   },
   {
    "customer_id": 409,
    "name": "Mad Taco-Essex Jct",
    "city": "Essex Junction",
-   "days_over": 59
+   "days_over": 60
   },
   {
    "customer_id": 447,
    "name": "McGillicuddy's Five Corners",
    "city": "Essex Junction",
-   "days_over": 3
+   "days_over": 4
   },
   {
    "customer_id": 1053,
    "name": "Namaste Garden 50%-Essex Jct",
    "city": "Essex Junction",
-   "days_over": 18
+   "days_over": 19
   },
   {
    "customer_id": 1402,
    "name": "Pick Thai -50% EssexJCT",
    "city": "Essex Junction",
-   "days_over": 18
+   "days_over": 19
   },
   {
    "customer_id": 1248,
    "name": "Sparky’s BBQ and Grill- 1977",
    "city": "Essex Junction",
-   "days_over": 11
+   "days_over": 12
   },
   {
    "customer_id": 411,
    "name": "Vespa Pizza",
    "city": "Essex Junction",
-   "days_over": 4
+   "days_over": 5
   },
   {
    "customer_id": 422,
    "name": "Northwest Solid Waste Management District",
    "city": "Fairfax",
-   "days_over": -228
+   "days_over": -227
   },
   {
    "customer_id": 1461,
    "name": "Arandas-Fairlee",
    "city": "Fairlee",
-   "days_over": 66
+   "days_over": 67
   },
   {
    "customer_id": 1268,
    "name": "CRAVE—-Broken Hearts Burger",
    "city": "Fairlee",
-   "days_over": -8
+   "days_over": -7
   },
   {
    "customer_id": 1305,
    "name": "Jan’s Fairlee Diner",
    "city": "Fairlee",
-   "days_over": -101
+   "days_over": -100
   },
   {
    "customer_id": 1304,
    "name": "Lake Morley Resort",
    "city": "Fairlee",
-   "days_over": -8
+   "days_over": -7
   },
   {
    "customer_id": 622,
    "name": "Samurai Soul Food",
    "city": "Fairlee",
-   "days_over": -25
+   "days_over": -24
   },
   {
    "customer_id": 124,
    "name": "Graniteville General",
    "city": "Graniteville",
-   "days_over": -3
+   "days_over": -2
   },
   {
    "customer_id": 1513,
    "name": "Circus Smirkus",
    "city": "Greensboro",
-   "days_over": 32
+   "days_over": 33
   },
   {
    "customer_id": 550,
    "name": "Highland Lodge- Elsa",
    "city": "Greensboro",
-   "days_over": -119
+   "days_over": -118
   },
   {
    "customer_id": 1468,
    "name": "Maplehurst Gebbie Farm",
    "city": "Greensboro",
-   "days_over": -126
+   "days_over": -125
   },
   {
    "customer_id": 1469,
    "name": "Maplehurst Gebbie Farm",
    "city": "Greensboro",
-   "days_over": -99
+   "days_over": -98
   },
   {
    "customer_id": 1484,
    "name": "Sushiya-Hanover NH",
    "city": "Hanover",
-   "days_over": -28
+   "days_over": -27
   },
   {
    "customer_id": 1242,
    "name": "Caja Taqueria-Hardwick",
    "city": "Hardwick",
-   "days_over": -97
+   "days_over": -96
   },
   {
    "customer_id": 504,
    "name": "Cork & Fork/Scale House ~25%",
    "city": "Hardwick",
-   "days_over": -25
+   "days_over": -24
   },
   {
    "customer_id": 503,
    "name": "Hardwick House of Pizza",
    "city": "Hardwick",
-   "days_over": -25
+   "days_over": -24
   },
   {
    "customer_id": 1085,
    "name": "Hardwick kwik stop and deli",
    "city": "Hardwick",
-   "days_over": -42
+   "days_over": -41
   },
   {
    "customer_id": 505,
    "name": "M & M Beverage-Hardwick",
    "city": "Hardwick",
-   "days_over": -314
+   "days_over": -313
   },
   {
    "customer_id": 501,
    "name": "Positive Pie 3 ~25%",
    "city": "Hardwick",
-   "days_over": -25
+   "days_over": -24
   },
   {
    "customer_id": 1504,
    "name": "Two Peas in A Pod-Hardwick",
    "city": "Hardwick",
-   "days_over": -25
+   "days_over": -24
   },
   {
    "customer_id": 502,
    "name": "Village Restaurant-Hardwick~ 50%",
    "city": "Hardwick",
-   "days_over": -25
+   "days_over": -24
   },
   {
    "customer_id": 1480,
    "name": "Papa Nicks-Hinesburg",
    "city": "Hinesburg",
-   "days_over": -29
+   "days_over": -28
   },
   {
    "customer_id": 1351,
    "name": "Bushel Market",
    "city": "Hinesburgh",
-   "days_over": 340
+   "days_over": 341
   },
   {
    "customer_id": 1030,
    "name": "Hinesburg Public House",
    "city": "Hinesburgh",
-   "days_over": 11
+   "days_over": 12
   },
   {
    "customer_id": 1534,
    "name": "GMTCC-LamoilleValley HS",
    "city": "Hyde Park",
-   "days_over": -1
+   "days_over": 0
   },
   {
    "customer_id": 1193,
    "name": "Phillip Ward- North Hyde Park",
    "city": "Hyde Park",
-   "days_over": 359
+   "days_over": 360
   },
   {
    "customer_id": 515,
    "name": "Two Sons Bakery/Fork and Gavel-HydePark",
    "city": "Hyde Park",
-   "days_over": -20
+   "days_over": -19
   },
   {
    "customer_id": 547,
    "name": "Essex House and Tavern",
    "city": "Island Pond",
-   "days_over": -8
+   "days_over": -7
   },
   {
    "customer_id": 548,
    "name": "Lakefront Express Mart",
    "city": "Island Pond",
-   "days_over": -8
+   "days_over": -7
   },
   {
    "customer_id": 1300,
    "name": "Jacksonville General Store",
    "city": "Jacksonville",
-   "days_over": 25
+   "days_over": 26
   },
   {
    "customer_id": 528,
    "name": "Jay Peak- Golf Course",
    "city": "Jay",
-   "days_over": -50
+   "days_over": -49
   },
   {
    "customer_id": 527,
    "name": "Jay Peak- Hotel Jay -OutsideNow",
    "city": "Jay",
-   "days_over": 0
+   "days_over": 1
   },
   {
    "customer_id": 529,
    "name": "Jay Peak-Stateside (loading dock)",
    "city": "Jay",
-   "days_over": 0
+   "days_over": 1
   },
   {
    "customer_id": 526,
    "name": "Jay Peak-waterslide",
    "city": "Jay",
-   "days_over": -39
+   "days_over": -38
   },
   {
    "customer_id": 530,
    "name": "Jay Village Inn",
    "city": "Jay",
-   "days_over": -39
+   "days_over": -38
   },
   {
    "customer_id": 540,
    "name": "Lot Six- Brewster River Pub & Brewery",
    "city": "Jeffersonville",
-   "days_over": -35
+   "days_over": -34
   },
   {
    "customer_id": 285,
    "name": "Jericho Country Store",
    "city": "Jericho Center",
-   "days_over": -68
+   "days_over": -67
   },
   {
    "customer_id": 1239,
    "name": "Jennas Coffee House- two sons bakehouse",
    "city": "Johnson",
-   "days_over": -20
+   "days_over": -19
   },
   {
    "customer_id": 1430,
    "name": "Johnson General Store",
    "city": "Johnson",
-   "days_over": -31
+   "days_over": -30
   },
   {
    "customer_id": 544,
    "name": "Johnsons Chinese Kitchen 90%",
    "city": "Johnson",
-   "days_over": -20
+   "days_over": -19
   },
   {
    "customer_id": 542,
    "name": "Lamoille Valley Solid Waste Management District",
    "city": "Johnson",
-   "days_over": -284
+   "days_over": -283
   },
   {
    "customer_id": 543,
    "name": "Marsala Salsa/ Pizzeria -Johnson-10%",
    "city": "Johnson",
-   "days_over": -20
+   "days_over": -19
   },
   {
    "customer_id": 1515,
    "name": "NVU-Johnson",
    "city": "Johnson",
-   "days_over": -7
+   "days_over": -6
   },
   {
    "customer_id": 1525,
    "name": "Apricity Tavern",
    "city": "Killington",
-   "days_over": 40
+   "days_over": 41
   },
   {
    "customer_id": 1526,
    "name": "Apricity Tavern",
    "city": "Killington",
-   "days_over": 35
+   "days_over": 36
   },
   {
    "customer_id": 1391,
    "name": "Grey Bonnet Inn-Killington",
    "city": "Killington",
-   "days_over": 371
+   "days_over": 372
   },
   {
    "customer_id": 815,
    "name": "Summit Lodge / Irish pub",
    "city": "Killington",
-   "days_over": 48
+   "days_over": 49
   },
   {
    "customer_id": 1439,
    "name": "Curdeous Cow",
    "city": "Lincoln",
-   "days_over": 236
+   "days_over": 237
   },
   {
    "customer_id": 620,
    "name": "Rabbit Hill Inn",
    "city": "Lower Waterford",
-   "days_over": -345
+   "days_over": -344
   },
   {
    "customer_id": 1388,
    "name": "Okemo- Mountain Resort",
    "city": "Ludlow",
-   "days_over": 3
+   "days_over": 4
   },
   {
    "customer_id": 934,
    "name": "Okemo-Jackson Gore Inn",
    "city": "Ludlow",
-   "days_over": 3
+   "days_over": 4
   },
   {
    "customer_id": 910,
    "name": "The Hatchery",
    "city": "Ludlow",
-   "days_over": -254
+   "days_over": -253
   },
   {
    "customer_id": 1453,
    "name": "Jeffrey Burger - Lyndonville",
    "city": "Lyndonville",
-   "days_over": 231
+   "days_over": 232
   },
   {
    "customer_id": 1465,
    "name": "Lyndonville Station Irving",
    "city": "Lyndonville",
-   "days_over": -8
+   "days_over": -7
   },
   {
    "customer_id": 733,
    "name": "Copper Grouse",
    "city": "Manchester",
-   "days_over": -17
+   "days_over": -16
   },
   {
    "customer_id": 1462,
    "name": "Lost Marble-Manchester",
    "city": "Manchester",
-   "days_over": -15
+   "days_over": -14
   },
   {
    "customer_id": 1234,
    "name": "Road Runner",
    "city": "Manchester",
-   "days_over": -12
+   "days_over": -11
   },
   {
    "customer_id": 1443,
    "name": "Lola Woodfired /Austin Poulin/ Sam's Wood Fired Pi",
    "city": "Manchester Center",
-   "days_over": -15
+   "days_over": -14
   },
   {
    "customer_id": 734,
    "name": "Manchester Hockeypas-0150",
    "city": "Manchester Center",
-   "days_over": -82
+   "days_over": -81
   },
   {
    "customer_id": 608,
    "name": "Rivers Edge Store-Marshfield",
    "city": "Marshfield",
-   "days_over": 9
+   "days_over": 10
   },
   {
    "customer_id": 710,
    "name": "Addison County Solid Waste Management District",
    "city": "Middlebury",
-   "days_over": -169
+   "days_over": -168
   },
   {
    "customer_id": 1346,
    "name": "Cravens Food Truck-Middlebury",
    "city": "Middlebury",
-   "days_over": -17
+   "days_over": -16
   },
   {
    "customer_id": 717,
    "name": "Green Peppers",
    "city": "Middlebury",
-   "days_over": -8
+   "days_over": -7
   },
   {
    "customer_id": 1160,
    "name": "Hannaford-Middlebury",
    "city": "Middlebury",
-   "days_over": -14
+   "days_over": -13
   },
   {
    "customer_id": 715,
    "name": "Haymaker Buns",
    "city": "Middlebury",
-   "days_over": -24
+   "days_over": -23
   },
   {
    "customer_id": 724,
    "name": "Mad Taco-Middlebury",
    "city": "Middlebury",
-   "days_over": 7
+   "days_over": 8
   },
   {
    "customer_id": 723,
    "name": "Marriott",
    "city": "Middlebury",
-   "days_over": -7
+   "days_over": -6
   },
   {
    "customer_id": 720,
    "name": "Otter Creek/Residence Inn",
    "city": "Middlebury",
-   "days_over": 7
+   "days_over": 8
   },
   {
    "customer_id": 1472,
    "name": "Patricia Hannaford Career Center-Middlebury",
    "city": "Middlebury",
-   "days_over": 285
+   "days_over": 286
   },
   {
    "customer_id": 732,
    "name": "Ross Conrad",
    "city": "Middlebury",
-   "days_over": -7
+   "days_over": -6
   },
   {
    "customer_id": 714,
    "name": "Two Brothers Tavern",
    "city": "Middlebury",
-   "days_over": -19
+   "days_over": -18
   },
   {
    "customer_id": 1437,
    "name": "2 Boot Saloon-Milton",
    "city": "Milton",
-   "days_over": -22
+   "days_over": -21
   },
   {
    "customer_id": 1355,
    "name": "Frey family deli -Milton",
    "city": "Milton",
-   "days_over": -22
+   "days_over": -21
   },
   {
    "customer_id": 1180,
    "name": "Hannaford- Milton",
    "city": "Milton",
-   "days_over": -30
+   "days_over": -29
   },
   {
    "customer_id": 423,
    "name": "Perrigo Nutritionals",
    "city": "Milton",
-   "days_over": -24
+   "days_over": -23
   },
   {
    "customer_id": 1508,
    "name": "POPS PLACE-Food Truck-Milton",
    "city": "Milton",
-   "days_over": -22
+   "days_over": -21
   },
   {
    "customer_id": 1357,
    "name": "Uncle Ronnie's Deli-Milton",
    "city": "Milton",
-   "days_over": -22
+   "days_over": -21
   },
   {
    "customer_id": 525,
    "name": "Black Lantern-Montgomery",
    "city": "Montgomery",
-   "days_over": 7
+   "days_over": 8
   },
   {
    "customer_id": 524,
    "name": "OMAKASE/Big Jay Tavern",
    "city": "Montgomery",
-   "days_over": 28
+   "days_over": 29
   },
   {
    "customer_id": 1535,
    "name": "The Belfry-Montgomery",
    "city": "Montgomery",
-   "days_over": -25
+   "days_over": -24
   },
   {
    "customer_id": 522,
    "name": "Snow Shoe Lodge-Montgomery",
    "city": "Montgomery Center",
-   "days_over": -46
+   "days_over": -45
   },
   {
    "customer_id": 523,
    "name": "The Inn-Montgomery",
    "city": "Montgomery Center",
-   "days_over": 7
+   "days_over": 8
   },
   {
    "customer_id": 1373,
@@ -2023,667 +2039,667 @@
    "customer_id": 1376,
    "name": "Arandas-Montpelier",
    "city": "Montpelier",
-   "days_over": -1
+   "days_over": 0
   },
   {
    "customer_id": 1366,
    "name": "Barr Hill -Load",
    "city": "Montpelier",
-   "days_over": 33
+   "days_over": 34
   },
   {
    "customer_id": 1489,
    "name": "Barr Hill -OIL collection",
    "city": "Montpelier",
-   "days_over": -8
+   "days_over": -7
   },
   {
    "customer_id": 147,
    "name": "Buddy's Famous Burgers",
    "city": "Montpelier",
-   "days_over": -1
+   "days_over": 0
   },
   {
    "customer_id": 1315,
    "name": "CHICOS MontP/The Filibuster Cafe",
    "city": "Montpelier",
-   "days_over": 10
+   "days_over": 11
   },
   {
    "customer_id": 1359,
    "name": "DairyCreme-GreatestCaper",
    "city": "Montpelier",
-   "days_over": -16
+   "days_over": -15
   },
   {
    "customer_id": 1191,
    "name": "GREENWAY INSTITUTE/Vermont College of Fine Arts",
    "city": "Montpelier",
-   "days_over": 146
+   "days_over": 147
   },
   {
    "customer_id": 151,
    "name": "House of Tang",
    "city": "Montpelier",
-   "days_over": -18
+   "days_over": -17
   },
   {
    "customer_id": 1100,
    "name": "Hugo’s ~",
    "city": "Montpelier",
-   "days_over": 0
+   "days_over": 1
   },
   {
    "customer_id": 133,
    "name": "JJ’s- Langdon Street Tavern",
    "city": "Montpelier",
-   "days_over": -14
+   "days_over": -13
   },
   {
    "customer_id": 1379,
    "name": "JMorgans-100StateSt Hospitality",
    "city": "Montpelier",
-   "days_over": -14
+   "days_over": -13
   },
   {
    "customer_id": 143,
    "name": "Julio's-67%",
    "city": "Montpelier",
-   "days_over": -1
+   "days_over": 0
   },
   {
    "customer_id": 1209,
    "name": "MJH Massage",
    "city": "Montpelier",
-   "days_over": -148
+   "days_over": -147
   },
   {
    "customer_id": 1522,
    "name": "MontPoop",
    "city": "Montpelier",
-   "days_over": -122
+   "days_over": -121
   },
   {
    "customer_id": 131,
    "name": "Namaste ~ 33%",
    "city": "Montpelier",
-   "days_over": -3
+   "days_over": -2
   },
   {
    "customer_id": 149,
    "name": "National Life",
    "city": "Montpelier",
-   "days_over": -34
+   "days_over": -33
   },
   {
    "customer_id": 169,
    "name": "Oakes and Evelyn-33%",
    "city": "Montpelier",
-   "days_over": -1
+   "days_over": 0
   },
   {
    "customer_id": 1313,
    "name": "Ondis",
    "city": "Montpelier",
-   "days_over": -23
+   "days_over": -22
   },
   {
    "customer_id": 153,
    "name": "Parkers Quick Stop",
    "city": "Montpelier",
-   "days_over": -252
+   "days_over": -251
   },
   {
    "customer_id": 145,
    "name": "Pho Capital",
    "city": "Montpelier",
-   "days_over": -14
+   "days_over": -13
   },
   {
    "customer_id": 140,
    "name": "Positive Pie 2-Montpelier",
    "city": "Montpelier",
-   "days_over": -7
+   "days_over": -6
   },
   {
    "customer_id": 137,
    "name": "Royal Orchid",
    "city": "Montpelier",
-   "days_over": -33
+   "days_over": -32
   },
   {
    "customer_id": 146,
    "name": "Sarduccis",
    "city": "Montpelier",
-   "days_over": -14
+   "days_over": -13
   },
   {
    "customer_id": 302,
    "name": "Skinny Pancake-Montpelier",
    "city": "Montpelier",
-   "days_over": -13
+   "days_over": -12
   },
   {
    "customer_id": 157,
    "name": "State House",
    "city": "Montpelier",
-   "days_over": -168
+   "days_over": -167
   },
   {
    "customer_id": 130,
    "name": "Three Penny Taproom 67%",
    "city": "Montpelier",
-   "days_over": -3
+   "days_over": -2
   },
   {
    "customer_id": 152,
    "name": "VFW Post 792",
    "city": "Montpelier",
-   "days_over": -166
+   "days_over": -165
   },
   {
    "customer_id": 150,
    "name": "West View Meadows",
    "city": "Montpelier",
-   "days_over": -257
+   "days_over": -256
   },
   {
    "customer_id": 510,
    "name": "10 Railroad Street",
    "city": "Morristown",
-   "days_over": -1
+   "days_over": 0
   },
   {
    "customer_id": 511,
    "name": "Black Diamond BBQ",
    "city": "Morristown",
-   "days_over": -7
+   "days_over": -6
   },
   {
    "customer_id": 1352,
    "name": "Gondola’s Downtown Morrisville",
    "city": "Morristown",
-   "days_over": 13
+   "days_over": 14
   },
   {
    "customer_id": 509,
    "name": "Moogs Place- Morrisville",
    "city": "Morristown",
-   "days_over": -1
+   "days_over": 0
   },
   {
    "customer_id": 1460,
    "name": "Copley Hospital",
    "city": "Morrisville",
-   "days_over": -89
+   "days_over": -88
   },
   {
    "customer_id": 1497,
    "name": "Gondola Seasonal Snack Shack Route 15",
    "city": "Morrisville",
-   "days_over": 6
+   "days_over": 7
   },
   {
    "customer_id": 1181,
    "name": "Hannaford- Morrisville",
    "city": "Morrisville",
-   "days_over": -26
+   "days_over": -25
   },
   {
    "customer_id": 1071,
    "name": "Lost Nation Brewery",
    "city": "Morrisville",
-   "days_over": 6
+   "days_over": 7
   },
   {
    "customer_id": 512,
    "name": "North Country Donuts",
    "city": "Morrisville",
-   "days_over": -1
+   "days_over": 0
   },
   {
    "customer_id": 508,
    "name": "Pizza on Main -Morrisville",
    "city": "Morrisville",
-   "days_over": -14
+   "days_over": -13
   },
   {
    "customer_id": 513,
    "name": "The Manor",
    "city": "Morrisville",
-   "days_over": 44
+   "days_over": 45
   },
   {
    "customer_id": 1496,
    "name": "Tourterelle -just north of MIDDLEBURY",
    "city": "New Haven",
-   "days_over": -8
+   "days_over": -7
   },
   {
    "customer_id": 534,
    "name": "Dusit Thai",
    "city": "Newport",
-   "days_over": -82
+   "days_over": -81
   },
   {
    "customer_id": 1171,
    "name": "Hoagies-Newport",
    "city": "Newport",
-   "days_over": -14
+   "days_over": -13
   },
   {
    "customer_id": 1074,
    "name": "JumbleBite/Hilmers on Main",
    "city": "Newport",
-   "days_over": -42
+   "days_over": -41
   },
   {
    "customer_id": 533,
    "name": "Newport Country Club",
    "city": "Newport",
-   "days_over": -22
+   "days_over": -21
   },
   {
    "customer_id": 1072,
    "name": "The Warehouse/Cider",
    "city": "Newport",
-   "days_over": 132
+   "days_over": 133
   },
   {
    "customer_id": 531,
    "name": "Wal-mart,Newport",
    "city": "Newport",
-   "days_over": -82
+   "days_over": -81
   },
   {
    "customer_id": 1371,
    "name": "West Side Market and Deli",
    "city": "Newport",
-   "days_over": -25
+   "days_over": -24
   },
   {
    "customer_id": 1147,
    "name": "Bravo Zulu- North Hero",
    "city": "North Hero",
-   "days_over": -102
+   "days_over": -101
   },
   {
    "customer_id": 416,
    "name": "North Hero House",
    "city": "North Hero",
-   "days_over": -9
+   "days_over": -8
   },
   {
    "customer_id": 1144,
    "name": "Shore Acres-North Hero",
    "city": "North Hero",
-   "days_over": -58
+   "days_over": -57
   },
   {
    "customer_id": 1503,
    "name": "Way Out Wax",
    "city": "North Hyde Park",
-   "days_over": -213
+   "days_over": -212
   },
   {
    "customer_id": 1500,
    "name": "802 Deli and Market",
    "city": "North Troy",
-   "days_over": -22
+   "days_over": -21
   },
   {
    "customer_id": 1314,
    "name": "Hoagies in North Troy",
    "city": "North Troy",
-   "days_over": -50
+   "days_over": -49
   },
   {
    "customer_id": 1454,
    "name": "Inglenook Condo-Jay Peak",
    "city": "North Troy",
-   "days_over": 322
+   "days_over": 323
   },
   {
    "customer_id": 1436,
    "name": "JNETME CONCESSIONS 50%-North Troy",
    "city": "North Troy",
-   "days_over": 13
+   "days_over": 14
   },
   {
    "customer_id": 1246,
    "name": "Junction Restaurant-50%-North Troy",
    "city": "North Troy",
-   "days_over": -7
+   "days_over": -6
   },
   {
    "customer_id": 1165,
    "name": "Toasted Bun-North Troy",
    "city": "North Troy",
-   "days_over": -48
+   "days_over": -47
   },
   {
    "customer_id": 1390,
    "name": "Folignos Pizza-Northfield",
    "city": "Northfield",
-   "days_over": -14
+   "days_over": -13
   },
   {
    "customer_id": 161,
    "name": "GOOD MEASURE!!!!-(1980)",
    "city": "Northfield",
-   "days_over": -22
+   "days_over": -21
   },
   {
    "customer_id": 159,
    "name": "Northfield Pizza/ Depot Square 50%",
    "city": "Northfield",
-   "days_over": -28
+   "days_over": -27
   },
   {
    "customer_id": 162,
    "name": "O'Maddis 50%",
    "city": "Northfield",
-   "days_over": -28
+   "days_over": -27
   },
   {
    "customer_id": 163,
    "name": "Shady's Deli",
    "city": "Northfield",
-   "days_over": -74
+   "days_over": -73
   },
   {
    "customer_id": 158,
    "name": "South Village Mobile (Convenience Plus)",
    "city": "Northfield",
-   "days_over": -28
+   "days_over": -27
   },
   {
    "customer_id": 1419,
    "name": "THE STIC// old RUSTIC-Northfield",
    "city": "Northfield",
-   "days_over": -14
+   "days_over": -13
   },
   {
    "customer_id": 1511,
    "name": "Tin Bucks BBQ",
    "city": "Northfield",
-   "days_over": 32
+   "days_over": 33
   },
   {
    "customer_id": 1488,
    "name": "Tucks Repair",
    "city": "Northfield",
-   "days_over": -145
+   "days_over": -144
   },
   {
    "customer_id": 126,
    "name": "Don Giroux Recycling-Orange",
    "city": "Orange",
-   "days_over": 136
+   "days_over": 137
   },
   {
    "customer_id": 1073,
    "name": "OLNEY  general store",
    "city": "Orleans",
-   "days_over": 4
+   "days_over": 5
   },
   {
    "customer_id": 1095,
    "name": "Russell Boullard",
    "city": "Pawtucket",
-   "days_over": -408
+   "days_over": -407
   },
   {
    "customer_id": 809,
    "name": "Weathersfield Inn",
    "city": "Perkinsville",
-   "days_over": 934
+   "days_over": 935
   },
   {
    "customer_id": 806,
    "name": "Riverside Farm",
    "city": "Pittsfield",
-   "days_over": -319
+   "days_over": -318
   },
   {
    "customer_id": 807,
    "name": "The Original - Pittsfield General Store",
    "city": "Pittsfield",
-   "days_over": -319
+   "days_over": -318
   },
   {
    "customer_id": 1090,
    "name": "Proctor-Pittsford Country Club",
    "city": "Pittsford",
-   "days_over": -229
+   "days_over": -228
   },
   {
    "customer_id": 1447,
    "name": "BBB- add METAL barrel",
    "city": "Plainfield",
-   "days_over": -22
+   "days_over": -21
   },
   {
    "customer_id": 1078,
    "name": "BBB- Pump oil @ Shop",
    "city": "Plainfield",
-   "days_over": 14
+   "days_over": 15
   },
   {
    "customer_id": 1312,
    "name": "BBB- Turn heat on -Plainfield",
    "city": "Plainfield",
-   "days_over": -339
+   "days_over": -338
   },
   {
    "customer_id": 1435,
    "name": "BBB-add a second barrel",
    "city": "Plainfield",
-   "days_over": -194
+   "days_over": -193
   },
   {
    "customer_id": 1533,
    "name": "BBB-Drop Barrel(s)^^^^^^",
    "city": "Plainfield",
-   "days_over": -345
+   "days_over": -344
   },
   {
    "customer_id": 1327,
    "name": "BBB-Exchange Fittings",
    "city": "Plainfield",
-   "days_over": -51
+   "days_over": -50
   },
   {
    "customer_id": 1423,
    "name": "BBB-Load a Barrel",
    "city": "Plainfield",
-   "days_over": -355
+   "days_over": -354
   },
   {
    "customer_id": 1410,
    "name": "BBB-Load Metal  Barrel with Clamping ring",
    "city": "Plainfield",
-   "days_over": -52
+   "days_over": -51
   },
   {
    "customer_id": 1424,
    "name": "BBB-Load Stinger",
    "city": "Plainfield",
-   "days_over": -186
+   "days_over": -185
   },
   {
    "customer_id": 1425,
    "name": "BBB-Load Stinger",
    "city": "Plainfield",
-   "days_over": -345
+   "days_over": -344
   },
   {
    "customer_id": 1516,
    "name": "BBB-Remove Barrel from above^^^^^",
    "city": "Plainfield",
-   "days_over": 31
+   "days_over": 32
   },
   {
    "customer_id": 1470,
    "name": "BBB-Screen Fitting",
    "city": "Plainfield",
-   "days_over": -660
+   "days_over": -659
   },
   {
    "customer_id": 1367,
    "name": "BBB-swap hose",
    "city": "Plainfield",
-   "days_over": -204
+   "days_over": -203
   },
   {
    "customer_id": 1368,
    "name": "BBB-wash BabyBird",
    "city": "Plainfield",
-   "days_over": 528
+   "days_over": 529
   },
   {
    "customer_id": 603,
    "name": "HAYBARN-Goddard College- 7532",
    "city": "Plainfield",
-   "days_over": -95
+   "days_over": -94
   },
   {
    "customer_id": 600,
    "name": "Positive Pie-Plainfield",
    "city": "Plainfield",
-   "days_over": -45
+   "days_over": -44
   },
   {
    "customer_id": 1360,
    "name": "Tony’s Homemade Donut’s",
    "city": "Plainfield",
-   "days_over": -782
+   "days_over": -781
   },
   {
    "customer_id": 1450,
    "name": "Anthony’s Restaurant -Plattsburgh",
    "city": "Plattsburgh",
-   "days_over": 4
+   "days_over": 5
   },
   {
    "customer_id": 1173,
    "name": "Hannaford-Plattsburgh",
    "city": "Plattsburgh",
-   "days_over": -8
+   "days_over": -7
   },
   {
    "customer_id": 1194,
    "name": "Fox Farm-Shared with Suicide 6 Ski",
    "city": "Pomfret",
-   "days_over": 76
+   "days_over": 77
   },
   {
    "customer_id": 829,
    "name": "Chef Brad Crazy Sides",
    "city": "Quechee",
-   "days_over": 517
+   "days_over": 518
   },
   {
    "customer_id": 1463,
    "name": "Mobil Station",
    "city": "Quechee",
-   "days_over": 18
+   "days_over": 19
   },
   {
    "customer_id": 1056,
    "name": "Quechee Gorge Snack Bar",
    "city": "Quechee",
-   "days_over": -17
+   "days_over": -16
   },
   {
    "customer_id": 827,
    "name": "Simon Pearce~100%",
    "city": "Quechee",
-   "days_over": -28
+   "days_over": -27
   },
   {
    "customer_id": 1233,
    "name": "Skinny Pancake- Quechee",
    "city": "Quechee",
-   "days_over": -28
+   "days_over": -27
   },
   {
    "customer_id": 923,
    "name": "Trail Break (Taco place)",
    "city": "Quechee",
-   "days_over": -15
+   "days_over": -14
   },
   {
    "customer_id": 833,
    "name": "Gifford Hospital",
    "city": "Randolph",
-   "days_over": -28
+   "days_over": -27
   },
   {
    "customer_id": 1161,
    "name": "The NEW Forge-Randolph",
    "city": "Randolph",
-   "days_over": -33
+   "days_over": -32
   },
   {
    "customer_id": 834,
    "name": "Gifford Retirement (Morgan Orchard)",
    "city": "Randolph Center",
-   "days_over": 10
+   "days_over": 11
   },
   {
    "customer_id": 1058,
    "name": "Readsboro General Store",
    "city": "Readsboro",
-   "days_over": -316
+   "days_over": -315
   },
   {
    "customer_id": 1136,
    "name": "Richford Country Club",
    "city": "Richford",
-   "days_over": 54
+   "days_over": 55
   },
   {
    "customer_id": 284,
    "name": "Big Spruce",
    "city": "Richmond",
-   "days_over": -24
+   "days_over": -23
   },
   {
    "customer_id": 282,
    "name": "Schaffers/Hatchet Tap & Table",
    "city": "Richmond",
-   "days_over": -24
+   "days_over": -23
   },
   {
    "customer_id": 1218,
    "name": "Maple Soul",
    "city": "Rochester",
-   "days_over": 57
+   "days_over": 58
   },
   {
    "customer_id": 1117,
    "name": "Windridge Summer Camp-September Collection",
    "city": "Roxbury",
-   "days_over": -313
+   "days_over": -312
   },
   {
    "customer_id": 1182,
    "name": "Hannaford- Rutland",
    "city": "Rutland",
-   "days_over": 388
+   "days_over": 389
   },
   {
    "customer_id": 1325,
    "name": "Mad Rose-Rutland",
    "city": "Rutland",
-   "days_over": 383
+   "days_over": 384
   },
   {
    "customer_id": 1275,
    "name": "Uncle Sam’s-Rutland",
    "city": "Rutland",
-   "days_over": 394
+   "days_over": 395
   },
   {
    "customer_id": 1145,
@@ -2701,541 +2717,541 @@
    "customer_id": 1442,
    "name": "Maple Grove Farms of Vermont",
    "city": "Saint Johnsbury",
-   "days_over": 80
+   "days_over": 81
   },
   {
    "customer_id": 1377,
    "name": "Chef Leu -Shelburne",
    "city": "Shelburne",
-   "days_over": -31
+   "days_over": -30
   },
   {
    "customer_id": 1298,
    "name": "Electras-Shelburne",
    "city": "Shelburne",
-   "days_over": -6
+   "days_over": -5
   },
   {
    "customer_id": 1422,
    "name": "Folignos Pizza-Shelburne",
    "city": "Shelburne",
-   "days_over": -24
+   "days_over": -23
   },
   {
    "customer_id": 1197,
    "name": "Le~Marche~Cafe",
    "city": "Shelburne",
-   "days_over": -75
+   "days_over": -74
   },
   {
    "customer_id": 700,
    "name": "Rustic Roots",
    "city": "Shelburne",
-   "days_over": 374
+   "days_over": 375
   },
   {
    "customer_id": 1487,
    "name": "Whistle Pig-White Farmhouse",
    "city": "Shoreham",
-   "days_over": 185
+   "days_over": 186
   },
   {
    "customer_id": 1510,
    "name": "Folinos Pizza-South Burlington",
    "city": "South  Burlington",
-   "days_over": -3
+   "days_over": -2
   },
   {
    "customer_id": 1417,
    "name": "AL’s FRENCH FRIES 1251-South Burlington",
    "city": "South Burlington",
-   "days_over": -24
+   "days_over": -23
   },
   {
    "customer_id": 1418,
    "name": "Cairns Arena",
    "city": "South Burlington",
-   "days_over": 174
+   "days_over": 175
   },
   {
    "customer_id": 1195,
    "name": "Chicken Charlies",
    "city": "South Burlington",
-   "days_over": -9
+   "days_over": -8
   },
   {
    "customer_id": 1448,
    "name": "Good Times Cafe",
    "city": "South Burlington",
-   "days_over": -3
+   "days_over": -2
   },
   {
    "customer_id": 1177,
    "name": "Hannaford-Shelburne Rd",
    "city": "South Burlington",
-   "days_over": -31
+   "days_over": -30
   },
   {
    "customer_id": 1458,
    "name": "Jersey Mike's-South Burlington",
    "city": "South Burlington",
-   "days_over": -3
+   "days_over": -2
   },
   {
    "customer_id": 1216,
    "name": "Koto",
    "city": "South Burlington",
-   "days_over": -1
+   "days_over": 0
   },
   {
    "customer_id": 1505,
    "name": "La Casa del Sabor",
    "city": "South Burlington",
-   "days_over": -3
+   "days_over": -2
   },
   {
    "customer_id": 318,
    "name": "Mirabelles-South Burlington",
    "city": "South Burlington",
-   "days_over": 403
+   "days_over": 404
   },
   {
    "customer_id": 1483,
    "name": "Mountain Valley -South Burlington",
    "city": "South Burlington",
-   "days_over": -3
+   "days_over": -2
   },
   {
    "customer_id": 344,
    "name": "Parkway Diner",
    "city": "South Burlington",
-   "days_over": -15
+   "days_over": -14
   },
   {
    "customer_id": 374,
    "name": "Pulcinella",
    "city": "South Burlington",
-   "days_over": -25
+   "days_over": -24
   },
   {
    "customer_id": 365,
    "name": "Skinny Pancake- BTV airport",
    "city": "South Burlington",
-   "days_over": -14
+   "days_over": -13
   },
   {
    "customer_id": 1188,
    "name": "Windjammer",
    "city": "South Burlington",
-   "days_over": -16
+   "days_over": -15
   },
   {
    "customer_id": 1409,
    "name": "Pan’sPizza-South Hero",
    "city": "South Hero",
-   "days_over": 47
+   "days_over": 48
   },
   {
    "customer_id": 1396,
    "name": "Sandbar Bar & Grill",
    "city": "South Hero",
-   "days_over": -7
+   "days_over": -6
   },
   {
    "customer_id": 1471,
    "name": "Thai in Town-South Hero",
    "city": "South Hero",
-   "days_over": -5
+   "days_over": -4
   },
   {
    "customer_id": 1319,
    "name": "Two Heros Public House",
    "city": "South Hero",
-   "days_over": 42
+   "days_over": 43
   },
   {
    "customer_id": 817,
    "name": "Suicide 6= Saskadena",
    "city": "South Pomfret",
-   "days_over": -46
+   "days_over": -45
   },
   {
    "customer_id": 1097,
    "name": "GrandmasGriddle/802 Pizza- south royalton",
    "city": "South Royalton",
-   "days_over": 280
+   "days_over": 281
   },
   {
    "customer_id": 804,
    "name": "IRVING/EXIT 3 Jockey Hollow Rest area",
    "city": "South Royalton",
-   "days_over": 33
+   "days_over": 34
   },
   {
    "customer_id": 1106,
    "name": "Vermont Law School-South Royalton",
    "city": "South Royalton",
-   "days_over": -9
+   "days_over": -8
   },
   {
    "customer_id": 1493,
    "name": "Pizza Hut-St Albans",
    "city": "St Albans",
-   "days_over": 97
+   "days_over": 98
   },
   {
    "customer_id": 1507,
    "name": "St.Johnsbury Country Club",
    "city": "St Johnsbury",
-   "days_over": 0
+   "days_over": 1
   },
   {
    "customer_id": 1155,
    "name": "Hannafords-St Albans",
    "city": "St. Albans",
-   "days_over": -62
+   "days_over": -61
   },
   {
    "customer_id": 1086,
    "name": "Nutra Blend-John",
    "city": "St. Albans",
-   "days_over": 782
+   "days_over": 783
   },
   {
    "customer_id": 1527,
    "name": "Ralstons-StAlbans-Pass 1234",
    "city": "St. Albans",
-   "days_over": 5
+   "days_over": 6
   },
   {
    "customer_id": 417,
    "name": "Bayside Pavilion",
    "city": "St. Albans City",
-   "days_over": -8
+   "days_over": -7
   },
   {
    "customer_id": 421,
    "name": "BLACK RADISH/14thStar-Saint Albans-14th Star",
    "city": "St. Albans City",
-   "days_over": -5
+   "days_over": -4
   },
   {
    "customer_id": 1434,
    "name": "Cafe Montette -StAlbans",
    "city": "St. Albans City",
-   "days_over": -2
+   "days_over": -1
   },
   {
    "customer_id": 1138,
    "name": "Kaiju Kitchen-St Albans",
    "city": "St. Albans City",
-   "days_over": -34
+   "days_over": -33
   },
   {
    "customer_id": 418,
    "name": "Nelly's",
    "city": "St. Albans City",
-   "days_over": -5
+   "days_over": -4
   },
   {
    "customer_id": 1429,
    "name": "Rail City Grill",
    "city": "St. Albans City",
-   "days_over": 312
+   "days_over": 313
   },
   {
    "customer_id": 1249,
    "name": "98 Mill St -St Johnsbury",
    "city": "St. Johnsbury",
-   "days_over": -2
+   "days_over": -1
   },
   {
    "customer_id": 1293,
    "name": "Center Tower - St. J",
    "city": "St. Johnsbury",
-   "days_over": -36
+   "days_over": -35
   },
   {
    "customer_id": 1080,
    "name": "JavierBillsAlmostMexican/PicaPica",
    "city": "St. Johnsbury",
-   "days_over": -315
+   "days_over": -314
   },
   {
    "customer_id": 1519,
    "name": "Swing Sportsplex",
    "city": "St. Johnsbury",
-   "days_over": 0
+   "days_over": 1
   },
   {
    "customer_id": 1415,
    "name": "The Buttery",
    "city": "St. Johnsbury",
-   "days_over": -22
+   "days_over": -21
   },
   {
    "customer_id": 1118,
    "name": "Aladdin",
    "city": "Stowe",
-   "days_over": -56
+   "days_over": -55
   },
   {
    "customer_id": 1075,
    "name": "Alfies Wild rides",
    "city": "Stowe",
-   "days_over": 12
+   "days_over": 13
   },
   {
    "customer_id": 1372,
    "name": "Arandas Mexican-Stowe",
    "city": "Stowe",
-   "days_over": -24
+   "days_over": -23
   },
   {
    "customer_id": 287,
    "name": "Backyard Tavern 50%",
    "city": "Stowe",
-   "days_over": -9
+   "days_over": -8
   },
   {
    "customer_id": 273,
    "name": "BARBERIAN-Skinny Pancake-Stowe McCarthy's",
    "city": "Stowe",
-   "days_over": -2
+   "days_over": -1
   },
   {
    "customer_id": 1103,
    "name": "Burt’s Pub/old Blue Donkey",
    "city": "Stowe",
-   "days_over": 4
+   "days_over": 5
   },
   {
    "customer_id": 242,
    "name": "Cork Wine Bar-Stowe",
    "city": "Stowe",
-   "days_over": 14
+   "days_over": 15
   },
   {
    "customer_id": 247,
    "name": "Doc Ponds",
    "city": "Stowe",
-   "days_over": -2
+   "days_over": -1
   },
   {
    "customer_id": 263,
    "name": "Edson Hill Manor",
    "city": "Stowe",
-   "days_over": -2
+   "days_over": -1
   },
   {
    "customer_id": 1116,
    "name": "GreenGoddess",
    "city": "Stowe",
-   "days_over": -24
+   "days_over": -23
   },
   {
    "customer_id": 274,
    "name": "Grey Fox Inn-Wildflower restaurant",
    "city": "Stowe",
-   "days_over": 95
+   "days_over": 96
   },
   {
    "customer_id": 1020,
    "name": "Harrison's Restaurant & Bar",
    "city": "Stowe",
-   "days_over": 15
+   "days_over": 16
   },
   {
    "customer_id": 262,
    "name": "Idletyme",
    "city": "Stowe",
-   "days_over": -2
+   "days_over": -1
   },
   {
    "customer_id": 278,
    "name": "Matterhorn",
    "city": "Stowe",
-   "days_over": -16
+   "days_over": -15
   },
   {
    "customer_id": 1361,
    "name": "Outbound Stowe",
    "city": "Stowe",
-   "days_over": -16
+   "days_over": -15
   },
   {
    "customer_id": 261,
    "name": "Piecasso",
    "city": "Stowe",
-   "days_over": -2
+   "days_over": -1
   },
   {
    "customer_id": 276,
    "name": "RAJA- Umami",
    "city": "Stowe",
-   "days_over": -41
+   "days_over": -40
   },
   {
    "customer_id": 248,
    "name": "Ranch Camp 50%",
    "city": "Stowe",
-   "days_over": -9
+   "days_over": -8
   },
   {
    "customer_id": 249,
    "name": "Rim Rock-Stowe",
    "city": "Stowe",
-   "days_over": -2
+   "days_over": -1
   },
   {
    "customer_id": 250,
    "name": "Sanfo",
    "city": "Stowe",
-   "days_over": -20
+   "days_over": -19
   },
   {
    "customer_id": 243,
    "name": "Stowe Hockey Arena",
    "city": "Stowe",
-   "days_over": -156
+   "days_over": -155
   },
   {
    "customer_id": 270,
    "name": "Stowe Mountain-Spruce Peak",
    "city": "Stowe",
-   "days_over": -2
+   "days_over": -1
   },
   {
    "customer_id": 1262,
    "name": "Stowe Resort-Workers Dorm",
    "city": "Stowe",
-   "days_over": -292
+   "days_over": -291
   },
   {
    "customer_id": 275,
    "name": "Stowe Transfer Station",
    "city": "Stowe",
-   "days_over": -97
+   "days_over": -96
   },
   {
    "customer_id": 258,
    "name": "Stowebowl",
    "city": "Stowe",
-   "days_over": -2
+   "days_over": -1
   },
   {
    "customer_id": 1223,
    "name": "StoweCider-Shakedown",
    "city": "Stowe",
-   "days_over": -16
+   "days_over": -15
   },
   {
    "customer_id": 254,
    "name": "Thai in the mountain (SaenSook)-Mountain Rd",
    "city": "Stowe",
-   "days_over": -29
+   "days_over": -28
   },
   {
    "customer_id": 252,
    "name": "The Bench",
    "city": "Stowe",
-   "days_over": -2
+   "days_over": -1
   },
   {
    "customer_id": 255,
    "name": "The Butchery",
    "city": "Stowe",
-   "days_over": -58
+   "days_over": -57
   },
   {
    "customer_id": 246,
    "name": "The Stowe Inn Tavern",
    "city": "Stowe",
-   "days_over": -16
+   "days_over": -15
   },
   {
    "customer_id": 265,
    "name": "Topnotch (The Roost)",
    "city": "Stowe",
-   "days_over": -2
+   "days_over": -1
   },
   {
    "customer_id": 1445,
    "name": "Trapp Family Lodge",
    "city": "Stowe",
-   "days_over": -2
+   "days_over": -1
   },
   {
    "customer_id": 267,
    "name": "Von Trapp Bierhall & Taproom",
    "city": "Stowe",
-   "days_over": -2
+   "days_over": -1
   },
   {
    "customer_id": 1518,
    "name": "Whereabouts",
    "city": "Stowe",
-   "days_over": -2
+   "days_over": -1
   },
   {
    "customer_id": 244,
    "name": "Whip Bar & Grill at Green Mt Inn",
    "city": "Stowe",
-   "days_over": -2
+   "days_over": -1
   },
   {
    "customer_id": 1162,
    "name": "Grange at Hill Farm-Sunderland",
    "city": "Sunderland",
-   "days_over": -154
+   "days_over": -153
   },
   {
    "customer_id": 1176,
    "name": "Hannaford-Swanton",
    "city": "Swanton",
-   "days_over": -62
+   "days_over": -61
   },
   {
    "customer_id": 836,
    "name": "Tunbridge Fair",
    "city": "Tunbridge",
-   "days_over": -334
+   "days_over": -333
   },
   {
    "customer_id": 1479,
    "name": "Gerbers Joint -Underhill-Gerbers home",
    "city": "Underhill",
-   "days_over": 56
+   "days_over": 57
   },
   {
    "customer_id": 704,
    "name": "Addison Eagles Club",
    "city": "Vergennes",
-   "days_over": -169
+   "days_over": -168
   },
   {
    "customer_id": 1274,
    "name": "Basin Harbor Resort",
    "city": "Vergennes",
-   "days_over": 156
+   "days_over": 157
   },
   {
    "customer_id": 707,
    "name": "Black Sheep Bistro",
    "city": "Vergennes",
-   "days_over": -87
+   "days_over": -86
   },
   {
    "customer_id": 708,
    "name": "Collins AreospacePlace",
    "city": "Vergennes",
-   "days_over": -3
+   "days_over": -2
   },
   {
    "customer_id": 709,
    "name": "Goodies Snack Bar",
    "city": "Vergennes",
-   "days_over": -138
+   "days_over": -137
   },
   {
    "customer_id": 1392,
@@ -3247,223 +3263,223 @@
    "customer_id": 1393,
    "name": "Northlands Job Corp",
    "city": "Vergennes",
-   "days_over": 258
+   "days_over": 259
   },
   {
    "customer_id": 1441,
    "name": "Olsens Ice Cream",
    "city": "Vergennes",
-   "days_over": 14
+   "days_over": 15
   },
   {
    "customer_id": 706,
    "name": "Park Squeeze",
    "city": "Vergennes",
-   "days_over": 7
+   "days_over": 8
   },
   {
    "customer_id": 1164,
    "name": "Rockers Pizzeria-1028",
    "city": "Vergennes",
-   "days_over": -16
+   "days_over": -15
   },
   {
    "customer_id": 705,
    "name": "Three Squares",
    "city": "Vergennes",
-   "days_over": 7
+   "days_over": 8
   },
   {
    "customer_id": 1266,
    "name": "1824 House",
    "city": "Waitsfield",
-   "days_over": -58
+   "days_over": -57
   },
   {
    "customer_id": 206,
    "name": "Afterthoughts/Sage-Code# 1980 Twist lock",
    "city": "Waitsfield",
-   "days_over": -28
+   "days_over": -27
   },
   {
    "customer_id": 205,
    "name": "Big Picture Theater",
    "city": "Waitsfield",
-   "days_over": -18
+   "days_over": -17
   },
   {
    "customer_id": 211,
    "name": "Canteen Creemee Company",
    "city": "Waitsfield",
-   "days_over": -28
+   "days_over": -27
   },
   {
    "customer_id": 207,
    "name": "China Fun",
    "city": "Waitsfield",
-   "days_over": -28
+   "days_over": -27
   },
   {
    "customer_id": 209,
    "name": "Hyde Away",
    "city": "Waitsfield",
-   "days_over": 228
+   "days_over": 229
   },
   {
    "customer_id": 210,
    "name": "Inn at Round Barn",
    "city": "Waitsfield",
-   "days_over": 338
+   "days_over": 339
   },
   {
    "customer_id": 1318,
    "name": "Irasville County Store",
    "city": "Waitsfield",
-   "days_over": -17
+   "days_over": -16
   },
   {
    "customer_id": 208,
    "name": "Mad Moose/Blue Stone-Waitsfield",
    "city": "Waitsfield",
-   "days_over": -24
+   "days_over": -23
   },
   {
    "customer_id": 214,
    "name": "Mad River Barn",
    "city": "Waitsfield",
-   "days_over": -18
+   "days_over": -17
   },
   {
    "customer_id": 1219,
    "name": "Mad River Glen",
    "city": "Waitsfield",
-   "days_over": -10
+   "days_over": -9
   },
   {
    "customer_id": 215,
    "name": "Mad Taco-Waitsfield",
    "city": "Waitsfield",
-   "days_over": -28
+   "days_over": -27
   },
   {
    "customer_id": 212,
    "name": "Mehurons Supermarket",
    "city": "Waitsfield",
-   "days_over": -28
+   "days_over": -27
   },
   {
    "customer_id": 225,
    "name": "Mount Ellen",
    "city": "Waitsfield",
-   "days_over": 175
+   "days_over": 176
   },
   {
    "customer_id": 1321,
    "name": "MRD-KYLE",
    "city": "Waitsfield",
-   "days_over": -21
+   "days_over": -20
   },
   {
    "customer_id": 1269,
    "name": "Riders Outpost-Waitsfield",
    "city": "Waitsfield",
-   "days_over": -20
+   "days_over": -19
   },
   {
    "customer_id": 1267,
    "name": "Scrag and Row 2025/The Great Eddy-Waitsfield",
    "city": "Waitsfield",
-   "days_over": -69
+   "days_over": -68
   },
   {
    "customer_id": 1081,
    "name": "Toast and Eggs",
    "city": "Waitsfield",
-   "days_over": 231
+   "days_over": 232
   },
   {
    "customer_id": 204,
    "name": "Village Grocery",
    "city": "Waitsfield",
-   "days_over": -49
+   "days_over": -48
   },
   {
    "customer_id": 213,
    "name": "Hostel Tevere",
    "city": "Warren",
-   "days_over": -28
+   "days_over": -27
   },
   {
    "customer_id": 221,
    "name": "MotherStuffas",
    "city": "Warren",
-   "days_over": 166
+   "days_over": 167
   },
   {
    "customer_id": 226,
    "name": "Paradise Provisions",
    "city": "Warren",
-   "days_over": -51
+   "days_over": -50
   },
   {
    "customer_id": 219,
    "name": "Pitchers Inn",
    "city": "Warren",
-   "days_over": -18
+   "days_over": -17
   },
   {
    "customer_id": 218,
    "name": "Sugarbush Inn / Fit to Be Thai’d",
    "city": "Warren",
-   "days_over": 481
+   "days_over": 482
   },
   {
    "customer_id": 224,
    "name": "Sugarbush Resort",
    "city": "Warren",
-   "days_over": -11
+   "days_over": -10
   },
   {
    "customer_id": 1059,
    "name": "Sugarbush Resort Golf Course",
    "city": "Warren",
-   "days_over": -193
+   "days_over": -192
   },
   {
    "customer_id": 288,
    "name": "Warren Store",
    "city": "Warren",
-   "days_over": -18
+   "days_over": -17
   },
   {
    "customer_id": 1374,
    "name": "Arandas Mexican-Waterbury",
    "city": "Waterbury",
-   "days_over": -17
+   "days_over": -16
   },
   {
    "customer_id": 232,
    "name": "Crossroads Deli",
    "city": "Waterbury",
-   "days_over": -25
+   "days_over": -24
   },
   {
    "customer_id": 1345,
    "name": "Gallus-Waterbury",
    "city": "Waterbury",
-   "days_over": -16
+   "days_over": -15
   },
   {
    "customer_id": 234,
    "name": "Hen of the Wood-WATERBURY",
    "city": "Waterbury",
-   "days_over": -9
+   "days_over": -8
   },
   {
    "customer_id": 231,
    "name": "Henders",
    "city": "Waterbury",
-   "days_over": -45
+   "days_over": -44
   },
   {
    "customer_id": 240,
@@ -3475,439 +3491,439 @@
    "customer_id": 233,
    "name": "Maxi's",
    "city": "Waterbury",
-   "days_over": -16
+   "days_over": -15
   },
   {
    "customer_id": 241,
    "name": "McGillicuddy's Irish Pub-Waterbury",
    "city": "Waterbury",
-   "days_over": -16
+   "days_over": -15
   },
   {
    "customer_id": 1225,
    "name": "Old Stage Coach Inn",
    "city": "Waterbury",
-   "days_over": 408
+   "days_over": 409
   },
   {
    "customer_id": 229,
    "name": "Prohibition Pig",
    "city": "Waterbury",
-   "days_over": -10
+   "days_over": -9
   },
   {
    "customer_id": 227,
    "name": "The Reservoir-Waterbury",
    "city": "Waterbury",
-   "days_over": -16
+   "days_over": -15
   },
   {
    "customer_id": 1076,
    "name": "Vermont Country Club-Waterbury",
    "city": "Waterbury",
-   "days_over": -9
+   "days_over": -8
   },
   {
    "customer_id": 238,
    "name": "Zen Barn",
    "city": "Waterbury",
-   "days_over": -16
+   "days_over": -15
   },
   {
    "customer_id": 1334,
    "name": "Sarkys part 2",
    "city": "Wells River",
-   "days_over": 118
+   "days_over": 119
   },
   {
    "customer_id": 902,
    "name": "Carinthia Lodge (Mt. Snow)",
    "city": "West Dover",
-   "days_over": 66
+   "days_over": 67
   },
   {
    "customer_id": 903,
    "name": "Cousins (Mt. Snow)",
    "city": "West Dover",
-   "days_over": 66
+   "days_over": 67
   },
   {
    "customer_id": 900,
    "name": "Grand Summit Hotel (Mt. Snow)",
    "city": "West Dover",
-   "days_over": 131
+   "days_over": 132
   },
   {
    "customer_id": 1362,
    "name": "Kitzhof Inn",
    "city": "West Dover",
-   "days_over": 235
+   "days_over": 236
   },
   {
    "customer_id": 1169,
    "name": "Mount snow golf course",
    "city": "West Dover",
-   "days_over": -332
+   "days_over": -331
   },
   {
    "customer_id": 1205,
    "name": "Sundance-(Mount Snow)",
    "city": "West Dover",
-   "days_over": 145
+   "days_over": 146
   },
   {
    "customer_id": 537,
    "name": "Parker Pie- West Glover",
    "city": "West Glover",
-   "days_over": -14
+   "days_over": -13
   },
   {
    "customer_id": 928,
    "name": "Burger King-West Lebanon",
    "city": "West Lebanon",
-   "days_over": -34
+   "days_over": -33
   },
   {
    "customer_id": 1119,
    "name": "Hannaford-West Lebanon",
    "city": "West Lebanon",
-   "days_over": -28
+   "days_over": -27
   },
   {
    "customer_id": 930,
    "name": "Lebanon SWMD",
    "city": "West Lebanon",
-   "days_over": 359
+   "days_over": 360
   },
   {
    "customer_id": 1369,
    "name": "The Karribean-West Lebanon",
    "city": "West Lebanon",
-   "days_over": -48
+   "days_over": -47
   },
   {
    "customer_id": 1400,
    "name": "Westford Provisions",
    "city": "Westford",
-   "days_over": 564
+   "days_over": 565
   },
   {
    "customer_id": 1416,
    "name": "Tata",
    "city": "Whiting",
-   "days_over": -186
+   "days_over": -185
   },
   {
    "customer_id": 1530,
    "name": "Embers-Williamstown",
    "city": "Williamstown",
-   "days_over": -14
+   "days_over": -13
   },
   {
    "customer_id": 102,
    "name": "The Den/Roadhouse-Williamstown",
    "city": "Williamstown",
-   "days_over": -42
+   "days_over": -41
   },
   {
    "customer_id": 101,
    "name": "The Pub-Williamstown",
    "city": "Williamstown",
-   "days_over": -42
+   "days_over": -41
   },
   {
    "customer_id": 402,
    "name": "Agave~- Williston Garage",
    "city": "Williston",
-   "days_over": 260
+   "days_over": 261
   },
   {
    "customer_id": 406,
    "name": "Auryvedic spa",
    "city": "Williston",
-   "days_over": -152
+   "days_over": -151
   },
   {
    "customer_id": 403,
    "name": "Bliss Bee -Williston-(300)",
    "city": "Williston",
-   "days_over": -16
+   "days_over": -15
   },
   {
    "customer_id": 1299,
    "name": "Cannoli",
    "city": "Williston",
-   "days_over": 574
+   "days_over": 575
   },
   {
    "customer_id": 1495,
    "name": "Folinos-Williston",
    "city": "Williston",
-   "days_over": -24
+   "days_over": -23
   },
   {
    "customer_id": 401,
    "name": "Grazers pc 1425- Williston Garage",
    "city": "Williston",
-   "days_over": -18
+   "days_over": -17
   },
   {
    "customer_id": 1183,
    "name": "Hannaford- Williston",
    "city": "Williston",
-   "days_over": 3
+   "days_over": 4
   },
   {
    "customer_id": 1459,
    "name": "Jersey Mike's - Williston",
    "city": "Williston",
-   "days_over": -10
+   "days_over": -9
   },
   {
    "customer_id": 1032,
    "name": "McGillicuddy's Alehouse-Williston",
    "city": "Williston",
-   "days_over": -15
+   "days_over": -14
   },
   {
    "customer_id": 1211,
    "name": "Men at Wok",
    "city": "Williston",
-   "days_over": -38
+   "days_over": -37
   },
   {
    "customer_id": 1130,
    "name": "Texas Roadhouse-# 1122-Mahoney",
    "city": "Williston",
-   "days_over": -5
+   "days_over": -4
   },
   {
    "customer_id": 405,
    "name": "Williston Place -Retirement home",
    "city": "Williston",
-   "days_over": -50
+   "days_over": -49
   },
   {
    "customer_id": 1536,
    "name": "Farmhouse Market-Wilmington",
    "city": "Wilmington",
-   "days_over": -20
+   "days_over": -19
   },
   {
    "customer_id": 1537,
    "name": "Farmhouse Market-Wilmington",
    "city": "Wilmington",
-   "days_over": -20
+   "days_over": -19
   },
   {
    "customer_id": 905,
    "name": "Haystack Golf course",
    "city": "Wilmington",
-   "days_over": 307
+   "days_over": 308
   },
   {
    "customer_id": 1129,
    "name": "Hog back Mountain country store",
    "city": "Wilmington",
-   "days_over": 325
+   "days_over": 326
   },
   {
    "customer_id": 1532,
    "name": "Valley Crest Ales-Wilmington",
    "city": "Wilmington",
-   "days_over": 5
+   "days_over": 6
   },
   {
    "customer_id": 1408,
    "name": "*NEW *Donwoori-Winooski",
    "city": "Winooski",
-   "days_over": 12
+   "days_over": 13
   },
   {
    "customer_id": 434,
    "name": "Asian Bistro-Winooski",
    "city": "Winooski",
-   "days_over": 17
+   "days_over": 18
   },
   {
    "customer_id": 445,
    "name": "Four Quarters-Winooski",
    "city": "Winooski",
-   "days_over": -25
+   "days_over": -24
   },
   {
    "customer_id": 1099,
    "name": "Fusion cafe and bar",
    "city": "Winooski",
-   "days_over": -12
+   "days_over": -11
   },
   {
    "customer_id": 1398,
    "name": "Harmony Kitchen",
    "city": "Winooski",
-   "days_over": 369
+   "days_over": 370
   },
   {
    "customer_id": 436,
    "name": "Jr's",
    "city": "Winooski",
-   "days_over": 342
+   "days_over": 343
   },
   {
    "customer_id": 431,
    "name": "Misery Loves Company",
    "city": "Winooski",
-   "days_over": 362
+   "days_over": 363
   },
   {
    "customer_id": 1207,
    "name": "Mountain Valley-Winooski",
    "city": "Winooski",
-   "days_over": 52
+   "days_over": 53
   },
   {
    "customer_id": 1168,
    "name": "Onion City Chicken and Oysters",
    "city": "Winooski",
-   "days_over": -3
+   "days_over": -2
   },
   {
    "customer_id": 437,
    "name": "Pho Dang",
    "city": "Winooski",
-   "days_over": -68
+   "days_over": -67
   },
   {
    "customer_id": 1113,
    "name": "Saroms",
    "city": "Winooski",
-   "days_over": 59
+   "days_over": 60
   },
   {
    "customer_id": 135,
    "name": "Skinny Pancake Commisary",
    "city": "Winooski",
-   "days_over": 133
+   "days_over": 134
   },
   {
    "customer_id": 432,
    "name": "Sneakers Alley 100%",
    "city": "Winooski",
-   "days_over": 22
+   "days_over": 23
   },
   {
    "customer_id": 443,
    "name": "Southern Smoke-Winooski",
    "city": "Winooski",
-   "days_over": -80
+   "days_over": -79
   },
   {
    "customer_id": 1538,
    "name": "Sugar House Hotel",
    "city": "Winooski",
-   "days_over": -25
+   "days_over": -24
   },
   {
    "customer_id": 1259,
    "name": "Test Kitchen winooski/Canoli",
    "city": "Winooski",
-   "days_over": 657
+   "days_over": 658
   },
   {
    "customer_id": 429,
    "name": "The Mule Bar 100pct!",
    "city": "Winooski",
-   "days_over": -20
+   "days_over": -19
   },
   {
    "customer_id": 433,
    "name": "Tiny Thai",
    "city": "Winooski",
-   "days_over": -25
+   "days_over": -24
   },
   {
    "customer_id": 1135,
    "name": "Waterworks-Winooski",
    "city": "Winooski",
-   "days_over": -3
+   "days_over": -2
   },
   {
    "customer_id": 1517,
    "name": "Zero Point Market-Winooski",
    "city": "Winooski",
-   "days_over": 73
+   "days_over": 74
   },
   {
    "customer_id": 500,
    "name": "Wolcott General Store",
    "city": "Wolcott",
-   "days_over": -32
+   "days_over": -31
   },
   {
    "customer_id": 1455,
    "name": "Farmer and the Bell",
    "city": "Woodstock",
-   "days_over": -28
+   "days_over": -27
   },
   {
    "customer_id": 1027,
    "name": "Lincoln Inn & Covered Bridge",
    "city": "Woodstock",
-   "days_over": 503
+   "days_over": 504
   },
   {
    "customer_id": 822,
    "name": "Mon Vert Café",
    "city": "Woodstock",
-   "days_over": -313
+   "days_over": -312
   },
   {
    "customer_id": 826,
    "name": "Mountain Creamery",
    "city": "Woodstock",
-   "days_over": -71
+   "days_over": -70
   },
   {
    "customer_id": 1438,
    "name": "Oakes and Evelyn- WOODSTOCK",
    "city": "Woodstock",
-   "days_over": -56
+   "days_over": -55
   },
   {
    "customer_id": 819,
    "name": "Prince & The Pauper",
    "city": "Woodstock",
-   "days_over": 131
+   "days_over": 132
   },
   {
    "customer_id": 820,
    "name": "Sante-2022|dailey catch-Woodstock",
    "city": "Woodstock",
-   "days_over": -4
+   "days_over": -3
   },
   {
    "customer_id": 824,
    "name": "White Cottage",
    "city": "Woodstock",
-   "days_over": -21
+   "days_over": -20
   },
   {
    "customer_id": 825,
    "name": "Woodstock Country Club",
    "city": "Woodstock",
-   "days_over": -365
+   "days_over": -364
   },
   {
    "customer_id": 823,
    "name": "Woodstock Inn",
    "city": "Woodstock",
-   "days_over": -25
+   "days_over": -24
   },
   {
    "customer_id": 624,
    "name": "LBJ Country Store-Worcester",
    "city": "Worcester",
-   "days_over": -177
+   "days_over": -176
   }
  ]
 }
