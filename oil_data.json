@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-27T12:59:54.769442",
+  "last_updated": "2026-10-28T13:48:44.709068",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33741,6 +33741,12 @@
     },
     {
       "month": "2026-10",
+      "geo_town": "Cambridge",
+      "gallons": 75,
+      "city": "Cambridge"
+    },
+    {
+      "month": "2026-10",
       "geo_town": "Charlotte",
       "gallons": 60,
       "city": "Charlotte"
@@ -33813,6 +33819,12 @@
     },
     {
       "month": "2026-10",
+      "geo_town": "Hyde Park",
+      "gallons": 125,
+      "city": "Hyde Park"
+    },
+    {
+      "month": "2026-10",
       "geo_town": "Jay",
       "gallons": 590,
       "city": "Jay"
@@ -33826,7 +33838,7 @@
     {
       "month": "2026-10",
       "geo_town": "Johnson",
-      "gallons": 140,
+      "gallons": 255,
       "city": "Johnson"
     },
     {
@@ -33874,7 +33886,7 @@
     {
       "month": "2026-10",
       "geo_town": "Morristown",
-      "gallons": 175,
+      "gallons": 509,
       "city": "Morristown"
     },
     {
@@ -33928,7 +33940,7 @@
     {
       "month": "2026-10",
       "geo_town": "Stowe",
-      "gallons": 1050,
+      "gallons": 1285,
       "city": "Stowe"
     },
     {
@@ -33982,7 +33994,7 @@
     {
       "month": "2026-10",
       "geo_town": "Winooski",
-      "gallons": 665,
+      "gallons": 920,
       "city": "Winooski"
     },
     {
@@ -41752,7 +41764,7 @@
     {
       "month": "2026-10",
       "county": "Chittenden",
-      "gallons": 8301
+      "gallons": 8556
     },
     {
       "month": "2026-10",
@@ -41762,7 +41774,7 @@
     {
       "month": "2026-10",
       "county": "Lamoille",
-      "gallons": 1505
+      "gallons": 2389
     },
     {
       "month": "2026-10",
@@ -41837,11 +41849,11 @@
     },
     {
       "year": 2026,
-      "gallons": 244826
+      "gallons": 245965
     }
   ],
-  "all_time_total": 2163593,
-  "current_year_total": 244826,
+  "all_time_total": 2164732,
+  "current_year_total": 245965,
   "customer_count": 803,
   "unmapped_total": 40360,
   "monthly_totals": [
@@ -42411,7 +42423,7 @@
     },
     {
       "month": "2026-10",
-      "gallons": 19770
+      "gallons": 20909
     }
   ],
   "monthly_by_region": [
@@ -54083,7 +54095,7 @@
     {
       "month": "2026-10",
       "region": "Outer Burlington",
-      "gallons": 1840
+      "gallons": 2095
     },
     {
       "month": "2026-10",
@@ -54093,7 +54105,7 @@
     {
       "month": "2026-10",
       "region": "Route 15",
-      "gallons": 705
+      "gallons": 1354
     },
     {
       "month": "2026-10",
@@ -54138,7 +54150,7 @@
     {
       "month": "2026-10",
       "region": "Waterbury / Stowe",
-      "gallons": 1985
+      "gallons": 2220
     },
     {
       "month": "2026-10",
@@ -55205,7 +55217,7 @@
     {
       "year": 2026,
       "region": "Outer Burlington",
-      "gallons": 21928
+      "gallons": 22183
     },
     {
       "year": 2026,
@@ -55215,7 +55227,7 @@
     {
       "year": 2026,
       "region": "Route 15",
-      "gallons": 10981
+      "gallons": 11630
     },
     {
       "year": 2026,
@@ -55260,7 +55272,7 @@
     {
       "year": 2026,
       "region": "Waterbury / Stowe",
-      "gallons": 33260
+      "gallons": 33495
     },
     {
       "year": 2026,
@@ -55314,20 +55326,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 27849,
+  "collections_count": 27868,
   "out_of_state_total": 40360,
   "active_customer_count": 528,
   "projection": {
-    "latest_data_date": "2026-10-26",
+    "latest_data_date": "2026-10-28",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 244826,
+    "current_ytd": 245965,
     "previous_year_full": 269909,
     "previous_through_prior_month": 208859,
     "previous_same_month_total": 21968,
-    "previous_prorated_ytd": 227283.77,
-    "projected_current_year": 290741,
-    "percent_vs_previous_year": 0.077182
+    "previous_prorated_ytd": 228701.06,
+    "projected_current_year": 290284,
+    "percent_vs_previous_year": 0.075487
   },
   "region_stats": {
     "Burlington / South Burlington": {

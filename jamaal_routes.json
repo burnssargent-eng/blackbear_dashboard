@@ -1,11 +1,11 @@
 {
- "scraped_at": "2026-10-28T11:00:14+00:00",
+ "scraped_at": "2026-10-28T13:48:51+00:00",
  "source": "routes_assigned.php, assign_routes.php",
  "routes": [
   {
    "route_id": 10,
    "name": "Route 7",
-   "assigned_capacity": 1120,
+   "assigned_capacity": 620,
    "stops": [
     {
      "assignment_id": 24329,
@@ -24,22 +24,6 @@
      "must_get": false
     },
     {
-     "assignment_id": 24331,
-     "customer_id": 432,
-     "name": "Sneakers Alley 100%",
-     "capacity": 150,
-     "days_over": 24,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24332,
-     "customer_id": 1135,
-     "name": "Waterworks-Winooski",
-     "capacity": 150,
-     "days_over": -1,
-     "must_get": false
-    },
-    {
      "assignment_id": 24327,
      "customer_id": 434,
      "name": "Asian Bistro-Winooski",
@@ -48,20 +32,12 @@
      "must_get": true
     },
     {
-     "assignment_id": 24328,
-     "customer_id": 1408,
-     "name": "*NEW *Donwoori-Winooski",
-     "capacity": 150,
-     "days_over": 14,
+     "assignment_id": 24298,
+     "customer_id": 1538,
+     "name": "Sugar House Hotel",
+     "capacity": 200,
+     "days_over": -23,
      "must_get": true
-    },
-    {
-     "assignment_id": 24326,
-     "customer_id": 1113,
-     "name": "Saroms",
-     "capacity": 50,
-     "days_over": 61,
-     "must_get": false
     },
     {
      "assignment_id": 24300,
@@ -69,14 +45,6 @@
      "name": "Philo Ridge Farm",
      "capacity": 110,
      "days_over": -251,
-     "must_get": true
-    },
-    {
-     "assignment_id": 24298,
-     "customer_id": 1538,
-     "name": "Sugar House Hotel",
-     "capacity": 200,
-     "days_over": -23,
      "must_get": true
     }
    ]
@@ -3625,7 +3593,7 @@
    "customer_id": 1408,
    "name": "*NEW *Donwoori-Winooski",
    "city": "Winooski",
-   "days_over": 14
+   "days_over": -28
   },
   {
    "customer_id": 434,
@@ -3685,7 +3653,7 @@
    "customer_id": 1113,
    "name": "Saroms",
    "city": "Winooski",
-   "days_over": 61
+   "days_over": -35
   },
   {
    "customer_id": 135,
@@ -3697,7 +3665,7 @@
    "customer_id": 432,
    "name": "Sneakers Alley 100%",
    "city": "Winooski",
-   "days_over": 24
+   "days_over": -18
   },
   {
    "customer_id": 443,
@@ -3733,7 +3701,7 @@
    "customer_id": 1135,
    "name": "Waterworks-Winooski",
    "city": "Winooski",
-   "days_over": -1
+   "days_over": -21
   },
   {
    "customer_id": 1517,

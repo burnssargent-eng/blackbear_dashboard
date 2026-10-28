@@ -6063,6 +6063,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 605,Rhapsody Natural Foods,Cabot,Caledonia,2017-11-16,2017,2017-11,25,True,Cabot
 605,Rhapsody Natural Foods,Cabot,Caledonia,2017-05-17,2017,2017-05,100,True,Cabot
 605,Rhapsody Natural Foods,Cabot,Caledonia,2016-11-16,2016,2016-11,70,True,Cabot
+1404,ERICAS-Cambridge,Cambridge,Lamoille,2026-10-27,2026,2026-10,75,True,Cambridge
 1404,ERICAS-Cambridge,Cambridge,Lamoille,2026-09-22,2026,2026-09,100,True,Cambridge
 1404,ERICAS-Cambridge,Cambridge,Lamoille,2026-08-03,2026,2026-08,90,True,Cambridge
 1404,ERICAS-Cambridge,Cambridge,Lamoille,2026-06-25,2026,2026-06,75,True,Cambridge
@@ -8342,6 +8343,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1193,Phillip Ward- North Hyde Park,Hyde Park,Lamoille,2024-11-01,2024,2024-11,550,True,Hyde Park
 1193,Phillip Ward- North Hyde Park,Hyde Park,Lamoille,2023-10-02,2023,2023-10,1120,True,Hyde Park
 1193,Phillip Ward- North Hyde Park,Hyde Park,Lamoille,2022-11-14,2022,2022-11,1999,True,Hyde Park
+515,Two Sons Bakery/Fork and Gavel-HydePark,Hyde Park,Lamoille,2026-10-27,2026,2026-10,125,True,Hyde Park
 515,Two Sons Bakery/Fork and Gavel-HydePark,Hyde Park,Lamoille,2026-09-22,2026,2026-09,85,True,Hyde Park
 515,Two Sons Bakery/Fork and Gavel-HydePark,Hyde Park,Lamoille,2026-09-15,2026,2026-09,110,True,Hyde Park
 515,Two Sons Bakery/Fork and Gavel-HydePark,Hyde Park,Lamoille,2026-08-03,2026,2026-08,140,True,Hyde Park
@@ -8819,6 +8821,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 285,Jericho Country Store,Jericho Center,Chittenden,2018-05-03,2018,2018-05,65,True,Jericho
 285,Jericho Country Store,Jericho Center,Chittenden,2018-03-26,2018,2018-03,50,True,Jericho
 285,Jericho Country Store,Jericho Center,Chittenden,2018-01-17,2018,2018-01,70,True,Jericho
+1239,Jennas Coffee House- two sons bakehouse,Johnson,Lamoille,2026-10-27,2026,2026-10,15,True,Johnson
 1239,Jennas Coffee House- two sons bakehouse,Johnson,Lamoille,2026-09-22,2026,2026-09,30,True,Johnson
 1239,Jennas Coffee House- two sons bakehouse,Johnson,Lamoille,2026-08-03,2026,2026-08,40,True,Johnson
 1239,Jennas Coffee House- two sons bakehouse,Johnson,Lamoille,2026-05-27,2026,2026-05,50,True,Johnson
@@ -8850,6 +8853,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1430,Johnson General Store,Johnson,Lamoille,2026-02-05,2026,2026-02,40,True,Johnson
 1430,Johnson General Store,Johnson,Lamoille,2025-11-24,2025,2025-11,30,True,Johnson
 1430,Johnson General Store,Johnson,Lamoille,2025-09-11,2025,2025-09,40,True,Johnson
+544,Johnsons Chinese Kitchen 90%,Johnson,Lamoille,2026-10-27,2026,2026-10,40,True,Johnson
 544,Johnsons Chinese Kitchen 90%,Johnson,Lamoille,2026-09-22,2026,2026-09,60,True,Johnson
 544,Johnsons Chinese Kitchen 90%,Johnson,Lamoille,2026-08-03,2026,2026-08,70,True,Johnson
 544,Johnsons Chinese Kitchen 90%,Johnson,Lamoille,2026-05-27,2026,2026-05,60,True,Johnson
@@ -8907,6 +8911,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 542,Lamoille Valley Solid Waste Management District,Johnson,Lamoille,2019-10-15,2019,2019-10,50,True,Johnson
 542,Lamoille Valley Solid Waste Management District,Johnson,Lamoille,2019-03-18,2019,2019-03,35,True,Johnson
 542,Lamoille Valley Solid Waste Management District,Johnson,Lamoille,2018-04-04,2018,2018-04,40,True,Johnson
+543,Marsala Salsa/ Pizzeria -Johnson-10%,Johnson,Lamoille,2026-10-27,2026,2026-10,15,True,Johnson
 543,Marsala Salsa/ Pizzeria -Johnson-10%,Johnson,Lamoille,2026-09-22,2026,2026-09,15,True,Johnson
 543,Marsala Salsa/ Pizzeria -Johnson-10%,Johnson,Lamoille,2026-08-03,2026,2026-08,15,True,Johnson
 543,Marsala Salsa/ Pizzeria -Johnson-10%,Johnson,Lamoille,2026-05-27,2026,2026-05,10,True,Johnson
@@ -8950,6 +8955,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 543,Marsala Salsa/ Pizzeria -Johnson-10%,Johnson,Lamoille,2019-12-09,2019,2019-12,110,True,Johnson
 543,Marsala Salsa/ Pizzeria -Johnson-10%,Johnson,Lamoille,2019-10-08,2019,2019-10,125,True,Johnson
 543,Marsala Salsa/ Pizzeria -Johnson-10%,Johnson,Lamoille,2019-06-21,2019,2019-06,175,True,Johnson
+1515,NVU-Johnson,Johnson,Lamoille,2026-10-27,2026,2026-10,45,True,Johnson
 1515,NVU-Johnson,Johnson,Lamoille,2026-10-05,2026,2026-10,140,True,Johnson
 1391,Grey Bonnet Inn-Killington,Killington,Rutland,2025-08-25,2025,2025-08,10,True,Killington
 1391,Grey Bonnet Inn-Killington,Killington,Rutland,2025-03-05,2025,2025-03,15,True,Killington
@@ -11765,6 +11771,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 510,10 Railroad Street,Morristown,Lamoille,2015-03-02,2015,2015-03,45,True,Morristown
 510,10 Railroad Street,Morristown,Lamoille,2015-01-30,2015,2015-01,40,True,Morristown
 510,10 Railroad Street,Morristown,Lamoille,2015-01-05,2015,2015-01,25,True,Morristown
+511,Black Diamond BBQ,Morristown,Lamoille,2026-10-27,2026,2026-10,80,True,Morristown
 511,Black Diamond BBQ,Morristown,Lamoille,2026-09-22,2026,2026-09,40,True,Morristown
 511,Black Diamond BBQ,Morristown,Lamoille,2026-08-26,2026,2026-08,50,True,Morristown
 511,Black Diamond BBQ,Morristown,Lamoille,2026-08-03,2026,2026-08,75,True,Morristown
@@ -11848,6 +11855,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 511,Black Diamond BBQ,Morristown,Lamoille,2017-04-01,2017,2017-04,25,True,Morristown
 511,Black Diamond BBQ,Morristown,Lamoille,2017-01-21,2017,2017-01,15,True,Morristown
 511,Black Diamond BBQ,Morristown,Lamoille,2016-12-26,2016,2016-12,30,True,Morristown
+1352,Gondola’s Downtown Morrisville,Morristown,Lamoille,2026-10-27,2026,2026-10,40,True,Morristown
 1352,Gondola’s Downtown Morrisville,Morristown,Lamoille,2026-09-22,2026,2026-09,40,True,Morristown
 1352,Gondola’s Downtown Morrisville,Morristown,Lamoille,2026-08-26,2026,2026-08,35,True,Morristown
 1352,Gondola’s Downtown Morrisville,Morristown,Lamoille,2026-08-03,2026,2026-08,50,True,Morristown
@@ -11870,6 +11878,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1352,Gondola’s Downtown Morrisville,Morristown,Lamoille,2024-08-14,2024,2024-08,15,True,Morristown
 1352,Gondola’s Downtown Morrisville,Morristown,Lamoille,2024-07-31,2024,2024-07,45,True,Morristown
 1352,Gondola’s Downtown Morrisville,Morristown,Lamoille,2024-07-08,2024,2024-07,30,True,Morristown
+509,Moogs Place- Morrisville,Morristown,Lamoille,2026-10-27,2026,2026-10,45,True,Morristown
 509,Moogs Place- Morrisville,Morristown,Lamoille,2026-09-22,2026,2026-09,45,True,Morristown
 509,Moogs Place- Morrisville,Morristown,Lamoille,2026-08-26,2026,2026-08,40,True,Morristown
 509,Moogs Place- Morrisville,Morristown,Lamoille,2026-08-03,2026,2026-08,75,True,Morristown
@@ -11993,6 +12002,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1497,Gondola Seasonal Snack Shack Route 15,Morrisville,Lamoille,2026-08-03,2026,2026-08,80,True,Morristown
 1497,Gondola Seasonal Snack Shack Route 15,Morrisville,Lamoille,2026-06-25,2026,2026-06,75,True,Morristown
 1497,Gondola Seasonal Snack Shack Route 15,Morrisville,Lamoille,2026-05-27,2026,2026-05,30,True,Morristown
+1181,Hannaford- Morrisville,Morrisville,Lamoille,2026-10-27,2026,2026-10,89,True,Morristown
 1181,Hannaford- Morrisville,Morrisville,Lamoille,2026-09-22,2026,2026-09,77,True,Morristown
 1181,Hannaford- Morrisville,Morrisville,Lamoille,2026-08-03,2026,2026-08,105,True,Morristown
 1181,Hannaford- Morrisville,Morrisville,Lamoille,2026-05-27,2026,2026-05,77,True,Morristown
@@ -12018,6 +12028,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1181,Hannaford- Morrisville,Morrisville,Lamoille,2022-11-21,2022,2022-11,35,True,Morristown
 1181,Hannaford- Morrisville,Morrisville,Lamoille,2022-10-27,2022,2022-10,40,True,Morristown
 1181,Hannaford- Morrisville,Morrisville,Lamoille,2022-09-21,2022,2022-09,104,True,Morristown
+1071,Lost Nation Brewery,Morrisville,Lamoille,2026-10-27,2026,2026-10,40,True,Morristown
 1071,Lost Nation Brewery,Morrisville,Lamoille,2026-09-22,2026,2026-09,50,True,Morristown
 1071,Lost Nation Brewery,Morrisville,Lamoille,2026-08-26,2026,2026-08,35,True,Morristown
 1071,Lost Nation Brewery,Morrisville,Lamoille,2026-08-03,2026,2026-08,50,True,Morristown
@@ -12062,6 +12073,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1071,Lost Nation Brewery,Morrisville,Lamoille,2022-03-16,2022,2022-03,15,True,Morristown
 1071,Lost Nation Brewery,Morrisville,Lamoille,2022-02-09,2022,2022-02,55,True,Morristown
 1071,Lost Nation Brewery,Morrisville,Lamoille,2021-10-18,2021,2021-10,125,True,Morristown
+512,North Country Donuts,Morrisville,Lamoille,2026-10-27,2026,2026-10,40,True,Morristown
 512,North Country Donuts,Morrisville,Lamoille,2026-09-22,2026,2026-09,55,True,Morristown
 512,North Country Donuts,Morrisville,Lamoille,2026-08-03,2026,2026-08,45,True,Morristown
 512,North Country Donuts,Morrisville,Lamoille,2026-06-29,2026,2026-06,50,True,Morristown
@@ -15361,6 +15373,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1103,Burt’s Pub/old Blue Donkey,Stowe,Lamoille,2022-05-13,2022,2022-05,20,True,Stowe
 1103,Burt’s Pub/old Blue Donkey,Stowe,Lamoille,2022-03-16,2022,2022-03,15,True,Stowe
 1103,Burt’s Pub/old Blue Donkey,Stowe,Lamoille,2022-03-02,2022,2022-03,20,True,Stowe
+242,Cork Wine Bar-Stowe,Stowe,Lamoille,2026-10-27,2026,2026-10,30,True,Stowe
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2026-08-31,2026,2026-08,35,True,Stowe
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2026-07-09,2026,2026-07,15,True,Stowe
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2026-05-27,2026,2026-05,20,True,Stowe
@@ -15777,6 +15790,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 263,Edson Hill Manor,Stowe,Lamoille,2019-02-17,2019,2019-02,50,True,Stowe
 263,Edson Hill Manor,Stowe,Lamoille,2018-10-21,2018,2018-10,25,True,Stowe
 263,Edson Hill Manor,Stowe,Lamoille,2018-02-21,2018,2018-02,50,True,Stowe
+1116,GreenGoddess,Stowe,Lamoille,2026-10-27,2026,2026-10,40,True,Stowe
 1116,GreenGoddess,Stowe,Lamoille,2026-08-31,2026,2026-08,45,True,Stowe
 1116,GreenGoddess,Stowe,Lamoille,2026-06-09,2026,2026-06,50,True,Stowe
 1116,GreenGoddess,Stowe,Lamoille,2026-03-20,2026,2026-03,20,True,Stowe
@@ -15806,6 +15820,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 274,Grey Fox Inn-Wildflower restaurant,Stowe,Lamoille,2020-04-28,2020,2020-04,85,True,Stowe
 274,Grey Fox Inn-Wildflower restaurant,Stowe,Lamoille,2020-02-25,2020,2020-02,25,True,Stowe
 274,Grey Fox Inn-Wildflower restaurant,Stowe,Lamoille,2020-01-23,2020,2020-01,30,True,Stowe
+1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2026-10-27,2026,2026-10,85,True,Stowe
 1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2026-07-23,2026,2026-07,20,True,Stowe
 1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2026-04-23,2026,2026-04,120,True,Stowe
 1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2026-01-27,2026,2026-01,90,True,Stowe
@@ -17951,6 +17966,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2015-02-25,2015,2015-02,40,True,Stowe
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2015-01-14,2015,2015-01,45,True,Stowe
 1518,Whereabouts,Stowe,Lamoille,2026-09-30,2026,2026-09,10,True,Stowe
+244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2026-10-27,2026,2026-10,80,True,Stowe
 244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2026-09-30,2026,2026-09,80,True,Stowe
 244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2026-08-31,2026,2026-08,100,True,Stowe
 244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2026-08-04,2026,2026-08,100,True,Stowe
@@ -21916,6 +21932,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 905,Haystack Golf course,Wilmington,Windham,2020-12-02,2020,2020-12,150,True,Wilmington
 1129,Hog back Mountain country store,Wilmington,Windham,2025-07-23,2025,2025-07,50,True,Wilmington
 1129,Hog back Mountain country store,Wilmington,Windham,2024-07-16,2024,2024-07,60,True,Wilmington
+1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-10-28,2026,2026-10,110,True,Winooski
 1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-09-16,2026,2026-09,130,True,Winooski
 1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-08-11,2026,2026-08,80,True,Winooski
 1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-07-08,2026,2026-07,65,True,Winooski
@@ -22324,6 +22341,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 437,Pho Dang,Winooski,Chittenden,2018-06-27,2018,2018-06,75,True,Winooski
 437,Pho Dang,Winooski,Chittenden,2018-04-03,2018,2018-04,20,True,Winooski
 437,Pho Dang,Winooski,Chittenden,2018-03-16,2018,2018-03,35,True,Winooski
+1113,Saroms,Winooski,Chittenden,2026-10-28,2026,2026-10,45,True,Winooski
 1113,Saroms,Winooski,Chittenden,2026-07-24,2026,2026-07,50,True,Winooski
 1113,Saroms,Winooski,Chittenden,2026-03-18,2026,2026-03,60,True,Winooski
 1113,Saroms,Winooski,Chittenden,2025-11-07,2025,2025-11,25,True,Winooski
@@ -22695,6 +22713,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 433,Tiny Thai,Winooski,Chittenden,2018-08-09,2018,2018-08,125,True,Winooski
 433,Tiny Thai,Winooski,Chittenden,2018-04-03,2018,2018-04,25,True,Winooski
 433,Tiny Thai,Winooski,Chittenden,2018-03-16,2018,2018-03,5,True,Winooski
+1135,Waterworks-Winooski,Winooski,Chittenden,2026-10-28,2026,2026-10,100,True,Winooski
 1135,Waterworks-Winooski,Winooski,Chittenden,2026-10-08,2026,2026-10,120,True,Winooski
 1135,Waterworks-Winooski,Winooski,Chittenden,2026-09-16,2026,2026-09,80,True,Winooski
 1135,Waterworks-Winooski,Winooski,Chittenden,2026-09-03,2026,2026-09,125,True,Winooski
