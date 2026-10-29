@@ -434,20 +434,27 @@ const PENCIL_ICON = `<svg class="ops-btn-icon" width="13" height="13" viewBox="0
 const CAMERA_ICON = `<svg class="ops-btn-icon" width="14" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
   stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h4l2-3h6l2 3h4v11H3z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>`;
 
+/** Note, Photo, Oil Left and Report Theft: under More ▾ on a phone, in the control row on a wide screen. */
+function actionButtons(id, d, c) {
+  const busy = photoAdd && photoAdd.id === id;
+  return `<button type="button" class="btn ops-plain-btn" data-act="note-edit" data-id="${id}"
+        aria-label="${d.notes ? "Edit note" : "Add a note"}">${PENCIL_ICON}Note</button>
+      ${photosReady ? `<button type="button" class="btn ops-plain-btn" data-act="photo-add" data-id="${id}" aria-label="Add a photo"${busy && !photoAdd.msg ? " disabled" : ""}>
+        ${CAMERA_ICON}${busy && !photoAdd.msg ? "Adding…" : "Photo"}</button>` : ""}
+      ${oilLeftReady ? `<button type="button" class="btn btn-outline-primary" data-act="left" data-id="${id}">Oil Left</button>` : ""}
+      ${c ? "" : `<button type="button" class="btn btn-danger" data-act="theft" data-id="${id}">Report Theft</button>`}`;
+}
+
 /**
  * Under the control row: the More line when open (✎ Note, 📷 Photo, Oil Left, Report Theft; one line
- * on a 375px phone), then the note being edited, or the note and photos.
+ * on a 375px phone; a wide screen has them in the control row instead), then the note being edited,
+ * or the note and photos.
  */
 function moreHtml(id, d, c, open) {
   const editing = noteEdit && noteEdit.id === id;
   const busy = photoAdd && photoAdd.id === id;
   const more = open && !editing ? `<div class="ops-more-line">
-      <button type="button" class="btn ops-plain-btn" data-act="note-edit" data-id="${id}"
-        aria-label="${d.notes ? "Edit note" : "Add a note"}">${PENCIL_ICON}Note</button>
-      ${photosReady ? `<button type="button" class="btn ops-plain-btn" data-act="photo-add" data-id="${id}" aria-label="Add a photo"${busy && !photoAdd.msg ? " disabled" : ""}>
-        ${CAMERA_ICON}${busy && !photoAdd.msg ? "Adding…" : "Photo"}</button>` : ""}
-      ${oilLeftReady ? `<button type="button" class="btn btn-outline-primary" data-act="left" data-id="${id}">Oil Left</button>` : ""}
-      ${c ? "" : `<button type="button" class="btn btn-danger" data-act="theft" data-id="${id}">Report Theft</button>`}
+      ${actionButtons(id, d, c)}
     </div>` : "";
   const msg = busy && photoAdd.msg ? `<div class="text-danger small mt-1">${escapeHtml(photoAdd.msg)}</div>` : "";
   if (editing) return `${more}<div class="ops-note-edit">
@@ -512,7 +519,8 @@ function stopHtml(l, k, c, showing) {
   const mapsBtn = maps
     ? `<a class="btn ops-plain-btn ops-maps-btn" href="${maps}" target="_blank" rel="noopener">${mapsText}</a>`
     : `<button type="button" class="btn ops-plain-btn ops-maps-btn" disabled>${mapsText}</button>`;
-  // Maps, gallons and Save on the left; More ▾ evenly between Save and Page › at the right end.
+  // Maps, gallons and Save on the left; More ▾ evenly between Save and Page › at the right end
+  // (a wide screen shows More's four buttons there instead).
   const pageBtn = `<a class="btn ops-plain-btn ops-pick-page" href="ops-customer.html?id=${id}&from=myroute"
     data-page-for="${id}" aria-label="Customer page for ${escapeHtml(l.stop.name)}">Page ›</a>`;
   const theft = c && c.theft;
@@ -559,6 +567,7 @@ function stopHtml(l, k, c, showing) {
           : `<input type="number" inputmode="numeric" min="0" class="form-control" id="gal-${k}" placeholder="gal"
                aria-label="Gallons for ${escapeHtml(l.stop.name)}">
              <button type="button" class="btn btn-success" data-act="save" data-i="${k}">Save</button>`}
+      <span class="ops-row-actions">${actionButtons(id, d, c)}</span>
       <button type="button" class="btn ops-plain-btn ops-more-btn" data-act="details" data-id="${id}"
         aria-expanded="${open}">More ${open ? "▴" : "▾"}</button>${pageBtn}
     </div>` : ""}
