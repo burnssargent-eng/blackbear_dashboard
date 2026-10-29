@@ -205,9 +205,12 @@ function buildShell(page) {
       year and over its last six pickups. A customer with under a year of
       history uses its pickups so far (from its third pickup on, with a wider
       range); a customer with a proven seasonal pattern uses its year-round
-      level adjusted for the month. <strong>Projected gallons</strong> is
-      that rate times the days since the last pickup <em>or</em> since the truck
-      last checked and found the container empty, whichever is later: the oil
+      level adjusted for the month. <strong>Projected gallons</strong> starts
+      from that rate times the days since the last pickup <em>or</em> since the truck
+      last checked and found the container empty, whichever is later. As those
+      days approach the customer's usual gap between pickups, it leans toward the
+      customer's typical pickup (at most halfway), then adds 4%: a straight line
+      runs low on early pickups and high on late ones. It is the oil
       produced since then, not a promise of what the truck will collect. The pickup point is
       <strong>${target}% of listed capacity</strong>, which leaves a spillover
       buffer. <strong>% full</strong> stops at 100%; a customer projected past
@@ -618,6 +621,45 @@ function liveDayRowsHtml(rows, day) {
     </div>`;
 }
 
+/*
+ * The cycle blend against the straight line it replaced, on the same pickups
+ * (live_test.py logs both since 29 Oct 2026). Shown until the comparison is
+ * settled.
+ */
+function liveVsLineHtml(summary) {
+  const rows = summary.filter(m => m.vs_line && m.vs_line.paired);
+  if (!rows.length) {
+    return `<div class="section-caption proj-live-sub">Cycle blend vs the straight line:
+      starts with the first pickup projected after 29 Oct 2026.</div>`;
+  }
+  return `
+    <div class="section-caption proj-live-sub">Cycle blend vs the straight line it
+      replaced, on the same pickups (since 29 Oct 2026)</div>
+    <div class="table-wrap">
+      <table class="data-table proj-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Pickups</th>
+            <th>Typical miss, blend</th>
+            <th>Typical miss, line</th>
+            <th>Net %, blend</th>
+            <th>Net %, line</th>
+          </tr>
+        </thead>
+        <tbody>${rows.map(m => `
+          <tr>
+            <td class="proj-live-label">${escapeHtml(m.window)}</td>
+            <td class="num">${formatNumber(m.vs_line.paired)}</td>
+            <td class="num">${formatPct(m.vs_line.wape_new)}</td>
+            <td class="num">${formatPct(m.vs_line.wape_line)}</td>
+            <td class="num">${signedPct(m.vs_line.bias_new)}</td>
+            <td class="num">${signedPct(m.vs_line.bias_line)}</td>
+          </tr>`).join("")}</tbody>
+      </table>
+    </div>`;
+}
+
 function liveTestHtml(payload) {
   const title = `<div class="section-title">Live test: projected vs collected</div>`;
   if (!payload || !payload.days || !payload.days.length) {
@@ -641,7 +683,8 @@ function liveTestHtml(payload) {
     <div class="section-caption">
       Each pickup scraped from the source site, against the projection this page
       was showing <strong>before</strong> that pickup arrived, moved to the
-      pickup date at the customer's rate. Predictions are frozen: a later model
+      pickup date at the customer's rate (since 29 Oct 2026, its straight line
+      is moved at the rate and the cycle blend applied at the pickup date). Predictions are frozen: a later model
       change never rewrites them. <strong>Proj − actual</strong> is positive
       when the projection was too high; <strong>% error</strong> is that as a
       share of the gallons collected. <strong>Net</strong> adds the misses up
@@ -653,6 +696,7 @@ function liveTestHtml(payload) {
       the model.
     </div>
     ${liveSummaryTableHtml(summary)}
+    ${liveVsLineHtml(payload.summary)}
     ${stages ? `<div class="section-caption proj-live-sub">By stage (since stages began, 8 Oct 2026)</div>
       ${liveSummaryTableHtml(stages)}` : ""}
     <div class="proj-live-days">${days}</div>`;

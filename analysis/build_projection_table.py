@@ -6,7 +6,9 @@ The question this answers, per customer: how much oil is probably sitting in
 the container right now, and how close is that to the point we want to collect?
 
     rate      = 0.5 x previous-year rate  +  0.5 x last-6-pickups rate
-    projected = rate x days since the last pickup
+    line      = rate x days since the last pickup
+    projected = CYCLE_FACTOR x ((1 - w) x line + w x typical pickup),
+                w = CYCLE_BLEND x min(1, days / usual gap)    (the cycle blend)
     target    = 0.75 x listed capacity          (the intended pickup point,
                                                  leaving a spillover buffer)
 
@@ -233,6 +235,25 @@ CLOSER_MIN_OPEN_GAPS = 3
 # into the month after the season did worse:
 # those pickups were already over-projected (season_end_taper.md).
 SEASON_END_TAPER = 0.8
+
+# Cycle blend (Sarge, 2026-10-29). The straight line (rate x days) runs low
+# when a customer is picked up early against its own usual gap (-24%) and high
+# when picked up late (+39%): an early pickup usually means the barrel filled
+# faster than the rate knew. So the projection leans toward the customer's
+# typical pickup as the days approach its usual gap, at most halfway, then
+# x CYCLE_FACTOR clears the remaining under-projection:
+#     w = CYCLE_BLEND x min(1, days / usual gap)
+#     projected = CYCLE_FACTOR x ((1 - w) x straight line + w x typical pickup)
+# A just-emptied barrel still starts at zero. build_row replay, every pickup
+# 2018-26: chosen on 2021-23 (WAPE 31.4 -> 29.7, bias -4.8% -> -0.9%), then
+# confirmed on 2024-26 (29.0 -> 28.6, CI -0.95 to +0.04; bias -3.3% -> -0.3%)
+# and 2018-19 (32.5 -> 29.6). Same on route-day stops alone (bias -3.6% ->
+# +0.1%), so it is not only call-ins. Without the factor the blend is as
+# accurate but stays ~4% low; a flat x1.04 alone fixes bias but costs accuracy.
+# The straight line is exported as line_gal and scored beside it in the live
+# test (analysis/README.md, 2026-10-29).
+CYCLE_BLEND = 0.5
+CYCLE_FACTOR = 1.04
 
 RECENT_PICKUPS = 10             # "recent" for the strong capacity flag
 SOFT_FLAG_YEARS = 2             # "recent" for the soft capacity flag
@@ -734,7 +755,8 @@ def new_owner_row(cid, extra, capacity, regions, asof):
         "capacity": capacity, "collections_over_capacity_all_time": 0,
         "display_pct_full": None, "days_until_75pct": None, "days_past_75pct": None,
         "days_past_capacity": None, "days_past_full": None, "implied_periodicity_days": None,
-        "model_projected_gallons": None, "raw_pct_of_listed_capacity": None,
+        "model_projected_gallons": None, "line_projected_gallons": None,
+        "usual_gap_days": None, "exposure_days": None, "raw_pct_of_listed_capacity": None,
         "model_days_until_75pct": None, "model_days_past_75pct": None,
         "model_days_past_capacity": None, "inferred_active_season": None,
         "override_reason": extra["note"], "current_month": MONTHS[asof.month - 1],
@@ -1121,6 +1143,52 @@ def average_collection(pickups):
     """Mean gallons of the last WINDOW pickups: the window the rate uses."""
     recent = pickups[-WINDOW:]
     return statistics.fmean(p["gallons"] for p in recent) if recent else None
+
+
+def usual_gap(pickups):
+    """Median days between the last WINDOW + 1 pickups, or None: the cycle blend's clock."""
+    recent = pickups[-(WINDOW + 1):]
+    gaps = [g for g in ((b["date"] - a["date"]).days for a, b in zip(recent, recent[1:]))
+            if g > 0]
+    return statistics.median(gaps) if gaps else None
+
+
+def cycle_projection(line, days, gap, typical):
+    """
+    The cycle blend (CYCLE_BLEND): the straight line `line` after `days` of
+    accrual, leaning toward the typical pickup as `days` nears the usual gap.
+    Without a gap or a typical pickup it is the line itself.
+    """
+    if not gap or typical is None:
+        return line
+    w = CYCLE_BLEND * min(1.0, days / gap)
+    return CYCLE_FACTOR * ((1 - w) * line + w * typical)
+
+
+def days_to_reach(gallons, level, rate, gap, typical):
+    """
+    Accrual days at which cycle_projection(level + rate x days, days, ...)
+    first reaches `gallons` (rate > 0). Its slope is rate x (1 - days/gap) +
+    (typical - level) / (2 gap) before the gap and half the rate after it, so
+    it only rises unless Oil Left starts it above a typical pickup; then the
+    search still lands on a crossing. A level already at `gallons` gives the
+    straight line's (zero or negative) answer.
+    """
+    if not gap or typical is None:
+        return (gallons - level) / rate
+    curve = lambda d: cycle_projection(level + rate * d, d, gap, typical)
+    if curve(0) >= gallons:
+        return (gallons / CYCLE_FACTOR - level) / rate
+    # Past the gap the weight is fixed at CYCLE_BLEND, so it is linear there.
+    after = ((gallons / CYCLE_FACTOR - CYCLE_BLEND * typical) / (1 - CYCLE_BLEND)
+             - level) / rate
+    if after >= gap:
+        return after
+    lo, hi = 0.0, gap
+    for _ in range(60):
+        mid = (lo + hi) / 2
+        lo, hi = (mid, hi) if curve(mid) < gallons else (lo, mid)
+    return (lo + hi) / 2
 
 
 def average_collection_all(pickups):
@@ -1551,7 +1619,12 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thef
     target = capacity * TARGET_FRACTION if capacity is not None else None
     exposure_days = (open_days(clock_start, asof, open_months, taper_last) if open_months
                      else days_accumulating)
-    projected = level + rate * exposure_days if rate is not None else None
+    # The straight line, then the cycle blend on top (CYCLE_BLEND). The line
+    # is kept for the live test's side-by-side and the detail CSV.
+    line = level + rate * exposure_days if rate is not None else None
+    gap = usual_gap(pickups)
+    projected = (cycle_projection(line, exposure_days, gap, avg_collection)
+                 if line is not None else None)
     if left_from and rate is not None:
         routing_reason += (f"; from {left_from[1]:g} gal left on "
                            f"{left_from[0].isoformat()}")
@@ -1593,22 +1666,24 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thef
     if projected is not None and capacity:
         raw_pct = projected / capacity * 100
         if rate > 0:
-            days_until = (target - projected) / rate
+            reach = lambda gallons, start=level: days_to_reach(
+                gallons, start, rate, gap, avg_collection)
+            days_until = reach(target) - exposure_days
             if open_months and days_until > 0:
                 # Open days to 75% -> calendar days, the closed months passing first.
                 days_until = calendar_days_for_open(asof, days_until, open_months, taper_last)
             days_past_75 = abs(days_until) if projected > target else 0.0
-            days_past_cap = ((projected - capacity) / rate
+            days_past_cap = (exposure_days - reach(capacity)
                              if projected > capacity else 0.0)
             # Signed, as the source site's [days over]: negative = days still
             # to reach full, positive = days past it. The shadow site shows it
             # beside each stop. Open days to full count as calendar days, as
             # days_until does above.
-            to_full = (capacity - projected) / rate
+            to_full = reach(capacity) - exposure_days
             if open_months and to_full > 0:
                 to_full = calendar_days_for_open(asof, to_full, open_months, taper_last)
             days_past_full = -to_full
-            periodicity = target / rate
+            periodicity = reach(target, 0)
 
     # Only a ranked row's capacity arithmetic is a route signal. Everywhere
     # else the operator-facing columns are blanked, and the 50/50 arithmetic
@@ -1664,6 +1739,9 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thef
         "implied_periodicity_days": shown(periodicity),
         # The 50/50 arithmetic on every row, blanked or not. Detail only.
         "model_projected_gallons": projected,
+        "line_projected_gallons": line,
+        "usual_gap_days": gap,
+        "exposure_days": exposure_days,
         "raw_pct_of_listed_capacity": raw_pct,
         "model_days_until_75pct": days_until,
         "model_days_past_75pct": days_past_75,
@@ -1767,7 +1845,8 @@ ROUNDING = {
     "projected_range_low": 1, "projected_range_high": 1,
     "capacity": 0, "display_pct_full": 1, "days_until_75pct": 1, "days_past_75pct": 1,
     "days_past_capacity": 1, "days_past_full": 1, "implied_periodicity_days": 1,
-    "model_projected_gallons": 1, "raw_pct_of_listed_capacity": 1,
+    "model_projected_gallons": 1, "line_projected_gallons": 1, "usual_gap_days": 1,
+    "exposure_days": 1, "raw_pct_of_listed_capacity": 1,
     "model_days_until_75pct": 1, "model_days_past_75pct": 1,
     "model_days_past_capacity": 1,
     "current_month_index": 2, "top_month_index": 2, "bottom_month_index": 2,
@@ -1809,7 +1888,8 @@ DETAIL_FIELDS = [
     "oil_rate_gpd_prev_6_pickups", "oil_rate_gpd_pooled",
     "seasonal_last_year_gpd", "seasonal_recent_indexed_gpd",
     "oil_rate_gpd_prev_year", "oil_rate_gpd_projected",
-    "model_projected_gallons", "raw_pct_of_listed_capacity",
+    "model_projected_gallons", "line_projected_gallons", "usual_gap_days",
+    "exposure_days", "raw_pct_of_listed_capacity",
     "model_days_until_75pct", "model_days_past_75pct",
     "model_days_past_capacity", "capacity",
     "collections_over_capacity_all_time", "collections_over_capacity_2y",
@@ -1855,6 +1935,9 @@ def write_json(rows, asof):
     def value(row, key):
         return presented(row, [key])[key] if row.get(key) is not None else None
 
+    def ranked_value(row, key):
+        return value(row, key) if row["table_section"] == SECTION_RANKED else None
+
     customers = [{
         "id": r["customer_id"],
         "name": r["customer"],
@@ -1888,6 +1971,11 @@ def write_json(rows, asof):
         "days_past_capacity": value(r, "days_past_capacity"),
         "days_past_full": value(r, "days_past_full"),
         "periodicity_days": value(r, "implied_periodicity_days"),
+        # What the live test needs to carry a ranked row to its pickup date,
+        # and the straight line it scores alongside (CYCLE_BLEND).
+        "line_gal": ranked_value(r, "line_projected_gallons"),
+        "exposure_days": ranked_value(r, "exposure_days"),
+        "usual_gap_days": ranked_value(r, "usual_gap_days"),
         "restart_from": r.get("restart_from"),
         "restart_gap_days": r.get("restart_gap_days"),
         "return_gap_days": r.get("return_gap_days"),
@@ -1906,6 +1994,8 @@ def write_json(rows, asof):
         "data_last_updated": oil_data.get("last_updated"),
         "beta": True,
         "target_fraction": TARGET_FRACTION,
+        "cycle_blend": CYCLE_BLEND,
+        "cycle_factor": CYCLE_FACTOR,
         "stale_days": STALE_DAYS,
         "comeback_hold_days": COMEBACK_HOLD_DAYS,
         "section_order": SECTION_ORDER,

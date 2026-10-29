@@ -9,6 +9,19 @@ finishes**, so a fresh session does not redo or skip it.
 
 ## In flight
 
+### Cycle blend live check (started 2026-10-29)
+
+The projection now leans toward each customer's typical pickup as its usual gap
+nears, ×1.04 (`CYCLE_BLEND`, `CYCLE_FACTOR`; `analysis/README.md`, 2026-10-29).
+The live test logs the old straight line beside it (`projected_line`), and the
+Projections page's live test shows the two side by side.
+
+- **Decide around 2026-11-26:** keep it if the blend's live bias is better than
+  about −2% and its WAPE no worse than the line's; otherwise set the blend to 0
+  and the factor to 1 (the straight line again).
+- **Then:** the spring factor (Mar–Apr ×1.05) as its own PR before March.
+- Once settled, drop the side-by-side table and `projected_line`.
+
 ### Route planner beta (started 2026-10-17)
 
 The parked route builder (below), started as Milestone 1 of the operations

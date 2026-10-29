@@ -15,7 +15,11 @@ How one served oil_projections.json scores a pickup:
   * A ranked row's projection is moved from the file's as_of to the pickup
     date at its own rate (projected + rate x days); the range is scaled by the
     same factor, since the bands are multiplicative on the projection. A pickup
-    entered late, dated before as_of, is wound back the same way.
+    entered late, dated before as_of, is wound back the same way. Since the
+    cycle blend (2026-10-29) a row carries its straight line, exposure days and
+    usual gap: its straight line is moved at the rate and the builder's own
+    cycle_projection is applied at the pickup date. That straight line is
+    logged as projected_line, so the old model is scored on the same pickups.
   * A held-out row (will-call, stale, seasonal holdout, ...) is logged as not
     projected, so nothing disappears from the record.
   * A customer missing from the file (a first-ever pickup, an inactive
@@ -46,6 +50,7 @@ from datetime import date, timedelta
 from pathlib import Path
 
 import backtest_steady_rate as bt
+from build_projection_table import cycle_projection
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
@@ -61,7 +66,8 @@ SECTION_RANKED = "ranked"
 LOG_FIELDS = [
     "pickup_date", "customer_id", "member_ids", "customer", "town", "stage",
     "status", "section", "previous_pickup", "predicted_as_of", "prediction_data",
-    "projected", "range_low", "range_high", "actual", "error", "pct_error",
+    "projected", "range_low", "range_high", "projected_line",
+    "actual", "error", "pct_error", "error_line",
 ]
 FROZEN = LOG_FIELDS[:LOG_FIELDS.index("actual")]
 
@@ -142,10 +148,19 @@ def score_version(payload, gallons, log):
         if key in log:
             continue
 
-        projected = low = high = None
+        projected = low = high = line = None
         if row["section"] == SECTION_RANKED and row.get("projected_gal") is not None:
             base = row["projected_gal"]
-            projected = max(0.0, base + (row.get("rate_gpd") or 0) * (day - as_of).days)
+            step = (day - as_of).days
+            rate = row.get("rate_gpd") or 0
+            if row.get("line_gal") is not None:
+                # The cycle blend: the straight line moves at the rate, then
+                # the builder's blend is applied at the pickup date.
+                line = max(0.0, row["line_gal"] + rate * step)
+                projected = cycle_projection(line, max(0.0, row["exposure_days"] + step),
+                                             row.get("usual_gap_days"), row.get("avg_collection"))
+            else:
+                projected = max(0.0, base + rate * step)
             if base > 0 and row.get("range_low") is not None:
                 factor = projected / base
                 low, high = row["range_low"] * factor, row["range_high"] * factor
@@ -154,6 +169,8 @@ def score_version(payload, gallons, log):
             cap = row.get("capacity")
             if cap:
                 projected = min(projected, cap)
+                if line is not None:
+                    line = min(line, cap)
                 if high is not None:
                     low, high = min(low, cap), min(high, cap)
 
@@ -173,6 +190,7 @@ def score_version(payload, gallons, log):
             "projected": _round(projected),
             "range_low": _round(low),
             "range_high": _round(high),
+            "projected_line": _round(line),
         }
         added += 1
     return added
@@ -184,6 +202,9 @@ def refresh_actuals(log, gallons):
         ids = [int(i) for i in str(rec["member_ids"]).split(";")]
         actual = barrel_gallons(gallons, ids).get(date.fromisoformat(rec["pickup_date"]))
         rec["actual"] = actual
+        line = rec.get("projected_line")
+        rec["error_line"] = (_round(float(line) - actual)
+                             if actual is not None and line is not None else None)
         projected = rec["projected"]
         if actual is None or projected in (None, ""):
             rec["error"] = rec["pct_error"] = None
@@ -208,9 +229,10 @@ def load_log():
         return log
     with open(LOG_CSV, newline="") as f:
         for row in csv.DictReader(f):
-            rec = {k: row[k] for k in FROZEN}
+            # Rows logged before 2026-10-29 have no projected_line column.
+            rec = {k: row.get(k, "") for k in FROZEN}
             rec["customer_id"] = int(rec["customer_id"])
-            for k in ("projected", "range_low", "range_high"):
+            for k in ("projected", "range_low", "range_high", "projected_line"):
                 rec[k] = float(rec[k]) if rec[k] != "" else None
             log[(rec["pickup_date"], rec["customer_id"])] = rec
     return log
@@ -238,6 +260,21 @@ def metrics(records):
     scored = [r for r in records if r["error"] is not None]
     actual = sum(r["actual"] for r in scored)
     net = sum(r["error"] for r in scored)
+    # The straight line on the same pickups, where the served file carried it
+    # (since the cycle blend, 2026-10-29): the old model's score beside the new.
+    paired = [r for r in scored if r.get("error_line") is not None]
+    paired_actual = sum(r["actual"] for r in paired)
+    line = {
+        "paired": len(paired),
+        "wape_new": round(100 * sum(abs(r["error"]) for r in paired) / paired_actual, 1)
+                    if paired_actual else None,
+        "bias_new": round(100 * sum(r["error"] for r in paired) / paired_actual, 1)
+                    if paired_actual else None,
+        "wape_line": round(100 * sum(abs(r["error_line"]) for r in paired) / paired_actual, 1)
+                     if paired_actual else None,
+        "bias_line": round(100 * sum(r["error_line"] for r in paired) / paired_actual, 1)
+                     if paired_actual else None,
+    }
     return {
         "scored": len(scored),
         "not_projected": sum(1 for r in records if r["projected"] is None
@@ -249,6 +286,7 @@ def metrics(records):
         "bias": round(100 * net / actual, 1) if actual else None,
         "median_miss": round(statistics.median(abs(r["error"]) for r in scored), 1)
                        if scored else None,
+        "vs_line": line,
     }
 
 
