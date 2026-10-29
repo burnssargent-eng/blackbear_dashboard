@@ -293,6 +293,14 @@ details.ops-route[open] > summary .ops-row-chev { transform: rotate(90deg); }
   margin-top: 6px; padding-top: 6px; border-top: 1px dashed #ccc; cursor: default; }
 .ops-line .ops-more-line .btn { height: 33px; padding: 0 8px; font-size: 14px; white-space: nowrap;
   display: inline-flex; align-items: center; }
+/* A wide screen (a Mac on the active route) has room for More's four buttons in the control row:
+   they replace More ▾, after a gap from Save so Report Theft stays away from it. A phone keeps More ▾. */
+.ops-row-actions { display: none; }
+@media (min-width: 768px) {
+  .ops-row-actions { display: flex; gap: 6px; align-items: center; margin-left: auto; }
+  .ops-row .ops-more-btn, .ops-more-line { display: none; }
+  .ops-row .ops-row-actions ~ .ops-pick-page { margin-left: 18px; }
+}
 .ops-note-edit { margin-top: 6px; display: flex; flex-direction: column; gap: 6px; cursor: default; }
 .ops-note-edit textarea { font-size: 16px; }
 .ops-auto-notes { margin-top: 6px; font-size: 14px; cursor: default; }
