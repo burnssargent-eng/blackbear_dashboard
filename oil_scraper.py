@@ -49,10 +49,16 @@ EMPTY_QTYS = {0, 1, 2, 3}
 
 # The EMPTY_QTYS entries are never gallons, but they are still events, so they
 # are kept -- separately, in NON_PICKUP_FILE -- instead of being thrown away:
-#   0, 1 = the truck checked the container and found it empty / not worth
+#   0    = written by Jamaal itself, never by a person (Jim, 2026-10-29): one
+#          appeared when Jim switched Woodbelly (1289) inactive -> active.
+#          Not an empty check: 114 of 151 precede the customer's first pickup,
+#          and 8 fall on the same day as one. Still in RESET_QTYS, pending a
+#          backtest (analysis/README.md, 2026-10-29).
+#   1    = the truck checked the container and found it empty / not worth
 #          pumping. RESET_QTYS: the projection restarts its oil clock there.
-#          Measured 2026-10-05 on 651 intervals: counting from the previous
-#          pickup over-projects the next one by +115%, from the check by +11%.
+#          Measured 2026-10-05 on 651 intervals with a 1 between two pickups:
+#          counting from the previous pickup over-projects the next one by
+#          +115%, from the check by +11%.
 #   2    = sign-up call: the day Jim enters a new client (Jim, 2026-10-08);
 #          says nothing about fullness. Kept; not used by the projection.
 #   3    = barrel delivery    (kept; not a reset -- measured as partial)
