@@ -154,9 +154,12 @@ never rounded up. `validate_data.py` fails if either changes.
 
 **Dropped from totals is not thrown away.** Since 2026-10-05 every 0–3 entry is
 kept in `oil_non_pickups.csv` (merged on each `--rescrape`, like the capacity
-cache). `RESET_QTYS = {0, 1}` means the truck checked and found the container
-empty, so the projection restarts its oil clock at the latest one after the
-last pickup — the rate itself is unchanged. 2 (sign-up call) and 3 (barrel
+cache). A 1 means the truck checked and found the container empty, so the
+projection restarts its oil clock at the latest `RESET_QTYS` entry after the
+last pickup — the rate itself is unchanged. **A 0 is not an empty check:
+Jamaal writes it itself, never a person** (Jim, 2026-10-29; one appeared when
+he reactivated a customer). It is still in `RESET_QTYS = {0, 1}` pending a
+backtest; see the comment at `oil_scraper.py` `RESET_QTYS`. 2 (sign-up call) and 3 (barrel
 delivery) are kept but not used yet. The builder keeps its own copy of
 `RESET_QTYS`; `validate_data.py` asserts the two match. Never put a 0–3 into
 `oil_collections_raw.csv`: `backtest_steady_rate.load_pickups` refuses it.
