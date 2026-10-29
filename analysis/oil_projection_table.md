@@ -23,7 +23,7 @@ For each active customer, at the as-of date:
   last 2 pickups) + half the last 3 pickups' rate ÷ the month index of the
   days they cover × the index of the days being projected
 - **projected gallons** = projected rate x days since the last pickup, or
-  since a later empty check (quantity 0 or 1 in `oil_non_pickups.csv`),
+  since a later empty check (quantity 1 in `oil_non_pickups.csv`),
   whichever is later: the truck looked and found nothing worth pumping
 - **target** = 75% of listed capacity -- the intended pickup
   point, leaving a spillover buffer
@@ -149,9 +149,9 @@ Capacity problems are reported in *flags*, separately from the model status.
 | Insufficient data | 70 |
 | Missing capacity | 0 |
 | With a capacity warning | 81 |
-| Ranked and projected above listed capacity | 3 |
-| Past the 75% target | 13 |
-| Past full capacity | 3 |
+| Ranked and projected above listed capacity | 2 |
+| Past the 75% target | 11 |
+| Past full capacity | 2 |
 
 | Section | Model status | Customers |
 |---|---|---:|
@@ -178,29 +178,29 @@ Ranked rows only. Sorted by days past capacity, then days past the
 |---:|---|---|---|---:|---|---:|---:|---:|---:|---:|---|---:|
 | 1 | Pizza Hut-St Albans | Saint Albans Town | 50/50 default | 55.0 | 33-55 | 55 | 100.0% | 82.8 | 51.1 | 0.83 | 2026-06-23 | 128 |
 | 2 | The Beach House- NORTH BEACH | Burlington | 50/50 default | 130.0 | 78-130 | 130 | 100.0% | 31.3 | 14.3 | 3.02 | 2026-08-28 | 62 |
-| 3 | Asian Bistro-Winooski | Winooski | 50/50 default | 50.0 | 38-50 | 50 | 100.0% | 18.0 | 3.0 | 1.00 | 2026-09-11 | 48 |
-| 4 | Northwest Solid Waste Management District | Fairfax | 50/50 default | 134.6 | 94-150 | 150 | 89.7% | 37.8 | 0.0 | 1.00 | 2026-06-11 | 140 |
-| 5 | Essex House and Tavern | Brighton | 50/50 default | 163.3 | 127-165 | 165 | 98.9% | 24.6 | 0.0 | 2.17 | 2026-08-18 | 72 |
-| 6 | Arandas-Fairlee | Fairlee | 50/50 default | 48.4 | 29-55 | 55 | 88.1% | 24.4 | 0.0 | 0.51 | 2026-07-24 | 97 |
-| 7 | Tourterelle -just north of MIDDLEBURY | Burlington | 50/50 default | 50.0 | 36-55 | 55 | 90.9% | 11.5 | 0.0 | 0.99 | 2026-09-14 | 45 |
-| 8 | Marriott | Middlebury | 50/50 default | 52.8 | 40-65 | 65 | 81.3% | 8.1 | 0.0 | 0.73 | 2026-08-24 | 66 |
-| 9 | Hannafords-Essex Jct | Essex Junction | 50/50 default | 118.1 | 93-143 | 150 | 78.7% | 8.1 | 0.0 | 1.33 | 2026-07-24 | 97 |
-| 10 | Onion City Chicken and Oysters | Winooski | 50/50 default | 136.4 | 105-150 | 150 | 91.0% | 6.1 | 0.0 | 6.50 | 2026-10-08 | 21 |
-| 11 | Vermont Country Club-Waterbury | Waterbury | 50/50 default | 45.1 | 32-50 | 50 | 90.3% | 3.4 | 0.0 | 2.61 | 2026-10-14 | 15 |
-| 12 | AL’s FF food truck-ESSEX at Lowes | Essex Junction | 50/50 default | 45.7 | 32-55 | 55 | 83.0% | 3.2 | 0.0 | 1.43 | 2026-10-05 | 24 |
-| 13 | Hannaford-Plattsburgh | Plattsburgh | 50/50 default | 132.8 | 122-143 | 175 | 75.9% | 0.6 | 0.0 | 4.20 | 2026-09-30 | 29 |
-| 14 | Friendly Toast #3251 | Burlington | 50/50 default | 122.5 | 86-165 | 165 | 74.3% | 0.0 | 0.0 | 2.29 | 2026-09-16 | 43 |
-| 15 | Mountain Valley-Winooski | Winooski | 50/50 default | 81.2 | 61-110 | 110 | 73.9% | 0.0 | 0.0 | 0.71 | 2026-06-17 | 134 |
-| 16 | Burke Academy | Burke | 50/50 default | 40.2 | 29-55 | 55 | 73.1% | 0.0 | 0.0 | 0.62 | 2026-09-02 | 57 |
-| 17 | Gifford Retirement (Morgan Orchard) | Randolph | 50/50 default | 35.9 | 27-50 | 50 | 71.7% | 0.0 | 0.0 | 0.69 | 2026-09-04 | 55 |
-| 18 | Nelly's | Saint Albans City | 50/50 default | 146.0 | 108-184 | 208 | 70.2% | 0.0 | 0.0 | 4.91 | 2026-09-30 | 29 |
-| 19 | BBB- Pump oil @ Shop | Plainfield | 50/50 default | 276.0 | 5-400 | 400 | 69.0% | 0.0 | 0.0 | 7.68 | 2026-09-14 | 45 |
-| 20 | OLNEY  general store | Barton | 50/50 default | 44.8 | 34-65 | 65 | 68.9% | 0.0 | 0.0 | 0.52 | 2026-08-06 | 84 |
-| 21 | Burger King- Bennington/Mahoney | Bennington | 50/50 default | 135.1 | 101-196 | 200 | 67.5% | 0.0 | 0.0 | 2.77 | 2026-09-10 | 49 |
-| 22 | The Wise Fool | Burlington | 50/50 default | 133.1 | 100-193 | 200 | 66.6% | 0.0 | 0.0 | 5.16 | 2026-10-07 | 22 |
-| 23 | Bumble Bee/Parkside-Enosburgh | Enosburgh | 50/50 default | 97.9 | 73-142 | 150 | 65.3% | 0.0 | 0.0 | 1.29 | 2026-08-07 | 83 |
-| 24 | Hannaford-Middlebury | Middlebury | 50/50 default | 106.6 | 72-141 | 165 | 64.6% | 0.0 | 0.0 | 2.20 | 2026-09-14 | 45 |
-| 25 | Gondola Seasonal Snack Shack Route 15 | Morristown | 50/50 default | 64.5 | 45-87 | 100 | 64.5% | 0.0 | 0.0 | 1.95 | 2026-09-22 | 37 |
+| 3 | Northwest Solid Waste Management District | Fairfax | 50/50 default | 134.6 | 94-150 | 150 | 89.7% | 37.8 | 0.0 | 1.00 | 2026-06-11 | 140 |
+| 4 | Essex House and Tavern | Brighton | 50/50 default | 163.3 | 127-165 | 165 | 98.9% | 24.6 | 0.0 | 2.17 | 2026-08-18 | 72 |
+| 5 | Arandas-Fairlee | Fairlee | 50/50 default | 48.4 | 29-55 | 55 | 88.1% | 24.4 | 0.0 | 0.51 | 2026-07-24 | 97 |
+| 6 | Tourterelle -just north of MIDDLEBURY | Burlington | 50/50 default | 50.0 | 36-55 | 55 | 90.9% | 11.5 | 0.0 | 0.99 | 2026-09-14 | 45 |
+| 7 | Marriott | Middlebury | 50/50 default | 52.8 | 40-65 | 65 | 81.3% | 8.1 | 0.0 | 0.73 | 2026-08-24 | 66 |
+| 8 | Hannafords-Essex Jct | Essex Junction | 50/50 default | 118.1 | 93-143 | 150 | 78.7% | 8.1 | 0.0 | 1.33 | 2026-07-24 | 97 |
+| 9 | Vermont Country Club-Waterbury | Waterbury | 50/50 default | 45.1 | 32-50 | 50 | 90.3% | 3.4 | 0.0 | 2.61 | 2026-10-14 | 15 |
+| 10 | AL’s FF food truck-ESSEX at Lowes | Essex Junction | 50/50 default | 45.7 | 32-55 | 55 | 83.0% | 3.2 | 0.0 | 1.43 | 2026-10-05 | 24 |
+| 11 | Hannaford-Plattsburgh | Plattsburgh | 50/50 default | 132.8 | 122-143 | 175 | 75.9% | 0.6 | 0.0 | 4.20 | 2026-09-30 | 29 |
+| 12 | Friendly Toast #3251 | Burlington | 50/50 default | 122.5 | 86-165 | 165 | 74.3% | 0.0 | 0.0 | 2.29 | 2026-09-16 | 43 |
+| 13 | Burke Academy | Burke | 50/50 default | 40.2 | 29-55 | 55 | 73.1% | 0.0 | 0.0 | 0.62 | 2026-09-02 | 57 |
+| 14 | Gifford Retirement (Morgan Orchard) | Randolph | 50/50 default | 35.9 | 27-50 | 50 | 71.7% | 0.0 | 0.0 | 0.69 | 2026-09-04 | 55 |
+| 15 | Nelly's | Saint Albans City | 50/50 default | 146.0 | 108-184 | 208 | 70.2% | 0.0 | 0.0 | 4.91 | 2026-09-30 | 29 |
+| 16 | BBB- Pump oil @ Shop | Plainfield | 50/50 default | 276.0 | 5-400 | 400 | 69.0% | 0.0 | 0.0 | 7.68 | 2026-09-14 | 45 |
+| 17 | OLNEY  general store | Barton | 50/50 default | 44.8 | 34-65 | 65 | 68.9% | 0.0 | 0.0 | 0.52 | 2026-08-06 | 84 |
+| 18 | Burger King- Bennington/Mahoney | Bennington | 50/50 default | 135.1 | 101-196 | 200 | 67.5% | 0.0 | 0.0 | 2.77 | 2026-09-10 | 49 |
+| 19 | The Wise Fool | Burlington | 50/50 default | 133.1 | 100-193 | 200 | 66.6% | 0.0 | 0.0 | 5.16 | 2026-10-07 | 22 |
+| 20 | Bumble Bee/Parkside-Enosburgh | Enosburgh | 50/50 default | 97.9 | 73-142 | 150 | 65.3% | 0.0 | 0.0 | 1.29 | 2026-08-07 | 83 |
+| 21 | Hannaford-Middlebury | Middlebury | 50/50 default | 106.6 | 72-141 | 165 | 64.6% | 0.0 | 0.0 | 2.20 | 2026-09-14 | 45 |
+| 22 | Gondola Seasonal Snack Shack Route 15 | Morristown | 50/50 default | 64.5 | 45-87 | 100 | 64.5% | 0.0 | 0.0 | 1.95 | 2026-09-22 | 37 |
+| 23 | Topnotch (The Roost) | Stowe | 50/50 default | 94.2 | 66-122 | 150 | 62.8% | 0.0 | 0.0 | 3.00 | 2026-09-30 | 29 |
+| 24 | Jersey Mike's - Williston | Williston | 50/50 default | 68.6 | 48-93 | 110 | 62.4% | 0.0 | 0.0 | 1.97 | 2026-09-16 | 43 |
+| 25 | UVM- Red Stone | Burlington | 50/50 default | 93.1 | 40-147 | 150 | 62.1% | 0.0 | 0.0 | 4.23 | 2026-10-08 | 21 |
 
 ## Seasonal holdouts (9)
 
@@ -324,13 +324,13 @@ Customers whose recent collections do not fit the listed capacity. These are
 
 | Customer | Town | Capacity | Avg collection | Median last 10 | Max ever | Over cap (2y) | Over cap (all) | Flags |
 |---|---|---:|---:|---:|---:|---:|---:|---|
-| Asian Bistro-Winooski | Winooski | 50 | 52.5 | 47.5 | 70 | 6 | 19 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong; Capacity below typical pickup; Projected above listed capacity — review capacity/model. |
+| Asian Bistro-Winooski | Winooski | 50 | 53.3 | 45.0 | 70 | 6 | 19 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong; Capacity below typical pickup |
 | Vermont Country Club-Waterbury | Waterbury | 50 | 50.8 | 52.5 | 75 | 11 | 17 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong; Capacity below typical pickup |
 | Essex House and Tavern | Brighton | 165 | 158.3 | 157.5 | 220 | 4 | 6 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong |
 | AL’s FF food truck-ESSEX at Lowes | Essex Junction | 55 | 58.3 | 52.5 | 100 | 3 | 3 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong; Capacity below typical pickup |
-| Mountain Valley-Winooski | Winooski | 110 | 61.7 | 55.0 | 160 | 2 | 3 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong |
 | HAYBARN-Goddard College- 7532 | Plainfield | 50 | 47.5 | 50.0 | 60 | 0 | 3 | Capacity likely stale/wrong |
 | Williston Place -Retirement home | Williston | 65 | 29.2 | 30.0 | 75 | 0 | 3 | Capacity likely stale/wrong |
+| Mountain Valley-Winooski | Winooski | 110 | 50.8 | 55.0 | 160 | 2 | 3 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong |
 | Tourterelle -just north of MIDDLEBURY | Burlington | 55 | 52.5 | 47.5 | 100 | 2 | 2 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong |
 | Friendly Toast #3251 | Burlington | 165 | 168.0 | 165.0 | 220 | 2 | 2 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong; Capacity below typical pickup |
 | 802 Deli and Market | Troy | 55 | 62.5 | 60.0 | 100 | 2 | 2 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong; Capacity below typical pickup |

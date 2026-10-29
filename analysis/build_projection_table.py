@@ -129,9 +129,10 @@ OIL_LEFT = ROOT / "oil_left.csv"
 # Quantities that mean "checked, container empty": the oil clock restarts at
 # the latest one after the last pickup. MUST MATCH oil_scraper.RESET_QTYS;
 # validate_data.py asserts it. Measured 2026-10-05: on 651 intervals with a
-# check between two pickups, counting from the pickup over-projected the next
-# pickup by +115%, counting from the check by +11%.
-RESET_QTYS = {0, 1}
+# 1 between two pickups, counting from the pickup over-projected the next
+# pickup by +115%, counting from the check by +11%. 0 left out since
+# 2026-10-29: Jamaal writes it itself, it is not an empty check (Jim).
+RESET_QTYS = {1}
 ROUTING_WAPE = HERE / "routing_rule_test_customers.csv"
 SEASONAL_DETAIL = HERE / "backtest_seasonal_models_detail.csv"
 # Committed snapshot of the two backtests above, so the nightly runner -- which
@@ -2143,7 +2144,7 @@ For each active customer, at the as-of date:
   last 2 pickups) + half the last 3 pickups' rate ÷ the month index of the
   days they cover × the index of the days being projected
 - **projected gallons** = projected rate x days since the last pickup, or
-  since a later empty check (quantity 0 or 1 in `oil_non_pickups.csv`),
+  since a later empty check (quantity 1 in `oil_non_pickups.csv`),
   whichever is later: the truck looked and found nothing worth pumping
 - **target** = {TARGET_FRACTION:.0%} of listed capacity -- the intended pickup
   point, leaving a spillover buffer

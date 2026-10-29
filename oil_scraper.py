@@ -52,8 +52,8 @@ EMPTY_QTYS = {0, 1, 2, 3}
 #   0    = written by Jamaal itself, never by a person (Jim, 2026-10-29): one
 #          appeared when Jim switched Woodbelly (1289) inactive -> active.
 #          Not an empty check: 114 of 151 precede the customer's first pickup,
-#          and 8 fall on the same day as one. Still in RESET_QTYS, pending a
-#          backtest (analysis/README.md, 2026-10-29).
+#          and 8 fall on the same day as one. Kept; not a reset since
+#          2026-10-29 (backtest in analysis/README.md).
 #   1    = the truck checked the container and found it empty / not worth
 #          pumping. RESET_QTYS: the projection restarts its oil clock there.
 #          Measured 2026-10-05 on 651 intervals with a 1 between two pickups:
@@ -62,7 +62,7 @@ EMPTY_QTYS = {0, 1, 2, 3}
 #   2    = sign-up call: the day Jim enters a new client (Jim, 2026-10-08);
 #          says nothing about fullness. Kept; not used by the projection.
 #   3    = barrel delivery    (kept; not a reset -- measured as partial)
-RESET_QTYS = {0, 1}
+RESET_QTYS = {1}
 NON_PICKUP_FILE = "oil_non_pickups.csv"
 NON_PICKUP_FIELDS = ["customer_id", "date", "qty"]
 
