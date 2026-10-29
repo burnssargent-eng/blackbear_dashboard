@@ -1,5 +1,5 @@
 {
- "scraped_at": "2026-10-29T11:00:13+00:00",
+ "scraped_at": "2026-10-29T13:58:51+00:00",
  "source": "routes_assigned.php, assign_routes.php",
  "routes": [
   {
@@ -230,32 +230,8 @@
   {
    "route_id": 6,
    "name": "OuterBton",
-   "assigned_capacity": 1993,
+   "assigned_capacity": 1645,
    "stops": [
-    {
-     "assignment_id": 24346,
-     "customer_id": 1423,
-     "name": "BBB-Load a PLASTIC barrel",
-     "capacity": 50,
-     "days_over": -352,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24344,
-     "customer_id": 284,
-     "name": "Big Spruce",
-     "capacity": 90,
-     "days_over": -21,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24345,
-     "customer_id": 282,
-     "name": "Schaffers/Hatchet Tap & Table",
-     "capacity": 208,
-     "days_over": -21,
-     "must_get": false
-    },
     {
      "assignment_id": 24300,
      "customer_id": 703,
@@ -2476,7 +2452,7 @@
    "customer_id": 1423,
    "name": "BBB-Load a PLASTIC barrel",
    "city": "Plainfield",
-   "days_over": -352
+   "days_over": -365
   },
   {
    "customer_id": 1410,
@@ -2626,13 +2602,13 @@
    "customer_id": 284,
    "name": "Big Spruce",
    "city": "Richmond",
-   "days_over": -21
+   "days_over": -45
   },
   {
    "customer_id": 282,
    "name": "Schaffers/Hatchet Tap & Table",
    "city": "Richmond",
-   "days_over": -21
+   "days_over": -45
   },
   {
    "customer_id": 1218,
