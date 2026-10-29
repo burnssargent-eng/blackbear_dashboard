@@ -267,7 +267,11 @@ classifications. Overrides change routing and which columns show, never the
 raw figure lives in the detail CSV. Shown projected gallons and the range's
 high end are capped at listed capacity too (since 2026-10-15); the uncapped
 figure is `model_projected_gallons`, and the ranking and days-past columns
-keep using it, so the cap changes no order.
+keep using it, so the cap changes no order. Since 2026-10-29 every projection
+is the **cycle blend** (`CYCLE_BLEND`, `CYCLE_FACTOR`): rate × days leans toward
+the customer's typical pickup as its usual gap nears, ×1.04. The straight line
+is exported as `line_gal` and scored beside it in the live test until the
+comparison is settled (`analysis/ROADMAP.md`).
 
 **Everyone else is placed automatically by the ladder** (since 2026-10-08,
 `analysis/replay_newcomers.md`): fewer than 3 pickups is insufficient (the

@@ -7,7 +7,8 @@ made-up customer, no files read. Run from the repo root:
 
 The two rules: a gap's oil is collected + left after it - left after the
 previous pickup, and a check on or after the last pickup starts the barrel at
-what was left.
+what was left. Both rules act on the straight line (line_projected_gallons);
+the cycle blend on top of it is tested in tests/cycle_blend_test.py.
 """
 
 import os
@@ -48,7 +49,7 @@ last = plain[-1]["date"]
 ok(all(bp.gap_oil(plain, i) == 60 for i in range(1, len(plain))), "without Oil Left a gap's oil is the gallons collected")
 base = row(plain, last + timedelta(days=10))
 ok(abs(base["oil_rate_gpd_projected"] - 2.0) < 1e-9, "the steady customer projects 2 gal/day")
-ok(abs(base["model_projected_gallons"] - 20.0) < 1e-9, "10 days after the last pickup: 20 gal")
+ok(abs(base["line_projected_gallons"] - 20.0) < 1e-9, "10 days after the last pickup: 20 gal")
 ok(base["oil_left_date"] is None and base["oil_left_gallons"] is None, "no Oil Left: the new columns are empty")
 
 # Rule 2: a part pickup (30 collected, 30 left) does not read as low production.
@@ -62,7 +63,7 @@ ok(bp.gap_oil(part, len(part) - 1) == 60, "collected 30 + left 30 = 60 gal of oi
 fixed = row(part, last + timedelta(days=10), anchors[CID])
 ok(abs(fixed["oil_rate_gpd_projected"] - 2.0) < 1e-9, "with Oil Left the rate is 2 gal/day again")
 # Rule 1 on the same day: the barrel starts at 30, not 0.
-ok(abs(fixed["model_projected_gallons"] - 50.0) < 1e-9, "10 days on: 30 left + 2 x 10 = 50 gal")
+ok(abs(fixed["line_projected_gallons"] - 50.0) < 1e-9, "10 days on: 30 left + 2 x 10 = 50 gal")
 ok(fixed["oil_left_date"] == last.isoformat() and fixed["oil_left_gallons"] == 30, "the check used is exported")
 ok("30 gal left on" in fixed["routing_reason"], "the reason says where the projection started")
 
@@ -71,25 +72,25 @@ after = part + [{"date": last + timedelta(days=30), "gallons": 90, "name": "Test
 ok(bp.gap_oil(after, len(after) - 1) == 60, "the pickup after collects 90, less the 30 left before: 60")
 r = row(after, last + timedelta(days=40), anchors[CID])
 ok(abs(r["oil_rate_gpd_projected"] - 2.0) < 1e-9, "both gaps around the part pickup read 2 gal/day")
-ok(r["oil_left_date"] is None and abs(r["model_projected_gallons"] - 20.0) < 1e-9,
+ok(r["oil_left_date"] is None and abs(r["line_projected_gallons"] - 20.0) < 1e-9,
    "a check before the last pickup is not a starting level")
 
 # Rule 1 on a day with no pickup: a full truck checks a stop it skips.
 r = row(plain, last + timedelta(days=12), [(last + timedelta(days=8), 50)])
-ok(abs(r["model_projected_gallons"] - 58.0) < 1e-9 and r["days_accumulating"] == 4,
+ok(abs(r["line_projected_gallons"] - 58.0) < 1e-9 and r["days_accumulating"] == 4,
    "50 left on day 8, projected on day 12: 50 + 2 x 4 = 58")
 ok(abs(r["oil_rate_gpd_projected"] - 2.0) < 1e-9, "a check between pickups leaves the rate alone")
 r = row(plain, last + timedelta(days=12), [(last + timedelta(days=8), 0)])
-ok(abs(r["model_projected_gallons"] - 8.0) < 1e-9, "0 left is a level too: like an empty check")
+ok(abs(r["line_projected_gallons"] - 8.0) < 1e-9, "0 left is a level too: like an empty check")
 r = row(plain, last + timedelta(days=12), [(last + timedelta(days=5), 50)],
         empty_checks=[last + timedelta(days=8)])
-ok(abs(r["model_projected_gallons"] - 8.0) < 1e-9 and r["oil_left_date"] is None,
+ok(abs(r["line_projected_gallons"] - 8.0) < 1e-9 and r["oil_left_date"] is None,
    "a later empty check wins over an earlier Oil Left")
 r = row(plain, last + timedelta(days=12), [(last + timedelta(days=8), 50)],
         empty_checks=[last + timedelta(days=8)])
-ok(abs(r["model_projected_gallons"] - 58.0) < 1e-9, "Oil Left on the same day as an empty check wins (it has a level)")
+ok(abs(r["line_projected_gallons"] - 58.0) < 1e-9, "Oil Left on the same day as an empty check wins (it has a level)")
 r = row(plain, last + timedelta(days=12), [(last + timedelta(days=8), 900)])
-ok(abs(r["model_projected_gallons"] - 308.0) < 1e-9 and r["current_projected_gallons"] == 300,
+ok(abs(r["line_projected_gallons"] - 308.0) < 1e-9 and r["current_projected_gallons"] == 300,
    "a level above capacity starts at capacity; the shown figure is capped as always")
 ok(r["days_past_full"] > 0, "a barrel left full is past full")
 

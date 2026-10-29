@@ -148,9 +148,27 @@ ok(sample.periodicity_days !== null && sampleRow.includes(`>${Math.round(sample.
   "periodicity cell shows the exported periodicity_days");
 ok(sample.avg_collection_all !== null && sampleRow.includes(`>${sample.avg_collection_all.toFixed(1)}</td>`),
   "avg collection cell shows the exported avg_collection_all");
+// Periodicity: an empty barrel's days to the pickup point on the cycle-blend
+// curve (build_projection_table.CYCLE_BLEND), checked here, never computed by
+// the page. Rows without a usual gap fall back to the straight line.
+const cycleAt = (c, d) => {
+  const line = c.rate_gpd * d;
+  if (!c.usual_gap_days || c.avg_collection === null) return line;
+  const w = payload.cycle_blend * Math.min(1, d / c.usual_gap_days);
+  return payload.cycle_factor * ((1 - w) * line + w * c.avg_collection);
+};
 ok(ranked.every(c => c.capacity === null || c.rate_gpd === null || c.periodicity_days === null ||
-  Math.abs(c.periodicity_days / (payload.target_fraction * c.capacity / c.rate_gpd) - 1) < 0.02),
-  "exported periodicity = target fraction x capacity / gal per day (gal/day is rounded)");
+  Math.abs(cycleAt(c, c.periodicity_days) / (payload.target_fraction * c.capacity) - 1) < 0.02),
+  "exported periodicity reaches the pickup point on the cycle-blend curve (gal/day is rounded)");
+const blendOf = c => {
+  if (!c.usual_gap_days || c.avg_collection === null) return c.line_gal;
+  const w = payload.cycle_blend * Math.min(1, c.exposure_days / c.usual_gap_days);
+  return payload.cycle_factor * ((1 - w) * c.line_gal + w * c.avg_collection);
+};
+const withLine = ranked.filter(c => c.projected_gal !== null && c.line_gal !== null);
+ok(withLine.length > 100 && withLine.every(c =>
+  Math.abs(Math.min(blendOf(c), c.capacity || Infinity) - c.projected_gal) < 0.2),
+  "projected gallons is the cycle blend of the exported straight line, capped");
 ok(ranked.every(c => c.capacity === null || c.projected_gal === null ||
   (c.projected_gal <= c.capacity && c.range_high <= c.capacity && c.range_low <= c.projected_gal)),
   "projected gallons and the range's high end are capped at listed capacity");
@@ -297,6 +315,15 @@ const day0 = live.days[0];
 ok(/class="proj-live-total"/.test(liveHtml) && liveHtml.includes(api.formatSigned(day0.net_error)),
   `the newest day's total row shows its net (${api.formatSigned(day0.net_error)})`);
 ok(/not available yet/.test(api.liveTestHtml(null)), "a missing live test file shows a note, not an error");
+const pairedNone = live.summary.every(m => !m.vs_line || !m.vs_line.paired);
+ok(!pairedNone || /starts with the first pickup projected after 29 Oct 2026/.test(liveHtml),
+  "before any paired pickup, the blend-vs-line table says when it starts");
+const paired = { ...live, summary: [{ window: "All", from: null, scored: 3, wape: 20, net_error: -5,
+  bias: -2, median_miss: 4, not_projected: 0,
+  vs_line: { paired: 3, wape_new: 20.0, bias_new: -2.0, wape_line: 24.5, bias_line: -6.1 } }] };
+const pairedHtml = api.liveTestHtml(paired);
+ok(/Cycle blend vs the straight line it/.test(pairedHtml) && pairedHtml.includes("24.5%") &&
+  pairedHtml.includes("−6.1%"), "paired pickups show the blend beside the straight line");
 
 // ── Dormant-gap restart ──
 const restarted = customers.filter(c => c.restart_from);
