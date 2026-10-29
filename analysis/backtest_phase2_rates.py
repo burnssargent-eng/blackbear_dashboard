@@ -12,7 +12,7 @@ Two questions, both against today's production rate (0.5 x previous year +
 
 Every model predicts a pickup's gallons as rate x days, the way every
 backtest in this folder does, with ONE change: the clock starts at the later
-of the previous pickup and any empty check (qty 0/1) in between, the
+of the previous pickup and any empty check (qty 1) in between, the
 production rule since 2026-10-05. Applied to every model, so comparisons stay
 fair.
 
