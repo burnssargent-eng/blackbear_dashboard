@@ -1,52 +1,12 @@
 {
- "scraped_at": "2026-10-30T11:00:12+00:00",
+ "scraped_at": "2026-10-30T13:51:35+00:00",
  "source": "routes_assigned.php, assign_routes.php",
  "routes": [
   {
    "route_id": 10,
    "name": "Route 7",
-   "assigned_capacity": 2061,
+   "assigned_capacity": 1595,
    "stops": [
-    {
-     "assignment_id": 24304,
-     "customer_id": 1410,
-     "name": "BBB-Load Clamping ring",
-     "capacity": 1,
-     "days_over": -48,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24355,
-     "customer_id": 611,
-     "name": "Three Ponds",
-     "capacity": 100,
-     "days_over": -3,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24354,
-     "customer_id": 1094,
-     "name": "HUANGS NOODLE/Papa Tirozzi’s-Danville",
-     "capacity": 110,
-     "days_over": -13,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24353,
-     "customer_id": 610,
-     "name": "GoodFellas / Nacho Mama",
-     "capacity": 200,
-     "days_over": -3,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24360,
-     "customer_id": 1415,
-     "name": "The Buttery",
-     "capacity": 55,
-     "days_over": -18,
-     "must_get": false
-    },
     {
      "assignment_id": 24357,
      "customer_id": 1249,
@@ -1350,19 +1310,19 @@
    "customer_id": 610,
    "name": "GoodFellas / Nacho Mama",
    "city": "Danville",
-   "days_over": -3
+   "days_over": -35
   },
   {
    "customer_id": 1094,
    "name": "HUANGS NOODLE/Papa Tirozzi’s-Danville",
    "city": "Danville",
-   "days_over": -13
+   "days_over": -45
   },
   {
    "customer_id": 611,
    "name": "Three Ponds",
    "city": "Danville",
-   "days_over": -3
+   "days_over": -35
   },
   {
    "customer_id": 1473,
@@ -2544,7 +2504,7 @@
    "customer_id": 1410,
    "name": "BBB-Load Clamping ring",
    "city": "Plainfield",
-   "days_over": -48
+   "days_over": -175
   },
   {
    "customer_id": 1424,
@@ -3012,7 +2972,7 @@
    "customer_id": 1415,
    "name": "The Buttery",
    "city": "St. Johnsbury",
-   "days_over": -18
+   "days_over": -50
   },
   {
    "customer_id": 1118,

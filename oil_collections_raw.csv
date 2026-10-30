@@ -6094,6 +6094,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1077,Backyard bistro,Charlotte,Chittenden,2022-03-24,2022,2022-03,120,True,Charlotte
 1077,Backyard bistro,Charlotte,Chittenden,2021-11-04,2021,2021-11,110,True,Charlotte
 1475,Old Lantern-Red Event Barn,Charlotte,Chittenden,2026-10-15,2026,2026-10,60,True,Charlotte
+703,Philo Ridge Farm,Charlotte,Chittenden,2026-10-29,2026,2026-10,135,True,Charlotte
 703,Philo Ridge Farm,Charlotte,Chittenden,2026-07-06,2026,2026-07,145,True,Charlotte
 703,Philo Ridge Farm,Charlotte,Chittenden,2025-10-23,2025,2025-10,10,True,Charlotte
 703,Philo Ridge Farm,Charlotte,Chittenden,2025-09-22,2025,2025-09,45,True,Charlotte
@@ -6690,6 +6691,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 520,Sterling College - Craftsbury,Craftsbury Common,Caledonia,2020-12-14,2020,2020-12,50,True,Craftsbury
 520,Sterling College - Craftsbury,Craftsbury Common,Caledonia,2019-06-29,2019,2019-06,60,True,Craftsbury
 520,Sterling College - Craftsbury,Craftsbury Common,Caledonia,2018-08-24,2018,2018-08,100,True,Craftsbury
+610,GoodFellas / Nacho Mama,Danville,Caledonia,2026-10-30,2026,2026-10,60,True,Danville
 610,GoodFellas / Nacho Mama,Danville,Caledonia,2026-09-28,2026,2026-09,70,True,Danville
 610,GoodFellas / Nacho Mama,Danville,Caledonia,2026-08-18,2026,2026-08,40,True,Danville
 610,GoodFellas / Nacho Mama,Danville,Caledonia,2026-07-21,2026,2026-07,50,True,Danville
@@ -6764,6 +6766,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 610,GoodFellas / Nacho Mama,Danville,Caledonia,2017-12-07,2017,2017-12,70,True,Danville
 610,GoodFellas / Nacho Mama,Danville,Caledonia,2017-09-03,2017,2017-09,35,True,Danville
 610,GoodFellas / Nacho Mama,Danville,Caledonia,2017-08-03,2017,2017-08,50,True,Danville
+1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2026-10-30,2026,2026-10,15,True,Danville
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2026-09-28,2026,2026-09,30,True,Danville
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2026-07-21,2026,2026-07,20,True,Danville
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2026-06-19,2026,2026-06,25,True,Danville
@@ -6790,6 +6793,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2022-05-16,2022,2022-05,60,True,Danville
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2022-02-23,2022,2022-02,25,True,Danville
 1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,Caledonia,2022-01-03,2022,2022-01,30,True,Danville
+611,Three Ponds,Danville,Caledonia,2026-10-30,2026,2026-10,35,True,Danville
 611,Three Ponds,Danville,Caledonia,2026-09-28,2026,2026-09,50,True,Danville
 611,Three Ponds,Danville,Caledonia,2026-08-18,2026,2026-08,40,True,Danville
 611,Three Ponds,Danville,Caledonia,2026-07-21,2026,2026-07,40,True,Danville
@@ -6940,23 +6944,23 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 904,TCs,Dover,Windham,2020-03-27,2020,2020-03,175,True,Dover
 904,TCs,Dover,Windham,2020-02-21,2020,2020-02,150,True,Dover
 1485,ROLANDS-Lifecycle,East Barre,Washington,2026-01-23,2026,2026-01,10,True,Barre Town
-1142,Burke Academy,East Burke,Caledonia,2026-09-02,2026,2026-09,50,True,Burke
-1142,Burke Academy,East Burke,Caledonia,2026-04-24,2026,2026-04,125,True,Burke
-1142,Burke Academy,East Burke,Caledonia,2026-01-20,2026,2026-01,10,True,Burke
-1142,Burke Academy,East Burke,Caledonia,2025-11-10,2025,2025-11,35,True,Burke
-1142,Burke Academy,East Burke,Caledonia,2025-04-21,2025,2025-04,55,True,Burke
-1142,Burke Academy,East Burke,Caledonia,2024-12-14,2024,2024-12,10,True,Burke
-1142,Burke Academy,East Burke,Caledonia,2024-10-16,2024,2024-10,15,True,Burke
-1142,Burke Academy,East Burke,Caledonia,2024-09-12,2024,2024-09,25,True,Burke
-1142,Burke Academy,East Burke,Caledonia,2024-07-15,2024,2024-07,10,True,Burke
-1142,Burke Academy,East Burke,Caledonia,2024-05-01,2024,2024-05,50,True,Burke
-1142,Burke Academy,East Burke,Caledonia,2024-01-04,2024,2024-01,20,True,Burke
-1142,Burke Academy,East Burke,Caledonia,2023-11-14,2023,2023-11,50,True,Burke
-1142,Burke Academy,East Burke,Caledonia,2023-06-27,2023,2023-06,20,True,Burke
-1142,Burke Academy,East Burke,Caledonia,2023-04-03,2023,2023-04,15,True,Burke
-1142,Burke Academy,East Burke,Caledonia,2023-02-14,2023,2023-02,40,True,Burke
-1142,Burke Academy,East Burke,Caledonia,2022-12-22,2022,2022-12,25,True,Burke
-1142,Burke Academy,East Burke,Caledonia,2022-10-10,2022,2022-10,35,True,Burke
+1142,Burke Academy -Clamping Ring,East Burke,Caledonia,2026-09-02,2026,2026-09,50,True,Burke
+1142,Burke Academy -Clamping Ring,East Burke,Caledonia,2026-04-24,2026,2026-04,125,True,Burke
+1142,Burke Academy -Clamping Ring,East Burke,Caledonia,2026-01-20,2026,2026-01,10,True,Burke
+1142,Burke Academy -Clamping Ring,East Burke,Caledonia,2025-11-10,2025,2025-11,35,True,Burke
+1142,Burke Academy -Clamping Ring,East Burke,Caledonia,2025-04-21,2025,2025-04,55,True,Burke
+1142,Burke Academy -Clamping Ring,East Burke,Caledonia,2024-12-14,2024,2024-12,10,True,Burke
+1142,Burke Academy -Clamping Ring,East Burke,Caledonia,2024-10-16,2024,2024-10,15,True,Burke
+1142,Burke Academy -Clamping Ring,East Burke,Caledonia,2024-09-12,2024,2024-09,25,True,Burke
+1142,Burke Academy -Clamping Ring,East Burke,Caledonia,2024-07-15,2024,2024-07,10,True,Burke
+1142,Burke Academy -Clamping Ring,East Burke,Caledonia,2024-05-01,2024,2024-05,50,True,Burke
+1142,Burke Academy -Clamping Ring,East Burke,Caledonia,2024-01-04,2024,2024-01,20,True,Burke
+1142,Burke Academy -Clamping Ring,East Burke,Caledonia,2023-11-14,2023,2023-11,50,True,Burke
+1142,Burke Academy -Clamping Ring,East Burke,Caledonia,2023-06-27,2023,2023-06,20,True,Burke
+1142,Burke Academy -Clamping Ring,East Burke,Caledonia,2023-04-03,2023,2023-04,15,True,Burke
+1142,Burke Academy -Clamping Ring,East Burke,Caledonia,2023-02-14,2023,2023-02,40,True,Burke
+1142,Burke Academy -Clamping Ring,East Burke,Caledonia,2022-12-22,2022,2022-12,25,True,Burke
+1142,Burke Academy -Clamping Ring,East Burke,Caledonia,2022-10-10,2022,2022-10,35,True,Burke
 1186,East Burke School,East Burke,Caledonia,2022-10-10,2022,2022-10,5,True,Burke
 1370,The Coffee Cabin,East Haven,Caledonia,2025-06-27,2025,2025-06,10,True,East Haven
 1370,The Coffee Cabin,East Haven,Caledonia,2025-06-09,2025,2025-06,35,True,East Haven
@@ -7238,6 +7242,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1156,Hannafords-Essex Jct,Essex Junction,Chittenden,2022-10-14,2022,2022-10,34,True,Essex Junction
 1156,Hannafords-Essex Jct,Essex Junction,Chittenden,2022-09-16,2022,2022-09,51,True,Essex Junction
 1156,Hannafords-Essex Jct,Essex Junction,Chittenden,2022-08-17,2022,2022-08,80,True,Essex Junction
+409,Mad Taco-Essex Jct,Essex Junction,Chittenden,2026-10-29,2026,2026-10,100,True,Essex Junction
 409,Mad Taco-Essex Jct,Essex Junction,Chittenden,2026-04-21,2026,2026-04,25,True,Essex Junction
 409,Mad Taco-Essex Jct,Essex Junction,Chittenden,2026-01-29,2026,2026-01,120,True,Essex Junction
 409,Mad Taco-Essex Jct,Essex Junction,Chittenden,2025-12-04,2025,2025-12,40,True,Essex Junction
@@ -7256,6 +7261,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 409,Mad Taco-Essex Jct,Essex Junction,Chittenden,2020-01-09,2020,2020-01,40,True,Essex Junction
 409,Mad Taco-Essex Jct,Essex Junction,Chittenden,2019-07-09,2019,2019-07,25,True,Essex Junction
 409,Mad Taco-Essex Jct,Essex Junction,Chittenden,2019-02-11,2019,2019-02,55,True,Essex Junction
+447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2026-10-29,2026,2026-10,180,True,Essex Junction
 447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2026-10-05,2026,2026-10,125,True,Essex Junction
 447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2026-09-17,2026,2026-09,70,True,Essex Junction
 447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2026-08-21,2026,2026-08,75,True,Essex Junction
@@ -7436,6 +7442,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1248,Sparky’s BBQ and Grill- 1977,Essex Junction,Chittenden,2025-01-16,2025,2025-01,55,True,Essex Junction
 1248,Sparky’s BBQ and Grill- 1977,Essex Junction,Chittenden,2023-10-20,2023,2023-10,55,True,Essex Junction
 1248,Sparky’s BBQ and Grill- 1977,Essex Junction,Chittenden,2023-07-21,2023,2023-07,90,True,Essex Junction
+411,Vespa Pizza,Essex Junction,Chittenden,2026-10-29,2026,2026-10,40,True,Essex Junction
 411,Vespa Pizza,Essex Junction,Chittenden,2026-09-17,2026,2026-09,60,True,Essex Junction
 411,Vespa Pizza,Essex Junction,Chittenden,2026-08-11,2026,2026-08,40,True,Essex Junction
 411,Vespa Pizza,Essex Junction,Chittenden,2026-07-13,2026,2026-07,35,True,Essex Junction
@@ -9064,7 +9071,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 910,The Hatchery,Ludlow,Windsor,2020-10-21,2020,2020-10,315,True,Ludlow
 910,The Hatchery,Ludlow,Windsor,2020-09-29,2020,2020-09,220,True,Ludlow
 910,The Hatchery,Ludlow,Windsor,2017-01-31,2017,2017-01,35,True,Ludlow
-1453,Jeffrey Burger - Lyndonville,Lyndonville,Caledonia,2025-11-10,2025,2025-11,10,True,Lyndon
 1465,Lyndonville Station Irving,Lyndonville,Caledonia,2026-10-06,2026,2026-10,50,True,Lyndon
 1465,Lyndonville Station Irving,Lyndonville,Caledonia,2026-07-02,2026,2026-07,50,True,Lyndon
 1465,Lyndonville Station Irving,Lyndonville,Caledonia,2026-02-09,2026,2026-02,15,True,Lyndon
@@ -11648,6 +11654,8 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 150,West View Meadows,Montpelier,Washington,2016-02-11,2016,2016-02,15,True,Montpelier
 150,West View Meadows,Montpelier,Washington,2015-07-09,2015,2015-07,20,True,Montpelier
 150,West View Meadows,Montpelier,Washington,2015-03-06,2015,2015-03,16,True,Montpelier
+1289,Woodbelly Pizza,Montpelier,Washington,2026-10-29,2026,2026-10,25,True,Montpelier
+1289,Woodbelly Pizza,Montpelier,Washington,2024-05-20,2024,2024-05,20,True,Montpelier
 510,10 Railroad Street,Morristown,Lamoille,2026-06-29,2026,2026-06,40,True,Morristown
 510,10 Railroad Street,Morristown,Lamoille,2026-05-27,2026,2026-05,70,True,Morristown
 510,10 Railroad Street,Morristown,Lamoille,2026-05-01,2026,2026-05,50,True,Morristown
@@ -13859,7 +13867,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 284,Big Spruce,Richmond,Chittenden,2021-01-25,2021,2021-01,65,True,Richmond
 284,Big Spruce,Richmond,Chittenden,2020-12-22,2020,2020-12,65,True,Richmond
 284,Big Spruce,Richmond,Chittenden,2020-12-01,2020,2020-12,50,True,Richmond
-282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2026-10-29,2026,2026-10,80,True,Richmond
+282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2026-10-29,2026,2026-10,100,True,Richmond
 282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2026-10-05,2026,2026-10,100,True,Richmond
 282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2026-08-28,2026,2026-08,50,True,Richmond
 282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2026-08-03,2026,2026-08,40,True,Richmond
@@ -15096,6 +15104,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1080,JavierBillsAlmostMexican/PicaPica,St. Johnsbury,Caledonia,2022-12-22,2022,2022-12,40,True,Saint Johnsbury
 1080,JavierBillsAlmostMexican/PicaPica,St. Johnsbury,Caledonia,2021-11-09,2021,2021-11,60,True,Saint Johnsbury
 1519,Swing Sportsplex,St. Johnsbury,Caledonia,2026-09-28,2026,2026-09,20,True,Saint Johnsbury
+1415,The Buttery,St. Johnsbury,Caledonia,2026-10-30,2026,2026-10,15,True,Saint Johnsbury
 1415,The Buttery,St. Johnsbury,Caledonia,2026-09-28,2026,2026-09,25,True,Saint Johnsbury
 1415,The Buttery,St. Johnsbury,Caledonia,2026-07-21,2026,2026-07,15,True,Saint Johnsbury
 1415,The Buttery,St. Johnsbury,Caledonia,2026-06-19,2026,2026-06,15,True,Saint Johnsbury
@@ -24814,6 +24823,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1010,Janna Sedgwick (Groton),Burlington,Chittenden,2018-06-11,2018,2018-06,250,False,Burlington
 1125,Jason Hill,Burlington,Chittenden,2022-08-15,2022,2022-08,500,False,Burlington
 1125,Jason Hill,Burlington,Chittenden,2022-06-30,2022,2022-06,600,False,Burlington
+1453,Jeffrey Burger - Lyndonville,Lyndonville,Caledonia,2025-11-10,2025,2025-11,10,False,Lyndon
 907,JJ Happgood,Burlington,Chittenden,2021-03-21,2021,2021-03,5,False,Burlington
 907,JJ Happgood,Burlington,Chittenden,2020-12-02,2020,2020-12,50,False,Burlington
 907,JJ Happgood,Burlington,Chittenden,2020-07-17,2020,2020-07,100,False,Burlington
@@ -27851,7 +27861,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 618,Wildflower Inn,Lyndonville,Caledonia,2018-07-09,2018,2018-07,100,False,Lyndon
 618,Wildflower Inn,Lyndonville,Caledonia,2018-05-09,2018,2018-05,150,False,Lyndon
 1013,Will Warren,Burlington,Chittenden,2019-02-22,2019,2019-02,300,False,Burlington
-1289,Woodbelly Pizza,Montpelier,Washington,2024-05-20,2024,2024-05,20,False,Montpelier
 362,Wooden Spoon Bistro,Burlington,Chittenden,2016-08-20,2016,2016-08,40,False,Burlington
 362,Wooden Spoon Bistro,Burlington,Chittenden,2016-07-03,2016,2016-07,25,False,Burlington
 362,Wooden Spoon Bistro,Burlington,Chittenden,2016-05-28,2016,2016-05,30,False,Burlington
