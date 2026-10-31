@@ -802,6 +802,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 118,Spaulding High School,Barre,Washington,2017-05-17,2017,2017-05,100,True,Barre City
 118,Spaulding High School,Barre,Washington,2016-06-27,2016,2016-06,30,True,Barre City
 118,Spaulding High School,Barre,Washington,2015-10-13,2015,2015-10,20,True,Barre City
+1401,Tasty Bites,Barre,Washington,2026-10-30,2026,2026-10,70,True,Barre City
 1401,Tasty Bites,Barre,Washington,2026-09-29,2026,2026-09,40,True,Barre City
 1401,Tasty Bites,Barre,Washington,2026-09-09,2026,2026-09,40,True,Barre City
 1401,Tasty Bites,Barre,Washington,2026-08-18,2026,2026-08,40,True,Barre City
@@ -6048,6 +6049,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1134,Willows Bagels,Burlington,Chittenden,2022-11-09,2022,2022-11,40,True,Burlington
 1134,Willows Bagels,Burlington,Chittenden,2022-09-16,2022,2022-09,45,True,Burlington
 606,Cabot Village Store,Cabot,Caledonia,2017-03-30,2017,2017-03,15,True,Cabot
+1280,JETS BRUNCH/Headwaters-Cabot,Cabot,Caledonia,2026-10-30,2026,2026-10,30,True,Cabot
 1280,JETS BRUNCH/Headwaters-Cabot,Cabot,Caledonia,2026-09-02,2026,2026-09,20,True,Cabot
 1280,JETS BRUNCH/Headwaters-Cabot,Cabot,Caledonia,2026-07-21,2026,2026-07,50,True,Cabot
 1280,JETS BRUNCH/Headwaters-Cabot,Cabot,Caledonia,2026-05-04,2026,2026-05,65,True,Cabot
@@ -6563,6 +6565,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1433,Three Brothers Pizza-Colchester,Colchester,Chittenden,2025-09-16,2025,2025-09,50,True,Colchester
 1433,Three Brothers Pizza-Colchester,Colchester,Chittenden,2025-07-03,2025,2025-07,20,True,Colchester
 1433,Three Brothers Pizza-Colchester,Colchester,Chittenden,2025-05-30,2025,2025-05,85,True,Colchester
+1349,"Concord, Vt Gas Station",Concord,Caledonia,2026-10-30,2026,2026-10,60,True,Concord
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2026-10-06,2026,2026-10,75,True,Concord
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2026-09-02,2026,2026-09,30,True,Concord
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2026-08-18,2026,2026-08,70,True,Concord
@@ -6581,6 +6584,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2024-12-14,2024,2024-12,30,True,Concord
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2024-11-07,2024,2024-11,85,True,Concord
 1349,"Concord, Vt Gas Station",Concord,Caledonia,2024-08-21,2024,2024-08,50,True,Concord
+617,Moose Look Diner,Concord,Caledonia,2026-10-30,2026,2026-10,70,True,Concord
 617,Moose Look Diner,Concord,Caledonia,2026-09-28,2026,2026-09,60,True,Concord
 617,Moose Look Diner,Concord,Caledonia,2026-09-02,2026,2026-09,100,True,Concord
 617,Moose Look Diner,Concord,Caledonia,2026-07-21,2026,2026-07,60,True,Concord
@@ -6944,6 +6948,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 904,TCs,Dover,Windham,2020-03-27,2020,2020-03,175,True,Dover
 904,TCs,Dover,Windham,2020-02-21,2020,2020-02,150,True,Dover
 1485,ROLANDS-Lifecycle,East Barre,Washington,2026-01-23,2026,2026-01,10,True,Barre Town
+1142,Burke Academy -Clamping Ring,East Burke,Caledonia,2026-10-30,2026,2026-10,40,True,Burke
 1142,Burke Academy -Clamping Ring,East Burke,Caledonia,2026-09-02,2026,2026-09,50,True,Burke
 1142,Burke Academy -Clamping Ring,East Burke,Caledonia,2026-04-24,2026,2026-04,125,True,Burke
 1142,Burke Academy -Clamping Ring,East Burke,Caledonia,2026-01-20,2026,2026-01,10,True,Burke
@@ -6962,6 +6967,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1142,Burke Academy -Clamping Ring,East Burke,Caledonia,2022-12-22,2022,2022-12,25,True,Burke
 1142,Burke Academy -Clamping Ring,East Burke,Caledonia,2022-10-10,2022,2022-10,35,True,Burke
 1186,East Burke School,East Burke,Caledonia,2022-10-10,2022,2022-10,5,True,Burke
+1528,Orange Rind-East Burke,East Burke,Caledonia,2026-10-30,2026,2026-10,20,True,Burke
 1370,The Coffee Cabin,East Haven,Caledonia,2025-06-27,2025,2025-06,10,True,East Haven
 1370,The Coffee Cabin,East Haven,Caledonia,2025-06-09,2025,2025-06,35,True,East Haven
 1370,The Coffee Cabin,East Haven,Caledonia,2025-05-05,2025,2025-05,45,True,East Haven
@@ -8403,6 +8409,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 515,Two Sons Bakery/Fork and Gavel-HydePark,Hyde Park,Lamoille,2019-12-06,2019,2019-12,40,True,Hyde Park
 515,Two Sons Bakery/Fork and Gavel-HydePark,Hyde Park,Lamoille,2019-09-13,2019,2019-09,50,True,Hyde Park
 515,Two Sons Bakery/Fork and Gavel-HydePark,Hyde Park,Lamoille,2019-04-30,2019,2019-04,25,True,Hyde Park
+547,Essex House and Tavern,Island Pond,Essex,2026-10-30,2026,2026-10,100,True,Brighton
 547,Essex House and Tavern,Island Pond,Essex,2026-08-18,2026,2026-08,220,True,Brighton
 547,Essex House and Tavern,Island Pond,Essex,2026-04-24,2026,2026-04,150,True,Brighton
 547,Essex House and Tavern,Island Pond,Essex,2026-02-20,2026,2026-02,185,True,Brighton
@@ -9071,6 +9078,8 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 910,The Hatchery,Ludlow,Windsor,2020-10-21,2020,2020-10,315,True,Ludlow
 910,The Hatchery,Ludlow,Windsor,2020-09-29,2020,2020-09,220,True,Ludlow
 910,The Hatchery,Ludlow,Windsor,2017-01-31,2017,2017-01,35,True,Ludlow
+1539,Lunenburg Station,Burlington,Chittenden,2026-10-30,2026,2026-10,65,True,Burlington
+1465,Lyndonville Station Irving,Lyndonville,Caledonia,2026-10-30,2026,2026-10,20,True,Lyndon
 1465,Lyndonville Station Irving,Lyndonville,Caledonia,2026-10-06,2026,2026-10,50,True,Lyndon
 1465,Lyndonville Station Irving,Lyndonville,Caledonia,2026-07-02,2026,2026-07,50,True,Lyndon
 1465,Lyndonville Station Irving,Lyndonville,Caledonia,2026-02-09,2026,2026-02,15,True,Lyndon
@@ -9248,6 +9257,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 734,Manchester Hockeypas-0150,Manchester Center,Bennington,2022-09-02,2022,2022-09,50,True,Manchester
 734,Manchester Hockeypas-0150,Manchester Center,Bennington,2020-07-17,2020,2020-07,50,True,Manchester
 734,Manchester Hockeypas-0150,Manchester Center,Bennington,2019-07-07,2019,2019-07,25,True,Manchester
+608,Rivers Edge Store-Marshfield,Marshfield,Caledonia,2026-10-30,2026,2026-10,15,True,Marshfield
 608,Rivers Edge Store-Marshfield,Marshfield,Caledonia,2026-06-19,2026,2026-06,10,True,Marshfield
 608,Rivers Edge Store-Marshfield,Marshfield,Caledonia,2026-03-19,2026,2026-03,30,True,Marshfield
 608,Rivers Edge Store-Marshfield,Marshfield,Caledonia,2025-10-04,2025,2025-10,65,True,Marshfield
@@ -10710,6 +10720,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1209,MJH Massage,Montpelier,Washington,2024-09-24,2024,2024-09,10,True,Montpelier
 1209,MJH Massage,Montpelier,Washington,2023-08-09,2023,2023-08,10,True,Montpelier
 1209,MJH Massage,Montpelier,Washington,2023-01-18,2023,2023-01,7,True,Montpelier
+131,Namaste ~ 33%,Montpelier,Washington,2026-10-30,2026,2026-10,50,True,Montpelier
 131,Namaste ~ 33%,Montpelier,Washington,2026-10-12,2026,2026-10,40,True,Montpelier
 131,Namaste ~ 33%,Montpelier,Washington,2026-09-29,2026,2026-09,33,True,Montpelier
 131,Namaste ~ 33%,Montpelier,Washington,2026-09-18,2026,2026-09,20,True,Montpelier
@@ -11441,6 +11452,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 157,State House,Montpelier,Washington,2023-05-18,2023,2023-05,45,True,Montpelier
 157,State House,Montpelier,Washington,2023-01-04,2023,2023-01,50,True,Montpelier
 157,State House,Montpelier,Washington,2020-04-29,2020,2020-04,50,True,Montpelier
+130,Three Penny Taproom 67%,Montpelier,Washington,2026-10-30,2026,2026-10,150,True,Montpelier
 130,Three Penny Taproom 67%,Montpelier,Washington,2026-10-12,2026,2026-10,80,True,Montpelier
 130,Three Penny Taproom 67%,Montpelier,Washington,2026-09-29,2026,2026-09,67,True,Montpelier
 130,Three Penny Taproom 67%,Montpelier,Washington,2026-09-18,2026,2026-09,40,True,Montpelier
@@ -15045,6 +15057,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 418,Nelly's,St. Albans City,Franklin,2019-01-22,2019,2019-01,50,True,Saint Albans City
 1429,Rail City Grill,St. Albans City,Franklin,2025-08-01,2025,2025-08,65,True,Saint Albans City
 1429,Rail City Grill,St. Albans City,Franklin,2025-07-11,2025,2025-07,85,True,Saint Albans City
+1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2026-10-30,2026,2026-10,110,True,Saint Johnsbury
 1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2026-09-28,2026,2026-09,70,True,Saint Johnsbury
 1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2026-09-02,2026,2026-09,40,True,Saint Johnsbury
 1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2026-08-18,2026,2026-08,100,True,Saint Johnsbury
@@ -15085,6 +15098,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2023-08-21,2023,2023-08,30,True,Saint Johnsbury
 1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2023-08-01,2023,2023-08,90,True,Saint Johnsbury
 1249,98 Mill St -St Johnsbury,St. Johnsbury,Caledonia,2023-06-27,2023,2023-06,65,True,Saint Johnsbury
+1293,Center Tower - St. J,St. Johnsbury,Caledonia,2026-10-30,2026,2026-10,65,True,Saint Johnsbury
 1293,Center Tower - St. J,St. Johnsbury,Caledonia,2026-09-02,2026,2026-09,85,True,Saint Johnsbury
 1293,Center Tower - St. J,St. Johnsbury,Caledonia,2026-06-19,2026,2026-06,35,True,Saint Johnsbury
 1293,Center Tower - St. J,St. Johnsbury,Caledonia,2026-05-22,2026,2026-05,70,True,Saint Johnsbury
@@ -15116,6 +15130,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1415,The Buttery,St. Johnsbury,Caledonia,2025-06-27,2025,2025-06,20,True,Saint Johnsbury
 1415,The Buttery,St. Johnsbury,Caledonia,2025-05-14,2025,2025-05,10,True,Saint Johnsbury
 1415,The Buttery,St. Johnsbury,Caledonia,2025-04-08,2025,2025-04,20,True,Saint Johnsbury
+1542,The DisPencery @ AAP,St. Johnsbury,Caledonia,2026-10-30,2026,2026-10,100,True,Saint Johnsbury
 1118,Aladdin,Stowe,Lamoille,2026-08-19,2026,2026-08,40,True,Stowe
 1118,Aladdin,Stowe,Lamoille,2026-04-29,2026,2026-04,20,True,Stowe
 1118,Aladdin,Stowe,Lamoille,2025-11-18,2025,2025-11,40,True,Stowe
@@ -21941,8 +21956,8 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 905,Haystack Golf course,Wilmington,Windham,2021-09-07,2021,2021-09,155,True,Wilmington
 905,Haystack Golf course,Wilmington,Windham,2021-08-24,2021,2021-08,100,True,Wilmington
 905,Haystack Golf course,Wilmington,Windham,2020-12-02,2020,2020-12,150,True,Wilmington
-1129,Hog back Mountain country store,Wilmington,Windham,2025-07-23,2025,2025-07,50,True,Wilmington
-1129,Hog back Mountain country store,Wilmington,Windham,2024-07-16,2024,2024-07,60,True,Wilmington
+1129,Hog back Mountain (Collect July)country store,Wilmington,Windham,2025-07-23,2025,2025-07,50,True,Wilmington
+1129,Hog back Mountain (Collect July)country store,Wilmington,Windham,2024-07-16,2024,2024-07,60,True,Wilmington
 1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-10-28,2026,2026-10,110,True,Winooski
 1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-09-16,2026,2026-09,130,True,Winooski
 1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-08-11,2026,2026-08,80,True,Winooski

@@ -388,7 +388,18 @@ pickup_date,customer_id,member_ids,customer,town,stage,status,section,previous_p
 2026-10-29,411,411,Vespa Pizza,Essex Junction,established,50/50 default,ranked,2026-09-17,2026-10-29,2026-10-29,54.4,42.7,66.2,60.5,40,14.4,36.0,20.5
 2026-10-29,447,447,McGillicuddy's Five Corners,Essex Junction,established,50/50 default,ranked,2026-10-05,2026-10-29,2026-10-29,103.3,76.6,130.0,119.4,180,-76.7,-42.6,-60.6
 2026-10-29,703,703,Philo Ridge Farm,Charlotte,established,will-call (detected),will-call,2026-07-06,2026-10-29,2026-10-29,,,,,135,,,
+2026-10-30,130,130;131,Three Penny Taproom + Namaste,Montpelier,established,50/50 default,ranked,2026-10-12,2026-10-30,2026-10-30,142.0,93.5,190.5,150.6,200,-58.0,-29.0,-49.4
+2026-10-30,547,547,Essex House and Tavern,Brighton,established,50/50 default,ranked,2026-08-18,2026-10-30,2026-10-30,164.5,127.7,165,158.1,100,64.5,64.5,58.1
+2026-10-30,608,608,Rivers Edge Store-Marshfield,Marshfield,established,50/50 default,ranked,2026-06-19,2026-10-30,2026-10-30,31.7,23.8,46.0,30.2,15,16.7,111.3,15.2
 2026-10-30,610,610,GoodFellas / Nacho Mama,Danville,established,50/50 default,ranked,2026-09-28,2026-10-29,2026-10-29,66.4,38.2,94.7,56.3,60,6.4,10.7,-3.7
 2026-10-30,611,611,Three Ponds,Danville,established,50/50 default,ranked,2026-09-28,2026-10-29,2026-10-29,40.8,30.6,59.1,35.8,35,5.8,16.6,0.8
+2026-10-30,617,617,Moose Look Diner,Concord,established,50/50 default,ranked,2026-09-28,2026-10-30,2026-10-30,75.5,56.7,94.4,66.6,70,5.5,7.9,-3.4
 2026-10-30,1094,1094,HUANGS NOODLE/Papa Tirozzi’s-Danville,Danville,established,50/50 default,ranked,2026-09-28,2026-10-29,2026-10-29,25.5,19.1,37.0,20.8,15,10.5,70.0,5.8
+2026-10-30,1142,1142,Burke Academy -Clamping Ring,Burke,new,50/50 default,ranked,2026-09-02,2026-10-30,2026-10-30,40.7,28.8,54.9,36.2,40,0.7,1.8,-3.8
+2026-10-30,1249,1249,98 Mill St -St Johnsbury,Saint Johnsbury,established,50/50 default,ranked,2026-09-28,2026-10-30,2026-10-30,79.1,59.4,114.7,78.9,110,-30.9,-28.1,-31.1
+2026-10-30,1280,1280,JETS BRUNCH/Headwaters-Cabot,Cabot,new,50/50 default,ranked,2026-09-02,2026-10-30,2026-10-30,41.2,24.7,67.5,33.6,30,11.2,37.3,3.6
+2026-10-30,1293,1293,Center Tower - St. J,Saint Johnsbury,new,50/50 default,ranked,2026-09-02,2026-10-30,2026-10-30,75.6,52.9,102.1,69.6,65,10.6,16.3,4.6
+2026-10-30,1349,1349,"Concord, Vt Gas Station",Concord,established,50/50 default,ranked,2026-10-06,2026-10-30,2026-10-30,47.6,35.7,68.9,39.0,60,-12.4,-20.7,-21.0
+2026-10-30,1401,1401,Tasty Bites,Barre City,established,50/50 default,ranked,2026-09-29,2026-10-30,2026-10-30,45.1,33.8,65.4,46.7,70,-24.9,-35.6,-23.3
 2026-10-30,1415,1415,The Buttery,Saint Johnsbury,established,50/50 default,ranked,2026-09-28,2026-10-29,2026-10-29,15.5,11.6,22.5,11.3,15,0.5,3.3,-3.7
+2026-10-30,1465,1465,Lyndonville Station Irving,Lyndon,new,50/50 default,ranked,2026-10-06,2026-10-30,2026-10-30,15.1,10.6,20.4,10.0,20,-4.9,-24.5,-10.0

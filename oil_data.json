@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-30T13:51:28.780433",
+  "last_updated": "2026-10-31T13:19:32.185435",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -33688,7 +33688,7 @@
     {
       "month": "2026-10",
       "geo_town": "Barre City",
-      "gallons": 295,
+      "gallons": 365,
       "city": "Barre City"
     },
     {
@@ -33729,15 +33729,33 @@
     },
     {
       "month": "2026-10",
+      "geo_town": "Brighton",
+      "gallons": 100,
+      "city": "Brighton"
+    },
+    {
+      "month": "2026-10",
       "geo_town": "Bristol",
       "gallons": 85,
       "city": "Bristol"
     },
     {
       "month": "2026-10",
+      "geo_town": "Burke",
+      "gallons": 60,
+      "city": "Burke"
+    },
+    {
+      "month": "2026-10",
       "geo_town": "Burlington",
-      "gallons": 4431,
+      "gallons": 4496,
       "city": "Burlington"
+    },
+    {
+      "month": "2026-10",
+      "geo_town": "Cabot",
+      "gallons": 30,
+      "city": "Cabot"
     },
     {
       "month": "2026-10",
@@ -33760,7 +33778,7 @@
     {
       "month": "2026-10",
       "geo_town": "Concord",
-      "gallons": 75,
+      "gallons": 205,
       "city": "Concord"
     },
     {
@@ -33856,7 +33874,7 @@
     {
       "month": "2026-10",
       "geo_town": "Lyndon",
-      "gallons": 50,
+      "gallons": 70,
       "city": "Lyndon"
     },
     {
@@ -33864,6 +33882,12 @@
       "geo_town": "Manchester",
       "gallons": 355,
       "city": "Manchester"
+    },
+    {
+      "month": "2026-10",
+      "geo_town": "Marshfield",
+      "gallons": 15,
+      "city": "Marshfield"
     },
     {
       "month": "2026-10",
@@ -33886,7 +33910,7 @@
     {
       "month": "2026-10",
       "geo_town": "Montpelier",
-      "gallons": 475,
+      "gallons": 675,
       "city": "Montpelier"
     },
     {
@@ -33928,7 +33952,7 @@
     {
       "month": "2026-10",
       "geo_town": "Saint Johnsbury",
-      "gallons": 15,
+      "gallons": 290,
       "city": "Saint Johnsbury"
     },
     {
@@ -41771,12 +41795,17 @@
     {
       "month": "2026-10",
       "county": "Caledonia",
-      "gallons": 745
+      "gallons": 1275
     },
     {
       "month": "2026-10",
       "county": "Chittenden",
-      "gallons": 9401
+      "gallons": 9466
+    },
+    {
+      "month": "2026-10",
+      "county": "Essex",
+      "gallons": 100
     },
     {
       "month": "2026-10",
@@ -41806,7 +41835,7 @@
     {
       "month": "2026-10",
       "county": "Washington",
-      "gallons": 3735
+      "gallons": 4005
     },
     {
       "month": "2026-10",
@@ -41861,12 +41890,12 @@
     },
     {
       "year": 2026,
-      "gallons": 246960
+      "gallons": 247925
     }
   ],
-  "all_time_total": 2165727,
-  "current_year_total": 246960,
-  "customer_count": 803,
+  "all_time_total": 2166692,
+  "current_year_total": 247925,
+  "customer_count": 806,
   "unmapped_total": 40360,
   "monthly_totals": [
     {
@@ -42435,7 +42464,7 @@
     },
     {
       "month": "2026-10",
-      "gallons": 21904
+      "gallons": 22869
     }
   ],
   "monthly_by_region": [
@@ -54077,12 +54106,12 @@
     {
       "month": "2026-10",
       "region": "Burlington / South Burlington",
-      "gallons": 5176
+      "gallons": 5241
     },
     {
       "month": "2026-10",
       "region": "Central",
-      "gallons": 1590
+      "gallons": 1860
     },
     {
       "month": "2026-10",
@@ -54122,7 +54151,7 @@
     {
       "month": "2026-10",
       "region": "Route 2 East / Route 5",
-      "gallons": 512
+      "gallons": 1142
     },
     {
       "month": "2026-10",
@@ -54132,7 +54161,7 @@
     {
       "month": "2026-10",
       "region": "Ski Slopes",
-      "gallons": 995
+      "gallons": 1035
     },
     {
       "month": "2026-10",
@@ -54167,7 +54196,7 @@
     {
       "month": "2026-10",
       "region": "Winter / Summer Combined",
-      "gallons": 2040
+      "gallons": 2080
     }
   ],
   "yearly_by_region": [
@@ -55199,12 +55228,12 @@
     {
       "year": 2026,
       "region": "Burlington / South Burlington",
-      "gallons": 48638
+      "gallons": 48703
     },
     {
       "year": 2026,
       "region": "Central",
-      "gallons": 24222
+      "gallons": 24492
     },
     {
       "year": 2026,
@@ -55244,7 +55273,7 @@
     {
       "year": 2026,
       "region": "Route 2 East / Route 5",
-      "gallons": 10096
+      "gallons": 10726
     },
     {
       "year": 2026,
@@ -55254,7 +55283,7 @@
     {
       "year": 2026,
       "region": "Ski Slopes",
-      "gallons": 16720
+      "gallons": 16760
     },
     {
       "year": 2026,
@@ -55289,7 +55318,7 @@
     {
       "year": 2026,
       "region": "Winter / Summer Combined",
-      "gallons": 30110
+      "gallons": 30150
     }
   ],
   "region_names": [
@@ -55302,8 +55331,8 @@
     "Northwest",
     "Central South",
     "Route 15",
-    "Route 7",
     "Route 2 East / Route 5",
+    "Route 7",
     "Warren / Waitsfield",
     "Southern Ski Slopes",
     "South",
@@ -55338,25 +55367,25 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 27882,
+  "collections_count": 27897,
   "out_of_state_total": 40360,
-  "active_customer_count": 528,
+  "active_customer_count": 531,
   "projection": {
     "latest_data_date": "2026-10-30",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 246960,
+    "current_ytd": 247925,
     "previous_year_full": 269909,
     "previous_through_prior_month": 208859,
     "previous_same_month_total": 21968,
     "previous_prorated_ytd": 230118.35,
-    "projected_current_year": 289663,
-    "percent_vs_previous_year": 0.073187
+    "projected_current_year": 290795,
+    "percent_vs_previous_year": 0.07738
   },
   "region_stats": {
     "Burlington / South Burlington": {
-      "customers": 239,
-      "active": 88
+      "customers": 240,
+      "active": 89
     },
     "Central": {
       "customers": 98,
@@ -55391,8 +55420,8 @@
       "active": 31
     },
     "Route 2 East / Route 5": {
-      "customers": 45,
-      "active": 32
+      "customers": 47,
+      "active": 34
     },
     "Route 7": {
       "customers": 50,
@@ -55511,10 +55540,10 @@
     },
     {
       "year": 2026,
-      "places_serviced": 475,
-      "gained": 41,
+      "places_serviced": 478,
+      "gained": 44,
       "lost": 9,
-      "net": 32
+      "net": 35
     }
   ],
   "dormant_cutoff": "2025-01-01",
@@ -55758,7 +55787,8 @@
       1507,
       1509,
       1510,
-      1529
+      1529,
+      1539
     ],
     "Central": [
       101,
@@ -56156,7 +56186,9 @@
       1461,
       1465,
       1467,
-      1519
+      1519,
+      1528,
+      1542
     ],
     "Route 7": [
       370,
