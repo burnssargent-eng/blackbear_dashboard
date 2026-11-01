@@ -12,7 +12,8 @@ customer page (GET only) and keeps:
   notes    the page's Notes line (directions, where the barrel is)
   photos   file names of the barrel-location photos in the site's uploads/
            folder; the shadow site shows them from there, nothing is copied
-Phone numbers are never kept.
+Phone numbers are never kept here (--sweep reads the Phone field into its own
+private file).
 
 PRIVACY: neither output is committed (step 6, 2026-10-24). Addresses and notes
 live only in the shared database; the nightly writes customer_details.json from
@@ -25,7 +26,8 @@ database are read here, and supabase_sync.py writes them back.
 
 --sweep (Sarge, 2026-11-01) brings in address and notes edits made on the
 source site after a customer reached the database. It reads every active
-customer's page into jamaal_sweep.local.json (full notes, codes included:
+customer's page into jamaal_sweep.local.json (full notes, codes included, and
+the Phone field:
 gitignored, never committed) and touches nothing else; supabase_sync.py
 --sweep then decides what changes.
 
@@ -61,6 +63,7 @@ LATLON_RE = re.compile(r'latlon\s*=\s*"(-?[\d.]*),(-?[\d.]*)"')
 PLACE_RE = re.compile(r'maps/place/([^"\']*)')
 NOTES_RE = re.compile(r"Notes:(.*?)<br", re.S)
 PHOTO_RE = re.compile(r"src='uploads/([^']+)'")
+TEL_RE = re.compile(r'<a href="tel:([^"]*)"')
 
 
 class CustomerPageError(Exception):
@@ -89,6 +92,14 @@ def parse_extras(html):
     notes = scrub(raw_notes(html))
     photos = list(dict.fromkeys(PHOTO_RE.findall(html)))
     return notes, photos
+
+
+def page_phone(html):
+    """The page's Phone field as +1XXXXXXXXXX, or "" when it has none or not 10 digits."""
+    m = TEL_RE.search(html)
+    d = re.sub(r"\D", "", m.group(1)) if m else ""
+    d = d[1:] if len(d) == 11 and d.startswith("1") else d
+    return f"+1{d}" if len(d) == 10 else ""
 
 
 def parse_customer_page(html):
@@ -155,8 +166,8 @@ def town_centres():
 
 def sweep(assign, out=SWEEP_FILE, get=None, delay=DELAY_SEC):
     """
-    Every active customer's address, the site's stored position (or none) and
-    full notes, as the source site shows them now. A page that fails to load
+    Every active customer's address, the site's stored position (or none),
+    full notes and Phone field, as the source site shows them now. A page that fails to load
     is left out (the sync then leaves that customer alone); a page that is not
     a customer page stops the sweep with nothing written.
     """
@@ -174,7 +185,8 @@ def sweep(assign, out=SWEEP_FILE, get=None, delay=DELAY_SEC):
             failed += 1
             continue
         address, lat, lon = parse_customer_page(resp.text)
-        customers[cid] = {"address": address, "lat": lat, "lon": lon, "notes": raw_notes(resp.text)}
+        customers[cid] = {"address": address, "lat": lat, "lon": lon, "notes": raw_notes(resp.text),
+                          "phone": page_phone(resp.text)}
         if i < len(assign) - 1:
             time.sleep(delay)
     write_atomic(out, {"read_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),

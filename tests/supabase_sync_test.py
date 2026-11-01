@@ -310,10 +310,12 @@ ok(open(ss.OIL_LEFT_FILE).readline().strip() == "customer_id,date,gallons_left",
 import jamaal_customers as jc  # noqa: E402
 
 pin = lambda row, seen: (seen["lat"], seen["lon"], "site") if seen.get("lat") is not None else None
-base = {"name": "X", "city": "Barre", "lat": 1.0, "lon": 2.0, "loc": "census"}
+base = {"name": "X", "city": "Barre", "lat": 1.0, "lon": 2.0, "loc": "census", "phone": "", "jamaal_phone": ""}
 rows = [
-    {**base, "id": 1, "address": "1 Main St", "notes": "back door", "jamaal_address": None, "jamaal_notes": None},
-    {**base, "id": 2, "address": "2 Main St, VT 05641", "notes": "n", "jamaal_address": None, "jamaal_notes": None},
+    {**base, "id": 1, "address": "1 Main St", "notes": "back door", "jamaal_address": None, "jamaal_notes": None,
+     "jamaal_phone": None},
+    {**base, "id": 2, "address": "2 Main St, VT 05641", "notes": "n", "jamaal_address": None, "jamaal_notes": None,
+     "jamaal_phone": None, "phone": "+18025550000"},
     {**base, "id": 3, "address": "3 Main St", "notes": "old", "jamaal_address": "3 Main St", "jamaal_notes": "old"},
     {**base, "id": 4, "address": "4 Elm St, reviewed", "notes": "edited here", "jamaal_address": "4 Elm",
      "jamaal_notes": "old"},
@@ -321,29 +323,46 @@ rows = [
     {**base, "id": 6, "address": "6 Pine", "notes": "", "jamaal_address": "6 Pine", "jamaal_notes": ""},
     {**base, "id": -7, "address": "site-made", "notes": "", "jamaal_address": None, "jamaal_notes": None},
     {**base, "id": 8, "address": "8 Ash", "notes": "", "jamaal_address": "8 Ash", "jamaal_notes": ""},
+    {**base, "id": 9, "address": "9 Elm", "notes": "", "jamaal_address": None, "jamaal_notes": None, "jamaal_phone": None},
+    {**base, "id": 10, "address": "10 Elm", "notes": "", "jamaal_address": "10 Elm", "jamaal_notes": "",
+     "phone": "+18025551111", "jamaal_phone": "+18025551111"},
+    {**base, "id": 11, "address": "11 Elm", "notes": "", "jamaal_address": "11 Elm", "jamaal_notes": "",
+     "phone": "+18025552222", "jamaal_phone": ""},
 ]
 theirs = {
     "1": {"address": "1 Main St", "notes": "back door", "lat": None, "lon": None},
-    "2": {"address": "2 Main St", "notes": "n", "lat": None, "lon": None},
     "3": {"address": "33 Main St", "notes": "new code 1234", "lat": 44.1, "lon": -72.5},
     "4": {"address": "4 Elm Street", "notes": "newer", "lat": None, "lon": None},
     "5": {"address": "", "notes": "", "lat": None, "lon": None},
     "6": {"address": "6 Pine", "notes": "added there", "lat": None, "lon": None},
     "-7": {"address": "x", "notes": "x", "lat": None, "lon": None},
+    "9": {"address": "9 Elm", "notes": "", "phone": "+18025559999", "lat": None, "lon": None},
+    "10": {"address": "10 Elm", "notes": "", "phone": "+18025553333", "lat": None, "lon": None},
+    "11": {"address": "11 Elm", "notes": "", "phone": "+18025554444", "lat": None, "lon": None},
+    "2": {"address": "2 Main St", "notes": "n", "phone": "+18025557777", "lat": None, "lon": None},
 }
-up, rep = ss.sweep_changes(rows, theirs, pin)
-ok(up[1] == {"jamaal_address": "1 Main St", "jamaal_notes": "back door"} and rep["recorded_first_time"] == 2,
+up, rep = ss.sweep_changes(rows, theirs, pin, "2026-11-08")
+ok(up[1] == {"jamaal_address": "1 Main St", "jamaal_notes": "back door", "jamaal_phone": ""}
+   and rep["recorded_first_time"] == 3,
    "the first sweep only records what the source site says")
-ok("address" not in up[2] and rep["differs_at_first_sweep"] == [{"id": 2, "name": "X", "field": "address"}],
+ok("address" not in up[2] and "phone" not in up[2] and rep["differs_at_first_sweep"] ==
+   [{"id": 2, "name": "X", "field": "address"}, {"id": 2, "name": "X", "field": "phone"}],
    "the first sweep never changes ours, and lists where they differ")
 ok(up[3] == {"jamaal_address": "33 Main St", "address": "33 Main St", "lat": 44.1, "lon": -72.5, "loc": "site",
              "jamaal_notes": "new code 1234", "notes": "new code 1234"},
    "an edit there is followed while ours matches its old value; the pin moves to the site's position")
-ok(up[4] == {"jamaal_address": "4 Elm Street", "jamaal_notes": "newer"} and len(rep["kept_ours"]) == 2,
+ok(up[4] == {"jamaal_address": "4 Elm Street", "jamaal_notes": "newer"} and len([x for x in rep["kept_ours"] if x["id"] == 4]) == 2,
    "an edit there never undoes ours: kept and listed")
 ok(5 not in up and len(rep["blank_on_source_site"]) == 2, "a value blanked there is not copied, only listed")
 ok(up[6] == {"jamaal_notes": "added there", "notes": "added there"}, "notes added there later are followed")
 ok(-7 not in up and 8 not in up, "site-made customers and unread pages are left alone")
+ok(up[9] == {"jamaal_address": "9 Elm", "jamaal_notes": "", "jamaal_phone": "+18025559999", "phone": "+18025559999",
+             "phone_source": "jamaal", "phone_checked": "2026-11-08"},
+   "a customer with no phone takes the source site's, first sweep included")
+ok(up[10] == {"jamaal_phone": "+18025553333", "phone": "+18025553333", "phone_source": "jamaal",
+              "phone_checked": "2026-11-08"}, "a phone changed there follows while ours was its old one")
+ok(up[11] == {"jamaal_phone": "+18025554444"} and {"id": 11, "name": "X", "field": "phone"}.items()
+   <= next(x for x in rep["kept_ours"] if x["id"] == 11).items(), "a phone found elsewhere is kept when one appears there")
 ok(ss.sweep_changes([{**r, **up.get(r["id"], {})} for r in rows], theirs, pin)[0] == {},
    "a second sweep with nothing new changes nothing")
 
@@ -351,6 +370,8 @@ sweep_db = FakeDb({"customers": [dict(r) for r in rows], "sync_reports": []})
 sweep_file = os.path.join(tmp, "sweep.local.json")
 json.dump({"read_at": "2026-11-08T07:00:00+00:00", "customers": theirs}, open(sweep_file, "w"))
 srep = ss.sweep_details(sweep_db, sweep_file)
+c9 = next(r for r in sweep_db.t["customers"] if r["id"] == 9)
+ok(c9["phone"] == "+18025559999" and c9["phone_source"] == "jamaal", "--sweep writes a taken phone")
 c3 = next(r for r in sweep_db.t["customers"] if r["id"] == 3)
 ok(c3["address"] == "33 Main St" and c3["loc"] == "site", "--sweep writes the followed edits")
 ok(sweep_db.t["sync_reports"][-1]["kind"] == "sweep" and srep["kept_ours"], "--sweep leaves a sweep report")
@@ -367,11 +388,13 @@ class _Resp:
 
 
 page = lambda addr, notes: _Resp(f"<a href='https://www.google.com/maps/place/{addr}'>map</a> Notes: {notes}<br>")
-pages = {"10": page("10+Main+St,+Barre,+VT", "gate code 99"), "11": _Resp("", 500)}
+pages = {"10": _Resp(page("10+Main+St,+Barre,+VT", "gate code 99").text + '<a href="tel:802-555-0100">'),
+         "11": _Resp("", 500)}
 swept_file = os.path.join(tmp, "swept.local.json")
 got = jc.sweep([{"customer_id": 10}, {"customer_id": 11}], swept_file, get=lambda cid: pages[cid], delay=0)
-ok(got == {"10": {"address": "10 Main St, Barre, VT", "lat": None, "lon": None, "notes": "gate code 99"}},
-   "the sweep keeps the address and FULL notes, and skips a page that failed")
+ok(got == {"10": {"address": "10 Main St, Barre, VT", "lat": None, "lon": None, "notes": "gate code 99",
+                  "phone": "+18025550100"}},
+   "the sweep keeps the address, FULL notes and phone (+1...), and skips a page that failed")
 try:
     jc.sweep([{"customer_id": 12}], swept_file, get=lambda cid: _Resp("<html>login</html>"), delay=0)
     ok(False, "a page that is not a customer page stops the sweep")
