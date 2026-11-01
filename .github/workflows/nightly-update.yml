@@ -95,6 +95,19 @@ jobs:
         run: |
           python supabase_sync.py || echo "::warning::Shared database sync failed; database left as-is"
 
+      # Sundays (Vermont): address and notes edits made on the source site after
+      # a customer reached the database (supabase_sync.py, --sweep). Reads every
+      # customer page, about 5 minutes. After the sync above, which writes back
+      # the addresses exported before it. Ours are never undone: an edit made
+      # here is kept and listed in sync_reports. Writes no repo file.
+      - name: Weekly sweep of customer addresses and notes
+        env:
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          if [ "$(TZ=America/New_York date +%u)" = 7 ]; then
+            (python jamaal_customers.py --sweep && python supabase_sync.py --sweep) || echo "::warning::Weekly sweep failed; the database keeps its addresses and notes"
+          fi
+
       # Photos added on the source site since last night, into the shared
       # database's private bucket (after the sync, so new customers exist).
       # Does nothing until the first copy is run by hand (jamaal-photos.yml).

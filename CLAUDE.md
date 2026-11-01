@@ -44,6 +44,9 @@ supabase_sync.py ──> the shared database (Supabase; db/schema.sql). Nightly:
                      time by the database's pg_cron, since GitHub schedules ran hours late) sets every source-site
                      route to Jamaal's Today's Routes; site edits stand until the next morning. --seed
                      (supabase-seed.yml, by hand, once) also copies the assigned routes into an EMPTY route_stops, with the full notes from a fresh jamaal_customers.py --refresh.
+                     --sweep (Sundays, after the sync; jamaal_customers.py --sweep reads every page first): address
+                     and notes edits made in Jamaal later follow into the database only while ours still matches Jamaal's
+                     old value (`jamaal_address`/`jamaal_notes`); an edit made here is kept and listed in sync_reports.
 jamaal_photos.py ──> the shared database's private `photos` bucket: the source site's uploads/ photos (GET only),
                      shrunk like the phone does (1600 px + 400 px thumb), blank caption, `photos.jamaal_file` = the
                      source file name (unique: copied once; removed on the site stays removed). First copy by hand
