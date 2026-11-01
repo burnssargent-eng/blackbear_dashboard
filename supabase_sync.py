@@ -43,6 +43,21 @@ jamaal_customers.py reads only customers new to the database and the sync
 writes everyone's address back. Without that file the sync refuses to run,
 rather than blank every address.
 
+--sweep (weekly, Sundays; Sarge, 2026-11-01) brings in address and notes
+edits made on the source site after a customer reached the database, without
+undoing edits made here (the reviewed contact lookup, fixes on the site).
+jamaal_customers.py --sweep reads every page first. `jamaal_address` and
+`jamaal_notes` hold what the source site said at the last sweep; per field:
+  none yet                  the first sweep: recorded, nothing changed
+  the source site unchanged nothing
+  the source site changed   ours still matches its old value: ours follows (an
+                            address moves the pin: the site's position, else the
+                            Census geocoder, else the town centre); ours was
+                            changed here: ours kept, listed in the report
+  the source site now blank nothing; listed
+Must run AFTER the nightly sync, which writes back the addresses exported
+before the sweep.
+
 Oil Left (gallons a driver saw left in a barrel and did not collect) is
 entered only on the site. --export-oil-left writes it to oil_left.csv
 (customer id, day, gallons: nothing private), which is committed so the
@@ -54,6 +69,7 @@ projection builder can read it; the builder never contacts the database.
     python3 supabase_sync.py          # nightly
     python3 supabase_sync.py --routes   # 7am: the site's routes set to the source site's
     python3 supabase_sync.py --history  # also re-copy the source site's whole history
+    python3 supabase_sync.py --sweep    # weekly, after the sync: source-site address and notes edits
     python3 supabase_sync.py --dry-run  # print what would be sent, touch nothing
 
 Needs SUPABASE_SERVICE_KEY (a secret key: the nightly reads it from GitHub
@@ -81,6 +97,8 @@ CODES_FILE = "oil_non_pickups.csv"
 RAW_FILE = "oil_collections_raw.csv"
 OUTGOING_FILE = "outgoing.json"
 OIL_LEFT_FILE = "oil_left.csv"
+SWEEP_FILE = "jamaal_sweep.local.json"
+SWEPT = ("address", "notes")   # fields --sweep follows
 ROUTES_MAX_AGE = timedelta(hours=1)   # --routes refuses an older jamaal_routes.json
 HISTORY_DAYS = 90         # how far back the nightly follows edits on the source site
 REPORT_DAYS = 30          # how far back pickups are compared
@@ -548,6 +566,86 @@ def sync(db, seed=False, today=None, history=False):
     return report
 
 
+def sweep_changes(rows, theirs, place):
+    """
+    The writes --sweep makes (module docstring) and its report. `rows` are the
+    database's customers, `theirs` the sweep file's customers by id string, and
+    `place(row, seen)` gives (lat, lon, loc) for a changed address, or None to
+    leave the pin. Returns ({id: {column: value}}, report).
+    """
+    updates = {}
+    report = {"recorded_first_time": 0, "differs_at_first_sweep": [], "followed": [], "kept_ours": [],
+              "blank_on_source_site": []}
+    for r in sorted(rows, key=lambda r: r["id"]):
+        seen = theirs.get(str(r["id"]))
+        if r["id"] <= 0 or not seen:
+            continue
+        up, who, first = {}, {"id": r["id"], "name": r.get("name")}, False
+        for f in SWEPT:
+            now, last, ours = (seen.get(f) or "").strip(), r.get(f"jamaal_{f}"), r.get(f) or ""
+            if last is None:   # blank is recorded too, so notes added there later are followed
+                up[f"jamaal_{f}"], first = now, True
+                if now and ours != now:
+                    report["differs_at_first_sweep"].append({**who, "field": f})
+                continue
+            if now == last:
+                continue
+            if not now:
+                report["blank_on_source_site"].append({**who, "field": f})
+                continue
+            up[f"jamaal_{f}"] = now
+            if ours == last:
+                up[f] = now
+                if f == "address":
+                    pin = place(r, seen)
+                    if pin:
+                        up["lat"], up["lon"], up["loc"] = pin
+                report["followed"].append({**who, "field": f, "was": ours, "now": now})
+            elif ours != now:
+                report["kept_ours"].append({**who, "field": f, "ours": ours, "source_site_was": last,
+                                            "source_site_now": now})
+        report["recorded_first_time"] += first
+        if up:
+            updates[r["id"]] = up
+    return updates, report
+
+
+def sweep_details(db, path=SWEEP_FILE):
+    """--sweep: apply the sweep file (sweep_changes) and leave a sync_reports row."""
+    from jamaal_customers import census_geocode, has_street, town_centres
+    sweep = load_json(path)
+    census, centres = requests.Session(), town_centres()
+
+    def place(row, seen):
+        if seen.get("lat") is not None:
+            return seen["lat"], seen["lon"], "site"
+        if has_street(seen["address"]):
+            try:
+                hit = census_geocode(census, seen["address"])
+            except requests.RequestException:
+                hit = None
+            if hit:
+                return hit[0], hit[1], "census"
+        town = (row.get("city") or "").lower()
+        return (*centres[town], "town") if town in centres else None
+
+    rows = db.select("customers", "select=id,name,city,address,notes,lat,lon,loc,jamaal_address,jamaal_notes")
+    updates, report = sweep_changes(rows, sweep.get("customers", {}), place)
+    for cid, values in updates.items():
+        db.update("customers", f"id=eq.{cid}", values)
+    report["read_at"] = sweep.get("read_at")
+    count = lambda k, f: sum(1 for x in report[k] if x["field"] == f)
+    summary = (f"{count('followed', 'address')} address(es) and {count('followed', 'notes')} note(s) followed the "
+               f"source site; {len(report['kept_ours'])} kept ours; {report['recorded_first_time']} recorded "
+               f"for the first time")
+    db.insert("sync_reports", [{"kind": "sweep", "summary": summary, "report": report}])
+    # Names and ids only: the notes carry door codes and the Actions log is not private.
+    print(f"Sweep: {summary}.")
+    for x in report["kept_ours"]:
+        print(f"  kept ours: {x['name']} ({x['id']}) {x['field']}")
+    return report
+
+
 def mirror_routes(db, now=None):
     """
     --routes: the site's routes set to the source site's (module docstring).
@@ -613,6 +711,8 @@ def main():
     ap.add_argument("--history", action="store_true", help="re-copy the source site's whole history, not just the last 90 days")
     ap.add_argument("--export-details", action="store_true",
                     help=f"write {DETAILS_FILE} and {LOCAL_NOTES} from the database, and nothing else")
+    ap.add_argument("--sweep", action="store_true",
+                    help=f"apply {SWEEP_FILE} (address and notes edits on the source site), and nothing else")
     ap.add_argument("--export-oil-left", action="store_true",
                     help=f"write {OIL_LEFT_FILE} from the database, and nothing else")
     args = ap.parse_args()
@@ -628,6 +728,8 @@ def main():
             export_oil_left(db)
         elif args.routes:
             mirror_routes(db)
+        elif args.sweep:
+            sweep_details(db)
         else:
             sync(db, seed=args.seed, history=args.history)
     except (SyncError, requests.RequestException) as exc:

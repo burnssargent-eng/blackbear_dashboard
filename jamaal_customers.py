@@ -21,6 +21,13 @@ database are read here, and supabase_sync.py writes them back.
 
     python3 jamaal_customers.py            # only customers not yet in the file
     python3 jamaal_customers.py --refresh  # re-read every customer page
+    python3 jamaal_customers.py --sweep    # weekly: every page -> jamaal_sweep.local.json
+
+--sweep (Sarge, 2026-11-01) brings in address and notes edits made on the
+source site after a customer reached the database. It reads every active
+customer's page into jamaal_sweep.local.json (full notes, codes included:
+gitignored, never committed) and touches nothing else; supabase_sync.py
+--sweep then decides what changes.
 
 A failed page keeps that customer's old entry. On a broken page layout nothing
 is written and the exit code is non-zero.
@@ -40,6 +47,7 @@ import requests
 from jamaal_routes import BASE_URL, USER_AGENT, write_atomic
 
 OUTPUT = "customer_details.json"
+SWEEP_FILE = "jamaal_sweep.local.json"
 # Full notes, codes and all, for a LOCAL preview only. Gitignored: it must never
 # be committed or published. Only notes that scrub() changed are kept.
 LOCAL_NOTES = "customer_notes.local.json"
@@ -145,15 +153,54 @@ def town_centres():
     return out
 
 
+def sweep(assign, out=SWEEP_FILE, get=None, delay=DELAY_SEC):
+    """
+    Every active customer's address, the site's stored position (or none) and
+    full notes, as the source site shows them now. A page that fails to load
+    is left out (the sync then leaves that customer alone); a page that is not
+    a customer page stops the sweep with nothing written.
+    """
+    if get is None:
+        site = requests.Session()
+        site.headers["User-Agent"] = USER_AGENT
+        get = lambda cid: site.get(f"{BASE_URL}/customer.php", params={"id": cid}, timeout=15)
+    customers, failed = {}, 0
+    for i, a in enumerate(assign):
+        cid = str(a["customer_id"])
+        try:
+            resp = get(cid)
+            resp.raise_for_status()
+        except requests.RequestException:
+            failed += 1
+            continue
+        address, lat, lon = parse_customer_page(resp.text)
+        customers[cid] = {"address": address, "lat": lat, "lon": lon, "notes": raw_notes(resp.text)}
+        if i < len(assign) - 1:
+            time.sleep(delay)
+    write_atomic(out, {"read_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                       "customers": dict(sorted(customers.items(), key=lambda kv: int(kv[0])))})
+    print(f"Wrote {out}: {len(customers)} customer page(s) read, {failed} failed")
+    return customers
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--refresh", action="store_true", help="re-read every customer page")
     ap.add_argument("--ids", help="comma-separated customer ids to re-read")
     ap.add_argument("--out", default=OUTPUT)
+    ap.add_argument("--sweep", action="store_true",
+                    help=f"read every page into {SWEEP_FILE} (addresses and full notes) and nothing else")
     args = ap.parse_args()
 
     with open(ROUTES_FILE, encoding="utf-8") as fh:
         assign = json.load(fh)["assign_list"]
+    if args.sweep:
+        try:
+            sweep(assign)
+        except CustomerPageError as exc:
+            print(f"Sweep NOT written: {exc}", file=sys.stderr)
+            return 1
+        return 0
     with open(PROJECTIONS_FILE, encoding="utf-8") as fh:
         towns_by_id = {}
         for c in json.load(fh)["customers"]:

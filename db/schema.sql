@@ -69,6 +69,12 @@ alter table public.customers add column if not exists phone_checked    date;
 alter table public.customers drop constraint if exists customers_phone_source_check;
 alter table public.customers add constraint customers_phone_source_check
   check (phone_source in ('jamaal', 'site', 'claude_web', 'vcard'));
+-- What the source site said at the last weekly sweep (supabase_sync.py
+-- --sweep): an address or notes edit there is followed only while ours still
+-- matches its old value, so edits made here are never undone. Login-only like
+-- `notes` (codes included).
+alter table public.customers add column if not exists jamaal_address   text;
+alter table public.customers add column if not exists jamaal_notes     text;
 
 -- Routes: Jamaal's route ids. Jamaal shows some routes under different names on
 -- different pages, kept in `other_names`.
@@ -426,13 +432,13 @@ end $$;
 create table if not exists public.sync_reports (
   id      bigint generated always as identity primary key,
   ran_at  timestamptz not null default now(),
-  kind    text not null check (kind in ('seed', 'nightly', 'routes')),
+  kind    text not null check (kind in ('seed', 'nightly', 'routes', 'sweep')),
   summary text not null,
   report  jsonb not null default '{}'
 );
 alter table public.sync_reports drop constraint if exists sync_reports_kind_check;
 alter table public.sync_reports add constraint sync_reports_kind_check
-  check (kind in ('seed', 'nightly', 'routes'));
+  check (kind in ('seed', 'nightly', 'routes', 'sweep'));
 alter table public.sync_reports enable row level security;
 drop policy if exists "members read sync reports" on public.sync_reports;
 create policy "members read sync reports" on public.sync_reports
