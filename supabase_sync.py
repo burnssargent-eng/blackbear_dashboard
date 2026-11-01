@@ -43,11 +43,12 @@ jamaal_customers.py reads only customers new to the database and the sync
 writes everyone's address back. Without that file the sync refuses to run,
 rather than blank every address.
 
---sweep (weekly, Sundays; Sarge, 2026-11-01) brings in address and notes
-edits made on the source site after a customer reached the database, without
+--sweep (weekly, Sundays; Sarge, 2026-11-01) brings in address, notes and
+phone edits made on the source site after a customer reached the database, without
 undoing edits made here (the reviewed contact lookup, fixes on the site).
-jamaal_customers.py --sweep reads every page first. `jamaal_address` and
-`jamaal_notes` hold what the source site said at the last sweep; per field:
+jamaal_customers.py --sweep reads every page first. `jamaal_address`,
+`jamaal_notes` and `jamaal_phone` hold what the source site said at the last
+sweep; per field:
   none yet                  the first sweep: recorded, nothing changed
   the source site unchanged nothing
   the source site changed   ours still matches its old value: ours follows (an
@@ -55,6 +56,8 @@ jamaal_customers.py --sweep reads every page first. `jamaal_address` and
                             Census geocoder, else the town centre); ours was
                             changed here: ours kept, listed in the report
   the source site now blank nothing; listed
+A customer with no phone takes the source site's whenever it has one, first
+sweep included (phone_source 'jamaal'): that is how new customers get one.
 Must run AFTER the nightly sync, which writes back the addresses exported
 before the sweep.
 
@@ -98,7 +101,7 @@ RAW_FILE = "oil_collections_raw.csv"
 OUTGOING_FILE = "outgoing.json"
 OIL_LEFT_FILE = "oil_left.csv"
 SWEEP_FILE = "jamaal_sweep.local.json"
-SWEPT = ("address", "notes")   # fields --sweep follows
+SWEPT = ("address", "notes", "phone")   # fields --sweep follows
 ROUTES_MAX_AGE = timedelta(hours=1)   # --routes refuses an older jamaal_routes.json
 HISTORY_DAYS = 90         # how far back the nightly follows edits on the source site
 REPORT_DAYS = 30          # how far back pickups are compared
@@ -566,12 +569,13 @@ def sync(db, seed=False, today=None, history=False):
     return report
 
 
-def sweep_changes(rows, theirs, place):
+def sweep_changes(rows, theirs, place, today=None):
     """
     The writes --sweep makes (module docstring) and its report. `rows` are the
     database's customers, `theirs` the sweep file's customers by id string, and
     `place(row, seen)` gives (lat, lon, loc) for a changed address, or None to
-    leave the pin. Returns ({id: {column: value}}, report).
+    leave the pin; `today` dates a phone taken from the source site.
+    Returns ({id: {column: value}}, report).
     """
     updates = {}
     report = {"recorded_first_time": 0, "differs_at_first_sweep": [], "followed": [], "kept_ours": [],
@@ -583,6 +587,11 @@ def sweep_changes(rows, theirs, place):
         up, who, first = {}, {"id": r["id"], "name": r.get("name")}, False
         for f in SWEPT:
             now, last, ours = (seen.get(f) or "").strip(), r.get(f"jamaal_{f}"), r.get(f) or ""
+            if f == "phone" and now and (not ours or (ours == last and now != last)):
+                up.update({"jamaal_phone": now, "phone": now, "phone_source": "jamaal", "phone_checked": today})
+                first = first or last is None
+                report["followed"].append({**who, "field": f, "was": ours, "now": now})
+                continue
             if last is None:   # blank is recorded too, so notes added there later are followed
                 up[f"jamaal_{f}"], first = now, True
                 if now and ours != now:
@@ -629,13 +638,16 @@ def sweep_details(db, path=SWEEP_FILE):
         town = (row.get("city") or "").lower()
         return (*centres[town], "town") if town in centres else None
 
-    rows = db.select("customers", "select=id,name,city,address,notes,lat,lon,loc,jamaal_address,jamaal_notes")
-    updates, report = sweep_changes(rows, sweep.get("customers", {}), place)
+    rows = db.select("customers", "select=id,name,city,address,notes,phone,lat,lon,loc,"
+                                  "jamaal_address,jamaal_notes,jamaal_phone")
+    updates, report = sweep_changes(rows, sweep.get("customers", {}), place,
+                                    datetime.now(VERMONT).date().isoformat())
     for cid, values in updates.items():
         db.update("customers", f"id=eq.{cid}", values)
     report["read_at"] = sweep.get("read_at")
     count = lambda k, f: sum(1 for x in report[k] if x["field"] == f)
-    summary = (f"{count('followed', 'address')} address(es) and {count('followed', 'notes')} note(s) followed the "
+    summary = (f"{count('followed', 'address')} address(es), {count('followed', 'notes')} note(s) and "
+               f"{count('followed', 'phone')} phone(s) followed the "
                f"source site; {len(report['kept_ours'])} kept ours; {report['recorded_first_time']} recorded "
                f"for the first time")
     db.insert("sync_reports", [{"kind": "sweep", "summary": summary, "report": report}])

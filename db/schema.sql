@@ -70,11 +70,12 @@ alter table public.customers drop constraint if exists customers_phone_source_ch
 alter table public.customers add constraint customers_phone_source_check
   check (phone_source in ('jamaal', 'site', 'claude_web', 'vcard'));
 -- What the source site said at the last weekly sweep (supabase_sync.py
--- --sweep): an address or notes edit there is followed only while ours still
+-- --sweep): an address, notes or phone edit there is followed only while ours still
 -- matches its old value, so edits made here are never undone. Login-only like
 -- `notes` (codes included).
 alter table public.customers add column if not exists jamaal_address   text;
 alter table public.customers add column if not exists jamaal_notes     text;
+alter table public.customers add column if not exists jamaal_phone     text;
 
 -- Routes: Jamaal's route ids. Jamaal shows some routes under different names on
 -- different pages, kept in `other_names`.
