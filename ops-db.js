@@ -610,14 +610,14 @@ function opsWireSignIn(container) {
   });
 }
 
-/** Full notes and addresses for the details panels, from the database (signed-in members only). */
+/** Full notes, addresses and phones for the details panels, from the database (signed-in members only). */
 async function opsDbCustomerDetails() {
   const session = await opsDbSession;
   if (!session || !session.person) return null;
   const rows = opsDb && opsDb.rows ? opsDb.rows.customers : await (async () => {
     const out = [];
     for (let from = 0; ; from += 1000) {
-      const { data, error } = await opsDbClient.from("customers").select("id,address,notes,lat,lon,loc")
+      const { data, error } = await opsDbClient.from("customers").select("id,address,notes,phone,lat,lon,loc")
         .order("id").range(from, from + 999);
       if (error) return out;
       out.push(...data);
@@ -625,6 +625,6 @@ async function opsDbCustomerDetails() {
     }
   })();
   const out = {};
-  rows.forEach(c => { out[String(c.id)] = { address: c.address || "", notes: c.notes || "", lat: c.lat, lon: c.lon, loc: c.loc }; });
+  rows.forEach(c => { out[String(c.id)] = { address: c.address || "", notes: c.notes || "", phone: c.phone || "", lat: c.lat, lon: c.lon, loc: c.loc }; });
   return out;
 }
