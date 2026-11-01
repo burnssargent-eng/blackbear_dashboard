@@ -33,9 +33,9 @@
  * its edit form from its gallons, as on the source site).
  *
  * Read from: jamaal_routes.json (name, town), the shared database (address,
- * notes, position), oil_projections.json, capacity_cache.csv (the site's capacity and
+ * notes, phone, position), oil_projections.json, capacity_cache.csv (the site's capacity and
  * periodicity), oil_collections.json and oil_non_pickups.csv (history).
- * No phone numbers: this site is public. Gallons and assignments entered here
+ * Phones and addresses come only from the database. Gallons and assignments entered here
  * stay in this browser's shadow copy.
  */
 
@@ -207,6 +207,13 @@ function photosHtml() {
 // after a deploy: Oil Left then stays hidden instead of breaking the page.
 const oilLeftReady = typeof recordOilLeft === "function";
 
+/** A phone as a call link: "+18024793326" shows as (802) 479-3326; anything else as typed. */
+function phoneHtml(phone) {
+  const d = String(phone).replace(/\D/g, "").replace(/^1(?=\d{10}$)/, "");
+  const shown = d.length === 10 ? `(${d.slice(0, 3)}) ${d.slice(3, 6)}-${d.slice(6)}` : phone;
+  return `<a href="tel:${d.length === 10 ? "+1" + d : escapeHtml(phone)}">${escapeHtml(shown)}</a>`;
+}
+
 function homeHtml(row, today, onRoutes, capacity, left) {
   const est = stopEstimate(row);
   const days = row && row.days_past_full;
@@ -245,7 +252,7 @@ function homeHtml(row, today, onRoutes, capacity, left) {
           (days === null || days === undefined ? "" : ` <span class="ops-days">[${Math.round(days)}]</span>`)
         : escapeHtml(row ? (row.status || row.section) : "—"))}
       ${dd("On route", onRoutes.length ? escapeHtml(onRoutes.join(", ")) : "—")}
-      ${customer.phone ? dd("Phone", `<a href="tel:${escapeHtml(customer.phone)}">${escapeHtml(customer.phone)}</a>`) : ""}
+      ${customer.phone ? dd("Phone", phoneHtml(customer.phone)) : ""}
       ${customer.sharedWith ? dd("Shared barrel", `with ${escapeHtml(customer.sharedWith)}`) : ""}
       ${dd("Notes", details.notes ? notesHtml(customer.customer_id, details.notes) : "")}
     </dl>
@@ -325,7 +332,7 @@ async function init() {
     document.getElementById("page").innerHTML = `<div class="alert alert-warning">No active customer #${escapeHtml(String(param("id")))}.</div>`;
     return;
   }
-  customer = { customer_id: id, name: listed.name, city: listed.city };
+  customer = { customer_id: id, name: listed.name, city: listed.city, phone: details.phone || "" };
   if (id < 0) {
     // Added in this browser: its own fields stand in for the scraped ones.
     // The phone lives only in this browser's storage, never in the repo.

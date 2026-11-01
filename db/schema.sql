@@ -59,6 +59,16 @@ alter table public.customers add column if not exists periodicity_days integer c
 alter table public.customers add column if not exists shared_with      integer references public.customers (id);
 alter table public.customers add column if not exists created_on       date default ((now() at time zone 'America/New_York')::date);
 alter table public.customers add column if not exists created_by       uuid default auth.uid();
+-- Where `phone` came from and the day it was last read there: Jamaal's Phone
+-- field (or its notes), typed on this site, a web lookup (Claude with web
+-- search, reviewed by Sarge before loading), or Jim's contacts. Loaded numbers
+-- are stored +1XXXXXXXXXX; the page shows (802) 555-0100. Other numbers for a
+-- customer go in customer_contacts, never a second copy of this one.
+alter table public.customers add column if not exists phone_source     text;
+alter table public.customers add column if not exists phone_checked    date;
+alter table public.customers drop constraint if exists customers_phone_source_check;
+alter table public.customers add constraint customers_phone_source_check
+  check (phone_source in ('jamaal', 'site', 'claude_web', 'vcard'));
 
 -- Routes: Jamaal's route ids. Jamaal shows some routes under different names on
 -- different pages, kept in `other_names`.
@@ -478,6 +488,28 @@ select cron.schedule('morning-routes', '0 11,12 * * *', $cron$
   select public.dispatch_morning_routes()
   where extract(hour from now() at time zone 'America/New_York') = 7
 $cron$);
+
+-- A customer's other numbers and emails (a manager's cell, the kitchen line),
+-- beside the main `customers.phone`. Empty until Jim's contacts are checked
+-- against the web lookup's secondary numbers. Members only, like customers.
+create table if not exists public.customer_contacts (
+  id          bigint generated always as identity primary key,
+  customer_id integer not null references public.customers (id) on delete cascade,
+  kind        text not null check (kind in ('phone', 'email')),
+  value       text not null,   -- phone +1XXXXXXXXXX, email lower-cased
+  label       text,            -- "kitchen", "owner's cell"
+  person      text,
+  source      text not null check (source in ('jamaal', 'site', 'claude_web', 'vcard')),
+  added_at    timestamptz not null default now(),
+  added_by    uuid default auth.uid(),
+  unique (customer_id, kind, value)
+);
+alter table public.customer_contacts enable row level security;
+drop policy if exists "members only" on public.customer_contacts;
+create policy "members only" on public.customer_contacts for all to authenticated
+  using ((select public.is_member())) with check ((select public.is_member()));
+revoke all on public.customer_contacts from anon;
+grant select, insert, update, delete on public.customer_contacts to authenticated;
 
 -- ---------------------------------------------------------------------------
 -- AFTER inviting yourself and Jim (Authentication > Users > Invite user) and
