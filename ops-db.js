@@ -287,6 +287,8 @@ const opsDbSession = (async () => {
   } catch (err) { return null; }
 })();
 
+const OPS_CUSTOMER_COLS = "id,name,city,address,capacity,periodicity_days,phone,notes,shared_with,created_on,lat,lon,loc";
+
 async function opsFetchRows() {
   const since = opsStoreSince();
   const all = async (q, label) => {
@@ -302,7 +304,9 @@ async function opsFetchRows() {
   const [routes, stops, customers, collections, outgoing, trucks, oilLeft, dailyNotes] = await Promise.all([
     all(() => c.from("routes").select("id,name,sort").order("id"), "routes"),
     all(() => c.from("route_stops").select("id,route_id,customer_id,position,must_get,jamaal_assignment_id").order("id"), "stops"),
-    all(() => c.from("customers").select("id,name,city,address,capacity,periodicity_days,phone,notes,shared_with,created_on,lat,lon,loc").order("id"), "customers"),
+    // Before collected_with_town exists (db/schema.sql not yet pasted) the pages load without it.
+    all(() => c.from("customers").select(`${OPS_CUSTOMER_COLS},collected_with_town`).order("id"), "customers")
+      .catch(() => all(() => c.from("customers").select(OPS_CUSTOMER_COLS).order("id"), "customers")),
     // Only this site's entries: the source site's history is in the database
     // too (source 'jamaal'), but the pages already show it from the nightly files.
     all(() => c.from("collections").select("customer_id,picked_on,gallons,route_id,client_id,theft,theft_note,entered_at")
@@ -557,6 +561,30 @@ async function opsSaveNotes(id, now, was) {
   return { notes, today };
 }
 
+/* ── Collected with: a one-off town's customer picked up on another town's run ── */
+
+/** { town, with } for a customer collected with another town's run ("New Haven", "Middlebury"), or null. */
+function opsCollectedWith(id) {
+  const c = opsDb && opsDb.rows && (opsDb.rows.customers || []).find(r => r.id === id);
+  return c && c.collected_with_town ? { town: c.city || "", with: c.collected_with_town } : null;
+}
+
+/** "New Haven · w/ Middlebury" (or "w/ Middlebury" with no town of its own). */
+function opsCollectedWithText(cw) {
+  return [cw.town, `w/ ${cw.with}`].filter(Boolean).join(" · ");
+}
+
+/** Set or clear (empty) the town whose run collects this customer. Throws when not saved. */
+async function opsSaveCollectedWith(id, town) {
+  const c = opsDb && opsDb.client;
+  if (!c) throw new Error("sign in to change this");
+  const value = String(town || "").trim() || null;
+  const { error } = await c.from("customers").update({ collected_with_town: value }).eq("id", id);
+  if (error) throw new Error(error.message);
+  const row = opsDb.rows && opsDb.rows.customers && opsDb.rows.customers.find(r => r.id === id);
+  if (row) row.collected_with_town = value;
+}
+
 /* ── Live updates ────────────────────────────────────────── */
 
 let opsRefreshTimer = null;
@@ -596,7 +624,9 @@ async function opsRefresh() {
   try { rows = await opsFetchRows(); } catch (err) { opsDb.offline = true; opsShowStatus(); return; }
   if (opsDb.queue.length) { opsDb.refreshWanted = true; return; }   // a save went in while loading
   const store = opsStoreFromRows(rows, opsDb.snap, { my: opsDb.store ? opsDb.store.my : null });
-  const sameNotes = JSON.stringify(rows.dailyNotes) === JSON.stringify(opsDb.rows && opsDb.rows.dailyNotes);
+  const withTowns = r => (r && r.customers || []).filter(c => c.collected_with_town).map(c => [c.id, c.collected_with_town]);
+  const sameNotes = JSON.stringify(rows.dailyNotes) === JSON.stringify(opsDb.rows && opsDb.rows.dailyNotes)
+    && JSON.stringify(withTowns(rows)) === JSON.stringify(withTowns(opsDb.rows));
   if (sameNotes && JSON.stringify(opsSharedPart(store)) === JSON.stringify(opsDb.synced)) return;   // nothing new
   opsDb.rows = rows;
   opsDb.store = store;

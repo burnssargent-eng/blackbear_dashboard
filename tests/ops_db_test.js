@@ -24,7 +24,7 @@ const api = new Function("window", "const document = { getElementById: () => nul
   return { gateCardHtml, setDb: v => { opsDb = v; }, getDb: () => opsDb, opsFlush, freshStore, saveStore, loadStore, assignToRoute, moveStop, removeStop, recordCollection, recordTheft,
     recordOilLeft, clearOilLeft, todaysOilLeft, oilLeftText, addShadowCustomer, createRoute, renameRoute, todaysCollection, todayIso, opsDiff, opsSharedPart,
     opsEnsureClientIds, opsStoreFromRows, opsDbAvailable, opsShared, opsWhere, shadowBannerHtml, OPS_STORAGE_KEY,
-    opsTodayNote, opsSaveNotes, opsDayBefore };`)(window);
+    opsTodayNote, opsSaveNotes, opsDayBefore, opsCollectedWith, opsCollectedWithText, opsSaveCollectedWith };`)(window);
 
 let fails = 0;
 const ok = (cond, msg) => {
@@ -316,6 +316,19 @@ ok(rNew < -1000000000 && cNew.customer_id < -1000000000, "ids made on the device
   ok(api.opsDayBefore("2026-03-01") === "2026-02-28" && api.opsDayBefore("2027-01-01") === "2026-12-31"
      && api.opsDayBefore("2026-11-02") === "2026-11-01", "the day before crosses month and year ends");
   global.Date = RealDate;
+
+  // Collected with: a one-off town's customer picked up on another town's run.
+  notesSent.length = 0;
+  api.setDb({ client: { from: table }, rows: { customers: [
+    { id: 1496, city: "New Haven", collected_with_town: "Middlebury" }, { id: 8, city: "Barre", collected_with_town: null }] } });
+  const cw = api.opsCollectedWith(1496);
+  ok(cw && cw.town === "New Haven" && cw.with === "Middlebury" && api.opsCollectedWithText(cw) === "New Haven · w/ Middlebury"
+     && api.opsCollectedWith(8) === null && api.opsCollectedWith(9) === null,
+     "collected with: \"New Haven · w/ Middlebury\" for a marked customer, nothing for the rest");
+  ok(api.opsCollectedWithText({ town: "", with: "Middlebury" }) === "w/ Middlebury", "no town of its own: just w/ Middlebury");
+  await api.opsSaveCollectedWith(1496, "  ");
+  ok(notesSent[0][0] === "update" && notesSent[0][2] === 1496 && notesSent[0][3].collected_with_town === null
+     && api.opsCollectedWith(1496) === null, "clearing it stores null and the marker goes");
 
   console.log(fails ? `\n${fails} FAILURE(S)` : "\nALL CHECKS PASSED");
   process.exit(fails ? 1 : 0);

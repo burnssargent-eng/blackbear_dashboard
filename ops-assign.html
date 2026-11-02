@@ -62,10 +62,15 @@ function buildCustomerRows() {
   const rows = data.snap.assign_list.map(a => ({ ...a, added: false }));
   store.added.forEach(c => rows.push({ customer_id: c.customer_id, name: c.name, city: c.city,
     days_over: null, added: true, capacity: c.capacity }));
+  const cwReady = typeof opsCollectedWith === "function";
   return rows.map(r => {
     const row = data.index.get(r.customer_id) || null;
+    const town = townLabel((row && row.town) || r.city || "");
+    // Collected with another town's run: listed under that town in Town view.
+    const cw = cwReady ? opsCollectedWith(r.customer_id) : null;
     return { ...r, row, capacity: row && row.capacity != null ? row.capacity : (r.capacity ?? null),
-      town: townLabel((row && row.town) || r.city || "") };
+      town, cw: cw && { town: townLabel(cw.town) || town, with: townLabel(cw.with) },
+      groupTown: (cw && townLabel(cw.with)) || town };
   });
 }
 
@@ -75,12 +80,12 @@ let urgencyRank = new Map();
 function visibleRows() {
   const q = view.search.toLowerCase();
   let rows = customerRows().filter(r =>
-    matchesNameSearch(q, [r.name, r.town, ...((r.row && r.row.members) || []).map(m => m.name)]) &&
+    matchesNameSearch(q, [r.name, r.town, r.groupTown, ...((r.row && r.row.members) || []).map(m => m.name)]) &&
     (!view.region || (r.row && (r.row.regions || []).includes(view.region))));
   if (view.sort === "town") {
     // Towns in order, a town's customers in the site's order; while searching,
     // names that start with the text come first within each town.
-    return rows.slice().sort((a, b) => !a.town - !b.town || a.town.localeCompare(b.town) ||
+    return rows.slice().sort((a, b) => !a.groupTown - !b.groupTown || a.groupTown.localeCompare(b.groupTown) ||
       searchRank(q, a.name) - searchRank(q, b.name));
   }
   const rank = r => urgencyRank.get(r.row && r.row.id) ?? Infinity;
@@ -93,21 +98,27 @@ const asStop = r => ({ customer_id: r.customer_id, name: r.name, capacity: r.cap
  * A customer on one line: tick box, name, its figures, and › (the customer
  * page). A tap anywhere but › ticks it. A dot after the name means it is on a
  * route already (the routes are in its tooltip). In Urgent order the town
- * follows the name, as there is no town heading above.
+ * follows the name, as there is no town heading above. A customer collected
+ * with another town's run shows "New Haven · w/ Middlebury": after the name in
+ * Urgent order, on a second line under that town's heading in Town order.
  */
 function cardHtml(r, onRoutes, k = "") {
   const on = onRoutes.get(r.customer_id) || [];
   const sel = picked.has(r.customer_id);
-  return `<div class="ops-pick-line${sel ? " ops-picked" : ""}" data-row="${r.customer_id}" data-group="${k}">
+  const twoLine = view.sort === "town" && r.cw;
+  const place = r.cw ? opsCollectedWithText(r.cw) : r.town;
+  const name = `<span class="ops-pick-name">${escapeHtml(r.name || `(no name) #${r.customer_id}`)}${on.length
+      ? `<span class="ops-on-dot" title="On ${escapeHtml(on.join(", "))}" aria-label="On ${escapeHtml(on.join(", "))}"></span>` : ""}${
+      r.added ? ` <span class="ops-new">new</span>` : ""}${view.sort === "town" || !place ? ""
+      : ` <span class="ops-muted">· ${escapeHtml(place)}</span>`}</span>`;
+  return `<div class="ops-pick-line${sel ? " ops-picked" : ""}${twoLine ? " ops-pick-two" : ""}" data-row="${r.customer_id}" data-group="${k}">
     <input type="checkbox" class="ops-card-check" data-pick="${r.customer_id}" ${sel ? "checked" : ""}
       aria-label="Select ${escapeHtml(r.name)}">
-    <span class="ops-pick-name">${escapeHtml(r.name || `(no name) #${r.customer_id}`)}${on.length
-      ? `<span class="ops-on-dot" title="On ${escapeHtml(on.join(", "))}" aria-label="On ${escapeHtml(on.join(", "))}"></span>` : ""}${
-      r.added ? ` <span class="ops-new">new</span>` : ""}${view.sort === "town" || !r.town ? ""
-      : ` <span class="ops-muted">· ${escapeHtml(r.town)}</span>`}</span>
+    ${name}
     <span class="ops-pick-figs${stopEstimate(r.row).kind === "projected" ? "" : " ops-pick-status"}">${stopFiguresHtml(r.row, r.capacity)}</span>
     <a class="btn ops-plain-btn ops-pick-page" href="ops-customer.html?id=${r.customer_id}&from=assign"
       aria-label="Customer page for ${escapeHtml(r.name)}">›</a>
+    ${twoLine ? `<span class="ops-pick-sub">${escapeHtml(place)}</span>` : ""}
   </div>`;
 }
 
@@ -128,7 +139,7 @@ function renderList() {
     groups = [];
     rows.forEach(r => {
       const last = groups[groups.length - 1];
-      if (last && last.town === r.town) last.rows.push(r); else groups.push({ town: r.town, rows: [r] });
+      if (last && last.town === r.groupTown) last.rows.push(r); else groups.push({ town: r.groupTown, rows: [r] });
     });
     body = groups.map((g, k) => townHeadHtml(g, k) + g.rows.map(r => cardHtml(r, onRoutes, k)).join("")).join("");
   } else {
