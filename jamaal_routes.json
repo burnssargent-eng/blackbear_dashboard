@@ -1,5 +1,5 @@
 {
- "scraped_at": "2026-11-02T12:00:22+00:00",
+ "scraped_at": "2026-11-02T16:50:20+00:00",
  "source": "routes_assigned.php, assign_routes.php",
  "routes": [
   {
@@ -62,12 +62,12 @@
    "assigned_capacity": 1000,
    "stops": [
     {
-     "assignment_id": 24385,
-     "customer_id": 1543,
-     "name": "Kash Patel-Westfield",
+     "assignment_id": 24350,
+     "customer_id": 1541,
+     "name": "Kash Patel-Johnson",
      "capacity": 150,
-     "days_over": -25,
-     "must_get": false
+     "days_over": -24,
+     "must_get": true
     },
     {
      "assignment_id": 24335,
@@ -78,12 +78,12 @@
      "must_get": true
     },
     {
-     "assignment_id": 24350,
-     "customer_id": 1541,
-     "name": "Kash Patel-Johnson",
+     "assignment_id": 24385,
+     "customer_id": 1543,
+     "name": "Kash Patel-Westfield",
      "capacity": 150,
-     "days_over": -24,
-     "must_get": true
+     "days_over": -25,
+     "must_get": false
     },
     {
      "assignment_id": 24298,
@@ -144,64 +144,8 @@
   {
    "route_id": 5,
    "name": "Northwest/NY",
-   "assigned_capacity": 2183,
+   "assigned_capacity": 1353,
    "stops": [
-    {
-     "assignment_id": 24372,
-     "customer_id": 1396,
-     "name": "Sandbar Bar & Grill",
-     "capacity": 150,
-     "days_over": 0,
-     "must_get": false
-    },
-    {
-     "assignment_id": 23955,
-     "customer_id": 1319,
-     "name": "Two Heros Public House",
-     "capacity": 100,
-     "days_over": 49,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24373,
-     "customer_id": 1471,
-     "name": "Thai in Town-South Hero",
-     "capacity": 100,
-     "days_over": 2,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24371,
-     "customer_id": 1409,
-     "name": "Pan’sPizza-South Hero",
-     "capacity": 55,
-     "days_over": 54,
-     "must_get": false
-    },
-    {
-     "assignment_id": 23950,
-     "customer_id": 1144,
-     "name": "Shore Acres-North Hero",
-     "capacity": 90,
-     "days_over": -51,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24387,
-     "customer_id": 1147,
-     "name": "Bravo Zulu- North Hero",
-     "capacity": 135,
-     "days_over": -95,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24370,
-     "customer_id": 416,
-     "name": "North Hero House",
-     "capacity": 200,
-     "days_over": -2,
-     "must_get": false
-    },
     {
      "assignment_id": 24278,
      "customer_id": 1173,
@@ -2267,19 +2211,19 @@
    "customer_id": 1147,
    "name": "Bravo Zulu- North Hero",
    "city": "North Hero",
-   "days_over": -95
+   "days_over": -128
   },
   {
    "customer_id": 416,
    "name": "North Hero House",
    "city": "North Hero",
-   "days_over": -2
+   "days_over": -35
   },
   {
    "customer_id": 1144,
    "name": "Shore Acres-North Hero",
    "city": "North Hero",
-   "days_over": -51
+   "days_over": -128
   },
   {
    "customer_id": 1503,
@@ -2795,25 +2739,25 @@
    "customer_id": 1409,
    "name": "Pan’sPizza-South Hero",
    "city": "South Hero",
-   "days_over": 54
+   "days_over": -65
   },
   {
    "customer_id": 1396,
    "name": "Sandbar Bar & Grill",
    "city": "South Hero",
-   "days_over": 0
+   "days_over": -17
   },
   {
    "customer_id": 1471,
    "name": "Thai in Town-South Hero",
    "city": "South Hero",
-   "days_over": 2
+   "days_over": -60
   },
   {
    "customer_id": 1319,
    "name": "Two Heros Public House",
    "city": "South Hero",
-   "days_over": 49
+   "days_over": -28
   },
   {
    "customer_id": 817,

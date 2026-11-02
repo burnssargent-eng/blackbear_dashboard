@@ -403,3 +403,10 @@ pickup_date,customer_id,member_ids,customer,town,stage,status,section,previous_p
 2026-10-30,1401,1401,Tasty Bites,Barre City,established,50/50 default,ranked,2026-09-29,2026-10-30,2026-10-30,45.1,33.8,65.4,46.7,70,-24.9,-35.6,-23.3
 2026-10-30,1415,1415,The Buttery,Saint Johnsbury,established,50/50 default,ranked,2026-09-28,2026-10-29,2026-10-29,15.5,11.6,22.5,11.3,15,0.5,3.3,-3.7
 2026-10-30,1465,1465,Lyndonville Station Irving,Lyndon,new,50/50 default,ranked,2026-10-06,2026-10-30,2026-10-30,15.1,10.6,20.4,10.0,20,-4.9,-24.5,-10.0
+2026-11-02,416,416,North Hero House,North Hero,seasonal,50/50 default,ranked,2026-09-30,2026-11-01,2026-11-02,119.4,50.5,188.4,119.6,40,79.4,198.5,79.6
+2026-11-02,1144,1144,Shore Acres-North Hero,North Hero,,insufficient data,insufficient data,2026-08-17,2026-11-01,2026-11-02,,,,,35,,,
+2026-11-02,1147,1147,Bravo Zulu- North Hero,North Hero,new,50/50 default,ranked,2026-09-30,2026-11-01,2026-11-02,50.1,30.1,82.3,46.1,15,35.1,234.0,31.1
+2026-11-02,1319,1319,Two Heros Public House,South Hero,established,50/50 default,ranked,2026-08-17,2026-11-01,2026-11-02,53.3,40.0,77.3,64.9,70,-16.7,-23.9,-5.1
+2026-11-02,1396,1396,Sandbar Bar & Grill,South Hero,established,50/50 default,ranked,2026-10-16,2026-11-01,2026-11-02,94.1,70.6,136.5,77.2,95,-0.9,-0.9,-17.8
+2026-11-02,1409,1409,Pan’sPizza-South Hero,South Hero,established,50/50 default,ranked,2026-07-06,2026-11-01,2026-11-02,28.9,21.6,41.8,36.3,40,-11.1,-27.8,-3.7
+2026-11-02,1471,1471,Thai in Town-South Hero,South Hero,new,50/50 default,ranked,2026-09-01,2026-11-01,2026-11-02,36.1,25.2,48.7,38.6,40,-3.9,-9.8,-1.4

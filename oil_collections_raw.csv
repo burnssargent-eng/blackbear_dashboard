@@ -1543,23 +1543,23 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 837,Bent Hill Brewery,Braintree,Washington,2020-01-22,2020,2020-01,85,True,Braintree
 837,Bent Hill Brewery,Braintree,Washington,2018-10-17,2018,2018-10,40,True,Braintree
 837,Bent Hill Brewery,Braintree,Washington,2018-07-05,2018,2018-07,50,True,Braintree
-1179,Hannaford- Brandon,Burlington,Rutland,2026-08-24,2026,2026-08,33,True,Brandon
-1179,Hannaford- Brandon,Burlington,Rutland,2026-02-03,2026,2026-02,144,True,Brandon
-1179,Hannaford- Brandon,Burlington,Rutland,2025-08-29,2025,2025-08,147,True,Brandon
-1179,Hannaford- Brandon,Burlington,Rutland,2025-05-01,2025,2025-05,134,True,Brandon
-1179,Hannaford- Brandon,Burlington,Rutland,2025-01-28,2025,2025-01,147,True,Brandon
-1179,Hannaford- Brandon,Burlington,Rutland,2024-10-24,2024,2024-10,136,True,Brandon
-1179,Hannaford- Brandon,Burlington,Rutland,2024-07-30,2024,2024-07,137,True,Brandon
-1179,Hannaford- Brandon,Burlington,Rutland,2024-05-08,2024,2024-05,122,True,Brandon
-1179,Hannaford- Brandon,Burlington,Rutland,2024-02-22,2024,2024-02,107,True,Brandon
-1179,Hannaford- Brandon,Burlington,Rutland,2023-12-14,2023,2023-12,87,True,Brandon
-1179,Hannaford- Brandon,Burlington,Rutland,2023-09-21,2023,2023-09,78,True,Brandon
-1179,Hannaford- Brandon,Burlington,Rutland,2023-06-28,2023,2023-06,122,True,Brandon
-1179,Hannaford- Brandon,Burlington,Rutland,2023-03-16,2023,2023-03,46,True,Brandon
-1179,Hannaford- Brandon,Burlington,Rutland,2023-02-05,2023,2023-02,46,True,Brandon
-1179,Hannaford- Brandon,Burlington,Rutland,2023-01-04,2023,2023-01,96,True,Brandon
-1179,Hannaford- Brandon,Burlington,Rutland,2022-10-12,2022,2022-10,34,True,Brandon
-1179,Hannaford- Brandon,Burlington,Rutland,2022-09-19,2022,2022-09,121,True,Brandon
+1179,Hannaford- Brandon,Brandon,Rutland,2026-08-24,2026,2026-08,33,True,Brandon
+1179,Hannaford- Brandon,Brandon,Rutland,2026-02-03,2026,2026-02,144,True,Brandon
+1179,Hannaford- Brandon,Brandon,Rutland,2025-08-29,2025,2025-08,147,True,Brandon
+1179,Hannaford- Brandon,Brandon,Rutland,2025-05-01,2025,2025-05,134,True,Brandon
+1179,Hannaford- Brandon,Brandon,Rutland,2025-01-28,2025,2025-01,147,True,Brandon
+1179,Hannaford- Brandon,Brandon,Rutland,2024-10-24,2024,2024-10,136,True,Brandon
+1179,Hannaford- Brandon,Brandon,Rutland,2024-07-30,2024,2024-07,137,True,Brandon
+1179,Hannaford- Brandon,Brandon,Rutland,2024-05-08,2024,2024-05,122,True,Brandon
+1179,Hannaford- Brandon,Brandon,Rutland,2024-02-22,2024,2024-02,107,True,Brandon
+1179,Hannaford- Brandon,Brandon,Rutland,2023-12-14,2023,2023-12,87,True,Brandon
+1179,Hannaford- Brandon,Brandon,Rutland,2023-09-21,2023,2023-09,78,True,Brandon
+1179,Hannaford- Brandon,Brandon,Rutland,2023-06-28,2023,2023-06,122,True,Brandon
+1179,Hannaford- Brandon,Brandon,Rutland,2023-03-16,2023,2023-03,46,True,Brandon
+1179,Hannaford- Brandon,Brandon,Rutland,2023-02-05,2023,2023-02,46,True,Brandon
+1179,Hannaford- Brandon,Brandon,Rutland,2023-01-04,2023,2023-01,96,True,Brandon
+1179,Hannaford- Brandon,Brandon,Rutland,2022-10-12,2022,2022-10,34,True,Brandon
+1179,Hannaford- Brandon,Brandon,Rutland,2022-09-19,2022,2022-09,121,True,Brandon
 1054,Duo Restaurant 50%-LOCK,Brattleboro,Windham,2026-03-30,2026,2026-03,15,True,Brattleboro
 1054,Duo Restaurant 50%-LOCK,Brattleboro,Windham,2025-12-11,2025,2025-12,10,True,Brattleboro
 1054,Duo Restaurant 50%-LOCK,Brattleboro,Windham,2025-09-26,2025,2025-09,30,True,Brattleboro
@@ -12260,10 +12260,10 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 508,Pizza on Main -Morrisville,Morrisville,Lamoille,2015-03-30,2015,2015-03,45,True,Morristown
 513,The Manor,Morrisville,Lamoille,2025-09-12,2025,2025-09,7,True,Morristown
 513,The Manor,Morrisville,Lamoille,2019-04-23,2019,2019-04,50,True,Morristown
-1496,Tourterelle -just north of MIDDLEBURY,Burlington,Addison,2026-09-14,2026,2026-09,15,True,New Haven
-1496,Tourterelle -just north of MIDDLEBURY,Burlington,Addison,2026-08-24,2026,2026-08,20,True,New Haven
-1496,Tourterelle -just north of MIDDLEBURY,Burlington,Addison,2026-07-06,2026,2026-07,100,True,New Haven
-1496,Tourterelle -just north of MIDDLEBURY,Burlington,Addison,2026-04-30,2026,2026-04,75,True,New Haven
+1496,Tourterelle -just north of MIDDLEBURY,New Haven,Addison,2026-09-14,2026,2026-09,15,True,New Haven
+1496,Tourterelle -just north of MIDDLEBURY,New Haven,Addison,2026-08-24,2026,2026-08,20,True,New Haven
+1496,Tourterelle -just north of MIDDLEBURY,New Haven,Addison,2026-07-06,2026,2026-07,100,True,New Haven
+1496,Tourterelle -just north of MIDDLEBURY,New Haven,Addison,2026-04-30,2026,2026-04,75,True,New Haven
 534,Dusit Thai,Newport,Orleans,2026-10-20,2026,2026-10,40,True,Newport City
 534,Dusit Thai,Newport,Orleans,2026-08-06,2026,2026-08,75,True,Newport City
 534,Dusit Thai,Newport,Orleans,2026-04-29,2026,2026-04,70,True,Newport City
@@ -12532,6 +12532,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1371,West Side Market and Deli,Newport,Orleans,2025-02-14,2025,2025-02,15,True,Newport City
 1371,West Side Market and Deli,Newport,Orleans,2025-01-10,2025,2025-01,45,True,Newport City
 1371,West Side Market and Deli,Newport,Orleans,2024-10-08,2024,2024-10,15,True,Newport City
+1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2026-11-02,2026,2026-11,15,True,North Hero
 1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2026-09-30,2026,2026-09,50,True,North Hero
 1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2026-08-17,2026,2026-08,70,True,North Hero
 1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2026-07-06,2026,2026-07,75,True,North Hero
@@ -12547,6 +12548,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2023-07-13,2023,2023-07,15,True,North Hero
 1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2022-10-27,2022,2022-10,25,True,North Hero
 1147,Bravo Zulu- North Hero,North Hero,Grand Isle,2022-09-13,2022,2022-09,45,True,North Hero
+416,North Hero House,North Hero,Grand Isle,2026-11-02,2026,2026-11,40,True,North Hero
 416,North Hero House,North Hero,Grand Isle,2026-09-30,2026,2026-09,140,True,North Hero
 416,North Hero House,North Hero,Grand Isle,2026-09-01,2026,2026-09,70,True,North Hero
 416,North Hero House,North Hero,Grand Isle,2026-08-17,2026,2026-08,85,True,North Hero
@@ -12585,6 +12587,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 416,North Hero House,North Hero,Grand Isle,2020-06-30,2020,2020-06,150,True,North Hero
 416,North Hero House,North Hero,Grand Isle,2020-03-13,2020,2020-03,100,True,North Hero
 416,North Hero House,North Hero,Grand Isle,2018-08-08,2018,2018-08,175,True,North Hero
+1144,Shore Acres-North Hero,North Hero,Grand Isle,2026-11-02,2026,2026-11,35,True,North Hero
 1144,Shore Acres-North Hero,North Hero,Grand Isle,2026-08-17,2026,2026-08,25,True,North Hero
 1144,Shore Acres-North Hero,North Hero,Grand Isle,2026-07-06,2026,2026-07,70,True,North Hero
 1144,Shore Acres-North Hero,North Hero,Grand Isle,2025-08-22,2025,2025-08,15,True,North Hero
@@ -14692,6 +14695,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1188,Windjammer,South Burlington,Chittenden,2022-11-27,2022,2022-11,80,True,South Burlington
 1188,Windjammer,South Burlington,Chittenden,2022-11-07,2022,2022-11,70,True,South Burlington
 1188,Windjammer,South Burlington,Chittenden,2022-10-14,2022,2022-10,235,True,South Burlington
+1409,Pan’sPizza-South Hero,South Hero,Grand Isle,2026-11-02,2026,2026-11,40,True,South Hero
 1409,Pan’sPizza-South Hero,South Hero,Grand Isle,2026-07-06,2026,2026-07,15,True,South Hero
 1409,Pan’sPizza-South Hero,South Hero,Grand Isle,2026-05-21,2026,2026-05,30,True,South Hero
 1409,Pan’sPizza-South Hero,South Hero,Grand Isle,2026-04-09,2026,2026-04,20,True,South Hero
@@ -14700,6 +14704,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1409,Pan’sPizza-South Hero,South Hero,Grand Isle,2025-08-22,2025,2025-08,15,True,South Hero
 1409,Pan’sPizza-South Hero,South Hero,Grand Isle,2025-06-06,2025,2025-06,15,True,South Hero
 1409,Pan’sPizza-South Hero,South Hero,Grand Isle,2025-04-01,2025,2025-04,35,True,South Hero
+1396,Sandbar Bar & Grill,South Hero,Grand Isle,2026-11-02,2026,2026-11,95,True,South Hero
 1396,Sandbar Bar & Grill,South Hero,Grand Isle,2026-10-16,2026,2026-10,150,True,South Hero
 1396,Sandbar Bar & Grill,South Hero,Grand Isle,2026-09-30,2026,2026-09,75,True,South Hero
 1396,Sandbar Bar & Grill,South Hero,Grand Isle,2026-09-01,2026,2026-09,100,True,South Hero
@@ -14722,12 +14727,14 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1396,Sandbar Bar & Grill,South Hero,Grand Isle,2025-08-01,2025,2025-08,130,True,South Hero
 1396,Sandbar Bar & Grill,South Hero,Grand Isle,2025-07-07,2025,2025-07,110,True,South Hero
 1396,Sandbar Bar & Grill,South Hero,Grand Isle,2025-06-06,2025,2025-06,60,True,South Hero
+1471,Thai in Town-South Hero,South Hero,Grand Isle,2026-11-02,2026,2026-11,40,True,South Hero
 1471,Thai in Town-South Hero,South Hero,Grand Isle,2026-09-01,2026,2026-09,20,True,South Hero
 1471,Thai in Town-South Hero,South Hero,Grand Isle,2026-07-06,2026,2026-07,30,True,South Hero
 1471,Thai in Town-South Hero,South Hero,Grand Isle,2026-05-21,2026,2026-05,40,True,South Hero
 1471,Thai in Town-South Hero,South Hero,Grand Isle,2026-04-09,2026,2026-04,35,True,South Hero
 1471,Thai in Town-South Hero,South Hero,Grand Isle,2026-02-05,2026,2026-02,45,True,South Hero
 1471,Thai in Town-South Hero,South Hero,Grand Isle,2025-12-02,2025,2025-12,15,True,South Hero
+1319,Two Heros Public House,South Hero,Grand Isle,2026-11-02,2026,2026-11,70,True,South Hero
 1319,Two Heros Public House,South Hero,Grand Isle,2026-08-17,2026,2026-08,20,True,South Hero
 1319,Two Heros Public House,South Hero,Grand Isle,2026-07-28,2026,2026-07,15,True,South Hero
 1319,Two Heros Public House,South Hero,Grand Isle,2026-07-06,2026,2026-07,40,True,South Hero
@@ -23199,14 +23206,14 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 823,Woodstock Inn,Woodstock,Windsor,2018-04-24,2018,2018-04,50,True,Woodstock
 823,Woodstock Inn,Woodstock,Windsor,2018-03-22,2018,2018-03,75,True,Woodstock
 823,Woodstock Inn,Woodstock,Windsor,2018-02-23,2018,2018-02,175,True,Woodstock
-624,LBJ Country Store-Worcester,Burlington,Washington,2026-10-23,2026,2026-10,25,True,Worcester
-624,LBJ Country Store-Worcester,Burlington,Washington,2024-10-03,2024,2024-10,10,True,Worcester
-624,LBJ Country Store-Worcester,Burlington,Washington,2022-11-10,2022,2022-11,20,True,Worcester
-624,LBJ Country Store-Worcester,Burlington,Washington,2021-10-18,2021,2021-10,20,True,Worcester
-624,LBJ Country Store-Worcester,Burlington,Washington,2020-03-26,2020,2020-03,15,True,Worcester
-624,LBJ Country Store-Worcester,Burlington,Washington,2018-05-17,2018,2018-05,25,True,Worcester
-624,LBJ Country Store-Worcester,Burlington,Washington,2015-12-28,2015,2015-12,15,True,Worcester
-624,LBJ Country Store-Worcester,Burlington,Washington,2015-06-02,2015,2015-06,25,True,Worcester
+624,LBJ Country Store-Worcester,Worcester,Washington,2026-10-23,2026,2026-10,25,True,Worcester
+624,LBJ Country Store-Worcester,Worcester,Washington,2024-10-03,2024,2024-10,10,True,Worcester
+624,LBJ Country Store-Worcester,Worcester,Washington,2022-11-10,2022,2022-11,20,True,Worcester
+624,LBJ Country Store-Worcester,Worcester,Washington,2021-10-18,2021,2021-10,20,True,Worcester
+624,LBJ Country Store-Worcester,Worcester,Washington,2020-03-26,2020,2020-03,15,True,Worcester
+624,LBJ Country Store-Worcester,Worcester,Washington,2018-05-17,2018,2018-05,25,True,Worcester
+624,LBJ Country Store-Worcester,Worcester,Washington,2015-12-28,2015,2015-12,15,True,Worcester
+624,LBJ Country Store-Worcester,Worcester,Washington,2015-06-02,2015,2015-06,25,True,Worcester
 349,Cafe Saint Paul 30-36-6,Burlington,Chittenden,2025-10-01,2025,2025-10,7,False,Burlington
 349,Cafe Saint Paul 30-36-6,Burlington,Chittenden,2025-09-25,2025,2025-09,15,False,Burlington
 349,Cafe Saint Paul 30-36-6,Burlington,Chittenden,2025-06-13,2025,2025-06,40,False,Burlington
@@ -23506,15 +23513,15 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 929,BaitedHook,Burlington,Chittenden,2017-07-26,2017,2017-07,50,False,Burlington
 929,BaitedHook,Burlington,Chittenden,2017-05-11,2017,2017-05,40,False,Burlington
 929,BaitedHook,Burlington,Chittenden,2017-05-05,2017,2017-05,30,False,Burlington
-539,Bakersfield Village store,Burlington,Franklin,2021-08-18,2021,2021-08,120,False,Bakersfield
-539,Bakersfield Village store,Burlington,Franklin,2020-12-29,2020,2020-12,20,False,Bakersfield
-539,Bakersfield Village store,Burlington,Franklin,2020-11-17,2020,2020-11,80,False,Bakersfield
-539,Bakersfield Village store,Burlington,Franklin,2020-07-07,2020,2020-07,125,False,Bakersfield
-539,Bakersfield Village store,Burlington,Franklin,2019-10-08,2019,2019-10,75,False,Bakersfield
-539,Bakersfield Village store,Burlington,Franklin,2019-04-23,2019,2019-04,100,False,Bakersfield
-539,Bakersfield Village store,Burlington,Franklin,2018-10-29,2018,2018-10,25,False,Bakersfield
-539,Bakersfield Village store,Burlington,Franklin,2018-09-21,2018,2018-09,65,False,Bakersfield
-539,Bakersfield Village store,Burlington,Franklin,2018-04-04,2018,2018-04,110,False,Bakersfield
+539,Bakersfield Village store,Bakersfield,Franklin,2021-08-18,2021,2021-08,120,False,Bakersfield
+539,Bakersfield Village store,Bakersfield,Franklin,2020-12-29,2020,2020-12,20,False,Bakersfield
+539,Bakersfield Village store,Bakersfield,Franklin,2020-11-17,2020,2020-11,80,False,Bakersfield
+539,Bakersfield Village store,Bakersfield,Franklin,2020-07-07,2020,2020-07,125,False,Bakersfield
+539,Bakersfield Village store,Bakersfield,Franklin,2019-10-08,2019,2019-10,75,False,Bakersfield
+539,Bakersfield Village store,Bakersfield,Franklin,2019-04-23,2019,2019-04,100,False,Bakersfield
+539,Bakersfield Village store,Bakersfield,Franklin,2018-10-29,2018,2018-10,25,False,Bakersfield
+539,Bakersfield Village store,Bakersfield,Franklin,2018-09-21,2018,2018-09,65,False,Bakersfield
+539,Bakersfield Village store,Bakersfield,Franklin,2018-04-04,2018,2018-04,110,False,Bakersfield
 602,Barre Country Club,Orange,Washington,2019-09-19,2019,2019-09,50,False,Orange
 602,Barre Country Club,Orange,Washington,2019-08-05,2019,2019-08,50,False,Orange
 602,Barre Country Club,Orange,Washington,2018-09-20,2018,2018-09,40,False,Orange
@@ -24146,7 +24153,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 808,Clear River Tavern,Pittsfield,Rutland,2015-06-26,2015,2015-06,30,False,Pittsfield
 808,Clear River Tavern,Pittsfield,Rutland,2015-04-20,2015,2015-04,10,False,Pittsfield
 808,Clear River Tavern,Pittsfield,Rutland,2015-03-10,2015,2015-03,40,False,Pittsfield
-1255,Cobb Hill CoHousing,Burlington,Windsor,2023-06-05,2023,2023-06,100,False,Hartland
+1255,Cobb Hill CoHousing,Hartland,Windsor,2023-06-05,2023,2023-06,100,False,Hartland
 818,Coburns Tonic,Woodstock,Windsor,2020-09-29,2020,2020-09,165,False,Woodstock
 818,Coburns Tonic,Woodstock,Windsor,2020-07-30,2020,2020-07,150,False,Woodstock
 818,Coburns Tonic,Woodstock,Windsor,2020-03-10,2020,2020-03,50,False,Woodstock
@@ -25180,7 +25187,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 410,Mediterranean Café,Essex Junction,Chittenden,2019-07-09,2019,2019-07,50,False,Essex Junction
 410,Mediterranean Café,Essex Junction,Chittenden,2019-04-10,2019,2019-04,50,False,Essex Junction
 410,Mediterranean Café,Essex Junction,Chittenden,2018-09-25,2018,2018-09,20,False,Essex Junction
-1159,Meg Miller,Burlington,Chittenden,2022-11-10,2022,2022-11,35,False,Burlington
+1159,Meg Miller,Worcester,Washington,2022-11-10,2022,2022-11,35,False,Worcester
 821,MeLaza,Woodstock,Windsor,2025-10-10,2025,2025-10,7,False,Woodstock
 821,MeLaza,Woodstock,Windsor,2025-10-06,2025,2025-10,30,False,Woodstock
 821,MeLaza,Woodstock,Windsor,2025-08-25,2025,2025-08,30,False,Woodstock
@@ -26526,7 +26533,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 835,Sandy's,Burlington,Chittenden,2015-06-26,2015,2015-06,105,False,Burlington
 835,Sandy's,Burlington,Chittenden,2015-05-20,2015,2015-05,120,False,Burlington
 835,Sandy's,Burlington,Chittenden,2015-04-20,2015,2015-04,140,False,Burlington
-1196,Sarky’s  Smokehouse-Groton,Burlington,Caledonia,2022-12-07,2022,2022-12,223,False,Groton
+1196,Sarky’s  Smokehouse-Groton,Groton,Caledonia,2022-12-07,2022,2022-12,223,False,Groton
 1284,Scott,Marshfield,Caledonia,2023-09-27,2023,2023-09,120,False,Marshfield
 331,Scuffers,Burlington,Chittenden,2018-10-03,2018,2018-10,40,False,Burlington
 331,Scuffers,Burlington,Chittenden,2018-09-05,2018,2018-09,25,False,Burlington
@@ -26612,7 +26619,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 438,Shaffer (Happy Belly),Winooski,Chittenden,2015-03-19,2015,2015-03,45,False,Winooski
 438,Shaffer (Happy Belly),Winooski,Chittenden,2015-02-19,2015,2015-02,32,False,Winooski
 438,Shaffer (Happy Belly),Winooski,Chittenden,2015-01-22,2015,2015-01,43,False,Winooski
-1245,Shaws-Fair Haven,Burlington,Rutland,2023-03-16,2023,2023-03,180,False,Fair Haven
+1245,Shaws-Fair Haven,Fair Haven,Rutland,2023-03-16,2023,2023-03,180,False,Fair Haven
 1201,Shaws-Middlebury,Middlebury,Addison,2023-04-28,2023,2023-04,10,False,Middlebury
 1201,Shaws-Middlebury,Middlebury,Addison,2023-03-01,2023,2023-03,40,False,Middlebury
 1201,Shaws-Middlebury,Middlebury,Addison,2023-02-12,2023,2023-02,125,False,Middlebury
@@ -27608,7 +27615,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1015,Todd Tyson,Burlington,Chittenden,2016-07-21,2016,2016-07,205,False,Burlington
 1015,Todd Tyson,Burlington,Chittenden,2016-02-04,2016,2016-02,325,False,Burlington
 1015,Todd Tyson,Burlington,Chittenden,2016-01-13,2016,2016-01,375,False,Burlington
-1256,Tony’s used autos,Burlington,Chittenden,2023-06-05,2023,2023-06,65,False,Burlington
+1256,Tony’s used autos,Hartland,Windsor,2023-06-05,2023,2023-06,65,False,Hartland
 281,Toscano,Burlington,Chittenden,2017-08-26,2017,2017-08,12,False,Burlington
 281,Toscano,Burlington,Chittenden,2017-08-12,2017,2017-08,16,False,Burlington
 281,Toscano,Burlington,Chittenden,2017-07-15,2017,2017-07,5,False,Burlington

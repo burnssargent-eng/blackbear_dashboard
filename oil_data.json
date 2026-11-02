@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-02T00:19:59.011776",
+  "last_updated": "2026-11-02T16:50:13.327265",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -18760,7 +18760,7 @@
     {
       "month": "2022-11",
       "geo_town": "Burlington",
-      "gallons": 3561,
+      "gallons": 3526,
       "city": "Burlington"
     },
     {
@@ -19024,7 +19024,7 @@
     {
       "month": "2022-11",
       "geo_town": "Worcester",
-      "gallons": 20,
+      "gallons": 55,
       "city": "Worcester"
     },
     {
@@ -20908,7 +20908,7 @@
     {
       "month": "2023-06",
       "geo_town": "Burlington",
-      "gallons": 3437,
+      "gallons": 3372,
       "city": "Burlington"
     },
     {
@@ -20974,7 +20974,7 @@
     {
       "month": "2023-06",
       "geo_town": "Hartland",
-      "gallons": 100,
+      "gallons": 165,
       "city": "Hartland"
     },
     {
@@ -34392,6 +34392,18 @@
       "geo_town": "Worcester",
       "gallons": 25,
       "city": "Worcester"
+    },
+    {
+      "month": "2026-11",
+      "geo_town": "North Hero",
+      "gallons": 90,
+      "city": "North Hero"
+    },
+    {
+      "month": "2026-11",
+      "geo_town": "South Hero",
+      "gallons": 245,
+      "city": "South Hero"
     }
   ],
   "monthly_by_county": [
@@ -39253,7 +39265,7 @@
     {
       "month": "2022-11",
       "county": "Chittenden",
-      "gallons": 7375
+      "gallons": 7340
     },
     {
       "month": "2022-11",
@@ -39283,7 +39295,7 @@
     {
       "month": "2022-11",
       "county": "Washington",
-      "gallons": 3868
+      "gallons": 3903
     },
     {
       "month": "2022-11",
@@ -39723,7 +39735,7 @@
     {
       "month": "2023-06",
       "county": "Chittenden",
-      "gallons": 10811
+      "gallons": 10746
     },
     {
       "month": "2023-06",
@@ -39773,7 +39785,7 @@
     {
       "month": "2023-06",
       "county": "Windsor",
-      "gallons": 1127
+      "gallons": 1192
     },
     {
       "month": "2023-07",
@@ -42749,6 +42761,11 @@
       "month": "2026-10",
       "county": "Windsor",
       "gallons": 1630
+    },
+    {
+      "month": "2026-11",
+      "county": "Grand Isle",
+      "gallons": 335
     }
   ],
   "yearly_totals": [
@@ -42798,11 +42815,11 @@
     },
     {
       "year": 2026,
-      "gallons": 247925
+      "gallons": 248260
     }
   ],
-  "all_time_total": 2166692,
-  "current_year_total": 247925,
+  "all_time_total": 2167027,
+  "current_year_total": 248260,
   "customer_count": 806,
   "unmapped_total": 40760,
   "monthly_totals": [
@@ -43373,6 +43390,10 @@
     {
       "month": "2026-10",
       "gallons": 22869
+    },
+    {
+      "month": "2026-11",
+      "gallons": 335
     }
   ],
   "monthly_by_region": [
@@ -50844,7 +50865,7 @@
     {
       "month": "2022-11",
       "region": "Burlington / South Burlington",
-      "gallons": 4655
+      "gallons": 4620
     },
     {
       "month": "2022-11",
@@ -50869,7 +50890,7 @@
     {
       "month": "2022-11",
       "region": "Other",
-      "gallons": 263
+      "gallons": 298
     },
     {
       "month": "2022-11",
@@ -51449,7 +51470,7 @@
     {
       "month": "2023-06",
       "region": "Burlington / South Burlington",
-      "gallons": 5198
+      "gallons": 5133
     },
     {
       "month": "2023-06",
@@ -51474,7 +51495,7 @@
     {
       "month": "2023-06",
       "region": "Other",
-      "gallons": 513
+      "gallons": 578
     },
     {
       "month": "2023-06",
@@ -55150,6 +55171,11 @@
       "month": "2026-10",
       "region": "Winter / Summer Combined",
       "gallons": 2080
+    },
+    {
+      "month": "2026-11",
+      "region": "Northwest",
+      "gallons": 335
     }
   ],
   "yearly_by_region": [
@@ -55806,7 +55832,7 @@
     {
       "year": 2022,
       "region": "Burlington / South Burlington",
-      "gallons": 44483
+      "gallons": 44448
     },
     {
       "year": 2022,
@@ -55831,7 +55857,7 @@
     {
       "year": 2022,
       "region": "Other",
-      "gallons": 2433
+      "gallons": 2468
     },
     {
       "year": 2022,
@@ -55901,7 +55927,7 @@
     {
       "year": 2023,
       "region": "Burlington / South Burlington",
-      "gallons": 60447
+      "gallons": 60382
     },
     {
       "year": 2023,
@@ -55926,7 +55952,7 @@
     {
       "year": 2023,
       "region": "Other",
-      "gallons": 2838
+      "gallons": 2903
     },
     {
       "year": 2023,
@@ -56206,7 +56232,7 @@
     {
       "year": 2026,
       "region": "Northwest",
-      "gallons": 14822
+      "gallons": 15157
     },
     {
       "year": 2026,
@@ -56325,24 +56351,24 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 27897,
+  "collections_count": 27904,
   "out_of_state_total": 40760,
   "active_customer_count": 531,
   "projection": {
-    "latest_data_date": "2026-10-30",
+    "latest_data_date": "2026-11-02",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 247925,
+    "current_ytd": 248260,
     "previous_year_full": 269909,
-    "previous_through_prior_month": 208859,
-    "previous_same_month_total": 21968,
-    "previous_prorated_ytd": 230118.35,
-    "projected_current_year": 290795,
-    "percent_vs_previous_year": 0.07738
+    "previous_through_prior_month": 230827,
+    "previous_same_month_total": 20207,
+    "previous_prorated_ytd": 232174.13,
+    "projected_current_year": 288609,
+    "percent_vs_previous_year": 0.069284
   },
   "region_stats": {
     "Burlington / South Burlington": {
-      "customers": 216,
+      "customers": 214,
       "active": 81
     },
     "Central": {
@@ -56362,7 +56388,7 @@
       "active": 37
     },
     "Other": {
-      "customers": 24,
+      "customers": 26,
       "active": 15
     },
     "Outer Burlington": {
@@ -56669,7 +56695,6 @@
       1134,
       1152,
       1157,
-      1159,
       1163,
       1170,
       1177,
@@ -56684,7 +56709,6 @@
       1229,
       1240,
       1254,
-      1256,
       1273,
       1286,
       1287,
@@ -56974,6 +56998,7 @@
       931,
       932,
       1095,
+      1159,
       1179,
       1192,
       1196,
@@ -56981,6 +57006,7 @@
       1218,
       1245,
       1255,
+      1256,
       1281,
       1300,
       1333,
