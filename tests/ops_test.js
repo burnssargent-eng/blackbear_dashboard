@@ -199,7 +199,7 @@ const sum = outApi.monthSummary(outMonth);
 ok(Object.values(sum.runs).reduce((a, b) => a + b, 0) === handRuns, `month run count matches the log (${outMonth}: ${handRuns})`);
 ok(outApi.runLabels({ babybird: 1, mammabear: 2 }).join(" ") === "MB (2) BB (1)",
   "run labels follow the source site's style, in truck order");
-ok(outApi.TRUCKS.find(t => t.key === "newbiedoo").name === "Newbie Doo", "the new truck is Newbie Doo");
+ok(outApi.TRUCKS.find(t => t.key === "newbiedoo").name === "Cub", "the new truck is Cub (key newbiedoo)");
 const outCells = (outApi.gridHtml(outMonth).match(/class="cal-day(?!s)/g) || []).length;
 ok(outCells % 7 === 0, "the outgoing report grid fills whole weeks");
 

@@ -118,6 +118,7 @@ create index if not exists route_stops_route_idx on public.route_stops (route_id
 create table if not exists public.route_trucks (
   route_id integer not null references public.routes (id) on delete cascade,
   day      date not null,
+  -- 'newbiedoo' is the truck named Cub (renamed 2026-11-02; the key is kept, see route-utils.js)
   truck    text not null check (truck in ('mammabear', 'mackdaddy', 'babybird', 'newbiedoo')),
   set_by   uuid default auth.uid(),
   set_at   timestamptz not null default now(),
