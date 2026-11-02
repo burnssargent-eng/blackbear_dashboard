@@ -29,6 +29,7 @@ import sys
 from oil_scraper import (
     COUNTY_MAP,
     GEO_TOWN_NAME_MAP,
+    OUT_OF_STATE_BY_CUSTOMER,
     OUT_OF_STATE_CITIES,
     normalize_geo_town,
 )
@@ -96,6 +97,11 @@ def main():
 
             if city in OUT_OF_STATE_CITIES:
                 out_of_state[city] += gallons
+                continue
+            # Listed out of state by customer id (the site's city is wrong).
+            place = OUT_OF_STATE_BY_CUSTOMER.get(int(row["customer_id"]))
+            if place:
+                out_of_state[place] += gallons
                 continue
 
             town = normalize_geo_town(city, row.get("customer_id"))

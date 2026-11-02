@@ -1420,6 +1420,10 @@ def compute_customer_lifecycle(df):
             "name": row["name"],
             "city": row["city"],
             "geo_town": row["geo_town"],
+            # The town to SHOW: the official town, else an out-of-state place
+            # from OUT_OF_STATE_BY_CUSTOMER, else the site's city. The
+            # projection builder (and through it the Ops pages) reads this.
+            "town": (row["geo_town"] or _out_of_state_place(cid) or row["city"] or ""),
             "county": row["county"],
             "is_active": is_active,
             "gallons": int(group["gallons"].sum()),
