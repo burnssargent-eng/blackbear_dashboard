@@ -98,7 +98,7 @@ const RANKED_ROW_LIMITS = { collapsed: 50, expanded: 250 };
 const RANKED_COLUMNS = [
   { key: "rank", label: "#", cls: "rank" },
   { key: "name", label: "Customer", text: true, value: c => c.name },
-  { key: "town", label: "Town", text: true, value: c => c.town },
+  { key: "town", label: "Town", text: true, value: c => townLabel(c.town) },
   { key: "projected", label: "Projected gal (range)", value: c => c.projected_gal },
   { key: "capacity", label: "Capacity", value: c => c.capacity },
   { key: "pct_full", label: "% full", value: c => c.pct_full },
@@ -422,7 +422,7 @@ function rankedRowsHtml(rows, ranks) {
     <tr>
       <td class="rank">${(ranks && ranks.get(c.id)) || i + 1}</td>
       <td>${escapeHtml(c.name)}${notesHtml(c)}</td>
-      <td>${escapeHtml(c.town || "—")}</td>
+      <td>${escapeHtml(townLabel(c.town) || "—")}</td>
       <td class="gal">${projectedHtml(c)}</td>
       <td class="num">${formatWhole(c.capacity)}</td>
       <td class="num">${pctFullHtml(c.pct_full)}</td>
@@ -462,7 +462,7 @@ function heldOutRowsHtml(rows) {
   const body = rows.map(c => `
     <tr>
       <td>${escapeHtml(c.name)}${heldOutNotesHtml(c)}</td>
-      <td>${escapeHtml(c.town || "—")}</td>
+      <td>${escapeHtml(townLabel(c.town) || "—")}</td>
       <td>${escapeHtml(c.status)}</td>
       <td class="proj-reason">${escapeHtml(c.reason || "—")}</td>
       <td class="proj-date">${formatDate(c.last_pickup)}</td>
@@ -579,7 +579,7 @@ function liveDayRowsHtml(rows, day) {
     return `
       <tr${r.projected === null ? ' class="proj-live-off"' : ""}>
         <td>${escapeHtml(r.name)}</td>
-        <td>${escapeHtml(r.town || "—")}</td>
+        <td>${escapeHtml(townLabel(r.town) || "—")}</td>
         <td>${escapeHtml(r.stage || "—")}</td>
         <td class="gal">${projected}</td>
         <td class="num">${formatNumber(r.actual)}</td>

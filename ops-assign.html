@@ -65,11 +65,12 @@ function buildCustomerRows() {
   const cwReady = typeof opsCollectedWith === "function";
   return rows.map(r => {
     const row = data.index.get(r.customer_id) || null;
-    const town = (row && row.town) || r.city || "";
+    const town = townLabel((row && row.town) || r.city || "");
     // Collected with another town's run: listed under that town in Town view.
     const cw = cwReady ? opsCollectedWith(r.customer_id) : null;
     return { ...r, row, capacity: row && row.capacity != null ? row.capacity : (r.capacity ?? null),
-      town, cw: cw && { ...cw, town: cw.town || town }, groupTown: (cw && cw.with) || town };
+      town, cw: cw && { town: townLabel(cw.town) || town, with: townLabel(cw.with) },
+      groupTown: (cw && townLabel(cw.with)) || town };
   });
 }
 

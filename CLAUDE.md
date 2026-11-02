@@ -222,6 +222,22 @@ and the region inflates — so it is asserted from the EXPORTED membership by
 `REQUIRED_CUSTOMER_REGION` and `FORBIDDEN_CUSTOMER_REGION` in
 `validate_data.py`, not from the config that produced it.
 
+**The source site's City field is often wrong; correct it by id.** Many
+customers carry City "Burlington" whatever their real town (Erin and Jim,
+2026-11-01). `CITY_TOWN_BY_CUSTOMER` (`oil_scraper.py`) sets the official
+town by customer id, and the county follows it; `OUT_OF_STATE_BY_CUSTOMER`
+does the same for out-of-state customers (`Place, ST`, used in place of the
+raw city for region matching). Ids and town names only, never an address.
+Check each town against an address first (the private lookup files, the
+site's page, or its map position): two guesses from names alone were wrong on
+2026-11-02. The raw `city` column stays as scraped, so the Ops pages, which
+read the database's city, still show the site's value.
+
+**Barre is one town in labels, two on the map.** `townLabel()`
+(`dashboard-utils.js`, inline copy in `index.html`) shows Barre City and Barre
+Town as "Barre" in every town list and label; `town.html?town=Barre` covers
+both. The map, the data and the region config keep the official names.
+
 **Excel sheet names reject `/`.** Region display names contain slashes, so
 `region_sheet_names()` sanitises them. Never pass a display name to
 `sheet_name=`.
@@ -316,8 +332,9 @@ python3 check_town_mismatches.py  # town names vs the GeoJSON; exits non-zero on
 node tests/run_all.js             # seven front-end suites; see tests/README.md
 ```
 
-Two standing warnings, both towns configured ahead of their first customer:
-`Route 7:New Haven` and `Northwest:Alburgh`. Expected.
+One standing warning, a town configured ahead of its first customer:
+`Northwest:Alburgh`. Expected. (`Route 7:New Haven` cleared on 2026-11-02, when
+Tourterelle was moved there.)
 
 **The tests cannot see layout.** They evaluate the real functions and templates
 against real JSON, which catches broken maths and markup, but every layout

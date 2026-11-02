@@ -158,7 +158,7 @@ function jamaalRouteHtml(route, onRoutes) {
     <tr>
       <td class="rank">${i + 1}</td>
       <td>${escapeHtml(line.stop.name)}${stopNotesHtml(line, onRoutes, route.name)}</td>
-      <td>${escapeHtml((line.row && line.row.town) || "—")}</td>
+      <td>${escapeHtml(townLabel(line.row && line.row.town) || "—")}</td>
       <td class="gal">${estimateCellHtml(line)}</td>
       <td class="num">${capacityCellHtml(line)}</td>
       <td class="num">${pctFullHtml(line.row)}</td>
@@ -219,7 +219,7 @@ function draftRowsHtml(lines, onRoutes, fromRoute) {
         <button type="button" data-action="down" data-i="${i}" ${i === n - 1 ? "disabled" : ""} aria-label="Move down">↓</button>
       </td>
       <td>${escapeHtml(line.stop.name)}${stopNotesHtml(line, onRoutes, fromRoute)}</td>
-      <td>${escapeHtml((line.row && line.row.town) || "—")}</td>
+      <td>${escapeHtml(townLabel(line.row && line.row.town) || "—")}</td>
       <td class="gal">${estimateCellHtml(line)}</td>
       <td class="num">${capacityCellHtml(line)}</td>
       <td class="num">${pctFullHtml(line.row)}</td>
@@ -289,7 +289,7 @@ function renderCandidates() {
             <td><button type="button" data-action="add" data-id="${c.id}">Add</button></td>
             <td>${escapeHtml(c.name)}${c.section !== "ranked"
               ? `<div class="proj-notes">${escapeHtml(c.status || c.section)}</div>` : ""}</td>
-            <td>${escapeHtml(c.town || "—")}</td>
+            <td>${escapeHtml(townLabel(c.town) || "—")}</td>
             <td class="gal">${estimateCellHtml(line)}</td>
             <td class="num">${capacityCellHtml(line)}</td>
             <td class="num">${pctFullHtml(c)}</td>
@@ -307,7 +307,7 @@ function draftText(draft, byId) {
   const { totals, lines } = routeSummary(draft.stops, byId);
   const head = `${draft.name || "Draft route"}${draft.truck ? ` — ${draft.truck}` : ""}`;
   const body = lines.map((l, i) => {
-    const town = l.row && l.row.town ? ` (${l.row.town})` : "";
+    const town = l.row && l.row.town ? ` (${townLabel(l.row.town)})` : "";
     const gal = l.dupOf !== null ? "same barrel"
       : l.est.kind === "projected" ? `${Math.round(l.est.gal)} proj. gal`
       : l.est.kind === "typical" && l.est.gal ? `${Math.round(l.est.gal)} gal typical` : "";

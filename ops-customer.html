@@ -293,9 +293,9 @@ function townHtml() {
 /** Every town a customer is listed in, for Collected with (its own town left out). */
 function townChoices() {
   const towns = new Set();
-  data.snap.assign_list.forEach(a => { if (a.city) towns.add(a.city); });
-  data.index.forEach(r => { if (r && r.town) towns.add(r.town); });
-  towns.delete(customer.city);
+  data.snap.assign_list.forEach(a => { if (a.city) towns.add(townLabel(a.city)); });
+  data.index.forEach(r => { if (r && r.town) towns.add(townLabel(r.town)); });
+  towns.delete(townLabel(customer.city));
   return [...towns].sort((a, b) => a.localeCompare(b));
 }
 
