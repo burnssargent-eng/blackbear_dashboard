@@ -103,7 +103,7 @@ function render(page, rows, year, availableYears, lifecycle, dormantCutoff) {
 
   const customers = aggregateCustomers(rows);
   const monthTotals = groupSum(rows, r => r.month);
-  const townTotals = groupSum(rows, r => r.geo_town);
+  const townTotals = groupSum(rows, r => townLabel(r.geo_town));
 
   const months = Object.keys(monthTotals).sort();
   const townEntries = sortedEntries(townTotals);
@@ -211,7 +211,7 @@ function render(page, rows, year, availableYears, lifecycle, dormantCutoff) {
                 <td class="rank">${i + 1}</td>
                 <td><a href="town.html?town=${encodeURIComponent(town)}">${escapeHtml(town)}</a></td>
                 <td class="gal">${formatNumber(gallons)}</td>
-                <td class="num">${formatNumber(new Set(rows.filter(r => r.geo_town === town).map(r => r.customer_id)).size)}</td>
+                <td class="num">${formatNumber(new Set(rows.filter(r => townLabel(r.geo_town) === town).map(r => r.customer_id)).size)}</td>
               </tr>`).join("")}
           </tbody>
         </table>
@@ -242,7 +242,7 @@ function render(page, rows, year, availableYears, lifecycle, dormantCutoff) {
                 <tr>
                   <td>${escapeHtml(c.name)}</td>
                   <td>${c.geo_town
-                      ? `<a href="town.html?town=${encodeURIComponent(c.geo_town)}">${escapeHtml(c.geo_town)}</a>`
+                      ? `<a href="town.html?town=${encodeURIComponent(townLabel(c.geo_town))}">${escapeHtml(townLabel(c.geo_town))}</a>`
                       : escapeHtml(c.city || "—")}</td>
                   <td>${formatDate(c.first_qualifying_pickup)}</td>
                 </tr>`).join("")}
@@ -266,7 +266,7 @@ function render(page, rows, year, availableYears, lifecycle, dormantCutoff) {
                 <tr>
                   <td>${escapeHtml(c.name)}</td>
                   <td>${c.geo_town
-                      ? `<a href="town.html?town=${encodeURIComponent(c.geo_town)}">${escapeHtml(c.geo_town)}</a>`
+                      ? `<a href="town.html?town=${encodeURIComponent(townLabel(c.geo_town))}">${escapeHtml(townLabel(c.geo_town))}</a>`
                       : escapeHtml(c.city || "—")}</td>
                   <td>${formatDate(c.last_qualifying_pickup)}</td>
                   <td>${escapeHtml(c.lost_reason || "—")}</td>

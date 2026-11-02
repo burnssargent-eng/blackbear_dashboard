@@ -65,7 +65,7 @@ function buildCustomerRows() {
   return rows.map(r => {
     const row = data.index.get(r.customer_id) || null;
     return { ...r, row, capacity: row && row.capacity != null ? row.capacity : (r.capacity ?? null),
-      town: (row && row.town) || r.city || "" };
+      town: townLabel((row && row.town) || r.city || "") };
   });
 }
 

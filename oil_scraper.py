@@ -119,6 +119,7 @@ COUNTY_MAP = {
     "Orange":            "Washington",
     "Williamstown":      "Washington",
     "Plainfield":        "Washington",
+    "Worcester":         "Washington",
     "Stowe":             "Lamoille",
     "Morrisville":       "Lamoille",
     "Morristown":        "Lamoille",
@@ -133,6 +134,7 @@ COUNTY_MAP = {
     "Saint Johnsbury":   "Caledonia",
     "Lyndonville":       "Caledonia",
     "Danville":          "Caledonia",
+    "Groton":            "Caledonia",
     "Cabot":             "Caledonia",
     "Hardwick":          "Caledonia",
     "East Burke":        "Caledonia",
@@ -159,6 +161,7 @@ COUNTY_MAP = {
     "West Glover":       "Orleans",
     "Island Pond":       "Essex",
     "Gilman":            "Essex",
+    "Lunenburg":         "Essex",
     "Middlebury":        "Addison",
     "Vergennes":         "Addison",
     "Bristol":           "Addison",
@@ -166,12 +169,18 @@ COUNTY_MAP = {
     "Shoreham":          "Addison",
     "Ferrisburgh":       "Addison",
     "Whiting":           "Addison",
+    "New Haven":         "Addison",
     "Rutland":           "Rutland",
     "Pittsford":         "Rutland",
+    "Rutland City":      "Rutland",
+    "Fair Haven":        "Rutland",
+    "Brandon":           "Rutland",
     "Killington":        "Rutland",
     "Pittsfield":        "Rutland",
     "Rochester":         "Rutland",
     "Woodstock":         "Windsor",
+    "Hartland":          "Windsor",
+    "Hartford":          "Windsor",
     "Quechee":           "Windsor",
     "Ludlow":            "Windsor",
     "South Royalton":    "Windsor",
@@ -193,6 +202,7 @@ COUNTY_MAP = {
     "West Dover":        "Windham",
     "Wilmington":        "Windham",
     "Dover":             "Windham",
+    "Stratton":          "Windham",
     "Jacksonville":      "Windham",
     "Bellows Falls":     "Windham",
     "Readsboro":         "Windham",
@@ -208,6 +218,7 @@ COUNTY_MAP = {
     "Richford":          "Franklin",
     "Enosburg":          "Franklin",
     "Georgia":           "Franklin",
+    "Bakersfield":       "Franklin",
     "Fairfax":           "Franklin",
     "North Hero":        "Grand Isle",
     "South Hero":        "Grand Isle",
@@ -320,6 +331,46 @@ CITY_TOWN_BY_CUSTOMER = {
     1258: "Rutland Town",       # Denny's, US-7 strip
     1493: "Saint Albans Town",  # Pizza Hut, Highgate Commons
     417:  "Saint Albans Town",  # Bayside Pavilion — St Albans Bay; the City is landlocked
+
+    # --- City field wrong on the source site ---------------------------------
+    # Many customers carry City "Burlington" on the source site whatever their
+    # real town (Erin and Jim, 2026-11-01). The override replaces geo_town, and
+    # the county follows it (prepare_dataframe). Raw `city` is left as scraped.
+    1498: "Plainfield",         # Barre Country Club-Plainfield
+    1507: "Saint Johnsbury",    # St.Johnsbury Country Club
+    624:  "Worcester",          # LBJ Country Store-Worcester
+    1539: "Lunenburg",          # Lunenburg Station
+    1496: "New Haven",          # Tourterelle, just north of Middlebury
+    # Second batch: the audit of Burlington customers whose name names another
+    # place (2026-11-02). Each town checked against the vetted address list, the
+    # site's own address or zip, or its map position in vermont_towns.geojson.
+    1179: "Brandon",            # Hannaford- Brandon
+    1509: "Essex Junction",     # Champlain Valley Fairgrounds
+    1157: "South Burlington",   # Hannaford-217 Dorset St
+    1187: "South Burlington",   # Hana-Japanese-Dorset (Dorset Street)
+    539:  "Bakersfield",        # Bakersfield Village store
+    1196: "Groton",             # Sarky's Smokehouse-Groton
+    814:  "Killington",         # Killington Diner
+    168:  "Northfield",         # Northfield Falls Store
+    1245: "Fair Haven",         # Shaws-Fair Haven
+    702:  "Shelburne",          # Shelburne Museum
+    269:  "Stowe",              # Stowe Cantina
+    264:  "Stowe",              # Hob Knob Inn
+    921:  "Stratton",           # Stratton Verde: Londonderry mail, Stratton on the map
+    925:  "Hartford",           # WRJ ice rink, White River Junction
+    830:  "Hartford",           # Snack bar at Quechee Gorge
+    914:  "Rutland City",       # State Fair, at the Rutland fairgrounds
+    727:  "Rutland City",       # Hop n Moose, downtown Rutland
+    1255: "Hartland",           # Cobb Hill CoHousing
+}
+
+# Customers the source site lists in Burlington who are out of state. They take
+# no Vermont town; the place stands in for the raw city in region matching and
+# sets the county (both `Place, ST`). Checked like the batch above.
+OUT_OF_STATE_BY_CUSTOMER = {
+    1506: "Berlin, NH",         # NH State Penitentiary
+    1281: "Lancaster, NH",      # Lancaster NH Oil
+    926:  "Northumberland, NH", # Speedway 51, Groveton
 }
 
 
@@ -338,16 +389,40 @@ def normalize_geo_town(city, customer_id=None):
     if city in OUT_OF_STATE_CITIES:
         return None
 
-    # A per-customer address-based correction always wins over the default.
-    if customer_id is not None:
-        try:
-            override = CITY_TOWN_BY_CUSTOMER.get(int(customer_id))
-        except (TypeError, ValueError):
-            override = None
-        if override:
-            return override
+    # A per-customer correction always wins over the default.
+    if _out_of_state_place(customer_id):
+        return None
+    override = _town_override(customer_id)
+    if override:
+        return override
 
     return GEO_TOWN_NAME_MAP.get(city, city)
+
+
+def _out_of_state_place(customer_id):
+    """The OUT_OF_STATE_BY_CUSTOMER place ("Berlin, NH") for this id, or None."""
+    try:
+        return OUT_OF_STATE_BY_CUSTOMER.get(int(customer_id))
+    except (TypeError, ValueError):
+        return None
+
+
+def _customer_county(city, customer_id):
+    """County for a record: an out-of-state place, a town override, or the city."""
+    place = _out_of_state_place(customer_id)
+    if place:
+        return f"Out-of-State ({place.rsplit(', ', 1)[-1]})"
+    return COUNTY_MAP.get(_town_override(customer_id) or city, "Unknown")
+
+
+def _town_override(customer_id):
+    """The CITY_TOWN_BY_CUSTOMER town for this customer id, or None."""
+    if customer_id is None:
+        return None
+    try:
+        return CITY_TOWN_BY_CUSTOMER.get(int(customer_id))
+    except (TypeError, ValueError):
+        return None
 
 
 def prepare_dataframe(df):
@@ -377,7 +452,12 @@ def prepare_dataframe(df):
     # full --rescrape. Without this the county summary can disagree with the map:
     # a town could be mapped to a Vermont polygon while its stale county column
     # still said "Out-of-State".
-    df["county"] = [COUNTY_MAP.get(city, "Unknown") for city in df["city"]]
+    # A per-customer town override is a correction of the city itself, so the
+    # county follows the corrected town rather than the scraped city.
+    df["county"] = [
+        _customer_county(city, cid)
+        for city, cid in zip(df["city"], df["customer_id"])
+    ]
 
     # Source-site active/inactive status is only knowable during a live scrape.
     # A CSV written before that field existed has no such column, so create it
@@ -621,6 +701,9 @@ def region_key(row):
     town = town.strip() if isinstance(town, str) else ""
     if town:
         return town
+    place = _out_of_state_place(row.get("customer_id"))
+    if place:
+        return place
     city = row.get("city")
     return city.strip() if isinstance(city, str) else ""
 
@@ -943,7 +1026,7 @@ def parse_collections(soup, customer, non_pickups=None):
             "customer_id": customer["customer_id"],
             "name": customer["name"],
             "city": city,
-            "county": COUNTY_MAP.get(city, "Unknown"),
+            "county": _customer_county(city, customer["customer_id"]),
             "date": date,
             "year": date.year,
             "month": date.strftime("%Y-%m"),

@@ -115,6 +115,24 @@ function formatMonth(value) {
 }
 
 /** Escape text before putting it in innerHTML. Customer names contain quotes. */
+/**
+ * Town names as people say them. Vermont splits Barre into a City and a Town,
+ * two shapes on the map and two names in the data; everywhere a town is LISTED
+ * or LABELLED they read as one "Barre" (Erin and Jim, 2026-11-01). The map and
+ * the region config keep the two official names; only labels merge.
+ */
+const TOWN_LABELS = { "Barre City": "Barre", "Barre Town": "Barre" };
+
+function townLabel(name) {
+  return TOWN_LABELS[name] || name || "";
+}
+
+/** True when two town names list as the same town (case-insensitive). */
+function sameTownLabel(a, b) {
+  return townLabel(a).toLowerCase() === townLabel(b).toLowerCase()
+    || String(a || "").toLowerCase() === String(b || "").toLowerCase();
+}
+
 function escapeHtml(value) {
   return String(value == null ? "" : value)
     .replace(/&/g, "&amp;")
@@ -665,7 +683,7 @@ function customerTableHtml(rows, options) {
 
   const body = rows.map((c, i) => {
     const town = c.geo_town
-      ? `<a href="town.html?town=${encodeURIComponent(c.geo_town)}">${escapeHtml(c.geo_town)}</a>`
+      ? `<a href="town.html?town=${encodeURIComponent(townLabel(c.geo_town))}">${escapeHtml(townLabel(c.geo_town))}</a>`
       : escapeHtml(c.city || "—");
 
     return `

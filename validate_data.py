@@ -39,7 +39,7 @@ import re
 import sys
 
 from check_town_mismatches import load_geojson_towns
-from oil_scraper import COUNTY_MAP, OUT_OF_STATE_CITIES, REGION_NAMES  # noqa: F401
+from oil_scraper import COUNTY_MAP, OUT_OF_STATE_BY_CUSTOMER, OUT_OF_STATE_CITIES, REGION_NAMES  # noqa: F401
 
 DATA_PATH = "oil_data.json"
 GEOJSON_PATH = "vermont_towns.geojson"
@@ -395,7 +395,11 @@ def check_8_remaining_mismatches(report, data, geo_towns, coll):
         gallons = row.get("gallons", 0)
 
         if not town:
-            if city in OUT_OF_STATE_CITIES:
+            # A customer listed out of state by id counts under its place.
+            place = OUT_OF_STATE_BY_CUSTOMER.get(row.get("customer_id"))
+            if place:
+                expected_blank[place] += gallons
+            elif city in OUT_OF_STATE_CITIES:
                 expected_blank[city] += gallons
             else:
                 unexpected_blank[city] += gallons
@@ -408,7 +412,7 @@ def check_8_remaining_mismatches(report, data, geo_towns, coll):
                   f"({sum(expected_blank.values()):,} gallons):")
         for city, gal in expected_blank.most_common():
             report.detail(f"{city!r:<22} {gal:>9,} gal  "
-                          f"({COUNTY_MAP.get(city, 'Unknown')})")
+                          f"({COUNTY_MAP.get(city, 'Out-of-State' if ', ' in city else 'Unknown')})")
 
     if unexpected_blank:
         report.fail(f"{len(unexpected_blank)} place(s) have no geo_town but are "

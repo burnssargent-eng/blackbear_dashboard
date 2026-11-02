@@ -34,7 +34,7 @@ set('alltime'); api.u();
 console.log(`Region has ${ids.size} customers`);
 ok(rows()===50, `collapsed shows 50 rows (got ${rows()})`);
 ok(list.children.length===1, 'expand footer appended');
-ok(footerStore && /Show all 239/.test(footerStore.innerHTML), `footer label: ${footerStore?footerStore.innerHTML.replace(/<[^>]+>/g,' ').trim():'none'}`);
+ok(footerStore && /Show all 216/.test(footerStore.innerHTML), `footer label: ${footerStore?footerStore.innerHTML.replace(/<[^>]+>/g,' ').trim():'none'}`);
 
 // simulate the expand click
 list.dataset.expanded='true';

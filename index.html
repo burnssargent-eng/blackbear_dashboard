@@ -1312,7 +1312,7 @@ function updateSidePanels(idx, townGallons, periodMonths) {
   const sorted = obj => Object.entries(obj).sort(([, a], [, b]) => b - a);
 
   // All three lists describe the same slice of time as the map.
-  renderRankedList("town-list", sorted(townGallons));
+  renderRankedList("town-list", mergeTownEntries(Object.entries(townGallons)));
   renderRankedList("region-list", sorted(sumRegionMonths(periodMonths)));
   renderRankedList("county-list",
     sorted(sumCountyMonths(periodMonths)).filter(([c]) => c !== "Unknown"));
@@ -1470,7 +1470,7 @@ function buildTotalsTables() {
   fill("totals-year", rows(yearEntries, y =>
     `<a href="year.html?year=${encodeURIComponent(y)}">${escapeHtml(y)}</a>`));
 
-  fill("totals-town", rows(totalsAcrossMonths(monthlyByTown), t =>
+  fill("totals-town", rows(mergeTownEntries(totalsAcrossMonths(monthlyByTown)), t =>
     `<a href="town.html?town=${encodeURIComponent(t)}">${escapeHtml(t)}</a>`));
 
   fill("totals-county", rows(
@@ -1483,6 +1483,23 @@ function fill(id, html) {
 }
 
 /** Collapse a {month: {key: gallons}} map into [key, total] pairs, largest first. */
+/**
+ * Barre City and Barre Town are two shapes on the map but one "Barre" in every
+ * list (Erin and Jim, 2026-11-01). Kept inline rather than read from
+ * dashboard-utils.js (townLabel there), like the rest of this page. The map
+ * itself keeps keying on the official names.
+ */
+const TOWN_LABELS = { "Barre City": "Barre", "Barre Town": "Barre" };
+
+function mergeTownEntries(entries) {
+  const totals = {};
+  entries.forEach(([name, gal]) => {
+    const label = TOWN_LABELS[name] || name;
+    totals[label] = (totals[label] || 0) + gal;
+  });
+  return Object.entries(totals).sort((a, b) => b[1] - a[1]);
+}
+
 function totalsAcrossMonths(byMonth) {
   const totals = {};
   Object.values(byMonth).forEach(monthData => {

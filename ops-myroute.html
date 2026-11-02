@@ -100,7 +100,7 @@ function addMatchesHtml(routeId) {
     const badge = row ? projectionBadgeText(row) : "";
     return `<button type="button" class="list-group-item list-group-item-action"
         data-act="add" data-route="${routeId}" data-id="${c.customer_id}">
-      + ${escapeHtml(c.name || `#${c.customer_id}`)} <span class="ops-muted">${escapeHtml((row && row.town) || c.city || "")}</span>
+      + ${escapeHtml(c.name || `#${c.customer_id}`)} <span class="ops-muted">${escapeHtml(townLabel((row && row.town) || c.city || ""))}</span>
       ${badge ? `<span class="ops-proj">${escapeHtml(badge)}</span>` : ""}</button>`;
   }).join("")}</div>`;
 }
