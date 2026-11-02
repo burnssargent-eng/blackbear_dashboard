@@ -230,8 +230,12 @@ does the same for out-of-state customers (`Place, ST`, used in place of the
 raw city for region matching). Ids and town names only, never an address.
 Check each town against an address first (the private lookup files, the
 site's page, or its map position): two guesses from names alone were wrong on
-2026-11-02. The raw `city` column stays as scraped, so the Ops pages, which
-read the database's city, still show the site's value.
+2026-11-02. The raw `city` column stays as scraped. The town to SHOW is the
+roster's `town` in `oil_collections.json` (official town, else the out-of-state
+place, else the city); the projection builder copies it into
+`oil_projections.json`, which is where the Ops pages and the planner read a
+customer's town (falling back to the source site's Assign-list city for a
+customer with no projection row).
 
 **Barre is one town in labels, two on the map.** `townLabel()`
 (`dashboard-utils.js`, inline copy in `index.html`) shows Barre City and Barre

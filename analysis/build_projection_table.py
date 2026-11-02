@@ -1032,6 +1032,17 @@ def will_call_signal(pickups, asof):
 # Inputs
 # ─────────────────────────────────────────────
 
+def load_towns():
+    """customer_id -> the town oil_scraper.py exports for showing (roster `town`).
+
+    It carries the per-id corrections (CITY_TOWN_BY_CUSTOMER,
+    OUT_OF_STATE_BY_CUSTOMER), so an out-of-state customer shows its place
+    rather than the source site's wrong city. Older rosters lack the field.
+    """
+    data = json.loads(COLLECTIONS.read_text())
+    return {c["customer_id"]: c["town"] for c in data["customers"] if c.get("town")}
+
+
 def load_active_ids():
     """customer_ids flagged active in the exported roster."""
     data = json.loads(COLLECTIONS.read_text())
@@ -2415,6 +2426,11 @@ def main():
         return
 
     pickups = bt.load_pickups(ids=None)
+    towns = load_towns()
+    for cid, ps in pickups.items():
+        if cid in towns:
+            for p in ps:
+                p["town"] = towns[cid]
     active = load_active_ids()
     capacities = load_capacities()
     regions = load_regions()
