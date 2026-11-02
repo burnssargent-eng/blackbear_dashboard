@@ -299,7 +299,7 @@ async function opsFetchRows() {
     }
   };
   const c = opsDbClient;
-  const [routes, stops, customers, collections, outgoing, trucks, oilLeft] = await Promise.all([
+  const [routes, stops, customers, collections, outgoing, trucks, oilLeft, dailyNotes] = await Promise.all([
     all(() => c.from("routes").select("id,name,sort").order("id"), "routes"),
     all(() => c.from("route_stops").select("id,route_id,customer_id,position,must_get,jamaal_assignment_id").order("id"), "stops"),
     all(() => c.from("customers").select("id,name,city,address,capacity,periodicity_days,phone,notes,shared_with,created_on,lat,lon,loc").order("id"), "customers"),
@@ -312,8 +312,11 @@ async function opsFetchRows() {
     // Before the oil_left table exists the pages still load, without it.
     all(() => c.from("oil_left").select("customer_id,checked_on,gallons_left,route_id")
       .gte("checked_on", since).order("id"), "oil left").catch(() => []),
+    // Today's notes only (yesterday's has cleared); none before the table exists.
+    all(() => c.from("daily_notes").select("customer_id,day,note").eq("day", todayIso())
+      .order("customer_id"), "today's notes").catch(() => []),
   ]);
-  return { routes, stops, customers, collections, outgoing, trucks, oilLeft };
+  return { routes, stops, customers, collections, outgoing, trucks, oilLeft, dailyNotes };
 }
 
 /**
@@ -497,6 +500,43 @@ function opsFlush() {
   return opsDb.flushing;
 }
 
+/* ── Notes: Today's note and the permanent Notes (My Route and the customer page) ── */
+
+/** Today's note for a customer (clears overnight: only today's rows are loaded), or "". */
+function opsTodayNote(id) {
+  const rows = opsDb && opsDb.rows && opsDb.rows.dailyNotes || [];
+  const r = rows.find(n => n.customer_id === id && n.day === todayIso());
+  return r ? r.note : "";
+}
+
+/**
+ * Save a customer's Notes and Today's note, sending only what differs from `was`. Notes go on the
+ * customer (the nightly copies notes only for new customers, so the edit stays; it never reaches the
+ * source site); Today's note is its own row for today, deleted when emptied. Throws when not saved.
+ */
+async function opsSaveNotes(id, now, was) {
+  const c = opsDb && opsDb.client;
+  if (!c) throw new Error("sign in to edit notes");
+  const notes = now.notes.trim(), today = now.today.trim(), day = todayIso();
+  if (notes !== (was.notes || "").trim()) {
+    const { error } = await c.from("customers").update({ notes: notes || null }).eq("id", id);
+    if (error) throw new Error(error.message);
+    const row = opsDb.rows && opsDb.rows.customers && opsDb.rows.customers.find(r => r.id === id);
+    if (row) row.notes = notes;
+  }
+  if (today !== (was.today || "").trim()) {
+    const { error } = today
+      ? await c.from("daily_notes").upsert({ customer_id: id, day, note: today }, { onConflict: "customer_id,day" })
+      : await c.from("daily_notes").delete().eq("customer_id", id).eq("day", day);
+    if (error) throw new Error(error.message);
+    if (opsDb.rows) {
+      opsDb.rows.dailyNotes = (opsDb.rows.dailyNotes || []).filter(r => !(r.customer_id === id && r.day === day));
+      if (today) opsDb.rows.dailyNotes.push({ customer_id: id, day, note: today });
+    }
+  }
+  return { notes, today };
+}
+
 /* ── Live updates ────────────────────────────────────────── */
 
 let opsRefreshTimer = null;
@@ -536,7 +576,8 @@ async function opsRefresh() {
   try { rows = await opsFetchRows(); } catch (err) { opsDb.offline = true; opsShowStatus(); return; }
   if (opsDb.queue.length) { opsDb.refreshWanted = true; return; }   // a save went in while loading
   const store = opsStoreFromRows(rows, opsDb.snap, { my: opsDb.store ? opsDb.store.my : null });
-  if (JSON.stringify(opsSharedPart(store)) === JSON.stringify(opsDb.synced)) return;   // nothing new
+  const sameNotes = JSON.stringify(rows.dailyNotes) === JSON.stringify(opsDb.rows && opsDb.rows.dailyNotes);
+  if (sameNotes && JSON.stringify(opsSharedPart(store)) === JSON.stringify(opsDb.synced)) return;   // nothing new
   opsDb.rows = rows;
   opsDb.store = store;
   opsDb.synced = opsSharedPart(store);

@@ -23,7 +23,8 @@ const code = ["dashboard-utils.js", "route-utils.js", "ops-common.js", "site-gat
 const api = new Function("window", "const document = { getElementById: () => null };\n" + code + `
   return { gateCardHtml, setDb: v => { opsDb = v; }, getDb: () => opsDb, opsFlush, freshStore, saveStore, loadStore, assignToRoute, moveStop, removeStop, recordCollection, recordTheft,
     recordOilLeft, clearOilLeft, todaysOilLeft, oilLeftText, addShadowCustomer, createRoute, renameRoute, todaysCollection, todayIso, opsDiff, opsSharedPart,
-    opsEnsureClientIds, opsStoreFromRows, opsDbAvailable, opsShared, opsWhere, shadowBannerHtml, OPS_STORAGE_KEY };`)(window);
+    opsEnsureClientIds, opsStoreFromRows, opsDbAvailable, opsShared, opsWhere, shadowBannerHtml, OPS_STORAGE_KEY,
+    opsTodayNote, opsSaveNotes };`)(window);
 
 let fails = 0;
 const ok = (cond, msg) => {
@@ -273,6 +274,31 @@ ok(rNew < -1000000000 && cNew.customer_id < -1000000000, "ids made on the device
   online = true;
   await api.opsFlush();
   ok(db.queue.length === 0 && !db.offline && sent.length === 2, "back online: the next flush sends it");
+
+  // Today's note clears the calendar day after it is entered, also on a page left open overnight.
+  const RealDate = Date;
+  const at = iso => { global.Date = class extends RealDate { constructor(...a) { super(...(a.length ? a : [iso])); } }; };
+  const notesSent = [];
+  const table = name => ({
+    update: row => ({ eq: (_, id) => { notesSent.push(["update", name, id, row]); return { error: null }; } }),
+    upsert: row => { notesSent.push(["upsert", name, row]); return { error: null }; },
+    delete: () => ({ eq: () => ({ eq: (_, day) => { notesSent.push(["delete", name, day]); return { error: null }; } }) }),
+  });
+  api.setDb({ client: { from: table }, rows: { customers: [{ id: 7, notes: "gate code" }], dailyNotes: [] } });
+  at("2026-11-01T23:58:00");
+  await api.opsSaveNotes(7, { notes: "gate code", today: " drop a barrel by the door " }, { notes: "gate code", today: "" });
+  ok(notesSent.length === 1 && notesSent[0][0] === "upsert" && notesSent[0][2].day === "2026-11-01"
+     && notesSent[0][2].note === "drop a barrel by the door",
+     "Today's note is saved for today, trimmed, and an unchanged Notes is not sent");
+  ok(api.opsTodayNote(7) === "drop a barrel by the door", "it shows the day it is entered");
+  at("2026-11-02T00:01:00");
+  ok(api.opsTodayNote(7) === "", "it is gone just after midnight, with the page still open");
+  at("2026-11-01T12:00:00");
+  notesSent.length = 0;
+  await api.opsSaveNotes(7, { notes: "gate code 1234", today: "" }, { notes: "gate code", today: "drop a barrel by the door" });
+  ok(notesSent.length === 2 && notesSent[0][0] === "update" && notesSent[1][0] === "delete" && notesSent[1][2] === "2026-11-01"
+     && api.opsTodayNote(7) === "", "emptying Today's note deletes today's row; Notes goes on the customer");
+  global.Date = RealDate;
 
   console.log(fails ? `\n${fails} FAILURE(S)` : "\nALL CHECKS PASSED");
   process.exit(fails ? 1 : 0);

@@ -333,12 +333,13 @@ let details = {};   // address, notes and position per customer (shared database
 let openDetails = null;   // customer id whose More line is open (one at a time)
 let theftOpen = null;     // customer id whose theft form is open
 let leftOpen = null;      // customer id whose Oil Left form is open
-let noteEdit = null;      // { id, text, busy, msg }: the note being edited
+let noteEdit = null;      // { id, text, today, busy, msg }: the notes being edited (Notes and Today's note)
 let photoAdd = null;      // { id, msg }: a photo uploading from My Route
 // A browser can pair this page with an older ops-common.js for a few minutes
 // after a deploy: Oil Left then stays hidden instead of breaking the route.
 const oilLeftReady = typeof recordOilLeft === "function";
 const leftFor = id => (oilLeftReady ? todaysOilLeft(store, id) : null);
+const todayNoteFor = id => (typeof opsTodayNote === "function" ? opsTodayNote(id) : "");
 // Likewise without ops-photos.js: the Notes panel then shows no photos.
 const photosReady = typeof opsPhotoStripHtml === "function";
 let photosKey = "";       // the route's customers whose photos are loaded
@@ -419,10 +420,12 @@ function mapsUrl(id) {
   return dest ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(dest)}` : null;
 }
 
-/** A stop's note and photos, shown as it opens (nothing when it has neither). */
+/** A stop's Today's note, note and photos, shown as it opens (nothing when it has none). */
 function notesPhotosHtml(id, d) {
   const photos = photosReady && opsPhotosFor(id).length;
-  return d.notes || photos ? `<div class="ops-auto-notes">
+  const today = todayNoteFor(id);
+  return today || d.notes || photos ? `<div class="ops-auto-notes">
+      ${today ? `<div class="ops-today-note"><b>Today:</b> ${escapeHtml(today)}</div>` : ""}
       ${d.notes ? `<div>${notesHtml(id, d.notes)}</div>` : ""}
       ${photos ? opsPhotoStripHtml(id) : ""}</div>` : "";
 }
@@ -438,7 +441,7 @@ const CAMERA_ICON = `<svg class="ops-btn-icon" width="14" height="13" viewBox="0
 function actionButtons(id, d, c) {
   const busy = photoAdd && photoAdd.id === id;
   return `<button type="button" class="btn ops-plain-btn" data-act="note-edit" data-id="${id}"
-        aria-label="${d.notes ? "Edit note" : "Add a note"}">${PENCIL_ICON}Note</button>
+        aria-label="${d.notes || todayNoteFor(id) ? "Edit notes" : "Add a note"}">${PENCIL_ICON}Note</button>
       ${photosReady ? `<button type="button" class="btn ops-plain-btn" data-act="photo-add" data-id="${id}" aria-label="Add a photo"${busy && !photoAdd.msg ? " disabled" : ""}>
         ${CAMERA_ICON}${busy && !photoAdd.msg ? "Adding…" : "Photo"}</button>` : ""}
       ${oilLeftReady ? `<button type="button" class="btn btn-outline-primary" data-act="left" data-id="${id}">Oil Left</button>` : ""}
@@ -458,34 +461,34 @@ function moreHtml(id, d, c, open) {
     </div>` : "";
   const msg = busy && photoAdd.msg ? `<div class="text-danger small mt-1">${escapeHtml(photoAdd.msg)}</div>` : "";
   if (editing) return `${more}<div class="ops-note-edit">
-      <label for="note-${id}" class="visually-hidden">Note</label>
+      <label for="today-${id}" class="ops-note-label">Today's note <span class="text-muted">(clears tomorrow)</span></label>
+      <textarea class="form-control" id="today-${id}" rows="2" data-today-draft>${escapeHtml(noteEdit.today)}</textarea>
+      <label for="note-${id}" class="ops-note-label">Notes <span class="text-muted">(stay until changed)</span></label>
       <textarea class="form-control" id="note-${id}" rows="3" data-note-draft>${escapeHtml(noteEdit.text)}</textarea>
       ${noteEdit.msg ? `<div class="text-danger small">${escapeHtml(noteEdit.msg)}</div>` : ""}
       <div class="d-flex gap-2">
-        <button type="button" class="btn btn-primary" data-act="note-save"${noteEdit.busy ? " disabled" : ""}>${noteEdit.busy ? "Saving…" : "Save note"}</button>
+        <button type="button" class="btn btn-primary" data-act="note-save"${noteEdit.busy ? " disabled" : ""}>${noteEdit.busy ? "Saving…" : "Save notes"}</button>
         <button type="button" class="btn ops-plain-btn" data-act="note-cancel">Cancel</button>
       </div></div>`;
   return more + msg + notesPhotosHtml(id, d);
 }
 
-/**
- * Write the edited note to the shared database: every signed-in driver sees it. The nightly
- * copies notes only for new customers, so the edit stays (it never reaches the source site).
- */
+/** Write the edited Notes and Today's note to the shared database: every signed-in driver sees them. */
 async function saveNote() {
   const n = noteEdit;
   if (!n || n.busy) return;
   const text = (document.getElementById(`note-${n.id}`) || {}).value;
   if (typeof text === "string") n.text = text;
+  const today = (document.getElementById(`today-${n.id}`) || {}).value;
+  if (typeof today === "string") n.today = today;
   n.busy = true; n.msg = ""; render();
-  const notes = n.text.trim();
-  const { error } = typeof opsDb !== "undefined" && opsDb.client
-    ? await opsDb.client.from("customers").update({ notes: notes || null }).eq("id", n.id)
-    : { error: { message: "sign in to edit notes" } };
-  if (error) { n.busy = false; n.msg = `Not saved (${error.message}).`; render(); return; }
-  details[String(n.id)] = { ...(details[String(n.id)] || {}), notes };
-  const row = opsDb.rows && opsDb.rows.customers && opsDb.rows.customers.find(r => r.id === n.id);
-  if (row) row.notes = notes;
+  try {
+    const saved = await opsSaveNotes(n.id, { notes: n.text, today: n.today },
+      { notes: (details[String(n.id)] || {}).notes, today: todayNoteFor(n.id) });
+    details[String(n.id)] = { ...(details[String(n.id)] || {}), notes: saved.notes };
+  } catch (err) {
+    n.busy = false; n.msg = `Not saved (${err.message}).`; render(); return;
+  }
   noteEdit = null;
   openDetails = null;
   render();
@@ -724,7 +727,8 @@ function onAct(b) {
       break;
     }
     case "note-edit":
-      noteEdit = { id: Number(d.id), text: (details[d.id] || {}).notes || "", busy: false, msg: "" };
+      noteEdit = { id: Number(d.id), text: (details[d.id] || {}).notes || "", today: todayNoteFor(Number(d.id)),
+        busy: false, msg: "" };
       render();
       return;
     case "note-cancel": noteEdit = null; render(); return;
@@ -798,6 +802,7 @@ function wire() {
   page.addEventListener("input", e => {
     if (naming && e.target.dataset && e.target.dataset.name !== undefined) { naming.text = e.target.value; return; }
     if (noteEdit && e.target.dataset && e.target.dataset.noteDraft !== undefined) { noteEdit.text = e.target.value; return; }
+    if (noteEdit && e.target.dataset && e.target.dataset.todayDraft !== undefined) { noteEdit.today = e.target.value; return; }
     const id = e.target.dataset && e.target.dataset.addSearch;
     if (id === undefined) return;
     addSearch[id] = e.target.value;

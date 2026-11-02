@@ -267,6 +267,23 @@ drop trigger if exists oil_left_stamp on public.oil_left;
 create trigger oil_left_stamp before update on public.oil_left
   for each row execute function public.stamp_collection_update();
 
+-- Today's note (Jim, 2026-10-29): a note for one customer on one day ("they
+-- want the barrel dropped off here", "owner says both barrels full"), beside
+-- the permanent `customers.notes`. One per customer and day: a second save that
+-- day is an edit, and an emptied note is deleted. Pages show only today's
+-- (Vermont), so it clears itself overnight; old days stay as a record.
+create table if not exists public.daily_notes (
+  customer_id integer not null references public.customers (id),
+  day         date not null default ((now() at time zone 'America/New_York')::date),
+  note        text not null check (char_length(note) between 1 and 1000),
+  updated_at  timestamptz not null default now(),
+  updated_by  uuid default auth.uid(),
+  primary key (customer_id, day)
+);
+drop trigger if exists daily_notes_stamp on public.daily_notes;
+create trigger daily_notes_stamp before update on public.daily_notes
+  for each row execute function public.stamp_collection_update();
+
 -- Photos: files in the private Storage bucket `photos`, one row each here. A
 -- photo belongs to a customer (the barrel, the spot) and optionally to one
 -- collection (a theft, a spill). Members may add and view, edit a caption and
@@ -341,6 +358,7 @@ alter table public.outgoing     enable row level security;
 alter table public.collection_history enable row level security;
 alter table public.photos       enable row level security;
 alter table public.oil_left     enable row level security;
+alter table public.daily_notes  enable row level security;
 
 drop policy if exists "members read history" on public.collection_history;
 create policy "members read history" on public.collection_history
@@ -362,7 +380,7 @@ create policy "members read people" on public.people
 do $$
 declare t text;
 begin
-  foreach t in array array['customers', 'routes', 'route_stops', 'route_trucks', 'collections', 'outgoing', 'oil_left'] loop
+  foreach t in array array['customers', 'routes', 'route_stops', 'route_trucks', 'collections', 'outgoing', 'oil_left', 'daily_notes'] loop
     execute format('drop policy if exists "members only" on public.%I', t);
     execute format('create policy "members only" on public.%I for all to authenticated
                     using ((select public.is_member())) with check ((select public.is_member()))', t);
@@ -391,7 +409,8 @@ end $$;
 -- The public key alone (role anon) gets nothing.
 revoke all on public.people, public.customers, public.routes, public.route_stops,
               public.route_trucks, public.collections, public.outgoing,
-              public.collection_history, public.photos, public.theft_log, public.oil_left from anon;
+              public.collection_history, public.photos, public.theft_log, public.oil_left,
+              public.daily_notes from anon;
 grant select on public.people to authenticated;
 -- History is read-only to the site (the trigger writes it). Photos: add, view,
 -- and change only the caption and the Remove mark -- after the revoke, which
@@ -402,14 +421,14 @@ revoke update, delete on public.photos from authenticated;
 grant select, insert on public.photos to authenticated;
 grant update (caption, removed_at, removed_by) on public.photos to authenticated;
 grant select, insert, update, delete on public.customers, public.routes, public.route_stops,
-      public.route_trucks, public.collections, public.outgoing, public.oil_left to authenticated;
+      public.route_trucks, public.collections, public.outgoing, public.oil_left, public.daily_notes to authenticated;
 
 -- Live updates: Jim sees Sarge's route edits without reloading. Realtime still
 -- applies the policies above.
 do $$
 declare t text;
 begin
-  foreach t in array array['route_stops', 'route_trucks', 'collections', 'outgoing', 'oil_left'] loop
+  foreach t in array array['route_stops', 'route_trucks', 'collections', 'outgoing', 'oil_left', 'daily_notes'] loop
     if not exists (select 1 from pg_publication_tables
                    where pubname = 'supabase_realtime' and schemaname = 'public' and tablename = t) then
       execute format('alter publication supabase_realtime add table public.%I', t);
