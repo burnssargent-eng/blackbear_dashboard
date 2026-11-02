@@ -68,14 +68,16 @@ const SECTION_TEXT = {
     "Accounts collected in lumps at set intervals rather than as a barrel fills.",
   "will-call":
     "Picked up on call or too seldom to project: the gaps between pickups " +
-    "are long or irregular (a closed season does not count). No fill " +
-    "estimate — days since the last pickup is the signal.",
+    "are long or irregular (a closed season does not count). Estimate: oil " +
+    "since the last pickup, leaning toward the typical pickup as the usual " +
+    "gap passes. When they call, expect about their average pickup.",
   "stale":
     "Active on the source site, but no pickup in the last 180 days, so a " +
     "fill estimate would mean nothing.",
   "insufficient data":
     "Fewer than 3 pickups. The first pickup only starts the clock, so a " +
-    "rate needs two more.",
+    "rate needs two more. Estimate: with one pickup, its gallons reached over " +
+    "about 44 days; with two, their rate leaning toward the typical pickup.",
 };
 
 let projections = null;     // the parsed oil_projections.json
@@ -209,13 +211,17 @@ function buildShell(page) {
       from that rate times the days since the last pickup <em>or</em> since the truck
       last checked and found the container empty, whichever is later. As those
       days approach the customer's usual gap between pickups, it leans toward the
-      customer's typical pickup (at most halfway), then adds 4%: a straight line
-      runs low on early pickups and high on late ones. It is the oil
+      customer's typical pickup, then adds 4%: a straight line runs low on early
+      pickups and high on late ones. The fewer pickups a customer had in the last
+      year, the further it leans (weekly: about an eighth; monthly: about
+      40%). It is the oil
       produced since then, not a promise of what the truck will collect. The pickup point is
       <strong>${target}% of listed capacity</strong>, which leaves a spillover
       buffer. <strong>% full</strong> stops at 100%; a customer projected past
       that carries a note to check its capacity. Seasonal, event, bulk and
-      will-call accounts are listed separately below instead of being ranked. Accounts
+      will-call accounts are listed separately below instead of being ranked;
+      will-call and new accounts carry an <strong>estimate</strong> there, which
+      is not counted in any total. Accounts
       that share one barrel are shown as a single stop.
     </div>
 
@@ -458,7 +464,15 @@ function heldOutNotesHtml(c) {
     : "";
 }
 
+/** "~25 (15–40)": a held-out row's estimate, never ranked or totalled. */
+function estimateHtml(c) {
+  if (c.estimate_gal === null || c.estimate_gal === undefined) return "—";
+  return `~${formatWhole(c.estimate_gal)} <span class="proj-range">` +
+    `(${formatWhole(c.estimate_low)}–${formatWhole(c.estimate_high)})</span>`;
+}
+
 function heldOutRowsHtml(rows) {
+  const withEstimate = rows.some(c => c.estimate_gal !== null && c.estimate_gal !== undefined);
   const body = rows.map(c => `
     <tr>
       <td>${escapeHtml(c.name)}${heldOutNotesHtml(c)}</td>
@@ -467,6 +481,7 @@ function heldOutRowsHtml(rows) {
       <td class="proj-reason">${escapeHtml(c.reason || "—")}</td>
       <td class="proj-date">${formatDate(c.last_pickup)}</td>
       <td class="num">${formatNumber(c.days_since)}</td>
+      ${withEstimate ? `<td class="num">${estimateHtml(c)}</td>` : ""}
       <td class="num">${formatOne(c.rate_gpd)}</td>
       <td class="num">${formatOne(c.avg_collection)}</td>
       <td class="num">${c.capacity === null ? "—" : formatNumber(c.capacity)}</td>
@@ -483,6 +498,7 @@ function heldOutRowsHtml(rows) {
             <th>Why it is listed here</th>
             <th>Last pickup</th>
             <th class="num">Days since</th>
+            ${withEstimate ? '<th class="num">Estimate (gal)</th>' : ""}
             <th class="num">Gal / day</th>
             <th class="num">Avg pickup (gal)</th>
             <th class="num">Capacity</th>

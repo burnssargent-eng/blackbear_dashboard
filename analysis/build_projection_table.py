@@ -8,7 +8,8 @@ the container right now, and how close is that to the point we want to collect?
     rate      = 0.5 x previous-year rate  +  0.5 x last-6-pickups rate
     line      = rate x days since the last pickup
     projected = CYCLE_FACTOR x ((1 - w) x line + w x typical pickup),
-                w = CYCLE_BLEND x min(1, days / usual gap)    (the cycle blend)
+                w = s x min(1, days / usual gap)              (the cycle blend)
+                s = SPARSITY_K / (SPARSITY_K + gaps in the last year)
     target    = 0.75 x listed capacity          (the intended pickup point,
                                                  leaving a spillover buffer)
 
@@ -255,6 +256,42 @@ SEASON_END_TAPER = 0.8
 # test (analysis/README.md, 2026-10-29).
 CYCLE_BLEND = 0.5
 CYCLE_FACTOR = 1.04
+
+# Sparsity-weighted lean (Sarge, 2026-11-02; sparsity_blend.md). The lean
+# toward the typical pickup scales with how little pickup data a customer has,
+# instead of CYCLE_BLEND's fixed half:
+#     s = SPARSITY_K / (SPARSITY_K + gaps in the last 365 days)
+#     w = s x min(1, days / usual gap)
+# 1 gap a year -> 0.89, monthly -> 0.40, weekly -> 0.13; a single pickup has no
+# rate, so s = 1 (all typical pickup). The ramp stays linear, so a
+# just-emptied barrel still starts at zero. build_row replay, every pickup
+# 2018-26: k chosen on 2021-23 among 169 rules (credibility, gap-count and
+# median-gap ramps; floors; sqrt ramp). Ranked rows tie the fixed half
+# (confirm 2024-26: WAPE 28.8 -> 28.5, CI -0.46 to -0.10; 2018-19 CI -0.38 to
+# +0.25) -- a gradient-boosting benchmark on 21 features did no better
+# (step 2, 2026-11-02), so the ranked model is at its ceiling. Frequent
+# customers do NOT want s = 0: the straight line alone lost 1-2.5 points.
+# What it adds is an ESTIMATE for will-call and insufficient-data rows (below).
+SPARSITY_K = 8
+
+# Will-call and insufficient-data rows get an estimate from the same formula
+# (no rate yet: line 0 and s = 1; a single pickup's "usual gap" is
+# ESTIMATE_PRIOR_GAP, the median first gap on 2021-23). Shown apart from the
+# ranked table -- never ranked, never in a route total -- and labelled an
+# estimate. Once a barrel is half its usual gap in it is about right (confirm
+# bias: 1 pickup -0.5%, 2 pickups/comeback +9%, will-call +2%); a pickup
+# BEFORE half the gap runs 40-60% low, because those are customers calling
+# with a full barrel. The typical pickup beside it covers that case
+# (sparsity_blend.md, step 3).
+ESTIMATE_PRIOR_GAP = 44
+ESTIMATE_MAX_DAYS = STALE_DAYS
+# Range: 20th/80th percentile of actual / estimate on 2021-23 (k = 8 linear);
+# inside on 2024-26: 57%, 58%, 64%; 2018-19: 64%, 59%, 51%.
+ESTIMATE_RANGE_FACTORS = {
+    "1 pickup": (0.59, 2.27),
+    "2 pickups / comeback": (0.60, 1.59),
+    "will-call": (0.75, 2.04),
+}
 
 RECENT_PICKUPS = 10             # "recent" for the strong capacity flag
 SOFT_FLAG_YEARS = 2             # "recent" for the soft capacity flag
@@ -1165,19 +1202,34 @@ def usual_gap(pickups):
     return statistics.median(gaps) if gaps else None
 
 
-def cycle_projection(line, days, gap, typical):
+def sparsity_weight(pickups, asof):
     """
-    The cycle blend (CYCLE_BLEND): the straight line `line` after `days` of
-    accrual, leaning toward the typical pickup as `days` nears the usual gap.
+    s = SPARSITY_K / (SPARSITY_K + gaps ending in the last 365 days): the most
+    the cycle blend leans toward the typical pickup. A customer with a rate
+    has at least one gap, so at least one counts: s stays below 1 and the
+    days-to-full arithmetic stays finite. A ranked or estimated row always has
+    one in the year anyway (its last pickup is within STALE_DAYS); the floor
+    only reaches stale and held rows' detail columns.
+    """
+    year_ago = asof - timedelta(days=YEAR_DAYS)
+    gaps = sum(1 for p in pickups[1:] if p["date"] >= year_ago)
+    return SPARSITY_K / (SPARSITY_K + max(gaps, 1 if len(pickups) >= 2 else 0))
+
+
+def cycle_projection(line, days, gap, typical, weight=CYCLE_BLEND):
+    """
+    The cycle blend: the straight line `line` after `days` of accrual, leaning
+    toward the typical pickup as `days` nears the usual gap, at most `weight`
+    of the way (sparsity_weight; CYCLE_BLEND for a served file from before it).
     Without a gap or a typical pickup it is the line itself.
     """
     if not gap or typical is None:
         return line
-    w = CYCLE_BLEND * min(1.0, days / gap)
+    w = weight * min(1.0, days / gap)
     return CYCLE_FACTOR * ((1 - w) * line + w * typical)
 
 
-def days_to_reach(gallons, level, rate, gap, typical):
+def days_to_reach(gallons, level, rate, gap, typical, weight=CYCLE_BLEND):
     """
     Accrual days at which cycle_projection(level + rate x days, days, ...)
     first reaches `gallons` (rate > 0). Its slope is rate x (1 - days/gap) +
@@ -1188,11 +1240,11 @@ def days_to_reach(gallons, level, rate, gap, typical):
     """
     if not gap or typical is None:
         return (gallons - level) / rate
-    curve = lambda d: cycle_projection(level + rate * d, d, gap, typical)
+    curve = lambda d: cycle_projection(level + rate * d, d, gap, typical, weight)
     if curve(0) >= gallons:
         return (gallons / CYCLE_FACTOR - level) / rate
-    # Past the gap the weight is fixed at CYCLE_BLEND, so it is linear there.
-    after = ((gallons / CYCLE_FACTOR - CYCLE_BLEND * typical) / (1 - CYCLE_BLEND)
+    # Past the gap the weight is fixed at `weight`, so it is linear there.
+    after = ((gallons / CYCLE_FACTOR - weight * typical) / (1 - weight)
              - level) / rate
     if after >= gap:
         return after
@@ -1631,11 +1683,12 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thef
     target = capacity * TARGET_FRACTION if capacity is not None else None
     exposure_days = (open_days(clock_start, asof, open_months, taper_last) if open_months
                      else days_accumulating)
-    # The straight line, then the cycle blend on top (CYCLE_BLEND). The line
+    # The straight line, then the cycle blend on top (sparsity_weight). The line
     # is kept for the live test's side-by-side and the detail CSV.
     line = level + rate * exposure_days if rate is not None else None
     gap = usual_gap(pickups)
-    projected = (cycle_projection(line, exposure_days, gap, avg_collection)
+    weight = sparsity_weight(pickups, asof)
+    projected = (cycle_projection(line, exposure_days, gap, avg_collection, weight)
                  if line is not None else None)
     if left_from and rate is not None:
         routing_reason += (f"; from {left_from[1]:g} gal left on "
@@ -1679,7 +1732,7 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thef
         raw_pct = projected / capacity * 100
         if rate > 0:
             reach = lambda gallons, start=level: days_to_reach(
-                gallons, start, rate, gap, avg_collection)
+                gallons, start, rate, gap, avg_collection, weight)
             days_until = reach(target) - exposure_days
             if open_months and days_until > 0:
                 # Open days to 75% -> calendar days, the closed months passing first.
@@ -1707,6 +1760,9 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thef
         findings["flags"].append(FLAG_ABOVE_CAPACITY)
     if days_since > STALE_DAYS:
         findings["flags"].append(f"No pickup in {days_since} days")
+
+    est = (held_estimate(pickups, asof, section, level, line, exposure_days, capacity)
+           if section in (SECTION_WILL_CALL, SECTION_INSUFFICIENT) else None)
 
     month_index = season["shape"][asof.month - 1] if season else None
     configured_season = override.season if override else None
@@ -1753,7 +1809,13 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thef
         "model_projected_gallons": projected,
         "line_projected_gallons": line,
         "usual_gap_days": gap,
+        "cycle_weight": weight,
         "exposure_days": exposure_days,
+        # Will-call / insufficient data only: the estimate, never ranked.
+        "estimate_gallons": est["gallons"] if est else None,
+        "estimate_range_low": est["low"] if est else None,
+        "estimate_range_high": est["high"] if est else None,
+        "estimate_basis": est["basis"] if est else None,
         "raw_pct_of_listed_capacity": raw_pct,
         "model_days_until_75pct": days_until,
         "model_days_past_75pct": days_past_75,
@@ -1782,6 +1844,41 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thef
         "_thefts": [theft_log_entry(day, theft, pickups, rate, capacity)
                     for day, theft in thefts],
     }
+
+
+def held_estimate(pickups, asof, section, level, line, days, capacity):
+    """
+    The estimate for a will-call or insufficient-data row (ESTIMATE_PRIOR_GAP),
+    or None past ESTIMATE_MAX_DAYS. A comeback counts only its pickups since the
+    return. Without the ladder's line, the pooled rate over those pickups; a
+    single pickup has none, so it is all typical pickup (s = 1), ramped over
+    the prior gap. Capped at capacity, as every shown figure is.
+    """
+    if days is None or not 0 <= days <= ESTIMATE_MAX_DAYS:
+        return None
+    seen = pickups
+    back = comeback_hold(pickups)
+    if back and section == SECTION_INSUFFICIENT:
+        seen = pickups[len(pickups) - back[1]:]
+    if line is None and len(seen) >= 2:
+        rate = rate_pooled(seen)
+        line = level + rate * days if rate is not None else None
+    typical = average_collection(seen)
+    if typical is None:
+        return None
+    weight = 1.0 if line is None else sparsity_weight(seen, asof)
+    gap = usual_gap(seen) or ESTIMATE_PRIOR_GAP
+    gallons = cycle_projection(level if line is None else line, days, gap, typical, weight)
+    if capacity:
+        gallons = min(gallons, capacity)
+    key = ("will-call" if section == SECTION_WILL_CALL
+           else "1 pickup" if len(seen) == 1 else "2 pickups / comeback")
+    lo_f, hi_f = ESTIMATE_RANGE_FACTORS[key]
+    high = gallons * hi_f
+    return {"gallons": gallons, "low": gallons * lo_f,
+            "high": min(high, capacity) if capacity else high,
+            "basis": f"{key}: lean {weight:.2f} toward the typical pickup over a "
+                     f"{gap:g}-day gap; range x{lo_f:.2f} to x{hi_f:.2f}"}
 
 
 def theft_log_entry(day, theft, pickups, rate, capacity):
@@ -1858,6 +1955,8 @@ ROUNDING = {
     "capacity": 0, "display_pct_full": 1, "days_until_75pct": 1, "days_past_75pct": 1,
     "days_past_capacity": 1, "days_past_full": 1, "implied_periodicity_days": 1,
     "model_projected_gallons": 1, "line_projected_gallons": 1, "usual_gap_days": 1,
+    "cycle_weight": 3, "estimate_gallons": 1, "estimate_range_low": 1,
+    "estimate_range_high": 1,
     "exposure_days": 1, "raw_pct_of_listed_capacity": 1,
     "model_days_until_75pct": 1, "model_days_past_75pct": 1,
     "model_days_past_capacity": 1,
@@ -1901,7 +2000,8 @@ DETAIL_FIELDS = [
     "seasonal_last_year_gpd", "seasonal_recent_indexed_gpd",
     "oil_rate_gpd_prev_year", "oil_rate_gpd_projected",
     "model_projected_gallons", "line_projected_gallons", "usual_gap_days",
-    "exposure_days", "raw_pct_of_listed_capacity",
+    "cycle_weight", "exposure_days", "raw_pct_of_listed_capacity",
+    "estimate_gallons", "estimate_range_low", "estimate_range_high", "estimate_basis",
     "model_days_until_75pct", "model_days_past_75pct",
     "model_days_past_capacity", "capacity",
     "collections_over_capacity_all_time", "collections_over_capacity_2y",
@@ -1984,10 +2084,15 @@ def write_json(rows, asof):
         "days_past_full": value(r, "days_past_full"),
         "periodicity_days": value(r, "implied_periodicity_days"),
         # What the live test needs to carry a ranked row to its pickup date,
-        # and the straight line it scores alongside (CYCLE_BLEND).
+        # and the straight line it scores alongside (cycle_weight = sparsity_weight).
         "line_gal": ranked_value(r, "line_projected_gallons"),
         "exposure_days": ranked_value(r, "exposure_days"),
         "usual_gap_days": ranked_value(r, "usual_gap_days"),
+        "cycle_weight": ranked_value(r, "cycle_weight"),
+        # Will-call and insufficient data: an estimate, shown apart, never ranked.
+        "estimate_gal": value(r, "estimate_gallons"),
+        "estimate_low": value(r, "estimate_range_low"),
+        "estimate_high": value(r, "estimate_range_high"),
         "restart_from": r.get("restart_from"),
         "restart_gap_days": r.get("restart_gap_days"),
         "return_gap_days": r.get("return_gap_days"),
@@ -2006,7 +2111,7 @@ def write_json(rows, asof):
         "data_last_updated": oil_data.get("last_updated"),
         "beta": True,
         "target_fraction": TARGET_FRACTION,
-        "cycle_blend": CYCLE_BLEND,
+        "sparsity_k": SPARSITY_K,
         "cycle_factor": CYCLE_FACTOR,
         "stale_days": STALE_DAYS,
         "comeback_hold_days": COMEBACK_HOLD_DAYS,
