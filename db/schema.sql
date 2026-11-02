@@ -270,8 +270,9 @@ create trigger oil_left_stamp before update on public.oil_left
 -- Today's note (Jim, 2026-10-29): a note for one customer on one day ("they
 -- want the barrel dropped off here", "owner says both barrels full"), beside
 -- the permanent `customers.notes`. One per customer and day: a second save that
--- day is an edit, and an emptied note is deleted. Pages show only today's
--- (Vermont), so it clears itself overnight; old days stay as a record.
+-- day is an edit, and an emptied note is deleted. Pages show a note the day it
+-- is written and all of the next (Sarge, 2026-11-01: Jim writes them the night
+-- before a route), then it clears; old days stay as a record.
 create table if not exists public.daily_notes (
   customer_id integer not null references public.customers (id),
   day         date not null default ((now() at time zone 'America/New_York')::date),

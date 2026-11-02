@@ -312,8 +312,8 @@ async function opsFetchRows() {
     // Before the oil_left table exists the pages still load, without it.
     all(() => c.from("oil_left").select("customer_id,checked_on,gallons_left,route_id")
       .gte("checked_on", since).order("id"), "oil left").catch(() => []),
-    // Today's notes only (yesterday's has cleared); none before the table exists.
-    all(() => c.from("daily_notes").select("customer_id,day,note").eq("day", todayIso())
+    // Notes written yesterday or today (older ones have cleared); none before the table exists.
+    all(() => c.from("daily_notes").select("customer_id,day,note").gte("day", opsDayBefore(todayIso()))
       .order("customer_id"), "today's notes").catch(() => []),
   ]);
   return { routes, stops, customers, collections, outgoing, trucks, oilLeft, dailyNotes };
@@ -502,17 +502,31 @@ function opsFlush() {
 
 /* ── Notes: Today's note and the permanent Notes (My Route and the customer page) ── */
 
-/** Today's note for a customer (clears overnight: only today's rows are loaded), or "". */
+/** The calendar day before a "YYYY-MM-DD" day. */
+function opsDayBefore(iso) {
+  const d = new Date(`${iso}T12:00:00`);
+  d.setDate(d.getDate() - 1);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
+/**
+ * Today's note for a customer, or "". A note shows the day it is written and all of the next day
+ * (Jim writes them the evening before a route), then clears; the newest wins. Checked on every
+ * draw, so a page left open overnight drops it too.
+ */
 function opsTodayNote(id) {
-  const rows = opsDb && opsDb.rows && opsDb.rows.dailyNotes || [];
-  const r = rows.find(n => n.customer_id === id && n.day === todayIso());
-  return r ? r.note : "";
+  const today = todayIso(), from = opsDayBefore(today);
+  const rows = (opsDb && opsDb.rows && opsDb.rows.dailyNotes || [])
+    .filter(n => n.customer_id === id && n.day >= from && n.day <= today);
+  rows.sort((a, b) => (a.day < b.day ? 1 : -1));
+  return rows.length ? rows[0].note : "";
 }
 
 /**
  * Save a customer's Notes and Today's note, sending only what differs from `was`. Notes go on the
  * customer (the nightly copies notes only for new customers, so the edit stays; it never reaches the
- * source site); Today's note is its own row for today, deleted when emptied. Throws when not saved.
+ * source site); Today's note is its own row dated today, so an edit restarts its two days. Saving
+ * or emptying it removes yesterday's row, which would otherwise show again. Throws when not saved.
  */
 async function opsSaveNotes(id, now, was) {
   const c = opsDb && opsDb.client;
@@ -525,12 +539,18 @@ async function opsSaveNotes(id, now, was) {
     if (row) row.notes = notes;
   }
   if (today !== (was.today || "").trim()) {
+    // Write today's first, then clear older ones, so a failed save never loses the note.
+    const yesterday = opsDayBefore(day);
+    if (today) {
+      const { error } = await c.from("daily_notes").upsert({ customer_id: id, day, note: today }, { onConflict: "customer_id,day" });
+      if (error) throw new Error(error.message);
+    }
     const { error } = today
-      ? await c.from("daily_notes").upsert({ customer_id: id, day, note: today }, { onConflict: "customer_id,day" })
-      : await c.from("daily_notes").delete().eq("customer_id", id).eq("day", day);
+      ? await c.from("daily_notes").delete().eq("customer_id", id).eq("day", yesterday)
+      : await c.from("daily_notes").delete().eq("customer_id", id).gte("day", yesterday);
     if (error) throw new Error(error.message);
     if (opsDb.rows) {
-      opsDb.rows.dailyNotes = (opsDb.rows.dailyNotes || []).filter(r => !(r.customer_id === id && r.day === day));
+      opsDb.rows.dailyNotes = (opsDb.rows.dailyNotes || []).filter(r => !(r.customer_id === id && r.day >= yesterday));
       if (today) opsDb.rows.dailyNotes.push({ customer_id: id, day, note: today });
     }
   }

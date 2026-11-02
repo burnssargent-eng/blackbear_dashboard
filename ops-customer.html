@@ -281,7 +281,7 @@ function homeHtml(row, today, onRoutes, capacity, left) {
 function notesFormHtml() {
   const n = notesEdit;
   return `<form class="ops-note-edit ops-notes-form mb-3" data-notes-form autocomplete="off">
-    <label for="today-note" class="ops-note-label">Today's note <span class="text-muted">(clears tomorrow)</span></label>
+    <label for="today-note" class="ops-note-label">Today's note <span class="text-muted">(shows today and tomorrow)</span></label>
     <textarea class="form-control" id="today-note" rows="2" data-notes-field="today">${escapeHtml(n.today)}</textarea>
     <label for="perm-note" class="ops-note-label">Notes <span class="text-muted">(stay until changed)</span></label>
     <textarea class="form-control" id="perm-note" rows="4" data-notes-field="notes">${escapeHtml(n.notes)}</textarea>

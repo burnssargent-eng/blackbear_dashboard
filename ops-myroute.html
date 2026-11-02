@@ -461,7 +461,7 @@ function moreHtml(id, d, c, open) {
     </div>` : "";
   const msg = busy && photoAdd.msg ? `<div class="text-danger small mt-1">${escapeHtml(photoAdd.msg)}</div>` : "";
   if (editing) return `${more}<div class="ops-note-edit">
-      <label for="today-${id}" class="ops-note-label">Today's note <span class="text-muted">(clears tomorrow)</span></label>
+      <label for="today-${id}" class="ops-note-label">Today's note <span class="text-muted">(shows today and tomorrow)</span></label>
       <textarea class="form-control" id="today-${id}" rows="2" data-today-draft>${escapeHtml(noteEdit.today)}</textarea>
       <label for="note-${id}" class="ops-note-label">Notes <span class="text-muted">(stay until changed)</span></label>
       <textarea class="form-control" id="note-${id}" rows="3" data-note-draft>${escapeHtml(noteEdit.text)}</textarea>
