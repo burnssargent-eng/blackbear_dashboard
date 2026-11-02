@@ -29,9 +29,15 @@ function opsPhotosOn() {
 
 const opsThumbPath = path => path.replace(/\.jpg$/, "_t.jpg");
 
-/** This customer's photos, newest first (empty until opsPhotosLoad has run). */
+/** Accounts a customer took over from (ops-db.js), whose photos it shows too: same barrel, same spot. */
+const opsPhotoPredecessors = id => (typeof opsPredecessors === "function" ? opsPredecessors(id) : []);
+
+/** This customer's photos, and those of any account it took over from, newest first (empty until opsPhotosLoad has run). */
 function opsPhotosFor(customerId) {
-  return opsPhotos.byCustomer.get(customerId) || [];
+  const ids = [customerId, ...opsPhotoPredecessors(customerId)];
+  if (ids.length === 1) return opsPhotos.byCustomer.get(customerId) || [];
+  return ids.flatMap(id => opsPhotos.byCustomer.get(id) || [])
+    .sort((a, b) => String(b.uploaded_at).localeCompare(String(a.uploaded_at)));
 }
 
 /**
@@ -40,6 +46,7 @@ function opsPhotosFor(customerId) {
  */
 async function opsPhotosLoad(customerIds) {
   if (!opsPhotosOn() || !customerIds.length) return false;
+  customerIds = [...new Set(customerIds.flatMap(id => [id, ...opsPhotoPredecessors(id)]))];
   opsPhotos.ids = customerIds.slice();
   const c = opsDb.client;
   try {

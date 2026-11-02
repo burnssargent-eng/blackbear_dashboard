@@ -23,7 +23,8 @@ const api = new Function("window", code + `
   return { freshStore, loadStore, saveStore, storeStops, assignToRoute, opsRouteList,
     addShadowCustomer, createRoute, renameRoute, storeRoutesByCustomer, buildIndex, opsNavHtml, OPS_NAV,
     recordCollection, todaysCollection, liveRouteTotals, routeSummary, recordTheft, theftGallonsText,
-    recordOilLeft, todaysOilLeft, clearOilLeft, collectionLines, daysBracketHtml };`)(window);
+    recordOilLeft, todaysOilLeft, clearOilLeft, collectionLines, daysBracketHtml,
+    resolveTownInput, VT_TOWNS, OUT_OF_STATE_TOWNS, TOWN_ALIASES, SPLIT_TOWNS, TOWN_CHOICES };`)(window);
 
 let fails = 0;
 const ok = (cond, msg) => {
@@ -31,6 +32,28 @@ const ok = (cond, msg) => {
 };
 
 const snap = JSON.parse(fs.readFileSync("jamaal_routes.json", "utf8"));
+
+// ── Add Customer's Town pick-list ──
+{
+  const geo = JSON.parse(fs.readFileSync("vermont_towns.geojson", "utf8"));
+  const official = [...new Set(geo.features.map(f => f.properties.TOWNNAMEMC))].sort();
+  ok(JSON.stringify([...api.VT_TOWNS].sort()) === JSON.stringify(official),
+    `pick-list towns equal the GeoJSON's ${official.length} official names`);
+  const strays = [...Object.values(api.TOWN_ALIASES), ...Object.values(api.SPLIT_TOWNS).flat()]
+    .filter(t => !api.VT_TOWNS.includes(t));
+  ok(!strays.length, `every alias and split resolves to an official town ${strays.join(", ")}`);
+  const r = t => api.resolveTownInput(t);
+  ok(r("  burlington ").town === "Burlington", "case and spacing forgiven");
+  ok(r("St. Johnsbury").town === "Saint Johnsbury", '"St." reads as Saint');
+  ok(r("White River Junction").town === "Hartford" && /Hartford/.test(r("White River Junction").note),
+    "a village resolves to its town, with a note");
+  ok(r("barre").town === "Barre" && r("Barre Town").town === "Barre Town", "Barre accepted as one name; City/Town still accepted");
+  ok(api.TOWN_CHOICES.includes("Barre") && !api.TOWN_CHOICES.includes("Barre City"), "suggestions offer one Barre");
+  ok(/Rutland City or Rutland Town/.test(r("Rutland").error || ""), "Rutland still asks City or Town");
+  ok(r("berlin, nh").town === "Berlin, NH", "out of state kept as Place, ST");
+  ok(r("Middlebury, VT").town === "Middlebury", '", VT" is dropped');
+  ok(!!r("").error && !!r("Narnia").error, "blank and unknown towns are refused");
+}
 const payload = JSON.parse(fs.readFileSync("oil_projections.json", "utf8"));
 const byId = api.buildIndex(payload.customers);
 
@@ -68,7 +91,8 @@ ok(last.customer_id === fresh.customer_id && last.must_get && last.assignment_id
   "a new stop goes last, keeps Must Get, and gets a negative assignment id");
 ok(snap.routes[0].stops.length === before, "assigning never changes the loaded snapshot");
 
-const c = api.addShadowCustomer(store, { name: "  Test Diner ", city: "Barre", capacity: "150", periodicity: "" });
+const c = api.addShadowCustomer(store, { name: "  Test Diner ", city: "Barre", capacity: "150", periodicity: "30" });
+ok(c.periodicity === null, "Periodicity is never typed: worked out from pickups");
 ok(c.customer_id < 0 && c.name === "Test Diner" && c.capacity === 150 && c.periodicity === null,
   "an added customer gets a negative id and tidy fields");
 ok(store.nextId < last.assignment_id && store.nextId < c.customer_id, "ids are never reused");

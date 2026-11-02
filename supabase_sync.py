@@ -188,6 +188,50 @@ def customer_rows(snap, details, capacities):
     return rows
 
 
+def replaced_map(db):
+    """
+    {old id: new id} for customers taken over by a new account on the site
+    (customers.replaced_by). Empty before db/schema.sql adds the column, so the
+    nightly keeps working until it is pasted.
+    """
+    try:
+        rows = db.select("customers", "select=id,replaced_by&replaced_by=not.is.null")
+    except SyncError:
+        return {}
+    return {r["id"]: r["replaced_by"] for r in rows if r.get("replaced_by")}
+
+
+def successor(cid, replaced):
+    """The account that now stands for `cid`, following takeovers (A -> B -> C)."""
+    seen = set()
+    while cid in replaced and cid not in seen:
+        seen.add(cid)
+        cid = replaced[cid]
+    return cid
+
+
+def take_over_stops(stops, replaced):
+    """Route stops with each replaced customer swapped for its new account, once per route."""
+    out, seen = [], set()
+    for s in stops:
+        cid = successor(s["customer_id"], replaced)
+        if (s["route_id"], cid) in seen:
+            continue
+        seen.add((s["route_id"], cid))
+        out.append({**s, "customer_id": cid,
+                    **({"jamaal_assignment_id": None} if cid != s["customer_id"] and "jamaal_assignment_id" in s else {})})
+    return out
+
+
+def snap_taken_over(snap, replaced):
+    """The routes snapshot with each replaced customer read as its new account, for comparing."""
+    if not replaced:
+        return snap
+    return {**snap, "routes": [{**r, "stops": [
+        {**s, "customer_id": successor(s.get("customer_id"), replaced)} for s in r["stops"]]}
+        for r in snap.get("routes", [])]}
+
+
 def full_notes(cid, details, local_notes):
     """A customer's notes with codes and phones, when this machine has them."""
     return local_notes.get(str(cid)) or details.get(str(cid), {}).get("notes") or None
@@ -505,6 +549,10 @@ def sync(db, seed=False, today=None, history=False):
 
     # Customers: the source site's fields always; notes only for new ones.
     wanted = customer_rows(snap, details, capacities)
+    # A customer taken over by a new account stays inactive whatever the source site says.
+    for cid in replaced_map(db):
+        if cid in wanted:
+            wanted[cid]["active"] = False
     names.update({cid: r["name"] for cid, r in wanted.items()})
     existing = {r["id"]: r for r in db.select("customers", "select=id,active,name")}
     names.update({r["id"]: r["name"] for r in existing.values()})
@@ -554,7 +602,8 @@ def sync(db, seed=False, today=None, history=False):
     site_pickups = db.select("collections", f"select=customer_id,picked_on,gallons&source=eq.site&picked_on=gte.{since}")
     pickups = pickup_differences(site_pickups, jamaal_entries(load_json(COLLECTIONS_FILE, {}), CODES_FILE, since),
                                  through, names)
-    routes = route_differences(snap, db_stops, names)
+    # A taken-over customer's new account on a route is not a difference.
+    routes = route_differences(snap_taken_over(snap, replaced_map(db)), db_stops, names)
     summary = summary_text(routes, pickups)
     report = {"routes_read_at": snap.get("scraped_at"), "pickups_since": since, "pickups_through": through,
               "routes": routes, "pickups": pickups,
@@ -673,6 +722,9 @@ def mirror_routes(db, now=None):
     wanted = stop_rows(snap)
     if not wanted:
         raise SyncError(f"{ROUTES_FILE} has no assigned stops at all: likely a bad read; routes left as they are")
+    # A customer taken over on the site: its new account takes the stop.
+    replaced = replaced_map(db)
+    wanted = take_over_stops(wanted, replaced)
 
     routes = route_rows(snap)
     db.upsert("routes", routes)
@@ -686,7 +738,7 @@ def mirror_routes(db, now=None):
     for r in snap.get("routes", []):
         for s in r["stops"]:
             names.setdefault(s.get("customer_id"), s["name"])
-    differed = route_differences(snap, before, names)
+    differed = route_differences(snap_taken_over(snap, replaced), before, names)
     keep = {(s["route_id"], s["customer_id"]) for s in wanted}
     stale = sorted(s["id"] for s in before if (s["route_id"], s["customer_id"]) not in keep)
     if wanted:

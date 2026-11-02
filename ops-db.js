@@ -50,7 +50,7 @@ const opsClone = x => JSON.parse(JSON.stringify(x));
 function opsSharedPart(store) {
   return opsClone({ routes: store.routes || {}, newRoutes: store.newRoutes || [], added: store.added || [],
     collections: store.collections || [], outgoing: store.outgoing || [], oilLeft: store.oilLeft || [],
-    trucks: store.trucks || {} });
+    trucks: store.trucks || {}, replaced: store.replaced || {} });
 }
 
 /**
@@ -76,7 +76,8 @@ function opsEnsureClientIds(store, makeId) {
 function opsCustomerRow(c) {
   return { id: c.customer_id, name: c.name, address: c.address || null, city: c.city || null,
     capacity: c.capacity ?? null, periodicity_days: c.periodicity ?? null, phone: c.phone || null,
-    notes: c.notes || null, shared_with: c.shared_with || null, active: true };
+    notes: c.notes || null, shared_with: c.shared_with || null,
+    collected_with_town: c.collected_with || null, active: true };
 }
 
 /**
@@ -93,12 +94,26 @@ function opsDiff(prev, next, { today, projectedFor = () => null }) {
     else if (p.name !== r.name) ops.push({ t: "route-name", id: r.route_id, name: r.name });
   });
 
+  // A customer added on the site and since taken over is sent inactive, so an
+  // edit never turns it back on.
+  const nextReplaced = next.replaced || {}, prevReplaced = prev.replaced || {};
+  const row = c => ({ ...opsCustomerRow(c), active: !nextReplaced[c.customer_id] });
   const prevAdded = new Map((prev.added || []).map(c => [c.customer_id, c]));
+  const nextAdded = new Set();
   (next.added || []).forEach(c => {
+    nextAdded.add(c.customer_id);
     const p = prevAdded.get(c.customer_id);
     if (!p || JSON.stringify(opsCustomerRow(p)) !== JSON.stringify(opsCustomerRow(c))) {
-      ops.push({ t: "customer", row: opsCustomerRow(c) });
+      ops.push({ t: "customer", row: row(c) });
     }
+  });
+
+  // Taking over from: after the new customer exists, before the stops that name it.
+  Object.entries(nextReplaced).forEach(([old, by]) => {
+    if (prevReplaced[old] !== by) ops.push({ t: "replace", id: Number(old), by });
+  });
+  Object.entries(prevReplaced).forEach(([old, by]) => {
+    if (!(old in nextReplaced)) ops.push({ t: "unreplace", id: Number(old), by });
   });
 
   const routeIds = new Set([...Object.keys(prev.routes || {}), ...Object.keys(next.routes || {})]);
@@ -142,6 +157,9 @@ function opsDiff(prev, next, { today, projectedFor = () => null }) {
   prevLeft.forEach((e, k) => {
     if (!nextLeft.has(k)) ops.push({ t: "left-delete", customer_id: e.customer_id, day: e.date });
   });
+
+  // A site customer removed (Undo straight after Add): last, once no stop names it.
+  prevAdded.forEach((c, id) => { if (!nextAdded.has(id) && id < 0) ops.push({ t: "customer-delete", id }); });
 
   const prevOut = new Set((prev.outgoing || []).map(e => e.client_id));
   const nextOut = new Set();
@@ -194,7 +212,9 @@ function opsStoreFromRows(rows, snap, keep = {}) {
     newRoutes: rows.routes.filter(r => r.id < 0).map(r => ({ route_id: r.id, name: r.name })),
     added: rows.customers.filter(c => c.id < 0).map(c => ({ customer_id: c.id, name: c.name,
       address: c.address || "", city: c.city || "", capacity: c.capacity, periodicity: c.periodicity_days,
-      phone: c.phone || "", notes: c.notes || "", shared_with: c.shared_with, added: c.created_on })),
+      phone: c.phone || "", notes: c.notes || "", shared_with: c.shared_with,
+      collected_with: c.collected_with_town || null, added: c.created_on })),
+    replaced: Object.fromEntries(rows.customers.filter(c => c.replaced_by).map(c => [c.id, c.replaced_by])),
     collections: rows.collections.map(c => ({ customer_id: c.customer_id,
       name: (names.get(c.customer_id) || {}).name || `#${c.customer_id}`, gallons: c.gallons,
       date: c.picked_on, route_id: c.route_id, assignment_id: null, client_id: c.client_id,
@@ -304,8 +324,9 @@ async function opsFetchRows() {
   const [routes, stops, customers, collections, outgoing, trucks, oilLeft, dailyNotes] = await Promise.all([
     all(() => c.from("routes").select("id,name,sort").order("id"), "routes"),
     all(() => c.from("route_stops").select("id,route_id,customer_id,position,must_get,jamaal_assignment_id").order("id"), "stops"),
-    // Before collected_with_town exists (db/schema.sql not yet pasted) the pages load without it.
-    all(() => c.from("customers").select(`${OPS_CUSTOMER_COLS},collected_with_town`).order("id"), "customers")
+    // Before collected_with_town and replaced_by exist (db/schema.sql not yet pasted) the pages load without them.
+    all(() => c.from("customers").select(`${OPS_CUSTOMER_COLS},collected_with_town,replaced_by`).order("id"), "customers")
+      .catch(() => all(() => c.from("customers").select(`${OPS_CUSTOMER_COLS},collected_with_town`).order("id"), "customers"))
       .catch(() => all(() => c.from("customers").select(OPS_CUSTOMER_COLS).order("id"), "customers")),
     // Only this site's entries: the source site's history is in the database
     // too (source 'jamaal'), but the pages already show it from the nightly files.
@@ -434,6 +455,12 @@ async function opsSend(op) {
     case "route-new": res = await c.from("routes").upsert({ id: op.id, name: op.name, sort: 1000 }); break;
     case "route-name": res = await c.from("routes").update({ name: op.name }).eq("id", op.id); break;
     case "customer": res = await c.from("customers").upsert(op.row); break;
+    case "replace":
+      res = await c.from("customers").update({ replaced_by: op.by, active: false }).eq("id", op.id); break;
+    case "unreplace":
+      res = await c.from("customers").update({ replaced_by: null, active: true }).eq("id", op.id).eq("replaced_by", op.by);
+      break;
+    case "customer-delete": res = await c.from("customers").delete().eq("id", op.id); break;
     case "stops": {
       const ids = op.stops.map(s => s.customer_id);
       let del = c.from("route_stops").delete().eq("route_id", op.route_id);
@@ -583,6 +610,22 @@ async function opsSaveCollectedWith(id, town) {
   if (error) throw new Error(error.message);
   const row = opsDb.rows && opsDb.rows.customers && opsDb.rows.customers.find(r => r.id === id);
   if (row) row.collected_with_town = value;
+}
+
+/* ── Taking over from ── */
+
+/** Accounts this one took over from, nearest first (A took over from B, which took over from C). */
+function opsPredecessors(id) {
+  const rows = (opsDb && opsDb.rows && opsDb.rows.customers) || [];
+  const out = [];
+  let cur = id;
+  for (let n = 0; n < 10; n++) {
+    const prev = rows.find(r => r.replaced_by === cur && !out.includes(r.id));
+    if (!prev) break;
+    out.push(prev.id);
+    cur = prev.id;
+  }
+  return out;
 }
 
 /* ── Live updates ────────────────────────────────────────── */

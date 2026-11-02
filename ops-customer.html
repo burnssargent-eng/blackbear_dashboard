@@ -332,6 +332,22 @@ function notesFormHtml() {
 
 let tab = "home";
 
+/** "Replaced by …" on an old owner's account, "Took over from …" on the new one. */
+function takeoverHtml(id) {
+  const name = cid => {
+    const r = data.snap.assign_list.find(a => a.customer_id === cid) || store.added.find(c => c.customer_id === cid);
+    return r ? r.name : `#${cid}`;
+  };
+  const link = cid => `<a href="ops-customer.html?id=${cid}">${escapeHtml(name(cid))}</a>`;
+  const by = store.replaced && store.replaced[id];
+  const from = Object.entries(store.replaced || {}).filter(([, b]) => b === id).map(([o]) => Number(o));
+  return [
+    by ? `<div class="alert alert-secondary py-2 mb-2">Inactive: taken over by a new owner, now ${link(by)}.
+      This account keeps its own history.</div>` : "",
+    from.length ? `<div class="ops-muted mb-2">Took over from ${from.map(link).join(", ")}.</div>` : "",
+  ].join("");
+}
+
 function render() {
   const id = customer.customer_id;
   const row = data.index.get(id) || null;
@@ -345,6 +361,7 @@ function render() {
     ${from === "myroute" ? `<a href="ops-myroute.html" class="d-inline-block mb-2">← My Route</a>`
       : from === "assign" ? `<a href="ops-assign.html" class="d-inline-block mb-2">← Assign Routes</a>` : ""}
     <h2>${escapeHtml(customer.name || `#${id}`)}</h2>
+    ${takeoverHtml(id)}
     ${row && row.members ? `<div class="ops-muted mb-2">Shared barrel: ${escapeHtml(row.members.map(m => m.name).join(" · "))}</div>` : ""}
     <ul class="nav nav-tabs">${tabLink("home", "Home")}${tabLink("collections", "Collections")}</ul>
     <div class="pt-2">${tab === "home" ? homeHtml(row, today, onRoutes, capacity,

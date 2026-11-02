@@ -108,13 +108,13 @@ function freshStore(snap) {
     }));
   });
   return { v: 1, base: snap.scraped_at, nextId: -1, routes, added: [], collections: [],
-    outgoing: [], oilLeft: [], trucks: {}, my: null, newRoutes: [] };
+    outgoing: [], oilLeft: [], trucks: {}, my: null, newRoutes: [], replaced: {} };
 }
 
 function loadStore(snap) {
   try {
     const saved = JSON.parse(window.localStorage.getItem(OPS_STORAGE_KEY) || "null");
-    if (saved && saved.v === 1 && saved.routes) return { outgoing: [], newRoutes: [], oilLeft: [], ...saved };
+    if (saved && saved.v === 1 && saved.routes) return { outgoing: [], newRoutes: [], oilLeft: [], replaced: {}, ...saved };
   } catch (err) { /* blocked storage: work in memory */ }
   return freshStore(snap);
 }
@@ -155,19 +155,188 @@ function storeRoutesByCustomer(store, routeList, byId) {
 
 /**
  * A new customer added in the shadow copy; negative ids never clash with the
- * site's. The source site's Add Customer fields, less zip code. The phone
+ * site's. The source site's Add Customer fields, less zip code and
+ * Periodicity (worked out from pickups, never typed). The phone
  * stays in this browser's storage: it never reaches the repo or the site.
- * `shared_with` is the customer id whose barrel this one shares.
+ * `shared_with` is the customer id whose barrel this one shares;
+ * `collected_with` the town whose run picks it up (as on the customer page).
  */
 function addShadowCustomer(store, fields) {
   const id = store.nextId--;
   const text = k => String(fields[k] || "").trim();
   const c = { customer_id: id, name: text("name"), address: text("address"), city: text("city"),
-    capacity: Number(fields.capacity) || null, periodicity: Number(fields.periodicity) || null,
+    capacity: Number(fields.capacity) || null, periodicity: null,
     phone: text("phone"), notes: text("notes"), shared_with: Number(fields.shared_with) || null,
+    collected_with: text("collected_with") || null,
     added: new Date().toISOString().slice(0, 10) };
   store.added.push(c);
   return c;
+}
+
+/* ── Taking over from: a place under a new owner gets its own account ── */
+
+/**
+ * The new customer `newId` takes over from `old` ({ customer_id, name, capacity }):
+ * the old account is marked replaced (inactive for good: the nightly never turns
+ * it back on) and the new one takes its place on every route. Returns what
+ * undoTakeOver needs. The old account's pickups stay its own history.
+ */
+function takeOverCustomer(store, old, newC) {
+  store.replaced = { ...(store.replaced || {}), [old.customer_id]: newC.customer_id };
+  const swapped = [];
+  Object.entries(store.routes || {}).forEach(([routeId, stops]) => {
+    const i = stops.findIndex(s => s.customer_id === old.customer_id);
+    if (i < 0) return;
+    const prev = stops[i];
+    swapped.push({ routeId, i, stop: prev });
+    if (stops.some(s => s.customer_id === newC.customer_id)) stops.splice(i, 1);
+    else stops[i] = { ...prev, assignment_id: -Math.abs(newC.customer_id) - i,
+      customer_id: newC.customer_id, name: newC.name, capacity: newC.capacity ?? prev.capacity };
+  });
+  return { old, newId: newC.customer_id, swapped };
+}
+
+/** Undo a takeover straight after Add: the old account back, the new one gone. */
+function undoTakeOver(store, t) {
+  const replaced = { ...(store.replaced || {}) };
+  delete replaced[t.old.customer_id];
+  store.replaced = replaced;
+  t.swapped.slice().reverse().forEach(({ routeId, i, stop }) => {
+    const stops = (store.routes[routeId] = (store.routes[routeId] || []).filter(s => s.customer_id !== t.newId));
+    if (!stops.some(s => s.customer_id === stop.customer_id)) stops.splice(Math.min(i, stops.length), 0, stop);
+  });
+  store.added = store.added.filter(c => c.customer_id !== t.newId);
+}
+
+/** True when a customer has been taken over by a new account (hidden from lists). */
+function isReplaced(store, id) {
+  return !!(store && store.replaced && store.replaced[id]);
+}
+
+/* ─────────────────────────────────────────────
+ * Add Customer's Town pick-list
+ * ───────────────────────────────────────────── */
+
+/**
+ * Vermont's official towns, exactly as vermont_towns.geojson names them
+ * (TOWNNAMEMC): the names the map, the regions and the analytics match on.
+ * tests/ops_test.js asserts this list equals the GeoJSON's.
+ */
+const VT_TOWNS = [
+  "Addison", "Albany", "Alburgh", "Andover", "Arlington", "Athens", "Averill", "Avery's Gore",
+  "Bakersfield", "Baltimore", "Barnard", "Barnet", "Barre City", "Barre Town", "Barton",
+  "Belvidere", "Bennington", "Benson", "Berkshire", "Berlin", "Bethel", "Bloomfield", "Bolton",
+  "Bradford", "Braintree", "Brandon", "Brattleboro", "Bridgewater", "Bridport", "Brighton",
+  "Bristol", "Brookfield", "Brookline", "Brownington", "Brunswick", "Buels Gore", "Burke",
+  "Burlington", "Cabot", "Calais", "Cambridge", "Canaan", "Castleton", "Cavendish", "Charleston",
+  "Charlotte", "Chelsea", "Chester", "Chittenden", "Clarendon", "Colchester", "Concord", "Corinth",
+  "Cornwall", "Coventry", "Craftsbury", "Danby", "Danville", "Derby", "Dorset", "Dover",
+  "Dummerston", "Duxbury", "East Haven", "East Montpelier", "Eden", "Elmore", "Enosburgh", "Essex",
+  "Essex Junction", "Fair Haven", "Fairfax", "Fairfield", "Fairlee", "Fayston", "Ferdinand",
+  "Ferrisburgh", "Fletcher", "Franklin", "Georgia", "Glastenbury", "Glover", "Goshen", "Grafton",
+  "Granby", "Grand Isle", "Granville", "Greensboro", "Groton", "Guildhall", "Guilford", "Halifax",
+  "Hancock", "Hardwick", "Hartford", "Hartland", "Highgate", "Hinesburg", "Holland", "Hubbardton",
+  "Huntington", "Hyde Park", "Ira", "Irasburg", "Isle La Motte", "Jamaica", "Jay", "Jericho",
+  "Johnson", "Killington", "Kirby", "Landgrove", "Leicester", "Lemington", "Lewis", "Lincoln",
+  "Londonderry", "Lowell", "Ludlow", "Lunenburg", "Lyndon", "Maidstone", "Manchester", "Marlboro",
+  "Marshfield", "Mendon", "Middlebury", "Middlesex", "Middletown Springs", "Milton", "Monkton",
+  "Montgomery", "Montpelier", "Moretown", "Morgan", "Morristown", "Mount Holly", "Mount Tabor",
+  "New Haven", "Newark", "Newbury", "Newfane", "Newport City", "Newport Town", "North Hero",
+  "Northfield", "Norton", "Norwich", "Orange", "Orwell", "Panton", "Pawlet", "Peacham", "Peru",
+  "Pittsfield", "Pittsford", "Plainfield", "Plymouth", "Pomfret", "Poultney", "Pownal", "Proctor",
+  "Putney", "Randolph", "Reading", "Readsboro", "Richford", "Richmond", "Ripton", "Rochester",
+  "Rockingham", "Roxbury", "Royalton", "Rupert", "Rutland City", "Rutland Town", "Ryegate",
+  "Saint Albans City", "Saint Albans Town", "Saint George", "Saint Johnsbury", "Salisbury",
+  "Sandgate", "Searsburg", "Shaftsbury", "Sharon", "Sheffield", "Shelburne", "Sheldon", "Shoreham",
+  "Shrewsbury", "Somerset", "South Burlington", "South Hero", "Springfield", "Stamford",
+  "Stannard", "Starksboro", "Stockbridge", "Stowe", "Strafford", "Stratton", "Sudbury",
+  "Sunderland", "Sutton", "Swanton", "Thetford", "Tinmouth", "Topsham", "Townshend", "Troy",
+  "Tunbridge", "Underhill", "Vergennes", "Vernon", "Vershire", "Victory", "Waitsfield", "Walden",
+  "Wallingford", "Waltham", "Wardsboro", "Warner's Grant", "Warren", "Warren's Gore", "Washington",
+  "Waterbury", "Waterford", "Waterville", "Weathersfield", "Wells", "West Fairlee", "West Haven",
+  "West Rutland", "West Windsor", "Westfield", "Westford", "Westminster", "Westmore", "Weston",
+  "Weybridge", "Wheelock", "Whiting", "Whitingham", "Williamstown", "Williston", "Wilmington",
+  "Windham", "Windsor", "Winhall", "Winooski", "Wolcott", "Woodbury", "Woodford", "Woodstock",
+  "Worcester"
+];
+
+/** Out-of-state places customers have been in, as "Place, ST". Any other "Place, ST" is accepted too. */
+const OUT_OF_STATE_TOWNS = [
+  "Berlin, NH", "Claremont, NH", "Dalton, NH", "Hanover, NH", "Lancaster, NH",
+  "Northumberland, NH", "West Lebanon, NH", "Plattsburgh, NY", "Pawtucket, RI",
+];
+
+/**
+ * Villages, mailing names and old spellings people type, and the official
+ * town each lies in. Mirrors the village part of GEO_TOWN_NAME_MAP in
+ * oil_scraper.py, plus a few common ones with no customer yet.
+ */
+const TOWN_ALIASES = {
+  "Hinesburgh": "Hinesburg", "Betlin": "Berlin", "Enosburg": "Enosburgh",
+  "Enosburg Falls": "Enosburgh", "Enosburgh Falls": "Enosburgh", "Alburg": "Alburgh",
+  "Lunenberg": "Lunenburg", "Montgomery Center": "Montgomery", "Craftsbury Common": "Craftsbury",
+  "Jericho Center": "Jericho", "Eden Mills": "Eden", "Randolph Center": "Randolph",
+  "South Pomfret": "Pomfret", "South Royalton": "Royalton", "Manchester Center": "Manchester",
+  "Bolton Valley": "Bolton", "West Dover": "Dover", "Quechee": "Hartford",
+  "White River Junction": "Hartford", "WRJ": "Hartford", "Wilder": "Hartford",
+  "Morrisville": "Morristown", "West Glover": "Glover", "Jeffersonville": "Cambridge",
+  "North Troy": "Troy", "Island Pond": "Brighton", "Wells River": "Newbury",
+  "Lyndonville": "Lyndon", "Orleans": "Barton", "East Burke": "Burke",
+  "Jacksonville": "Whitingham", "Lower Waterford": "Waterford", "Bellows Falls": "Rockingham",
+  "Gilman": "Lunenburg", "Perkinsville": "Weathersfield", "Belmont": "Mount Holly",
+  "East Barre": "Barre Town", "Graniteville": "Barre Town", "South Barre": "Barre Town",
+  "S. Barre": "Barre Town", "Websterville": "Barre Town", "Underhill Flats": "Underhill",
+  "Underhill Center": "Underhill", "Essex Center": "Essex", "Stowe Village": "Stowe",
+  "Waterbury Center": "Waterbury", "Proctorsville": "Cavendish", "Saxtons River": "Rockingham",
+  "North Bennington": "Bennington", "East Arlington": "Arlington", "Bomoseen": "Castleton",
+  "Center Rutland": "West Rutland", "Hyde Park Village": "Hyde Park", "Jonesville": "Richmond",
+};
+
+/**
+ * "Barre" is accepted as it is (Sarge, 2026-11-02): it lists as one town
+ * everywhere (townLabel), and the scraper files a bare "Barre" under Barre
+ * City on the map, as it does the source site's. Barre City and Barre Town
+ * are still accepted when someone knows which.
+ */
+const ONE_NAME_TOWNS = ["Barre"];
+
+/** The Town suggestions: official towns, with Barre offered as one name. */
+const TOWN_CHOICES = [...ONE_NAME_TOWNS, ...VT_TOWNS.filter(t => !/^Barre (City|Town)$/.test(t))]
+  .sort((a, b) => a.localeCompare(b));
+
+/** Names that are two towns on the map; the person adding has to say which. */
+const SPLIT_TOWNS = {
+  "newport": ["Newport City", "Newport Town"],
+  "rutland": ["Rutland City", "Rutland Town"],
+  "saint albans": ["Saint Albans City", "Saint Albans Town"],
+};
+
+/**
+ * What a person typed in Town, as the official name to save, or why not:
+ * { town, note? } or { error }. Case and spacing are forgiven, "St." reads as
+ * "Saint", a village resolves to its town (with a note saying so), and
+ * "Place, ST" outside Vermont is kept as an out-of-state place.
+ */
+function resolveTownInput(text) {
+  const raw = String(text || "").trim().replace(/\s+/g, " ");
+  if (!raw) return { error: "Pick the customer's town." };
+  const out = raw.match(/^(.+?),\s*([A-Za-z]{2})$/);
+  if (out && out[2].toUpperCase() !== "VT") {
+    const place = out[1].replace(/\b\w/g, ch => ch.toUpperCase());
+    return { town: `${place}, ${out[2].toUpperCase()}` };
+  }
+  const name = (out ? out[1] : raw).replace(/^st\.?\s+/i, "Saint ");
+  const key = name.toLowerCase();
+  const town = [...ONE_NAME_TOWNS, ...VT_TOWNS].find(t => t.toLowerCase() === key);
+  if (town) return { town };
+  const alias = Object.keys(TOWN_ALIASES).find(a => a.toLowerCase() === key)
+    || Object.keys(TOWN_ALIASES).find(a => a.toLowerCase() === raw.toLowerCase());
+  if (alias) return { town: TOWN_ALIASES[alias], note: `Saved as ${TOWN_ALIASES[alias]}, the official town for ${alias}.` };
+  if (SPLIT_TOWNS[key]) {
+    const [a, b] = SPLIT_TOWNS[key];
+    return { error: `${raw} is two towns on the map: pick ${a} or ${b}.` };
+  }
+  return { error: `"${raw}" is not a Vermont town. Pick one from the list (a village goes under its town), or write "Town, NH" for out of state.` };
 }
 
 /** A route made in the shadow copy (Assign Routes' "New Route…"); its id is negative. */
