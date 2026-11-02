@@ -271,7 +271,7 @@ let currentPeriodLabel = "";
 const CUSTOMER_COLUMNS = [
   { key: "rank", label: "#", cls: "rank" },
   { key: "name", label: "Customer", text: true, value: c => c.name },
-  { key: "town", label: "Town", text: true, value: c => townLabel(c.geo_town) || c.city },
+  { key: "town", label: "Town", text: true, value: c => townLabel(c.geo_town) || c.town || c.city },
   { key: "region", label: "Region", text: true, value: c => regionByCustomer[c.customer_id] },
   { key: "gallons", label: "Gallons", cls: "num", value: c => c.gallons },
   { key: "pickups", label: "Pickups", cls: "num", value: c => c.pickups },
@@ -452,7 +452,7 @@ function customerRowsHtml(sorted, ranks) {
 
     const townCell = c.geo_town
       ? `<a href="town.html?town=${encodeURIComponent(townLabel(c.geo_town))}">${escapeHtml(townLabel(c.geo_town))}</a>`
-      : escapeHtml(c.city || "—");
+      : escapeHtml(c.town || c.city || "—");
 
     body += `
       <tr>
