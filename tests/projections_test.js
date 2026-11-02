@@ -101,6 +101,19 @@ ok(!/proj-pct/.test(held), "held-out sections render no % full");
 ok(/Seasonal holdout/.test(held) && /On-demand \/ unlimited/.test(held) && /Event-driven/.test(held),
   "held-out sections present: seasonal, on-demand, event-driven");
 ok(!/Lump-sum/.test(held), "empty lump-sum section is not rendered");
+// Will-call and insufficient data carry an estimate (sparsity_weight), shown
+// in their own column with "~", never ranked; every other section has none.
+const estimated = customers.filter(c => c.estimate_gal !== null);
+ok(estimated.length > 0 && estimated.every(c => ["will-call", "insufficient data"].includes(c.section)),
+  `only will-call and insufficient-data rows carry an estimate (${estimated.length})`);
+ok(estimated.every(c => c.estimate_low <= c.estimate_gal && c.estimate_gal <= c.estimate_high &&
+  (c.capacity === null || c.estimate_high <= c.capacity)),
+  "an estimate sits inside its range, and the range is capped at capacity");
+const estRow = api.heldOutRowsHtml([estimated[0]]);
+ok(/Estimate \(gal\)/.test(estRow) && estRow.includes(`~${Math.round(estimated[0].estimate_gal).toLocaleString()} `),
+  "a held-out table with estimates shows them as ~gallons");
+ok(!/Estimate/.test(api.heldOutRowsHtml(customers.filter(c => c.section === "stale"))),
+  "a section without estimates has no estimate column");
 
 // ── Region filter ──
 const region = api.regionOptions(payload)[0];
@@ -149,12 +162,12 @@ ok(sample.periodicity_days !== null && sampleRow.includes(`>${Math.round(sample.
 ok(sample.avg_collection_all !== null && sampleRow.includes(`>${sample.avg_collection_all.toFixed(1)}</td>`),
   "avg collection cell shows the exported avg_collection_all");
 // Periodicity: an empty barrel's days to the pickup point on the cycle-blend
-// curve (build_projection_table.CYCLE_BLEND), checked here, never computed by
+// curve (each row's cycle_weight, build_projection_table.sparsity_weight), checked here, never computed by
 // the page. Rows without a usual gap fall back to the straight line.
 const cycleAt = (c, d) => {
   const line = c.rate_gpd * d;
   if (!c.usual_gap_days || c.avg_collection === null) return line;
-  const w = payload.cycle_blend * Math.min(1, d / c.usual_gap_days);
+  const w = c.cycle_weight * Math.min(1, d / c.usual_gap_days);
   return payload.cycle_factor * ((1 - w) * line + w * c.avg_collection);
 };
 ok(ranked.every(c => c.capacity === null || c.rate_gpd === null || c.periodicity_days === null ||
@@ -162,7 +175,7 @@ ok(ranked.every(c => c.capacity === null || c.rate_gpd === null || c.periodicity
   "exported periodicity reaches the pickup point on the cycle-blend curve (gal/day is rounded)");
 const blendOf = c => {
   if (!c.usual_gap_days || c.avg_collection === null) return c.line_gal;
-  const w = payload.cycle_blend * Math.min(1, c.exposure_days / c.usual_gap_days);
+  const w = c.cycle_weight * Math.min(1, c.exposure_days / c.usual_gap_days);
   return payload.cycle_factor * ((1 - w) * c.line_gal + w * c.avg_collection);
 };
 const withLine = ranked.filter(c => c.projected_gal !== null && c.line_gal !== null);

@@ -9,6 +9,20 @@ finishes**, so a fresh session does not redo or skip it.
 
 ## In flight
 
+### Sparsity-weighted lean and held-row estimates (branch `sparse-estimates`, 2026-11-02)
+
+The cycle blend leans by s = 8 ÷ (8 + gaps in the last year) instead of a fixed
+0.5, and will-call / insufficient-data rows carry an estimate in their own column
+(`analysis/README.md`, 2026-11-02). Ranked rows tie; the live check below now
+compares this blend with the line.
+
+- **Before merge:** evidence pack and snapshot vs main; rebase on main; rebuild.
+- **Not yet:** ops pages and the planner still show held rows' average pickup,
+  not the estimate (a separate UI round); the live test still logs held rows as
+  not projected — logging their estimates would let the live check score them.
+- **Parked:** Arlington Dairy Bar (1137) as a May–Oct true closer and its theft
+  dates (waiting on Sarge).
+
 ### Cycle blend live check (started 2026-10-29)
 
 The projection now leans toward each customer's typical pickup as its usual gap
@@ -16,6 +30,8 @@ nears, ×1.04 (`CYCLE_BLEND`, `CYCLE_FACTOR`; `analysis/README.md`, 2026-10-29).
 The live test logs the old straight line beside it (`projected_line`), and the
 Projections page's live test shows the two side by side.
 
+- Since the sparsity weight (2026-11-02) each served row carries its own
+  `cycle_weight`; older files score at 0.5.
 - **Decide around 2026-11-26:** keep it if the blend's live bias is better than
   about −2% and its WAPE no worse than the line's; otherwise set the blend to 0
   and the factor to 1 (the straight line again).

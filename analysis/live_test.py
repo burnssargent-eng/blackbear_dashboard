@@ -50,7 +50,7 @@ from datetime import date, timedelta
 from pathlib import Path
 
 import backtest_steady_rate as bt
-from build_projection_table import cycle_projection
+from build_projection_table import CYCLE_BLEND, cycle_projection
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
@@ -157,8 +157,11 @@ def score_version(payload, gallons, log):
                 # The cycle blend: the straight line moves at the rate, then
                 # the builder's blend is applied at the pickup date.
                 line = max(0.0, row["line_gal"] + rate * step)
+                # A file from before the sparsity weight (2026-11-02) leaned
+                # a fixed CYCLE_BLEND; its rows carry no cycle_weight.
                 projected = cycle_projection(line, max(0.0, row["exposure_days"] + step),
-                                             row.get("usual_gap_days"), row.get("avg_collection"))
+                                             row.get("usual_gap_days"), row.get("avg_collection"),
+                                             row.get("cycle_weight") or CYCLE_BLEND)
             else:
                 projected = max(0.0, base + rate * step)
             if base > 0 and row.get("range_low") is not None:
