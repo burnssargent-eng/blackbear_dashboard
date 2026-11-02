@@ -268,8 +268,11 @@ function stopFiguresHtml(row, capacity) {
     return `<span class="graytext">(${capText})</span>` +
       (row ? ` <span class="ops-muted">${escapeHtml(row.status || row.section)}</span>` : "");
   }
+  // A will-call / limited-data estimate carries its section in grey.
+  const label = projectionLabel(row);
   return `<span class="ops-proj ops-fill-${fillLevel(row)}">(~${formatWhole(est.gal)} gal / ${capText})</span>` +
-    daysBracketHtml(row.days_past_full);
+    daysBracketHtml(row.days_past_full) +
+    (label ? ` <span class="ops-muted">${escapeHtml(label)}</span>` : "");
 }
 
 /**
@@ -287,8 +290,9 @@ function daysBracketHtml(days) {
 function projectionBadgeText(row) {
   const est = stopEstimate(row);
   if (est.kind === "projected") {
+    const label = projectionLabel(row);
     return `${formatWhole(est.gal)} proj. gal` + (row.pct_full !== null && row.pct_full !== undefined
-      ? ` · ${Math.round(row.pct_full)}% full` : "");
+      ? ` · ${Math.round(row.pct_full)}% full` : "") + (label ? ` · ${label}` : "");
   }
   if (est.kind === "typical") return row.status || row.section;
   return "";

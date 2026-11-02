@@ -54,7 +54,7 @@ const shared = payload.customers.find(c => c.members && c.members.length > 1 && 
 ok(shared && shared.members.every(m => byId.get(m.id) === shared),
   `every member of a shared barrel maps to its one row (${shared && shared.name})`);
 const ranked = payload.customers.find(c => c.section === "ranked" && !c.members);
-const held = payload.customers.find(c => c.section !== "ranked" && c.avg_collection);
+const held = payload.customers.find(c => c.section !== "ranked" && c.projected_gal === null && c.avg_collection);
 ok(api.stopEstimate(ranked).kind === "projected", "a ranked customer is projected");
 ok(api.stopEstimate(held).kind === "typical" && api.stopEstimate(held).gal === held.avg_collection,
   "a held-out customer gives its average pickup as typical");
@@ -135,7 +135,7 @@ snap.routes.forEach(r => {
 ok(!/dreamhosters|\.php/.test(html), "the page never links to or requests the source site");
 api.renderDraft();
 ok(api.candidateRows().length > 0 &&
-   api.candidateRows().every(c => c.section === "ranked"), "empty search lists ranked candidates");
+   api.candidateRows().every(c => c.projected_gal !== null), "empty search lists projected candidates (ranked and estimates)");
 
 const text = api.draftText({ name: "Test", truck: "", stops: mixed }, byId);
 ok(text.split("\n").length === mixed.length + 2 && /same barrel/.test(text),

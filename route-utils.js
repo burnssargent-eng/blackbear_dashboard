@@ -39,8 +39,9 @@ function buildIndex(customers) {
 
 /**
  * What one stop is expected to hold, from its export row:
- *   projected  ranked: projected gallons with its range
- *   typical    held out (will-call, stale, seasonal, ...): average pickup only
+ *   projected  ranked, or a will-call / limited-data estimate (since 2026-11-02):
+ *              projected gallons with its range
+ *   typical    held out (stale, seasonal, ...): average pickup only
  *   none       not in the export: a shop task, a tote run, an inactive or new account
  */
 function stopEstimate(row) {
@@ -49,6 +50,15 @@ function stopEstimate(row) {
     return { kind: "projected", gal: row.projected_gal, low: row.range_low, high: row.range_high };
   }
   return { kind: "typical", gal: row.avg_collection, low: null, high: null };
+}
+
+/**
+ * The grey qualifier beside a projection that comes from a held-out section
+ * ("limited data", "will-call"), or "" for a ranked row or no projection.
+ */
+function projectionLabel(row) {
+  return row && row.section !== "ranked" && stopEstimate(row).kind === "projected"
+    ? row.section : "";
 }
 
 /**

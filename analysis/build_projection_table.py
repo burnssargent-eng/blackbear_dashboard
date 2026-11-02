@@ -271,14 +271,15 @@ CYCLE_FACTOR = 1.04
 # +0.25) -- a gradient-boosting benchmark on 21 features did no better
 # (step 2, 2026-11-02), so the ranked model is at its ceiling. Frequent
 # customers do NOT want s = 0: the straight line alone lost 1-2.5 points.
-# What it adds is an ESTIMATE for will-call and insufficient-data rows (below).
+# What it adds is an ESTIMATE for will-call and limited-data rows (below).
 SPARSITY_K = 8
 
-# Will-call and insufficient-data rows get an estimate from the same formula
+# Will-call and limited-data rows get an estimate from the same formula
 # (no rate yet: line 0 and s = 1; a single pickup's "usual gap" is
-# ESTIMATE_PRIOR_GAP, the median first gap on 2021-23). Shown apart from the
-# ranked table -- never ranked, never in a route total -- and labelled an
-# estimate. Once a barrel is half its usual gap in it is about right (confirm
+# ESTIMATE_PRIOR_GAP, the median first gap on 2021-23). Since 2026-11-02 the
+# estimate is their projected gallons: ranked with everyone, shown on the ops
+# pages and in route totals, with "limited data" / "will-call" as a grey label;
+# they stay listed in their own section too (held_estimate). Once a barrel is half its usual gap in it is about right (confirm
 # bias: 1 pickup -0.5%, 2 pickups/comeback +9%, will-call +2%); a pickup
 # BEFORE half the gap runs 40-60% low, because those are customers calling
 # with a full barrel. The typical pickup beside it covers that case
@@ -317,7 +318,9 @@ SECTION_ON_DEMAND = "on-demand / unlimited"
 SECTION_LUMP_SUM = "lump-sum / interval-based"
 SECTION_WILL_CALL = "will-call"
 SECTION_STALE = "stale"
-SECTION_INSUFFICIENT = "insufficient data"
+# "insufficient data" until 2026-11-02 (Sarge and Jim: "limited data"); the
+# live test log keeps the old name in its frozen rows.
+SECTION_INSUFFICIENT = "limited data"
 
 SECTION_ORDER = [SECTION_RANKED, SECTION_SEASONAL, SECTION_EVENT,
                  SECTION_ON_DEMAND, SECTION_LUMP_SUM, SECTION_WILL_CALL, SECTION_STALE,
@@ -333,7 +336,7 @@ STATUS_ON_DEMAND = "on-demand / unlimited"
 STATUS_LUMP_SUM = "lump-sum / interval-based"
 STATUS_WILL_CALL = "will-call (detected)"
 STATUS_DETECTED_CLOSER = "closer (detected)"
-STATUS_INSUFFICIENT = "insufficient data"
+STATUS_INSUFFICIENT = "limited data"
 STATUS_STALE = "stale - projection not meaningful"
 
 # Statuses that never take a daily-rate urgency, whatever the date.
@@ -396,6 +399,10 @@ MODEL_OVERRIDES = {
                   "October pickup (2024)."),
     # Golf courses under the detector's 300 gal/yr floor (Sarge, 2026-10-18):
     # without these the return stage or the 50/50 kept them filling all winter.
+    1498: Override(STATUS_TRUE_CLOSER, "Barre Country Club-Plainfield", "May-Oct",
+                   "Golf course (Sarge, 2026-11-02). One pickup on this account; the old "
+                   "one (602, Barre Country Club) ran Apr 30-Nov 2, 2015-19. Without it, "
+                   "its 1-pickup estimate read 150/150 full in November."),
     1059: Override(STATUS_TRUE_CLOSER, "Sugarbush Resort Golf Course", "Jun-Oct",
                    "Golf course: pickups only Jun-Oct since 2022 (its one November "
                    "pickup, 2021-11-29, was its first). ~150 gal/yr."),
@@ -433,6 +440,10 @@ MODEL_OVERRIDES = {
                   "every year."),
     836: Override(STATUS_EVENT, "Tunbridge Fair", None,
                   "One pickup a year, each September."),
+    1509: Override(STATUS_EVENT, "Champlain Valley Fairgrounds, Lot P", None,
+                   "Fairgrounds lot (Sarge, 2026-11-02), beside Champlain Valley Expo "
+                   "(413). One 2,700-gal pickup; its 1-pickup estimate read 2,000/2,000 "
+                   "full."),
 }
 
 
@@ -1761,14 +1772,19 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thef
     if days_since > STALE_DAYS:
         findings["flags"].append(f"No pickup in {days_since} days")
 
-    est = (held_estimate(pickups, asof, section, level, line, exposure_days, capacity)
-           if section in (SECTION_WILL_CALL, SECTION_INSUFFICIENT) else None)
+    # No estimate for a seasonal closer while it is closed: a 1-2 pickup row
+    # routes as limited data before the season is looked at (Barre Country
+    # Club read 150/150 full in November, 2026-11-02).
+    closed_now = (override and override.status in SEASONAL_STATUSES
+                  and season_opened(override.season, asof) is None)
+    est = (held_estimate(pickups, asof, section, level, rate, exposure_days, capacity)
+           if section in (SECTION_WILL_CALL, SECTION_INSUFFICIENT) and not closed_now else None)
 
     month_index = season["shape"][asof.month - 1] if season else None
     configured_season = override.season if override else None
     inferred = inferred_season(pickups) if registry and registry.season else None
 
-    return {
+    row = {
         "table_section": section,
         "customer_id": cid,
         "customer": last["name"],
@@ -1811,7 +1827,7 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thef
         "usual_gap_days": gap,
         "cycle_weight": weight,
         "exposure_days": exposure_days,
-        # Will-call / insufficient data only: the estimate, never ranked.
+        # Will-call / limited data only: the estimate (also their projection).
         "estimate_gallons": est["gallons"] if est else None,
         "estimate_range_low": est["low"] if est else None,
         "estimate_range_high": est["high"] if est else None,
@@ -1844,15 +1860,43 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thef
         "_thefts": [theft_log_entry(day, theft, pickups, rate, capacity)
                     for day, theft in thefts],
     }
+    if est:
+        # The estimate is this row's projection: shown, ranked and on the ops
+        # pages like a ranked row's, with its section as the label.
+        row.update({
+            "current_projected_gallons": est["gallons"],
+            "projected_range_low": est["low"], "projected_range_high": est["high"],
+            "display_pct_full": (min(est["raw_pct"], 100.0)
+                                 if est["raw_pct"] is not None else None),
+            "days_until_75pct": est["days_until"], "days_past_75pct": est["days_past_75"],
+            "days_past_capacity": est["days_past_cap"], "days_past_full": est["days_past_full"],
+            "implied_periodicity_days": est["periodicity"],
+            "model_projected_gallons": est["raw"], "line_projected_gallons": est["line"],
+            "usual_gap_days": est["gap"], "cycle_weight": est["weight"],
+            "raw_pct_of_listed_capacity": est["raw_pct"],
+            "model_days_until_75pct": est["days_until"],
+            "model_days_past_75pct": est["days_past_75"],
+            "model_days_past_capacity": est["days_past_cap"],
+            # The curve's own inputs, so the live test can carry it forward.
+            "avg_collection": est["typical"], "oil_rate_gpd_projected": est["rate"],
+            "confidence_band_used": est["basis"],
+        })
+    return row
 
 
-def held_estimate(pickups, asof, section, level, line, days, capacity):
+def held_estimate(pickups, asof, section, level, rate, days, capacity):
     """
     The estimate for a will-call or insufficient-data row (ESTIMATE_PRIOR_GAP),
     or None past ESTIMATE_MAX_DAYS. A comeback counts only its pickups since the
     return. Without the ladder's line, the pooled rate over those pickups; a
     single pickup has none, so it is all typical pickup (s = 1), ramped over
     the prior gap. Capped at capacity, as every shown figure is.
+
+    Since 2026-11-02 (Sarge and Jim: projections on as many stops as
+    possible) the estimate is also these rows' projected gallons: they are
+    ranked and shown on the ops pages with their section as a grey label, and
+    stay listed in their own section too. The days to 75% and to full follow
+    the same curve.
     """
     if days is None or not 0 <= days <= ESTIMATE_MAX_DAYS:
         return None
@@ -1860,25 +1904,58 @@ def held_estimate(pickups, asof, section, level, line, days, capacity):
     back = comeback_hold(pickups)
     if back and section == SECTION_INSUFFICIENT:
         seen = pickups[len(pickups) - back[1]:]
-    if line is None and len(seen) >= 2:
+    if rate is None and len(seen) >= 2:
         rate = rate_pooled(seen)
-        line = level + rate * days if rate is not None else None
-    typical = average_collection(seen)
+    line = level + rate * days if rate is not None else None
+    # A comeback's typical pickup comes from its whole history (Sarge,
+    # 2026-11-02): one or two pickups since the return say little about size,
+    # and a full barrel after a long gap (West View Meadows, 65 of 65 after
+    # 947 days; 12-25 gal before) would otherwise read full 44 days later.
+    typical = (average_collection_all(pickups) if seen is not pickups
+               else average_collection(seen))
     if typical is None:
         return None
     weight = 1.0 if line is None else sparsity_weight(seen, asof)
     gap = usual_gap(seen) or ESTIMATE_PRIOR_GAP
-    gallons = cycle_projection(level if line is None else line, days, gap, typical, weight)
-    if capacity:
-        gallons = min(gallons, capacity)
+    raw = cycle_projection(level if line is None else line, days, gap, typical, weight)
+    gallons = min(raw, capacity) if capacity else raw
     key = ("will-call" if section == SECTION_WILL_CALL
            else "1 pickup" if len(seen) == 1 else "2 pickups / comeback")
     lo_f, hi_f = ESTIMATE_RANGE_FACTORS[key]
     high = gallons * hi_f
-    return {"gallons": gallons, "low": gallons * lo_f,
-            "high": min(high, capacity) if capacity else high,
-            "basis": f"{key}: lean {weight:.2f} toward the typical pickup over a "
-                     f"{gap:g}-day gap; range x{lo_f:.2f} to x{hi_f:.2f}"}
+    est = {"gallons": gallons, "raw": raw, "low": gallons * lo_f,
+           "high": min(high, capacity) if capacity else high,
+           "basis": f"{key}: lean {weight:.2f} toward the typical pickup over a "
+                    f"{gap:g}-day gap; range x{lo_f:.2f} to x{hi_f:.2f}",
+           "line": line, "rate": rate or 0.0, "typical": typical, "gap": gap,
+           "weight": weight, "raw_pct": None, "days_until": None, "days_past_75": None,
+           "days_past_cap": None, "days_past_full": None, "periodicity": None}
+    if capacity:
+        def reach(gallons, start=level):
+            if rate and rate > 0:
+                return days_to_reach(gallons, start, rate, gap, typical, weight)
+            # No rate (one pickup): the curve only ramps to the typical pickup.
+            curve = lambda d: cycle_projection(start, d, gap, typical, weight)
+            if curve(0) >= gallons:
+                return 0.0
+            if curve(gap) < gallons:
+                return None             # never reaches it
+            lo, hi = 0.0, gap
+            for _ in range(60):
+                mid = (lo + hi) / 2
+                lo, hi = (mid, hi) if curve(mid) < gallons else (lo, mid)
+            return (lo + hi) / 2
+        target = capacity * TARGET_FRACTION
+        to_target, to_full = reach(target), reach(capacity)
+        est["raw_pct"] = raw / capacity * 100
+        if to_target is not None:
+            est["days_until"] = to_target - days
+            est["days_past_75"] = abs(est["days_until"]) if raw > target else 0.0
+        if to_full is not None:
+            est["days_past_full"] = days - to_full
+            est["days_past_cap"] = days - to_full if raw > capacity else 0.0
+        est["periodicity"] = reach(target, 0)
+    return est
 
 
 def theft_log_entry(day, theft, pickups, rate, capacity):
@@ -1913,8 +1990,8 @@ def sort_key(row):
     def desc(value):
         return -value if value is not None else 1.0
 
-    # Will-call rows have no fill estimate: longest since the last pickup first.
-    if row["table_section"] == SECTION_WILL_CALL:
+    # A will-call row without an estimate: longest since the last pickup first.
+    if row["table_section"] == SECTION_WILL_CALL and row["model_projected_gallons"] is None:
         return (-row["days_since_last_pickup"], 0, 0, 0, row["customer_id"])
 
     # The raw model values, not the display ones: identical for ranked rows,
@@ -2048,7 +2125,13 @@ def write_json(rows, asof):
         return presented(row, [key])[key] if row.get(key) is not None else None
 
     def ranked_value(row, key):
-        return value(row, key) if row["table_section"] == SECTION_RANKED else None
+        """A projected row's value: ranked, or a will-call / limited-data estimate."""
+        return value(row, key) if row["current_projected_gallons"] is not None else None
+
+    # The page's ranking is every projected row, in urgency order (estimates
+    # interleaved with ranked rows); then everything else in section order.
+    rows = sorted(rows, key=lambda r: (0, sort_key(r)) if r["current_projected_gallons"] is not None
+                  else (1,))
 
     customers = [{
         "id": r["customer_id"],
@@ -2089,7 +2172,7 @@ def write_json(rows, asof):
         "exposure_days": ranked_value(r, "exposure_days"),
         "usual_gap_days": ranked_value(r, "usual_gap_days"),
         "cycle_weight": ranked_value(r, "cycle_weight"),
-        # Will-call and insufficient data: an estimate, shown apart, never ranked.
+        # Will-call and limited data: the estimate (also their projected_gal).
         "estimate_gal": value(r, "estimate_gallons"),
         "estimate_low": value(r, "estimate_range_low"),
         "estimate_high": value(r, "estimate_range_high"),
@@ -2270,7 +2353,7 @@ For each active customer, at the as-of date:
 The 50/50 blend is the default chosen in `analysis/README.md`. Both component
 formulas are reused from `backtest_steady_rate.py` rather than restated.
 
-**The ladder.** Fewer than {NEW_MIN_PICKUPS} pickups is *insufficient data*.
+**The ladder.** Fewer than {NEW_MIN_PICKUPS} pickups is *limited data*.
 A customer not in `MODEL_OVERRIDES` whose gaps over the last
 {WILL_CALL_WINDOW_DAYS // 365} years have a median over {WILL_CALL_MEDIAN_GAP}
 days, or an sd/mean over {WILL_CALL_GAP_CV} once gaps over
@@ -2315,7 +2398,7 @@ the days-past columns use the uncapped values, so the cap changes no order.
 `model_status` is the FINAL status of the rate model for a row. It is
 *{STATUS_DEFAULT}* unless the customer is in `MODEL_OVERRIDES`, a
 human-reviewed registry keyed by customer id (with the name asserted), or the
-data cannot support the model (*insufficient data*, *stale*). Routing, in
+data cannot support the model (*limited data*, *stale*). Routing, in
 precedence order:
 
 1. **{STATUS_ON_DEMAND}**, **{STATUS_EVENT}** and **{STATUS_LUMP_SUM}** accounts
@@ -2324,14 +2407,14 @@ precedence order:
 2. **{STATUS_WILL_CALL}** -- the detector above, for customers NOT in the
    registry and not stale. A human override always wins over it. Listed
    longest-since-pickup first.
-3. **insufficient data** -- fewer than {NEW_MIN_PICKUPS} pickups, or fewer
+3. **limited data** -- fewer than {NEW_MIN_PICKUPS} pickups, or fewer
    than {NEW_MIN_PICKUPS} since a return after more than {COMEBACK_HOLD_DAYS}
    days without one. Back after {STALE_DAYS + 1}-{COMEBACK_HOLD_DAYS} days from a
    closure that repeats an earlier year's, a row is a *{STAGE_RETURN}* until
    then: the 2nd pickup back on its rate at the same time of year (date +/-
    {RETURN_LY_HALF_WIDTH} days, 1-3 years back), the 3rd on half that and half
    the rate from the 1st to the 2nd pickup back. Any other return after {STALE_DAYS + 1}-{COMEBACK_HOLD_DAYS} days,
-   or one with no past year at that date, is insufficient data too.
+   or one with no past year at that date, is limited data too.
 4. **{STATUS_TRUE_CLOSER}** -- outside its configured month-level season it is
    held out as *off-season*, however long the silence. In season, if the last
    pickup came before the season opened, it is held out as *season open --
@@ -2384,7 +2467,7 @@ Capacity problems are reported in *flags*, separately from the model status.
 | On-demand / unlimited | {len(on_demand)} |
 | Lump-sum / interval-based | {len(lump_sum)} |
 | Will-call (detected) | {len(will_call)} |
-| Insufficient data | {len(insufficient)} |
+| Limited data | {len(insufficient)} |
 | Missing capacity | {len(no_capacity)} |
 | With a capacity warning | {counts['capacity_warning']} |
 | Ranked and projected above listed capacity | {counts['above_capacity']} |
@@ -2453,7 +2536,7 @@ Customers whose recent collections do not fit the listed capacity. These are
 
 ## Customers excluded or low confidence
 
-**Insufficient data ({len(insufficient)}).** Fewer than {NEW_MIN_PICKUPS}
+**Limited data ({len(insufficient)}).** Fewer than {NEW_MIN_PICKUPS}
 pickups: the first only starts the clock, so a rate needs two more. A customer
 back after more than {COMEBACK_HOLD_DAYS} days without a pickup counts its
 pickups from the return.
