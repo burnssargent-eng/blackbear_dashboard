@@ -530,6 +530,8 @@ function stopHtml(l, k, c, showing) {
   const theftForm = showing && theftOpen === id;
   const left = leftFor(id);
   const leftForm = showing && leftOpen === id && !theftForm;
+  // Collected with another town's run: "New Haven · w/ Middlebury" under the name.
+  const cw = typeof opsCollectedWith === "function" ? opsCollectedWith(id) : null;
   const figures = theft && !showing
     ? `<span class="ops-line-figs ops-theft-text">${theftGallonsText(c)}</span>`
     : !showing && c
@@ -542,6 +544,7 @@ function stopHtml(l, k, c, showing) {
       <span class="ops-line-name${l.stop.must_get ? " hotlist" : ""}" title="${escapeHtml(l.stop.name)}">${escapeHtml(l.stop.name)}</span>
       ${figures}
     </div>
+    ${cw ? `<div class="ops-line-sub">${escapeHtml(opsCollectedWithText(cw))}</div>` : ""}
     ${theft && theft.note && !theftForm ? `<div class="ops-theft-note">${escapeHtml(theft.note)}</div>` : ""}
     ${left && !leftForm ? `<div class="ops-left-note">${oilLeftText(left)}</div>` : ""}
     ${leftForm ? `<div class="ops-left-form">

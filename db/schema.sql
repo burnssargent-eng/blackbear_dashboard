@@ -59,6 +59,12 @@ alter table public.customers add column if not exists periodicity_days integer c
 alter table public.customers add column if not exists shared_with      integer references public.customers (id);
 alter table public.customers add column if not exists created_on       date default ((now() at time zone 'America/New_York')::date);
 alter table public.customers add column if not exists created_by       uuid default auth.uid();
+-- Collected with (Sarge, 2026-11-02): a customer in a one-off town that is
+-- picked up on another town's run (Tourterelle, New Haven, on the Middlebury
+-- run). The other town's name as Assign shows it; Assign lists the customer
+-- under that town, and My Route and Assign show "New Haven · w/ Middlebury".
+-- Set on the customer page; empty for everyone else. The nightly never writes it.
+alter table public.customers add column if not exists collected_with_town text;
 -- Where `phone` came from and the day it was last read there: Jamaal's Phone
 -- field (or its notes), typed on this site, a web lookup (Claude with web
 -- search, reviewed by Sarge before loading), or Jim's contacts. Loaded numbers

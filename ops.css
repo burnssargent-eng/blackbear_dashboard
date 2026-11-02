@@ -65,6 +65,12 @@ body { background: #fff; }
 .ops-pick-name { flex: 1 1 auto; min-width: 90px; font-size: 16px; font-weight: 500; color: #212529;
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ops-pick-figs { flex: 0 0 auto; font-size: 13px; white-space: nowrap; }
+/* Collected with another town's run, in Town view: "New Haven · w/ Middlebury" on a second line
+   the row's full width, lined up under the name (24px tick + 8px gap). */
+.ops-pick-line.ops-pick-two { height: auto; min-height: 40px; flex-wrap: wrap; row-gap: 0; padding-bottom: 5px; }
+.ops-pick-two .ops-pick-name { flex: 1 1 0; }   /* the name shrinks; only the sub line wraps */
+.ops-pick-sub { flex: 0 0 100%; padding-left: 32px; margin-top: -4px; font-size: 13px; color: #6c757d;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ops-pick-figs.ops-pick-status { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .ops-pick-figs .ops-proj, .ops-pick-figs .ops-days, .ops-pick-figs .graytext, .ops-pick-figs .ops-muted { font-size: 13px; }
 .ops-pick-page { flex: 0 0 auto; width: 36px; height: 32px; padding: 0; font-size: 16px;
@@ -268,6 +274,7 @@ details.ops-route[open] > summary .ops-row-chev { transform: rotate(90deg); }
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ops-line-name.hotlist { color: #d00; }
 .ops-line-figs { flex: 0 0 auto; white-space: nowrap; font-size: 13px; }
+.ops-line-sub { font-size: 13px; color: #6c757d; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ops-line-figs .ops-proj, .ops-line-figs .ops-days, .ops-line-figs .graytext, .ops-line-figs .ops-muted { font-size: 13px; }
 /* The control row: Maps, gallons and Save together on the left (gallons as wide as Save, 64px);
    More ▾ evenly between Save and Page › at the right end (an auto margin before each). 33px tall,
