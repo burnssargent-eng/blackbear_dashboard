@@ -11,13 +11,15 @@
  */
 
 // The trucks, with tank capacity in gallons (Sarge, 2026-10-18). `key` and
-// `abbr` are the source site's Outgoing names ("mackdaddy", "MD"); Newbie Doo
-// is the new truck's working name and is not on the source site yet.
+// `abbr` are the source site's Outgoing names ("mackdaddy", "MD"). The new truck
+// is officially "Cub" (Sarge, 2026-11-02; "Newbie Doo" was its working name). Its
+// key stays "newbiedoo": the database's truck checks and saved rows use it. It is
+// not on the source site yet, so "CU" is ours.
 const TRUCKS = [
   { name: "Mamma Bear", capacity: 1350, key: "mammabear", abbr: "MB" },
   { name: "Mack Daddy", capacity: 2000, key: "mackdaddy", abbr: "MD" },
   { name: "Baby Bird", capacity: 750, key: "babybird", abbr: "BB" },
-  { name: "Newbie Doo", capacity: 1200, key: "newbiedoo", abbr: "ND" },
+  { name: "Cub", capacity: 1200, key: "newbiedoo", abbr: "CU" },
 ];
 
 function truckByName(name) {

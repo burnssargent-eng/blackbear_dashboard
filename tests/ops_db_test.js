@@ -268,7 +268,7 @@ api.recordOilLeft(browser, { customer_id: extra.customer_id, name: extra.name },
 ok(browser.oilLeft.length === 1 && browser.collections.length === 0, "the browser copy keeps Oil Left too, outside collections");
 
 s = JSON.parse(JSON.stringify(shared));
-s.trucks[rid] = "Newbie Doo";
+s.trucks[rid] = "Cub";
 ops = send(synced, s);
 ok(ops.length === 1 && ops[0].t === "truck" && ops[0].truck === "newbiedoo" && ops[0].day === today, "a truck choice is today's, by key");
 s.trucks[rid] = "";

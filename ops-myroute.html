@@ -433,33 +433,52 @@ function notesPhotosHtml(id, d) {
 
 const PIN_ICON = `<svg class="ops-btn-icon" width="14" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
   stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-7.4 7-12.5A7 7 0 0 0 5 9.5C5 14.6 12 22 12 22z"></path><circle cx="12" cy="9.5" r="2.6"></circle></svg>`;
-const PENCIL_ICON = `<svg class="ops-btn-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-  stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"></path></svg>`;
-const CAMERA_ICON = `<svg class="ops-btn-icon" width="14" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-  stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h4l2-3h6l2 3h4v11H3z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>`;
 
-/** Note, Photo, Oil Left and Report Theft: under More ▾ on a phone, in the control row on a wide screen. */
-function actionButtons(id, d, c) {
-  const busy = photoAdd && photoAdd.id === id;
-  return `<button type="button" class="btn ops-plain-btn" data-act="note-edit" data-id="${id}"
-        aria-label="${d.notes || todayNoteFor(id) ? "Edit notes" : "Add a note"}">${PENCIL_ICON}Note</button>
-      ${photosReady ? `<button type="button" class="btn ops-plain-btn" data-act="photo-add" data-id="${id}" aria-label="Add a photo"${busy && !photoAdd.msg ? " disabled" : ""}>
-        ${CAMERA_ICON}${busy && !photoAdd.msg ? "Adding…" : "Photo"}</button>` : ""}
-      ${oilLeftReady ? `<button type="button" class="btn btn-outline-primary" data-act="left" data-id="${id}">Oil Left</button>` : ""}
-      ${c ? "" : `<button type="button" class="btn btn-danger" data-act="theft" data-id="${id}">Report Theft</button>`}`;
+const PHONE_ICON = `<svg class="ops-btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></svg>`;
+
+/** The customer's phone as a tel: target ("+1" and ten digits when it reads as a US number), else "". */
+function telHref(phone) {
+  const digits = String(phone || "").replace(/\D/g, "").replace(/^1(?=\d{10}$)/, "");
+  return digits.length === 10 ? `tel:+1${digits}` : digits.length >= 7 ? `tel:${digits}` : "";
 }
 
 /**
- * Under the control row: the More line when open (✎ Note, 📷 Photo, Oil Left, Report Theft; one line
- * on a 375px phone; a wide screen has them in the control row instead), then the note being edited,
- * or the note and photos.
+ * The More block: Add note and Add photo as the customer page's dashed tiles on the left; to their
+ * right Oil Left and Report Theft side by side over one long Call strip (green; only when the
+ * customer has a phone). Oil Left sits nearest the gallons box; Call stays under the other two, away
+ * from Maps and gallons. Under More ▾ on a phone; always on a wide screen, where More ▾ is hidden.
+ */
+function actionBlockHtml(id, d, c, open) {
+  const busy = photoAdd && photoAdd.id === id && !photoAdd.msg;
+  const tel = telHref(d.phone);
+  return `<div class="ops-act-block${open ? "" : " ops-wide-only"}">
+      <button type="button" class="ops-photo-add" data-act="note-edit" data-id="${id}">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"></path></svg>
+        ${d.notes || todayNoteFor(id) ? "Edit note" : "Add note"}</button>
+      ${photosReady ? `<button type="button" class="ops-photo-add" data-act="photo-add" data-id="${id}"${busy ? " disabled" : ""}>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M3 8h4l2-3h6l2 3h4v11H3z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+        ${busy ? "Adding…" : "Add photo"}</button>` : ""}
+      <div class="ops-act-side">
+        <div class="ops-act-pair">
+          ${oilLeftReady ? `<button type="button" class="btn btn-outline-primary" data-act="left" data-id="${id}">Oil Left</button>` : ""}
+          ${c ? "" : `<button type="button" class="btn btn-danger" data-act="theft" data-id="${id}" aria-label="Report theft">Report Theft</button>`}
+        </div>
+        ${tel ? `<a class="btn ops-call-btn" href="${escapeHtml(tel)}" aria-label="Call the customer">${PHONE_ICON}Call</a>` : ""}
+      </div>
+    </div>`;
+}
+
+/**
+ * Under the control row: the More block (open on a phone; always on a wide screen), any photo
+ * error, then the note being edited, or the note and photos.
  */
 function moreHtml(id, d, c, open) {
   const editing = noteEdit && noteEdit.id === id;
   const busy = photoAdd && photoAdd.id === id;
-  const more = open && !editing ? `<div class="ops-more-line">
-      ${actionButtons(id, d, c)}
-    </div>` : "";
+  const more = editing ? "" : actionBlockHtml(id, d, c, open);
   const msg = busy && photoAdd.msg ? `<div class="text-danger small mt-1">${escapeHtml(photoAdd.msg)}</div>` : "";
   if (editing) return `${more}<div class="ops-note-edit">
       <label for="today-${id}" class="ops-note-label">Today's note <span class="text-muted">(shows today and tomorrow)</span></label>
@@ -574,7 +593,6 @@ function stopHtml(l, k, c, showing) {
           : `<input type="number" inputmode="numeric" min="0" class="form-control" id="gal-${k}" placeholder="gal"
                aria-label="Gallons for ${escapeHtml(l.stop.name)}">
              <button type="button" class="btn btn-success" data-act="save" data-i="${k}">Save</button>`}
-      <span class="ops-row-actions">${actionButtons(id, d, c)}</span>
       <button type="button" class="btn ops-plain-btn ops-more-btn" data-act="details" data-id="${id}"
         aria-expanded="${open}">More ${open ? "▴" : "▾"}</button>${pageBtn}
     </div>` : ""}
@@ -772,7 +790,7 @@ function wire() {
     // Compact: a tap on a stop's line shows that stop's controls, and closes
     // any Notes or theft form left open on another stop.
     const line = e.target.closest && e.target.closest("[data-pick]");
-    if (store.my && compact && line && !e.target.closest("a, input, textarea, label, button, .ops-more-line, .ops-note-edit, .ops-auto-notes")) {
+    if (store.my && compact && line && !e.target.closest("a, input, textarea, label, button, .ops-act-block, .ops-note-edit, .ops-auto-notes")) {
       const id = Number(line.dataset.pick);
       if (id !== activeId) { activeId = id; openDetails = null; theftOpen = null; leftOpen = null; noteEdit = null; render(); }
     }

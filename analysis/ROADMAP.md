@@ -51,7 +51,7 @@ the system of record. **We only read from it.**
   Reordering is by arrows or typed stop numbers. Truck fill is shown against
   `TRUCKS`.
 - Tank capacities set (Sarge, 2026-10-18): Mamma Bear 1,350, Mack Daddy 2,000,
-  Baby Bird 750, Newbie Doo (the new truck) 1,200.
+  Baby Bird 750, Cub (the new truck; "Newbie Doo" until 2026-11-02) 1,200.
 - **Open:** whether a truck is tied to a route.
 - **Then Jim:** route names, and whether the totals help.
 - **Next (Phase 2):** a Ms. Lucy (`dayssince.php`) vs model comparison, and a
@@ -81,7 +81,7 @@ runs on a copy of its data, and every change stays in the viewer's browser.
   - Adds a month picker (10/26 back to 01/15).
 - Built (checkpoint 3): `ops-outgoing.html`.
   - The source site's Outgoing page and its report in one page: a stillage
-    button per truck (Newbie Doo included), Schmutz volume, and the month
+    button per truck (Cub included), Schmutz volume, and the month
     report.
   - History from `outgoing.json` (`jamaal_outgoing.py`, Jul 2021 on; the
     nightly re-reads the last two months).

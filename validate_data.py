@@ -798,7 +798,7 @@ def check_outgoing(report):
         return
     with open(path) as f:
         days = json.load(f).get("days", {})
-    known = {"mammabear", "mackdaddy", "babybird", "newbiedoo"}
+    known = {"mammabear", "mackdaddy", "babybird", "newbiedoo"}  # newbiedoo = Cub (route-utils.js)
     runs = sum(n for d in days.values() for n in d["stillage"].values())
     gallons = sum(g for d in days.values() for g in d["schmutz"])
     report.ok(f"{len(days)} days, {runs} stillage runs, {gallons:,.0f} gal Schmutz.")

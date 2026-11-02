@@ -297,19 +297,26 @@ details.ops-route[open] > summary .ops-row-chev { transform: rotate(90deg); }
   background: linear-gradient(#f1f3f5, #f1f3f5) padding-box,
     conic-gradient(from 210deg, #4285F4, #EA4335, #FBBC04, #34A853, #4285F4) border-box; }
 .ops-btn-icon { flex: 0 0 auto; margin-right: 3px; }
-/* The More ▾ line: ✎ Note, 📷 Photo, Oil Left, Report Theft spread evenly (321px of a 375px
-   phone's ~333; a narrower phone wraps). Then the note being edited, or the note and photos. */
-.ops-more-line { display: flex; gap: 6px; flex-wrap: wrap; justify-content: space-between; align-items: center;
-  margin-top: 6px; padding-top: 6px; border-top: 1px dashed #ccc; cursor: default; }
-.ops-line .ops-more-line .btn { height: 33px; padding: 0 8px; font-size: 14px; white-space: nowrap;
-  display: inline-flex; align-items: center; }
-/* A wide screen (a Mac on the active route) has room for More's four buttons in the control row:
-   they replace More ▾, after a gap from Save so Report Theft stays away from it. A phone keeps More ▾. */
-.ops-row-actions { display: none; }
+/* The More ▾ block, below a dashed line: Add note and Add photo as dashed 84px tiles on the left;
+   to their right Oil Left and Report Theft side by side (top half) over one long Call strip (bottom
+   half; Apple's Phone/FaceTime green, systemGreen #34C759, white icon and text). The note and photos
+   come after it. A wide screen has no More ▾ and always shows the block. */
+.ops-act-block { display: flex; gap: 6px; align-items: stretch; margin-top: 6px; padding-top: 6px;
+  border-top: 1px dashed #ccc; cursor: default; }
+.ops-act-block .ops-photo-add { width: 84px; height: 84px; }
+.ops-act-side { flex: 1 1 0; min-width: 0; max-width: 260px; display: flex; flex-direction: column; gap: 6px; }
+.ops-act-pair { display: flex; gap: 6px; }
+.ops-act-side .ops-act-pair .btn { flex: 1 1 auto; }
+.ops-act-side .btn { flex: 1 1 0; min-width: 0; height: 39px; padding: 0 4px; font-size: 14px; white-space: nowrap;
+  display: inline-flex; align-items: center; justify-content: center; }
+.ops-call-btn, .ops-call-btn:hover, .ops-call-btn:focus { color: #fff; background: #34C759; border-color: #34C759; }
+.ops-call-btn:hover, .ops-call-btn:focus { background: #2DB24F; border-color: #2DB24F; }
+.ops-act-side .ops-call-btn { flex: 0 0 39px; font-size: 15px; font-weight: 600; }
+/* A clear gap between Call and the note text and photos below it. */
+.ops-act-block + .ops-auto-notes, .ops-act-block + div + .ops-auto-notes { margin-top: 12px; }
+@media (max-width: 767.98px) { .ops-wide-only { display: none !important; } }
 @media (min-width: 768px) {
-  .ops-row-actions { display: flex; gap: 6px; align-items: center; margin-left: auto; }
-  .ops-row .ops-more-btn, .ops-more-line { display: none; }
-  .ops-row .ops-row-actions ~ .ops-pick-page { margin-left: 18px; }
+  .ops-row .ops-more-btn { display: none; }
 }
 .ops-note-edit { margin-top: 6px; display: flex; flex-direction: column; gap: 6px; cursor: default; }
 .ops-note-edit textarea { font-size: 16px; }
