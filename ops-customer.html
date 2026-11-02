@@ -43,6 +43,8 @@
 let data = null, store = null, routeList = [];
 let customer = null;      // { customer_id, name, city }
 let details = {};         // this customer's address, notes and position (shared database)
+const todayNote = id => (typeof opsTodayNote === "function" ? opsTodayNote(id) : "");
+let notesEdit = null;     // { notes, today, busy, msg }: Notes and Today's note being edited
 let siteFigures = null;   // { capacity, periodicity_days } from capacity_cache.csv
 let history = [];         // [{ date, gallons, code }] newest first
 let siteOld = [];         // this site's pickups older than the store holds (any age)
@@ -254,8 +256,11 @@ function homeHtml(row, today, onRoutes, capacity, left) {
       ${dd("On route", onRoutes.length ? escapeHtml(onRoutes.join(", ")) : "—")}
       ${customer.phone ? dd("Phone", phoneHtml(customer.phone)) : ""}
       ${customer.sharedWith ? dd("Shared barrel", `with ${escapeHtml(customer.sharedWith)}`) : ""}
-      ${dd("Notes", details.notes ? notesHtml(customer.customer_id, details.notes) : "")}
+      ${notesEdit ? "" : `${todayNote(customer.customer_id) ? dd("Today's note", `<span class="ops-today-text">${escapeHtml(todayNote(customer.customer_id))}</span>`) : ""}
+      ${dd("Notes", `${details.notes ? notesHtml(customer.customer_id, details.notes) : ""}
+        ${customer.customer_id > 0 ? `<button type="button" class="btn ops-plain-btn btn-sm ms-1" data-notes-edit>✎ Edit</button>` : ""}`)}`}
     </dl>
+    ${notesEdit ? notesFormHtml() : ""}
 
     <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
       <select id="route" class="form-select w-auto" aria-label="Assign to route">
@@ -270,6 +275,21 @@ function homeHtml(row, today, onRoutes, capacity, left) {
 
     ${details.lat != null ? `<div id="map" class="ops-map ops-map-small mb-1"></div>
       ${details.loc === "town" ? `<div class="ops-muted mb-3">Pin is the town centre; the street address did not match.</div>` : ""}` : ""}`;
+}
+
+/** Notes and Today's note, edited together as on My Route. */
+function notesFormHtml() {
+  const n = notesEdit;
+  return `<form class="ops-note-edit ops-notes-form mb-3" data-notes-form autocomplete="off">
+    <label for="today-note" class="ops-note-label">Today's note <span class="text-muted">(clears tomorrow)</span></label>
+    <textarea class="form-control" id="today-note" rows="2" data-notes-field="today">${escapeHtml(n.today)}</textarea>
+    <label for="perm-note" class="ops-note-label">Notes <span class="text-muted">(stay until changed)</span></label>
+    <textarea class="form-control" id="perm-note" rows="4" data-notes-field="notes">${escapeHtml(n.notes)}</textarea>
+    ${n.msg ? `<div class="text-danger small">${escapeHtml(n.msg)}</div>` : ""}
+    <div class="d-flex gap-2">
+      <button class="btn btn-primary"${n.busy ? " disabled" : ""}>${n.busy ? "Saving…" : "Save notes"}</button>
+      <button type="button" class="btn ops-plain-btn" data-notes-cancel>Cancel</button>
+    </div></form>`;
 }
 
 let tab = "home";
@@ -351,8 +371,26 @@ async function init() {
   const page = document.getElementById("page");
   page.addEventListener("input", e => {
     if (newPhoto && e.target.matches && e.target.matches("[data-photo-caption]")) newPhoto.caption = e.target.value;
+    const field = notesEdit && e.target.dataset && e.target.dataset.notesField;
+    if (field) notesEdit[field] = e.target.value;
   });
   page.addEventListener("submit", async e => {
+    if (e.target.matches("[data-notes-form]")) {
+      e.preventDefault();
+      const n = notesEdit;
+      if (!n || n.busy) return;
+      n.busy = true; n.msg = ""; render();
+      try {
+        const saved = await opsSaveNotes(customer.customer_id, n,
+          { notes: details.notes, today: todayNote(customer.customer_id) });
+        details.notes = saved.notes;
+        notesEdit = null;
+      } catch (err) {
+        n.busy = false; n.msg = `Not saved (${err.message}).`;
+      }
+      render();
+      return;
+    }
     if (e.target.matches("[data-photo-form]")) {
       e.preventDefault();
       if (!newPhoto || newPhoto.busy) return;
@@ -406,7 +444,14 @@ async function init() {
   });
   page.addEventListener("click", e => {
     const t = e.target.closest && e.target.closest("[data-tab]");
-    if (t) { tab = t.dataset.tab; editing = null; undo = null; render(); return; }
+    if (t) { tab = t.dataset.tab; editing = null; undo = null; notesEdit = null; render(); return; }
+    if (e.target.closest("[data-notes-edit]")) {
+      notesEdit = { notes: details.notes || "", today: todayNote(customer.customer_id), busy: false, msg: "" };
+      render();
+      document.getElementById("today-note").focus();
+      return;
+    }
+    if (e.target.closest("[data-notes-cancel]")) { notesEdit = null; render(); return; }
     const ed = e.target.closest("[data-edit]");
     if (ed) { editing = editing === ed.dataset.edit ? null : ed.dataset.edit; undo = null; render(); return; }
     if (e.target.closest("[data-edit-cancel]")) { editing = null; render(); return; }

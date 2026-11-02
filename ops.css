@@ -321,6 +321,11 @@ details.ops-route[open] > summary .ops-row-chev { transform: rotate(90deg); }
 /* Oil Left: gallons seen in a barrel and not collected. Blue, never red: it
    is a reading, not an alarm. */
 .ops-left-note { font-size: 13px; color: #0a58ca; font-weight: 600; }
+/* Today's note: in the open stop, right above the permanent note and sized like it. Purple:
+   red, green/gold/orange and Oil Left's blue are taken. */
+.ops-today-note b, .ops-today-text { color: #6f42c1; }
+.ops-today-text { font-weight: 600; }
+.ops-note-label { font-size: 14px; font-weight: 600; margin-bottom: -2px; }
 .ops-line.ops-left-open { border-color: #0d6efd; box-shadow: 0 0 0 1px #0d6efd; }
 .ops-left-form { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; cursor: default; }
 .ops-left-form label { font-size: 14px; margin: 0; color: #0a58ca; font-weight: 600; }
