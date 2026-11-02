@@ -122,7 +122,9 @@ without a login, so a stray request would change the real routes. A route
 assignment stays until someone removes it, so "Today's Routes" means "currently
 assigned", not today's. `planner.html` only adds exported per-customer figures:
 a shared barrel counts once, and a held-out customer's average pickup is shown
-as "typical", outside the projected total.
+as "typical", outside the projected total. Will-call and limited-data rows are
+NOT held out there since 2026-11-02: their estimate is their projection.
+
 
 **Addresses, notes, door codes and phone numbers never go in the repo.** They
 live only in the shared database, behind the login (`customers.address`,
@@ -304,7 +306,8 @@ is exported as `line_gal` and scored beside it in the live test until the
 comparison is settled (`analysis/ROADMAP.md`).
 
 **Everyone else is placed automatically by the ladder** (since 2026-10-08,
-`analysis/replay_newcomers.md`): fewer than 3 pickups is insufficient (the
+`analysis/replay_newcomers.md`): fewer than 3 pickups is *limited data* ("insufficient
+data" until 2026-11-02; the live-test log keeps the old name in its frozen rows) (the
 first pickup only starts the clock; its gallons never enter a rate — and a
 customer back after more than 365 days counts its pickups from the return,
 `COMEBACK_HOLD_DAYS`, since 2026-10-15; back after 181–365 days from a
@@ -320,7 +323,13 @@ Sarge's 70/30 (last year around the date / last 2 pickups) + half the last 3
 pickups re-timed by the month index (`seasonal_formulas.md`). No growth factor:
 it amplified customers whose volume had shifted (`recent_override.md`). A will-call detector (median gap > 120 d, or gap
 sd/mean > 0.8 once gaps over 3× the median are dropped as closures) lists an
-account without a projection. **An override always wins over the detector**,
+account separately. **Will-call and limited-data rows still get a projection**
+(since 2026-11-02, `held_estimate`): the same cycle blend, leaning by
+s = 8 ÷ (8 + gaps in the last year) (`SPARSITY_K`, every row), one pickup ramping to
+it over 44 days, a comeback's typical pickup from its whole history. It is their
+`projected_gal`: ranked, on every ops page and in route totals, with the section in
+grey ("limited data", "will-call"), and they are still listed in their own
+section. A seasonal closer gets none while closed. **An override always wins over the detector**,
 and stale wins over will-call. Rows without their own WAPE get calibrated
 range factors (`RANGE_FACTORS`), never a flat ±20%. A customer NOT in the
 registry whose last 2 complete years show a closed block is a *detected

@@ -33,7 +33,7 @@ For each active customer, at the as-of date:
 The 50/50 blend is the default chosen in `analysis/README.md`. Both component
 formulas are reused from `backtest_steady_rate.py` rather than restated.
 
-**The ladder.** Fewer than 3 pickups is *insufficient data*.
+**The ladder.** Fewer than 3 pickups is *limited data*.
 A customer not in `MODEL_OVERRIDES` whose gaps over the last
 3 years have a median over 120
 days, or an sd/mean over 0.8 once gaps over
@@ -77,7 +77,7 @@ the days-past columns use the uncapped values, so the cap changes no order.
 `model_status` is the FINAL status of the rate model for a row. It is
 *50/50 default* unless the customer is in `MODEL_OVERRIDES`, a
 human-reviewed registry keyed by customer id (with the name asserted), or the
-data cannot support the model (*insufficient data*, *stale*). Routing, in
+data cannot support the model (*limited data*, *stale*). Routing, in
 precedence order:
 
 1. **on-demand / unlimited**, **event-driven** and **lump-sum / interval-based** accounts
@@ -86,14 +86,14 @@ precedence order:
 2. **will-call (detected)** -- the detector above, for customers NOT in the
    registry and not stale. A human override always wins over it. Listed
    longest-since-pickup first.
-3. **insufficient data** -- fewer than 3 pickups, or fewer
+3. **limited data** -- fewer than 3 pickups, or fewer
    than 3 since a return after more than 365
    days without one. Back after 181-365 days from a
    closure that repeats an earlier year's, a row is a *return* until
    then: the 2nd pickup back on its rate at the same time of year (date +/-
    15 days, 1-3 years back), the 3rd on half that and half
    the rate from the 1st to the 2nd pickup back. Any other return after 181-365 days,
-   or one with no past year at that date, is insufficient data too.
+   or one with no past year at that date, is limited data too.
 4. **true closer** -- outside its configured month-level season it is
    held out as *off-season*, however long the silence. In season, if the last
    pickup came before the season opened, it is held out as *season open --
@@ -136,17 +136,17 @@ Capacity problems are reported in *flags*, separately from the model status.
 | | |
 |---|---:|
 | Active customers considered | 514 |
-| Model-ready (a stage rate) | 441 |
+| Model-ready (a stage rate) | 486 |
 | — stage new / established / seasonal / closer in season / closer off-season / return | 100 / 303 / 16 / 11 / 7 / 4 |
 | Detected closers (not in the registry) | 8 |
 | — ranked in the main table | 330 |
 | — seasonal holdouts | 12 |
 | — held out as stale | 62 |
-| Event-driven | 2 |
+| Event-driven | 3 |
 | On-demand / unlimited | 1 |
 | Lump-sum / interval-based | 0 |
 | Will-call (detected) | 34 |
-| Insufficient data | 73 |
+| Limited data | 72 |
 | Missing capacity | 0 |
 | With a capacity warning | 80 |
 | Ranked and projected above listed capacity | 2 |
@@ -162,11 +162,12 @@ Capacity problems are reported in *flags*, separately from the model status.
 | seasonal holdout | closer (detected) | 2 |
 | seasonal holdout | semi-closer / call-driven | 2 |
 | seasonal holdout | true closer | 8 |
-| event-driven | event-driven | 2 |
+| event-driven | event-driven | 3 |
 | on-demand / unlimited | on-demand / unlimited | 1 |
 | will-call | will-call (detected) | 34 |
 | stale | stale - projection not meaningful | 62 |
-| insufficient data | insufficient data | 73 |
+| limited data | limited data | 71 |
+| limited data | true closer | 1 |
 
 ## Top 25 urgent stops
 
@@ -237,41 +238,41 @@ Detected from long or irregular gaps; collected on call, so no fill estimate.
 | Customer | Town | Status | Reason | Last pickup | Days | Rate (gpd) | Avg collection | Capacity | Flags |
 |---|---|---|---|---|---:|---:|---:|---:|---|
 | Cloud 9 catering- Sarah-COOK-Food Truck | Colchester | will-call (detected) | median gap 404 days (over 120) | 2026-05-28 | 158 | 0.14 | 45.8 | 55 | - |
-| The Hatchery | Ludlow | will-call (detected) | median gap 306 days (over 120) | 2026-06-02 | 153 | 0.46 | 112.5 | 150 | - |
+| Sante-2022|dailey catch-Woodstock | Woodstock | will-call (detected) | median gap 143 days (over 120) | 2026-09-04 | 59 | 0.72 | 138.3 | 100 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong; Capacity below typical pickup |
 | Sarkys part 2 | Newbury | will-call (detected) | median gap 158 days (over 120) | 2026-06-02 | 153 | 1.35 | 200.0 | 300 | - |
+| The Hatchery | Ludlow | will-call (detected) | median gap 306 days (over 120) | 2026-06-02 | 153 | 0.46 | 112.5 | 150 | - |
+| Devil Takes a Holiday Cocktail Lounge | Burlington | will-call (detected) | median gap 346 days (over 120) | 2026-07-28 | 97 | 0.36 | 116.7 | 100 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong; Capacity below typical pickup |
+| Black Sheep Bistro | Vergennes | will-call (detected) | median gap 180 days (over 120) | 2026-07-17 | 108 | 0.43 | 75.8 | 150 | - |
 | Essex HS-Center of Technology | Essex Junction | will-call (detected) | median gap 454 days (over 120) | 2026-06-11 | 144 | 0.09 | 40.0 | 50 | - |
 | Blodgett ovens | Essex Junction | will-call (detected) | median gap 456 days (over 120) | 2026-06-19 | 136 | 0.13 | 48.3 | 100 | - |
-| Central Vermont Solid Waste Management District | Berlin | will-call (detected) | median gap 183 days (over 120) | 2026-07-10 | 115 | 0.07 | 20.8 | 50 | - |
-| 1824 House | Waitsfield | will-call (detected) | median gap 233 days (over 120) | 2026-07-16 | 109 | 0.10 | 35.0 | 55 | - |
-| Black Sheep Bistro | Vergennes | will-call (detected) | median gap 180 days (over 120) | 2026-07-17 | 108 | 0.43 | 75.8 | 150 | - |
-| Devil Takes a Holiday Cocktail Lounge | Burlington | will-call (detected) | median gap 346 days (over 120) | 2026-07-28 | 97 | 0.36 | 116.7 | 100 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong; Capacity below typical pickup |
-| Stowe Transfer Station | Stowe | will-call (detected) | median gap 350 days (over 120) | 2026-08-04 | 90 | 0.10 | 32.5 | 100 | - |
-| CUTLER | East Montpelier | will-call (detected) | irregular gaps (sd/mean 0.80, over 0.8) | 2026-08-05 | 89 | 0.16 | 38.0 | 200 | - |
-| Richford Country Club | Richford | will-call (detected) | median gap 404 days (over 120) | 2026-08-06 | 88 | 0.16 | 62.5 | 90 | - |
-| Addison Eagles Club | Vergennes | will-call (detected) | median gap 239 days (over 120) | 2026-08-24 | 70 | 0.11 | 27.2 | 50 | - |
 | Highland Lodge- Elsa | Greensboro | will-call (detected) | median gap 140 days (over 120) | 2026-08-26 | 68 | 0.23 | 43.3 | 65 | - |
-| Lake Monsters | Burlington | will-call (detected) | median gap 174 days (over 120) | 2026-09-01 | 62 | 0.76 | 145.8 | 300 | - |
-| Sante-2022|dailey catch-Woodstock | Woodstock | will-call (detected) | median gap 143 days (over 120) | 2026-09-04 | 59 | 0.72 | 138.3 | 100 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong; Capacity below typical pickup |
-| Mon Vert Café | Woodstock | will-call (detected) | median gap 329 days (over 120) | 2026-09-04 | 59 | 0.23 | 67.5 | 100 | - |
-| Scrag and Row 2025/The Great Eddy-Waitsfield | Waitsfield | will-call (detected) | median gap 160 days (over 120) | 2026-09-05 | 58 | 0.56 | 63.3 | 150 | - |
-| Riverside Farm | Pittsfield | will-call (detected) | median gap 378 days (over 120) | 2026-09-10 | 53 | 0.17 | 67.5 | 100 | - |
-| The Original - Pittsfield General Store | Pittsfield | will-call (detected) | median gap 227 days (over 120) | 2026-09-10 | 53 | 0.24 | 60.0 | 100 | - |
-| Vermont Law School-South Royalton | Royalton | will-call (detected) | median gap 125 days (over 120) | 2026-09-10 | 53 | 0.30 | 34.2 | 135 | - |
-| Spaulding High School | Barre City | will-call (detected) | median gap 384 days (over 120) | 2026-09-18 | 45 | 0.07 | 45.8 | 55 | Capacity likely stale/wrong |
-| Windridge Summer Camp-September Collection | Roxbury | will-call (detected) | median gap 372 days (over 120) | 2026-09-18 | 45 | 0.16 | 55.0 | 55 | - |
-| DairyCreme-GreatestCaper | Montpelier | will-call (detected) | median gap 351 days (over 120) | 2026-09-18 | 45 | 0.14 | 31.7 | 150 | - |
+| 1824 House | Waitsfield | will-call (detected) | median gap 233 days (over 120) | 2026-07-16 | 109 | 0.10 | 35.0 | 55 | - |
+| Richford Country Club | Richford | will-call (detected) | median gap 404 days (over 120) | 2026-08-06 | 88 | 0.16 | 62.5 | 90 | - |
 | Copley Hospital | Morristown | will-call (detected) | median gap 164 days (over 120) | 2026-09-22 | 41 | 0.27 | 36.7 | 55 | - |
-| Readsboro General Store | Readsboro | will-call (detected) | median gap 362 days (over 120) | 2026-09-23 | 40 | 0.20 | 78.3 | 300 | - |
-| JavierBillsAlmostMexican/PicaPica | Saint Johnsbury | will-call (detected) | median gap 171 days (over 120) | 2026-09-28 | 35 | 0.19 | 37.5 | 65 | - |
-| CVMC-Berlin Hospital | Berlin | will-call (detected) | median gap 163 days (over 120) | 2026-09-29 | 34 | 0.18 | 35.0 | 65 | - |
+| Scrag and Row 2025/The Great Eddy-Waitsfield | Waitsfield | will-call (detected) | median gap 160 days (over 120) | 2026-09-05 | 58 | 0.56 | 63.3 | 150 | - |
+| Mon Vert Café | Woodstock | will-call (detected) | median gap 329 days (over 120) | 2026-09-04 | 59 | 0.23 | 67.5 | 100 | - |
+| Central Vermont Solid Waste Management District | Berlin | will-call (detected) | median gap 183 days (over 120) | 2026-07-10 | 115 | 0.07 | 20.8 | 50 | - |
+| Windridge Summer Camp-September Collection | Roxbury | will-call (detected) | median gap 372 days (over 120) | 2026-09-18 | 45 | 0.16 | 55.0 | 55 | - |
+| Lake Monsters | Burlington | will-call (detected) | median gap 174 days (over 120) | 2026-09-01 | 62 | 0.76 | 145.8 | 300 | - |
+| The Original - Pittsfield General Store | Pittsfield | will-call (detected) | median gap 227 days (over 120) | 2026-09-10 | 53 | 0.24 | 60.0 | 100 | - |
 | Rabbit Hill Inn | Waterford | will-call (detected) | median gap 125 days (over 120) | 2026-10-06 | 27 | 0.42 | 53.3 | 100 | - |
+| CUTLER | East Montpelier | will-call (detected) | irregular gaps (sd/mean 0.80, over 0.8) | 2026-08-05 | 89 | 0.16 | 38.0 | 200 | - |
+| CVMC-Berlin Hospital | Berlin | will-call (detected) | median gap 163 days (over 120) | 2026-09-29 | 34 | 0.18 | 35.0 | 65 | - |
+| Riverside Farm | Pittsfield | will-call (detected) | median gap 378 days (over 120) | 2026-09-10 | 53 | 0.17 | 67.5 | 100 | - |
+| Vermont Law School-South Royalton | Royalton | will-call (detected) | median gap 125 days (over 120) | 2026-09-10 | 53 | 0.30 | 34.2 | 135 | - |
+| JavierBillsAlmostMexican/PicaPica | Saint Johnsbury | will-call (detected) | median gap 171 days (over 120) | 2026-09-28 | 35 | 0.19 | 37.5 | 65 | - |
+| Spaulding High School | Barre City | will-call (detected) | median gap 384 days (over 120) | 2026-09-18 | 45 | 0.07 | 45.8 | 55 | Capacity likely stale/wrong |
+| Stowe Transfer Station | Stowe | will-call (detected) | median gap 350 days (over 120) | 2026-08-04 | 90 | 0.10 | 32.5 | 100 | - |
 | Auryvedic spa | Williston | will-call (detected) | median gap 174 days (over 120) | 2026-10-16 | 17 | 0.16 | 36.7 | 50 | - |
 | MRD-KYLE | Waitsfield | will-call (detected) | median gap 231 days (over 120) | 2026-10-19 | 14 | 0.23 | 47.5 | 55 | - |
-| Kismet Mediterranean - 22222# | Burlington | will-call (detected) | median gap 147 days (over 120) | 2026-10-21 | 12 | 0.34 | 47.5 | 150 | - |
+| Addison Eagles Club | Vergennes | will-call (detected) | median gap 239 days (over 120) | 2026-08-24 | 70 | 0.11 | 27.2 | 50 | - |
 | Bethel Sandwhich Shop | Bethel | will-call (detected) | median gap 127 days (over 120) | 2026-10-26 | 7 | 0.28 | 41.7 | 55 | - |
+| DairyCreme-GreatestCaper | Montpelier | will-call (detected) | median gap 351 days (over 120) | 2026-09-18 | 45 | 0.14 | 31.7 | 150 | - |
+| Readsboro General Store | Readsboro | will-call (detected) | median gap 362 days (over 120) | 2026-09-23 | 40 | 0.20 | 78.3 | 300 | - |
+| Kismet Mediterranean - 22222# | Burlington | will-call (detected) | median gap 147 days (over 120) | 2026-10-21 | 12 | 0.34 | 47.5 | 150 | - |
 | Philo Ridge Farm | Charlotte | will-call (detected) | irregular gaps (sd/mean 0.94, over 0.8) | 2026-10-29 | 4 | 0.56 | 68.7 | 155 | - |
 
-## Event-driven (2)
+## Event-driven (3)
 
 Production follows an event calendar, not a daily rate. No event model is
 built here.
@@ -280,6 +281,7 @@ built here.
 |---|---|---|---|---|---:|---:|---:|---:|---|
 | Champlain Valley Expo | Essex Junction | event-driven | not a daily-rate account | 2026-09-17 | 46 | 42.55 | 569.2 | 2,000 | - |
 | Tunbridge Fair | Tunbridge | event-driven | not a daily-rate account | 2026-09-25 | 38 | 0.84 | 269.2 | 400 | Collection exceeds listed capacity - check capacity |
+| Champlain Valley Fairgrounds, Lot P | Essex Junction | event-driven | not a daily-rate account | 2026-06-13 | 142 | - | 2,700.0 | 2,000 | Collection exceeds listed capacity - check capacity; Capacity likely stale/wrong; Capacity below typical pickup |
 
 ## Thefts (1)
 
@@ -292,11 +294,12 @@ day: an upper bound, for the record only, never used in a rate.
 |---|---|---:|---|---:|---|---|
 | Farmhouse (325) | 2026-10-21 | 0 | 2026-10-07 | 176 | none yet | Barrel found robbed; recorded as qty 1 |
 
-## Model-status overrides (20)
+## Model-status overrides (22)
 
 | Id | Customer | Status | Season | Why |
 |---:|---|---|---|---|
 | 413 | Champlain Valley Expo | event-driven | - | September fair peak at 5.9x an average month; Nov-Mar zero every year. |
+| 1509 | Champlain Valley Fairgrounds, Lot P | event-driven | - | Fairgrounds lot (Sarge, 2026-11-02), beside Champlain Valley Expo (413). One 2,700-gal pickup; its 1-pickup estimate read 2,000/2,000 full. |
 | 836 | Tunbridge Fair | event-driven | - | One pickup a year, each September. |
 | 423 | Perrigo Nutritionals | on-demand / unlimited | - | Bulk account: ~8,200 gal/yr against a listed 500, a single 13,400-gal pickup in Jun 2026. Not a barrel. |
 | 526 | Jay Peak-waterslide | seasonal open-ish | - | Trough index 0.55, repeatability 0.87. Open year-round. |
@@ -308,6 +311,7 @@ day: an upper bound, for the record only, never used in a rate.
 | 934 | Okemo-Jackson Gore Inn | semi-closer / call-driven | Dec-Apr | Dec-Apr pickups plus summer calls (Jul, Aug 2025), none in summer 2026. Two years only. Season set from the pickup months: the index shape (inferred Oct-Mar) spreads the first December pickup back into autumn. |
 | 1056 | Quechee Gorge Snack Bar | semi-closer / call-driven | Mar-Oct | Quiet Dec-Feb with Nov/Dec off-season pickups. |
 | 803 | Toziers- | semi-closer / call-driven | Apr-Oct | 2,165 gal/yr; quiet Dec-Feb with November pickups in 2 of 3 years. |
+| 1498 | Barre Country Club-Plainfield | true closer | May-Oct | Golf course (Sarge, 2026-11-02). One pickup on this account; the old one (602, Barre Country Club) ran Apr 30-Nov 2, 2015-19. Without it, its 1-pickup estimate read 150/150 full in November. |
 | 902 | Carinthia Lodge (Mt. Snow) | true closer | Oct-Apr | 3-month quiet block repeats, repeatability 0.80. Close call: one July pickup (2023) in three summers. |
 | 517 | Enosburgh Falls Country Club | true closer | Jun-Oct | Golf course: pickups only Jun-Oct since 2018. ~100 gal/yr. |
 | 529 | Jay Peak-Stateside (loading dock) | true closer | Nov-Jun | Quiet Jul, low Aug-Oct, repeatability 0.85. Close call: one October pickup (2024). |
@@ -343,7 +347,7 @@ Customers whose recent collections do not fit the listed capacity. These are
 
 ## Customers excluded or low confidence
 
-**Insufficient data (73).** Fewer than 3
+**Limited data (72).** Fewer than 3
 pickups: the first only starts the clock, so a rate needs two more. A customer
 back after more than 365 days without a pickup counts its
 pickups from the return.

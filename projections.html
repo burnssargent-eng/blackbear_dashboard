@@ -68,16 +68,16 @@ const SECTION_TEXT = {
     "Accounts collected in lumps at set intervals rather than as a barrel fills.",
   "will-call":
     "Picked up on call or too seldom to project: the gaps between pickups " +
-    "are long or irregular (a closed season does not count). Estimate: oil " +
-    "since the last pickup, leaning toward the typical pickup as the usual " +
-    "gap passes. When they call, expect about their average pickup.",
+    "are long or irregular (a closed season does not count). Also ranked " +
+    "above: oil since the last pickup, leaning toward the typical pickup as " +
+    "the usual gap passes. When they call, expect about their average pickup.",
   "stale":
     "Active on the source site, but no pickup in the last 180 days, so a " +
     "fill estimate would mean nothing.",
-  "insufficient data":
-    "Fewer than 3 pickups. The first pickup only starts the clock, so a " +
-    "rate needs two more. Estimate: with one pickup, its gallons reached over " +
-    "about 44 days; with two, their rate leaning toward the typical pickup.",
+  "limited data":
+    "Fewer than 3 pickups, or back after a long gap. Also ranked above: with " +
+    "one pickup, its gallons reached over about 44 days; with two, their rate " +
+    "leaning toward the typical pickup.",
 };
 
 let projections = null;     // the parsed oil_projections.json
@@ -219,9 +219,10 @@ function buildShell(page) {
       <strong>${target}% of listed capacity</strong>, which leaves a spillover
       buffer. <strong>% full</strong> stops at 100%; a customer projected past
       that carries a note to check its capacity. Seasonal, event, bulk and
-      will-call accounts are listed separately below instead of being ranked;
-      will-call and new accounts carry an <strong>estimate</strong> there, which
-      is not counted in any total. Accounts
+      will-call accounts are listed separately below instead of being ranked.
+      Will-call accounts and those with <strong>limited data</strong> (fewer than
+      three pickups) are ranked too, from their pickups so far, and also listed
+      below. Accounts
       that share one barrel are shown as a single stop.
     </div>
 
@@ -303,7 +304,9 @@ function renderRanked() {
 
 function update() {
   const customers = filterByRegion(projections.customers, selectedRegion);
-  const ranked = customers.filter(c => c.section === "ranked");
+  // Every projected row: ranked, plus will-call and limited-data estimates.
+  const ranked = customers.filter(c => c.section === "ranked" ||
+    (c.projected_gal !== null && c.projected_gal !== undefined));
   const heldOut = customers.filter(c => c.section !== "ranked");
 
   // The header boxes describe the region; the search only narrows the tables.
@@ -325,7 +328,7 @@ function update() {
 }
 
 // The held-out sections counted in the fifth header box.
-const HELD_OUT_COUNTED = ["seasonal holdout", "will-call", "stale", "insufficient data"];
+const HELD_OUT_COUNTED = ["seasonal holdout", "will-call", "stale", "limited data"];
 
 function summaryHtml(ranked, heldOut) {
   const totalGal = ranked.reduce((sum, c) => sum + (c.projected_gal || 0), 0);
@@ -342,7 +345,7 @@ function summaryHtml(ranked, heldOut) {
     stat(ranked.length, "Route Candidates") +
     stat(pastTarget, `Past Pickup Point (${target}%)`) +
     stat(pastHalf, "Past 50% Full") +
-    stat(counted, "Seasonally Closed · Will\u2011call · Stale · Insufficient");
+    stat(counted, "Seasonally Closed · Will\u2011call · Stale · Limited Data");
 }
 
 /** One-decimal number, or a dash for a missing value. */
@@ -464,7 +467,7 @@ function heldOutNotesHtml(c) {
     : "";
 }
 
-/** "~25 (15–40)": a held-out row's estimate, never ranked or totalled. */
+/** "~25 (15–40)": a will-call / limited-data row's estimate (also its projection). */
 function estimateHtml(c) {
   if (c.estimate_gal === null || c.estimate_gal === undefined) return "—";
   return `~${formatWhole(c.estimate_gal)} <span class="proj-range">` +
@@ -525,7 +528,7 @@ function heldOutHtml(heldOut) {
   }).join("");
 
   return blocks
-    ? `<div class="section-title">Listed separately, not ranked</div>${blocks}`
+    ? `<div class="section-title">Listed separately</div>${blocks}`
     : "";
 }
 

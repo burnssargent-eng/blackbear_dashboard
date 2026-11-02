@@ -60,6 +60,7 @@ LOG_CSV = HERE / "live_test_log.csv"
 OUT_JSON = ROOT / "oil_live_test.json"
 
 SECTION_RANKED = "ranked"
+RENAMED = {"insufficient data": "limited data"}     # section names, for display
 
 # The record, in column order. The prediction columns are frozen once written;
 # actual / error / pct_error are refreshed from the scrape on every run.
@@ -149,7 +150,9 @@ def score_version(payload, gallons, log):
             continue
 
         projected = low = high = line = None
-        if row["section"] == SECTION_RANKED and row.get("projected_gal") is not None:
+        # Ranked rows, and since 2026-11-02 will-call / limited-data rows,
+        # whose estimate is their projected_gal.
+        if row.get("projected_gal") is not None:
             base = row["projected_gal"]
             step = (day - as_of).days
             rate = row.get("rate_gpd") or 0
@@ -184,7 +187,10 @@ def score_version(payload, gallons, log):
             "customer": row["name"],
             "town": row.get("town") or "",
             # Versions before the ladder (2026-10-08) carry a status, no stage.
-            "stage": row.get("stage") or "",
+            # A projected will-call / limited-data row is scored as its section,
+            # so its estimates show as their own line in the by-stage table.
+            "stage": (row["section"] if row["section"] != SECTION_RANKED
+                      and projected is not None else row.get("stage") or ""),
             "status": row.get("status") or "",
             "section": row["section"],
             "previous_pickup": row["last_pickup"],
@@ -316,13 +322,14 @@ def write_json(log):
     not_projected = defaultdict(int)
     for r in present:
         if r["projected"] is None:
-            not_projected[r["section"]] += 1
+            # Renamed 2026-11-02; the frozen log rows keep the old name.
+            not_projected[RENAMED.get(r["section"], r["section"])] += 1
 
     days = defaultdict(list)
     for r in present:
         days[r["pickup_date"]].append({
             "id": r["customer_id"], "name": r["customer"], "town": r["town"],
-            "stage": r["stage"] or r["status"], "section": r["section"],
+            "stage": r["stage"] or r["status"], "section": RENAMED.get(r["section"], r["section"]),
             "previous_pickup": r["previous_pickup"],
             "predicted_as_of": r["predicted_as_of"],
             "projected": r["projected"], "range_low": r["range_low"],

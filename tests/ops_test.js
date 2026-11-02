@@ -24,7 +24,8 @@ const api = new Function("window", code + `
     addShadowCustomer, createRoute, renameRoute, storeRoutesByCustomer, buildIndex, opsNavHtml, OPS_NAV,
     recordCollection, todaysCollection, liveRouteTotals, routeSummary, recordTheft, theftGallonsText,
     recordOilLeft, todaysOilLeft, clearOilLeft, collectionLines, daysBracketHtml,
-    resolveTownInput, VT_TOWNS, OUT_OF_STATE_TOWNS, TOWN_ALIASES, SPLIT_TOWNS, TOWN_CHOICES };`)(window);
+    resolveTownInput, VT_TOWNS, OUT_OF_STATE_TOWNS, TOWN_ALIASES, SPLIT_TOWNS, TOWN_CHOICES,
+    stopFiguresHtml, projectionBadgeText };`)(window);
 
 let fails = 0;
 const ok = (cond, msg) => {
@@ -56,6 +57,18 @@ const snap = JSON.parse(fs.readFileSync("jamaal_routes.json", "utf8"));
 }
 const payload = JSON.parse(fs.readFileSync("oil_projections.json", "utf8"));
 const byId = api.buildIndex(payload.customers);
+
+// ── Will-call / limited-data estimates show like a projection, labelled in grey ──
+{
+  const limited = payload.customers.find(c => c.section === "limited data" && c.projected_gal !== null);
+  const ranked1 = payload.customers.find(c => c.section === "ranked" && c.projected_gal !== null);
+  const figs = api.stopFiguresHtml(limited, limited.capacity);
+  ok(figs.includes(`(~${Math.round(limited.projected_gal).toLocaleString()} gal / `) &&
+    figs.includes('<span class="ops-muted">limited data</span>') && !/est\./.test(figs),
+    `a limited-data stop reads (~gal / cap) with "limited data" in grey (${limited.name})`);
+  ok(/ · limited data$/.test(api.projectionBadgeText(limited)), "its list badge ends with · limited data");
+  ok(!/ops-muted/.test(api.stopFiguresHtml(ranked1, ranked1.capacity)), "a ranked stop has no grey label");
+}
 
 // ── The snapshot has what the shadow site needs ──
 ok(Array.isArray(snap.assign_list) && snap.assign_list.length > 100, `assign list present (${snap.assign_list.length} rows)`);
@@ -222,7 +235,7 @@ ok(api.todaysCollection(s2, -999).assignment_id === null, "an entry for a custom
   const pc = payload.customers;
   const ranked2 = pc.filter(c => c.section === "ranked" && !c.members && c.projected_gal > 5).slice(0, 2);
   const shared2 = pc.find(c => c.section === "ranked" && c.members && c.members.length > 1);
-  const heldOut = pc.find(c => c.section !== "ranked");
+  const heldOut = pc.find(c => c.section !== "ranked" && c.projected_gal === null);
   const st = c => ({ customer_id: c.id, name: c.name });
   const stops = [st(ranked2[0]), st(ranked2[1]), ...shared2.members.map(m => ({ customer_id: m.id, name: m.name })), st(heldOut)];
   const lines = api.routeSummary(stops, byId).lines;

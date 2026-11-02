@@ -62,9 +62,14 @@ const customers = payload.customers;
 const sections = new Set(payload.section_order);
 ok(customers.every(c => sections.has(c.section)), "every customer's section is in section_order");
 ok(customers.every(c => c.pct_full === null || c.pct_full <= 100), "no exported % full above 100");
-ok(customers.filter(c => c.section !== "ranked").every(c =>
+// Since 2026-11-02 will-call and limited-data rows project their estimate;
+// every other held-out section still exports no projection.
+const ESTIMATED = ["will-call", "limited data"];
+ok(customers.filter(c => c.section !== "ranked" && !ESTIMATED.includes(c.section)).every(c =>
   c.projected_gal === null && c.pct_full === null && c.days_past_75 === null),
-  "held-out rows export no projection or capacity timing");
+  "other held-out rows export no projection or capacity timing");
+ok(customers.filter(c => ESTIMATED.includes(c.section)).every(c => c.projected_gal === c.estimate_gal),
+  "a will-call / limited-data row's projection is its estimate");
 
 const byId = Object.fromEntries(customers.map(c => [c.id, c]));
 ok(byId[423] && byId[423].section === "on-demand / unlimited", "Perrigo (423) is on-demand, not ranked");
@@ -81,7 +86,13 @@ api.setRegion("");
 api.buildShell(document.getElementById("page"));
 api.update();
 
-const ranked = customers.filter(c => c.section === "ranked");
+// The page's ranking: ranked rows plus will-call / limited-data estimates.
+const ranked = customers.filter(c => c.section === "ranked" || c.projected_gal !== null);
+const rankedSection = customers.filter(c => c.section === "ranked");
+ok(ranked.length > rankedSection.length, `estimates join the ranking (${ranked.length - rankedSection.length})`);
+const firstHeld = customers.findIndex(c => c.projected_gal === null);
+ok(customers.slice(firstHeld).every(c => c.projected_gal === null),
+  "the export lists every projected row first, in urgency order");
 const list = document.getElementById("ranked-list");
 ok(rowsIn(list.innerHTML) === Math.min(250, ranked.length),
   `ranked list shows ${Math.min(250, ranked.length)} rows collapsed (got ${rowsIn(list.innerHTML)})`);
@@ -101,11 +112,14 @@ ok(!/proj-pct/.test(held), "held-out sections render no % full");
 ok(/Seasonal holdout/.test(held) && /On-demand \/ unlimited/.test(held) && /Event-driven/.test(held),
   "held-out sections present: seasonal, on-demand, event-driven");
 ok(!/Lump-sum/.test(held), "empty lump-sum section is not rendered");
-// Will-call and insufficient data carry an estimate (sparsity_weight), shown
-// in their own column with "~", never ranked; every other section has none.
+// Will-call and limited data carry an estimate (sparsity_weight), shown in
+// their own column with "~" and ranked too; every other section has none.
 const estimated = customers.filter(c => c.estimate_gal !== null);
-ok(estimated.length > 0 && estimated.every(c => ["will-call", "insufficient data"].includes(c.section)),
-  `only will-call and insufficient-data rows carry an estimate (${estimated.length})`);
+ok(estimated.length > 0 && estimated.every(c => ESTIMATED.includes(c.section)),
+  `only will-call and limited-data rows carry an estimate (${estimated.length})`);
+const estRanked = ranked.find(c => c.section === "limited data");
+ok(estRanked && /limited data/.test(api.rankedRowsHtml([estRanked])),
+  "a limited-data row in the ranking says so under its name");
 ok(estimated.every(c => c.estimate_low <= c.estimate_gal && c.estimate_gal <= c.estimate_high &&
   (c.capacity === null || c.estimate_high <= c.capacity)),
   "an estimate sits inside its range, and the range is capped at capacity");
@@ -124,7 +138,7 @@ ok(inRegion.length === customers.filter(c => c.regions.includes(region)).length,
   `filter "${region}" drops none of its customers`);
 api.setRegion(region);
 api.update();
-const regionRanked = inRegion.filter(c => c.section === "ranked").length;
+const regionRanked = inRegion.filter(c => c.section === "ranked" || c.projected_gal !== null).length;
 ok(rowsIn(list.innerHTML) === Math.min(250, regionRanked),
   `region view ranks ${Math.min(250, regionRanked)} rows`);
 
@@ -135,14 +149,14 @@ api.setRegion("");
 api.update();
 const totalGal = Math.round(ranked.reduce((s, c) => s + (c.projected_gal || 0), 0));
 const countedHeld = customers.filter(c =>
-  ["seasonal holdout", "will-call", "stale", "insufficient data"].includes(c.section)).length;
+  ["seasonal holdout", "will-call", "stale", "limited data"].includes(c.section)).length;
 const vals = statVals();
 ok(vals.length === 5, `five header boxes (got ${vals.length})`);
 ok(vals[0] === totalGal.toLocaleString(), `total projected oil = sum of ranked projected_gal (${totalGal})`);
 ok(vals[1] === ranked.length.toLocaleString(), "route candidates box");
 ok(vals[2] === String(ranked.filter(c => c.days_past_75 > 0).length), "past pickup point box");
 ok(vals[3] === String(ranked.filter(c => c.pct_full > 50).length), "past 50% full box");
-ok(vals[4] === String(countedHeld), `held-out box counts seasonal/will-call/stale/insufficient (${countedHeld})`);
+ok(vals[4] === String(countedHeld), `held-out box counts seasonal/will-call/stale/limited (${countedHeld})`);
 
 // ── Columns ──
 const notYet = ranked.find(c => c.days_until_75 > 0.5);
@@ -262,19 +276,20 @@ ok(byId[208] && byId[208].history_start === "2026-01-01",
 
 // ── The ladder ──
 const STAGES = ["new", "established", "seasonal", "closer in season", "closer off-season", "return"];
-ok(ranked.every(c => STAGES.includes(c.stage)), "every ranked row has a stage");
-ok(customers.filter(c => c.section === "insufficient data" && !c.history_start)
-  .every(c => c.stage === null), "insufficient rows have no stage");
+ok(rankedSection.every(c => STAGES.includes(c.stage)), "every ranked row has a stage");
+ok(customers.filter(c => c.section === "limited data" && !c.history_start)
+  .every(c => c.stage === null), "limited-data rows have no stage");
 const willCall = customers.filter(c => c.section === "will-call");
 ok(willCall.length > 0 && willCall.every(c => c.status === "will-call (detected)" &&
-  c.projected_gal === null && c.reason), `${willCall.length} will-call rows, none projected, each with a reason`);
+  c.projected_gal === c.estimate_gal && c.reason),
+  `${willCall.length} will-call rows, each projecting its estimate, each with a reason`);
 ok(willCall.every(c => !["on-demand / unlimited", "event-driven", "true closer",
   "semi-closer / call-driven", "seasonal open-ish"].includes(c.status)),
   "no override is detected as will-call");
 ok(/Will-call/.test(held), "will-call section rendered");
 const comebacks = customers.filter(c => /^back after \d+ days/.test(c.reason || ""));
-ok(comebacks.length > 0 && comebacks.every(c => c.section === "insufficient data" &&
-  c.projected_gal === null), `${comebacks.length} comeback rows held as insufficient data, none projected`);
+ok(comebacks.length > 0 && comebacks.every(c => c.section === "limited data" &&
+  c.projected_gal === c.estimate_gal), `${comebacks.length} comeback rows held as limited data, projecting their estimate`);
 const newRows = ranked.filter(c => c.stage === "new");
 ok(newRows.length > 0 && newRows.every(c => c.range_high >= c.projected_gal * 1.3 - 1 ||
   c.range_high === c.capacity),
