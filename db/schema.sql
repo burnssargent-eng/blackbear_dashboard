@@ -65,6 +65,14 @@ alter table public.customers add column if not exists created_by       uuid defa
 -- under that town, and My Route and Assign show "New Haven · w/ Middlebury".
 -- Set on the customer page; empty for everyone else. The nightly never writes it.
 alter table public.customers add column if not exists collected_with_town text;
+-- Taking over from (Sarge, 2026-11-02): a place under a new owner gets a new
+-- account (Add customer's "Taking over from"), and the old one is marked
+-- replaced by it. A replaced customer is inactive for good: the nightly never
+-- sets it active again, the 7am route reset puts the new account in its place,
+-- and the Ops pages hide it. Its pickups stay its own history. Undo straight
+-- after Add deletes the new account, which clears this (on delete set null).
+alter table public.customers add column if not exists replaced_by integer
+  references public.customers (id) on delete set null;
 -- Where `phone` came from and the day it was last read there: Jamaal's Phone
 -- field (or its notes), typed on this site, a web lookup (Claude with web
 -- search, reviewed by Sarge before loading), or Jim's contacts. Loaded numbers

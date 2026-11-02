@@ -24,7 +24,8 @@ const api = new Function("window", "const document = { getElementById: () => nul
   return { gateCardHtml, setDb: v => { opsDb = v; }, getDb: () => opsDb, opsFlush, freshStore, saveStore, loadStore, assignToRoute, moveStop, removeStop, recordCollection, recordTheft,
     recordOilLeft, clearOilLeft, todaysOilLeft, oilLeftText, addShadowCustomer, createRoute, renameRoute, todaysCollection, todayIso, opsDiff, opsSharedPart,
     opsEnsureClientIds, opsStoreFromRows, opsDbAvailable, opsShared, opsWhere, shadowBannerHtml, OPS_STORAGE_KEY,
-    opsTodayNote, opsSaveNotes, opsDayBefore, opsCollectedWith, opsCollectedWithText, opsSaveCollectedWith };`)(window);
+    opsTodayNote, opsSaveNotes, opsDayBefore, opsCollectedWith, opsCollectedWithText, opsSaveCollectedWith,
+    takeOverCustomer, undoTakeOver, isReplaced, opsPredecessors };`)(window);
 
 let fails = 0;
 const ok = (cond, msg) => {
@@ -121,6 +122,58 @@ ok(api.todaysOilLeft(shared, route.stops[2].customer_id).gallons === 30 && share
 ok(api.opsStoreFromRows({ ...rows, oilLeft: undefined }, snap).oilLeft.length === 0,
   "before the oil_left table exists the store still loads, with no Oil Left");
 ok(shared.nextId < -1000000000 && shared.nextId > -2147483648, "new ids start at a random point, inside the column's range");
+
+// ── Taking over from: the old account replaced, the new one on its routes ──
+{
+  const st = api.opsStoreFromRows({ ...rows, customers: rows.customers.concat([
+    { id: -20, name: "Old site account", city: "Stowe", replaced_by: -21 },
+    { id: -21, name: "New site account", city: "Stowe", collected_with_town: "Waterbury" }]) }, snap);
+  ok(st.replaced["-20"] === -21 && api.isReplaced(st, -20) && !api.isReplaced(st, -21),
+    "a replaced customer comes back marked, and its new account does not");
+  ok(st.added.find(c => c.customer_id === -21).collected_with === "Waterbury", "an added customer keeps its Collected with town");
+
+  const before = api.opsSharedPart(shared);
+  const work = JSON.parse(JSON.stringify(shared));
+  const old = route.stops[1];
+  const newC = api.addShadowCustomer(work, { name: "New owner", city: "Stowe", capacity: "", collected_with: "Waterbury" });
+  const t = api.takeOverCustomer(work, { customer_id: old.customer_id, name: old.name, capacity: old.capacity }, newC);
+  const ids = work.routes[rid].map(s => s.customer_id);
+  ok(ids[1] === newC.customer_id && !ids.includes(old.customer_id) && ids.length === route.stops.length,
+    "the new account takes the old one's place on its route, same position");
+  const ops = api.opsDiff(before, api.opsSharedPart(work), { today });
+  const at = type => ops.findIndex(o => o.t === type);
+  ok(ops[at("customer")].row.collected_with_town === "Waterbury" && ops[at("customer")].row.periodicity_days === null,
+    "the new customer is sent with its Collected with town and no Periodicity");
+  ok(at("customer") < at("replace") && at("replace") < at("stops")
+     && ops[at("replace")].id === old.customer_id && ops[at("replace")].by === newC.customer_id,
+    "writes: new customer, then the old one marked replaced, then the route's stops");
+  const stopOp = ops.find(o => o.t === "stops");
+  ok(stopOp.stops[1].customer_id === newC.customer_id && stopOp.stops[1].jamaal_assignment_id === null,
+    "the swapped stop is sent as a site stop");
+
+  const afterAdd = api.opsSharedPart(work);
+  api.undoTakeOver(work, t);
+  ok(work.routes[rid].map(s => s.customer_id).join() === route.stops.map(s => s.customer_id).join()
+     && !api.isReplaced(work, old.customer_id) && !work.added.some(c => c.customer_id === newC.customer_id),
+    "Undo puts the old account back on its route and removes the new one");
+  const undoOps = api.opsDiff(afterAdd, api.opsSharedPart(work), { today });
+  const u = type => undoOps.findIndex(o => o.t === type);
+  ok(u("unreplace") >= 0 && u("unreplace") < u("stops") && u("stops") < u("customer-delete")
+     && undoOps[u("customer-delete")].id === newC.customer_id,
+    "Undo writes: old account active again, stops back, then the new customer deleted");
+
+  // A site customer taken over is sent inactive if it is ever re-sent.
+  const w2 = JSON.parse(JSON.stringify(st));
+  const b2 = api.opsSharedPart(w2);
+  w2.added.find(c => c.customer_id === -20).notes = "edited";
+  const o2 = api.opsDiff(b2, api.opsSharedPart(w2), { today });
+  ok(o2.length === 1 && o2[0].row.id === -20 && o2[0].row.active === false, "an edit never turns a replaced site customer back on");
+
+  api.setDb({ rows: { customers: [{ id: 5, replaced_by: 6 }, { id: 6, replaced_by: 7 }, { id: 7 }] } });
+  ok(api.opsPredecessors(7).join() === "6,5" && api.opsPredecessors(5).length === 0,
+    "an account's predecessors follow a chain of takeovers");
+  api.setDb(null);
+}
 
 // ── Page actions -> writes ──
 const synced = api.opsSharedPart(shared);

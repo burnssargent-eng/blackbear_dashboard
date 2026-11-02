@@ -100,6 +100,9 @@ body { background: #fff; }
 .ops-add-field label { font-size: 14px; color: #495057; margin-bottom: 2px; }
 .ops-add-field input { height: 40px; font-size: 16px; }
 .ops-add-field textarea { font-size: 16px; }
+.ops-town-hint { font-size: 13px; margin-top: -4px; }
+.ops-town-hint:empty { display: none; }
+.ops-town-hint.ops-town-error { color: #212529; font-weight: 600; }  /* not red: red is reserved for must-get and Theft */
 .ops-add-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
 .ops-add-go { height: 40px; padding: 0 18px; font-size: 16px; display: inline-flex; align-items: center; }
 .ops-shared-pick { display: flex; align-items: center; gap: 8px; min-height: 40px; font-size: 15px; }

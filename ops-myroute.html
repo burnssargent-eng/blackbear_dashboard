@@ -92,7 +92,8 @@ function addMatchesHtml(routeId) {
   const onRoute = new Set(storeStops(store, routeId).map(s => s.customer_id));
   const pool = [...data.snap.assign_list,
     ...store.added.map(c => ({ customer_id: c.customer_id, name: c.name, city: c.city }))];
-  const hits = pool.filter(c => !onRoute.has(c.customer_id) &&
+  // A customer taken over by a new account is not offered (its new account is).
+  const hits = pool.filter(c => !onRoute.has(c.customer_id) && !isReplaced(store, c.customer_id) &&
     matchesNameSearch(q, [c.name, c.city])).slice(0, 8);
   if (!hits.length) return `<div class="ops-muted mt-1">No match.</div>`;
   return `<div class="list-group mt-1">${hits.map(c => {

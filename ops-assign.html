@@ -47,6 +47,10 @@ let groups = [];          // the town groups last drawn, for Select all
 let flash = "";
 let sharedSearch = "";    // text in Add customer's "Shares a barrel with" box
 let sharedWith = null;    // { customer_id, name, capacity } picked there
+let takeSearch = "";      // text in Add customer's "Taking over from" box
+let takeOver = null;      // { customer_id, name, capacity } picked there: the old owner's account
+let takeUndo = null;      // { text, run, timer }: the Undo bar after a takeover
+const UNDO_MS = 8000;
 
 const NEW_ROUTE = "new";
 
@@ -59,9 +63,10 @@ function customerRows() {
 }
 
 function buildCustomerRows() {
-  const rows = data.snap.assign_list.map(a => ({ ...a, added: false }));
-  store.added.forEach(c => rows.push({ customer_id: c.customer_id, name: c.name, city: c.city,
-    days_over: null, added: true, capacity: c.capacity }));
+  // A customer taken over by a new account is not listed (its new account is).
+  const rows = data.snap.assign_list.filter(a => !isReplaced(store, a.customer_id)).map(a => ({ ...a, added: false }));
+  store.added.filter(c => !isReplaced(store, c.customer_id)).forEach(c => rows.push({ customer_id: c.customer_id,
+    name: c.name, city: c.city, days_over: null, added: true, capacity: c.capacity }));
   const cwReady = typeof opsCollectedWith === "function";
   return rows.map(r => {
     const row = data.index.get(r.customer_id) || null;
@@ -243,20 +248,101 @@ function render() {
   renderBar();
 }
 
-/** Up to 6 customers matching the "Shares a barrel with" box. */
-function sharedMatchesHtml() {
-  const q = sharedSearch.trim().toLowerCase();
-  if (sharedWith) {
-    return `<div class="ops-shared-pick">Shares with <strong>${escapeHtml(sharedWith.name)}</strong>
-      <button type="button" class="btn ops-plain-btn ops-card-x" data-unshare aria-label="Not shared">✕</button></div>`;
-  }
+/** Up to 6 customers matching a search box, as buttons carrying `attr`. */
+function customerHitsHtml(text, attr) {
+  const q = text.trim().toLowerCase();
   if (!q) return "";
   const hits = customerRows().filter(r => matchesNameSearch(q, [r.name, r.town]))
     .sort((a, b) => searchRank(q, a.name) - searchRank(q, b.name)).slice(0, 6);
   if (!hits.length) return `<div class="ops-muted mt-1">No match.</div>`;
   return `<div class="list-group mt-1">${hits.map(r => `<button type="button" class="list-group-item list-group-item-action"
-      data-share="${r.customer_id}">${escapeHtml(r.name || `#${r.customer_id}`)}
+      ${attr}="${r.customer_id}">${escapeHtml(r.name || `#${r.customer_id}`)}
       <span class="ops-muted">${escapeHtml(r.town)}${r.capacity != null ? ` · ${formatNumber(r.capacity)} gal barrel` : ""}</span></button>`).join("")}</div>`;
+}
+
+/** Up to 6 customers matching the "Shares a barrel with" box. */
+function sharedMatchesHtml() {
+  if (sharedWith) {
+    return `<div class="ops-shared-pick">Shares with <strong>${escapeHtml(sharedWith.name)}</strong>
+      <button type="button" class="btn ops-plain-btn ops-card-x" data-unshare aria-label="Not shared">✕</button></div>`;
+  }
+  return customerHitsHtml(sharedSearch, "data-share");
+}
+
+/** The "Taking over from" box: matches, or the account picked. */
+function takeMatchesHtml() {
+  if (takeOver) {
+    return `<div class="ops-shared-pick">Taking over from <strong>${escapeHtml(takeOver.name)}</strong>
+      <button type="button" class="btn ops-plain-btn ops-card-x" data-untake aria-label="Not a takeover">✕</button></div>`;
+  }
+  return customerHitsHtml(takeSearch, "data-take");
+}
+
+function drawTake() {
+  document.getElementById("take-results").innerHTML = takeMatchesHtml();
+  document.getElementById("take-search").hidden = !!takeOver;
+  // Picked: the "Taking over from <name> ✕" line stands alone; ✕ brings the label back.
+  document.getElementById("take-label").hidden = !!takeOver;
+}
+
+/**
+ * What the old owner's account had, for the form: address, town, capacity,
+ * notes, Collected with and a shared barrel. Never the phone (a new owner
+ * has a new number). From the shared database when signed in, else this browser's copy.
+ */
+function oldAccountDetails(id) {
+  const db = typeof opsDb !== "undefined" && opsDb && opsDb.rows ? (opsDb.rows.customers || []).find(c => c.id === id) : null;
+  const added = store.added.find(c => c.customer_id === id);
+  const listed = customerRows().find(r => r.customer_id === id) || {};
+  return {
+    address: (db && db.address) || (added && added.address) || "",
+    city: (db && db.city) || (added && added.city) || listed.city || "",
+    capacity: listed.capacity ?? (db && db.capacity) ?? (added && added.capacity) ?? null,
+    notes: (db && db.notes) || (added && added.notes) || "",
+    collected_with: (db && db.collected_with_town) || (added && added.collected_with) || "",
+    shared_with: (db && db.shared_with) || (added && added.shared_with) || null,
+  };
+}
+
+/** Fill the form from the old account; every field stays editable. */
+function fillFromOld(id) {
+  const d = oldAccountDetails(id);
+  const set = (name, v) => { const el = document.getElementById(`add-${name}`); if (el && v != null && v !== "") el.value = v; };
+  set("address", d.address);
+  if (d.city) {
+    const r = resolveTownInput(d.city);
+    set("city", r.town || d.city);
+  }
+  set("capacity", d.capacity);
+  set("notes", d.notes);
+  const cw = document.getElementById("add-collected_with");
+  if (cw && d.collected_with) {
+    const label = townLabel(d.collected_with);
+    if (![...cw.options].some(o => o.value === label)) cw.add(new Option(label, label));
+    cw.value = label;
+  }
+  if (d.shared_with) {
+    const r = customerRows().find(x => x.customer_id === d.shared_with);
+    if (r) { sharedWith = asStop(r); drawShared(); }
+  }
+}
+
+/** Towns a run is listed under on Assign, for "Town collected with". */
+function collectedWithChoices() {
+  const towns = new Set();
+  data.snap.assign_list.forEach(a => { if (a.city) towns.add(townLabel(a.city)); });
+  data.index.forEach(r => { if (r && r.town) towns.add(townLabel(r.town)); });
+  return [...towns].filter(Boolean).sort((a, b) => a.localeCompare(b));
+}
+
+/** The Undo bar after a takeover (fixed at the bottom, as on My Route). */
+function drawTakeUndo() {
+  // Above the fixed Assign bar, not over it.
+  const bar = document.getElementById("bar");
+  const lift = bar && !bar.hidden ? bar.offsetHeight + 8 : 16;
+  document.getElementById("take-undo").innerHTML = takeUndo ? `<div class="ops-undo" role="status" style="bottom:${lift}px">
+    <span class="ops-undo-text">${escapeHtml(takeUndo.text)}</span>
+    <button type="button" class="btn ops-undo-btn" data-takeundo>Undo</button></div>` : "";
 }
 
 function drawShared() {
@@ -279,15 +365,23 @@ function buildShell() {
 
     <form id="add" class="ops-add-form" autocomplete="off" hidden>
       ${field("name", "Name", "required")}
+      <div class="ops-add-field"><label for="take-search" id="take-label">Taking over from <span class="text-muted">(optional: a new owner at an existing customer)</span></label>
+        <input type="search" class="form-control" id="take-search" placeholder="Search the old owner's account" autocomplete="off">
+        <div id="take-results"></div></div>
       ${field("address", "Street address", 'placeholder="e.g. 12 Main St"')}
-      ${field("city", "Town")}
-      <div class="ops-add-pair">
-        ${field("capacity", "Capacity (gal)", 'type="number" inputmode="numeric" min="0"')}
-        ${field("periodicity", "Periodicity (days)", 'type="number" inputmode="numeric" min="0"')}
-      </div>
+      ${field("city", "Town", 'required list="town-options" placeholder="Start typing; pick from the list" autocapitalize="words"')}
+      <datalist id="town-options">${[...TOWN_CHOICES, ...OUT_OF_STATE_TOWNS]
+        .map(t => `<option value="${escapeHtml(t)}">`).join("")}</datalist>
+      <div class="ops-muted ops-town-hint" id="add-city-hint" aria-live="polite"></div>
+      ${field("capacity", "Capacity (gal)", 'type="number" inputmode="numeric" min="0"')}
       ${field("phone", "Phone", 'type="tel"')}
       <div class="ops-add-field"><label for="add-notes">Notes</label>
-        <textarea class="form-control" id="add-notes" name="notes" rows="2" placeholder="Directions, where the barrel is"></textarea></div>
+        <textarea class="form-control" id="add-notes" name="notes" rows="2"></textarea></div>
+      <div class="ops-add-field"><label for="add-collected_with">Town collected with <span class="text-muted">(optional: another town's run)</span></label>
+        <select class="form-select" id="add-collected_with" name="collected_with">
+          <option value="">— none —</option>
+          ${collectedWithChoices().map(t => `<option value="${escapeHtml(t)}">${escapeHtml(t)}</option>`).join("")}
+        </select></div>
       <div class="ops-add-field"><label for="shared-search">Shares a barrel with <span class="text-muted">(optional)</span></label>
         <input type="search" class="form-control" id="shared-search" placeholder="Search name or town" autocomplete="off">
         <div id="shared-results"></div></div>
@@ -296,7 +390,8 @@ function buildShell() {
         <button type="button" class="btn ops-plain-btn ops-add-go" id="add-cancel">Cancel</button>
       </div>
       <div class="ops-muted">${opsShared() ? "Saved for the team, behind the login" : "Saved in this browser only"}; nothing reaches the source site or the repo.
-        A shared barrel takes the other customer's capacity when Capacity is left blank.</div>
+        A shared barrel takes the other customer's capacity when Capacity is left blank.
+        Taking over marks the old owner's account inactive and puts the new one in its place on routes; its history stays its own.</div>
     </form>
 
     <input type="search" id="search" class="form-control ops-ctl mb-2" placeholder="Search name or town" aria-label="Search name or town">
@@ -312,7 +407,8 @@ function buildShell() {
     </div>
     <div class="ops-muted mb-1" id="count"></div>
 
-    <div id="list"></div>`;
+    <div id="list"></div>
+    <div id="take-undo"></div>`;
 
   const page = document.getElementById("page");
   const form = document.getElementById("add");
@@ -324,10 +420,14 @@ function buildShell() {
   document.getElementById("add-open").addEventListener("click", () => openAdd(form.hidden));
   document.getElementById("add-cancel").addEventListener("click", () => {
     form.reset(); sharedSearch = ""; sharedWith = null; drawShared(); openAdd(false);
+    takeSearch = ""; takeOver = null; drawTake();
+    document.getElementById("add-city").setCustomValidity("");
+    document.getElementById("add-city-hint").textContent = "";
   });
   document.getElementById("search").addEventListener("input", e => { view.search = e.target.value.trim(); renderList(); });
   document.getElementById("region").addEventListener("change", e => { view.region = e.target.value; renderList(); });
   document.getElementById("shared-search").addEventListener("input", e => { sharedSearch = e.target.value; drawShared(); });
+  document.getElementById("take-search").addEventListener("input", e => { takeSearch = e.target.value; drawTake(); });
   page.addEventListener("click", e => {
     const sort = e.target.closest("[data-sort]");
     if (sort) {
@@ -341,6 +441,26 @@ function buildShell() {
       const r = customerRows().find(x => x.customer_id === Number(share.dataset.share));
       sharedWith = asStop(r);
       drawShared();
+      return;
+    }
+    const take = e.target.closest("[data-take]");
+    if (take) {
+      const r = customerRows().find(x => x.customer_id === Number(take.dataset.take));
+      takeOver = asStop(r);
+      drawTake();
+      fillFromOld(r.customer_id);
+      return;
+    }
+    if (e.target.closest("[data-untake]")) {
+      takeOver = null; takeSearch = "";
+      document.getElementById("take-search").value = "";
+      drawTake();
+      return;
+    }
+    if (e.target.closest("[data-takeundo]")) {
+      const u = takeUndo; takeUndo = null;
+      if (u) { clearTimeout(u.timer); u.run(); }
+      drawTakeUndo();
       return;
     }
     if (e.target.closest("[data-unshare]")) {
@@ -366,8 +486,27 @@ function buildShell() {
     if (id === undefined) return;
     setPicked([Number(id)], e.target.checked);
   });
+  // Town must resolve to an official town (or "Place, ST" out of state): the
+  // name the map, regions and analytics match on. Checked on leaving the field
+  // and again on Add.
+  const townInput = document.getElementById("add-city");
+  const townHint = document.getElementById("add-city-hint");
+  const checkTown = () => {
+    const r = resolveTownInput(townInput.value);
+    if (r.town) townInput.value = r.town;
+    townInput.setCustomValidity(r.error || "");
+    townHint.textContent = r.error || r.note || "";
+    townHint.classList.toggle("ops-town-error", !!r.error);
+    return !r.error;
+  };
+  townInput.addEventListener("input", () => {
+    townInput.setCustomValidity(""); townHint.textContent = "";
+    townHint.classList.remove("ops-town-error");
+  });
+  townInput.addEventListener("change", checkTown);
   form.addEventListener("submit", e => {
     e.preventDefault();
+    if (!checkTown()) { townInput.reportValidity(); return; }
     const fields = Object.fromEntries(new FormData(e.target));
     if (!String(fields.name || "").trim()) return;
     if (sharedWith) {
@@ -376,14 +515,31 @@ function buildShell() {
       if (!String(fields.capacity || "").trim() && sharedWith.capacity != null) fields.capacity = sharedWith.capacity;
     }
     const c = addShadowCustomer(store, fields);
+    const t = takeOver ? takeOverCustomer(store, takeOver, c) : null;
     saveStore(store);
     rowCache = null;
     e.target.reset();
+    townHint.textContent = "";
     sharedSearch = ""; sharedWith = null; drawShared();
+    takeSearch = ""; takeOver = null; drawTake();
     openAdd(false);
     picked.add(c.customer_id);
     flash = `Added ${escapeHtml(c.name)}; it is ticked.`;
+    if (t) {
+      if (takeUndo) clearTimeout(takeUndo.timer);
+      takeUndo = { text: `Added ${c.name}; ${t.old.name} is now inactive`,
+        run: () => {
+          undoTakeOver(store, t);
+          saveStore(store);
+          rowCache = null;
+          picked.delete(c.customer_id);
+          flash = `Undone: ${escapeHtml(t.old.name)} is active again.`;
+          render();
+        },
+        timer: setTimeout(() => { takeUndo = null; drawTakeUndo(); }, UNDO_MS) };
+    }
     render();
+    drawTakeUndo();   // after the bar is drawn, to sit above it
   });
 
   const bar = document.getElementById("bar");
