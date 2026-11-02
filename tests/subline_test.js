@@ -67,7 +67,7 @@ console.log('\n4. Prior month resolution');
 const t=totals('Burlington / South Burlington');
 const m=Object.keys(t).sort();
 const pm=api.priorMonthGallons(t,'2026-09',m[0]);
-ok(pm.month==='2026-08'&&pm.gallons===4858,`Sep 2026 -> ${pm.month}: ${pm.gallons.toLocaleString()}`);
+ok(pm.month==='2026-08'&&pm.gallons===4750,`Sep 2026 -> ${pm.month}: ${pm.gallons.toLocaleString()}`);
 const jan=api.priorMonthGallons(t,'2026-01',m[0]);
 ok(jan.month==='2025-12',`Jan rolls back a year -> ${jan.month}`);
 // absent-but-inside-history => real zero

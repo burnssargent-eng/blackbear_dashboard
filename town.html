@@ -69,9 +69,10 @@ async function init() {
   renderLastUpdated(data);
 
   // geo_town is the normalized official Vermont town name, which is what the
-  // map links with. Matching is case-insensitive so a hand-typed URL works.
-  const wanted = townParam.toLowerCase();
-  const rows = records.filter(r => (r.geo_town || "").toLowerCase() === wanted);
+  // map links with; lists link with the merged label ("Barre" covers Barre City
+  // and Barre Town). Either reaches the merged page. Matching is
+  // case-insensitive so a hand-typed URL works.
+  const rows = records.filter(r => sameTownLabel(r.geo_town, townParam));
 
   if (!rows.length) {
     renderState(page, "empty",
@@ -85,7 +86,7 @@ async function init() {
 
 function render(page, rows, data) {
   // Use the town's own spelling from the data rather than the URL's.
-  const townName = rows[0].geo_town;
+  const townName = townLabel(rows[0].geo_town);
   const county = rows[0].county || "—";
 
   renderPageName(`${townName} Oil Collection`);
