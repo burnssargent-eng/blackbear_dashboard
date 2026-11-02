@@ -268,9 +268,19 @@ function stopFiguresHtml(row, capacity) {
     return `<span class="graytext">(${capText})</span>` +
       (row ? ` <span class="ops-muted">${escapeHtml(row.status || row.section)}</span>` : "");
   }
-  const days = row.days_past_full;
   return `<span class="ops-proj ops-fill-${fillLevel(row)}">(~${formatWhole(est.gal)} gal / ${capText})</span>` +
-    (days === null || days === undefined ? "" : ` <span class="ops-days">[${Math.round(days)}]</span>`);
+    daysBracketHtml(row.days_past_full);
+}
+
+/**
+ * " [28]": days past full, shown capped at ±90 ("[90]", "[-90]"); nothing when there is no figure.
+ * Display only: the export, the ranking and every sort keep the real days_past_full.
+ */
+const DAYS_SHOWN_CAP = 90;
+function daysBracketHtml(days) {
+  if (days === null || days === undefined) return "";
+  const shown = Math.max(-DAYS_SHOWN_CAP, Math.min(DAYS_SHOWN_CAP, Math.round(days)));
+  return ` <span class="ops-days">[${shown}]</span>`;
 }
 
 /** One stop's projection, for a list line: "76 proj. gal · 77% full". */

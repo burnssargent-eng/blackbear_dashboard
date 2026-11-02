@@ -23,7 +23,7 @@ const api = new Function("window", code + `
   return { freshStore, loadStore, saveStore, storeStops, assignToRoute, opsRouteList,
     addShadowCustomer, createRoute, renameRoute, storeRoutesByCustomer, buildIndex, opsNavHtml, OPS_NAV,
     recordCollection, todaysCollection, liveRouteTotals, routeSummary, recordTheft, theftGallonsText,
-    recordOilLeft, todaysOilLeft, clearOilLeft, collectionLines };`)(window);
+    recordOilLeft, todaysOilLeft, clearOilLeft, collectionLines, daysBracketHtml };`)(window);
 
 let fails = 0;
 const ok = (cond, msg) => {
@@ -300,6 +300,12 @@ ok(api.todaysCollection(s2, -999).assignment_id === null, "an entry for a custom
   ok(!/<form[^>]+action=|method=["']?post|\.php["'?]?\s*,\s*\{|delete_routes|update_order|add_to_route/i.test(text),
     `${f} never submits to the source site`);
 });
+
+// The [days] after a stop's figures is shown capped at ±90; the row keeps the real figure.
+ok(api.daysBracketHtml(28.4).includes("[28]") && api.daysBracketHtml(90).includes("[90]")
+   && api.daysBracketHtml(213).includes("[90]") && api.daysBracketHtml(-1661.3).includes("[-90]")
+   && api.daysBracketHtml(-89.6).includes("[-90]") && api.daysBracketHtml(null) === "" && api.daysBracketHtml(0).includes("[0]"),
+   "[days] shows capped at ±90, nothing without a figure");
 
 console.log(fails ? `${fails} FAILED` : "all shadow site checks passed");
 process.exit(fails ? 1 : 0);
