@@ -24,7 +24,7 @@ const api = new Function("window", "const document = { getElementById: () => nul
   return { gateCardHtml, setDb: v => { opsDb = v; }, getDb: () => opsDb, opsFlush, freshStore, saveStore, loadStore, assignToRoute, moveStop, removeStop, recordCollection, recordTheft,
     recordOilLeft, clearOilLeft, todaysOilLeft, oilLeftText, addShadowCustomer, createRoute, renameRoute, todaysCollection, todayIso, opsDiff, opsSharedPart,
     opsEnsureClientIds, opsStoreFromRows, opsDbAvailable, opsShared, opsWhere, shadowBannerHtml, OPS_STORAGE_KEY,
-    opsTodayNote, opsSaveNotes };`)(window);
+    opsTodayNote, opsSaveNotes, opsDayBefore };`)(window);
 
 let fails = 0;
 const ok = (cond, msg) => {
@@ -275,29 +275,46 @@ ok(rNew < -1000000000 && cNew.customer_id < -1000000000, "ids made on the device
   await api.opsFlush();
   ok(db.queue.length === 0 && !db.offline && sent.length === 2, "back online: the next flush sends it");
 
-  // Today's note clears the calendar day after it is entered, also on a page left open overnight.
+  // Today's note shows the day it is written and all of the next, then clears, also on a page
+  // left open (Jim writes them the night before a route).
   const RealDate = Date;
   const at = iso => { global.Date = class extends RealDate { constructor(...a) { super(...(a.length ? a : [iso])); } }; };
   const notesSent = [];
+  // A delete ends on its second .eq (customer, day) or on .gte (customer, from a day on).
+  const del = name => {
+    const args = [];
+    const chain = {
+      eq: (_, v) => { args.push(v); if (args.length < 2) return chain; notesSent.push(["delete", name, ...args]); return { error: null }; },
+      gte: (_, v) => { notesSent.push(["delete", name, ...args, ">=" + v]); return { error: null }; },
+    };
+    return chain;
+  };
   const table = name => ({
     update: row => ({ eq: (_, id) => { notesSent.push(["update", name, id, row]); return { error: null }; } }),
     upsert: row => { notesSent.push(["upsert", name, row]); return { error: null }; },
-    delete: () => ({ eq: () => ({ eq: (_, day) => { notesSent.push(["delete", name, day]); return { error: null }; } }) }),
+    delete: () => del(name),
   });
   api.setDb({ client: { from: table }, rows: { customers: [{ id: 7, notes: "gate code" }], dailyNotes: [] } });
-  at("2026-11-01T23:58:00");
+  at("2026-11-02T21:30:00");   // Jim, Monday night
   await api.opsSaveNotes(7, { notes: "gate code", today: " drop a barrel by the door " }, { notes: "gate code", today: "" });
-  ok(notesSent.length === 1 && notesSent[0][0] === "upsert" && notesSent[0][2].day === "2026-11-01"
-     && notesSent[0][2].note === "drop a barrel by the door",
+  ok(notesSent[0][0] === "upsert" && notesSent[0][2].day === "2026-11-02" && notesSent[0][2].note === "drop a barrel by the door"
+     && !notesSent.some(x => x[0] === "update"),
      "Today's note is saved for today, trimmed, and an unchanged Notes is not sent");
-  ok(api.opsTodayNote(7) === "drop a barrel by the door", "it shows the day it is entered");
-  at("2026-11-02T00:01:00");
-  ok(api.opsTodayNote(7) === "", "it is gone just after midnight, with the page still open");
-  at("2026-11-01T12:00:00");
+  ok(notesSent[1][0] === "delete" && notesSent[1][3] === "2026-11-01", "saving it clears yesterday's row, which would show again");
+  ok(api.opsTodayNote(7) === "drop a barrel by the door", "it shows the day it is written");
+  at("2026-11-03T23:59:00");
+  ok(api.opsTodayNote(7) === "drop a barrel by the door", "and all of the next day (the route day)");
+  at("2026-11-04T00:01:00");
+  ok(api.opsTodayNote(7) === "", "it is gone the day after that, with the page still open");
+  at("2026-11-03T10:00:00");
+  api.getDb().rows.dailyNotes.push({ customer_id: 7, day: "2026-11-03", note: "both barrels full" });
+  ok(api.opsTodayNote(7) === "both barrels full", "with yesterday's and today's rows, the newest shows");
   notesSent.length = 0;
-  await api.opsSaveNotes(7, { notes: "gate code 1234", today: "" }, { notes: "gate code", today: "drop a barrel by the door" });
-  ok(notesSent.length === 2 && notesSent[0][0] === "update" && notesSent[1][0] === "delete" && notesSent[1][2] === "2026-11-01"
-     && api.opsTodayNote(7) === "", "emptying Today's note deletes today's row; Notes goes on the customer");
+  await api.opsSaveNotes(7, { notes: "gate code 1234", today: "" }, { notes: "gate code", today: "both barrels full" });
+  ok(notesSent.length === 2 && notesSent[0][0] === "update" && notesSent[1][0] === "delete" && notesSent[1][3] === ">=2026-11-02"
+     && api.opsTodayNote(7) === "", "emptying it deletes today's and yesterday's rows; Notes goes on the customer");
+  ok(api.opsDayBefore("2026-03-01") === "2026-02-28" && api.opsDayBefore("2027-01-01") === "2026-12-31"
+     && api.opsDayBefore("2026-11-02") === "2026-11-01", "the day before crosses month and year ends");
   global.Date = RealDate;
 
   console.log(fails ? `\n${fails} FAILURE(S)` : "\nALL CHECKS PASSED");
