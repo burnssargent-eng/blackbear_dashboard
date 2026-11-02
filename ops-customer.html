@@ -254,7 +254,8 @@ function homeHtml(row, today, onRoutes, capacity, left) {
       ${dd("Last pickup", row && row.last_pickup ? escapeHtml(formatDate(row.last_pickup)) : "—")}
       ${dd("Projection", est.kind === "projected"
         ? `<span class="ops-fill-${fillLevel(row)}">~${formatWhole(est.gal)} gal</span>` +
-          daysBracketHtml(days)
+          daysBracketHtml(days) +
+          (projectionLabel(row) ? ` <span class="ops-muted">${escapeHtml(projectionLabel(row))}</span>` : "")
         : escapeHtml(row ? (row.status || row.section) : "—"))}
       ${dd("On route", onRoutes.length ? escapeHtml(onRoutes.join(", ")) : "—")}
       ${customer.phone ? dd("Phone", phoneHtml(customer.phone)) : ""}

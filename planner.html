@@ -256,7 +256,9 @@ function candidateRows() {
   const inDraft = new Set(state.draft.stops.map(s => index.get(s.customer_id))
     .filter(Boolean).map(r => r.id));
   const pool = projections.customers.filter(c => !inDraft.has(c.id));
-  if (!searchText) return pool.filter(c => c.section === "ranked").slice(0, CANDIDATE_LIMIT);
+  // Every projected row (ranked, and will-call / limited-data estimates), in the export's urgency order.
+  if (!searchText) return pool.filter(c => c.projected_gal !== null && c.projected_gal !== undefined)
+    .slice(0, CANDIDATE_LIMIT);
   return pool.filter(c => matchesNameSearch(searchText,
     [c.name, c.town, ...(c.members || []).map(m => m.name)]));
 }
