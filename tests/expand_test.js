@@ -34,7 +34,8 @@ set('alltime'); api.u();
 console.log(`Region has ${ids.size} customers`);
 ok(rows()===50, `collapsed shows 50 rows (got ${rows()})`);
 ok(list.children.length===1, 'expand footer appended');
-ok(footerStore && /Show all 216/.test(footerStore.innerHTML), `footer label: ${footerStore?footerStore.innerHTML.replace(/<[^>]+>/g,' ').trim():'none'}`);
+// The count comes from the data: a literal went stale with every region change.
+ok(footerStore && new RegExp(`Show all ${ids.size}\\b`).test(footerStore.innerHTML), `footer label: ${footerStore?footerStore.innerHTML.replace(/<[^>]+>/g,' ').trim():'none'}`);
 
 // simulate the expand click
 list.dataset.expanded='true';

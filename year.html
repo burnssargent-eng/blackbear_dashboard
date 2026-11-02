@@ -243,7 +243,7 @@ function render(page, rows, year, availableYears, lifecycle, dormantCutoff) {
                   <td>${escapeHtml(c.name)}</td>
                   <td>${c.geo_town
                       ? `<a href="town.html?town=${encodeURIComponent(townLabel(c.geo_town))}">${escapeHtml(townLabel(c.geo_town))}</a>`
-                      : escapeHtml(c.city || "—")}</td>
+                      : escapeHtml(c.town || c.city || "—")}</td>
                   <td>${formatDate(c.first_qualifying_pickup)}</td>
                 </tr>`).join("")}
             </tbody>
@@ -267,7 +267,7 @@ function render(page, rows, year, availableYears, lifecycle, dormantCutoff) {
                   <td>${escapeHtml(c.name)}</td>
                   <td>${c.geo_town
                       ? `<a href="town.html?town=${encodeURIComponent(townLabel(c.geo_town))}">${escapeHtml(townLabel(c.geo_town))}</a>`
-                      : escapeHtml(c.city || "—")}</td>
+                      : escapeHtml(c.town || c.city || "—")}</td>
                   <td>${formatDate(c.last_qualifying_pickup)}</td>
                   <td>${escapeHtml(c.lost_reason || "—")}</td>
                 </tr>`).join("")}

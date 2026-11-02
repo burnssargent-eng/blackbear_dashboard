@@ -49,6 +49,16 @@ async function loadCollectionsPayload(data) {
   }
 
   _collectionsPayload = await resp.json();
+
+  // Each record takes its customer's display town from the roster (`town`:
+  // the official town, else an out-of-state place such as "Berlin, NH", else
+  // the site's city). A record's raw `city` can be the site's wrong
+  // "Burlington", which is what a table showed for out-of-state customers.
+  const towns = new Map((_collectionsPayload.customers || [])
+    .filter(c => c.town).map(c => [c.customer_id, c.town]));
+  (_collectionsPayload.records || []).forEach(r => {
+    r.town = towns.get(r.customer_id) || r.geo_town || r.city || "";
+  });
   return _collectionsPayload;
 }
 
@@ -201,6 +211,7 @@ function aggregateCustomers(records) {
         name: row.name,
         geo_town: row.geo_town || "",
         city: row.city || "",
+        town: row.town || "",
         county: row.county || "",
         is_active: row.is_active === undefined ? null : row.is_active,
         gallons: 0,
@@ -684,7 +695,7 @@ function customerTableHtml(rows, options) {
   const body = rows.map((c, i) => {
     const town = c.geo_town
       ? `<a href="town.html?town=${encodeURIComponent(townLabel(c.geo_town))}">${escapeHtml(townLabel(c.geo_town))}</a>`
-      : escapeHtml(c.city || "—");
+      : escapeHtml(c.town || c.city || "—");
 
     return `
       <tr>
