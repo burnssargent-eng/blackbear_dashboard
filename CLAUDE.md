@@ -56,6 +56,20 @@ jamaal_photos.py ──> the shared database's private `photos` bucket: the sour
                      source file name (unique: copied once; removed on the site stays removed). First copy by hand
                      (jamaal-photos.yml: dry-run, then copy); the nightly then copies new ones (--nightly does
                      nothing before that first copy). Photos of customers not yet in the database wait a night.
+supabase_sync.py --export-site-edits ──> customer_edits.csv  (committed: customer id, name, town, capacity,
+                     region, themes, status, status day, set on the customer page; nightly, BEFORE the scrape). A site edit beats the source
+                     site's: the scraper takes its town (regions, map, county; ahead of CITY_TOWN_BY_CUSTOMER
+                     and OUT_OF_STATE_BY_CUSTOMER) and roster name, the builder its capacity and name. Pickup
+                     records keep the scraped name, so MODEL_OVERRIDES' name check never trips on a rename.
+                     The database keeps the source site's values in name/city/capacity and the edits in
+                     site_name/site_town/site_capacity; saving the source site's own value clears an edit.
+                     --place-pins (after the sync) re-pins an address edited on the site.
+                     Region: a site region replaces the town's geographic region(s), site themes replace
+                     Ski Slopes / Summer Snack Stops, the composites follow (oil_scraper.region_labels).
+                     Status (site_status): inactive = the builder's "inactive" section, no projection, grouped
+                     last on Assign and out of Urgent; closed_season = held until the usual season start
+                     (MODEL_OVERRIDES or detected season), then the oil clock starts there; open = the clock
+                     starts that day. A pickup after the status's day ends it (the sync clears it).
 supabase_sync.py --export-oil-left ──> oil_left.csv  (committed: customer id, day, gallons left; nightly,
                      before the projection build). Oil Left = gallons a driver saw left in a barrel and did
                      not collect; its own table, never a collection. The builder starts the barrel's level
@@ -214,7 +228,7 @@ a fallback to raw `city` (that fallback is what reaches out-of-state places like
 Plattsburgh). Add a town there and every consumer follows. Town spelling
 variants belong in `GEO_TOWN_NAME_MAP`, not in the region config.
 
-**Region rules are additive — except one.** A row takes EVERY label it matches,
+**Region rules are additive — except one (and the customer page's Region).** A row takes EVERY label it matches,
 so adding a town to a region can never remove a customer from another.
 `REGION_EXCLUDED_IDS` (`oil_scraper.py`) is the single subtractive rule: it
 keeps named customer ids out of a town-based region they would otherwise match.
@@ -233,6 +247,10 @@ customers carry City "Burlington" whatever their real town (Erin and Jim,
 town by customer id, and the county follows it; `OUT_OF_STATE_BY_CUSTOMER`
 does the same for out-of-state customers (`Place, ST`, used in place of the
 raw city for region matching). Ids and town names only, never an address.
+Since 2026-11-02 a town picked in the customer page's Edit does the same job
+without a code change (`customer_edits.csv`) and beats both registries; the
+county comes from the town map's own county code when `COUNTY_MAP` lacks the
+official name (eight Barre/Rutland/Saint Albans Town customers were "Unknown" until then).
 Check each town against an address first (the private lookup files, the
 site's page, or its map position): two guesses from names alone were wrong on
 2026-11-02. The raw `city` column stays as scraped. The town to SHOW is the
@@ -265,7 +283,9 @@ on purpose, so the homepage cannot be broken by a shared-stylesheet edit. A
 change meant for every page goes in both. `dashboard.css` is shared by the other
 five, so prefix new classes distinctly.
 
-**Capacities come from the source site; fix them there.** Each customer page
+**Capacities come from the source site; fix them there — or on the customer page.**
+Since 2026-11-02 the customer page's Edit sets a capacity that beats the
+source site's (`customer_edits.csv`, above); never hand-edit either CSV. Each customer page
 shows `Capacity:` and `Periodicity:`; every `--rescrape` (so every nightly)
 rewrites `capacity_cache.csv` from them. Never hand-edit the cache: a wrong
 capacity is corrected on the site and arrives overnight. The write is a merge —

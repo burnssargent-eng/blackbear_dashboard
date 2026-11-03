@@ -409,3 +409,69 @@ body.ops-viewer-open { overflow: hidden; }
 .ops-viewer-edit { display: flex; gap: 8px; align-items: center; }
 .ops-viewer-edit input { flex: 1 1 auto; min-width: 0; height: 40px; font-size: 16px; }
 .ops-viewer-edit .btn { height: 40px; padding: 0 14px; font-size: 15px; }
+
+/* Customer page (Sarge, 2026-11-02; mockups B "Contact/Barrel" cards on A's page):
+   Info, Barrel and Notes as white cards with hairline rows, label left in grey,
+   value right. Assign sits between Barrel and Notes. Edit opens the Info card
+   as one form. */
+.ops-cp-entry { display: flex; gap: 8px; }
+.ops-cp-entry .form-control { flex: 1 1 0; min-width: 0; height: 40px; font-size: 16px; }
+.ops-cp-entry .btn { flex: 0 0 150px; height: 40px; }
+.ops-cp-card { background: #fff; border: 1px solid #adb5bd; border-radius: 8px; margin-bottom: 12px;
+  display: flex; flex-direction: column; }
+.ops-cp-head { display: flex; align-items: center; justify-content: space-between; min-height: 40px; padding: 4px 12px; }
+.ops-cp-title { font-size: 13px; font-weight: 700; color: #495057; letter-spacing: 0.04em; }
+.ops-cp-head .btn { height: 32px; padding: 0 12px; font-size: 14px; }
+.ops-cp-head-near { justify-content: flex-start; gap: 10px; }
+.ops-cp-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 9px 12px;
+  border-top: 1px solid #dee2e6; }
+.ops-cp-label { flex: 0 0 auto; color: #6c757d; }
+.ops-cp-value { min-width: 0; text-align: right; overflow-wrap: anywhere; }
+.ops-cp-assign { display: flex; gap: 8px; align-items: center; margin-bottom: 12px; }
+.ops-cp-assign .form-select { flex: 1 1 0; min-width: 0; height: 40px; }
+.ops-cp-assign .btn { height: 40px; }
+.ops-cp-notes { display: flex; flex-direction: column; gap: 4px; padding: 0 12px 10px; overflow-wrap: anywhere; }
+.ops-cp-form { padding: 0 12px 12px; gap: 10px; }
+.ops-cp-form .ops-cp-head { padding: 4px 0 0; }
+.ops-cp-field { display: flex; flex-direction: column; gap: 4px; font-size: 14px; color: #495057; min-width: 0; }
+.ops-cp-field .form-control, .ops-cp-field .form-select { height: 40px; font-size: 16px; color: #212529; }
+.ops-cp-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.ops-cp-phone { display: flex; gap: 8px; }
+.ops-cp-phone .form-control { flex: 1 1 0; min-width: 0; height: 40px; font-size: 16px; }
+.ops-cp-phone .ops-cp-phone-label { flex: 0 0 110px; }
+.ops-cp-x { flex: 0 0 36px; height: 40px; padding: 0; color: #6c757d; background: #fff; border: 0; font-size: 18px; }
+.ops-cp-addphone { align-self: flex-start; height: 34px; padding: 0 12px; font-size: 14px; font-weight: 600;
+  color: #0d6efd; background: #fff; border: 1px solid #9ec5fe; border-radius: 6px; }
+/* Status (closed for the season: steel blue; inactive: grey; red stays theft's),
+   the Region bar in Edit, and Report Theft under Oil Left. */
+.ops-cp-band { display: flex; align-items: center; gap: 10px; border-radius: 6px; padding: 8px 12px; margin: 8px 0; font-size: 15px; }
+.ops-cp-band span { flex: 1 1 0; }
+.ops-cp-band .btn { height: 32px; padding: 0 10px; font-size: 14px; white-space: nowrap; background: #fff; }
+.ops-cp-band-closed { background: #e8eef6; color: #34507a; }
+.ops-cp-band-closed .btn { color: #34507a; border: 1px solid #34507a; }
+.ops-cp-band-inactive { background: #f1f3f5; color: #495057; }
+.ops-cp-band-inactive .btn { color: #212529; border: 1px solid #adb5bd; }
+.ops-cp-status-open { color: #198754; font-weight: 600; }
+.ops-cp-status-closed_season, .ops-cp-status-inactive { color: #dc3545; font-weight: 600; }
+.ops-cp-choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.ops-cp-choice { min-height: 44px; height: auto; padding: 6px 8px; line-height: 1.2; font-size: 15px; background: #fff; color: #495057; border: 1px solid #ced4da; }
+.ops-cp-choice.ops-cp-picked { background: #e8eef6; color: #34507a; border: 2px solid #34507a; font-weight: 600; }
+.ops-cp-regionbar { display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 4px 6px 4px 10px;
+  background: #f8f9fa; border-radius: 6px; color: #212529; font-size: 16px; }
+.ops-cp-regionbar > span:first-child { flex: 1 1 0; min-width: 0; }
+.ops-cp-regionbar-mid { flex: 1 1 0; text-align: center; font-size: 13px; color: #6c757d; }
+.ops-cp-regionbar .btn { flex: 0 0 auto; height: 32px; padding: 0 10px; font-size: 14px; }
+.ops-cp-themes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 8px; }
+.ops-cp-theme { display: flex; align-items: center; gap: 8px; min-height: 36px; font-size: 15px; color: #212529; }
+.ops-cp-theme input { width: 22px; height: 22px; margin: 0; }
+/* Home's first row, as My Route's control row: gallons, Save, Oil Left, Report Theft. */
+.ops-cp-row1 { margin: 12px 0; }
+.ops-cp-row1 .form-control { flex: 1 1 0; width: auto; min-width: 0; padding: 0 4px 0 6px; }
+.ops-cp-row1 .form-control::placeholder { font-size: 14px; }
+/* Info: no header, so the first row has no rule above it; ✎ Edit info centred at the bottom. */
+.ops-cp-info > .ops-cp-row:first-child { border-top: 0; }
+.ops-cp-info-foot { border-top: 1px solid #dee2e6; display: flex; justify-content: center; }
+.ops-cp-info-foot .btn-link { text-decoration: none; padding: 6px 12px; }
+.ops-cp-left { padding: 10px 12px; }
+.ops-cp-theft { border-color: #f1aeb5; background: #fff5f5; padding: 4px 12px 12px; }
+.ops-pick-inactive .ops-pick-name { color: #6c757d; }

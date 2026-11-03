@@ -68,7 +68,9 @@ async function loadOpsData() {
         if (!resp.ok) throw new Error(`Could not load ${f} (HTTP ${resp.status})`);
         return resp.json();
       })));
-  return { projections, snap, index: buildIndex(projections.customers || []) };
+  const index = buildIndex(projections.customers || []);
+  index.asOf = projections.as_of || null;   // a status marked since then shows before the nightly says it
+  return { projections, snap, index };
 }
 
 /**

@@ -197,7 +197,8 @@ function opsStoreFromRows(rows, snap, keep = {}) {
       const c = names.get(s.customer_id) || {};
       (routes[s.route_id] = routes[s.route_id] || []).push({
         assignment_id: s.jamaal_assignment_id || -s.id, customer_id: s.customer_id,
-        name: c.name || `#${s.customer_id}`, capacity: c.capacity ?? null, must_get: s.must_get });
+        name: c.site_name || c.name || `#${s.customer_id}`, capacity: c.site_capacity ?? c.capacity ?? null,
+        must_get: s.must_get });
     });
   const trucks = {};
   rows.trucks.slice().sort((a, b) => b.day.localeCompare(a.day)).forEach(t => {
@@ -216,7 +217,8 @@ function opsStoreFromRows(rows, snap, keep = {}) {
       collected_with: c.collected_with_town || null, added: c.created_on })),
     replaced: Object.fromEntries(rows.customers.filter(c => c.replaced_by).map(c => [c.id, c.replaced_by])),
     collections: rows.collections.map(c => ({ customer_id: c.customer_id,
-      name: (names.get(c.customer_id) || {}).name || `#${c.customer_id}`, gallons: c.gallons,
+      name: (names.get(c.customer_id) || {}).site_name || (names.get(c.customer_id) || {}).name || `#${c.customer_id}`,
+      gallons: c.gallons,
       date: c.picked_on, route_id: c.route_id, assignment_id: null, client_id: c.client_id,
       ...(c.theft ? { theft: { note: c.theft_note || "", recorded_at: c.entered_at, versions: [] } } : {}) })),
     oilLeft: (rows.oilLeft || []).map(e => ({ customer_id: e.customer_id, date: e.checked_on,
@@ -308,6 +310,8 @@ const opsDbSession = (async () => {
 })();
 
 const OPS_CUSTOMER_COLS = "id,name,city,address,capacity,periodicity_days,phone,notes,shared_with,created_on,lat,lon,loc";
+// Name, town and capacity edited on the customer page (db/schema.sql); empty = the source site's.
+const OPS_SITE_EDIT_COLS = "site_name,site_town,site_capacity,site_region,site_themes,site_status,site_status_since";
 
 async function opsFetchRows() {
   const since = opsStoreSince();
@@ -325,7 +329,8 @@ async function opsFetchRows() {
     all(() => c.from("routes").select("id,name,sort").order("id"), "routes"),
     all(() => c.from("route_stops").select("id,route_id,customer_id,position,must_get,jamaal_assignment_id").order("id"), "stops"),
     // Before collected_with_town and replaced_by exist (db/schema.sql not yet pasted) the pages load without them.
-    all(() => c.from("customers").select(`${OPS_CUSTOMER_COLS},collected_with_town,replaced_by`).order("id"), "customers")
+    all(() => c.from("customers").select(`${OPS_CUSTOMER_COLS},collected_with_town,replaced_by,${OPS_SITE_EDIT_COLS}`).order("id"), "customers")
+      .catch(() => all(() => c.from("customers").select(`${OPS_CUSTOMER_COLS},collected_with_town,replaced_by`).order("id"), "customers"))
       .catch(() => all(() => c.from("customers").select(`${OPS_CUSTOMER_COLS},collected_with_town`).order("id"), "customers"))
       .catch(() => all(() => c.from("customers").select(OPS_CUSTOMER_COLS).order("id"), "customers")),
     // Only this site's entries: the source site's history is in the database
@@ -365,6 +370,7 @@ async function opsOpenStore(snap, { index = null, onRemote = null } = {}) {
   let store;
   try {
     opsDb.rows = await opsFetchRows();
+    opsApplySiteEdits(snap, index, opsDb.rows.customers);
     store = opsStoreFromRows(opsDb.rows, snap, { my: mine && mine.store ? mine.store.my : null });
   } catch (err) {
     if (!mine) throw new Error(`Could not load the shared routes (${err.message}).`);
@@ -612,6 +618,169 @@ async function opsSaveCollectedWith(id, town) {
   if (row) row.collected_with_town = value;
 }
 
+/* ── Customer page edits: name, town, capacity, address, phones ── */
+
+/**
+ * Show the site's name and town edits on this page's copy of the source site's
+ * lists (Assign list, Today's Routes, projection rows), so every Ops page uses
+ * them at once; the nightly carries them into the files. The source site's own
+ * value is kept beside each (_jamaal_name, ...) so clearing an edit restores it.
+ */
+function opsApplySiteEdits(snap, index, customers) {
+  const by = new Map((customers || []).filter(c => c.id > 0).map(c => [c.id, c]));
+  const fix = (obj, key, value) => {
+    const orig = `_jamaal_${key}`;
+    if (!(orig in obj)) obj[orig] = obj[key];
+    obj[key] = value || obj[orig];
+  };
+  (snap && snap.assign_list || []).forEach(a => {
+    const c = by.get(a.customer_id);
+    if (c) { fix(a, "name", c.site_name); fix(a, "city", c.site_town); }
+  });
+  (snap && snap.routes || []).forEach(r => (r.stops || []).forEach(s => {
+    const c = by.get(s.customer_id);
+    if (c) fix(s, "name", c.site_name);
+  }));
+  if (index) by.forEach((c, id) => {
+    const row = index.get(id);
+    if (!row || row.id !== id || row.members) return;   // a shared barrel's row keeps its group name
+    fix(row, "name", c.site_name);
+    fix(row, "town", c.site_town);
+    // A status marked since the projections were built shows at once; after
+    // that the nightly's row says it (and knows when a closed season reopens).
+    const fresh = c.site_status && c.site_status !== "open" && c.site_status_since
+      && (!index.asOf || c.site_status_since >= index.asOf) && !(row.last_pickup > c.site_status_since);
+    if (!("_held" in row)) row._held = null;
+    if (fresh && !row._held) {
+      row._held = { section: row.section, status: row.status, projected_gal: row.projected_gal,
+        range_low: row.range_low, range_high: row.range_high, days_past_full: row.days_past_full, pct_full: row.pct_full };
+      Object.assign(row, { projected_gal: null, range_low: null, range_high: null, days_past_full: null, pct_full: null });
+    } else if (!fresh && row._held) {
+      Object.assign(row, row._held);
+      row._held = null;
+    }
+    if (fresh) Object.assign(row, c.site_status === "inactive"
+      ? { section: "inactive", status: "inactive (marked on the site)" }
+      : { section: "seasonal holdout", status: "closed for the season (marked on the site)" });
+  });
+}
+
+/**
+ * The status set on the customer page that still stands, or null (open):
+ * { status: "inactive" | "closed_season" | "open", since: "YYYY-MM-DD" }.
+ * A pickup after its day (`lastPickup`, ISO; over 3 gallons) ends it, as the
+ * nightly does in the database.
+ */
+function opsSiteStatus(id, lastPickup = "") {
+  const c = opsCustomerDbRow(id);
+  if (!c || !c.site_status || !c.site_status_since) return null;
+  if (lastPickup && lastPickup > c.site_status_since) return null;
+  return { status: c.site_status, since: c.site_status_since };
+}
+
+/** Set (or clear, with null) a customer's status from `since`. Throws when not saved. */
+async function opsSaveStatus(id, status, since) {
+  const c = opsDb && opsDb.client;
+  if (!c) throw new Error("sign in to change this");
+  const up = { site_status: status || null, site_status_since: status ? since : null };
+  const { error } = await c.from("customers").update(up).eq("id", id);
+  if (error) throw new Error(error.message);
+  const k = opsDb.rows && opsDb.rows.customers ? opsDb.rows.customers.findIndex(r => r.id === id) : -1;
+  if (k >= 0) opsDb.rows.customers[k] = { ...opsDb.rows.customers[k], ...up };
+  opsApplySiteEdits(opsDb.snap, opsDb.index, opsDb.rows && opsDb.rows.customers);
+}
+
+/** This customer's database row, or null. */
+function opsCustomerDbRow(id) {
+  return (opsDb && opsDb.rows && (opsDb.rows.customers || []).find(r => r.id === id)) || null;
+}
+
+/** "(802) 555-0100" or "802-555-0100" as +18025550100; anything not 10 digits as typed. */
+function opsPhoneStored(text) {
+  const raw = String(text || "").trim();
+  const d = raw.replace(/\D/g, "").replace(/^1(?=\d{10}$)/, "");
+  return d.length === 10 ? `+1${d}` : raw;
+}
+
+/**
+ * Save the customer page's edit form for a source-site customer (id > 0).
+ * `now` and `opened` hold name, town, capacity, address, phone and
+ * collected_with: now and as the form opened. A name, town or capacity is only
+ * touched when it was changed: set to the source site's own value (the row's
+ * name, city, capacity, which the nightly keeps writing) it empties the site_
+ * column, so the source site is followed again; anything else is kept as the
+ * site's edit. An address change empties `loc`: the nightly moves the pin.
+ * Throws when not saved.
+ */
+async function opsSaveCustomer(id, now, opened) {
+  const c = opsDb && opsDb.client;
+  if (!c) throw new Error("sign in to edit");
+  const row = opsCustomerDbRow(id) || {};
+  const up = {};
+  const set = (col, value) => { if ((row[col] ?? null) !== value) up[col] = value; };
+  [["name", "site_name", "name"], ["town", "site_town", "city"], ["capacity", "site_capacity", "capacity"]]
+    .forEach(([field, col, theirs]) => {
+      if (now[field] === opened[field]) return;
+      const v = now[field];
+      set(col, v === "" || v === null || v === (row[theirs] ?? null) ? null : v);
+    });
+  if (now.region !== undefined && now.region !== opened.region) set("site_region", now.region || null);
+  if (now.themes !== undefined && (now.themes || []).join(";") !== (opened.themes || []).join(";")) {
+    up.site_themes = [...now.themes];   // an explicit list: [] = in neither theme
+  }
+  set("collected_with_town", now.collected_with || null);
+  const address = now.address.trim() || null;
+  if ((row.address || null) !== address) { up.address = address; up.loc = null; }
+  const phone = opsPhoneStored(now.phone) || null;
+  if ((row.phone || null) !== phone) {
+    Object.assign(up, { phone, phone_source: phone ? "site" : null, phone_checked: phone ? todayIso() : null });
+  }
+  if (!Object.keys(up).length) return row;
+  const { error } = await c.from("customers").update(up).eq("id", id);
+  if (error) throw new Error(error.message);
+  if (opsDb.rows && opsDb.rows.customers) {
+    const k = opsDb.rows.customers.findIndex(r => r.id === id);
+    if (k >= 0) opsDb.rows.customers[k] = { ...opsDb.rows.customers[k], ...up };
+    opsApplySiteEdits(opsDb.snap, opsDb.index, opsDb.rows.customers);
+  }
+  return { ...row, ...up };
+}
+
+/** A customer's other phone numbers (customer_contacts), oldest first; [] when signed out or none. */
+async function opsContactsLoad(id) {
+  const c = opsDb && opsDb.client;
+  if (!c) return [];
+  const { data, error } = await c.from("customer_contacts").select("id,value,label")
+    .eq("customer_id", id).eq("kind", "phone").order("id");
+  return error ? [] : data;
+}
+
+/**
+ * Make the customer's other phones match `now` ([{ id?, value, label }]),
+ * given the list as loaded (`was`): new ones added, changed ones updated,
+ * missing ones removed. Throws when not saved.
+ */
+async function opsContactsSave(id, now, was) {
+  const c = opsDb && opsDb.client;
+  if (!c) throw new Error("sign in to edit");
+  const keep = new Set(now.filter(p => p.id).map(p => p.id));
+  for (const p of now) {
+    const value = opsPhoneStored(p.value), label = (p.label || "").trim() || null;
+    if (!value) continue;
+    const old = p.id && was.find(w => w.id === p.id);
+    if (old && old.value === value && (old.label || null) === label) continue;
+    const { error } = old
+      ? await c.from("customer_contacts").update({ value, label }).eq("id", p.id)
+      : await c.from("customer_contacts").insert({ customer_id: id, kind: "phone", value, label, source: "site" });
+    if (error) throw new Error(error.message.includes("duplicate") ? `${value} is already listed` : error.message);
+  }
+  const gone = was.filter(w => !keep.has(w.id)).map(w => w.id);
+  if (gone.length) {
+    const { error } = await c.from("customer_contacts").delete().in("id", gone);
+    if (error) throw new Error(error.message);
+  }
+}
+
 /* ── Taking over from ── */
 
 /** Accounts this one took over from, nearest first (A took over from B, which took over from C). */
@@ -667,7 +836,10 @@ async function opsRefresh() {
   try { rows = await opsFetchRows(); } catch (err) { opsDb.offline = true; opsShowStatus(); return; }
   if (opsDb.queue.length) { opsDb.refreshWanted = true; return; }   // a save went in while loading
   const store = opsStoreFromRows(rows, opsDb.snap, { my: opsDb.store ? opsDb.store.my : null });
-  const withTowns = r => (r && r.customers || []).filter(c => c.collected_with_town).map(c => [c.id, c.collected_with_town]);
+  opsApplySiteEdits(opsDb.snap, opsDb.index, rows.customers);
+  const withTowns = r => (r && r.customers || []).filter(c => c.collected_with_town || c.site_name || c.site_town ||
+    c.site_capacity != null || c.site_region || c.site_themes || c.site_status).map(c => [c.id, c.collected_with_town,
+    c.site_name, c.site_town, c.site_capacity, c.site_region, c.site_themes, c.site_status, c.site_status_since]);
   const sameNotes = JSON.stringify(rows.dailyNotes) === JSON.stringify(opsDb.rows && opsDb.rows.dailyNotes)
     && JSON.stringify(withTowns(rows)) === JSON.stringify(withTowns(opsDb.rows));
   if (sameNotes && JSON.stringify(opsSharedPart(store)) === JSON.stringify(opsDb.synced)) return;   // nothing new
