@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-02T19:15:45.967992",
+  "last_updated": "2026-11-03T14:53:26.829599",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -34395,15 +34395,39 @@
     },
     {
       "month": "2026-11",
+      "geo_town": "Burlington",
+      "gallons": 505,
+      "city": "Burlington"
+    },
+    {
+      "month": "2026-11",
       "geo_town": "North Hero",
       "gallons": 90,
       "city": "North Hero"
     },
     {
       "month": "2026-11",
+      "geo_town": "Saint Albans City",
+      "gallons": 301,
+      "city": "Saint Albans City"
+    },
+    {
+      "month": "2026-11",
+      "geo_town": "Saint Albans Town",
+      "gallons": 160,
+      "city": "Saint Albans Town"
+    },
+    {
+      "month": "2026-11",
       "geo_town": "South Hero",
       "gallons": 245,
       "city": "South Hero"
+    },
+    {
+      "month": "2026-11",
+      "geo_town": "Waterbury",
+      "gallons": 115,
+      "city": "Waterbury"
     }
   ],
   "monthly_by_county": [
@@ -42264,8 +42288,28 @@
     },
     {
       "month": "2026-11",
+      "county": "Chittenden",
+      "gallons": 505
+    },
+    {
+      "month": "2026-11",
+      "county": "Franklin",
+      "gallons": 461
+    },
+    {
+      "month": "2026-11",
       "county": "Grand Isle",
       "gallons": 335
+    },
+    {
+      "month": "2026-11",
+      "county": "Out-of-State (NY)",
+      "gallons": 155
+    },
+    {
+      "month": "2026-11",
+      "county": "Washington",
+      "gallons": 115
     }
   ],
   "yearly_totals": [
@@ -42315,13 +42359,13 @@
     },
     {
       "year": 2026,
-      "gallons": 248260
+      "gallons": 249496
     }
   ],
-  "all_time_total": 2167027,
-  "current_year_total": 248260,
+  "all_time_total": 2168263,
+  "current_year_total": 249496,
   "customer_count": 806,
-  "unmapped_total": 40760,
+  "unmapped_total": 40915,
   "monthly_totals": [
     {
       "month": "2015-01",
@@ -42893,7 +42937,7 @@
     },
     {
       "month": "2026-11",
-      "gallons": 335
+      "gallons": 1571
     }
   ],
   "monthly_by_region": [
@@ -54674,8 +54718,18 @@
     },
     {
       "month": "2026-11",
+      "region": "Burlington / South Burlington",
+      "gallons": 505
+    },
+    {
+      "month": "2026-11",
       "region": "Northwest",
-      "gallons": 335
+      "gallons": 951
+    },
+    {
+      "month": "2026-11",
+      "region": "Waterbury / Stowe",
+      "gallons": 115
     }
   ],
   "yearly_by_region": [
@@ -55712,7 +55766,7 @@
     {
       "year": 2026,
       "region": "Burlington / South Burlington",
-      "gallons": 45026
+      "gallons": 45531
     },
     {
       "year": 2026,
@@ -55732,7 +55786,7 @@
     {
       "year": 2026,
       "region": "Northwest",
-      "gallons": 15157
+      "gallons": 15773
     },
     {
       "year": 2026,
@@ -55797,7 +55851,7 @@
     {
       "year": 2026,
       "region": "Waterbury / Stowe",
-      "gallons": 33495
+      "gallons": 33610
     },
     {
       "year": 2026,
@@ -55811,8 +55865,8 @@
     "Outer Burlington",
     "Central",
     "Perrigo",
-    "North-Northeast",
     "Northwest",
+    "North-Northeast",
     "Central South",
     "Route 15",
     "Route 2 East / Route 5",
@@ -55851,20 +55905,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 27904,
-  "out_of_state_total": 40760,
+  "collections_count": 27919,
+  "out_of_state_total": 40915,
   "active_customer_count": 531,
   "projection": {
-    "latest_data_date": "2026-11-02",
+    "latest_data_date": "2026-11-03",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 248260,
+    "current_ytd": 249496,
     "previous_year_full": 269909,
     "previous_through_prior_month": 230827,
     "previous_same_month_total": 20207,
-    "previous_prorated_ytd": 232174.13,
-    "projected_current_year": 288609,
-    "percent_vs_previous_year": 0.069284
+    "previous_prorated_ytd": 232847.7,
+    "projected_current_year": 289207,
+    "percent_vs_previous_year": 0.071499
   },
   "region_stats": {
     "Burlington / South Burlington": {

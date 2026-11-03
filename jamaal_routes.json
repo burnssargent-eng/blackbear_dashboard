@@ -1,5 +1,5 @@
 {
- "scraped_at": "2026-11-03T12:00:13+00:00",
+ "scraped_at": "2026-11-03T14:53:36+00:00",
  "source": "routes_assigned.php, assign_routes.php",
  "routes": [
   {
@@ -343,7 +343,7 @@
   {
    "route_id": 6,
    "name": "OuterBton",
-   "assigned_capacity": 900,
+   "assigned_capacity": 1065,
    "stops": [
     {
      "assignment_id": 24341,
@@ -376,139 +376,27 @@
      "capacity": 200,
      "days_over": 26,
      "must_get": false
+    },
+    {
+     "assignment_id": 24383,
+     "customer_id": 1464,
+     "name": "Friendly Toast #3251",
+     "capacity": 165,
+     "days_over": -10,
+     "must_get": false
     }
    ]
   },
   {
    "route_id": 7,
    "name": "Burlington",
-   "assigned_capacity": 5055,
+   "assigned_capacity": 3020,
    "stops": [
-    {
-     "assignment_id": 24409,
-     "customer_id": 227,
-     "name": "The Reservoir-Waterbury",
-     "capacity": 200,
-     "days_over": -8,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24408,
-     "customer_id": 229,
-     "name": "Prohibition Pig",
-     "capacity": 200,
-     "days_over": -2,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24407,
-     "customer_id": 241,
-     "name": "McGillicuddy's Irish Pub-Waterbury",
-     "capacity": 150,
-     "days_over": -8,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24406,
-     "customer_id": 233,
-     "name": "Maxi's",
-     "capacity": 110,
-     "days_over": -8,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24405,
-     "customer_id": 234,
-     "name": "Hen of the Wood-WATERBURY",
-     "capacity": 150,
-     "days_over": -1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24404,
-     "customer_id": 1345,
-     "name": "Gallus-Waterbury",
-     "capacity": 150,
-     "days_over": -8,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24391,
-     "customer_id": 1306,
-     "name": "Crispy Burger- Jason (Volcano)",
-     "capacity": 150,
-     "days_over": -1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24394,
-     "customer_id": 1336,
-     "name": "Frankie’s/Old Penny Cluse",
-     "capacity": 100,
-     "days_over": 6,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24402,
-     "customer_id": 328,
-     "name": "Sweetwaters 2.0!!!- 50%",
-     "capacity": 300,
-     "days_over": -6,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24399,
-     "customer_id": 326,
-     "name": "Leunigs Bistro",
-     "capacity": 165,
-     "days_over": -15,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24401,
-     "customer_id": 327,
-     "name": "RiRa's 40%",
-     "capacity": 300,
-     "days_over": -8,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24392,
-     "customer_id": 332,
-     "name": "Daily Planet-65270",
-     "capacity": 100,
-     "days_over": -1,
-     "must_get": false
-    },
     {
      "assignment_id": 24389,
      "customer_id": 321,
      "name": "BURLS/El Cortijo-Burlington",
      "capacity": 150,
-     "days_over": -1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24086,
-     "customer_id": 329,
-     "name": "Asiana Noodle-6974",
-     "capacity": 200,
-     "days_over": 91,
-     "must_get": true
-    },
-    {
-     "assignment_id": 24393,
-     "customer_id": 325,
-     "name": "Farmhouse",
-     "capacity": 300,
-     "days_over": -1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24398,
-     "customer_id": 1338,
-     "name": "Ken’s Pizza",
-     "capacity": 55,
      "days_over": -1,
      "must_get": false
     },
@@ -526,14 +414,6 @@
      "name": "Henrys Diner-50%",
      "capacity": 150,
      "days_over": -1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24383,
-     "customer_id": 1464,
-     "name": "Friendly Toast #3251",
-     "capacity": 165,
-     "days_over": -10,
      "must_get": false
     },
     {
@@ -606,6 +486,46 @@
      "name": "Texas Roadhouse-# 1122-Mahoney",
      "capacity": 200,
      "days_over": 3,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24406,
+     "customer_id": 233,
+     "name": "Maxi's",
+     "capacity": 110,
+     "days_over": -8,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24409,
+     "customer_id": 227,
+     "name": "The Reservoir-Waterbury",
+     "capacity": 200,
+     "days_over": -8,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24407,
+     "customer_id": 241,
+     "name": "McGillicuddy's Irish Pub-Waterbury",
+     "capacity": 150,
+     "days_over": -8,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24405,
+     "customer_id": 234,
+     "name": "Hen of the Wood-WATERBURY",
+     "capacity": 150,
+     "days_over": -1,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24404,
+     "customer_id": 1345,
+     "name": "Gallus-Waterbury",
+     "capacity": 150,
+     "days_over": -8,
      "must_get": false
     }
    ]
@@ -1031,7 +951,7 @@
    "customer_id": 329,
    "name": "Asiana Noodle-6974",
    "city": "Burlington",
-   "days_over": 91
+   "days_over": -70
   },
   {
    "customer_id": 1482,
@@ -1091,13 +1011,13 @@
    "customer_id": 1306,
    "name": "Crispy Burger- Jason (Volcano)",
    "city": "Burlington",
-   "days_over": -1
+   "days_over": -14
   },
   {
    "customer_id": 332,
    "name": "Daily Planet-65270",
    "city": "Burlington",
-   "days_over": -1
+   "days_over": -14
   },
   {
    "customer_id": 1358,
@@ -1139,7 +1059,7 @@
    "customer_id": 325,
    "name": "Farmhouse",
    "city": "Burlington",
-   "days_over": -1
+   "days_over": -14
   },
   {
    "customer_id": 1381,
@@ -1151,7 +1071,7 @@
    "customer_id": 1336,
    "name": "Frankie’s/Old Penny Cluse",
    "city": "Burlington",
-   "days_over": 6
+   "days_over": -21
   },
   {
    "customer_id": 1464,
@@ -1205,7 +1125,7 @@
    "customer_id": 1338,
    "name": "Ken’s Pizza",
    "city": "Burlington",
-   "days_over": -1
+   "days_over": -14
   },
   {
    "customer_id": 1354,
@@ -1229,7 +1149,7 @@
    "customer_id": 326,
    "name": "Leunigs Bistro",
    "city": "Burlington",
-   "days_over": -15
+   "days_over": -28
   },
   {
    "customer_id": 1133,
@@ -1283,7 +1203,7 @@
    "customer_id": 327,
    "name": "RiRa's 40%",
    "city": "Burlington",
-   "days_over": -8
+   "days_over": -21
   },
   {
    "customer_id": 308,
@@ -1319,7 +1239,7 @@
    "customer_id": 328,
    "name": "Sweetwaters 2.0!!!- 50%",
    "city": "Burlington",
-   "days_over": -6
+   "days_over": -19
   },
   {
    "customer_id": 1350,
@@ -3749,7 +3669,7 @@
    "customer_id": 229,
    "name": "Prohibition Pig",
    "city": "Waterbury",
-   "days_over": -2
+   "days_over": -21
   },
   {
    "customer_id": 227,
