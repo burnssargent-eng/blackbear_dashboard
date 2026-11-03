@@ -90,6 +90,41 @@ alter table public.customers add constraint customers_phone_source_check
 alter table public.customers add column if not exists jamaal_address   text;
 alter table public.customers add column if not exists jamaal_notes     text;
 alter table public.customers add column if not exists jamaal_phone     text;
+-- Edited on the customer page (Sarge, 2026-11-02): a name, town or capacity set
+-- here beats the source site's. The nightly keeps writing the source site's
+-- values into name, city and capacity; these stand beside them, empty = follow
+-- the source site. Saving the source site's own value empties them again.
+-- site_town is an official Vermont town ("Barre Town") or "Place, ST". The
+-- nightly exports them to customer_edits.csv (ids, names, towns, capacities:
+-- nothing private), which the scraper and the projection builder read, so they
+-- reach the dashboard's regions, map and projections. Customers added on the
+-- site (negative ids) are edited in name, city and capacity directly.
+-- An address edited here empties `loc`; the nightly (--place-pins) then moves
+-- the pin: the Census geocoder, else the town centre.
+alter table public.customers add column if not exists site_name     text;
+alter table public.customers add column if not exists site_town     text;
+alter table public.customers add column if not exists site_capacity integer check (site_capacity >= 0);
+-- Region set on the customer page: a geographic region by name in place of the
+-- one the town gives (Jim reassigning a spot off town lines), and the theme
+-- regions ("Ski Slopes", "Summer Snack Stops") as an explicit list. Empty /
+-- null = the config in oil_scraper.py. Exported in customer_edits.csv.
+alter table public.customers add column if not exists site_region   text;
+alter table public.customers add column if not exists site_themes   text[];
+-- Status set on the customer page (Sarge, 2026-11-02), from site_status_since:
+--   inactive       off Assign's lists (grouped last; out of Urgent) and out of
+--                  the projections, listed as inactive. Beats the source site's
+--                  active flag until marked reopened (cleared) or a pickup after it.
+--   closed_season  no projection until the customer's usual season start (its
+--                  MODEL_OVERRIDES or detected season), then the oil clock starts there,
+--                  so a forgotten "open" costs nothing. No known season: held until
+--                  marked open or a pickup.
+--   open           marked open for the season: the oil clock starts that day.
+-- A pickup after site_status_since ends any of them (the nightly clears it).
+alter table public.customers add column if not exists site_status       text;
+alter table public.customers add column if not exists site_status_since date;
+alter table public.customers drop constraint if exists customers_site_status_check;
+alter table public.customers add constraint customers_site_status_check
+  check (site_status in ('inactive', 'closed_season', 'open'));
 
 -- Routes: Jamaal's route ids. Jamaal shows some routes under different names on
 -- different pages, kept in `other_names`.

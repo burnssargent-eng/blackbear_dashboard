@@ -40,6 +40,7 @@ import sys
 
 from check_town_mismatches import load_geojson_towns
 from oil_scraper import COUNTY_MAP, OUT_OF_STATE_BY_CUSTOMER, OUT_OF_STATE_CITIES, REGION_NAMES  # noqa: F401
+from oil_scraper import _out_of_state_place
 
 DATA_PATH = "oil_data.json"
 GEOJSON_PATH = "vermont_towns.geojson"
@@ -396,7 +397,7 @@ def check_8_remaining_mismatches(report, data, geo_towns, coll):
 
         if not town:
             # A customer listed out of state by id counts under its place.
-            place = OUT_OF_STATE_BY_CUSTOMER.get(row.get("customer_id"))
+            place = _out_of_state_place(row.get("customer_id"))   # the registry or a site town edit
             if place:
                 expected_blank[place] += gallons
             elif city in OUT_OF_STATE_CITIES:
@@ -675,6 +676,69 @@ def check_oil_left(report, coll):
         on_pickup = sum(1 for r in rows if (int(r["customer_id"]), r["date"]) in pickup_days)
         report.ok(f"{on_pickup} of {len(rows)} fall on a pickup day (left after a part pickup); "
                   "the rest are checks at stops not collected.")
+
+
+def check_site_edits(report, geo_towns, data=None):
+    """
+    customer_edits.csv: names, towns and capacities edited on the site's
+    customer page, exported nightly (supabase_sync.py --export-site-edits) for
+    the scraper and the projection builder. Ids, names, towns and capacities
+    only: an address or phone never belongs in it. A town is an official
+    Vermont town on the map or "Place, ST".
+    """
+    import csv
+    import re
+    from datetime import date
+    report.section("SE", "Customer page edits")
+    path = "customer_edits.csv"
+    if not os.path.exists(path):
+        report.fail(f"{path} missing; the nightly commits it, and the scraper and builder read it.")
+        return
+    with open(path, newline="") as f:
+        reader = csv.DictReader(f)
+        header = reader.fieldnames
+        rows = list(reader)
+    from oil_scraper import SITE_THEMES
+    expected = ["customer_id", "name", "town", "capacity", "region", "themes", "status", "status_since"]
+    if header != expected:
+        report.fail(f"{path} has columns {header}; expected {', '.join(expected)} only.")
+        return
+    regions = set((data or {}).get("region_names", [])) - set((data or {}).get("theme_regions", []))
+    odd = []
+    for r in rows:
+        region, themes, status, since = r["region"].strip(), r["themes"].strip(), r["status"].strip(), r["status_since"].strip()
+        if region and regions and region not in regions:
+            odd.append(f"{r['customer_id']}: region {region!r}")
+        if themes and themes != "none" and any(t not in SITE_THEMES for t in themes.split(";")):
+            odd.append(f"{r['customer_id']}: themes {themes!r}")
+        if status not in ("", "inactive", "closed_season", "open") or bool(status) != bool(since):
+            odd.append(f"{r['customer_id']}: status {status!r} since {since!r}")
+        if since:
+            try:
+                date.fromisoformat(since)
+            except ValueError:
+                odd.append(f"{r['customer_id']}: status since {since!r}")
+    if odd:
+        report.fail(f"Edits in {path} the scraper or builder cannot read: {', '.join(odd[:5])}.")
+    bad, towns = [], []
+    for r in rows:
+        try:
+            cid = int(r["customer_id"])
+            cap = r["capacity"].strip()
+            if cid <= 0 or (cap and int(cap) < 0):
+                raise ValueError
+        except (TypeError, ValueError):
+            bad.append(r)
+            continue
+        town = r["town"].strip()
+        if town and town not in geo_towns and not re.search(r", [A-Z]{2}$", town):
+            towns.append(f"{cid}: {town}")
+    if bad:
+        report.fail(f"{len(bad)} row(s) in {path} are not a source-site id with a whole capacity, e.g. {bad[0]}.")
+    if towns:
+        report.fail(f"Town(s) in {path} are neither on the Vermont map nor 'Place, ST': {', '.join(towns[:5])}.")
+    if not bad and not towns and not odd:
+        report.ok(f"{path}: {len(rows)} customer(s) edited on the site; every town is on the map or out of state.")
 
 
 def check_live_test(report):
@@ -1644,6 +1708,7 @@ def main():
 
     check_quantity_rule(report, coll)
     check_oil_left(report, coll)
+    check_site_edits(report, geo_towns, data)
     check_projection(report, data)
     check_live_test(report)
     check_route_snapshot(report)

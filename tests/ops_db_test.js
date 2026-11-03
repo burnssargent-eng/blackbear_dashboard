@@ -25,7 +25,8 @@ const api = new Function("window", "const document = { getElementById: () => nul
     recordOilLeft, clearOilLeft, todaysOilLeft, oilLeftText, addShadowCustomer, createRoute, renameRoute, todaysCollection, todayIso, opsDiff, opsSharedPart,
     opsEnsureClientIds, opsStoreFromRows, opsDbAvailable, opsShared, opsWhere, shadowBannerHtml, OPS_STORAGE_KEY,
     opsTodayNote, opsSaveNotes, opsDayBefore, opsCollectedWith, opsCollectedWithText, opsSaveCollectedWith,
-    takeOverCustomer, undoTakeOver, isReplaced, opsPredecessors };`)(window);
+    takeOverCustomer, undoTakeOver, isReplaced, opsPredecessors,
+    opsApplySiteEdits, opsSaveCustomer, opsPhoneStored, opsCustomerDbRow, opsSiteStatus, opsSaveStatus };`)(window);
 
 let fails = 0;
 const ok = (cond, msg) => {
@@ -382,6 +383,67 @@ ok(rNew < -1000000000 && cNew.customer_id < -1000000000, "ids made on the device
   await api.opsSaveCollectedWith(1496, "  ");
   ok(notesSent[0][0] === "update" && notesSent[0][2] === 1496 && notesSent[0][3].collected_with_town === null
      && api.opsCollectedWith(1496) === null, "clearing it stores null and the marker goes");
+
+  // Customer page edits: name, town, capacity beat the source site's; address and phone in place.
+  ok(api.opsPhoneStored("(802) 555-0123") === "+18025550123" && api.opsPhoneStored("1-802-555-0123") === "+18025550123"
+     && api.opsPhoneStored("ext 12") === "ext 12" && api.opsPhoneStored(" ") === "", "phones are stored +1XXXXXXXXXX, others as typed");
+  const editSnap = { assign_list: [{ customer_id: 50, name: "Old Name", city: "Burlington" }, { customer_id: 51, name: "Other", city: "Barre" }],
+    routes: [{ route_id: 1, stops: [{ customer_id: 50, name: "Old Name" }] }] };
+  const editIndex = new Map([[50, { id: 50, name: "Old Name", town: "Burlington" }], [51, { id: 51, name: "Other", town: "Barre City" }]]);
+  const editRows = [{ id: 50, name: "Old Name", city: "Burlington", capacity: 55, address: "1 A St", phone: null,
+    site_name: "New Name", site_town: "Winooski", site_capacity: null, collected_with_town: null }, { id: 51, name: "Other", city: "Barre" }];
+  api.opsApplySiteEdits(editSnap, editIndex, editRows);
+  ok(editSnap.assign_list[0].name === "New Name" && editSnap.assign_list[0].city === "Winooski" && editSnap.routes[0].stops[0].name === "New Name"
+     && editIndex.get(50).town === "Winooski" && editIndex.get(51).town === "Barre City" && editSnap.assign_list[1].city === "Barre",
+     "site name and town show on the Assign list, routes and projection rows; others untouched");
+  editRows[0].site_name = null;
+  api.opsApplySiteEdits(editSnap, editIndex, editRows);
+  ok(editSnap.assign_list[0].name === "Old Name" && editIndex.get(50).name === "Old Name", "clearing an edit brings back the source site's name");
+  const st = api.opsStoreFromRows({ routes: [{ id: 1, name: "R" }], stops: [{ id: 9, route_id: 1, customer_id: 50, position: 1, must_get: false }],
+    customers: [{ ...editRows[0], site_name: "New Name", site_capacity: 70 }], collections: [], outgoing: [], trucks: [] }, editSnap);
+  ok(st.routes[1][0].name === "New Name" && st.routes[1][0].capacity === 70, "route stops carry the site's name and capacity");
+
+  notesSent.length = 0;
+  api.setDb({ client: { from: table }, rows: { customers: editRows.map(r => ({ ...r, site_name: "New Name" })) }, snap: editSnap, index: editIndex });
+  const opened = { name: "New Name", town: "Winooski", capacity: 55, address: "1 A St", phone: "", collected_with: "" };
+  await api.opsSaveCustomer(50, { ...opened }, opened);
+  ok(notesSent.length === 0, "an untouched Save sends nothing (an official town the nightly set is never cleared)");
+  await api.opsSaveCustomer(50, { ...opened, name: "Old Name", capacity: 60, address: "2 B St", phone: "802 555 0123" }, opened);
+  const edSent = notesSent[0] && notesSent[0][3];
+  ok(edSent && edSent.site_name === null && edSent.site_capacity === 60 && !("site_town" in edSent) && edSent.address === "2 B St" && edSent.loc === null
+     && edSent.phone === "+18025550123" && edSent.phone_source === "site",
+     "the source site's own name clears the edit; a new capacity is kept; an address empties the pin; phone stored as site");
+  ok(api.opsCustomerDbRow(50).site_capacity === 60 && editSnap.assign_list[0].name === "Old Name", "the page's copy follows the save");
+  notesSent.length = 0;
+  await api.opsSaveCustomer(50, { ...opened, town: "Burlington" }, opened);
+  ok(notesSent[0][3].site_town === null, "picking the source site's city clears the town edit");
+
+  // Status and region from the customer page.
+  notesSent.length = 0;
+  const stIndex = new Map([[60, { id: 60, name: "S", town: "Stowe", section: "ranked", status: "50/50 default",
+    projected_gal: 40, range_low: 30, range_high: 50, days_past_full: -3, pct_full: 72, last_pickup: "2026-10-01" }]]);
+  stIndex.asOf = "2026-11-02";
+  const stSnap = { assign_list: [{ customer_id: 60, name: "S", city: "Stowe" }], routes: [] };
+  api.setDb({ client: { from: table }, rows: { customers: [{ id: 60, name: "S", city: "Stowe", site_status: null }] },
+    snap: stSnap, index: stIndex });
+  ok(api.opsSiteStatus(60, "2026-10-01") === null, "no status: open");
+  await api.opsSaveStatus(60, "inactive", "2026-11-02");
+  ok(notesSent[0][3].site_status === "inactive" && notesSent[0][3].site_status_since === "2026-11-02"
+     && api.opsSiteStatus(60, "2026-10-01").status === "inactive", "marking inactive saves the status and its day");
+  ok(stIndex.get(60).projected_gal === null && stIndex.get(60).section === "inactive",
+     "marked since the projections were built, the row drops its projection at once");
+  ok(api.opsSiteStatus(60, "2026-11-03") === null, "a pickup after its day ends it");
+  await api.opsSaveStatus(60, null, null);
+  ok(notesSent[1][3].site_status === null && stIndex.get(60).projected_gal === 40 && stIndex.get(60).section === "ranked",
+     "reopened: the status clears and the row's projection comes back");
+  stIndex.asOf = "2026-11-05";
+  await api.opsSaveStatus(60, "closed_season", "2026-11-02");
+  ok(stIndex.get(60).projected_gal === 40, "once the nightly has built after the day, its row is trusted as it is");
+  notesSent.length = 0;
+  const regOpened = { name: "S", town: "Stowe", capacity: null, address: "", phone: "", collected_with: "", region: "", themes: ["Ski Slopes"] };
+  await api.opsSaveCustomer(60, { ...regOpened, region: "Central", themes: [] }, regOpened);
+  ok(notesSent[0][3].site_region === "Central" && Array.isArray(notesSent[0][3].site_themes) && notesSent[0][3].site_themes.length === 0,
+     "Change region and unticking a theme send site_region and an explicit empty theme list");
 
   console.log(fails ? `\n${fails} FAILURE(S)` : "\nALL CHECKS PASSED");
   process.exit(fails ? 1 : 0);

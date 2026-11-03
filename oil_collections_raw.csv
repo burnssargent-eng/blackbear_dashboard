@@ -188,39 +188,39 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 113,Asia Gourmet-Barre,Barre,Washington,2017-10-24,2017,2017-10,60,True,Barre City
 113,Asia Gourmet-Barre,Barre,Washington,2017-09-28,2017,2017-09,60,True,Barre City
 113,Asia Gourmet-Barre,Barre,Washington,2017-09-07,2017,2017-09,125,True,Barre City
-110,Canadian Club,Barre,Unknown,2026-09-25,2026,2026-09,35,True,Barre Town
-110,Canadian Club,Barre,Unknown,2026-07-20,2026,2026-07,20,True,Barre Town
-110,Canadian Club,Barre,Unknown,2026-05-29,2026,2026-05,75,True,Barre Town
-110,Canadian Club,Barre,Unknown,2026-03-25,2026,2026-03,15,True,Barre Town
-110,Canadian Club,Barre,Unknown,2026-01-14,2026,2026-01,15,True,Barre Town
-110,Canadian Club,Barre,Unknown,2025-12-03,2025,2025-12,20,True,Barre Town
-110,Canadian Club,Barre,Unknown,2025-10-02,2025,2025-10,40,True,Barre Town
-110,Canadian Club,Barre,Unknown,2025-06-04,2025,2025-06,45,True,Barre Town
-110,Canadian Club,Barre,Unknown,2025-04-07,2025,2025-04,30,True,Barre Town
-110,Canadian Club,Barre,Unknown,2025-02-04,2025,2025-02,15,True,Barre Town
-110,Canadian Club,Barre,Unknown,2024-11-19,2024,2024-11,25,True,Barre Town
-110,Canadian Club,Barre,Unknown,2024-09-12,2024,2024-09,100,True,Barre Town
-110,Canadian Club,Barre,Unknown,2024-01-05,2024,2024-01,15,True,Barre Town
-110,Canadian Club,Barre,Unknown,2023-10-04,2023,2023-10,100,True,Barre Town
-110,Canadian Club,Barre,Unknown,2023-01-31,2023,2023-01,33,True,Barre Town
-110,Canadian Club,Barre,Unknown,2022-11-10,2022,2022-11,20,True,Barre Town
-110,Canadian Club,Barre,Unknown,2022-08-19,2022,2022-08,20,True,Barre Town
-110,Canadian Club,Barre,Unknown,2022-05-06,2022,2022-05,15,True,Barre Town
-110,Canadian Club,Barre,Unknown,2021-12-30,2021,2021-12,25,True,Barre Town
-110,Canadian Club,Barre,Unknown,2020-10-14,2020,2020-10,50,True,Barre Town
-110,Canadian Club,Barre,Unknown,2019-11-27,2019,2019-11,75,True,Barre Town
-110,Canadian Club,Barre,Unknown,2019-06-22,2019,2019-06,50,True,Barre Town
-110,Canadian Club,Barre,Unknown,2019-05-15,2019,2019-05,50,True,Barre Town
-110,Canadian Club,Barre,Unknown,2019-04-21,2019,2019-04,100,True,Barre Town
-110,Canadian Club,Barre,Unknown,2019-03-07,2019,2019-03,25,True,Barre Town
-110,Canadian Club,Barre,Unknown,2018-11-08,2018,2018-11,30,True,Barre Town
-110,Canadian Club,Barre,Unknown,2018-08-20,2018,2018-08,60,True,Barre Town
-110,Canadian Club,Barre,Unknown,2018-03-07,2018,2018-03,50,True,Barre Town
-110,Canadian Club,Barre,Unknown,2017-09-28,2017,2017-09,15,True,Barre Town
-110,Canadian Club,Barre,Unknown,2017-08-01,2017,2017-08,15,True,Barre Town
-110,Canadian Club,Barre,Unknown,2017-05-17,2017,2017-05,50,True,Barre Town
-110,Canadian Club,Barre,Unknown,2016-04-16,2016,2016-04,25,True,Barre Town
-110,Canadian Club,Barre,Unknown,2016-03-12,2016,2016-03,45,True,Barre Town
+110,Canadian Club,Barre,Washington,2026-09-25,2026,2026-09,35,True,Barre Town
+110,Canadian Club,Barre,Washington,2026-07-20,2026,2026-07,20,True,Barre Town
+110,Canadian Club,Barre,Washington,2026-05-29,2026,2026-05,75,True,Barre Town
+110,Canadian Club,Barre,Washington,2026-03-25,2026,2026-03,15,True,Barre Town
+110,Canadian Club,Barre,Washington,2026-01-14,2026,2026-01,15,True,Barre Town
+110,Canadian Club,Barre,Washington,2025-12-03,2025,2025-12,20,True,Barre Town
+110,Canadian Club,Barre,Washington,2025-10-02,2025,2025-10,40,True,Barre Town
+110,Canadian Club,Barre,Washington,2025-06-04,2025,2025-06,45,True,Barre Town
+110,Canadian Club,Barre,Washington,2025-04-07,2025,2025-04,30,True,Barre Town
+110,Canadian Club,Barre,Washington,2025-02-04,2025,2025-02,15,True,Barre Town
+110,Canadian Club,Barre,Washington,2024-11-19,2024,2024-11,25,True,Barre Town
+110,Canadian Club,Barre,Washington,2024-09-12,2024,2024-09,100,True,Barre Town
+110,Canadian Club,Barre,Washington,2024-01-05,2024,2024-01,15,True,Barre Town
+110,Canadian Club,Barre,Washington,2023-10-04,2023,2023-10,100,True,Barre Town
+110,Canadian Club,Barre,Washington,2023-01-31,2023,2023-01,33,True,Barre Town
+110,Canadian Club,Barre,Washington,2022-11-10,2022,2022-11,20,True,Barre Town
+110,Canadian Club,Barre,Washington,2022-08-19,2022,2022-08,20,True,Barre Town
+110,Canadian Club,Barre,Washington,2022-05-06,2022,2022-05,15,True,Barre Town
+110,Canadian Club,Barre,Washington,2021-12-30,2021,2021-12,25,True,Barre Town
+110,Canadian Club,Barre,Washington,2020-10-14,2020,2020-10,50,True,Barre Town
+110,Canadian Club,Barre,Washington,2019-11-27,2019,2019-11,75,True,Barre Town
+110,Canadian Club,Barre,Washington,2019-06-22,2019,2019-06,50,True,Barre Town
+110,Canadian Club,Barre,Washington,2019-05-15,2019,2019-05,50,True,Barre Town
+110,Canadian Club,Barre,Washington,2019-04-21,2019,2019-04,100,True,Barre Town
+110,Canadian Club,Barre,Washington,2019-03-07,2019,2019-03,25,True,Barre Town
+110,Canadian Club,Barre,Washington,2018-11-08,2018,2018-11,30,True,Barre Town
+110,Canadian Club,Barre,Washington,2018-08-20,2018,2018-08,60,True,Barre Town
+110,Canadian Club,Barre,Washington,2018-03-07,2018,2018-03,50,True,Barre Town
+110,Canadian Club,Barre,Washington,2017-09-28,2017,2017-09,15,True,Barre Town
+110,Canadian Club,Barre,Washington,2017-08-01,2017,2017-08,15,True,Barre Town
+110,Canadian Club,Barre,Washington,2017-05-17,2017,2017-05,50,True,Barre Town
+110,Canadian Club,Barre,Washington,2016-04-16,2016,2016-04,25,True,Barre Town
+110,Canadian Club,Barre,Washington,2016-03-12,2016,2016-03,45,True,Barre Town
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2026-09-29,2026,2026-09,85,True,Barre City
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2026-08-24,2026,2026-08,90,True,Barre City
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2026-07-20,2026,2026-07,45,True,Barre City
@@ -335,97 +335,97 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2015-04-09,2015,2015-04,75,True,Barre City
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2015-02-20,2015,2015-02,60,True,Barre City
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2015-01-16,2015,2015-01,45,True,Barre City
-1363,GE-South Barre Gas Station,Barre,Unknown,2026-09-09,2026,2026-09,90,True,Barre Town
-1363,GE-South Barre Gas Station,Barre,Unknown,2026-06-25,2026,2026-06,40,True,Barre Town
-1363,GE-South Barre Gas Station,Barre,Unknown,2026-05-08,2026,2026-05,55,True,Barre Town
-1363,GE-South Barre Gas Station,Barre,Unknown,2026-03-10,2026,2026-03,35,True,Barre Town
-1363,GE-South Barre Gas Station,Barre,Unknown,2026-02-03,2026,2026-02,35,True,Barre Town
-1363,GE-South Barre Gas Station,Barre,Unknown,2025-12-09,2025,2025-12,15,True,Barre Town
-1363,GE-South Barre Gas Station,Barre,Unknown,2025-11-03,2025,2025-11,20,True,Barre Town
-1363,GE-South Barre Gas Station,Barre,Unknown,2025-08-27,2025,2025-08,30,True,Barre Town
-1363,GE-South Barre Gas Station,Barre,Unknown,2025-07-22,2025,2025-07,35,True,Barre Town
-1363,GE-South Barre Gas Station,Barre,Unknown,2025-06-10,2025,2025-06,25,True,Barre Town
-1363,GE-South Barre Gas Station,Barre,Unknown,2025-05-12,2025,2025-05,25,True,Barre Town
-1363,GE-South Barre Gas Station,Barre,Unknown,2025-04-16,2025,2025-04,20,True,Barre Town
-1363,GE-South Barre Gas Station,Barre,Unknown,2025-03-14,2025,2025-03,55,True,Barre Town
-1363,GE-South Barre Gas Station,Barre,Unknown,2025-01-29,2025,2025-01,40,True,Barre Town
-1363,GE-South Barre Gas Station,Barre,Unknown,2024-11-05,2024,2024-11,25,True,Barre Town
-1363,GE-South Barre Gas Station,Barre,Unknown,2024-09-24,2024,2024-09,20,True,Barre Town
-1363,GE-South Barre Gas Station,Barre,Unknown,2024-09-05,2024,2024-09,60,True,Barre Town
-1363,GE-South Barre Gas Station,Barre,Unknown,2024-08-01,2024,2024-08,200,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2026-10-06,2026,2026-10,60,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2026-09-09,2026,2026-09,80,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2026-07-31,2026,2026-07,65,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2026-06-25,2026,2026-06,85,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2026-05-22,2026,2026-05,80,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2026-04-07,2026,2026-04,80,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2026-01-14,2026,2026-01,65,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2025-10-02,2025,2025-10,40,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2025-06-30,2025,2025-06,35,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2025-03-28,2025,2025-03,40,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2024-12-31,2024,2024-12,50,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2024-09-30,2024,2024-09,40,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2024-06-17,2024,2024-06,55,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2024-02-27,2024,2024-02,60,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2023-11-27,2023,2023-11,40,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2023-08-30,2023,2023-08,65,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2023-04-24,2023,2023-04,50,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2023-01-19,2023,2023-01,30,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2022-11-10,2022,2022-11,40,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2022-08-23,2022,2022-08,40,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2022-05-06,2022,2022-05,60,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2022-01-09,2022,2022-01,30,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2021-10-11,2021,2021-10,30,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2021-08-09,2021,2021-08,65,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2021-03-20,2021,2021-03,65,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2020-11-02,2020,2020-11,25,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2020-09-09,2020,2020-09,50,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2020-04-14,2020,2020-04,40,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2019-07-14,2019,2019-07,50,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2017-09-28,2017,2017-09,20,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2016-10-17,2016,2016-10,12,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2016-08-20,2016,2016-08,25,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2016-04-16,2016,2016-04,25,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2015-09-02,2015,2015-09,25,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2015-06-26,2015,2015-06,25,True,Barre Town
-111,Gunner Brook (Brookside Mkt),Barre,Unknown,2015-04-20,2015,2015-04,40,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2026-09-09,2026,2026-09,96,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2026-06-25,2026,2026-06,32,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2026-05-08,2026,2026-05,32,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2026-03-10,2026,2026-03,128,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2026-01-14,2026,2026-01,40,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2025-11-24,2025,2025-11,116,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2025-09-15,2025,2025-09,77,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2025-06-02,2025,2025-06,102,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2025-03-14,2025,2025-03,121,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2024-12-31,2024,2024-12,103,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2024-11-05,2024,2024-11,70,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2024-09-24,2024,2024-09,65,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2024-08-07,2024,2024-08,75,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2024-06-17,2024,2024-06,112,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2024-04-11,2024,2024-04,98,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2024-02-13,2024,2024-02,108,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2023-12-14,2023,2023-12,87,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2023-10-25,2023,2023-10,82,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2023-08-30,2023,2023-08,43,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2023-07-27,2023,2023-07,45,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2023-06-28,2023,2023-06,44,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2023-06-12,2023,2023-06,42,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2023-05-16,2023,2023-05,21,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2023-05-03,2023,2023-05,67,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2023-04-06,2023,2023-04,60,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2023-02-28,2023,2023-02,40,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2023-02-14,2023,2023-02,66,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2023-01-15,2023,2023-01,44,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2022-12-21,2022,2022-12,144,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2022-11-20,2022,2022-11,106,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2022-10-28,2022,2022-10,85,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2022-10-12,2022,2022-10,153,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2022-09-19,2022,2022-09,63,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2022-09-06,2022,2022-09,60,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2022-08-23,2022,2022-08,114,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2022-07-26,2022,2022-07,85,True,Barre Town
-1128,Hannaford-South Barre,Barre,Unknown,2022-06-29,2022,2022-06,110,True,Barre Town
+1363,GE-South Barre Gas Station,Barre,Washington,2026-09-09,2026,2026-09,90,True,Barre Town
+1363,GE-South Barre Gas Station,Barre,Washington,2026-06-25,2026,2026-06,40,True,Barre Town
+1363,GE-South Barre Gas Station,Barre,Washington,2026-05-08,2026,2026-05,55,True,Barre Town
+1363,GE-South Barre Gas Station,Barre,Washington,2026-03-10,2026,2026-03,35,True,Barre Town
+1363,GE-South Barre Gas Station,Barre,Washington,2026-02-03,2026,2026-02,35,True,Barre Town
+1363,GE-South Barre Gas Station,Barre,Washington,2025-12-09,2025,2025-12,15,True,Barre Town
+1363,GE-South Barre Gas Station,Barre,Washington,2025-11-03,2025,2025-11,20,True,Barre Town
+1363,GE-South Barre Gas Station,Barre,Washington,2025-08-27,2025,2025-08,30,True,Barre Town
+1363,GE-South Barre Gas Station,Barre,Washington,2025-07-22,2025,2025-07,35,True,Barre Town
+1363,GE-South Barre Gas Station,Barre,Washington,2025-06-10,2025,2025-06,25,True,Barre Town
+1363,GE-South Barre Gas Station,Barre,Washington,2025-05-12,2025,2025-05,25,True,Barre Town
+1363,GE-South Barre Gas Station,Barre,Washington,2025-04-16,2025,2025-04,20,True,Barre Town
+1363,GE-South Barre Gas Station,Barre,Washington,2025-03-14,2025,2025-03,55,True,Barre Town
+1363,GE-South Barre Gas Station,Barre,Washington,2025-01-29,2025,2025-01,40,True,Barre Town
+1363,GE-South Barre Gas Station,Barre,Washington,2024-11-05,2024,2024-11,25,True,Barre Town
+1363,GE-South Barre Gas Station,Barre,Washington,2024-09-24,2024,2024-09,20,True,Barre Town
+1363,GE-South Barre Gas Station,Barre,Washington,2024-09-05,2024,2024-09,60,True,Barre Town
+1363,GE-South Barre Gas Station,Barre,Washington,2024-08-01,2024,2024-08,200,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2026-10-06,2026,2026-10,60,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2026-09-09,2026,2026-09,80,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2026-07-31,2026,2026-07,65,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2026-06-25,2026,2026-06,85,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2026-05-22,2026,2026-05,80,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2026-04-07,2026,2026-04,80,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2026-01-14,2026,2026-01,65,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2025-10-02,2025,2025-10,40,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2025-06-30,2025,2025-06,35,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2025-03-28,2025,2025-03,40,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2024-12-31,2024,2024-12,50,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2024-09-30,2024,2024-09,40,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2024-06-17,2024,2024-06,55,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2024-02-27,2024,2024-02,60,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2023-11-27,2023,2023-11,40,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2023-08-30,2023,2023-08,65,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2023-04-24,2023,2023-04,50,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2023-01-19,2023,2023-01,30,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2022-11-10,2022,2022-11,40,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2022-08-23,2022,2022-08,40,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2022-05-06,2022,2022-05,60,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2022-01-09,2022,2022-01,30,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2021-10-11,2021,2021-10,30,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2021-08-09,2021,2021-08,65,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2021-03-20,2021,2021-03,65,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2020-11-02,2020,2020-11,25,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2020-09-09,2020,2020-09,50,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2020-04-14,2020,2020-04,40,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2019-07-14,2019,2019-07,50,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2017-09-28,2017,2017-09,20,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2016-10-17,2016,2016-10,12,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2016-08-20,2016,2016-08,25,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2016-04-16,2016,2016-04,25,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2015-09-02,2015,2015-09,25,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2015-06-26,2015,2015-06,25,True,Barre Town
+111,Gunner Brook (Brookside Mkt),Barre,Washington,2015-04-20,2015,2015-04,40,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2026-09-09,2026,2026-09,96,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2026-06-25,2026,2026-06,32,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2026-05-08,2026,2026-05,32,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2026-03-10,2026,2026-03,128,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2026-01-14,2026,2026-01,40,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2025-11-24,2025,2025-11,116,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2025-09-15,2025,2025-09,77,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2025-06-02,2025,2025-06,102,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2025-03-14,2025,2025-03,121,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2024-12-31,2024,2024-12,103,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2024-11-05,2024,2024-11,70,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2024-09-24,2024,2024-09,65,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2024-08-07,2024,2024-08,75,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2024-06-17,2024,2024-06,112,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2024-04-11,2024,2024-04,98,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2024-02-13,2024,2024-02,108,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2023-12-14,2023,2023-12,87,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2023-10-25,2023,2023-10,82,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2023-08-30,2023,2023-08,43,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2023-07-27,2023,2023-07,45,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2023-06-28,2023,2023-06,44,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2023-06-12,2023,2023-06,42,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2023-05-16,2023,2023-05,21,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2023-05-03,2023,2023-05,67,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2023-04-06,2023,2023-04,60,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2023-02-28,2023,2023-02,40,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2023-02-14,2023,2023-02,66,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2023-01-15,2023,2023-01,44,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2022-12-21,2022,2022-12,144,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2022-11-20,2022,2022-11,106,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2022-10-28,2022,2022-10,85,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2022-10-12,2022,2022-10,153,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2022-09-19,2022,2022-09,63,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2022-09-06,2022,2022-09,60,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2022-08-23,2022,2022-08,114,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2022-07-26,2022,2022-07,85,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2022-06-29,2022,2022-06,110,True,Barre Town
 117,Ladder 1-Barre,Barre,Washington,2026-10-22,2026,2026-10,30,True,Barre City
 117,Ladder 1-Barre,Barre,Washington,2026-09-29,2026,2026-09,30,True,Barre City
 117,Ladder 1-Barre,Barre,Washington,2026-09-09,2026,2026-09,30,True,Barre City
@@ -865,53 +865,53 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 127,The Meltdown-Barre,Barre,Washington,2021-05-04,2021,2021-05,65,True,Barre City
 127,The Meltdown-Barre,Barre,Washington,2021-01-13,2021,2021-01,25,True,Barre City
 127,The Meltdown-Barre,Barre,Washington,2020-11-12,2020,2020-11,60,True,Barre City
-119,Thunder Road  4567,Barre,Unknown,2026-10-15,2026,2026-10,145,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2026-09-09,2026,2026-09,115,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2026-08-20,2026,2026-08,130,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2026-08-05,2026,2026-08,130,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2026-07-20,2026,2026-07,65,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2026-06-25,2026,2026-06,120,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2025-10-10,2025,2025-10,145,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2025-09-15,2025,2025-09,105,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2025-08-19,2025,2025-08,140,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2025-07-29,2025,2025-07,140,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2025-06-30,2025,2025-06,110,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2025-06-10,2025,2025-06,70,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2024-10-11,2024,2024-10,70,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2024-09-24,2024,2024-09,135,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2024-08-27,2024,2024-08,130,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2024-08-07,2024,2024-08,120,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2024-07-12,2024,2024-07,120,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2024-06-25,2024,2024-06,55,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2023-10-30,2023,2023-10,70,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2023-10-03,2023,2023-10,65,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2023-09-21,2023,2023-09,115,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2023-08-10,2023,2023-08,115,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2023-07-27,2023,2023-07,100,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2023-06-21,2023,2023-06,50,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2022-10-12,2022,2022-10,75,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2022-09-19,2022,2022-09,100,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2022-08-02,2022,2022-08,100,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2022-06-20,2022,2022-06,90,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2021-11-15,2021,2021-11,20,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2021-10-26,2021,2021-10,70,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2021-09-13,2021,2021-09,100,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2021-07-13,2021,2021-07,85,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2021-06-14,2021,2021-06,75,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2020-10-14,2020,2020-10,75,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2020-08-26,2020,2020-08,50,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2019-11-11,2019,2019-11,60,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2019-10-23,2019,2019-10,100,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2019-09-11,2019,2019-09,100,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2019-06-14,2019,2019-06,100,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2018-10-17,2018,2018-10,100,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2018-08-07,2018,2018-08,75,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2018-07-05,2018,2018-07,40,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2017-11-16,2017,2017-11,75,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2017-05-24,2017,2017-05,130,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2016-06-27,2016,2016-06,50,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2015-09-02,2015,2015-09,50,True,Barre Town
-119,Thunder Road  4567,Barre,Unknown,2015-05-07,2015,2015-05,75,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2026-10-15,2026,2026-10,145,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2026-09-09,2026,2026-09,115,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2026-08-20,2026,2026-08,130,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2026-08-05,2026,2026-08,130,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2026-07-20,2026,2026-07,65,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2026-06-25,2026,2026-06,120,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2025-10-10,2025,2025-10,145,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2025-09-15,2025,2025-09,105,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2025-08-19,2025,2025-08,140,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2025-07-29,2025,2025-07,140,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2025-06-30,2025,2025-06,110,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2025-06-10,2025,2025-06,70,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2024-10-11,2024,2024-10,70,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2024-09-24,2024,2024-09,135,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2024-08-27,2024,2024-08,130,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2024-08-07,2024,2024-08,120,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2024-07-12,2024,2024-07,120,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2024-06-25,2024,2024-06,55,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2023-10-30,2023,2023-10,70,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2023-10-03,2023,2023-10,65,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2023-09-21,2023,2023-09,115,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2023-08-10,2023,2023-08,115,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2023-07-27,2023,2023-07,100,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2023-06-21,2023,2023-06,50,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2022-10-12,2022,2022-10,75,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2022-09-19,2022,2022-09,100,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2022-08-02,2022,2022-08,100,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2022-06-20,2022,2022-06,90,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2021-11-15,2021,2021-11,20,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2021-10-26,2021,2021-10,70,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2021-09-13,2021,2021-09,100,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2021-07-13,2021,2021-07,85,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2021-06-14,2021,2021-06,75,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2020-10-14,2020,2020-10,75,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2020-08-26,2020,2020-08,50,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2019-11-11,2019,2019-11,60,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2019-10-23,2019,2019-10,100,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2019-09-11,2019,2019-09,100,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2019-06-14,2019,2019-06,100,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2018-10-17,2018,2018-10,100,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2018-08-07,2018,2018-08,75,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2018-07-05,2018,2018-07,40,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2017-11-16,2017,2017-11,75,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2017-05-24,2017,2017-05,130,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2016-06-27,2016,2016-06,50,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2015-09-02,2015,2015-09,50,True,Barre Town
+119,Thunder Road  4567,Barre,Washington,2015-05-07,2015,2015-05,75,True,Barre Town
 1294,Warren Miller-Jamaican food truck,Barre,Washington,2026-10-22,2026,2026-10,20,True,Barre City
 1294,Warren Miller-Jamaican food truck,Barre,Washington,2026-09-09,2026,2026-09,45,True,Barre City
 1294,Warren Miller-Jamaican food truck,Barre,Washington,2026-07-15,2026,2026-07,35,True,Barre City
@@ -14830,9 +14830,9 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1106,Vermont Law School-South Royalton,South Royalton,Windsor,2022-10-05,2022,2022-10,60,True,Royalton
 1106,Vermont Law School-South Royalton,South Royalton,Windsor,2022-08-02,2022,2022-08,50,True,Royalton
 1106,Vermont Law School-South Royalton,South Royalton,Windsor,2022-03-25,2022,2022-03,50,True,Royalton
-1493,Pizza Hut-St Albans,St Albans,Unknown,2026-06-23,2026,2026-06,15,True,Saint Albans Town
-1493,Pizza Hut-St Albans,St Albans,Unknown,2026-06-02,2026,2026-06,20,True,Saint Albans Town
-1493,Pizza Hut-St Albans,St Albans,Unknown,2026-05-12,2026,2026-05,90,True,Saint Albans Town
+1493,Pizza Hut-St Albans,St Albans,Franklin,2026-06-23,2026,2026-06,15,True,Saint Albans Town
+1493,Pizza Hut-St Albans,St Albans,Franklin,2026-06-02,2026,2026-06,20,True,Saint Albans Town
+1493,Pizza Hut-St Albans,St Albans,Franklin,2026-05-12,2026,2026-05,90,True,Saint Albans Town
 1507,St.Johnsbury Country Club,Burlington,Caledonia,2026-09-28,2026,2026-09,30,True,Saint Johnsbury
 1507,St.Johnsbury Country Club,Burlington,Caledonia,2026-09-02,2026,2026-09,30,True,Saint Johnsbury
 1507,St.Johnsbury Country Club,Burlington,Caledonia,2026-08-18,2026,2026-08,55,True,Saint Johnsbury
@@ -14864,58 +14864,58 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1086,Nutra Blend-John,St. Albans,Franklin,2021-11-23,2021,2021-11,1100,True,Saint Albans City
 1086,Nutra Blend-John,St. Albans,Franklin,2021-11-22,2021,2021-11,1350,True,Saint Albans City
 1086,Nutra Blend-John,St. Albans,Franklin,2021-11-17,2021,2021-11,1375,True,Saint Albans City
-417,Bayside Pavilion,St. Albans City,Unknown,2026-09-01,2026,2026-09,150,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2026-06-23,2026,2026-06,90,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2026-05-12,2026,2026-05,90,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2026-03-18,2026,2026-03,100,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2026-02-05,2026,2026-02,60,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2025-12-15,2025,2025-12,60,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2025-11-20,2025,2025-11,125,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2025-10-09,2025,2025-10,170,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2025-08-22,2025,2025-08,40,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2025-08-01,2025,2025-08,140,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2025-06-06,2025,2025-06,190,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2025-04-11,2025,2025-04,90,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2025-03-03,2025,2025-03,60,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2025-01-03,2025,2025-01,100,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2024-11-14,2024,2024-11,90,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2024-09-12,2024,2024-09,90,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2024-07-16,2024,2024-07,100,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2024-05-15,2024,2024-05,40,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2024-03-12,2024,2024-03,135,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2024-01-14,2024,2024-01,160,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2023-11-09,2023,2023-11,170,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2023-08-29,2023,2023-08,165,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2023-06-26,2023,2023-06,150,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2023-05-10,2023,2023-05,140,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2023-03-27,2023,2023-03,140,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2023-02-12,2023,2023-02,120,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2022-12-08,2022,2022-12,125,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2022-10-27,2022,2022-10,190,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2022-08-31,2022,2022-08,100,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2022-07-17,2022,2022-07,160,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2022-05-27,2022,2022-05,215,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2022-03-22,2022,2022-03,125,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2022-02-03,2022,2022-02,75,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2021-12-09,2021,2021-12,160,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2021-10-04,2021,2021-10,60,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2021-08-30,2021,2021-08,75,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2021-08-11,2021,2021-08,125,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2021-07-12,2021,2021-07,75,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2021-06-22,2021,2021-06,265,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2021-05-09,2021,2021-05,150,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2021-03-09,2021,2021-03,225,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2020-12-03,2020,2020-12,175,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2020-10-05,2020,2020-10,175,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2020-06-30,2020,2020-06,225,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2020-02-24,2020,2020-02,200,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2019-10-30,2019,2019-10,200,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2019-07-09,2019,2019-07,125,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2019-05-02,2019,2019-05,150,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2018-12-14,2018,2018-12,85,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2018-10-17,2018,2018-10,125,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2018-05-11,2018,2018-05,100,True,Saint Albans Town
-417,Bayside Pavilion,St. Albans City,Unknown,2018-02-27,2018,2018-02,100,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2026-09-01,2026,2026-09,150,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2026-06-23,2026,2026-06,90,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2026-05-12,2026,2026-05,90,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2026-03-18,2026,2026-03,100,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2026-02-05,2026,2026-02,60,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2025-12-15,2025,2025-12,60,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2025-11-20,2025,2025-11,125,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2025-10-09,2025,2025-10,170,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2025-08-22,2025,2025-08,40,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2025-08-01,2025,2025-08,140,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2025-06-06,2025,2025-06,190,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2025-04-11,2025,2025-04,90,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2025-03-03,2025,2025-03,60,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2025-01-03,2025,2025-01,100,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2024-11-14,2024,2024-11,90,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2024-09-12,2024,2024-09,90,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2024-07-16,2024,2024-07,100,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2024-05-15,2024,2024-05,40,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2024-03-12,2024,2024-03,135,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2024-01-14,2024,2024-01,160,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2023-11-09,2023,2023-11,170,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2023-08-29,2023,2023-08,165,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2023-06-26,2023,2023-06,150,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2023-05-10,2023,2023-05,140,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2023-03-27,2023,2023-03,140,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2023-02-12,2023,2023-02,120,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2022-12-08,2022,2022-12,125,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2022-10-27,2022,2022-10,190,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2022-08-31,2022,2022-08,100,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2022-07-17,2022,2022-07,160,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2022-05-27,2022,2022-05,215,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2022-03-22,2022,2022-03,125,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2022-02-03,2022,2022-02,75,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2021-12-09,2021,2021-12,160,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2021-10-04,2021,2021-10,60,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2021-08-30,2021,2021-08,75,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2021-08-11,2021,2021-08,125,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2021-07-12,2021,2021-07,75,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2021-06-22,2021,2021-06,265,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2021-05-09,2021,2021-05,150,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2021-03-09,2021,2021-03,225,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2020-12-03,2020,2020-12,175,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2020-10-05,2020,2020-10,175,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2020-06-30,2020,2020-06,225,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2020-02-24,2020,2020-02,200,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2019-10-30,2019,2019-10,200,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2019-07-09,2019,2019-07,125,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2019-05-02,2019,2019-05,150,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2018-12-14,2018,2018-12,85,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2018-10-17,2018,2018-10,125,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2018-05-11,2018,2018-05,100,True,Saint Albans Town
+417,Bayside Pavilion,St. Albans City,Franklin,2018-02-27,2018,2018-02,100,True,Saint Albans Town
 421,BLACK RADISH/14thStar-Saint Albans-14th Star,St. Albans City,Franklin,2026-09-30,2026,2026-09,150,True,Saint Albans City
 421,BLACK RADISH/14thStar-Saint Albans-14th Star,St. Albans City,Franklin,2026-09-01,2026,2026-09,135,True,Saint Albans City
 421,BLACK RADISH/14thStar-Saint Albans-14th Star,St. Albans City,Franklin,2026-07-31,2026,2026-07,200,True,Saint Albans City
@@ -24300,7 +24300,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 155,Deli at Kurrle Fuels,Burlington,Chittenden,2017-09-28,2017,2017-09,10,False,Burlington
 155,Deli at Kurrle Fuels,Burlington,Chittenden,2016-11-05,2016,2016-11,75,False,Burlington
 155,Deli at Kurrle Fuels,Burlington,Chittenden,2015-03-19,2015,2015-03,18,False,Burlington
-1258,Dennys - Rutland,Rutland,Unknown,2023-05-25,2023,2023-05,280,False,Rutland Town
+1258,Dennys - Rutland,Rutland,Rutland,2023-05-25,2023,2023-05,280,False,Rutland Town
 1190,Dennys -Out of Business,South Burlington,Chittenden,2023-12-05,2023,2023-12,100,False,South Burlington
 1190,Dennys -Out of Business,South Burlington,Chittenden,2023-11-21,2023,2023-11,75,False,South Burlington
 1190,Dennys -Out of Business,South Burlington,Chittenden,2023-11-03,2023,2023-11,120,False,South Burlington

@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-02T16:50:13.327265",
+  "last_updated": "2026-11-02T19:15:45.967992",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -34529,13 +34529,8 @@
     },
     {
       "month": "2015-04",
-      "county": "Unknown",
-      "gallons": 40
-    },
-    {
-      "month": "2015-04",
       "county": "Washington",
-      "gallons": 1385
+      "gallons": 1425
     },
     {
       "month": "2015-04",
@@ -34569,13 +34564,8 @@
     },
     {
       "month": "2015-05",
-      "county": "Unknown",
-      "gallons": 75
-    },
-    {
-      "month": "2015-05",
       "county": "Washington",
-      "gallons": 853
+      "gallons": 928
     },
     {
       "month": "2015-05",
@@ -34609,13 +34599,8 @@
     },
     {
       "month": "2015-06",
-      "county": "Unknown",
-      "gallons": 25
-    },
-    {
-      "month": "2015-06",
       "county": "Washington",
-      "gallons": 1232
+      "gallons": 1257
     },
     {
       "month": "2015-06",
@@ -34709,13 +34694,8 @@
     },
     {
       "month": "2015-09",
-      "county": "Unknown",
-      "gallons": 75
-    },
-    {
-      "month": "2015-09",
       "county": "Washington",
-      "gallons": 1045
+      "gallons": 1120
     },
     {
       "month": "2015-09",
@@ -34939,13 +34919,8 @@
     },
     {
       "month": "2016-03",
-      "county": "Unknown",
-      "gallons": 45
-    },
-    {
-      "month": "2016-03",
       "county": "Washington",
-      "gallons": 1467
+      "gallons": 1512
     },
     {
       "month": "2016-03",
@@ -34984,13 +34959,8 @@
     },
     {
       "month": "2016-04",
-      "county": "Unknown",
-      "gallons": 50
-    },
-    {
-      "month": "2016-04",
       "county": "Washington",
-      "gallons": 1600
+      "gallons": 1650
     },
     {
       "month": "2016-04",
@@ -35059,13 +35029,8 @@
     },
     {
       "month": "2016-06",
-      "county": "Unknown",
-      "gallons": 50
-    },
-    {
-      "month": "2016-06",
       "county": "Washington",
-      "gallons": 1358
+      "gallons": 1408
     },
     {
       "month": "2016-06",
@@ -35154,13 +35119,8 @@
     },
     {
       "month": "2016-08",
-      "county": "Unknown",
-      "gallons": 25
-    },
-    {
-      "month": "2016-08",
       "county": "Washington",
-      "gallons": 1758
+      "gallons": 1783
     },
     {
       "month": "2016-08",
@@ -35249,13 +35209,8 @@
     },
     {
       "month": "2016-10",
-      "county": "Unknown",
-      "gallons": 12
-    },
-    {
-      "month": "2016-10",
       "county": "Washington",
-      "gallons": 2370
+      "gallons": 2382
     },
     {
       "month": "2016-10",
@@ -35579,13 +35534,8 @@
     },
     {
       "month": "2017-05",
-      "county": "Unknown",
-      "gallons": 180
-    },
-    {
-      "month": "2017-05",
       "county": "Washington",
-      "gallons": 2558
+      "gallons": 2738
     },
     {
       "month": "2017-05",
@@ -35749,13 +35699,8 @@
     },
     {
       "month": "2017-08",
-      "county": "Unknown",
-      "gallons": 15
-    },
-    {
-      "month": "2017-08",
       "county": "Washington",
-      "gallons": 2615
+      "gallons": 2630
     },
     {
       "month": "2017-08",
@@ -35809,13 +35754,8 @@
     },
     {
       "month": "2017-09",
-      "county": "Unknown",
-      "gallons": 35
-    },
-    {
-      "month": "2017-09",
       "county": "Washington",
-      "gallons": 4325
+      "gallons": 4360
     },
     {
       "month": "2017-09",
@@ -35904,13 +35844,8 @@
     },
     {
       "month": "2017-11",
-      "county": "Unknown",
-      "gallons": 75
-    },
-    {
-      "month": "2017-11",
       "county": "Washington",
-      "gallons": 2150
+      "gallons": 2225
     },
     {
       "month": "2017-11",
@@ -36039,6 +35974,11 @@
     },
     {
       "month": "2018-02",
+      "county": "Franklin",
+      "gallons": 100
+    },
+    {
+      "month": "2018-02",
       "county": "Lamoille",
       "gallons": 1120
     },
@@ -36061,11 +36001,6 @@
       "month": "2018-02",
       "county": "Rutland",
       "gallons": 325
-    },
-    {
-      "month": "2018-02",
-      "county": "Unknown",
-      "gallons": 100
     },
     {
       "month": "2018-02",
@@ -36129,13 +36064,8 @@
     },
     {
       "month": "2018-03",
-      "county": "Unknown",
-      "gallons": 50
-    },
-    {
-      "month": "2018-03",
       "county": "Washington",
-      "gallons": 4000
+      "gallons": 4050
     },
     {
       "month": "2018-03",
@@ -36224,6 +36154,11 @@
     },
     {
       "month": "2018-05",
+      "county": "Franklin",
+      "gallons": 100
+    },
+    {
+      "month": "2018-05",
       "county": "Lamoille",
       "gallons": 1280
     },
@@ -36241,11 +36176,6 @@
       "month": "2018-05",
       "county": "Rutland",
       "gallons": 475
-    },
-    {
-      "month": "2018-05",
-      "county": "Unknown",
-      "gallons": 100
     },
     {
       "month": "2018-05",
@@ -36344,13 +36274,8 @@
     },
     {
       "month": "2018-07",
-      "county": "Unknown",
-      "gallons": 40
-    },
-    {
-      "month": "2018-07",
       "county": "Washington",
-      "gallons": 4095
+      "gallons": 4135
     },
     {
       "month": "2018-07",
@@ -36404,13 +36329,8 @@
     },
     {
       "month": "2018-08",
-      "county": "Unknown",
-      "gallons": 135
-    },
-    {
-      "month": "2018-08",
       "county": "Washington",
-      "gallons": 3082
+      "gallons": 3217
     },
     {
       "month": "2018-08",
@@ -36490,7 +36410,7 @@
     {
       "month": "2018-10",
       "county": "Franklin",
-      "gallons": 100
+      "gallons": 225
     },
     {
       "month": "2018-10",
@@ -36514,13 +36434,8 @@
     },
     {
       "month": "2018-10",
-      "county": "Unknown",
-      "gallons": 225
-    },
-    {
-      "month": "2018-10",
       "county": "Washington",
-      "gallons": 3285
+      "gallons": 3385
     },
     {
       "month": "2018-10",
@@ -36564,13 +36479,8 @@
     },
     {
       "month": "2018-11",
-      "county": "Unknown",
-      "gallons": 30
-    },
-    {
-      "month": "2018-11",
       "county": "Washington",
-      "gallons": 3335
+      "gallons": 3365
     },
     {
       "month": "2018-11",
@@ -36604,6 +36514,11 @@
     },
     {
       "month": "2018-12",
+      "county": "Franklin",
+      "gallons": 85
+    },
+    {
+      "month": "2018-12",
       "county": "Lamoille",
       "gallons": 2131
     },
@@ -36621,11 +36536,6 @@
       "month": "2018-12",
       "county": "Rutland",
       "gallons": 150
-    },
-    {
-      "month": "2018-12",
-      "county": "Unknown",
-      "gallons": 85
     },
     {
       "month": "2018-12",
@@ -36789,13 +36699,8 @@
     },
     {
       "month": "2019-03",
-      "county": "Unknown",
-      "gallons": 25
-    },
-    {
-      "month": "2019-03",
       "county": "Washington",
-      "gallons": 3325
+      "gallons": 3350
     },
     {
       "month": "2019-03",
@@ -36839,13 +36744,8 @@
     },
     {
       "month": "2019-04",
-      "county": "Unknown",
-      "gallons": 100
-    },
-    {
-      "month": "2019-04",
       "county": "Washington",
-      "gallons": 3810
+      "gallons": 3910
     },
     {
       "month": "2019-04",
@@ -36875,7 +36775,7 @@
     {
       "month": "2019-05",
       "county": "Franklin",
-      "gallons": 130
+      "gallons": 280
     },
     {
       "month": "2019-05",
@@ -36899,13 +36799,8 @@
     },
     {
       "month": "2019-05",
-      "county": "Unknown",
-      "gallons": 200
-    },
-    {
-      "month": "2019-05",
       "county": "Washington",
-      "gallons": 3925
+      "gallons": 3975
     },
     {
       "month": "2019-05",
@@ -36949,13 +36844,8 @@
     },
     {
       "month": "2019-06",
-      "county": "Unknown",
-      "gallons": 150
-    },
-    {
-      "month": "2019-06",
       "county": "Washington",
-      "gallons": 2400
+      "gallons": 2550
     },
     {
       "month": "2019-06",
@@ -36985,7 +36875,7 @@
     {
       "month": "2019-07",
       "county": "Franklin",
-      "gallons": 25
+      "gallons": 150
     },
     {
       "month": "2019-07",
@@ -37009,13 +36899,8 @@
     },
     {
       "month": "2019-07",
-      "county": "Unknown",
-      "gallons": 175
-    },
-    {
-      "month": "2019-07",
       "county": "Washington",
-      "gallons": 3330
+      "gallons": 3380
     },
     {
       "month": "2019-07",
@@ -37114,13 +36999,8 @@
     },
     {
       "month": "2019-09",
-      "county": "Unknown",
-      "gallons": 100
-    },
-    {
-      "month": "2019-09",
       "county": "Washington",
-      "gallons": 1985
+      "gallons": 2085
     },
     {
       "month": "2019-09",
@@ -37145,7 +37025,7 @@
     {
       "month": "2019-10",
       "county": "Franklin",
-      "gallons": 175
+      "gallons": 375
     },
     {
       "month": "2019-10",
@@ -37164,13 +37044,8 @@
     },
     {
       "month": "2019-10",
-      "county": "Unknown",
-      "gallons": 300
-    },
-    {
-      "month": "2019-10",
       "county": "Washington",
-      "gallons": 3205
+      "gallons": 3305
     },
     {
       "month": "2019-10",
@@ -37219,13 +37094,8 @@
     },
     {
       "month": "2019-11",
-      "county": "Unknown",
-      "gallons": 135
-    },
-    {
-      "month": "2019-11",
       "county": "Washington",
-      "gallons": 4450
+      "gallons": 4585
     },
     {
       "month": "2019-11",
@@ -37350,7 +37220,7 @@
     {
       "month": "2020-02",
       "county": "Franklin",
-      "gallons": 150
+      "gallons": 350
     },
     {
       "month": "2020-02",
@@ -37371,11 +37241,6 @@
       "month": "2020-02",
       "county": "Rutland",
       "gallons": 360
-    },
-    {
-      "month": "2020-02",
-      "county": "Unknown",
-      "gallons": 200
     },
     {
       "month": "2020-02",
@@ -37499,13 +37364,8 @@
     },
     {
       "month": "2020-04",
-      "county": "Unknown",
-      "gallons": 40
-    },
-    {
-      "month": "2020-04",
       "county": "Washington",
-      "gallons": 2100
+      "gallons": 2140
     },
     {
       "month": "2020-04",
@@ -37560,7 +37420,7 @@
     {
       "month": "2020-06",
       "county": "Franklin",
-      "gallons": 125
+      "gallons": 350
     },
     {
       "month": "2020-06",
@@ -37581,11 +37441,6 @@
       "month": "2020-06",
       "county": "Rutland",
       "gallons": 50
-    },
-    {
-      "month": "2020-06",
-      "county": "Unknown",
-      "gallons": 225
     },
     {
       "month": "2020-06",
@@ -37689,13 +37544,8 @@
     },
     {
       "month": "2020-08",
-      "county": "Unknown",
-      "gallons": 50
-    },
-    {
-      "month": "2020-08",
       "county": "Washington",
-      "gallons": 1755
+      "gallons": 1805
     },
     {
       "month": "2020-08",
@@ -37739,13 +37589,8 @@
     },
     {
       "month": "2020-09",
-      "county": "Unknown",
-      "gallons": 50
-    },
-    {
-      "month": "2020-09",
       "county": "Washington",
-      "gallons": 2935
+      "gallons": 2985
     },
     {
       "month": "2020-09",
@@ -37775,7 +37620,7 @@
     {
       "month": "2020-10",
       "county": "Franklin",
-      "gallons": 225
+      "gallons": 400
     },
     {
       "month": "2020-10",
@@ -37799,13 +37644,8 @@
     },
     {
       "month": "2020-10",
-      "county": "Unknown",
-      "gallons": 300
-    },
-    {
-      "month": "2020-10",
       "county": "Washington",
-      "gallons": 1965
+      "gallons": 2090
     },
     {
       "month": "2020-10",
@@ -37849,13 +37689,8 @@
     },
     {
       "month": "2020-11",
-      "county": "Unknown",
-      "gallons": 25
-    },
-    {
-      "month": "2020-11",
       "county": "Washington",
-      "gallons": 2840
+      "gallons": 2865
     },
     {
       "month": "2020-11",
@@ -37890,7 +37725,7 @@
     {
       "month": "2020-12",
       "county": "Franklin",
-      "gallons": 170
+      "gallons": 345
     },
     {
       "month": "2020-12",
@@ -37911,11 +37746,6 @@
       "month": "2020-12",
       "county": "Rutland",
       "gallons": 200
-    },
-    {
-      "month": "2020-12",
-      "county": "Unknown",
-      "gallons": 175
     },
     {
       "month": "2020-12",
@@ -38050,7 +37880,7 @@
     {
       "month": "2021-03",
       "county": "Franklin",
-      "gallons": 175
+      "gallons": 400
     },
     {
       "month": "2021-03",
@@ -38069,13 +37899,8 @@
     },
     {
       "month": "2021-03",
-      "county": "Unknown",
-      "gallons": 290
-    },
-    {
-      "month": "2021-03",
       "county": "Washington",
-      "gallons": 3835
+      "gallons": 3900
     },
     {
       "month": "2021-03",
@@ -38145,7 +37970,7 @@
     {
       "month": "2021-05",
       "county": "Franklin",
-      "gallons": 200
+      "gallons": 350
     },
     {
       "month": "2021-05",
@@ -38171,11 +37996,6 @@
       "month": "2021-05",
       "county": "Rutland",
       "gallons": 325
-    },
-    {
-      "month": "2021-05",
-      "county": "Unknown",
-      "gallons": 150
     },
     {
       "month": "2021-05",
@@ -38210,7 +38030,7 @@
     {
       "month": "2021-06",
       "county": "Franklin",
-      "gallons": 260
+      "gallons": 525
     },
     {
       "month": "2021-06",
@@ -38229,13 +38049,8 @@
     },
     {
       "month": "2021-06",
-      "county": "Unknown",
-      "gallons": 340
-    },
-    {
-      "month": "2021-06",
       "county": "Washington",
-      "gallons": 2245
+      "gallons": 2320
     },
     {
       "month": "2021-06",
@@ -38265,7 +38080,7 @@
     {
       "month": "2021-07",
       "county": "Franklin",
-      "gallons": 95
+      "gallons": 170
     },
     {
       "month": "2021-07",
@@ -38284,13 +38099,8 @@
     },
     {
       "month": "2021-07",
-      "county": "Unknown",
-      "gallons": 160
-    },
-    {
-      "month": "2021-07",
       "county": "Washington",
-      "gallons": 2830
+      "gallons": 2915
     },
     {
       "month": "2021-07",
@@ -38325,7 +38135,7 @@
     {
       "month": "2021-08",
       "county": "Franklin",
-      "gallons": 320
+      "gallons": 520
     },
     {
       "month": "2021-08",
@@ -38349,13 +38159,8 @@
     },
     {
       "month": "2021-08",
-      "county": "Unknown",
-      "gallons": 265
-    },
-    {
-      "month": "2021-08",
       "county": "Washington",
-      "gallons": 3465
+      "gallons": 3530
     },
     {
       "month": "2021-08",
@@ -38404,13 +38209,8 @@
     },
     {
       "month": "2021-09",
-      "county": "Unknown",
-      "gallons": 100
-    },
-    {
-      "month": "2021-09",
       "county": "Washington",
-      "gallons": 3470
+      "gallons": 3570
     },
     {
       "month": "2021-09",
@@ -38440,7 +38240,7 @@
     {
       "month": "2021-10",
       "county": "Franklin",
-      "gallons": 195
+      "gallons": 255
     },
     {
       "month": "2021-10",
@@ -38459,13 +38259,8 @@
     },
     {
       "month": "2021-10",
-      "county": "Unknown",
-      "gallons": 160
-    },
-    {
-      "month": "2021-10",
       "county": "Washington",
-      "gallons": 3705
+      "gallons": 3805
     },
     {
       "month": "2021-10",
@@ -38524,13 +38319,8 @@
     },
     {
       "month": "2021-11",
-      "county": "Unknown",
-      "gallons": 20
-    },
-    {
-      "month": "2021-11",
       "county": "Washington",
-      "gallons": 2987
+      "gallons": 3007
     },
     {
       "month": "2021-11",
@@ -38565,7 +38355,7 @@
     {
       "month": "2021-12",
       "county": "Franklin",
-      "gallons": 290
+      "gallons": 450
     },
     {
       "month": "2021-12",
@@ -38594,13 +38384,8 @@
     },
     {
       "month": "2021-12",
-      "county": "Unknown",
-      "gallons": 185
-    },
-    {
-      "month": "2021-12",
       "county": "Washington",
-      "gallons": 3715
+      "gallons": 3740
     },
     {
       "month": "2021-12",
@@ -38644,13 +38429,8 @@
     },
     {
       "month": "2022-01",
-      "county": "Unknown",
-      "gallons": 30
-    },
-    {
-      "month": "2022-01",
       "county": "Washington",
-      "gallons": 1570
+      "gallons": 1600
     },
     {
       "month": "2022-01",
@@ -38675,7 +38455,7 @@
     {
       "month": "2022-02",
       "county": "Franklin",
-      "gallons": 125
+      "gallons": 200
     },
     {
       "month": "2022-02",
@@ -38696,11 +38476,6 @@
       "month": "2022-02",
       "county": "Rutland",
       "gallons": 400
-    },
-    {
-      "month": "2022-02",
-      "county": "Unknown",
-      "gallons": 75
     },
     {
       "month": "2022-02",
@@ -38740,7 +38515,7 @@
     {
       "month": "2022-03",
       "county": "Franklin",
-      "gallons": 160
+      "gallons": 285
     },
     {
       "month": "2022-03",
@@ -38761,11 +38536,6 @@
       "month": "2022-03",
       "county": "Rutland",
       "gallons": 180
-    },
-    {
-      "month": "2022-03",
-      "county": "Unknown",
-      "gallons": 125
     },
     {
       "month": "2022-03",
@@ -38860,7 +38630,7 @@
     {
       "month": "2022-05",
       "county": "Franklin",
-      "gallons": 295
+      "gallons": 510
     },
     {
       "month": "2022-05",
@@ -38879,13 +38649,8 @@
     },
     {
       "month": "2022-05",
-      "county": "Unknown",
-      "gallons": 290
-    },
-    {
-      "month": "2022-05",
       "county": "Washington",
-      "gallons": 3100
+      "gallons": 3175
     },
     {
       "month": "2022-05",
@@ -38944,13 +38709,8 @@
     },
     {
       "month": "2022-06",
-      "county": "Unknown",
-      "gallons": 200
-    },
-    {
-      "month": "2022-06",
       "county": "Washington",
-      "gallons": 3235
+      "gallons": 3435
     },
     {
       "month": "2022-06",
@@ -38990,7 +38750,7 @@
     {
       "month": "2022-07",
       "county": "Franklin",
-      "gallons": 180
+      "gallons": 340
     },
     {
       "month": "2022-07",
@@ -39014,13 +38774,8 @@
     },
     {
       "month": "2022-07",
-      "county": "Unknown",
-      "gallons": 245
-    },
-    {
-      "month": "2022-07",
       "county": "Washington",
-      "gallons": 2544
+      "gallons": 2629
     },
     {
       "month": "2022-07",
@@ -39055,7 +38810,7 @@
     {
       "month": "2022-08",
       "county": "Franklin",
-      "gallons": 339
+      "gallons": 439
     },
     {
       "month": "2022-08",
@@ -39074,13 +38829,8 @@
     },
     {
       "month": "2022-08",
-      "county": "Unknown",
-      "gallons": 374
-    },
-    {
-      "month": "2022-08",
       "county": "Washington",
-      "gallons": 3914
+      "gallons": 4188
     },
     {
       "month": "2022-08",
@@ -39154,13 +38904,8 @@
     },
     {
       "month": "2022-09",
-      "county": "Unknown",
-      "gallons": 223
-    },
-    {
-      "month": "2022-09",
       "county": "Washington",
-      "gallons": 4005
+      "gallons": 4228
     },
     {
       "month": "2022-09",
@@ -39195,7 +38940,7 @@
     {
       "month": "2022-10",
       "county": "Franklin",
-      "gallons": 272
+      "gallons": 462
     },
     {
       "month": "2022-10",
@@ -39229,13 +38974,8 @@
     },
     {
       "month": "2022-10",
-      "county": "Unknown",
-      "gallons": 503
-    },
-    {
-      "month": "2022-10",
       "county": "Washington",
-      "gallons": 2780
+      "gallons": 3093
     },
     {
       "month": "2022-10",
@@ -39289,13 +39029,8 @@
     },
     {
       "month": "2022-11",
-      "county": "Unknown",
-      "gallons": 166
-    },
-    {
-      "month": "2022-11",
       "county": "Washington",
-      "gallons": 3903
+      "gallons": 4069
     },
     {
       "month": "2022-11",
@@ -39330,7 +39065,7 @@
     {
       "month": "2022-12",
       "county": "Franklin",
-      "gallons": 1882
+      "gallons": 2007
     },
     {
       "month": "2022-12",
@@ -39359,13 +39094,8 @@
     },
     {
       "month": "2022-12",
-      "county": "Unknown",
-      "gallons": 269
-    },
-    {
-      "month": "2022-12",
       "county": "Washington",
-      "gallons": 2300
+      "gallons": 2444
     },
     {
       "month": "2022-12",
@@ -39424,13 +39154,8 @@
     },
     {
       "month": "2023-01",
-      "county": "Unknown",
-      "gallons": 107
-    },
-    {
-      "month": "2023-01",
       "county": "Washington",
-      "gallons": 3771
+      "gallons": 3878
     },
     {
       "month": "2023-01",
@@ -39465,7 +39190,7 @@
     {
       "month": "2023-02",
       "county": "Franklin",
-      "gallons": 368
+      "gallons": 488
     },
     {
       "month": "2023-02",
@@ -39489,13 +39214,8 @@
     },
     {
       "month": "2023-02",
-      "county": "Unknown",
-      "gallons": 226
-    },
-    {
-      "month": "2023-02",
       "county": "Washington",
-      "gallons": 3505
+      "gallons": 3611
     },
     {
       "month": "2023-02",
@@ -39525,7 +39245,7 @@
     {
       "month": "2023-03",
       "county": "Franklin",
-      "gallons": 557
+      "gallons": 697
     },
     {
       "month": "2023-03",
@@ -39551,11 +39271,6 @@
       "month": "2023-03",
       "county": "Rutland",
       "gallons": 950
-    },
-    {
-      "month": "2023-03",
-      "county": "Unknown",
-      "gallons": 140
     },
     {
       "month": "2023-03",
@@ -39624,13 +39339,8 @@
     },
     {
       "month": "2023-04",
-      "county": "Unknown",
-      "gallons": 110
-    },
-    {
-      "month": "2023-04",
       "county": "Washington",
-      "gallons": 3869
+      "gallons": 3979
     },
     {
       "month": "2023-04",
@@ -39665,7 +39375,7 @@
     {
       "month": "2023-05",
       "county": "Franklin",
-      "gallons": 536
+      "gallons": 676
     },
     {
       "month": "2023-05",
@@ -39695,17 +39405,12 @@
     {
       "month": "2023-05",
       "county": "Rutland",
-      "gallons": 520
-    },
-    {
-      "month": "2023-05",
-      "county": "Unknown",
-      "gallons": 508
+      "gallons": 800
     },
     {
       "month": "2023-05",
       "county": "Washington",
-      "gallons": 3345
+      "gallons": 3433
     },
     {
       "month": "2023-05",
@@ -39745,7 +39450,7 @@
     {
       "month": "2023-06",
       "county": "Franklin",
-      "gallons": 628
+      "gallons": 778
     },
     {
       "month": "2023-06",
@@ -39774,13 +39479,8 @@
     },
     {
       "month": "2023-06",
-      "county": "Unknown",
-      "gallons": 286
-    },
-    {
-      "month": "2023-06",
       "county": "Washington",
-      "gallons": 4920
+      "gallons": 5056
     },
     {
       "month": "2023-06",
@@ -39834,13 +39534,8 @@
     },
     {
       "month": "2023-07",
-      "county": "Unknown",
-      "gallons": 145
-    },
-    {
-      "month": "2023-07",
       "county": "Washington",
-      "gallons": 2430
+      "gallons": 2575
     },
     {
       "month": "2023-07",
@@ -39875,7 +39570,7 @@
     {
       "month": "2023-08",
       "county": "Franklin",
-      "gallons": 635
+      "gallons": 800
     },
     {
       "month": "2023-08",
@@ -39909,13 +39604,8 @@
     },
     {
       "month": "2023-08",
-      "county": "Unknown",
-      "gallons": 388
-    },
-    {
-      "month": "2023-08",
       "county": "Washington",
-      "gallons": 4149
+      "gallons": 4372
     },
     {
       "month": "2023-08",
@@ -39984,13 +39674,8 @@
     },
     {
       "month": "2023-09",
-      "county": "Unknown",
-      "gallons": 115
-    },
-    {
-      "month": "2023-09",
       "county": "Washington",
-      "gallons": 2337
+      "gallons": 2452
     },
     {
       "month": "2023-09",
@@ -40054,13 +39739,8 @@
     },
     {
       "month": "2023-10",
-      "county": "Unknown",
-      "gallons": 317
-    },
-    {
-      "month": "2023-10",
       "county": "Washington",
-      "gallons": 4408
+      "gallons": 4725
     },
     {
       "month": "2023-10",
@@ -40100,7 +39780,7 @@
     {
       "month": "2023-11",
       "county": "Franklin",
-      "gallons": 480
+      "gallons": 650
     },
     {
       "month": "2023-11",
@@ -40134,13 +39814,8 @@
     },
     {
       "month": "2023-11",
-      "county": "Unknown",
-      "gallons": 210
-    },
-    {
-      "month": "2023-11",
       "county": "Washington",
-      "gallons": 2182
+      "gallons": 2222
     },
     {
       "month": "2023-11",
@@ -40189,13 +39864,8 @@
     },
     {
       "month": "2023-12",
-      "county": "Unknown",
-      "gallons": 87
-    },
-    {
-      "month": "2023-12",
       "county": "Washington",
-      "gallons": 2949
+      "gallons": 3036
     },
     {
       "month": "2023-12",
@@ -40235,7 +39905,7 @@
     {
       "month": "2024-01",
       "county": "Franklin",
-      "gallons": 529
+      "gallons": 689
     },
     {
       "month": "2024-01",
@@ -40269,13 +39939,8 @@
     },
     {
       "month": "2024-01",
-      "county": "Unknown",
-      "gallons": 175
-    },
-    {
-      "month": "2024-01",
       "county": "Washington",
-      "gallons": 4000
+      "gallons": 4015
     },
     {
       "month": "2024-01",
@@ -40354,13 +40019,8 @@
     },
     {
       "month": "2024-02",
-      "county": "Unknown",
-      "gallons": 168
-    },
-    {
-      "month": "2024-02",
       "county": "Washington",
-      "gallons": 4061
+      "gallons": 4229
     },
     {
       "month": "2024-02",
@@ -40395,7 +40055,7 @@
     {
       "month": "2024-03",
       "county": "Franklin",
-      "gallons": 510
+      "gallons": 645
     },
     {
       "month": "2024-03",
@@ -40421,11 +40081,6 @@
       "month": "2024-03",
       "county": "Rutland",
       "gallons": 280
-    },
-    {
-      "month": "2024-03",
-      "county": "Unknown",
-      "gallons": 135
     },
     {
       "month": "2024-03",
@@ -40499,13 +40154,8 @@
     },
     {
       "month": "2024-04",
-      "county": "Unknown",
-      "gallons": 98
-    },
-    {
-      "month": "2024-04",
       "county": "Washington",
-      "gallons": 4575
+      "gallons": 4673
     },
     {
       "month": "2024-04",
@@ -40540,7 +40190,7 @@
     {
       "month": "2024-05",
       "county": "Franklin",
-      "gallons": 600
+      "gallons": 640
     },
     {
       "month": "2024-05",
@@ -40576,11 +40226,6 @@
       "month": "2024-05",
       "county": "Rutland",
       "gallons": 242
-    },
-    {
-      "month": "2024-05",
-      "county": "Unknown",
-      "gallons": 40
     },
     {
       "month": "2024-05",
@@ -40664,13 +40309,8 @@
     },
     {
       "month": "2024-06",
-      "county": "Unknown",
-      "gallons": 222
-    },
-    {
-      "month": "2024-06",
       "county": "Washington",
-      "gallons": 4326
+      "gallons": 4548
     },
     {
       "month": "2024-06",
@@ -40710,7 +40350,7 @@
     {
       "month": "2024-07",
       "county": "Franklin",
-      "gallons": 560
+      "gallons": 660
     },
     {
       "month": "2024-07",
@@ -40729,13 +40369,8 @@
     },
     {
       "month": "2024-07",
-      "county": "Unknown",
-      "gallons": 220
-    },
-    {
-      "month": "2024-07",
       "county": "Washington",
-      "gallons": 3765
+      "gallons": 3885
     },
     {
       "month": "2024-07",
@@ -40804,13 +40439,8 @@
     },
     {
       "month": "2024-08",
-      "county": "Unknown",
-      "gallons": 525
-    },
-    {
-      "month": "2024-08",
       "county": "Washington",
-      "gallons": 3800
+      "gallons": 4325
     },
     {
       "month": "2024-08",
@@ -40845,7 +40475,7 @@
     {
       "month": "2024-09",
       "county": "Franklin",
-      "gallons": 554
+      "gallons": 644
     },
     {
       "month": "2024-09",
@@ -40884,13 +40514,8 @@
     },
     {
       "month": "2024-09",
-      "county": "Unknown",
-      "gallons": 510
-    },
-    {
-      "month": "2024-09",
       "county": "Washington",
-      "gallons": 5326
+      "gallons": 5746
     },
     {
       "month": "2024-09",
@@ -40964,13 +40589,8 @@
     },
     {
       "month": "2024-10",
-      "county": "Unknown",
-      "gallons": 70
-    },
-    {
-      "month": "2024-10",
       "county": "Washington",
-      "gallons": 3180
+      "gallons": 3250
     },
     {
       "month": "2024-10",
@@ -41005,7 +40625,7 @@
     {
       "month": "2024-11",
       "county": "Franklin",
-      "gallons": 280
+      "gallons": 370
     },
     {
       "month": "2024-11",
@@ -41044,13 +40664,8 @@
     },
     {
       "month": "2024-11",
-      "county": "Unknown",
-      "gallons": 210
-    },
-    {
-      "month": "2024-11",
       "county": "Washington",
-      "gallons": 3225
+      "gallons": 3345
     },
     {
       "month": "2024-11",
@@ -41129,13 +40744,8 @@
     },
     {
       "month": "2024-12",
-      "county": "Unknown",
-      "gallons": 153
-    },
-    {
-      "month": "2024-12",
       "county": "Washington",
-      "gallons": 4130
+      "gallons": 4283
     },
     {
       "month": "2024-12",
@@ -41165,7 +40775,7 @@
     {
       "month": "2025-01",
       "county": "Franklin",
-      "gallons": 378
+      "gallons": 478
     },
     {
       "month": "2025-01",
@@ -41194,13 +40804,8 @@
     },
     {
       "month": "2025-01",
-      "county": "Unknown",
-      "gallons": 140
-    },
-    {
-      "month": "2025-01",
       "county": "Washington",
-      "gallons": 3706
+      "gallons": 3746
     },
     {
       "month": "2025-01",
@@ -41254,13 +40859,8 @@
     },
     {
       "month": "2025-02",
-      "county": "Unknown",
-      "gallons": 15
-    },
-    {
-      "month": "2025-02",
       "county": "Washington",
-      "gallons": 2863
+      "gallons": 2878
     },
     {
       "month": "2025-02",
@@ -41300,7 +40900,7 @@
     {
       "month": "2025-03",
       "county": "Franklin",
-      "gallons": 240
+      "gallons": 300
     },
     {
       "month": "2025-03",
@@ -41329,13 +40929,8 @@
     },
     {
       "month": "2025-03",
-      "county": "Unknown",
-      "gallons": 276
-    },
-    {
-      "month": "2025-03",
       "county": "Washington",
-      "gallons": 6340
+      "gallons": 6556
     },
     {
       "month": "2025-03",
@@ -41370,7 +40965,7 @@
     {
       "month": "2025-04",
       "county": "Franklin",
-      "gallons": 607
+      "gallons": 697
     },
     {
       "month": "2025-04",
@@ -41409,13 +41004,8 @@
     },
     {
       "month": "2025-04",
-      "county": "Unknown",
-      "gallons": 140
-    },
-    {
-      "month": "2025-04",
       "county": "Washington",
-      "gallons": 4874
+      "gallons": 4924
     },
     {
       "month": "2025-04",
@@ -41474,13 +41064,8 @@
     },
     {
       "month": "2025-05",
-      "county": "Unknown",
-      "gallons": 25
-    },
-    {
-      "month": "2025-05",
       "county": "Washington",
-      "gallons": 4285
+      "gallons": 4310
     },
     {
       "month": "2025-05",
@@ -41515,7 +41100,7 @@
     {
       "month": "2025-06",
       "county": "Franklin",
-      "gallons": 290
+      "gallons": 480
     },
     {
       "month": "2025-06",
@@ -41549,13 +41134,8 @@
     },
     {
       "month": "2025-06",
-      "county": "Unknown",
-      "gallons": 577
-    },
-    {
-      "month": "2025-06",
       "county": "Washington",
-      "gallons": 4199
+      "gallons": 4586
     },
     {
       "month": "2025-06",
@@ -41629,13 +41209,8 @@
     },
     {
       "month": "2025-07",
-      "county": "Unknown",
-      "gallons": 175
-    },
-    {
-      "month": "2025-07",
       "county": "Washington",
-      "gallons": 4045
+      "gallons": 4220
     },
     {
       "month": "2025-07",
@@ -41670,7 +41245,7 @@
     {
       "month": "2025-08",
       "county": "Franklin",
-      "gallons": 600
+      "gallons": 780
     },
     {
       "month": "2025-08",
@@ -41709,13 +41284,8 @@
     },
     {
       "month": "2025-08",
-      "county": "Unknown",
-      "gallons": 350
-    },
-    {
-      "month": "2025-08",
       "county": "Washington",
-      "gallons": 5135
+      "gallons": 5305
     },
     {
       "month": "2025-08",
@@ -41784,13 +41354,8 @@
     },
     {
       "month": "2025-09",
-      "county": "Unknown",
-      "gallons": 182
-    },
-    {
-      "month": "2025-09",
       "county": "Washington",
-      "gallons": 4879
+      "gallons": 5061
     },
     {
       "month": "2025-09",
@@ -41825,7 +41390,7 @@
     {
       "month": "2025-10",
       "county": "Franklin",
-      "gallons": 805
+      "gallons": 975
     },
     {
       "month": "2025-10",
@@ -41864,13 +41429,8 @@
     },
     {
       "month": "2025-10",
-      "county": "Unknown",
-      "gallons": 395
-    },
-    {
-      "month": "2025-10",
       "county": "Washington",
-      "gallons": 3598
+      "gallons": 3823
     },
     {
       "month": "2025-10",
@@ -41905,7 +41465,7 @@
     {
       "month": "2025-11",
       "county": "Franklin",
-      "gallons": 285
+      "gallons": 410
     },
     {
       "month": "2025-11",
@@ -41934,13 +41494,8 @@
     },
     {
       "month": "2025-11",
-      "county": "Unknown",
-      "gallons": 261
-    },
-    {
-      "month": "2025-11",
       "county": "Washington",
-      "gallons": 4839
+      "gallons": 4975
     },
     {
       "month": "2025-11",
@@ -41970,7 +41525,7 @@
     {
       "month": "2025-12",
       "county": "Franklin",
-      "gallons": 443
+      "gallons": 503
     },
     {
       "month": "2025-12",
@@ -41999,13 +41554,8 @@
     },
     {
       "month": "2025-12",
-      "county": "Unknown",
-      "gallons": 95
-    },
-    {
-      "month": "2025-12",
       "county": "Washington",
-      "gallons": 3765
+      "gallons": 3800
     },
     {
       "month": "2025-12",
@@ -42074,13 +41624,8 @@
     },
     {
       "month": "2026-01",
-      "county": "Unknown",
-      "gallons": 120
-    },
-    {
-      "month": "2026-01",
       "county": "Washington",
-      "gallons": 3105
+      "gallons": 3225
     },
     {
       "month": "2026-01",
@@ -42120,7 +41665,7 @@
     {
       "month": "2026-02",
       "county": "Franklin",
-      "gallons": 445
+      "gallons": 505
     },
     {
       "month": "2026-02",
@@ -42154,13 +41699,8 @@
     },
     {
       "month": "2026-02",
-      "county": "Unknown",
-      "gallons": 95
-    },
-    {
-      "month": "2026-02",
       "county": "Washington",
-      "gallons": 3655
+      "gallons": 3690
     },
     {
       "month": "2026-02",
@@ -42195,7 +41735,7 @@
     {
       "month": "2026-03",
       "county": "Franklin",
-      "gallons": 265
+      "gallons": 365
     },
     {
       "month": "2026-03",
@@ -42224,13 +41764,8 @@
     },
     {
       "month": "2026-03",
-      "county": "Unknown",
-      "gallons": 278
-    },
-    {
-      "month": "2026-03",
       "county": "Washington",
-      "gallons": 6120
+      "gallons": 6298
     },
     {
       "month": "2026-03",
@@ -42309,13 +41844,8 @@
     },
     {
       "month": "2026-04",
-      "county": "Unknown",
-      "gallons": 80
-    },
-    {
-      "month": "2026-04",
       "county": "Washington",
-      "gallons": 4710
+      "gallons": 4790
     },
     {
       "month": "2026-04",
@@ -42345,7 +41875,7 @@
     {
       "month": "2026-05",
       "county": "Franklin",
-      "gallons": 245
+      "gallons": 425
     },
     {
       "month": "2026-05",
@@ -42379,13 +41909,8 @@
     },
     {
       "month": "2026-05",
-      "county": "Unknown",
-      "gallons": 422
-    },
-    {
-      "month": "2026-05",
       "county": "Washington",
-      "gallons": 4512
+      "gallons": 4754
     },
     {
       "month": "2026-05",
@@ -42420,7 +41945,7 @@
     {
       "month": "2026-06",
       "county": "Franklin",
-      "gallons": 629
+      "gallons": 754
     },
     {
       "month": "2026-06",
@@ -42449,13 +41974,8 @@
     },
     {
       "month": "2026-06",
-      "county": "Unknown",
-      "gallons": 402
-    },
-    {
-      "month": "2026-06",
       "county": "Washington",
-      "gallons": 4355
+      "gallons": 4632
     },
     {
       "month": "2026-06",
@@ -42529,13 +42049,8 @@
     },
     {
       "month": "2026-07",
-      "county": "Unknown",
-      "gallons": 150
-    },
-    {
-      "month": "2026-07",
       "county": "Washington",
-      "gallons": 4655
+      "gallons": 4805
     },
     {
       "month": "2026-07",
@@ -42604,13 +42119,8 @@
     },
     {
       "month": "2026-08",
-      "county": "Unknown",
-      "gallons": 260
-    },
-    {
-      "month": "2026-08",
       "county": "Washington",
-      "gallons": 3852
+      "gallons": 4112
     },
     {
       "month": "2026-08",
@@ -42640,7 +42150,7 @@
     {
       "month": "2026-09",
       "county": "Franklin",
-      "gallons": 908
+      "gallons": 1058
     },
     {
       "month": "2026-09",
@@ -42679,13 +42189,8 @@
     },
     {
       "month": "2026-09",
-      "county": "Unknown",
-      "gallons": 566
-    },
-    {
-      "month": "2026-09",
       "county": "Washington",
-      "gallons": 4190
+      "gallons": 4606
     },
     {
       "month": "2026-09",
@@ -42749,13 +42254,8 @@
     },
     {
       "month": "2026-10",
-      "county": "Unknown",
-      "gallons": 205
-    },
-    {
-      "month": "2026-10",
       "county": "Washington",
-      "gallons": 3825
+      "gallons": 4030
     },
     {
       "month": "2026-10",

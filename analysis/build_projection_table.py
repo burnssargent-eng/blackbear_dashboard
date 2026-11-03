@@ -126,6 +126,12 @@ OIL_DATA = ROOT / "oil_data.json"
 CAPACITY_CACHE = ROOT / "capacity_cache.csv"
 NON_PICKUPS = ROOT / "oil_non_pickups.csv"
 OIL_LEFT = ROOT / "oil_left.csv"
+# Names, towns and capacities edited on the site's customer page (Sarge,
+# 2026-11-02), exported nightly by supabase_sync.py --export-site-edits. The
+# scraper applies the town (and the roster name); here a site capacity beats
+# capacity_cache.csv, and a site name is the exported row's name. Pickup
+# records keep the scraped name, so the registries' name checks never see it.
+SITE_EDITS = ROOT / "customer_edits.csv"
 
 # Quantities that mean "checked, container empty": the oil clock restarts at
 # the latest one after the last pickup. MUST MATCH oil_scraper.RESET_QTYS;
@@ -322,9 +328,12 @@ SECTION_STALE = "stale"
 # live test log keeps the old name in its frozen rows.
 SECTION_INSUFFICIENT = "limited data"
 
+# Marked inactive on the site's customer page (Sarge, 2026-11-02): listed, no projection.
+SECTION_INACTIVE = "inactive"
+
 SECTION_ORDER = [SECTION_RANKED, SECTION_SEASONAL, SECTION_EVENT,
                  SECTION_ON_DEMAND, SECTION_LUMP_SUM, SECTION_WILL_CALL, SECTION_STALE,
-                 SECTION_INSUFFICIENT]
+                 SECTION_INSUFFICIENT, SECTION_INACTIVE]
 
 # Final model statuses. model_status on every row is one of these.
 STATUS_DEFAULT = "50/50 default"
@@ -338,6 +347,8 @@ STATUS_WILL_CALL = "will-call (detected)"
 STATUS_DETECTED_CLOSER = "closer (detected)"
 STATUS_INSUFFICIENT = "limited data"
 STATUS_STALE = "stale - projection not meaningful"
+STATUS_SITE_INACTIVE = "inactive (marked on the site)"
+STATUS_SITE_CLOSED = "closed for the season (marked on the site)"
 
 # Statuses that never take a daily-rate urgency, whatever the date.
 NO_RATE_SECTIONS = {
@@ -1113,8 +1124,60 @@ def load_empty_checks(asof):
     return checks
 
 
+def load_site_edits():
+    """customer_id -> {"name", "town", "capacity", "status", "status_since", ...} as strings
+    (blank = the source site's); {} without the file."""
+    if not SITE_EDITS.exists():
+        return {}
+    with open(SITE_EDITS, newline="") as f:
+        return {int(r["customer_id"]): {k: (v or "").strip() for k, v in r.items() if k != "customer_id"}
+                for r in csv.DictReader(f)}
+
+
+def next_season_start(spec, after):
+    """The first day of the season `spec` ("May-Oct") that falls after `after`, or None without one."""
+    if not spec:
+        return None
+    first = MONTHS.index(spec.split("-")[0]) + 1
+    start = date(after.year, first, 1)
+    return start if start > after else date(after.year + 1, first, 1)
+
+
+def site_status_plan(cid, pickups, asof, edit):
+    """
+    What a status set on the customer page does to one customer's row
+    (db/schema.sql, site_status), as (hold, reset):
+      hold   (status, reason) forced on the row: no projection; or None
+      reset  a day the oil clock restarts on (an empty check), or None
+    A pickup after the status's day ends it. Closed for the season holds the
+    row until its usual season start, then starts the clock there, so a
+    forgotten "open" costs nothing; with no known season it holds until marked
+    open or a pickup. Open for the season starts the clock on its day.
+    """
+    status, since = (edit or {}).get("status"), (edit or {}).get("status_since")
+    if not status or not since:
+        return None, None
+    since = date.fromisoformat(since)
+    if pickups and pickups[-1]["date"] > since:
+        return None, None
+    if status == "inactive":
+        return (STATUS_SITE_INACTIVE, SECTION_INACTIVE, f"marked inactive on the site, {since.isoformat()}"), None
+    if status == "open":
+        return None, since
+    if status == "closed_season":
+        override = MODEL_OVERRIDES.get(cid) or (detected_closer(cid, pickups, asof) if pickups else None)
+        start = next_season_start(override.season if override else None, since)
+        if start and start <= asof:
+            return None, start
+        return (STATUS_SITE_CLOSED, SECTION_SEASONAL,
+                f"marked closed for the season on the site, {since.isoformat()}; "
+                + (f"projecting again from {start.isoformat()}, its usual season start" if start
+                   else "no usual season known: marked open, or a pickup, restarts it")), None
+    return None, None
+
+
 def load_capacities():
-    """customer_id -> capacity, or None when missing or not positive."""
+    """customer_id -> capacity, or None when missing or not positive; a site edit wins."""
     capacities = {}
     with open(CAPACITY_CACHE, newline="") as f:
         for row in csv.DictReader(f):
@@ -1123,6 +1186,12 @@ def load_capacities():
             except (TypeError, ValueError):
                 value = 0.0
             capacities[int(row["customer_id"])] = value if value > 0 else None
+    for cid, edit in load_site_edits().items():
+        try:
+            value = float(edit["capacity"])
+        except ValueError:
+            continue
+        capacities[cid] = value if value > 0 else None
     return capacities
 
 
@@ -1567,7 +1636,7 @@ def return_rate(pickups, asof):
 
 
 def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thefts=(),
-              oil_left=()):
+              oil_left=(), site_hold=None):
     last = pickups[-1]
     days_since = (asof - last["date"]).days
 
@@ -1660,6 +1729,8 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thef
     status, section, routing_reason = route(
         override, rate is not None, days_since, clock_start, pickups, asof,
         will_call, comeback)
+    if site_hold:   # marked on the site's customer page (site_status_plan)
+        status, section, routing_reason = site_hold
     if section == SECTION_RANKED and routing_reason.startswith("in season"):
         routing_reason += ("; rate from its open-season pickups" if closer_rate is not None
                            else "; too few open-season gaps, so the stage rate, which "
@@ -2133,9 +2204,12 @@ def write_json(rows, asof):
     rows = sorted(rows, key=lambda r: (0, sort_key(r)) if r["current_projected_gallons"] is not None
                   else (1,))
 
+    edits = load_site_edits()
     customers = [{
         "id": r["customer_id"],
-        "name": r["customer"],
+        # A shared barrel's row keeps its group name; anyone else takes a site name edit.
+        "name": (r["customer"] if r.get("shared_members")
+                 else edits.get(r["customer_id"], {}).get("name") or r["customer"]),
         "town": r["town"],
         "regions": r["region_names"].split("; ") if r["region_names"] else [],
         "section": r["table_section"],
@@ -2633,6 +2707,7 @@ def main():
               "later pickups are still in the history and will leak")
 
     empty_checks = load_empty_checks(asof)
+    site_edits = load_site_edits()
 
     _check_registries()
     owner_extras = apply_history_starts(pickups, empty_checks)
@@ -2648,9 +2723,11 @@ def main():
                 rows.append(new_owner_row(cid, owner_extras[cid], capacities.get(cid),
                                           regions, asof))
             continue
+        hold, reset = site_status_plan(cid, history, asof, site_edits.get(cid))
+        checks = sorted({*empty_checks.get(cid, ()), reset}) if reset else empty_checks.get(cid, ())
         row = build_row(cid, history, asof, capacities.get(cid), regions, wape,
-                        empty_checks.get(cid, ()), thefts.get(cid, ()),
-                        oil_left.get(cid, ()))
+                        checks, thefts.get(cid, ()),
+                        oil_left.get(cid, ()), site_hold=hold)
         if theft_flags.get(cid):
             row["flags"] = "; ".join(f for f in [row["flags"], *theft_flags[cid]] if f)
         extra = shared_extras.get(cid) or owner_extras.get(cid)

@@ -31,6 +31,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      # Names, towns and capacities edited on the site's customer page, for the
+      # scraper (towns: regions, map, counties; roster names) and the builder
+      # (capacities). On failure the committed customer_edits.csv stays.
+      - name: Export customer page edits
+        env:
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          python supabase_sync.py --export-site-edits || echo "::warning::Customer edits export failed; customer_edits.csv left as-is"
+
       - name: Run scraper
         run: |
           python oil_scraper.py --rescrape
@@ -95,6 +104,15 @@ jobs:
         run: |
           python supabase_sync.py || echo "::warning::Shared database sync failed; database left as-is"
 
+      # Map pins for addresses edited on the site (the Census geocoder, else the
+      # town centre). After the sync, which writes back the exported positions.
+      # Writes no repo file.
+      - name: Place pins for edited addresses
+        env:
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          python supabase_sync.py --place-pins || echo "::warning::Pin placing failed; the next night retries"
+
       # Sundays (Vermont): address and notes edits made on the source site after
       # a customer reached the database (supabase_sync.py, --sweep). Reads every
       # customer page, about 5 minutes. After the sync above, which writes back
@@ -122,6 +140,6 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add oil_data.json oil_collections.json oil_collections_raw.csv oil_collection_report.xlsx capacity_cache.csv oil_non_pickups.csv oil_projections.json analysis/live_test_log.csv oil_live_test.json jamaal_routes.json outgoing.json oil_left.csv
+          git add oil_data.json oil_collections.json oil_collections_raw.csv oil_collection_report.xlsx capacity_cache.csv oil_non_pickups.csv oil_projections.json analysis/live_test_log.csv oil_live_test.json jamaal_routes.json outgoing.json oil_left.csv customer_edits.csv
           git commit -m "Nightly oil data update" || echo "No changes to commit"
           git push

@@ -374,6 +374,52 @@ OUT_OF_STATE_BY_CUSTOMER = {
 }
 
 
+# Names, towns and capacities edited on the site's customer page (Sarge,
+# 2026-11-02): customers.site_name/site_town/site_capacity in the shared
+# database, exported each night by `supabase_sync.py --export-site-edits`
+# BEFORE the scrape. A site town ("Barre Town", or "Berlin, NH" out of state)
+# beats both registries above, and the county and regions follow it. A site
+# name replaces the source site's in the roster only: pickup records keep the
+# scraped name, which the projection builder's registries check against.
+# Capacity is read by the projection builder. Ids, names and towns only.
+SITE_EDITS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "customer_edits.csv")
+
+
+SITE_EDIT_FIELDS = ("name", "town", "capacity", "region", "themes", "status", "status_since")
+
+
+def load_site_edits(path=SITE_EDITS_FILE):
+    """customer_id -> {"name", "town", ...} (SITE_EDIT_FIELDS) as strings (blank = the source site's); {} without the file."""
+    try:
+        with open(path, newline="", encoding="utf-8") as fh:
+            return {int(r["customer_id"]): {k: (r.get(k) or "").strip() for k in SITE_EDIT_FIELDS}
+                    for r in csv.DictReader(fh)}
+    except FileNotFoundError:
+        return {}
+
+
+SITE_EDITS = load_site_edits()
+
+
+def _site_town(customer_id):
+    """(Vermont town, out-of-state place) from a site town edit; (None, None) without one."""
+    try:
+        town = SITE_EDITS.get(int(customer_id), {}).get("town")
+    except (TypeError, ValueError):
+        return None, None
+    if not town:
+        return None, None
+    return (None, town) if re.search(r", [A-Z]{2}$", town) else (town, None)
+
+
+def site_name(customer_id, scraped):
+    """The name edited on the site for this customer, else the scraped one."""
+    try:
+        return SITE_EDITS.get(int(customer_id), {}).get("name") or scraped
+    except (TypeError, ValueError):
+        return scraped
+
+
 def normalize_geo_town(city, customer_id=None):
     """
     Map a scraped city/village name to an official Vermont town name that exists
@@ -382,6 +428,14 @@ def normalize_geo_town(city, customer_id=None):
     Returns None for out-of-state places and for anything we cannot confidently
     place, so callers can exclude them from the Vermont map instead of guessing.
     """
+    # A per-customer correction always wins over the default (a site edit
+    # first, so it can also place a customer the source site lists out of state).
+    if _out_of_state_place(customer_id):
+        return None
+    override = _town_override(customer_id)
+    if override:
+        return override
+
     if not city:
         return None
 
@@ -389,18 +443,14 @@ def normalize_geo_town(city, customer_id=None):
     if city in OUT_OF_STATE_CITIES:
         return None
 
-    # A per-customer correction always wins over the default.
-    if _out_of_state_place(customer_id):
-        return None
-    override = _town_override(customer_id)
-    if override:
-        return override
-
     return GEO_TOWN_NAME_MAP.get(city, city)
 
 
 def _out_of_state_place(customer_id):
-    """The OUT_OF_STATE_BY_CUSTOMER place ("Berlin, NH") for this id, or None."""
+    """The out-of-state place ("Berlin, NH") for this id: a site edit, else OUT_OF_STATE_BY_CUSTOMER; or None."""
+    vt, place = _site_town(customer_id)
+    if vt or place:
+        return place
     try:
         return OUT_OF_STATE_BY_CUSTOMER.get(int(customer_id))
     except (TypeError, ValueError):
@@ -412,13 +462,43 @@ def _customer_county(city, customer_id):
     place = _out_of_state_place(customer_id)
     if place:
         return f"Out-of-State ({place.rsplit(', ', 1)[-1]})"
-    return COUNTY_MAP.get(_town_override(customer_id) or city, "Unknown")
+    town = _town_override(customer_id)
+    if town:
+        # An official town name ("Barre Town") is often not a COUNTY_MAP key,
+        # which lists the source site's spellings; the map knows its county.
+        return COUNTY_MAP.get(town) or _town_counties().get(town, "Unknown")
+    return COUNTY_MAP.get(city, "Unknown")
+
+
+# vermont_towns.geojson's CNTY: the county's FIPS code.
+FIPS_COUNTIES = {1: "Addison", 3: "Bennington", 5: "Caledonia", 7: "Chittenden", 9: "Essex",
+                 11: "Franklin", 13: "Grand Isle", 15: "Lamoille", 17: "Orange", 19: "Orleans",
+                 21: "Rutland", 23: "Washington", 25: "Windham", 27: "Windsor"}
+_TOWN_COUNTIES = None
+
+
+def _town_counties():
+    """Official town name -> county, from vermont_towns.geojson (read once); {} without it."""
+    global _TOWN_COUNTIES
+    if _TOWN_COUNTIES is None:
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "vermont_towns.geojson")
+        try:
+            with open(path, encoding="utf-8") as fh:
+                feats = json.load(fh)["features"]
+            _TOWN_COUNTIES = {f["properties"]["TOWNNAMEMC"]: FIPS_COUNTIES.get(f["properties"].get("CNTY"), "Unknown")
+                              for f in feats if f["properties"].get("TOWNNAMEMC")}
+        except (OSError, ValueError, KeyError):
+            _TOWN_COUNTIES = {}
+    return _TOWN_COUNTIES
 
 
 def _town_override(customer_id):
-    """The CITY_TOWN_BY_CUSTOMER town for this customer id, or None."""
+    """The official town for this customer id: a site edit, else CITY_TOWN_BY_CUSTOMER; or None."""
     if customer_id is None:
         return None
+    vt, place = _site_town(customer_id)
+    if vt or place:
+        return vt
     try:
         return CITY_TOWN_BY_CUSTOMER.get(int(customer_id))
     except (TypeError, ValueError):
@@ -1174,17 +1254,47 @@ def make_pivot(df, row_col, col_col, columns=None):
     return pivot
 
 
+# Theme regions a person ticks on the customer page; the composites follow.
+SITE_THEMES = ("Ski Slopes", "Summer Snack Stops")
+
+
+def region_labels(row):
+    """
+    Every region a row belongs to (CUSTOM_REGIONS), with the customer page's
+    edits applied (Sarge, 2026-11-02): a site region replaces the geographic
+    (REGION_TOWNS) ones, site themes replace SITE_THEMES ("none" = neither),
+    and the composites are re-read from the result. 'Other' when none.
+    """
+    matched = [name for name, fn in CUSTOM_REGIONS if fn(row)]
+    try:
+        edit = SITE_EDITS.get(int(row["customer_id"]))
+    except (TypeError, ValueError, KeyError):
+        edit = None
+    if edit and (edit.get("region") or edit.get("themes")):
+        if edit.get("region"):
+            matched = [m for m in matched if m not in REGION_TOWNS] + [edit["region"]]
+        if edit.get("themes"):
+            chosen = [] if edit["themes"] == "none" else edit["themes"].split(";")
+            matched = [m for m in matched if m not in SITE_THEMES] + [t for t in SITE_THEMES if t in chosen]
+        matched = [m for m in matched if m not in COMPOSITE_REGIONS]
+        if "South" in matched or "Southern Ski Slopes" in matched:
+            matched.append("South / Ski Combined")
+        if "Ski Slopes" in matched or "Summer Snack Stops" in matched:
+            matched.append("Winter / Summer Combined")
+        order = {name: i for i, name in enumerate(REGION_NAMES)}
+        matched = sorted(set(matched), key=lambda m: order.get(m, len(order)))
+    return matched or ["Other"]
+
+
 def assign_region_labels(df):
     """
-    Add a 'region' column to df using CUSTOM_REGIONS matchers.
-    A row may match multiple regions — it gets ALL matching labels.
-    Rows matching no region are labeled 'Other'.
+    Add a 'region' column to df using region_labels (CUSTOM_REGIONS matchers
+    plus the customer page's region edits). A row may match multiple regions —
+    it gets ALL matching labels. Rows matching no region are labeled 'Other'.
     """
     rows = []
     for _, row in df.iterrows():
-        matched = [name for name, fn in CUSTOM_REGIONS if fn(row)]
-        if not matched:
-            matched = ["Other"]
+        matched = region_labels(row)
         for label in matched:
             r = row.to_dict()
             r["region"] = label
@@ -1248,9 +1358,9 @@ def build_reports(df):
         # characters Excel rejects in a sheet title, so the workbook uses the
         # sanitized names while the JSON and the website keep the real ones.
         sheet_titles = region_sheet_names()
-        matchers = dict(CUSTOM_REGIONS)
+        labels = df.apply(region_labels, axis=1)   # once: the matchers are per row
         for region_name in ordered_regions:
-            mask = df.apply(matchers[region_name], axis=1)
+            mask = labels.apply(lambda found, name=region_name: name in found)
             sub = df[mask]
             if sub.empty:
                 print(f"  WARNING: no data matched for '{region_name}'")
@@ -1417,7 +1527,7 @@ def compute_customer_lifecycle(df):
 
         customers.append({
             "customer_id": int(cid),
-            "name": row["name"],
+            "name": site_name(cid, row["name"]),
             "city": row["city"],
             "geo_town": row["geo_town"],
             # The town to SHOW: the official town, else an out-of-state place

@@ -61,6 +61,18 @@ sweep included (phone_source 'jamaal'): that is how new customers get one.
 Must run AFTER the nightly sync, which writes back the addresses exported
 before the sweep.
 
+--export-site-edits (nightly, BEFORE the scrape; Sarge, 2026-11-02) writes
+customer_edits.csv: the names, towns and capacities edited on the site's
+customer page (customers.site_*: name, town, capacity, region, themes,
+status), which beat the source site's and the config's. Ids, names, towns and capacities only, so it is committed; the
+scraper applies the towns (regions, map, counties) and roster names, the
+projection builder the capacities and names. The nightly keeps writing the
+source site's own values into name, city and capacity beside them.
+
+--place-pins (nightly, after the sync) moves the map pin of each address
+edited on the site (the page empties `loc`), and places customers added on
+the site: the Census geocoder, else the town centre, at most PIN_LIMIT a night.
+
 Oil Left (gallons a driver saw left in a barrel and did not collect) is
 entered only on the site. --export-oil-left writes it to oil_left.csv
 (customer id, day, gallons: nothing private), which is committed so the
@@ -84,6 +96,7 @@ import argparse
 import csv
 import json
 import os
+import re
 import sys
 from datetime import date, datetime, timedelta
 from zoneinfo import ZoneInfo
@@ -99,6 +112,8 @@ COLLECTIONS_FILE = "oil_collections.json"
 CODES_FILE = "oil_non_pickups.csv"
 RAW_FILE = "oil_collections_raw.csv"
 OUTGOING_FILE = "outgoing.json"
+EDITS_FILE = "customer_edits.csv"   # names, towns, capacities edited on the site
+PIN_LIMIT = 60                     # geocoder calls a night for --place-pins
 OIL_LEFT_FILE = "oil_left.csv"
 SWEEP_FILE = "jamaal_sweep.local.json"
 SWEPT = ("address", "notes", "phone")   # fields --sweep follows
@@ -537,6 +552,131 @@ def export_oil_left(db, out=OIL_LEFT_FILE):
     return rows
 
 
+EDIT_COLUMNS = ["customer_id", "name", "town", "capacity", "region", "themes", "status", "status_since"]
+EDIT_SELECT = "select=id,site_name,site_town,site_capacity,site_region,site_themes,site_status,site_status_since"
+
+
+def edit_lines(rows):
+    """
+    The customers edited on the site's customer page, as customer_edits.csv
+    rows (EDIT_COLUMNS; blank = the source site's or the config's). Themes are
+    joined with ";", and an explicit empty list is written "none". Source-site
+    customers only: one added on the site is not in the scrape, and its own
+    fields are already the site's.
+    """
+    out = []
+    for r in sorted(rows, key=lambda r: r["id"]):
+        if r["id"] <= 0:
+            continue
+        cap, themes = r.get("site_capacity"), r.get("site_themes")
+        line = [int(r["id"]), (r.get("site_name") or "").strip(), (r.get("site_town") or "").strip(),
+                "" if cap is None else int(cap), (r.get("site_region") or "").strip(),
+                "" if themes is None else (";".join(themes) or "none"),
+                r.get("site_status") or "", r.get("site_status_since") or ""]
+        if any(v != "" for v in line[1:]):
+            out.append(line)
+    return out
+
+
+def lapsed_statuses(rows, pickups):
+    """
+    Ids whose site status a later pickup has ended: `rows` hold site_status and
+    site_status_since, `pickups` maps id -> latest pickup day (ISO, over 3 gallons).
+    """
+    return sorted(r["id"] for r in rows
+                  if r.get("site_status") and r.get("site_status_since")
+                  and (pickups.get(r["id"]) or "") > r["site_status_since"])
+
+
+def clear_lapsed_statuses(db):
+    """After the sync: a pickup after a site status (inactive, closed, open) ends it."""
+    rows = db.select("customers", "select=id,site_status,site_status_since&site_status=not.is.null")
+    latest = {}
+    for r in rows:
+        hit = db.select("collections", f"select=picked_on&customer_id=eq.{r['id']}&gallons=gt.3"
+                                       f"&picked_on=gt.{r['site_status_since']}&order=picked_on.desc"
+                        ) if r.get("site_status_since") else []
+        if hit:
+            latest[r["id"]] = hit[0]["picked_on"]
+    gone = lapsed_statuses(rows, latest)
+    if gone:
+        db.update("customers", f"id=in.({','.join(map(str, gone))})", {"site_status": None, "site_status_since": None})
+    print(f"Site statuses ended by a pickup: {len(gone)}")
+    return gone
+
+
+def export_site_edits(db, out=EDITS_FILE):
+    """--export-site-edits: write customer_edits.csv (nothing private) for the scraper and the builder."""
+    rows = edit_lines(db.select("customers", EDIT_SELECT))
+    tmp = out + ".tmp"
+    with open(tmp, "w", newline="") as fh:
+        w = csv.writer(fh, lineterminator="\n")
+        w.writerow(EDIT_COLUMNS)
+        w.writerows(rows)
+    os.replace(tmp, out)
+    print(f"Exported {len(rows)} customer edit(s) to {out}")
+    return rows
+
+
+def pin_query(row):
+    """
+    What to send the geocoder for a customer's address: the address itself when
+    it already names a town and state ("12 Main St, Barre, VT 05641"), else the
+    street with the customer's town added, or None when there is no street.
+    """
+    from jamaal_customers import has_street
+    address = (row.get("address") or "").strip()
+    if has_street(address):
+        return address
+    town = (row.get("site_town") or row.get("city") or "").strip()
+    if not address or not town or not re.match(r"\s*\d", address):
+        return None
+    return f"{address}, {town}" if re.search(r", [A-Z]{2}$", town) else f"{address}, {town}, VT"
+
+
+def pins_wanted(rows):
+    """
+    Customers whose pin must move: `loc` emptied by an address edit on the site
+    (ours no longer the source site's address), or a customer added on the site
+    with an address. A customer the source site never placed keeps no pin, as before.
+    """
+    return [r for r in sorted(rows, key=lambda r: r["id"])
+            if r.get("loc") is None and (r.get("address") or "").strip()
+            and (r["id"] < 0 or (r.get("address") or "").strip() != (r.get("jamaal_address") or "").strip())]
+
+
+def place_pins(db, limit=PIN_LIMIT):
+    """
+    --place-pins (nightly, after the sync): a pin for each address edited on the
+    site, from the Census geocoder, else the town centre. One the geocoder
+    cannot reach waits for the next night, at most `limit` a night.
+    """
+    from jamaal_customers import census_geocode, town_centres
+    rows = db.select("customers", "select=id,name,city,site_town,address,jamaal_address,loc&loc=is.null")
+    census, centres = requests.Session(), town_centres()
+    placed = {"census": 0, "town": 0, "none": 0}
+    for r in pins_wanted(rows)[:limit]:
+        pin, query = None, pin_query(r)
+        if query:
+            try:
+                hit = census_geocode(census, query)
+            except requests.RequestException:
+                hit = None
+            if hit:
+                pin = (*hit, "census")
+        if not pin:
+            town = (r.get("site_town") or r.get("city") or "").lower()
+            pin = (*centres[town], "town") if town in centres else None
+        if not pin:
+            placed["none"] += 1
+            continue
+        db.update("customers", f"id=eq.{r['id']}", {"lat": pin[0], "lon": pin[1], "loc": pin[2]})
+        placed[pin[2]] += 1
+    print(f"Pins: {placed['census']} from the street address, {placed['town']} at the town centre, "
+          f"{placed['none']} not placed")
+    return placed
+
+
 def sync(db, seed=False, today=None, history=False):
     if not os.path.exists(DETAILS_FILE):
         raise SyncError(f"{DETAILS_FILE} is missing (run --export-details first): nothing synced, "
@@ -779,6 +919,10 @@ def main():
                     help=f"apply {SWEEP_FILE} (address and notes edits on the source site), and nothing else")
     ap.add_argument("--export-oil-left", action="store_true",
                     help=f"write {OIL_LEFT_FILE} from the database, and nothing else")
+    ap.add_argument("--export-site-edits", action="store_true",
+                    help=f"write {EDITS_FILE} (names, towns, capacities edited on the site), and nothing else")
+    ap.add_argument("--place-pins", action="store_true",
+                    help="move the map pin of each address edited on the site, and nothing else")
     args = ap.parse_args()
     key = os.environ.get("SUPABASE_SERVICE_KEY", "").strip()
     if not key:
@@ -790,12 +934,20 @@ def main():
             export_details(db)
         elif args.export_oil_left:
             export_oil_left(db)
+        elif args.export_site_edits:
+            export_site_edits(db)
+        elif args.place_pins:
+            place_pins(db)
         elif args.routes:
             mirror_routes(db)
         elif args.sweep:
             sweep_details(db)
         else:
             sync(db, seed=args.seed, history=args.history)
+            try:
+                clear_lapsed_statuses(db)
+            except SyncError as exc:   # before db/schema.sql adds site_status
+                print(f"Site statuses not checked: {exc}")
     except (SyncError, requests.RequestException) as exc:
         print(f"Sync failed: {exc}", file=sys.stderr)
         return 1

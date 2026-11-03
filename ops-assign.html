@@ -82,19 +82,33 @@ function buildCustomerRows() {
 // The builder's urgency order: ranked rows by position, everything else after.
 let urgencyRank = new Map();
 
+/**
+ * Marked inactive on the customer page (and no pickup since): grouped last in
+ * Town view under "Inactive", left out of Urgent unless searched for.
+ */
+function isInactive(r) {
+  if (typeof opsSiteStatus !== "function" || r.customer_id < 0) return false;
+  const today = todaysCollection(store, r.customer_id);
+  const last = today && today.gallons > 3 ? today.date : (r.row && r.row.last_pickup) || "";
+  const st = opsSiteStatus(r.customer_id, last);
+  return !!st && st.status === "inactive";
+}
+
 function visibleRows() {
   const q = view.search.toLowerCase();
   let rows = customerRows().filter(r =>
     matchesNameSearch(q, [r.name, r.town, r.groupTown, ...((r.row && r.row.members) || []).map(m => m.name)]) &&
-    (!view.region || (r.row && (r.row.regions || []).includes(view.region))));
+    (!view.region || (r.row && (r.row.regions || []).includes(view.region))))
+    .map(r => (isInactive(r) ? { ...r, inactive: true, groupTown: "Inactive" } : r));
   if (view.sort === "town") {
     // Towns in order, a town's customers in the site's order; while searching,
-    // names that start with the text come first within each town.
-    return rows.slice().sort((a, b) => !a.groupTown - !b.groupTown || a.groupTown.localeCompare(b.groupTown) ||
-      searchRank(q, a.name) - searchRank(q, b.name));
+    // names that start with the text come first within each town. Inactive last.
+    return rows.slice().sort((a, b) => !!a.inactive - !!b.inactive || !a.groupTown - !b.groupTown ||
+      a.groupTown.localeCompare(b.groupTown) || searchRank(q, a.name) - searchRank(q, b.name));
   }
   const rank = r => urgencyRank.get(r.row && r.row.id) ?? Infinity;
-  return rows.slice().sort((a, b) => searchRank(q, a.name) - searchRank(q, b.name) || rank(a) - rank(b));
+  return rows.filter(r => !r.inactive || q)
+    .sort((a, b) => searchRank(q, a.name) - searchRank(q, b.name) || rank(a) - rank(b));
 }
 
 const asStop = r => ({ customer_id: r.customer_id, name: r.name, capacity: r.capacity });
@@ -110,13 +124,13 @@ const asStop = r => ({ customer_id: r.customer_id, name: r.name, capacity: r.cap
 function cardHtml(r, onRoutes, k = "") {
   const on = onRoutes.get(r.customer_id) || [];
   const sel = picked.has(r.customer_id);
-  const twoLine = view.sort === "town" && r.cw;
+  const twoLine = view.sort === "town" && r.cw && !r.inactive;
   const place = r.cw ? opsCollectedWithText(r.cw) : r.town;
   const name = `<span class="ops-pick-name">${escapeHtml(r.name || `(no name) #${r.customer_id}`)}${on.length
       ? `<span class="ops-on-dot" title="On ${escapeHtml(on.join(", "))}" aria-label="On ${escapeHtml(on.join(", "))}"></span>` : ""}${
-      r.added ? ` <span class="ops-new">new</span>` : ""}${view.sort === "town" || !place ? ""
+      r.added ? ` <span class="ops-new">new</span>` : ""}${(view.sort === "town" && !r.inactive) || !place ? ""
       : ` <span class="ops-muted">· ${escapeHtml(place)}</span>`}</span>`;
-  return `<div class="ops-pick-line${sel ? " ops-picked" : ""}${twoLine ? " ops-pick-two" : ""}" data-row="${r.customer_id}" data-group="${k}">
+  return `<div class="ops-pick-line${sel ? " ops-picked" : ""}${r.inactive ? " ops-pick-inactive" : ""}${twoLine ? " ops-pick-two" : ""}" data-row="${r.customer_id}" data-group="${k}">
     <input type="checkbox" class="ops-card-check" data-pick="${r.customer_id}" ${sel ? "checked" : ""}
       aria-label="Select ${escapeHtml(r.name)}">
     ${name}
