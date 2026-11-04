@@ -64,5 +64,19 @@ ok(taken["routes"][0]["stops"][0]["customer_id"] == -6 and snap["routes"][0]["st
    "routes are compared as taken over, without changing the snapshot")
 ok(ss.snap_taken_over(snap, {}) is snap, "no takeovers: the snapshot as it is")
 
+# Renames: the source site keeps no name history, so a takeover on the old
+# account shows up only as a new name. Listed, never decided.
+existing = {208: {"id": 208, "name": "Blue Stone-Waitsfield"}, 209: {"id": 209, "name": "Zen  Garden"},
+            210: {"id": 210, "name": None}}
+wanted = {208: {"name": "Mad Moose/Blue Stone-Waitsfield"}, 209: {"name": "zen garden"},
+          210: {"name": "New Spot"}, 211: {"name": "Brand New"}}
+ren = ss.renamed_customers(existing, wanted)
+ok(ren == [{"id": 208, "was": "Blue Stone-Waitsfield", "now": "Mad Moose/Blue Stone-Waitsfield"}],
+   "a changed name is a possible handover; spacing or case alone, a blank old name or a new customer is not")
+ok("1 customer(s) renamed" in ss.summary_text([], {"only_site": [], "only_jamaal": [], "gallons_differ": []}, ren),
+   "the nightly summary says so")
+ok("renamed" not in ss.summary_text([], {"only_site": [], "only_jamaal": [], "gallons_differ": []}),
+   "and stays quiet without one")
+
 print(f"\n{fails} FAILURE(S)" if fails else "\nALL CHECKS PASSED")
 sys.exit(1 if fails else 0)

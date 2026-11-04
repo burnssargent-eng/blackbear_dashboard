@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-03T14:53:26.829599",
+  "last_updated": "2026-11-03T18:03:13.076396",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -112,7 +112,7 @@
     {
       "month": "2015-02",
       "geo_town": "Burlington",
-      "gallons": 1374,
+      "gallons": 1334,
       "city": "Burlington"
     },
     {
@@ -160,7 +160,7 @@
     {
       "month": "2015-02",
       "geo_town": "Stowe",
-      "gallons": 545,
+      "gallons": 585,
       "city": "Stowe"
     },
     {
@@ -442,7 +442,7 @@
     {
       "month": "2015-05",
       "geo_town": "Burlington",
-      "gallons": 1876,
+      "gallons": 1831,
       "city": "Burlington"
     },
     {
@@ -520,7 +520,7 @@
     {
       "month": "2015-05",
       "geo_town": "Stowe",
-      "gallons": 530,
+      "gallons": 575,
       "city": "Stowe"
     },
     {
@@ -568,7 +568,7 @@
     {
       "month": "2015-06",
       "geo_town": "Burlington",
-      "gallons": 1581,
+      "gallons": 1536,
       "city": "Burlington"
     },
     {
@@ -640,7 +640,7 @@
     {
       "month": "2015-06",
       "geo_town": "Stowe",
-      "gallons": 470,
+      "gallons": 515,
       "city": "Stowe"
     },
     {
@@ -808,7 +808,7 @@
     {
       "month": "2015-08",
       "geo_town": "Burlington",
-      "gallons": 1731,
+      "gallons": 1661,
       "city": "Burlington"
     },
     {
@@ -898,7 +898,7 @@
     {
       "month": "2015-08",
       "geo_town": "Stowe",
-      "gallons": 795,
+      "gallons": 865,
       "city": "Stowe"
     },
     {
@@ -946,7 +946,7 @@
     {
       "month": "2015-09",
       "geo_town": "Burlington",
-      "gallons": 2377,
+      "gallons": 2317,
       "city": "Burlington"
     },
     {
@@ -1030,7 +1030,7 @@
     {
       "month": "2015-09",
       "geo_town": "Stowe",
-      "gallons": 635,
+      "gallons": 695,
       "city": "Stowe"
     },
     {
@@ -1204,7 +1204,7 @@
     {
       "month": "2015-11",
       "geo_town": "Burlington",
-      "gallons": 1575,
+      "gallons": 1535,
       "city": "Burlington"
     },
     {
@@ -1312,7 +1312,7 @@
     {
       "month": "2015-11",
       "geo_town": "Stowe",
-      "gallons": 685,
+      "gallons": 725,
       "city": "Stowe"
     },
     {
@@ -1360,7 +1360,7 @@
     {
       "month": "2015-12",
       "geo_town": "Burlington",
-      "gallons": 2007,
+      "gallons": 1987,
       "city": "Burlington"
     },
     {
@@ -1444,7 +1444,7 @@
     {
       "month": "2015-12",
       "geo_town": "Stowe",
-      "gallons": 865,
+      "gallons": 885,
       "city": "Stowe"
     },
     {
@@ -1612,7 +1612,7 @@
     {
       "month": "2016-02",
       "geo_town": "Burlington",
-      "gallons": 2131,
+      "gallons": 2086,
       "city": "Burlington"
     },
     {
@@ -1708,7 +1708,7 @@
     {
       "month": "2016-02",
       "geo_town": "Stowe",
-      "gallons": 983,
+      "gallons": 1028,
       "city": "Stowe"
     },
     {
@@ -1774,7 +1774,7 @@
     {
       "month": "2016-03",
       "geo_town": "Burlington",
-      "gallons": 2129,
+      "gallons": 2069,
       "city": "Burlington"
     },
     {
@@ -1864,7 +1864,7 @@
     {
       "month": "2016-03",
       "geo_town": "Stowe",
-      "gallons": 580,
+      "gallons": 640,
       "city": "Stowe"
     },
     {
@@ -1924,7 +1924,7 @@
     {
       "month": "2016-04",
       "geo_town": "Burlington",
-      "gallons": 1803,
+      "gallons": 1753,
       "city": "Burlington"
     },
     {
@@ -2014,7 +2014,7 @@
     {
       "month": "2016-04",
       "geo_town": "Stowe",
-      "gallons": 690,
+      "gallons": 740,
       "city": "Stowe"
     },
     {
@@ -2068,7 +2068,7 @@
     {
       "month": "2016-05",
       "geo_town": "Burlington",
-      "gallons": 2459,
+      "gallons": 2374,
       "city": "Burlington"
     },
     {
@@ -2158,7 +2158,7 @@
     {
       "month": "2016-05",
       "geo_town": "Stowe",
-      "gallons": 1535,
+      "gallons": 1620,
       "city": "Stowe"
     },
     {
@@ -2200,7 +2200,7 @@
     {
       "month": "2016-06",
       "geo_town": "Burlington",
-      "gallons": 7095,
+      "gallons": 7055,
       "city": "Burlington"
     },
     {
@@ -2284,7 +2284,7 @@
     {
       "month": "2016-06",
       "geo_town": "Stowe",
-      "gallons": 640,
+      "gallons": 680,
       "city": "Stowe"
     },
     {
@@ -2344,7 +2344,7 @@
     {
       "month": "2016-07",
       "geo_town": "Burlington",
-      "gallons": 2926,
+      "gallons": 2781,
       "city": "Burlington"
     },
     {
@@ -2452,7 +2452,7 @@
     {
       "month": "2016-07",
       "geo_town": "Stowe",
-      "gallons": 1210,
+      "gallons": 1355,
       "city": "Stowe"
     },
     {
@@ -2512,7 +2512,7 @@
     {
       "month": "2016-08",
       "geo_town": "Burlington",
-      "gallons": 2471,
+      "gallons": 2396,
       "city": "Burlington"
     },
     {
@@ -2626,7 +2626,7 @@
     {
       "month": "2016-08",
       "geo_town": "Stowe",
-      "gallons": 807,
+      "gallons": 882,
       "city": "Stowe"
     },
     {
@@ -2686,7 +2686,7 @@
     {
       "month": "2016-09",
       "geo_town": "Burlington",
-      "gallons": 2260,
+      "gallons": 2200,
       "city": "Burlington"
     },
     {
@@ -2782,7 +2782,7 @@
     {
       "month": "2016-09",
       "geo_town": "Stowe",
-      "gallons": 875,
+      "gallons": 935,
       "city": "Stowe"
     },
     {
@@ -2854,7 +2854,7 @@
     {
       "month": "2016-10",
       "geo_town": "Burlington",
-      "gallons": 2143,
+      "gallons": 2083,
       "city": "Burlington"
     },
     {
@@ -2956,7 +2956,7 @@
     {
       "month": "2016-10",
       "geo_town": "Stowe",
-      "gallons": 1228,
+      "gallons": 1288,
       "city": "Stowe"
     },
     {
@@ -2998,7 +2998,7 @@
     {
       "month": "2016-11",
       "geo_town": "Burlington",
-      "gallons": 1935,
+      "gallons": 1890,
       "city": "Burlington"
     },
     {
@@ -3106,7 +3106,7 @@
     {
       "month": "2016-11",
       "geo_town": "Stowe",
-      "gallons": 580,
+      "gallons": 625,
       "city": "Stowe"
     },
     {
@@ -3166,7 +3166,7 @@
     {
       "month": "2016-12",
       "geo_town": "Burlington",
-      "gallons": 1718,
+      "gallons": 1698,
       "city": "Burlington"
     },
     {
@@ -3190,7 +3190,7 @@
     {
       "month": "2016-12",
       "geo_town": "Killington",
-      "gallons": 25,
+      "gallons": 45,
       "city": "Killington"
     },
     {
@@ -3310,7 +3310,7 @@
     {
       "month": "2017-01",
       "geo_town": "Burlington",
-      "gallons": 3068,
+      "gallons": 2893,
       "city": "Burlington"
     },
     {
@@ -3348,6 +3348,12 @@
       "geo_town": "Jay",
       "gallons": 675,
       "city": "Jay"
+    },
+    {
+      "month": "2017-01",
+      "geo_town": "Killington",
+      "gallons": 130,
+      "city": "Killington"
     },
     {
       "month": "2017-01",
@@ -3436,7 +3442,7 @@
     {
       "month": "2017-01",
       "geo_town": "Stowe",
-      "gallons": 841,
+      "gallons": 886,
       "city": "Stowe"
     },
     {
@@ -3478,7 +3484,7 @@
     {
       "month": "2017-02",
       "geo_town": "Burlington",
-      "gallons": 2300,
+      "gallons": 2220,
       "city": "Burlington"
     },
     {
@@ -3502,7 +3508,7 @@
     {
       "month": "2017-02",
       "geo_town": "Killington",
-      "gallons": 180,
+      "gallons": 260,
       "city": "Killington"
     },
     {
@@ -3646,7 +3652,7 @@
     {
       "month": "2017-03",
       "geo_town": "Burlington",
-      "gallons": 1872,
+      "gallons": 1817,
       "city": "Burlington"
     },
     {
@@ -3694,7 +3700,7 @@
     {
       "month": "2017-03",
       "geo_town": "Killington",
-      "gallons": 75,
+      "gallons": 130,
       "city": "Killington"
     },
     {
@@ -3820,7 +3826,7 @@
     {
       "month": "2017-04",
       "geo_town": "Burlington",
-      "gallons": 1920,
+      "gallons": 1820,
       "city": "Burlington"
     },
     {
@@ -3892,7 +3898,7 @@
     {
       "month": "2017-04",
       "geo_town": "Stowe",
-      "gallons": 1203,
+      "gallons": 1303,
       "city": "Stowe"
     },
     {
@@ -3946,7 +3952,7 @@
     {
       "month": "2017-05",
       "geo_town": "Burlington",
-      "gallons": 2163,
+      "gallons": 2033,
       "city": "Burlington"
     },
     {
@@ -3988,7 +3994,7 @@
     {
       "month": "2017-05",
       "geo_town": "Killington",
-      "gallons": 125,
+      "gallons": 195,
       "city": "Killington"
     },
     {
@@ -4078,7 +4084,7 @@
     {
       "month": "2017-05",
       "geo_town": "Stowe",
-      "gallons": 715,
+      "gallons": 775,
       "city": "Stowe"
     },
     {
@@ -4138,7 +4144,7 @@
     {
       "month": "2017-06",
       "geo_town": "Burlington",
-      "gallons": 2477,
+      "gallons": 2407,
       "city": "Burlington"
     },
     {
@@ -4282,7 +4288,7 @@
     {
       "month": "2017-06",
       "geo_town": "Stowe",
-      "gallons": 770,
+      "gallons": 840,
       "city": "Stowe"
     },
     {
@@ -4360,7 +4366,7 @@
     {
       "month": "2017-07",
       "geo_town": "Burlington",
-      "gallons": 3151,
+      "gallons": 3131,
       "city": "Burlington"
     },
     {
@@ -4402,7 +4408,7 @@
     {
       "month": "2017-07",
       "geo_town": "Killington",
-      "gallons": 40,
+      "gallons": 60,
       "city": "Killington"
     },
     {
@@ -4558,7 +4564,7 @@
     {
       "month": "2017-08",
       "geo_town": "Burlington",
-      "gallons": 3120,
+      "gallons": 2920,
       "city": "Burlington"
     },
     {
@@ -4702,7 +4708,7 @@
     {
       "month": "2017-08",
       "geo_town": "Stowe",
-      "gallons": 1135,
+      "gallons": 1335,
       "city": "Stowe"
     },
     {
@@ -4780,7 +4786,7 @@
     {
       "month": "2017-09",
       "geo_town": "Burlington",
-      "gallons": 2332,
+      "gallons": 2247,
       "city": "Burlington"
     },
     {
@@ -4930,7 +4936,7 @@
     {
       "month": "2017-09",
       "geo_town": "Stowe",
-      "gallons": 1230,
+      "gallons": 1315,
       "city": "Stowe"
     },
     {
@@ -5152,7 +5158,7 @@
     {
       "month": "2017-11",
       "geo_town": "Burlington",
-      "gallons": 1854,
+      "gallons": 1794,
       "city": "Burlington"
     },
     {
@@ -5194,7 +5200,7 @@
     {
       "month": "2017-11",
       "geo_town": "Killington",
-      "gallons": 95,
+      "gallons": 115,
       "city": "Killington"
     },
     {
@@ -5278,7 +5284,7 @@
     {
       "month": "2017-11",
       "geo_town": "Stowe",
-      "gallons": 1445,
+      "gallons": 1485,
       "city": "Stowe"
     },
     {
@@ -5500,7 +5506,7 @@
     {
       "month": "2018-01",
       "geo_town": "Burlington",
-      "gallons": 1545,
+      "gallons": 1480,
       "city": "Burlington"
     },
     {
@@ -5542,7 +5548,7 @@
     {
       "month": "2018-01",
       "geo_town": "Killington",
-      "gallons": 85,
+      "gallons": 125,
       "city": "Killington"
     },
     {
@@ -5614,7 +5620,7 @@
     {
       "month": "2018-01",
       "geo_town": "Stowe",
-      "gallons": 1240,
+      "gallons": 1265,
       "city": "Stowe"
     },
     {
@@ -5872,7 +5878,7 @@
     {
       "month": "2018-03",
       "geo_town": "Burlington",
-      "gallons": 3050,
+      "gallons": 2925,
       "city": "Burlington"
     },
     {
@@ -5932,7 +5938,7 @@
     {
       "month": "2018-03",
       "geo_town": "Killington",
-      "gallons": 50,
+      "gallons": 90,
       "city": "Killington"
     },
     {
@@ -5998,7 +6004,7 @@
     {
       "month": "2018-03",
       "geo_town": "Stowe",
-      "gallons": 1165,
+      "gallons": 1250,
       "city": "Stowe"
     },
     {
@@ -6088,7 +6094,7 @@
     {
       "month": "2018-04",
       "geo_town": "Burlington",
-      "gallons": 4090,
+      "gallons": 4050,
       "city": "Burlington"
     },
     {
@@ -6238,7 +6244,7 @@
     {
       "month": "2018-04",
       "geo_town": "Stowe",
-      "gallons": 1125,
+      "gallons": 1165,
       "city": "Stowe"
     },
     {
@@ -6556,7 +6562,7 @@
     {
       "month": "2018-06",
       "geo_town": "Burlington",
-      "gallons": 3965,
+      "gallons": 3915,
       "city": "Burlington"
     },
     {
@@ -6676,7 +6682,7 @@
     {
       "month": "2018-06",
       "geo_town": "Stowe",
-      "gallons": 975,
+      "gallons": 1025,
       "city": "Stowe"
     },
     {
@@ -6742,7 +6748,7 @@
     {
       "month": "2018-07",
       "geo_town": "Burlington",
-      "gallons": 5005,
+      "gallons": 4930,
       "city": "Burlington"
     },
     {
@@ -6862,7 +6868,7 @@
     {
       "month": "2018-07",
       "geo_town": "Stowe",
-      "gallons": 1870,
+      "gallons": 1945,
       "city": "Stowe"
     },
     {
@@ -6934,7 +6940,7 @@
     {
       "month": "2018-08",
       "geo_town": "Burlington",
-      "gallons": 2790,
+      "gallons": 2715,
       "city": "Burlington"
     },
     {
@@ -7096,7 +7102,7 @@
     {
       "month": "2018-08",
       "geo_town": "Stowe",
-      "gallons": 1190,
+      "gallons": 1265,
       "city": "Stowe"
     },
     {
@@ -7378,7 +7384,7 @@
     {
       "month": "2018-10",
       "geo_town": "Burlington",
-      "gallons": 3785,
+      "gallons": 3695,
       "city": "Burlington"
     },
     {
@@ -7564,7 +7570,7 @@
     {
       "month": "2018-10",
       "geo_town": "Stowe",
-      "gallons": 1290,
+      "gallons": 1380,
       "city": "Stowe"
     },
     {
@@ -7642,7 +7648,7 @@
     {
       "month": "2018-11",
       "geo_town": "Burlington",
-      "gallons": 3724,
+      "gallons": 3704,
       "city": "Burlington"
     },
     {
@@ -7762,7 +7768,7 @@
     {
       "month": "2018-11",
       "geo_town": "Stowe",
-      "gallons": 825,
+      "gallons": 845,
       "city": "Stowe"
     },
     {
@@ -9184,7 +9190,7 @@
     {
       "month": "2019-06",
       "geo_town": "Burlington",
-      "gallons": 3900,
+      "gallons": 3825,
       "city": "Burlington"
     },
     {
@@ -9334,7 +9340,7 @@
     {
       "month": "2019-06",
       "geo_town": "Stowe",
-      "gallons": 1305,
+      "gallons": 1380,
       "city": "Stowe"
     },
     {
@@ -9850,7 +9856,7 @@
     {
       "month": "2019-09",
       "geo_town": "Burlington",
-      "gallons": 1825,
+      "gallons": 1665,
       "city": "Burlington"
     },
     {
@@ -9988,7 +9994,7 @@
     {
       "month": "2019-09",
       "geo_town": "Stowe",
-      "gallons": 1290,
+      "gallons": 1450,
       "city": "Stowe"
     },
     {
@@ -10312,7 +10318,7 @@
     {
       "month": "2019-11",
       "geo_town": "Burlington",
-      "gallons": 3406,
+      "gallons": 3256,
       "city": "Burlington"
     },
     {
@@ -10396,7 +10402,7 @@
     {
       "month": "2019-11",
       "geo_town": "Stowe",
-      "gallons": 1705,
+      "gallons": 1855,
       "city": "Stowe"
     },
     {
@@ -10672,7 +10678,7 @@
     {
       "month": "2020-01",
       "geo_town": "Burlington",
-      "gallons": 3176,
+      "gallons": 3126,
       "city": "Burlington"
     },
     {
@@ -10840,7 +10846,7 @@
     {
       "month": "2020-01",
       "geo_town": "Stowe",
-      "gallons": 1660,
+      "gallons": 1710,
       "city": "Stowe"
     },
     {
@@ -11362,7 +11368,7 @@
     {
       "month": "2020-04",
       "geo_town": "Burlington",
-      "gallons": 1361,
+      "gallons": 1236,
       "city": "Burlington"
     },
     {
@@ -11494,7 +11500,7 @@
     {
       "month": "2020-04",
       "geo_town": "Stowe",
-      "gallons": 680,
+      "gallons": 805,
       "city": "Stowe"
     },
     {
@@ -34469,12 +34475,12 @@
     {
       "month": "2015-02",
       "county": "Chittenden",
-      "gallons": 1564
+      "gallons": 1524
     },
     {
       "month": "2015-02",
       "county": "Lamoille",
-      "gallons": 545
+      "gallons": 585
     },
     {
       "month": "2015-02",
@@ -34574,12 +34580,12 @@
     {
       "month": "2015-05",
       "county": "Chittenden",
-      "gallons": 2196
+      "gallons": 2151
     },
     {
       "month": "2015-05",
       "county": "Lamoille",
-      "gallons": 530
+      "gallons": 575
     },
     {
       "month": "2015-05",
@@ -34609,12 +34615,12 @@
     {
       "month": "2015-06",
       "county": "Chittenden",
-      "gallons": 1946
+      "gallons": 1901
     },
     {
       "month": "2015-06",
       "county": "Lamoille",
-      "gallons": 800
+      "gallons": 845
     },
     {
       "month": "2015-06",
@@ -34674,12 +34680,12 @@
     {
       "month": "2015-08",
       "county": "Chittenden",
-      "gallons": 2093
+      "gallons": 2023
     },
     {
       "month": "2015-08",
       "county": "Lamoille",
-      "gallons": 985
+      "gallons": 1055
     },
     {
       "month": "2015-08",
@@ -34704,12 +34710,12 @@
     {
       "month": "2015-09",
       "county": "Chittenden",
-      "gallons": 3052
+      "gallons": 2992
     },
     {
       "month": "2015-09",
       "county": "Lamoille",
-      "gallons": 955
+      "gallons": 1015
     },
     {
       "month": "2015-09",
@@ -34769,7 +34775,7 @@
     {
       "month": "2015-11",
       "county": "Chittenden",
-      "gallons": 2105
+      "gallons": 2065
     },
     {
       "month": "2015-11",
@@ -34779,7 +34785,7 @@
     {
       "month": "2015-11",
       "county": "Lamoille",
-      "gallons": 880
+      "gallons": 920
     },
     {
       "month": "2015-11",
@@ -34814,12 +34820,12 @@
     {
       "month": "2015-12",
       "county": "Chittenden",
-      "gallons": 2545
+      "gallons": 2525
     },
     {
       "month": "2015-12",
       "county": "Lamoille",
-      "gallons": 1117
+      "gallons": 1137
     },
     {
       "month": "2015-12",
@@ -34889,12 +34895,12 @@
     {
       "month": "2016-02",
       "county": "Chittenden",
-      "gallons": 2683
+      "gallons": 2638
     },
     {
       "month": "2016-02",
       "county": "Lamoille",
-      "gallons": 1253
+      "gallons": 1298
     },
     {
       "month": "2016-02",
@@ -34929,12 +34935,12 @@
     {
       "month": "2016-03",
       "county": "Chittenden",
-      "gallons": 2604
+      "gallons": 2544
     },
     {
       "month": "2016-03",
       "county": "Lamoille",
-      "gallons": 810
+      "gallons": 870
     },
     {
       "month": "2016-03",
@@ -34964,12 +34970,12 @@
     {
       "month": "2016-04",
       "county": "Chittenden",
-      "gallons": 2248
+      "gallons": 2198
     },
     {
       "month": "2016-04",
       "county": "Lamoille",
-      "gallons": 760
+      "gallons": 810
     },
     {
       "month": "2016-04",
@@ -35004,12 +35010,12 @@
     {
       "month": "2016-05",
       "county": "Chittenden",
-      "gallons": 3112
+      "gallons": 3027
     },
     {
       "month": "2016-05",
       "county": "Lamoille",
-      "gallons": 1795
+      "gallons": 1880
     },
     {
       "month": "2016-05",
@@ -35039,12 +35045,12 @@
     {
       "month": "2016-06",
       "county": "Chittenden",
-      "gallons": 7558
+      "gallons": 7518
     },
     {
       "month": "2016-06",
       "county": "Lamoille",
-      "gallons": 670
+      "gallons": 710
     },
     {
       "month": "2016-06",
@@ -35074,12 +35080,12 @@
     {
       "month": "2016-07",
       "county": "Chittenden",
-      "gallons": 4978
+      "gallons": 4833
     },
     {
       "month": "2016-07",
       "county": "Lamoille",
-      "gallons": 1395
+      "gallons": 1540
     },
     {
       "month": "2016-07",
@@ -35119,12 +35125,12 @@
     {
       "month": "2016-08",
       "county": "Chittenden",
-      "gallons": 3076
+      "gallons": 3001
     },
     {
       "month": "2016-08",
       "county": "Lamoille",
-      "gallons": 937
+      "gallons": 1012
     },
     {
       "month": "2016-08",
@@ -35164,7 +35170,7 @@
     {
       "month": "2016-09",
       "county": "Chittenden",
-      "gallons": 3590
+      "gallons": 3530
     },
     {
       "month": "2016-09",
@@ -35174,7 +35180,7 @@
     {
       "month": "2016-09",
       "county": "Lamoille",
-      "gallons": 1040
+      "gallons": 1100
     },
     {
       "month": "2016-09",
@@ -35209,12 +35215,12 @@
     {
       "month": "2016-10",
       "county": "Chittenden",
-      "gallons": 2983
+      "gallons": 2923
     },
     {
       "month": "2016-10",
       "county": "Lamoille",
-      "gallons": 1618
+      "gallons": 1678
     },
     {
       "month": "2016-10",
@@ -35254,12 +35260,12 @@
     {
       "month": "2016-11",
       "county": "Chittenden",
-      "gallons": 3030
+      "gallons": 2985
     },
     {
       "month": "2016-11",
       "county": "Lamoille",
-      "gallons": 790
+      "gallons": 835
     },
     {
       "month": "2016-11",
@@ -35299,7 +35305,7 @@
     {
       "month": "2016-12",
       "county": "Chittenden",
-      "gallons": 2279
+      "gallons": 2259
     },
     {
       "month": "2016-12",
@@ -35319,7 +35325,7 @@
     {
       "month": "2016-12",
       "county": "Rutland",
-      "gallons": 190
+      "gallons": 210
     },
     {
       "month": "2016-12",
@@ -35349,7 +35355,7 @@
     {
       "month": "2017-01",
       "county": "Chittenden",
-      "gallons": 3918
+      "gallons": 3743
     },
     {
       "month": "2017-01",
@@ -35359,7 +35365,7 @@
     {
       "month": "2017-01",
       "county": "Lamoille",
-      "gallons": 966
+      "gallons": 1011
     },
     {
       "month": "2017-01",
@@ -35374,7 +35380,7 @@
     {
       "month": "2017-01",
       "county": "Rutland",
-      "gallons": 80
+      "gallons": 210
     },
     {
       "month": "2017-01",
@@ -35404,7 +35410,7 @@
     {
       "month": "2017-02",
       "county": "Chittenden",
-      "gallons": 2720
+      "gallons": 2640
     },
     {
       "month": "2017-02",
@@ -35424,7 +35430,7 @@
     {
       "month": "2017-02",
       "county": "Rutland",
-      "gallons": 525
+      "gallons": 605
     },
     {
       "month": "2017-02",
@@ -35449,7 +35455,7 @@
     {
       "month": "2017-03",
       "county": "Chittenden",
-      "gallons": 2345
+      "gallons": 2290
     },
     {
       "month": "2017-03",
@@ -35469,7 +35475,7 @@
     {
       "month": "2017-03",
       "county": "Rutland",
-      "gallons": 220
+      "gallons": 275
     },
     {
       "month": "2017-03",
@@ -35489,12 +35495,12 @@
     {
       "month": "2017-04",
       "county": "Chittenden",
-      "gallons": 2500
+      "gallons": 2400
     },
     {
       "month": "2017-04",
       "county": "Lamoille",
-      "gallons": 1578
+      "gallons": 1678
     },
     {
       "month": "2017-04",
@@ -35529,12 +35535,12 @@
     {
       "month": "2017-05",
       "county": "Chittenden",
-      "gallons": 3987
+      "gallons": 3857
     },
     {
       "month": "2017-05",
       "county": "Lamoille",
-      "gallons": 885
+      "gallons": 945
     },
     {
       "month": "2017-05",
@@ -35554,7 +35560,7 @@
     {
       "month": "2017-05",
       "county": "Rutland",
-      "gallons": 350
+      "gallons": 420
     },
     {
       "month": "2017-05",
@@ -35584,12 +35590,12 @@
     {
       "month": "2017-06",
       "county": "Chittenden",
-      "gallons": 3897
+      "gallons": 3827
     },
     {
       "month": "2017-06",
       "county": "Lamoille",
-      "gallons": 1325
+      "gallons": 1395
     },
     {
       "month": "2017-06",
@@ -35639,7 +35645,7 @@
     {
       "month": "2017-07",
       "county": "Chittenden",
-      "gallons": 4821
+      "gallons": 4801
     },
     {
       "month": "2017-07",
@@ -35664,7 +35670,7 @@
     {
       "month": "2017-07",
       "county": "Rutland",
-      "gallons": 235
+      "gallons": 255
     },
     {
       "month": "2017-07",
@@ -35694,12 +35700,12 @@
     {
       "month": "2017-08",
       "county": "Chittenden",
-      "gallons": 4355
+      "gallons": 4155
     },
     {
       "month": "2017-08",
       "county": "Lamoille",
-      "gallons": 1630
+      "gallons": 1830
     },
     {
       "month": "2017-08",
@@ -35749,12 +35755,12 @@
     {
       "month": "2017-09",
       "county": "Chittenden",
-      "gallons": 3617
+      "gallons": 3532
     },
     {
       "month": "2017-09",
       "county": "Lamoille",
-      "gallons": 1585
+      "gallons": 1670
     },
     {
       "month": "2017-09",
@@ -35844,12 +35850,12 @@
     {
       "month": "2017-11",
       "county": "Chittenden",
-      "gallons": 2344
+      "gallons": 2284
     },
     {
       "month": "2017-11",
       "county": "Lamoille",
-      "gallons": 1780
+      "gallons": 1820
     },
     {
       "month": "2017-11",
@@ -35864,7 +35870,7 @@
     {
       "month": "2017-11",
       "county": "Rutland",
-      "gallons": 475
+      "gallons": 495
     },
     {
       "month": "2017-11",
@@ -35939,12 +35945,12 @@
     {
       "month": "2018-01",
       "county": "Chittenden",
-      "gallons": 2355
+      "gallons": 2290
     },
     {
       "month": "2018-01",
       "county": "Lamoille",
-      "gallons": 1645
+      "gallons": 1670
     },
     {
       "month": "2018-01",
@@ -35959,7 +35965,7 @@
     {
       "month": "2018-01",
       "county": "Rutland",
-      "gallons": 308
+      "gallons": 348
     },
     {
       "month": "2018-01",
@@ -36059,12 +36065,12 @@
     {
       "month": "2018-03",
       "county": "Chittenden",
-      "gallons": 4795
+      "gallons": 4670
     },
     {
       "month": "2018-03",
       "county": "Lamoille",
-      "gallons": 1500
+      "gallons": 1585
     },
     {
       "month": "2018-03",
@@ -36084,7 +36090,7 @@
     {
       "month": "2018-03",
       "county": "Rutland",
-      "gallons": 150
+      "gallons": 190
     },
     {
       "month": "2018-03",
@@ -36114,7 +36120,7 @@
     {
       "month": "2018-04",
       "county": "Chittenden",
-      "gallons": 5665
+      "gallons": 5625
     },
     {
       "month": "2018-04",
@@ -36124,7 +36130,7 @@
     {
       "month": "2018-04",
       "county": "Lamoille",
-      "gallons": 1575
+      "gallons": 1615
     },
     {
       "month": "2018-04",
@@ -36224,12 +36230,12 @@
     {
       "month": "2018-06",
       "county": "Chittenden",
-      "gallons": 6225
+      "gallons": 6175
     },
     {
       "month": "2018-06",
       "county": "Lamoille",
-      "gallons": 1205
+      "gallons": 1255
     },
     {
       "month": "2018-06",
@@ -36279,12 +36285,12 @@
     {
       "month": "2018-07",
       "county": "Chittenden",
-      "gallons": 9290
+      "gallons": 9215
     },
     {
       "month": "2018-07",
       "county": "Lamoille",
-      "gallons": 2225
+      "gallons": 2300
     },
     {
       "month": "2018-07",
@@ -36319,7 +36325,7 @@
     {
       "month": "2018-08",
       "county": "Chittenden",
-      "gallons": 4795
+      "gallons": 4720
     },
     {
       "month": "2018-08",
@@ -36334,7 +36340,7 @@
     {
       "month": "2018-08",
       "county": "Lamoille",
-      "gallons": 1380
+      "gallons": 1455
     },
     {
       "month": "2018-08",
@@ -36429,7 +36435,7 @@
     {
       "month": "2018-10",
       "county": "Chittenden",
-      "gallons": 5730
+      "gallons": 5640
     },
     {
       "month": "2018-10",
@@ -36439,7 +36445,7 @@
     {
       "month": "2018-10",
       "county": "Lamoille",
-      "gallons": 1700
+      "gallons": 1790
     },
     {
       "month": "2018-10",
@@ -36479,12 +36485,12 @@
     {
       "month": "2018-11",
       "county": "Chittenden",
-      "gallons": 5779
+      "gallons": 5759
     },
     {
       "month": "2018-11",
       "county": "Lamoille",
-      "gallons": 965
+      "gallons": 985
     },
     {
       "month": "2018-11",
@@ -36844,12 +36850,12 @@
     {
       "month": "2019-06",
       "county": "Chittenden",
-      "gallons": 6630
+      "gallons": 6555
     },
     {
       "month": "2019-06",
       "county": "Lamoille",
-      "gallons": 2305
+      "gallons": 2380
     },
     {
       "month": "2019-06",
@@ -36994,7 +37000,7 @@
     {
       "month": "2019-09",
       "county": "Chittenden",
-      "gallons": 5945
+      "gallons": 5785
     },
     {
       "month": "2019-09",
@@ -37004,7 +37010,7 @@
     {
       "month": "2019-09",
       "county": "Lamoille",
-      "gallons": 2015
+      "gallons": 2175
     },
     {
       "month": "2019-09",
@@ -37094,12 +37100,12 @@
     {
       "month": "2019-11",
       "county": "Chittenden",
-      "gallons": 6237
+      "gallons": 6087
     },
     {
       "month": "2019-11",
       "county": "Lamoille",
-      "gallons": 1705
+      "gallons": 1855
     },
     {
       "month": "2019-11",
@@ -37194,7 +37200,7 @@
     {
       "month": "2020-01",
       "county": "Chittenden",
-      "gallons": 5711
+      "gallons": 5661
     },
     {
       "month": "2020-01",
@@ -37204,7 +37210,7 @@
     {
       "month": "2020-01",
       "county": "Lamoille",
-      "gallons": 2195
+      "gallons": 2245
     },
     {
       "month": "2020-01",
@@ -37359,7 +37365,7 @@
     {
       "month": "2020-04",
       "county": "Chittenden",
-      "gallons": 9081
+      "gallons": 8956
     },
     {
       "month": "2020-04",
@@ -37369,7 +37375,7 @@
     {
       "month": "2020-04",
       "county": "Lamoille",
-      "gallons": 1260
+      "gallons": 1385
     },
     {
       "month": "2020-04",
@@ -42984,7 +42990,7 @@
     {
       "month": "2015-02",
       "region": "Burlington / South Burlington",
-      "gallons": 1459
+      "gallons": 1419
     },
     {
       "month": "2015-02",
@@ -43019,7 +43025,7 @@
     {
       "month": "2015-02",
       "region": "Waterbury / Stowe",
-      "gallons": 770
+      "gallons": 810
     },
     {
       "month": "2015-02",
@@ -43129,7 +43135,7 @@
     {
       "month": "2015-05",
       "region": "Burlington / South Burlington",
-      "gallons": 1961
+      "gallons": 1916
     },
     {
       "month": "2015-05",
@@ -43184,7 +43190,7 @@
     {
       "month": "2015-05",
       "region": "Waterbury / Stowe",
-      "gallons": 873
+      "gallons": 918
     },
     {
       "month": "2015-05",
@@ -43194,7 +43200,7 @@
     {
       "month": "2015-06",
       "region": "Burlington / South Burlington",
-      "gallons": 1741
+      "gallons": 1696
     },
     {
       "month": "2015-06",
@@ -43239,7 +43245,7 @@
     {
       "month": "2015-06",
       "region": "Waterbury / Stowe",
-      "gallons": 757
+      "gallons": 802
     },
     {
       "month": "2015-06",
@@ -43304,7 +43310,7 @@
     {
       "month": "2015-08",
       "region": "Burlington / South Burlington",
-      "gallons": 1811
+      "gallons": 1741
     },
     {
       "month": "2015-08",
@@ -43359,7 +43365,7 @@
     {
       "month": "2015-08",
       "region": "Waterbury / Stowe",
-      "gallons": 1055
+      "gallons": 1125
     },
     {
       "month": "2015-08",
@@ -43369,7 +43375,7 @@
     {
       "month": "2015-09",
       "region": "Burlington / South Burlington",
-      "gallons": 2567
+      "gallons": 2507
     },
     {
       "month": "2015-09",
@@ -43419,7 +43425,7 @@
     {
       "month": "2015-09",
       "region": "Waterbury / Stowe",
-      "gallons": 1120
+      "gallons": 1180
     },
     {
       "month": "2015-09",
@@ -43499,7 +43505,7 @@
     {
       "month": "2015-11",
       "region": "Burlington / South Burlington",
-      "gallons": 1805
+      "gallons": 1765
     },
     {
       "month": "2015-11",
@@ -43564,7 +43570,7 @@
     {
       "month": "2015-11",
       "region": "Waterbury / Stowe",
-      "gallons": 1235
+      "gallons": 1275
     },
     {
       "month": "2015-11",
@@ -43574,7 +43580,7 @@
     {
       "month": "2015-12",
       "region": "Burlington / South Burlington",
-      "gallons": 2124
+      "gallons": 2104
     },
     {
       "month": "2015-12",
@@ -43624,7 +43630,7 @@
     {
       "month": "2015-12",
       "region": "Waterbury / Stowe",
-      "gallons": 1230
+      "gallons": 1250
     },
     {
       "month": "2015-12",
@@ -43699,7 +43705,7 @@
     {
       "month": "2016-02",
       "region": "Burlington / South Burlington",
-      "gallons": 2318
+      "gallons": 2273
     },
     {
       "month": "2016-02",
@@ -43749,7 +43755,7 @@
     {
       "month": "2016-02",
       "region": "Waterbury / Stowe",
-      "gallons": 1433
+      "gallons": 1478
     },
     {
       "month": "2016-02",
@@ -43759,7 +43765,7 @@
     {
       "month": "2016-03",
       "region": "Burlington / South Burlington",
-      "gallons": 2289
+      "gallons": 2229
     },
     {
       "month": "2016-03",
@@ -43809,7 +43815,7 @@
     {
       "month": "2016-03",
       "region": "Waterbury / Stowe",
-      "gallons": 900
+      "gallons": 960
     },
     {
       "month": "2016-03",
@@ -43819,7 +43825,7 @@
     {
       "month": "2016-04",
       "region": "Burlington / South Burlington",
-      "gallons": 1908
+      "gallons": 1858
     },
     {
       "month": "2016-04",
@@ -43874,7 +43880,7 @@
     {
       "month": "2016-04",
       "region": "Waterbury / Stowe",
-      "gallons": 980
+      "gallons": 1030
     },
     {
       "month": "2016-04",
@@ -43884,7 +43890,7 @@
     {
       "month": "2016-05",
       "region": "Burlington / South Burlington",
-      "gallons": 2622
+      "gallons": 2537
     },
     {
       "month": "2016-05",
@@ -43924,7 +43930,7 @@
     {
       "month": "2016-05",
       "region": "Waterbury / Stowe",
-      "gallons": 2250
+      "gallons": 2335
     },
     {
       "month": "2016-05",
@@ -43934,7 +43940,7 @@
     {
       "month": "2016-06",
       "region": "Burlington / South Burlington",
-      "gallons": 7210
+      "gallons": 7170
     },
     {
       "month": "2016-06",
@@ -43989,7 +43995,7 @@
     {
       "month": "2016-06",
       "region": "Waterbury / Stowe",
-      "gallons": 1085
+      "gallons": 1125
     },
     {
       "month": "2016-06",
@@ -43999,7 +44005,7 @@
     {
       "month": "2016-07",
       "region": "Burlington / South Burlington",
-      "gallons": 3066
+      "gallons": 2921
     },
     {
       "month": "2016-07",
@@ -44064,7 +44070,7 @@
     {
       "month": "2016-07",
       "region": "Waterbury / Stowe",
-      "gallons": 5147
+      "gallons": 5292
     },
     {
       "month": "2016-07",
@@ -44074,7 +44080,7 @@
     {
       "month": "2016-08",
       "region": "Burlington / South Burlington",
-      "gallons": 2676
+      "gallons": 2601
     },
     {
       "month": "2016-08",
@@ -44144,7 +44150,7 @@
     {
       "month": "2016-08",
       "region": "Waterbury / Stowe",
-      "gallons": 1202
+      "gallons": 1277
     },
     {
       "month": "2016-08",
@@ -44154,7 +44160,7 @@
     {
       "month": "2016-09",
       "region": "Burlington / South Burlington",
-      "gallons": 2395
+      "gallons": 2335
     },
     {
       "month": "2016-09",
@@ -44219,7 +44225,7 @@
     {
       "month": "2016-09",
       "region": "Waterbury / Stowe",
-      "gallons": 1400
+      "gallons": 1460
     },
     {
       "month": "2016-09",
@@ -44229,7 +44235,7 @@
     {
       "month": "2016-10",
       "region": "Burlington / South Burlington",
-      "gallons": 2278
+      "gallons": 2218
     },
     {
       "month": "2016-10",
@@ -44299,7 +44305,7 @@
     {
       "month": "2016-10",
       "region": "Waterbury / Stowe",
-      "gallons": 1963
+      "gallons": 2023
     },
     {
       "month": "2016-10",
@@ -44309,7 +44315,7 @@
     {
       "month": "2016-11",
       "region": "Burlington / South Burlington",
-      "gallons": 2195
+      "gallons": 2150
     },
     {
       "month": "2016-11",
@@ -44369,7 +44375,7 @@
     {
       "month": "2016-11",
       "region": "Waterbury / Stowe",
-      "gallons": 955
+      "gallons": 1000
     },
     {
       "month": "2016-11",
@@ -44379,7 +44385,7 @@
     {
       "month": "2016-12",
       "region": "Burlington / South Burlington",
-      "gallons": 1884
+      "gallons": 1864
     },
     {
       "month": "2016-12",
@@ -44419,12 +44425,12 @@
     {
       "month": "2016-12",
       "region": "South / Ski Combined",
-      "gallons": 25
+      "gallons": 45
     },
     {
       "month": "2016-12",
       "region": "Southern Ski Slopes",
-      "gallons": 25
+      "gallons": 45
     },
     {
       "month": "2016-12",
@@ -44449,7 +44455,7 @@
     {
       "month": "2017-01",
       "region": "Burlington / South Burlington",
-      "gallons": 3453
+      "gallons": 3278
     },
     {
       "month": "2017-01",
@@ -44509,12 +44515,12 @@
     {
       "month": "2017-01",
       "region": "South / Ski Combined",
-      "gallons": 285
+      "gallons": 415
     },
     {
       "month": "2017-01",
       "region": "Southern Ski Slopes",
-      "gallons": 155
+      "gallons": 285
     },
     {
       "month": "2017-01",
@@ -44524,7 +44530,7 @@
     {
       "month": "2017-01",
       "region": "Waterbury / Stowe",
-      "gallons": 1321
+      "gallons": 1366
     },
     {
       "month": "2017-01",
@@ -44534,7 +44540,7 @@
     {
       "month": "2017-02",
       "region": "Burlington / South Burlington",
-      "gallons": 2425
+      "gallons": 2345
     },
     {
       "month": "2017-02",
@@ -44584,12 +44590,12 @@
     {
       "month": "2017-02",
       "region": "South / Ski Combined",
-      "gallons": 340
+      "gallons": 420
     },
     {
       "month": "2017-02",
       "region": "Southern Ski Slopes",
-      "gallons": 190
+      "gallons": 270
     },
     {
       "month": "2017-02",
@@ -44609,7 +44615,7 @@
     {
       "month": "2017-03",
       "region": "Burlington / South Burlington",
-      "gallons": 2002
+      "gallons": 1947
     },
     {
       "month": "2017-03",
@@ -44659,12 +44665,12 @@
     {
       "month": "2017-03",
       "region": "South / Ski Combined",
-      "gallons": 75
+      "gallons": 130
     },
     {
       "month": "2017-03",
       "region": "Southern Ski Slopes",
-      "gallons": 75
+      "gallons": 130
     },
     {
       "month": "2017-03",
@@ -44684,7 +44690,7 @@
     {
       "month": "2017-04",
       "region": "Burlington / South Burlington",
-      "gallons": 2130
+      "gallons": 2030
     },
     {
       "month": "2017-04",
@@ -44719,12 +44725,12 @@
     {
       "month": "2017-04",
       "region": "Waterbury / Stowe",
-      "gallons": 1918
+      "gallons": 2018
     },
     {
       "month": "2017-05",
       "region": "Burlington / South Burlington",
-      "gallons": 2338
+      "gallons": 2208
     },
     {
       "month": "2017-05",
@@ -44779,12 +44785,12 @@
     {
       "month": "2017-05",
       "region": "South / Ski Combined",
-      "gallons": 145
+      "gallons": 215
     },
     {
       "month": "2017-05",
       "region": "Southern Ski Slopes",
-      "gallons": 145
+      "gallons": 215
     },
     {
       "month": "2017-05",
@@ -44799,7 +44805,7 @@
     {
       "month": "2017-05",
       "region": "Waterbury / Stowe",
-      "gallons": 1620
+      "gallons": 1680
     },
     {
       "month": "2017-05",
@@ -44809,7 +44815,7 @@
     {
       "month": "2017-06",
       "region": "Burlington / South Burlington",
-      "gallons": 2607
+      "gallons": 2537
     },
     {
       "month": "2017-06",
@@ -44894,7 +44900,7 @@
     {
       "month": "2017-06",
       "region": "Waterbury / Stowe",
-      "gallons": 1600
+      "gallons": 1670
     },
     {
       "month": "2017-06",
@@ -44904,7 +44910,7 @@
     {
       "month": "2017-07",
       "region": "Burlington / South Burlington",
-      "gallons": 3331
+      "gallons": 3311
     },
     {
       "month": "2017-07",
@@ -44969,12 +44975,12 @@
     {
       "month": "2017-07",
       "region": "South / Ski Combined",
-      "gallons": 190
+      "gallons": 210
     },
     {
       "month": "2017-07",
       "region": "Southern Ski Slopes",
-      "gallons": 40
+      "gallons": 60
     },
     {
       "month": "2017-07",
@@ -44999,7 +45005,7 @@
     {
       "month": "2017-08",
       "region": "Burlington / South Burlington",
-      "gallons": 3265
+      "gallons": 3065
     },
     {
       "month": "2017-08",
@@ -45079,7 +45085,7 @@
     {
       "month": "2017-08",
       "region": "Waterbury / Stowe",
-      "gallons": 2065
+      "gallons": 2265
     },
     {
       "month": "2017-08",
@@ -45089,7 +45095,7 @@
     {
       "month": "2017-09",
       "region": "Burlington / South Burlington",
-      "gallons": 2487
+      "gallons": 2402
     },
     {
       "month": "2017-09",
@@ -45174,7 +45180,7 @@
     {
       "month": "2017-09",
       "region": "Waterbury / Stowe",
-      "gallons": 2565
+      "gallons": 2650
     },
     {
       "month": "2017-09",
@@ -45259,7 +45265,7 @@
     {
       "month": "2017-11",
       "region": "Burlington / South Burlington",
-      "gallons": 1979
+      "gallons": 1919
     },
     {
       "month": "2017-11",
@@ -45309,12 +45315,12 @@
     {
       "month": "2017-11",
       "region": "South / Ski Combined",
-      "gallons": 95
+      "gallons": 115
     },
     {
       "month": "2017-11",
       "region": "Southern Ski Slopes",
-      "gallons": 95
+      "gallons": 115
     },
     {
       "month": "2017-11",
@@ -45324,7 +45330,7 @@
     {
       "month": "2017-11",
       "region": "Waterbury / Stowe",
-      "gallons": 2335
+      "gallons": 2375
     },
     {
       "month": "2017-11",
@@ -45394,7 +45400,7 @@
     {
       "month": "2018-01",
       "region": "Burlington / South Burlington",
-      "gallons": 1735
+      "gallons": 1670
     },
     {
       "month": "2018-01",
@@ -45444,12 +45450,12 @@
     {
       "month": "2018-01",
       "region": "South / Ski Combined",
-      "gallons": 1085
+      "gallons": 1125
     },
     {
       "month": "2018-01",
       "region": "Southern Ski Slopes",
-      "gallons": 835
+      "gallons": 875
     },
     {
       "month": "2018-01",
@@ -45459,7 +45465,7 @@
     {
       "month": "2018-01",
       "region": "Waterbury / Stowe",
-      "gallons": 2365
+      "gallons": 2390
     },
     {
       "month": "2018-01",
@@ -45554,7 +45560,7 @@
     {
       "month": "2018-03",
       "region": "Burlington / South Burlington",
-      "gallons": 3315
+      "gallons": 3190
     },
     {
       "month": "2018-03",
@@ -45614,12 +45620,12 @@
     {
       "month": "2018-03",
       "region": "South / Ski Combined",
-      "gallons": 500
+      "gallons": 540
     },
     {
       "month": "2018-03",
       "region": "Southern Ski Slopes",
-      "gallons": 350
+      "gallons": 390
     },
     {
       "month": "2018-03",
@@ -45629,7 +45635,7 @@
     {
       "month": "2018-03",
       "region": "Waterbury / Stowe",
-      "gallons": 2400
+      "gallons": 2485
     },
     {
       "month": "2018-03",
@@ -45639,7 +45645,7 @@
     {
       "month": "2018-04",
       "region": "Burlington / South Burlington",
-      "gallons": 4255
+      "gallons": 4215
     },
     {
       "month": "2018-04",
@@ -45714,7 +45720,7 @@
     {
       "month": "2018-04",
       "region": "Waterbury / Stowe",
-      "gallons": 3623
+      "gallons": 3663
     },
     {
       "month": "2018-04",
@@ -45819,7 +45825,7 @@
     {
       "month": "2018-06",
       "region": "Burlington / South Burlington",
-      "gallons": 3965
+      "gallons": 3915
     },
     {
       "month": "2018-06",
@@ -45889,7 +45895,7 @@
     {
       "month": "2018-06",
       "region": "Waterbury / Stowe",
-      "gallons": 1380
+      "gallons": 1430
     },
     {
       "month": "2018-06",
@@ -45899,7 +45905,7 @@
     {
       "month": "2018-07",
       "region": "Burlington / South Burlington",
-      "gallons": 5400
+      "gallons": 5325
     },
     {
       "month": "2018-07",
@@ -45969,7 +45975,7 @@
     {
       "month": "2018-07",
       "region": "Waterbury / Stowe",
-      "gallons": 3265
+      "gallons": 3340
     },
     {
       "month": "2018-07",
@@ -45979,7 +45985,7 @@
     {
       "month": "2018-08",
       "region": "Burlington / South Burlington",
-      "gallons": 2930
+      "gallons": 2855
     },
     {
       "month": "2018-08",
@@ -46059,7 +46065,7 @@
     {
       "month": "2018-08",
       "region": "Waterbury / Stowe",
-      "gallons": 1757
+      "gallons": 1832
     },
     {
       "month": "2018-08",
@@ -46149,7 +46155,7 @@
     {
       "month": "2018-10",
       "region": "Burlington / South Burlington",
-      "gallons": 3935
+      "gallons": 3845
     },
     {
       "month": "2018-10",
@@ -46234,7 +46240,7 @@
     {
       "month": "2018-10",
       "region": "Waterbury / Stowe",
-      "gallons": 2700
+      "gallons": 2790
     },
     {
       "month": "2018-10",
@@ -46244,7 +46250,7 @@
     {
       "month": "2018-11",
       "region": "Burlington / South Burlington",
-      "gallons": 3824
+      "gallons": 3804
     },
     {
       "month": "2018-11",
@@ -46309,7 +46315,7 @@
     {
       "month": "2018-11",
       "region": "Waterbury / Stowe",
-      "gallons": 1625
+      "gallons": 1645
     },
     {
       "month": "2018-11",
@@ -46859,7 +46865,7 @@
     {
       "month": "2019-06",
       "region": "Burlington / South Burlington",
-      "gallons": 4225
+      "gallons": 4150
     },
     {
       "month": "2019-06",
@@ -46934,7 +46940,7 @@
     {
       "month": "2019-06",
       "region": "Waterbury / Stowe",
-      "gallons": 2015
+      "gallons": 2090
     },
     {
       "month": "2019-06",
@@ -47124,7 +47130,7 @@
     {
       "month": "2019-09",
       "region": "Burlington / South Burlington",
-      "gallons": 2225
+      "gallons": 2065
     },
     {
       "month": "2019-09",
@@ -47209,7 +47215,7 @@
     {
       "month": "2019-09",
       "region": "Waterbury / Stowe",
-      "gallons": 2070
+      "gallons": 2230
     },
     {
       "month": "2019-09",
@@ -47309,7 +47315,7 @@
     {
       "month": "2019-11",
       "region": "Burlington / South Burlington",
-      "gallons": 3706
+      "gallons": 3556
     },
     {
       "month": "2019-11",
@@ -47374,7 +47380,7 @@
     {
       "month": "2019-11",
       "region": "Waterbury / Stowe",
-      "gallons": 2850
+      "gallons": 3000
     },
     {
       "month": "2019-11",
@@ -47469,7 +47475,7 @@
     {
       "month": "2020-01",
       "region": "Burlington / South Burlington",
-      "gallons": 3681
+      "gallons": 3631
     },
     {
       "month": "2020-01",
@@ -47549,7 +47555,7 @@
     {
       "month": "2020-01",
       "region": "Waterbury / Stowe",
-      "gallons": 2215
+      "gallons": 2265
     },
     {
       "month": "2020-01",
@@ -47734,7 +47740,7 @@
     {
       "month": "2020-04",
       "region": "Burlington / South Burlington",
-      "gallons": 1361
+      "gallons": 1236
     },
     {
       "month": "2020-04",
@@ -47809,7 +47815,7 @@
     {
       "month": "2020-04",
       "region": "Waterbury / Stowe",
-      "gallons": 1265
+      "gallons": 1390
     },
     {
       "month": "2020-04",
@@ -54736,7 +54742,7 @@
     {
       "year": 2015,
       "region": "Burlington / South Burlington",
-      "gallons": 22644
+      "gallons": 22324
     },
     {
       "year": 2015,
@@ -54811,7 +54817,7 @@
     {
       "year": 2015,
       "region": "Waterbury / Stowe",
-      "gallons": 11505
+      "gallons": 11825
     },
     {
       "year": 2015,
@@ -54821,7 +54827,7 @@
     {
       "year": 2016,
       "region": "Burlington / South Burlington",
-      "gallons": 32734
+      "gallons": 32049
     },
     {
       "year": 2016,
@@ -54881,12 +54887,12 @@
     {
       "year": 2016,
       "region": "South / Ski Combined",
-      "gallons": 95
+      "gallons": 115
     },
     {
       "year": 2016,
       "region": "Southern Ski Slopes",
-      "gallons": 95
+      "gallons": 115
     },
     {
       "year": 2016,
@@ -54901,7 +54907,7 @@
     {
       "year": 2016,
       "region": "Waterbury / Stowe",
-      "gallons": 19833
+      "gallons": 20498
     },
     {
       "year": 2016,
@@ -54911,7 +54917,7 @@
     {
       "year": 2017,
       "region": "Burlington / South Burlington",
-      "gallons": 36786
+      "gallons": 35811
     },
     {
       "year": 2017,
@@ -54976,12 +54982,12 @@
     {
       "year": 2017,
       "region": "South / Ski Combined",
-      "gallons": 2000
+      "gallons": 2375
     },
     {
       "year": 2017,
       "region": "Southern Ski Slopes",
-      "gallons": 915
+      "gallons": 1290
     },
     {
       "year": 2017,
@@ -54996,7 +55002,7 @@
     {
       "year": 2017,
       "region": "Waterbury / Stowe",
-      "gallons": 19589
+      "gallons": 20189
     },
     {
       "year": 2017,
@@ -55006,7 +55012,7 @@
     {
       "year": 2018,
       "region": "Burlington / South Burlington",
-      "gallons": 45037
+      "gallons": 44497
     },
     {
       "year": 2018,
@@ -55071,12 +55077,12 @@
     {
       "year": 2018,
       "region": "South / Ski Combined",
-      "gallons": 5045
+      "gallons": 5125
     },
     {
       "year": 2018,
       "region": "Southern Ski Slopes",
-      "gallons": 3520
+      "gallons": 3600
     },
     {
       "year": 2018,
@@ -55091,7 +55097,7 @@
     {
       "year": 2018,
       "region": "Waterbury / Stowe",
-      "gallons": 26323
+      "gallons": 26783
     },
     {
       "year": 2018,
@@ -55101,7 +55107,7 @@
     {
       "year": 2019,
       "region": "Burlington / South Burlington",
-      "gallons": 41810
+      "gallons": 41425
     },
     {
       "year": 2019,
@@ -55186,7 +55192,7 @@
     {
       "year": 2019,
       "region": "Waterbury / Stowe",
-      "gallons": 28973
+      "gallons": 29358
     },
     {
       "year": 2019,
@@ -55196,7 +55202,7 @@
     {
       "year": 2020,
       "region": "Burlington / South Burlington",
-      "gallons": 27992
+      "gallons": 27817
     },
     {
       "year": 2020,
@@ -55281,7 +55287,7 @@
     {
       "year": 2020,
       "region": "Waterbury / Stowe",
-      "gallons": 24280
+      "gallons": 24455
     },
     {
       "year": 2020,
@@ -55922,7 +55928,7 @@
   },
   "region_stats": {
     "Burlington / South Burlington": {
-      "customers": 214,
+      "customers": 212,
       "active": 81
     },
     "Central": {
@@ -55974,11 +55980,11 @@
       "active": 13
     },
     "South / Ski Combined": {
-      "customers": 35,
+      "customers": 36,
       "active": 25
     },
     "Southern Ski Slopes": {
-      "customers": 19,
+      "customers": 20,
       "active": 12
     },
     "Summer Snack Stops": {
@@ -55990,7 +55996,7 @@
       "active": 27
     },
     "Waterbury / Stowe": {
-      "customers": 68,
+      "customers": 69,
       "active": 49
     },
     "Winter / Summer Combined": {
@@ -56104,7 +56110,6 @@
       245,
       251,
       256,
-      259,
       272,
       281,
       283,
@@ -56208,7 +56213,6 @@
       801,
       805,
       811,
-      812,
       813,
       835,
       906,
@@ -56821,6 +56825,7 @@
       733,
       734,
       810,
+      812,
       814,
       815,
       816,
@@ -56856,6 +56861,7 @@
     ],
     "Southern Ski Slopes": [
       810,
+      812,
       814,
       815,
       816,
@@ -56967,6 +56973,7 @@
       255,
       257,
       258,
+      259,
       260,
       261,
       262,
@@ -57061,5 +57068,242 @@
       1508,
       1509
     ]
+  },
+  "retention_by_year": [
+    {
+      "year": 2015,
+      "active_jan1": 0,
+      "gained_new": 136,
+      "gained_successor": 0,
+      "lost": 0,
+      "closed": 0,
+      "changed_hands": 0,
+      "moved": 0,
+      "unknown": 1,
+      "moved_followed": 0,
+      "gained": 136,
+      "ended": 1,
+      "churn": null,
+      "churn_high": null,
+      "history_start": true,
+      "partial": false
+    },
+    {
+      "year": 2016,
+      "active_jan1": 135,
+      "gained_new": 60,
+      "gained_successor": 0,
+      "lost": 0,
+      "closed": 0,
+      "changed_hands": 0,
+      "moved": 0,
+      "unknown": 17,
+      "moved_followed": 0,
+      "gained": 60,
+      "ended": 17,
+      "churn": 0.0,
+      "churn_high": 0.1259,
+      "history_start": false,
+      "partial": false
+    },
+    {
+      "year": 2017,
+      "active_jan1": 178,
+      "gained_new": 52,
+      "gained_successor": 0,
+      "lost": 0,
+      "closed": 0,
+      "changed_hands": 1,
+      "moved": 0,
+      "unknown": 18,
+      "moved_followed": 0,
+      "gained": 52,
+      "ended": 19,
+      "churn": 0.0,
+      "churn_high": 0.1011,
+      "history_start": false,
+      "partial": false
+    },
+    {
+      "year": 2018,
+      "active_jan1": 211,
+      "gained_new": 100,
+      "gained_successor": 2,
+      "lost": 0,
+      "closed": 0,
+      "changed_hands": 1,
+      "moved": 0,
+      "unknown": 35,
+      "moved_followed": 0,
+      "gained": 102,
+      "ended": 36,
+      "churn": 0.0,
+      "churn_high": 0.1659,
+      "history_start": false,
+      "partial": false
+    },
+    {
+      "year": 2019,
+      "active_jan1": 277,
+      "gained_new": 56,
+      "gained_successor": 0,
+      "lost": 0,
+      "closed": 0,
+      "changed_hands": 0,
+      "moved": 0,
+      "unknown": 30,
+      "moved_followed": 0,
+      "gained": 56,
+      "ended": 30,
+      "churn": 0.0,
+      "churn_high": 0.1083,
+      "history_start": false,
+      "partial": false
+    },
+    {
+      "year": 2020,
+      "active_jan1": 303,
+      "gained_new": 41,
+      "gained_successor": 0,
+      "lost": 0,
+      "closed": 0,
+      "changed_hands": 0,
+      "moved": 0,
+      "unknown": 31,
+      "moved_followed": 1,
+      "gained": 41,
+      "ended": 31,
+      "churn": 0.0,
+      "churn_high": 0.1023,
+      "history_start": false,
+      "partial": false
+    },
+    {
+      "year": 2021,
+      "active_jan1": 313,
+      "gained_new": 54,
+      "gained_successor": 0,
+      "lost": 0,
+      "closed": 0,
+      "changed_hands": 3,
+      "moved": 0,
+      "unknown": 24,
+      "moved_followed": 0,
+      "gained": 54,
+      "ended": 27,
+      "churn": 0.0,
+      "churn_high": 0.0767,
+      "history_start": false,
+      "partial": false
+    },
+    {
+      "year": 2022,
+      "active_jan1": 340,
+      "gained_new": 84,
+      "gained_successor": 0,
+      "lost": 0,
+      "closed": 0,
+      "changed_hands": 4,
+      "moved": 0,
+      "unknown": 25,
+      "moved_followed": 1,
+      "gained": 84,
+      "ended": 29,
+      "churn": 0.0,
+      "churn_high": 0.0735,
+      "history_start": false,
+      "partial": false
+    },
+    {
+      "year": 2023,
+      "active_jan1": 395,
+      "gained_new": 56,
+      "gained_successor": 6,
+      "lost": 1,
+      "closed": 0,
+      "changed_hands": 6,
+      "moved": 0,
+      "unknown": 39,
+      "moved_followed": 1,
+      "gained": 62,
+      "ended": 46,
+      "churn": 0.0025,
+      "churn_high": 0.1013,
+      "history_start": false,
+      "partial": false
+    },
+    {
+      "year": 2024,
+      "active_jan1": 411,
+      "gained_new": 59,
+      "gained_successor": 3,
+      "lost": 0,
+      "closed": 1,
+      "changed_hands": 2,
+      "moved": 0,
+      "unknown": 40,
+      "moved_followed": 0,
+      "gained": 62,
+      "ended": 43,
+      "churn": 0.0,
+      "churn_high": 0.0973,
+      "history_start": false,
+      "partial": false
+    },
+    {
+      "year": 2025,
+      "active_jan1": 430,
+      "gained_new": 59,
+      "gained_successor": 7,
+      "lost": 0,
+      "closed": 1,
+      "changed_hands": 6,
+      "moved": 1,
+      "unknown": 17,
+      "moved_followed": 1,
+      "gained": 66,
+      "ended": 25,
+      "churn": 0.0,
+      "churn_high": 0.0419,
+      "history_start": false,
+      "partial": false
+    },
+    {
+      "year": 2026,
+      "active_jan1": 471,
+      "gained_new": 44,
+      "gained_successor": 6,
+      "lost": 0,
+      "closed": 0,
+      "changed_hands": 2,
+      "moved": 0,
+      "unknown": 9,
+      "moved_followed": 0,
+      "gained": 50,
+      "ended": 11,
+      "churn": 0.0,
+      "churn_high": 0.0191,
+      "history_start": false,
+      "partial": true
+    }
+  ],
+  "retention_summary": {
+    "years": [
+      2016,
+      2025
+    ],
+    "avg_churn": 0.0003,
+    "avg_churn_high": 0.0994,
+    "lost_total": 1,
+    "unknown_total": 286,
+    "ended_total": 315,
+    "site_retention": 0.9259,
+    "site_handovers": 25,
+    "site_closures": 27,
+    "avg_gained": 63.9,
+    "avg_gained_new": 62.1,
+    "avg_gained_successor": 1.8,
+    "median_years_served": 1.6,
+    "current_businesses": 510
   }
 }

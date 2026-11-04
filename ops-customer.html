@@ -65,6 +65,7 @@ let editing = null;       // client_id whose edit form is open
 let undo = null;          // { text, run } for the Undo bar after a delete or a removed photo
 let newPhoto = null;      // { file, url, caption, busy, msg } while a picked photo waits for its caption
 let flash = "";
+let siteHistory = null;   // historyIndex() over customer_history.json; null if it did not load
 
 function param(name) { return getUrlParam(name); }
 
@@ -619,6 +620,40 @@ function theftFormHtml() {
 
 let tab = "home";
 
+/**
+ * History at this site (customer_history.json, from customer_eras.csv): the
+ * businesses this barrel has served, and where a business here came from or
+ * went. Shown only when there is more than this one business to show.
+ */
+function siteHistoryHtml(id) {
+  if (!siteHistory || id <= 0) return "";
+  const eras = siteHistory.byAccount.get(id) || [];
+  const biz = eras.map(e => siteHistory.businessOfEra.get(e.key)).filter(Boolean);
+  const others = new Set();
+  for (const b of biz) {
+    b.customer_ids.filter(c => c !== id).forEach(c => others.add(c));
+    [...b.preceded_by, ...b.followed_by].forEach(x => {
+      const o = siteHistory.businesses.get(x);
+      if (o) o.customer_ids.filter(c => c !== id).forEach(c => others.add(c));
+    });
+  }
+  if (eras.length < 2 && !others.size) return "";
+  const link = e => {
+    const b = siteHistory.businessOfEra.get(e.key);
+    return b ? `<a href="former.html?b=${encodeURIComponent(b.id)}">${escapeHtml(e.business)}</a>` : escapeHtml(e.business);
+  };
+  const elsewhere = [...others].map(c => {
+    const list = siteHistory.byAccount.get(c) || [];
+    const last = list[list.length - 1];
+    const b = last && siteHistory.businessOfEra.get(last.key);
+    return b ? `<a href="former.html?b=${encodeURIComponent(b.id)}">${escapeHtml(last.business)} (#${c})</a>` : "";
+  }).filter(Boolean);
+  return `<div class="ops-cp-card ops-cp-history mt-3">
+    <div class="ops-cp-head"><span class="ops-cp-title">HISTORY AT THIS SITE</span></div>
+    <div class="px-3 pb-2">${siteTimelineHtml(eras, link)}
+      ${elsewhere.length ? `<div class="ops-muted small">Linked accounts: ${elsewhere.join(", ")}</div>` : ""}</div></div>`;
+}
+
 /** "Replaced by …" on an old owner's account, "Took over from …" on the new one. */
 function takeoverHtml(id) {
   const name = cid => {
@@ -655,6 +690,7 @@ function render() {
     <ul class="nav nav-tabs">${tabLink("home", "Home")}${tabLink("collections", "Collections")}</ul>
     <div class="pt-2">${tab === "home" ? homeHtml(row, today, onRoutes, capacity, oilLeftReady ? todaysOilLeft(store, id) : null)
       : collectionsHtml()}</div>
+    ${tab === "home" ? siteHistoryHtml(id) : ""}
     ${undo ? `<div class="ops-undo" role="status"><span class="ops-undo-text">${escapeHtml(undo.text)}</span>
       <button type="button" class="btn ops-undo-btn" data-undo-bar>Undo</button></div>` : ""}`;
 
@@ -704,6 +740,8 @@ async function init() {
     details = allDetails[String(id)] || {};
     siteFigures = parseCapacityRow(capText, id);
     history = historyFor(id, payload.records || [], codesText);
+    // Not needed for anything on the page but the history card: carry on without it.
+    siteHistory = await loadCustomerHistory(oilData).then(h => historyIndex(h, payload.customers || []), () => null);
   } catch (err) {
     document.getElementById("page").innerHTML = `<div class="alert alert-danger">${escapeHtml(err.message)}</div>`;
     return;

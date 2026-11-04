@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Former Customers — Black Bear Biodiesel</title>
+
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+  <!-- Sign-in card: the page stays hidden until a team member signs in (site-gate.js). -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.js" integrity="sha384-rwykjmWNwVxboyFmvK9OXN0wj9hnMHA2aAHtits54DuACyCq0M2PrSNxhRb+hvXT" crossorigin="anonymous"></script>
+  <script src="site-gate.js" data-protect></script>
+</head>
+
+<body>
+
+<header>
+  <a class="brand-home" href="index.html" aria-label="Back to dashboard">
+    <img src="logo.png" alt="Black Bear Biodiesel" onerror="this.style.display='none'">
+    <div>
+      <div class="subtitle">Oil Collection Analytics</div>
+      <h1>Black Bear Biodiesel</h1>
+    </div>
+  </a>
+  <div class="header-center">
+    <div class="page-name" id="page-name"></div>
+    <nav class="main-nav" id="main-nav"></nav>
+  </div>
+  <img class="header-team" src="team.png" alt="The Black Bear Biodiesel team"
+       onerror="this.style.display='none'">
+  <div class="last-updated" id="last-updated"></div>
+</header>
+
+<div class="page" id="page">
+  <div class="page-state">
+    <div class="state-message">Loading former customers…</div>
+  </div>
+</div>
+
+<script src="dashboard-utils.js"></script>
+<script>
+/*
+ * Former customers: every business we no longer collect from, one row per
+ * BUSINESS, not per source-site account (customer_eras.csv splits an account
+ * when a new owner takes over the barrel). Only displays customer_history.json
+ * and oil_data.json's retention figures; the counting lives in customer_eras.py.
+ *   former.html            the list, filtered by how each business ended
+ *   former.html?b=615/2    one business: its eras, its sites' timelines, its months
+ */
+
+const LIST_LIMIT = 100;
+const FILTERS = ["all", "lost", "closed", "changed_hands", "moved", "unknown"];
+const FILTER_LABELS = { all: "All ended", ...END_REASON_LABELS };
+
+const pct = v => (v === null || v === undefined ? "—" : `${(v * 100).toFixed(v < 0.01 ? 2 : 1)}%`);
+
+/** Default order: most recent ending first. */
+function endedBusinesses(hist) {
+  return (hist.businesses || [])
+    .filter(b => b.status === "ended" && b.end_reason !== "non_recurring")
+    .sort((a, b) => (b.last_pickup || "").localeCompare(a.last_pickup || "") || b.gallons - a.gallons);
+}
+
+function businessHref(id) {
+  return `former.html?b=${encodeURIComponent(id)}`;
+}
+
+function filterBusinesses(rows, state) {
+  const q = (state.q || "").trim().toLowerCase();
+  return rows.filter(b =>
+    (state.reason === "all" || b.end_reason === state.reason) &&
+    (!state.year || b.end_year === state.year) &&
+    (!q || matchesNameSearch(q, [b.name, b.town])));
+}
+
+const COLUMNS = [
+  { key: "rank", label: "#", cls: "rank" },
+  { key: "name", label: "Business", text: true, value: b => b.name },
+  { key: "town", label: "Town", text: true, value: b => b.town },
+  { key: "served", label: "Served", value: b => b.first_pickup },
+  { key: "pickups", label: "Pickups", cls: "num", value: b => b.pickups },
+  { key: "gallons", label: "Gallons", cls: "num", value: b => b.gallons },
+  { key: "ended", label: "Ended as", text: true, value: b => END_REASON_LABELS[b.end_reason] },
+  { key: "next", label: "Site went to", cls: "", value: b => b.followed_by.length },
+];
+
+function listTableHtml(rows, sort, byId, limit) {
+  const shown = rows.slice(0, limit);
+  return `<div class="table-wrap"><table class="data-table">
+    <thead><tr>${sortableHeadHtml(COLUMNS, sort)}</tr></thead>
+    <tbody>${shown.map((b, i) => `
+      <tr>
+        <td class="rank">${i + 1}</td>
+        <td><a href="${businessHref(b.id)}">${escapeHtml(b.name)}</a></td>
+        <td>${escapeHtml(b.town || "—")}</td>
+        <td>${escapeHtml(eraYears(b.first_pickup, b.last_pickup, false))}</td>
+        <td class="num">${formatNumber(b.pickups)}</td>
+        <td class="gal">${formatNumber(b.gallons)}</td>
+        <td>${endReasonBadge(b.end_reason)}</td>
+        <td>${b.followed_by.map(id => byId.get(id)).filter(Boolean)
+          .map(n => `<a href="${businessHref(n.id)}">${escapeHtml(n.name)}</a>`).join(", ") || "—"}</td>
+      </tr>`).join("")}
+    </tbody></table></div>
+    ${rows.length > limit ? `<div class="list-more"><button type="button" data-show-all>Show all ${formatNumber(rows.length)}</button>
+      <span class="list-count">Showing ${formatNumber(limit)} of ${formatNumber(rows.length)}</span></div>` : ""}`;
+}
+
+/** The headline figures, from oil_data.json's retention_summary. */
+function headlineHtml(s) {
+  if (!s) return "";
+  const yrs = s.years ? `${s.years[0]}–${s.years[1]}` : "";
+  return `<div class="stats-bar">
+    <div class="stat"><div class="stat-val">${pct(s.avg_churn)}</div>
+      <div class="stat-label">True churn per year</div>
+      <div class="stat-sub">lost only, ${yrs}; up to ${pct(s.avg_churn_high)} if every unclassified ending were a loss</div></div>
+    <div class="stat"><div class="stat-val">${pct(s.site_retention)}</div>
+      <div class="stat-label">Closed sites that reopened with us</div>
+      <div class="stat-sub">${formatNumber(s.site_handovers)} of ${formatNumber(s.site_closures)} closures</div></div>
+    <div class="stat"><div class="stat-val">${s.avg_gained === null ? "—" : Math.round(s.avg_gained)}</div>
+      <div class="stat-label">New customers per year</div>
+      <div class="stat-sub">${yrs}: ${(s.avg_gained_new || 0).toFixed(1)} new sites, ${(s.avg_gained_successor || 0).toFixed(1)} successors</div></div>
+    <div class="stat"><div class="stat-val">${formatNumber(s.lost_total)}</div>
+      <div class="stat-label">Lost (all years)</div>
+      <div class="stat-sub">of ${formatNumber(s.ended_total)} businesses that ended</div></div>
+    <div class="stat"><div class="stat-val">${formatNumber(s.unknown_total)}</div>
+      <div class="stat-label">Not yet classified</div>
+      <div class="stat-sub">counted as neither lost nor closed</div></div>
+  </div>`;
+}
+
+function renderList(page, data, hist) {
+  renderPageName("Former Customers");
+  const all = endedBusinesses(hist);
+  const byId = new Map((hist.businesses || []).map(b => [b.id, b]));
+  const years = Array.from(new Set(all.map(b => b.end_year))).sort((a, b) => b - a);
+  const counts = Object.fromEntries(FILTERS.map(f => [f, f === "all" ? all.length : all.filter(b => b.end_reason === f).length]));
+  const state = { reason: "all", year: null, q: "", sort: { key: null, dir: "desc" }, limit: LIST_LIMIT };
+
+  page.innerHTML = `
+    <a class="back-link" href="index.html">← Back to the dashboard</a>
+    <div class="page-subtitle">Businesses we no longer collect from: one row per business, not per account.
+      When a new owner takes over a barrel, the old business is a handover, never a loss.</div>
+    ${headlineHtml(data.retention_summary)}
+    <div class="section">
+      <div class="controls">
+        <div class="fmr-chips" id="fmr-chips">${FILTERS.map(f => `
+          <button type="button" data-reason="${f}"${f === "all" ? ' class="active"' : ""}>${escapeHtml(FILTER_LABELS[f])}<span class="fmr-n">${formatNumber(counts[f])}</span></button>`).join("")}
+        </div>
+        <label for="fmr-year">Ended</label>
+        <select id="fmr-year"><option value="">All years</option>${years.map(y => `<option value="${y}">${y}</option>`).join("")}</select>
+        <input type="search" class="fmr-search" id="fmr-q" placeholder="Search business or town" aria-label="Search">
+      </div>
+      <div id="fmr-table"></div>
+    </div>
+    <div class="section">
+      <div class="note">
+        <strong>How a business ended.</strong>
+        ${["lost", "closed", "changed_hands", "moved", "unknown"].map(r =>
+          `${endReasonBadge(r)} ${escapeHtml(END_REASON_HELP[r])}.`).join(" ")}
+        <br>A business that moved and kept using us is still a customer, so it is not listed here.
+        An ending's year is the year of its last qualifying pickup. Classifications live in
+        <code>${escapeHtml(hist.eras_file || "customer_eras.csv")}</code>; an ending nobody has classified stays
+        Unclassified rather than being guessed. Pickup history starts in January 2015.
+      </div>
+    </div>`;
+
+  const draw = () => {
+    const rows = sortRowsBy(filterBusinesses(all, state), COLUMNS, state.sort);
+    document.getElementById("fmr-table").innerHTML = rows.length
+      ? listTableHtml(rows, state.sort, byId, state.limit)
+      : `<div class="note">No former customers match.</div>`;
+  };
+  draw();
+
+  page.addEventListener("click", e => {
+    const chip = e.target.closest("[data-reason]");
+    if (chip) {
+      state.reason = chip.dataset.reason;
+      state.limit = LIST_LIMIT;
+      document.querySelectorAll("#fmr-chips button").forEach(b => b.classList.toggle("active", b === chip));
+      draw();
+      return;
+    }
+    const head = e.target.closest("[data-sort]");
+    if (head) { state.sort = nextSortState(COLUMNS, state.sort, head.dataset.sort); draw(); return; }
+    if (e.target.closest("[data-show-all]")) { state.limit = Infinity; draw(); }
+  });
+  document.getElementById("fmr-year").addEventListener("change", e => {
+    state.year = e.target.value ? Number(e.target.value) : null;
+    state.limit = LIST_LIMIT;
+    draw();
+  });
+  document.getElementById("fmr-q").addEventListener("input", e => { state.q = e.target.value; state.limit = LIST_LIMIT; draw(); });
+}
+
+/** Every month from the first to the last, with no-pickup months as zero. */
+function monthSeries(rows) {
+  const totals = groupSum(rows, r => r.month);
+  const keys = Object.keys(totals).sort();
+  if (!keys.length) return { months: [], values: [] };
+  const months = [];
+  let [y, m] = keys[0].split("-").map(Number);
+  const [ly, lm] = keys[keys.length - 1].split("-").map(Number);
+  while (y < ly || (y === ly && m <= lm)) {
+    months.push(`${y}-${String(m).padStart(2, "0")}`);
+    m += 1; if (m > 12) { m = 1; y += 1; }
+  }
+  return { months, values: months.map(k => totals[k] || 0) };
+}
+
+function renderDetail(page, data, hist, idx, records, id) {
+  const b = idx.businesses.get(id);
+  if (!b) {
+    renderState(page, "empty", `No business ${id} in the history.`, "It may have been renumbered in customer_eras.csv.");
+    return;
+  }
+  renderPageName(b.name);
+  document.title = `${b.name} — Former Customers`;
+  const eras = b.eras.map(k => idx.eras.get(k)).filter(Boolean);
+  const rows = eras.flatMap(e => eraRecords(e, records));
+  const link = n => `<a href="${businessHref(n.id)}">${escapeHtml(n.name)}</a>`;
+  const eraLink = e => {
+    const owner = idx.businessOfEra.get(e.key);
+    return owner && owner.id !== b.id ? link({ id: owner.id, name: e.business }) : escapeHtml(e.business);
+  };
+  const series = monthSeries(rows);
+  const accounts = Array.from(new Set(eras.map(e => e.customer_id)));
+  const current = b.status === "current";
+
+  page.innerHTML = `
+    <a class="back-link" href="former.html">← All former customers</a>
+    <div class="page-subtitle">${endReasonBadge(b.end_reason)} ${escapeHtml(b.town || "")}
+      · ${escapeHtml(eraYears(b.first_pickup, b.last_pickup, current))}</div>
+    <div class="stats-bar">
+      <div class="stat"><div class="stat-val">${formatNumber(b.gallons)}</div><div class="stat-label">Gallons</div></div>
+      <div class="stat"><div class="stat-val">${formatNumber(b.pickups)}</div><div class="stat-label">Pickups</div></div>
+      <div class="stat"><div class="stat-val small">${formatDate(b.first_pickup)}</div><div class="stat-label">First Qualifying Pickup</div></div>
+      <div class="stat"><div class="stat-val small">${formatDate(b.last_pickup)}</div><div class="stat-label">Last Qualifying Pickup</div></div>
+    </div>
+    ${b.preceded_by.length || b.followed_by.length ? `<div class="section fmr-links">
+      ${b.preceded_by.length ? `<div>Took the site over from ${b.preceded_by.map(x => idx.businesses.get(x)).filter(Boolean).map(link).join(", ")}.</div>` : ""}
+      ${b.followed_by.length ? `<div>The site went to ${b.followed_by.map(x => idx.businesses.get(x)).filter(Boolean).map(link).join(", ")}.</div>` : ""}
+    </div>` : ""}
+    <div class="section">
+      <div class="chart-title">Monthly Gallons — ${escapeHtml(b.name)}</div>
+      <div class="chart-container"><canvas id="chart-monthly"></canvas></div>
+    </div>
+    <div class="section">
+      <div class="section-title">${eras.length > 1 ? "Its eras" : "Its era"}</div>
+      ${eras.map(e => `<div class="fmr-card">
+        <h3>${escapeHtml(e.business)} ${endReasonBadge(e.ended ? e.end_reason : null)}</h3>
+        <div>Account #${e.customer_id} (${escapeHtml(e.account_name)}) · ${escapeHtml(e.town || "")}</div>
+        <div>${escapeHtml(eraYears(e.first_pickup, e.last_pickup, !e.ended))} · ${formatNumber(e.pickups)} pickups · ${formatNumber(e.gallons)} gal</div>
+        ${e.note ? `<div class="fmr-era-note">${escapeHtml(e.note)}</div>` : ""}
+        ${/^https?:\/\//.test(e.source || "") ? `<div class="fmr-era-note"><a href="${escapeHtml(e.source)}" target="_blank" rel="noopener">Source</a></div>`
+          : e.source ? `<div class="fmr-era-note">${escapeHtml(e.source)}</div>` : ""}
+      </div>`).join("")}
+    </div>
+    <div class="section">
+      <div class="section-title">${accounts.length > 1 ? "The sites' timelines" : "The site's timeline"}</div>
+      ${accounts.map(cid => `<div class="fmr-card"><h3>Account #${cid}</h3>
+        ${siteTimelineHtml(idx.byAccount.get(cid) || [], eraLink)}</div>`).join("")}
+    </div>`;
+
+  new Chart(document.getElementById("chart-monthly"),
+    barChartConfig(series.months.map(formatMonth), series.values));
+}
+
+async function init() {
+  const page = document.getElementById("page");
+  const id = getUrlParam("b");
+  let data, hist, lifecycle = [], records = [];
+  try {
+    data = await loadOilData();
+    hist = await loadCustomerHistory(data);
+    if (id) {
+      records = await loadCollections(data);
+      lifecycle = await loadCustomerLifecycle(data);
+    }
+  } catch (err) {
+    renderNav("former", null);
+    renderState(page, "error", "Could not load the customer history.", err.message);
+    return;
+  }
+  renderNav("former", data);
+  renderLastUpdated(data);
+  if (id) renderDetail(page, data, hist, historyIndex(hist, lifecycle), records, id);
+  else renderList(page, data, hist);
+}
+
+init();
+</script>
+
+</body>
+</html>

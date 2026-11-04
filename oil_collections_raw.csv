@@ -23755,49 +23755,49 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 305,Blue (split with Hotel VT),Burlington,Chittenden,2021-08-10,2021,2021-08,33,False,Burlington
 305,Blue (split with Hotel VT),Burlington,Chittenden,2021-07-05,2021,2021-07,17,False,Burlington
 305,Blue (split with Hotel VT),Burlington,Chittenden,2019-09-27,2019,2019-09,50,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2020-04-28,2020,2020-04,125,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2020-01-23,2020,2020-01,50,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2019-11-04,2019,2019-11,150,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2019-09-10,2019,2019-09,160,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2019-06-29,2019,2019-06,75,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2018-11-18,2018,2018-11,20,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2018-10-07,2018,2018-10,90,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2018-08-26,2018,2018-08,75,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2018-07-15,2018,2018-07,75,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2018-06-03,2018,2018-06,50,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2018-04-21,2018,2018-04,40,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2018-03-10,2018,2018-03,85,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2018-01-10,2018,2018-01,25,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2017-11-07,2017,2017-11,40,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2017-09-26,2017,2017-09,35,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2017-09-05,2017,2017-09,50,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2017-08-16,2017,2017-08,60,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2017-08-09,2017,2017-08,140,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2017-06-27,2017,2017-06,70,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2017-05-31,2017,2017-05,60,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2017-04-13,2017,2017-04,100,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2017-01-21,2017,2017-01,45,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2016-11-27,2016,2016-11,45,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2016-10-15,2016,2016-10,60,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2016-09-19,2016,2016-09,25,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2016-09-05,2016,2016-09,35,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2016-08-21,2016,2016-08,45,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2016-08-08,2016,2016-08,30,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2016-07-25,2016,2016-07,45,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2016-07-11,2016,2016-07,100,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2016-06-06,2016,2016-06,40,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2016-05-23,2016,2016-05,60,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2016-05-01,2016,2016-05,25,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2016-04-11,2016,2016-04,50,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2016-03-19,2016,2016-03,60,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2016-02-22,2016,2016-02,45,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2015-12-28,2015,2015-12,20,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2015-11-16,2015,2015-11,40,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2015-09-15,2015,2015-09,60,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2015-08-04,2015,2015-08,70,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2015-06-24,2015,2015-06,45,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2015-05-15,2015,2015-05,45,False,Burlington
-259,Blue Donkey,Burlington,Chittenden,2015-02-18,2015,2015-02,40,False,Burlington
+259,Blue Donkey,Burlington,Lamoille,2020-04-28,2020,2020-04,125,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2020-01-23,2020,2020-01,50,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2019-11-04,2019,2019-11,150,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2019-09-10,2019,2019-09,160,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2019-06-29,2019,2019-06,75,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2018-11-18,2018,2018-11,20,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2018-10-07,2018,2018-10,90,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2018-08-26,2018,2018-08,75,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2018-07-15,2018,2018-07,75,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2018-06-03,2018,2018-06,50,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2018-04-21,2018,2018-04,40,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2018-03-10,2018,2018-03,85,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2018-01-10,2018,2018-01,25,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2017-11-07,2017,2017-11,40,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2017-09-26,2017,2017-09,35,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2017-09-05,2017,2017-09,50,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2017-08-16,2017,2017-08,60,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2017-08-09,2017,2017-08,140,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2017-06-27,2017,2017-06,70,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2017-05-31,2017,2017-05,60,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2017-04-13,2017,2017-04,100,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2017-01-21,2017,2017-01,45,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2016-11-27,2016,2016-11,45,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2016-10-15,2016,2016-10,60,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2016-09-19,2016,2016-09,25,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2016-09-05,2016,2016-09,35,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2016-08-21,2016,2016-08,45,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2016-08-08,2016,2016-08,30,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2016-07-25,2016,2016-07,45,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2016-07-11,2016,2016-07,100,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2016-06-06,2016,2016-06,40,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2016-05-23,2016,2016-05,60,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2016-05-01,2016,2016-05,25,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2016-04-11,2016,2016-04,50,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2016-03-19,2016,2016-03,60,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2016-02-22,2016,2016-02,45,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2015-12-28,2015,2015-12,20,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2015-11-16,2015,2015-11,40,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2015-09-15,2015,2015-09,60,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2015-08-04,2015,2015-08,70,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2015-06-24,2015,2015-06,45,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2015-05-15,2015,2015-05,45,False,Stowe
+259,Blue Donkey,Burlington,Lamoille,2015-02-18,2015,2015-02,40,False,Stowe
 129,Bluestone-Waterbury,Burlington,Chittenden,2022-07-17,2022,2022-07,25,False,Burlington
 129,Bluestone-Waterbury,Burlington,Chittenden,2020-04-01,2020,2020-04,50,False,Burlington
 129,Bluestone-Waterbury,Burlington,Chittenden,2020-03-03,2020,2020-03,85,False,Burlington
@@ -25761,16 +25761,16 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 430,Our House 50pct,Winooski,Chittenden,2015-03-11,2015,2015-03,40,False,Winooski
 430,Our House 50pct,Winooski,Chittenden,2015-02-06,2015,2015-02,35,False,Winooski
 430,Our House 50pct,Winooski,Chittenden,2015-01-07,2015,2015-01,35,False,Winooski
-812,Outback Pizza/Fuzzy Diner,Burlington,Chittenden,2018-03-22,2018,2018-03,40,False,Burlington
-812,Outback Pizza/Fuzzy Diner,Burlington,Chittenden,2018-01-12,2018,2018-01,40,False,Burlington
-812,Outback Pizza/Fuzzy Diner,Burlington,Chittenden,2017-11-30,2017,2017-11,20,False,Burlington
-812,Outback Pizza/Fuzzy Diner,Burlington,Chittenden,2017-07-11,2017,2017-07,20,False,Burlington
-812,Outback Pizza/Fuzzy Diner,Burlington,Chittenden,2017-05-11,2017,2017-05,70,False,Burlington
-812,Outback Pizza/Fuzzy Diner,Burlington,Chittenden,2017-03-20,2017,2017-03,55,False,Burlington
-812,Outback Pizza/Fuzzy Diner,Burlington,Chittenden,2017-02-27,2017,2017-02,80,False,Burlington
-812,Outback Pizza/Fuzzy Diner,Burlington,Chittenden,2017-01-31,2017,2017-01,50,False,Burlington
-812,Outback Pizza/Fuzzy Diner,Burlington,Chittenden,2017-01-09,2017,2017-01,80,False,Burlington
-812,Outback Pizza/Fuzzy Diner,Burlington,Chittenden,2016-12-15,2016,2016-12,20,False,Burlington
+812,Outback Pizza/Fuzzy Diner,Burlington,Rutland,2018-03-22,2018,2018-03,40,False,Killington
+812,Outback Pizza/Fuzzy Diner,Burlington,Rutland,2018-01-12,2018,2018-01,40,False,Killington
+812,Outback Pizza/Fuzzy Diner,Burlington,Rutland,2017-11-30,2017,2017-11,20,False,Killington
+812,Outback Pizza/Fuzzy Diner,Burlington,Rutland,2017-07-11,2017,2017-07,20,False,Killington
+812,Outback Pizza/Fuzzy Diner,Burlington,Rutland,2017-05-11,2017,2017-05,70,False,Killington
+812,Outback Pizza/Fuzzy Diner,Burlington,Rutland,2017-03-20,2017,2017-03,55,False,Killington
+812,Outback Pizza/Fuzzy Diner,Burlington,Rutland,2017-02-27,2017,2017-02,80,False,Killington
+812,Outback Pizza/Fuzzy Diner,Burlington,Rutland,2017-01-31,2017,2017-01,50,False,Killington
+812,Outback Pizza/Fuzzy Diner,Burlington,Rutland,2017-01-09,2017,2017-01,80,False,Killington
+812,Outback Pizza/Fuzzy Diner,Burlington,Rutland,2016-12-15,2016,2016-12,20,False,Killington
 729,Paizanos,Rutland,Rutland,2023-05-03,2023,2023-05,75,False,Rutland City
 729,Paizanos,Rutland,Rutland,2023-03-01,2023,2023-03,55,False,Rutland City
 729,Paizanos,Rutland,Rutland,2022-12-12,2022,2022-12,60,False,Rutland City

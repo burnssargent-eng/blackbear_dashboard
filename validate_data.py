@@ -1671,6 +1671,83 @@ def check_region_taxonomy(report, data, coll):
 # Main
 # ─────────────────────────────────────────────
 
+def check_customer_history(report, data, coll):
+    """
+    customer_eras.csv -> customer_history.json and oil_data.json's retention.
+    Eras split an account's pickups and businesses group eras, so every pickup
+    lands in exactly one business; the yearly table must roll forward.
+    """
+    report.section("H", "Customer eras and retention (customer_eras.csv)")
+    path = "customer_history.json"
+    if not os.path.exists(path):
+        report.fail(f"{path} is missing: run python3 oil_scraper.py.")
+        return
+    with open(path) as f:
+        hist = json.load(f)
+
+    problems = hist.get("problems") or []
+    if problems:
+        report.fail(f"{len(problems)} problem(s) in customer_eras.csv (those rows are skipped):")
+        for p in problems:
+            report.detail(p)
+    else:
+        report.ok("customer_eras.csv reads cleanly.")
+
+    biz = hist.get("businesses") or []
+    gal = sum(b["gallons"] for b in biz)
+    n = sum(b["pickups"] for b in biz)
+    if gal == data.get("all_time_total") and n == len(coll):
+        report.ok(f"{len(biz):,} businesses hold every pickup exactly once "
+                  f"({n:,} pickups, {gal:,} gallons).")
+    else:
+        report.fail(f"Businesses hold {n:,} pickups / {gal:,} gal; the data has "
+                    f"{len(coll):,} / {data.get('all_time_total')}.")
+
+    eras = hist.get("eras") or []
+    keys = {e["key"] for e in eras}
+    dangling = [e["key"] for e in eras for k in (e.get("next"), e.get("site_next"), e.get("business_next"))
+                if k and k not in keys and not k.endswith("/1")]
+    if dangling:
+        report.fail(f"Era links to eras that do not exist: {sorted(set(dangling))}")
+    empty = [e["key"] for e in eras if not e["pickups"] and e["ended"]]
+    if empty:
+        report.warn(f"Ended era(s) with no pickups (check the end dates): {empty}")
+
+    rows = data.get("retention_by_year") or []
+    if not rows:
+        report.fail("oil_data.json has no retention_by_year.")
+        return
+    broken = []
+    for a, b in zip(rows, rows[1:]):
+        if b["active_jan1"] != a["active_jan1"] + a["gained"] - a["ended"]:
+            broken.append(b["year"])
+        for r in (a, b):
+            if r["gained"] != r["gained_new"] + r["gained_successor"]:
+                broken.append(r["year"])
+    if broken:
+        report.fail(f"Retention table does not roll forward (active 1 Jan = last year's + gained - ended): "
+                    f"{sorted(set(broken))}")
+    else:
+        report.ok(f"Retention table rolls forward, {rows[0]['year']}-{rows[-1]['year']}.")
+    s = data.get("retention_summary") or {}
+    report.info(f"True churn {s.get('avg_churn')} (to {s.get('avg_churn_high')} with unknowns), "
+                f"site retention {s.get('site_retention')}, {s.get('unknown_total')} endings unclassified.")
+
+    # The projection builder's HISTORY_STARTS must start an era on the same day.
+    with open(os.path.join("analysis", "build_projection_table.py")) as f:
+        text = f.read()
+    starts = {int(c): f"{y}-{int(m):02d}-{int(d):02d}" for c, y, m, d in
+              re.findall(r"(\d+): HistoryStart\([^)]*?date\((\d+), (\d+), (\d+)\)", text)}
+    era_starts = {(e["customer_id"], e["window_start"]) for e in eras}
+    off = [f"#{c} {d}" for c, d in starts.items() if (c, d) not in era_starts]
+    if not starts:
+        report.warn("Could not read HISTORY_STARTS from the projection builder.")
+    elif off:
+        report.fail(f"HISTORY_STARTS with no era starting that day in customer_eras.csv: {off}")
+    else:
+        report.ok(f"All {len(starts)} HISTORY_STARTS dates start an era.")
+
+
 def main():
     print("=" * 74)
     print("BLACK BEAR DASHBOARD — DATA VALIDATION")
@@ -1716,6 +1793,7 @@ def main():
     check_customer_details(report)
     check_active_customers(report, data, coll)
     check_lifecycle(report, data, coll_payload)
+    check_customer_history(report, data, coll)
     check_region_customers(report, data, coll_payload)
     check_schmootz(report)
     check_schmootz_isolation(report, data)

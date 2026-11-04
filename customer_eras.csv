@@ -1,0 +1,59 @@
+customer_id,era,business,end,end_reason,next,note,source
+133,1,Langdon Street Tavern,2026-09-21,changed_hands,,Same date as HISTORY_STARTS,Sarge 2026-10
+133,2,JJ's,,,,,
+166,1,The Rustic,,changed_hands,1419/1,Closed Oct 2021; The Stic reopened the site on a new account,https://www.compassvermont.com/p/northfield-native-brings-the-iconic
+201,1,The Filling Station,2024-10-31,changed_hands,,,https://www.sevendaysvt.com/food-drink/filling-station-in-middlesex-to-become-chicos-tacos-and-bar-42304850/
+201,2,Chico's (Middlesex),,moved,1315/2,Moved to Montpelier Sep 2025. Bent Nails Roadhouse took this site Dec 2025 and is not a customer,https://www.sevendaysvt.com/food-drink/foodnews/chicos-tacos-bar-to-move-from-middlesex-to-montpelier/
+206,1,Sage,2023-09-30,changed_hands,,Building sold Oct 2022,https://www.valleyreporter.com/index.php/news/local-news/17407-sage-sold-to-shea-property-services
+206,2,Afterthoughts,,,,Peace Burger counter inside,
+208,1,Blue Stone,2025-12-31,changed_hands,,Mad Moose opened 2025-12-26; same date as HISTORY_STARTS,Sarge 2026-10-15
+208,2,Mad Moose,,,,,
+259,1,Blue Donkey,,moved,1103/1,Early years on Mountain Road; moved into the old Stowe Cantina building (Sarge: one business),Sarge 2026-11-03
+269,1,Over the Wall / Stowe Cantina,,changed_hands,1103/1,Blue Donkey took the building,https://www.sevendaysvt.com/food-drink/upscale-tequila-bar-over-the-wall-to-open-in-stowe-25335025/
+282,1,Hatchet Tap & Table,2025-04-30,changed_hands,,Closed Mar 2025,https://www.sevendaysvt.com/food-drink/foodnews/schaefers-to-bring-all-day-menu-to-former-hatchet-in-richmond/
+282,2,Schaefer's,,,,Opened 1 Jun 2026,
+310,1,Manhattan Pizza & Pub,2025-01-31,changed_hands,,Briefly Rincon Pizzeria before closing Jan 2025,https://www.sevendaysvt.com/food-drink/what-ales-you-to-move-to-former-manhattan-pizza-and-pub-space-44224728/
+310,2,What Ales You,,,,,
+339,1,Shalimar of India + Radio Bean,2026-09-08,continued,,One barrel for two neighbours until Radio Bean closed Sep 2026,https://www.wcax.com/2026/09/03/burlingtons-radio-bean-announces-closure-amid-financial-struggles/
+339,2,Shalimar of India,,,,,
+351,1,Café Mamajuana,2023-12-31,moved,1331/1,Moved out fall 2023 (to Colchester),https://www.sevendaysvt.com/food-drink/fancys-to-open-in-burlingtons-oak-street-co-op-40032731
+351,2,Fancy's,,,,Shares the space with Poppy Café,
+420,1,14th Star Brewing (Grazers kitchen),,continued,401/1,Grazers' kitchen at 14th Star ended 2021; Grazers is still a customer at #401,Sarge 2026-11-03
+504,1,Claire's,2017-12-31,changed_hands,,,https://www.sevendaysvt.com/?p=122675
+504,2,Scale House,2023-05-31,changed_hands,,Opened Jul 2018,https://www.sevendaysvt.com/?p=122675
+504,3,Cork & Fork,,,,Opened 14 Jun 2023; shared barrel (~25%),https://hardwickgazette.org/?p=71252
+518,1,Parkside Grill,2022-04-30,changed_hands,,,https://www.samessenger.com/things_to_do/food/bumblebee-bistro-opens-in-enosburg-falls-serving-locally-sourced-and-from-scratch-breakfast-and-lunch/article_6efd7ac4-4d8a-11ee-9bbe-e3ec476efc5e.html
+518,2,Bumblebee Bistro,,,,,
+524,1,Big Jay Tavern,2021-06-30,changed_hands,,,https://opentable.com/r/omakase-at-the-tavern-montgomery
+524,2,Omakase at the Tavern,,,,,
+536,1,Newport Ciderhouse,2018-05-31,changed_hands,,Jan 2015 to Jun 2018,https://www.sevendaysvt.com/food-drink/newport-ciderhouse-bar-and-grill-replaces-brown-dog-bistro-2523425/
+536,2,The Warehouse,,continued,1072/1,Same business on two accounts (Sarge: combine),Sarge 2026-11-03
+543,1,Downtown Pizzeria & Pub,2023-05-31,changed_hands,,,https://www.sevendaysvt.com/food-drink/eleven-years-after-closing-in-waterbury-marsala-salsa-reopens-in-johnson-38541053/
+543,2,Marsala Salsa,,,,Shared barrel (10%),
+610,1,GoodFellas,2025-08-06,changed_hands,,Nacho Mama assumed to take over at the 2025-08-07 pickup (Sarge),Sarge 2026-11-03
+610,2,Nacho Mama,,,,,
+615,1,Riley's Fish Shack,2022-08-31,changed_hands,,Papa Tirozzi's arrived from Danville,
+615,2,Papa Tirozzi's (St. Johnsbury),,lost,,Still operating; service stopped Feb 2023 (Sarge: lost),Sarge 2026-11-03
+1072,1,The Warehouse,,closed,,Listed closed; no pickup since Dec 2024,https://nekeats.com/nek-restaurants/the-warehouse/
+1074,1,Hillmer's On Main,2023-11-30,changed_hands,,,https://www.newportvermontdailyexpress.com/news/newports-culinary-scene-welcomes-jumbo-bite-with-open-arms/article_c6c75ad0-d885-4e7b-9443-f3ad4e2647ca.html
+1074,2,Jumbo Bite,,,,Opened 16 Sep 2025,
+1080,1,Pica-Pica Filipino,2023-09-30,changed_hands,,Closed 12 Aug 2023,https://www.sevendaysvt.com/food-drink/entrees-and-exits-flavors-of-india-replaces-irrawaddy-in-essex-junction-pica-pica-filipino-cuisine-closes-in-st-johnsbury-38896325/
+1080,2,Javier Bill's Almost Mexican,,,,,
+1094,1,Papa Tirozzi's (Danville),2022-10-31,moved,615/2,Moved to St. Johnsbury Sep 2022,https://vtdigger.org/2023/12/05/danville-family-brings-authentic-chinese-and-vietnamese-food-to-northeast-kingdom/
+1094,2,Huang's Noodle Shop,,,,Opened May 2023,
+1097,1,802 Pizza SoRo,2023-07-31,changed_hands,,,https://www.restaurantguru.com/802-Pizza-SoRO-Royalton
+1097,2,Grandma's Griddle,,closed,,No pickup since Jul 2025 (Sarge: closed),Sarge 2026-11-03
+1103,1,Blue Donkey,2025-06-30,changed_hands,,,
+1103,2,Burt's Irish Pub,,,,Moved in mid-Jun 2025 from Luce Hill Road,https://www.sevendaysvt.com/food-drink/burts-irish-pub-returns-to-stowes-mountain-roadburts-irish-pub-relocates-back-to-stowes-mountain-road-44103206/
+1126,1,The Social,2022-12-31,changed_hands,,,https://thebridgevt.org/2023/02/heard-on-the-street-feb-22-2023/
+1126,2,Penzo Pizza (Montpelier),,moved,,Moved to Essex Junction 1 Nov 2025; no account there,https://www.sevendaysvt.com/food-drink/foodnews/penzo-pizza-moves-home-from-montpelier-to-essex-junction/
+1267,1,The Great Eddy,2023-10-31,changed_hands,,One summer season 2023,https://www.sevendaysvt.com/food-drink/scrag-and-roe-serves-global-plates-in-waitsfield-40032721/
+1267,2,Scrag & Roe,,,,Opened 18 Dec 2023,
+1280,1,Headwaters,2024-02-29,changed_hands,,Sep 2023 to Jan 2024,https://www.sevendaysvt.com/food-drink/headwaters-restaurant-and-pub-in-cabot-ends-short-run-39981289/
+1280,2,Jet's American Scratch Kitchen,,,,Grand opening 6 Mar 2026,
+1419,1,The Stic Kitchen & Bar,,,,Opened 11 Jun 2025 in the old Rustic (#166),https://www.compassvermont.com/p/northfield-native-brings-the-iconic
+1331,1,Café Mamajuana (Colchester),,,,Moved here from Burlington (#351),
+1315,1,The Filibuster,2025-08-31,changed_hands,,Closed 17 Aug 2025,https://www.sevendaysvt.com/food-drink/filibuster-restaurant-and-bar-closes-in-montpelier-44271231/
+1315,2,Chico's,,,,Opened here 29 Sep 2025,
+1387,1,Foxy's,2026-04-30,changed_hands,,Dec 2024 to Sep 2025,https://vtdigger.org/2024/12/19/foxys-opens-amid-resurgence-of-barres-downtown/
+1387,2,Sarky's Barre,,,,Second site of Sarky's (#1334),https://www.sevendaysvt.com/food-drink/foodnews/sarkys-smokehouse-saloon-opens-a-second-spot-in-barre/
