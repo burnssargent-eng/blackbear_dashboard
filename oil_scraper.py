@@ -16,6 +16,8 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from datetime import datetime
 import json
+
+import customer_eras
 import argparse
 
 # ─────────────────────────────────────────────
@@ -362,6 +364,9 @@ CITY_TOWN_BY_CUSTOMER = {
     914:  "Rutland City",       # State Fair, at the Rutland fairgrounds
     727:  "Rutland City",       # Hop n Moose, downtown Rutland
     1255: "Hartland",           # Cobb Hill CoHousing
+    # Third batch: the handover review (Sarge, 2026-11-03).
+    259:  "Stowe",              # Blue Donkey's early years; there was no Burlington one
+    812:  "Killington",         # Outback Pizza / Fuzzy Diner, one shared spot in Killington
 }
 
 # Customers the source site lists in Burlington who are out of state. They take
@@ -1587,6 +1592,20 @@ def compute_lifecycle_by_year(df, customers):
     return rows
 
 
+def compute_history(df, customers):
+    """
+    Eras, businesses and retention from customer_eras.csv (customer_eras.py).
+    Counted in businesses, not accounts: a successor on an old account is a
+    gain and its predecessor a handover, never a loss.
+    """
+    dates = pd.to_datetime(df["date"]).dt.strftime("%Y-%m-%d")
+    records = zip(df["customer_id"].astype(int), dates, df["gallons"].astype(int))
+    history = customer_eras.compute_history(customers, records, current_calendar_year())
+    for problem in history["problems"]:
+        print(f"   customer_eras: {problem}")
+    return history
+
+
 def compute_region_customers(df_region):
     """
     Which customer ids belong to each region.
@@ -1685,6 +1704,7 @@ def export_json(df):
 
     # Per-customer lifecycle, shared by the summary below and the detail file.
     customers = compute_customer_lifecycle(df)
+    history = compute_history(df, customers)
 
     # Current year month-by-month
     current_year = current_calendar_year()
@@ -1748,6 +1768,12 @@ def export_json(df):
         # Region membership by customer id, from the same matchers the Excel
         # report uses. Regions are not exclusive.
         "region_customers": compute_region_customers(df_region),
+
+        # ── customer eras (customer_eras.csv) ──
+        # Retention counted in businesses: gained (new site / successor),
+        # ended by reason, churn = lost / active on 1 January.
+        "retention_by_year": history["retention_by_year"],
+        "retention_summary": history["retention_summary"],
     }
 
     with open("oil_data.json", "w") as f:
@@ -1802,6 +1828,31 @@ def export_collections(df):
     size_mb = os.path.getsize(COLLECTIONS_JSON) / 1_000_000
     print(f"Exported {COLLECTIONS_JSON} ({len(detail):,} records, {size_mb:.1f} MB)")
 
+HISTORY_JSON = "customer_history.json"
+
+
+def export_history(df):
+    """
+    customer_history.json: the businesses (every one, gallons first) and the
+    eras of every account in customer_eras.csv. An account with no rows there
+    is one era, the whole account, so it is not repeated. Pickups stay in
+    oil_collections.json; an era is a date window over its account's records.
+    About 0.3 MB, so the customer page can load it beside the records.
+    """
+    history = compute_history(df, compute_customer_lifecycle(df))
+    output = {
+        "last_updated": datetime.now().isoformat(),
+        "eras_file": os.path.basename(customer_eras.ERAS_FILE),
+        "end_reasons": list(customer_eras.END_REASONS) + ["unknown"],
+        "eras": [e for e in history["eras"] if e["registered"]],
+        "businesses": history["businesses"],
+        "problems": history["problems"],
+    }
+    with open(HISTORY_JSON, "w") as f:
+        json.dump(output, f, separators=(",", ":"), default=str)
+    print(f"Exported {HISTORY_JSON} ({len(history['businesses']):,} businesses, "
+          f"{len(output['eras'])} registered eras, {len(history['problems'])} problem(s))")
+
 # ─────────────────────────────────────────────
 # MAIN
 # ─────────────────────────────────────────────
@@ -1835,6 +1886,7 @@ if __name__ == "__main__":
     build_reports(df)
     export_json(df)
     export_collections(df)
+    export_history(df)
 
     print("\nDone.")
 

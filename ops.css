@@ -475,3 +475,30 @@ body.ops-viewer-open { overflow: hidden; }
 .ops-cp-left { padding: 10px 12px; }
 .ops-cp-theft { border-color: #f1aeb5; background: #fff5f5; padding: 4px 12px 12px; }
 .ops-pick-inactive .ops-pick-name { color: #6c757d; }
+
+/* History at this site (ops-customer Home): siteTimelineHtml in dashboard-utils.js. */
+.ops-cp-history .site-tl-bar { position: relative; height: 14px; border-radius: 7px; background: #e9ecef;
+  border: 1px solid #ced4da; overflow: hidden; }
+.ops-cp-history .site-tl-seg { position: absolute; top: 0; bottom: 0; border-radius: 6px; }
+.ops-cp-history .site-tl-axis { display: flex; justify-content: space-between; font-size: 11px; color: #6c757d; margin-top: 3px; }
+.ops-cp-history .site-tl-list { list-style: none; padding: 0; margin: 6px 0 0; font-size: 14px; }
+.ops-cp-history .site-tl-list li { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; padding: 5px 0;
+  border-top: 1px solid #f1f3f5; }
+.ops-cp-history .site-tl-list li:first-child { border-top: 0; }
+.ops-cp-history .site-tl-name { font-weight: 700; }
+.ops-cp-history .site-tl-meta { color: #6c757d; font-size: 13px; }
+.ops-cp-history .site-tl-dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.ops-cp-history .site-tl-current { background: #198754; }
+.ops-cp-history .site-tl-lost { background: #dc3545; }
+.ops-cp-history .site-tl-closed, .ops-cp-history .site-tl-continued { background: #adb5bd; }
+.ops-cp-history .site-tl-changed_hands { background: #0d6efd; }
+.ops-cp-history .site-tl-moved { background: #6f42c1; }
+.ops-cp-history .site-tl-unknown { background: #fd7e14; }
+.ops-cp-history .site-tl-alt { opacity: 0.8; }
+.ops-cp-history .status-badge { display: inline-block; font-size: 11px; padding: 1px 7px; border-radius: 10px;
+  border: 1px solid #ced4da; color: #495057; background: #f8f9fa; white-space: nowrap; }
+.ops-cp-history .end-current { color: #146c43; border-color: #a3cfbb; background: #d1e7dd; }
+.ops-cp-history .end-changed_hands { color: #084298; border-color: #9ec5fe; background: #cfe2ff; }
+.ops-cp-history .end-moved { color: #432874; border-color: #c5b3e6; background: #e2d9f3; }
+.ops-cp-history .end-lost { color: #842029; border-color: #f1aeb5; background: #f8d7da; }
+.ops-cp-history .end-unknown { color: #984c0c; border-color: #fecba1; background: #ffe5d0; }

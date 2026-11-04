@@ -468,11 +468,17 @@
       .stats-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .stat-val { font-size: 22px; }
       .stat { padding: 12px 8px; }
-      /* Seven links on one line from a 375px phone up: 11px text, 6px gaps. */
+      /* Eight links on one line from a 400px phone up: 11px text, 6px gaps. */
       .main-nav { gap: 6px; }
       .main-nav a { font-size: 11px; }
       .map-panel { height: 55vh; }
       .slider-controls { flex-wrap: wrap; }
+    }
+
+    /* ...and on a 375px phone (343px of room): 10px text, 5px gaps (Former made it eight, 2026-11-03). */
+    @media (max-width: 400px) {
+      .main-nav { gap: 5px; }
+      .main-nav a { font-size: 10px; }
     }
   </style>
   <!-- Sign-in card: the page stays hidden until a team member signs in (site-gate.js). -->
@@ -498,6 +504,7 @@
     <a href="region.html" id="nav-region">Regions</a>
     <a href="year.html" id="nav-year">Years</a>
     <a href="customers.html">Customers</a>
+    <a href="former.html">Former</a>
     <a href="schmootz.html">Schmutz</a>
     <a href="ops-assign.html">Ops</a>
     </nav>

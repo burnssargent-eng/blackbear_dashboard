@@ -70,6 +70,10 @@ supabase_sync.py --export-site-edits ──> customer_edits.csv  (committed: cus
                      last on Assign and out of Urgent; closed_season = held until the usual season start
                      (MODEL_OVERRIDES or detected season), then the oil clock starts there; open = the clock
                      starts that day. A pickup after the status's day ends it (the sync clears it).
+customer_eras.csv ──(oil_scraper.py, customer_eras.py)──> customer_history.json (eras + businesses)
+                     └─> oil_data.json retention_by_year / retention_summary. See "Retention is
+                     counted in businesses" below. The nightly also lists source-site RENAMES in
+                     its sync_reports row: a possible new owner, to check against the registry.
 supabase_sync.py --export-oil-left ──> oil_left.csv  (committed: customer id, day, gallons left; nightly,
                      before the projection build). Oil Left = gallons a driver saw left in a barrel and did
                      not collect; its own table, never a collection. The builder starts the barrel's level
@@ -91,11 +95,15 @@ index.html      dashboard + Leaflet heatmap. Keeps its OWN inline styles.
 region.html     per-region page. The most complex page.
 year.html  town.html  customers.html  schmootz.html
 projections.html     beta pickup projections. In the nav as "Projections", after Dashboard.
+former.html          former customers: every ended BUSINESS (not account) with how it ended, the
+                     headline retention figures, and ?b=<id> for one business's eras, months and
+                     site timeline. In the nav as "Former", after Customers. Only displays
+                     customer_history.json and oil_data.json's retention_summary.
 planner.html         route planner beta. UNLISTED (not in the nav). Reads the two JSONs above.
 ops-assign.html  ops-myroute.html  ops-calendar.html  ops-outgoing.html  ops-customer.html   SHADOW site: the source site's workflow on a copy of its
                      data, kept in each browser. Light Bootstrap look, own nav (ops-common.js),
-                     ops.css. Linked from the dashboard nav as "Ops" (7th, since #48;
-                     seven links just fit a 375px phone, so an 8th wraps).
+                     ops.css. Linked from the dashboard nav as "Ops" (last; "Former" made it
+                     eight on 2026-11-03, which fit a 375px phone only at 10px text under 400px).
                      Route maths for both betas: route-utils.js.
 ops-photos.js        customer photos (barrel, spot, lock): private bucket `photos` + table, members only. The phone
                      shrinks each to a 1600 px JPEG + 400 px thumbnail (free plan: 1 GB, no server resizing).
@@ -168,6 +176,23 @@ idempotent. `.github/workflows/nightly-update.yml` runs `--rescrape` at 07:00
 UTC and commits straight to `main`, so expect a data diff most mornings.
 
 ## Rules that are easy to break
+
+**Retention is counted in businesses, not accounts.** A source-site account is
+a barrel at a place; when a restaurant closes and the next tenant keeps the
+barrel, both run on one account. `customer_eras.csv` (committed; names, dates,
+reasons and public links only) splits an account into eras at their `end`
+dates and says how each ended: `lost` (still open, stopped using us: the only
+churn), `closed`, `changed_hands` (a successor took the site and is our
+customer), `moved`, `continued` (duplicate account or a partner leaving a
+shared barrel), `non_recurring`. An ended era nobody classified is `unknown`,
+never lost. `moved`/`continued` chain eras into one business across accounts.
+Churn = lost / businesses active on 1 January (Sarge, 2026-11-03); the
+"to" figure adds unknowns and moves we did not follow. Reviewed by Sarge
+2026-11-03 for the slash-name handovers; the ~286 other inactive accounts are
+still `unknown`. `validate_data.py` (section H) fails on a bad row, on a pickup
+outside every business, and on a `HISTORY_STARTS` date that starts no era (the
+projection builder still keeps its own copy; moving it onto the registry would
+change ~25 customers' projections, so it is a model change, not done).
 
 **`EMPTY_QTYS = {0, 1, 2, 3}`** (`oil_scraper.py:36`). Quantities 0–3 mean
 "nothing collected" — 2 is the sign-up call (the day Jim enters a new client;

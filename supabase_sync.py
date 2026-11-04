@@ -424,7 +424,22 @@ def pickup_differences(site_rows, jamaal, through, names):
     return {"only_site": only_site, "only_jamaal": only_jamaal, "gallons_differ": gallons_differ}
 
 
-def summary_text(routes, pickups):
+def renamed_customers(existing, wanted):
+    """
+    Source-site customers whose name changed since the database last saw it,
+    as [{"id", "was", "now"}]. The source site keeps no name history, so a new
+    owner keeping the old barrel shows up only as a rename (Blue Stone became
+    "Mad Moose/Blue Stone"). Listed in the nightly report as a POSSIBLE
+    handover for someone to check against customer_eras.csv; never decided here.
+    Spacing and case alone are not a rename.
+    """
+    norm = lambda n: " ".join((n or "").split()).casefold()
+    return [{"id": cid, "was": existing[cid]["name"], "now": r["name"]}
+            for cid, r in sorted(wanted.items())
+            if cid in existing and existing[cid].get("name") and norm(existing[cid]["name"]) != norm(r["name"])]
+
+
+def summary_text(routes, pickups, renames=()):
     parts = [f"{len(routes)} route(s) differ from the source site" if routes else "routes match the source site"]
     n = {k: len(v) for k, v in pickups.items()}
     if any(n.values()):
@@ -432,6 +447,9 @@ def summary_text(routes, pickups):
                      f"{n['gallons_differ']} with different gallons")
     else:
         parts.append("pickups match")
+    if renames:
+        parts.append(f"{len(renames)} customer(s) renamed on the source site (possible new owner: "
+                     "check customer_eras.csv)")
     return "; ".join(parts)
 
 
@@ -695,6 +713,7 @@ def sync(db, seed=False, today=None, history=False):
             wanted[cid]["active"] = False
     names.update({cid: r["name"] for cid, r in wanted.items()})
     existing = {r["id"]: r for r in db.select("customers", "select=id,active,name")}
+    renames = renamed_customers(existing, wanted)
     names.update({r["id"]: r["name"] for r in existing.values()})
     # A seed writes everyone's notes (it runs after a full re-read of the customer pages).
     with_notes = lambda cid: seed or cid not in existing
@@ -744,9 +763,9 @@ def sync(db, seed=False, today=None, history=False):
                                  through, names)
     # A taken-over customer's new account on a route is not a difference.
     routes = route_differences(snap_taken_over(snap, replaced_map(db)), db_stops, names)
-    summary = summary_text(routes, pickups)
+    summary = summary_text(routes, pickups, renames)
     report = {"routes_read_at": snap.get("scraped_at"), "pickups_since": since, "pickups_through": through,
-              "routes": routes, "pickups": pickups,
+              "routes": routes, "pickups": pickups, "renames": renames,
               "customers": {"with_notes": len(new), "without_notes": len(known), "marked_inactive": len(gone)},
               "stops_seeded": seeded, "history": copied}
     db.insert("sync_reports", [{"kind": "seed" if seed else "nightly", "summary": summary, "report": report}])

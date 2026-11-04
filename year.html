@@ -45,11 +45,11 @@ const TOWN_CHART_LIMIT = 20;
 async function init() {
   const page = document.getElementById("page");
 
-  let data, records, lifecycle;
+  let data, records, hist;
   try {
     data = await loadOilData();
     records = await loadCollections(data);
-    lifecycle = await loadCustomerLifecycle(data);
+    hist = await loadCustomerHistory(data);
   } catch (err) {
     renderNav("year", null);
     renderState(page, "error", "Could not load the collection data.", err.message);
@@ -84,22 +84,57 @@ async function init() {
     return;
   }
 
-  render(page, rows, year, availableYears, lifecycle, data.dormant_cutoff);
+  render(page, rows, year, availableYears, hist, data.retention_by_year || []);
 }
 
-function render(page, rows, year, availableYears, lifecycle, dormantCutoff) {
+const pct = v => (v === null || v === undefined ? "—" : `${(v * 100).toFixed(1)}%`);
+
+/**
+ * Gained and ended BUSINESSES in a year (customer_history.json). Decided in
+ * customer_eras.py from the whole dataset, so a business's years are stable
+ * whichever year page you are on. A successor on an old account is a gain and
+ * its predecessor a handover; non_recurring is in neither list.
+ */
+function yearBusinesses(hist, year) {
+  const all = ((hist && hist.businesses) || []).filter(b => b.end_reason !== "non_recurring");
+  return {
+    gained: all.filter(b => b.gained_year === year)
+      .sort((a, b) => a.first_pickup.localeCompare(b.first_pickup)),
+    ended: all.filter(b => b.end_year === year)
+      .sort((a, b) => a.last_pickup.localeCompare(b.last_pickup)),
+    byId: new Map(((hist && hist.businesses) || []).map(b => [b.id, b])),
+  };
+}
+
+const bizLink = b => `<a href="former.html?b=${encodeURIComponent(b.id)}">${escapeHtml(b.name)}</a>`;
+
+/** Every year's retention row, the shown year highlighted. */
+function retentionTableHtml(rowsByYear, year) {
+  return `<div class="table-wrap"><table class="data-table">
+    <thead><tr><th>Year</th><th class="num">Active 1 Jan</th><th class="num">New sites</th><th class="num">Successors</th>
+      <th class="num">Lost</th><th class="num">Closed</th><th class="num">Changed hands</th><th class="num">Moved away</th>
+      <th class="num">Unclassified</th><th class="num">True churn</th></tr></thead>
+    <tbody>${rowsByYear.map(r => `
+      <tr${r.year === year ? ' class="fmr-picked"' : ""}>
+        <td class="yr-year"><a href="year.html?year=${r.year}">${r.year}</a>${r.history_start ? " *" : r.partial ? " to date" : ""}</td>
+        <td class="num">${r.history_start ? "—" : formatNumber(r.active_jan1)}</td>
+        <td class="num">${formatNumber(r.gained_new)}</td>
+        <td class="num">${formatNumber(r.gained_successor)}</td>
+        <td class="num">${formatNumber(r.lost)}</td>
+        <td class="num">${formatNumber(r.closed)}</td>
+        <td class="num">${formatNumber(r.changed_hands)}</td>
+        <td class="num">${formatNumber(r.moved)}</td>
+        <td class="num">${formatNumber(r.unknown)}</td>
+        <td class="num" title="Up to ${pct(r.churn_high)} if every unclassified ending and move were a loss">${pct(r.churn)}
+          <span class="list-count">to ${pct(r.churn_high)}</span></td>
+      </tr>`).join("")}
+    </tbody></table></div>`;
+}
+
+function render(page, rows, year, availableYears, hist, retention) {
   renderPageName(`${year} Oil Collection`);
 
-  // Lifecycle membership is decided in oil_scraper.py from the whole dataset,
-  // not from this year's rows, so a customer's gained/lost year is stable no
-  // matter which year page you are looking at.
-  const gainedCustomers = (lifecycle || [])
-    .filter(c => Number(c.gained_year) === year)
-    .sort((a, b) => (a.first_qualifying_pickup || "").localeCompare(b.first_qualifying_pickup || ""));
-
-  const lostCustomers = (lifecycle || [])
-    .filter(c => Number(c.lost_year) === year)
-    .sort((a, b) => (a.last_qualifying_pickup || "").localeCompare(b.last_qualifying_pickup || ""));
+  const { gained: gainedCustomers, ended: lostCustomers, byId } = yearBusinesses(hist, year);
 
   const customers = aggregateCustomers(rows);
   const monthTotals = groupSum(rows, r => r.month);
@@ -226,7 +261,15 @@ function render(page, rows, year, availableYears, lifecycle, dormantCutoff) {
       <div id="year-customer-list"></div>
     </div>
 
-    <div class="section chart-grid">
+    <div class="section">
+      <div class="section-title">Customers Gained and Ended, Every Year</div>
+      <div class="section-caption">Counted in businesses, not accounts: when a new owner takes over a
+        barrel, the old business is a handover and the new one a successor, never a loss.
+        <a href="former.html">Former customers</a> lists every ending.</div>
+      ${retentionTableHtml(retention, year)}
+    </div>
+
+    <div class="section chart-grid yr-lists">
       <div>
         <div class="section-title">
           Customers Gained in ${year} (${formatNumber(gainedCustomers.length)})
@@ -235,16 +278,17 @@ function render(page, rows, year, availableYears, lifecycle, dormantCutoff) {
         <div class="table-wrap">
           <table class="data-table">
             <thead>
-              <tr><th>Customer</th><th>Town / City</th><th>First Qualifying Pickup</th></tr>
+              <tr><th>Customer</th><th>Town</th><th>First Qualifying Pickup</th><th>How</th></tr>
             </thead>
             <tbody>
-              ${gainedCustomers.map(c => `
+              ${gainedCustomers.map(b => `
                 <tr>
-                  <td>${escapeHtml(c.name)}</td>
-                  <td>${c.geo_town
-                      ? `<a href="town.html?town=${encodeURIComponent(townLabel(c.geo_town))}">${escapeHtml(townLabel(c.geo_town))}</a>`
-                      : escapeHtml(c.town || c.city || "—")}</td>
-                  <td>${formatDate(c.first_qualifying_pickup)}</td>
+                  <td>${bizLink(b)}</td>
+                  <td>${escapeHtml(b.town || "—")}</td>
+                  <td>${formatDate(b.first_pickup)}</td>
+                  <td>${b.gain_type === "successor"
+                    ? `Took over from ${b.preceded_by.map(x => byId.get(x)).filter(Boolean).map(bizLink).join(", ")}`
+                    : "New site"}</td>
                 </tr>`).join("")}
             </tbody>
           </table>
@@ -253,39 +297,40 @@ function render(page, rows, year, availableYears, lifecycle, dormantCutoff) {
 
       <div>
         <div class="section-title">
-          Customers Lost in ${year} (${formatNumber(lostCustomers.length)})
+          Customers Ended in ${year} (${formatNumber(lostCustomers.length)})
         </div>
         ${lostCustomers.length ? `
         <div class="table-wrap">
           <table class="data-table">
             <thead>
-              <tr><th>Customer</th><th>Town / City</th><th>Last Qualifying Pickup</th><th>Reason</th></tr>
+              <tr><th>Customer</th><th>Town</th><th>Last Qualifying Pickup</th><th>Ended as</th><th>Site went to</th></tr>
             </thead>
             <tbody>
-              ${lostCustomers.map(c => `
+              ${lostCustomers.map(b => `
                 <tr>
-                  <td>${escapeHtml(c.name)}</td>
-                  <td>${c.geo_town
-                      ? `<a href="town.html?town=${encodeURIComponent(townLabel(c.geo_town))}">${escapeHtml(townLabel(c.geo_town))}</a>`
-                      : escapeHtml(c.town || c.city || "—")}</td>
-                  <td>${formatDate(c.last_qualifying_pickup)}</td>
-                  <td>${escapeHtml(c.lost_reason || "—")}</td>
+                  <td>${bizLink(b)}</td>
+                  <td>${escapeHtml(b.town || "—")}</td>
+                  <td>${formatDate(b.last_pickup)}</td>
+                  <td>${endReasonBadge(b.end_reason)}</td>
+                  <td>${b.followed_by.map(x => byId.get(x)).filter(Boolean).map(bizLink).join(", ") || "—"}</td>
                 </tr>`).join("")}
             </tbody>
           </table>
-        </div>` : `<div class="note">No customers are attributed as lost in ${year}.</div>`}
+        </div>` : `<div class="note">No customers ended in ${year}.</div>`}
       </div>
     </div>
 
     <div class="section">
-      ${lifecycleFootnoteHtml(`
-        <br><strong>Source-site inactive</strong> means the customer is no longer on
-        the active customer list.
-        <strong>Dormant active-list</strong> means they are still on the active list
-        but have had no qualifying pickup since
-        ${escapeHtml(dormantCutoff || "the dormant cutoff")}.
-        <br>A customer's lost year is the year of their last qualifying pickup, which
-        can be well before they were marked inactive.`)}
+      <div class="note">
+        <strong>Active 1 Jan</strong> counts businesses served before the year began and not yet ended.
+        <strong>True churn</strong> is Lost divided by Active 1 Jan; the "to" figure beside it counts every
+        Unclassified ending and every move away as a loss too, so the worst case is in view.
+        ${["lost", "closed", "changed_hands", "moved", "unknown"].map(r =>
+          `${endReasonBadge(r)} ${escapeHtml(END_REASON_HELP[r])}.`).join(" ")}
+        <br>A customer's ending year is the year of their last qualifying pickup, which can be well before
+        they were marked inactive. A business that moved and kept using us is not an ending.
+        * Pickup history starts in January 2015, so that year's gains include every existing customer.
+      </div>
     </div>
   `;
 

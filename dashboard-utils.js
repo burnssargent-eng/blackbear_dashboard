@@ -78,6 +78,128 @@ async function loadCustomerLifecycle(data) {
 }
 
 /* ─────────────────────────────────────────────
+ * Customer eras (customer_history.json, built by oil_scraper.py from
+ * customer_eras.csv). An era is one business's time at one account; a
+ * business is eras chained by a move or a duplicate account. Only accounts in
+ * the registry have eras in the file: every other account is one era, the
+ * whole account, and historyIndex() fills those in from the lifecycle roster.
+ * ───────────────────────────────────────────── */
+
+async function loadCustomerHistory(data) {
+  const version = encodeURIComponent((data && data.last_updated) || Date.now());
+  const resp = await fetch(`customer_history.json?v=${version}`);
+  if (!resp.ok) throw new Error(`Could not load customer_history.json (HTTP ${resp.status})`);
+  return resp.json();
+}
+
+const END_REASON_LABELS = {
+  lost: "Lost", closed: "Closed", changed_hands: "Changed hands", moved: "Moved",
+  continued: "Continued", non_recurring: "One-off", unknown: "Unclassified", current: "Current"
+};
+
+/** Plain words for each ending, for a footnote or a tooltip. */
+const END_REASON_HELP = {
+  lost: "still in business and stopped using us",
+  closed: "closed, and no customer of ours has the site",
+  changed_hands: "a successor took the site and is our customer",
+  moved: "moved somewhere we do not collect",
+  unknown: "ended (inactive or dormant) and not yet classified",
+  non_recurring: "an event or one-off, left out of every count"
+};
+
+function endReasonBadge(reason) {
+  const key = reason || "current";
+  return `<span class="status-badge end-${key}" title="${escapeHtml(END_REASON_HELP[key] || "")}">` +
+    `${escapeHtml(END_REASON_LABELS[key] || key)}</span>`;
+}
+
+/**
+ * Lookups over the history file: eras (key -> era, every account included),
+ * byAccount (customer_id -> its eras in order), businesses (id -> business)
+ * and businessOfEra (era key -> business).
+ */
+function historyIndex(hist, lifecycle) {
+  const eras = new Map();
+  const byAccount = new Map();
+  for (const e of (hist && hist.eras) || []) {
+    eras.set(e.key, e);
+    if (!byAccount.has(e.customer_id)) byAccount.set(e.customer_id, []);
+    byAccount.get(e.customer_id).push(e);
+  }
+  for (const c of lifecycle || []) {
+    if (byAccount.has(c.customer_id)) continue;
+    const ended = c.lost_reason !== null && c.lost_reason !== undefined;
+    const e = {
+      key: `${c.customer_id}/1`, customer_id: c.customer_id, era: 1, eras_on_account: 1,
+      business: c.name, account_name: c.name, town: c.town || c.city || "",
+      window_start: null, window_end: null,
+      first_pickup: c.first_qualifying_pickup, last_pickup: c.last_qualifying_pickup,
+      pickups: c.pickups, gallons: c.gallons, ended, end_reason: ended ? "unknown" : null,
+      next: null, site_next: null, business_next: null, note: "", source: "", registered: false
+    };
+    eras.set(e.key, e);
+    byAccount.set(c.customer_id, [e]);
+  }
+  for (const list of byAccount.values()) list.sort((a, b) => a.era - b.era);
+  const businesses = new Map();
+  const businessOfEra = new Map();
+  for (const b of (hist && hist.businesses) || []) {
+    businesses.set(b.id, b);
+    for (const k of b.eras) businessOfEra.set(k, b);
+  }
+  return { eras, byAccount, businesses, businessOfEra };
+}
+
+/** This era's pickups: its account's records inside its date window. */
+function eraRecords(era, records) {
+  return records.filter(r => r.customer_id === era.customer_id &&
+    (!era.window_start || r.date >= era.window_start) &&
+    (!era.window_end || r.date <= era.window_end));
+}
+
+/** "2016–2019", "2016", or "2023–now". */
+function eraYears(first, last, current) {
+  if (!first) return "no pickups yet";
+  const a = first.slice(0, 4);
+  if (current) return `${a}–now`;
+  const b = (last || first).slice(0, 4);
+  return a === b ? a : `${a}–${b}`;
+}
+
+/**
+ * One account's eras as a bar over time (each era from its first to its last
+ * pickup, so an empty building shows as a gap) and a list beneath it.
+ * `link(era)` gives each era's name markup (a link, or plain text).
+ */
+function siteTimelineHtml(accountEras, link, today) {
+  const served = accountEras.filter(e => e.first_pickup);
+  if (!served.length) return "";
+  const now = today || new Date().toISOString().slice(0, 10);
+  const end = e => (e.ended ? e.last_pickup : now);
+  const t = d => new Date(`${d}T00:00:00Z`).getTime();
+  const lo = t(served[0].first_pickup);
+  const hi = Math.max(...served.map(e => t(end(e))));
+  const span = Math.max(hi - lo, 1);
+  const pct = v => Math.max(0, Math.min(100, v));
+  const segs = served.map((e, i) => {
+    const left = pct(((t(e.first_pickup) - lo) / span) * 100);
+    const width = Math.max(pct(((t(end(e)) - t(e.first_pickup)) / span) * 100), 1.2);
+    return `<span class="site-tl-seg site-tl-${e.ended ? e.end_reason : "current"}${i % 2 ? " site-tl-alt" : ""}"
+      style="left:${left.toFixed(2)}%;width:${width.toFixed(2)}%" title="${escapeHtml(e.business)}"></span>`;
+  }).join("");
+  const years = [served[0].first_pickup.slice(0, 4), (served.some(e => !e.ended) ? "now" : end(served[served.length - 1]).slice(0, 4))];
+  return `<div class="site-timeline">
+    <div class="site-tl-bar">${segs}</div>
+    <div class="site-tl-axis"><span>${years[0]}</span><span>${years[1]}</span></div>
+    <ol class="site-tl-list">${accountEras.map(e => `
+      <li><span class="site-tl-dot site-tl-${e.ended ? e.end_reason : "current"}"></span>
+        <span class="site-tl-name">${link(e)}</span>
+        <span class="site-tl-meta">${eraYears(e.first_pickup, e.last_pickup, !e.ended)}
+          · ${formatNumber(e.gallons)} gal · ${endReasonBadge(e.ended ? e.end_reason : null)}</span></li>`).join("")}
+    </ol></div>`;
+}
+
+/* ─────────────────────────────────────────────
  * Formatting
  *
  * Everything user-facing goes through these, so a missing or malformed value
@@ -481,6 +603,7 @@ function navHtml(current, latestYear, defaultRegion) {
     { key: "region", href: `region.html?region=${encodeURIComponent(region)}`, label: "Regions" },
     { key: "year", href: `year.html?year=${encodeURIComponent(year)}`, label: "Years" },
     { key: "customers", href: "customers.html", label: "Customers" },
+    { key: "former", href: "former.html", label: "Former" },
     { key: "schmootz", href: "schmootz.html", label: "Schmutz" },
     { key: "ops", href: "ops-assign.html", label: "Ops" }
   ];
