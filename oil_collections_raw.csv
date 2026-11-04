@@ -2112,6 +2112,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 300,Blue Bird BBQ - blue keychain in mack,Burlington,Chittenden,2015-03-05,2015,2015-03,25,True,Burlington
 300,Blue Bird BBQ - blue keychain in mack,Burlington,Chittenden,2015-02-12,2015,2015-02,40,True,Burlington
 300,Blue Bird BBQ - blue keychain in mack,Burlington,Chittenden,2015-01-07,2015,2015-01,30,True,Burlington
+1070,Burlington Beer Co,Burlington,Chittenden,2026-11-03,2026,2026-11,75,True,Burlington
 1070,Burlington Beer Co,Burlington,Chittenden,2026-10-22,2026,2026-10,120,True,Burlington
 1070,Burlington Beer Co,Burlington,Chittenden,2026-10-07,2026,2026-10,150,True,Burlington
 1070,Burlington Beer Co,Burlington,Chittenden,2026-09-21,2026,2026-09,80,True,Burlington
@@ -2256,6 +2257,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1070,Burlington Beer Co,Burlington,Chittenden,2021-11-19,2021,2021-11,130,True,Burlington
 1070,Burlington Beer Co,Burlington,Chittenden,2021-11-01,2021,2021-11,85,True,Burlington
 1070,Burlington Beer Co,Burlington,Chittenden,2021-10-22,2021,2021-10,75,True,Burlington
+321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2026-11-03,2026,2026-11,50,True,Burlington
 321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2026-10-07,2026,2026-10,70,True,Burlington
 321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2026-09-21,2026,2026-09,15,True,Burlington
 321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2026-09-16,2026,2026-09,45,True,Burlington
@@ -2535,6 +2537,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-02-06,2015,2015-02,50,True,Burlington
 321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-01-15,2015,2015-01,50,True,Burlington
 321,BURLS/El Cortijo-Burlington,Burlington,Chittenden,2015-01-02,2015,2015-01,60,True,Burlington
+315,Citizen Cider - 0316,Burlington,Chittenden,2026-11-03,2026,2026-11,65,True,Burlington
 315,Citizen Cider - 0316,Burlington,Chittenden,2026-10-22,2026,2026-10,85,True,Burlington
 315,Citizen Cider - 0316,Burlington,Chittenden,2026-10-07,2026,2026-10,100,True,Burlington
 315,Citizen Cider - 0316,Burlington,Chittenden,2026-09-21,2026,2026-09,65,True,Burlington
@@ -3074,6 +3077,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 361,Farmers & Foragers 4560 (Lauren food truck),Burlington,Chittenden,2017-07-15,2017,2017-07,58,True,Burlington
 361,Farmers & Foragers 4560 (Lauren food truck),Burlington,Chittenden,2016-12-17,2016,2016-12,25,True,Burlington
 361,Farmers & Foragers 4560 (Lauren food truck),Burlington,Chittenden,2016-08-14,2016,2016-08,35,True,Burlington
+325,Farmhouse,Burlington,Chittenden,2026-11-03,2026,2026-11,170,True,Burlington
 325,Farmhouse,Burlington,Chittenden,2026-10-07,2026,2026-10,190,True,Burlington
 325,Farmhouse,Burlington,Chittenden,2026-09-21,2026,2026-09,150,True,Burlington
 325,Farmhouse,Burlington,Chittenden,2026-09-08,2026,2026-09,160,True,Burlington
@@ -3469,6 +3473,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1464,Friendly Toast #3251,Burlington,Chittenden,2026-04-28,2026,2026-04,180,True,Burlington
 1464,Friendly Toast #3251,Burlington,Chittenden,2026-02-20,2026,2026-02,140,True,Burlington
 1464,Friendly Toast #3251,Burlington,Chittenden,2025-11-25,2025,2025-11,165,True,Burlington
+352,Great Northern,Burlington,Chittenden,2026-11-03,2026,2026-11,110,True,Burlington
 352,Great Northern,Burlington,Chittenden,2026-10-21,2026,2026-10,100,True,Burlington
 352,Great Northern,Burlington,Chittenden,2026-10-07,2026,2026-10,95,True,Burlington
 352,Great Northern,Burlington,Chittenden,2026-09-21,2026,2026-09,110,True,Burlington
@@ -3794,6 +3799,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1037,Hen of the Wood - 50%,Burlington,Chittenden,2022-01-28,2022,2022-01,35,True,Burlington
 1037,Hen of the Wood - 50%,Burlington,Chittenden,2022-01-06,2022,2022-01,50,True,Burlington
 1037,Hen of the Wood - 50%,Burlington,Chittenden,2021-12-02,2021,2021-12,35,True,Burlington
+322,Henrys Diner-50%,Burlington,Chittenden,2026-11-03,2026,2026-11,40,True,Burlington
 322,Henrys Diner-50%,Burlington,Chittenden,2026-10-21,2026,2026-10,50,True,Burlington
 322,Henrys Diner-50%,Burlington,Chittenden,2026-10-07,2026,2026-10,40,True,Burlington
 322,Henrys Diner-50%,Burlington,Chittenden,2026-09-21,2026,2026-09,35,True,Burlington
@@ -4130,6 +4136,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 304,Hotel Vermont - 50%,Burlington,Chittenden,2015-01-26,2015,2015-01,45,True,Burlington
 304,Hotel Vermont - 50%,Burlington,Chittenden,2015-01-15,2015,2015-01,120,True,Burlington
 304,Hotel Vermont - 50%,Burlington,Chittenden,2015-01-07,2015,2015-01,25,True,Burlington
+1338,Ken’s Pizza,Burlington,Chittenden,2026-11-03,2026,2026-11,20,True,Burlington
 1338,Ken’s Pizza,Burlington,Chittenden,2026-10-21,2026,2026-10,35,True,Burlington
 1338,Ken’s Pizza,Burlington,Chittenden,2026-10-07,2026,2026-10,20,True,Burlington
 1338,Ken’s Pizza,Burlington,Chittenden,2026-09-21,2026,2026-09,15,True,Burlington
@@ -4555,6 +4562,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1432,Nomad-Church St-1638,Burlington,Chittenden,2026-04-08,2026,2026-04,110,True,Burlington
 1432,Nomad-Church St-1638,Burlington,Chittenden,2026-01-08,2026,2026-01,35,True,Burlington
 1432,Nomad-Church St-1638,Burlington,Chittenden,2025-09-19,2025,2025-09,110,True,Burlington
+323,Pascolo 50% with Henrys,Burlington,Chittenden,2026-11-03,2026,2026-11,40,True,Burlington
 323,Pascolo 50% with Henrys,Burlington,Chittenden,2026-10-21,2026,2026-10,50,True,Burlington
 323,Pascolo 50% with Henrys,Burlington,Chittenden,2026-10-07,2026,2026-10,40,True,Burlington
 323,Pascolo 50% with Henrys,Burlington,Chittenden,2026-09-21,2026,2026-09,35,True,Burlington
@@ -5403,6 +5411,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 328,Sweetwaters 2.0!!!- 50%,Burlington,Chittenden,2018-02-27,2018,2018-02,135,True,Burlington
 328,Sweetwaters 2.0!!!- 50%,Burlington,Chittenden,2018-02-15,2018,2018-02,100,True,Burlington
 328,Sweetwaters 2.0!!!- 50%,Burlington,Chittenden,2018-02-04,2018,2018-02,165,True,Burlington
+1350,Switchback,Burlington,Chittenden,2026-11-03,2026,2026-11,40,True,Burlington
 1350,Switchback,Burlington,Chittenden,2026-10-21,2026,2026-10,125,True,Burlington
 1350,Switchback,Burlington,Chittenden,2026-09-21,2026,2026-09,50,True,Burlington
 1350,Switchback,Burlington,Chittenden,2026-09-08,2026,2026-09,50,True,Burlington
@@ -5477,6 +5486,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1286,The PizzeriaVeritas50%,Burlington,Chittenden,2024-04-25,2024,2024-04,30,True,Burlington
 1286,The PizzeriaVeritas50%,Burlington,Chittenden,2024-04-03,2024,2024-04,10,True,Burlington
 1286,The PizzeriaVeritas50%,Burlington,Chittenden,2024-03-05,2024,2024-03,20,True,Burlington
+1394,The Wise Fool,Burlington,Chittenden,2026-11-04,2026,2026-11,170,True,Burlington
 1394,The Wise Fool,Burlington,Chittenden,2026-10-07,2026,2026-10,160,True,Burlington
 1394,The Wise Fool,Burlington,Chittenden,2026-09-03,2026,2026-09,150,True,Burlington
 1394,The Wise Fool,Burlington,Chittenden,2026-08-12,2026,2026-08,170,True,Burlington
@@ -20451,6 +20461,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 229,Prohibition Pig,Waterbury,Washington,2015-02-25,2015,2015-02,40,True,Waterbury
 229,Prohibition Pig,Waterbury,Washington,2015-02-09,2015,2015-02,50,True,Waterbury
 229,Prohibition Pig,Waterbury,Washington,2015-01-14,2015,2015-01,50,True,Waterbury
+227,The Reservoir-Waterbury,Waterbury,Washington,2026-11-03,2026,2026-11,180,True,Waterbury
 227,The Reservoir-Waterbury,Waterbury,Washington,2026-10-14,2026,2026-10,180,True,Waterbury
 227,The Reservoir-Waterbury,Waterbury,Washington,2026-09-25,2026,2026-09,100,True,Waterbury
 227,The Reservoir-Waterbury,Waterbury,Washington,2026-08-31,2026,2026-08,180,True,Waterbury
@@ -20651,6 +20662,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 227,The Reservoir-Waterbury,Waterbury,Washington,2015-02-18,2015,2015-02,90,True,Waterbury
 227,The Reservoir-Waterbury,Waterbury,Washington,2015-01-28,2015,2015-01,40,True,Waterbury
 227,The Reservoir-Waterbury,Waterbury,Washington,2015-01-09,2015,2015-01,155,True,Waterbury
+1076,Vermont Country Club-Waterbury,Waterbury,Washington,2026-11-04,2026,2026-11,25,True,Waterbury
 1076,Vermont Country Club-Waterbury,Waterbury,Washington,2026-10-14,2026,2026-10,65,True,Waterbury
 1076,Vermont Country Club-Waterbury,Waterbury,Washington,2026-09-15,2026,2026-09,35,True,Waterbury
 1076,Vermont Country Club-Waterbury,Waterbury,Washington,2026-08-25,2026,2026-08,75,True,Waterbury
@@ -21425,6 +21437,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 406,Auryvedic spa,Williston,Chittenden,2022-08-17,2022,2022-08,50,True,Williston
 406,Auryvedic spa,Williston,Chittenden,2022-02-17,2022,2022-02,40,True,Williston
 406,Auryvedic spa,Williston,Chittenden,2020-09-29,2020,2020-09,55,True,Williston
+403,Bliss Bee -Williston-(300),Williston,Chittenden,2026-11-03,2026,2026-11,225,True,Williston
 403,Bliss Bee -Williston-(300),Williston,Chittenden,2026-10-01,2026,2026-10,300,True,Williston
 403,Bliss Bee -Williston-(300),Williston,Chittenden,2026-08-21,2026,2026-08,90,True,Williston
 403,Bliss Bee -Williston-(300),Williston,Chittenden,2026-07-17,2026,2026-07,90,True,Williston
@@ -21546,6 +21559,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1495,Folinos-Williston,Williston,Chittenden,2026-06-04,2026,2026-06,100,True,Williston
 1495,Folinos-Williston,Williston,Chittenden,2026-05-14,2026,2026-05,50,True,Williston
 1495,Folinos-Williston,Williston,Chittenden,2026-05-01,2026,2026-05,40,True,Williston
+401,Grazers pc 1425- Williston Garage,Williston,Chittenden,2026-11-03,2026,2026-11,130,True,Williston
 401,Grazers pc 1425- Williston Garage,Williston,Chittenden,2026-10-16,2026,2026-10,80,True,Williston
 401,Grazers pc 1425- Williston Garage,Williston,Chittenden,2026-10-01,2026,2026-10,100,True,Williston
 401,Grazers pc 1425- Williston Garage,Williston,Chittenden,2026-09-16,2026,2026-09,120,True,Williston
@@ -21740,6 +21754,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1183,Hannaford- Williston,Williston,Chittenden,2022-10-24,2022,2022-10,28,True,Williston
 1183,Hannaford- Williston,Williston,Chittenden,2022-10-03,2022,2022-10,23,True,Williston
 1183,Hannaford- Williston,Williston,Chittenden,2022-09-22,2022,2022-09,114,True,Williston
+1459,Jersey Mike's - Williston,Williston,Chittenden,2026-11-03,2026,2026-11,65,True,Williston
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-09-16,2026,2026-09,15,True,Williston
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-08-21,2026,2026-08,35,True,Williston
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-07-31,2026,2026-07,50,True,Williston
@@ -21748,6 +21763,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-05-01,2026,2026-05,125,True,Williston
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-04-24,2026,2026-04,55,True,Williston
 1459,Jersey Mike's - Williston,Williston,Chittenden,2026-03-31,2026,2026-03,15,True,Williston
+1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2026-11-03,2026,2026-11,70,True,Williston
 1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2026-10-22,2026,2026-10,50,True,Williston
 1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2026-10-01,2026,2026-10,70,True,Williston
 1032,McGillicuddy's Alehouse-Williston,Williston,Chittenden,2026-09-16,2026,2026-09,40,True,Williston
@@ -21906,6 +21922,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1211,Men at Wok,Williston,Chittenden,2023-04-27,2023,2023-04,10,True,Williston
 1211,Men at Wok,Williston,Chittenden,2023-04-17,2023,2023-04,90,True,Williston
 1211,Men at Wok,Williston,Chittenden,2023-04-12,2023,2023-04,30,True,Williston
+1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2026-11-03,2026,2026-11,100,True,Williston
 1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2026-09-16,2026,2026-09,100,True,Williston
 1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2026-07-08,2026,2026-07,95,True,Williston
 1130,Texas Roadhouse-# 1122-Mahoney,Williston,Chittenden,2026-06-04,2026,2026-06,100,True,Williston

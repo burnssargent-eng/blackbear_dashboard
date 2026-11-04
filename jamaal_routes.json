@@ -1,36 +1,12 @@
 {
- "scraped_at": "2026-11-04T12:00:20+00:00",
+ "scraped_at": "2026-11-04T15:06:05+00:00",
  "source": "routes_assigned.php, assign_routes.php",
  "routes": [
   {
    "route_id": 10,
    "name": "Route 7",
-   "assigned_capacity": 972,
+   "assigned_capacity": 770,
    "stops": [
-    {
-     "assignment_id": 24439,
-     "customer_id": 1544,
-     "name": "BBB- Load cones",
-     "capacity": 1,
-     "days_over": -66,
-     "must_get": true
-    },
-    {
-     "assignment_id": 24440,
-     "customer_id": 1546,
-     "name": "BBB-Asiana Noodle Key",
-     "capacity": 1,
-     "days_over": -63,
-     "must_get": true
-    },
-    {
-     "assignment_id": 24384,
-     "customer_id": 1394,
-     "name": "The Wise Fool",
-     "capacity": 200,
-     "days_over": 0,
-     "must_get": false
-    },
     {
      "assignment_id": 24441,
      "customer_id": 329,
@@ -169,24 +145,8 @@
   {
    "route_id": 4,
    "name": "Stowe/Wtbry/MRV",
-   "assigned_capacity": 4180,
+   "assigned_capacity": 3980,
    "stops": [
-    {
-     "assignment_id": 24434,
-     "customer_id": 1076,
-     "name": "Vermont Country Club-Waterbury",
-     "capacity": 50,
-     "days_over": 0,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24435,
-     "customer_id": 238,
-     "name": "Zen Barn",
-     "capacity": 150,
-     "days_over": -7,
-     "must_get": false
-    },
     {
      "assignment_id": 24433,
      "customer_id": 267,
@@ -200,14 +160,6 @@
      "customer_id": 1445,
      "name": "Trapp Family Lodge",
      "capacity": 110,
-     "days_over": 7,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24419,
-     "customer_id": 263,
-     "name": "Edson Hill Manor",
-     "capacity": 65,
      "days_over": 7,
      "must_get": false
     },
@@ -228,19 +180,27 @@
      "must_get": false
     },
     {
-     "assignment_id": 24417,
-     "customer_id": 1103,
-     "name": "Burt’s Pub/old Blue Donkey",
-     "capacity": 150,
-     "days_over": 13,
-     "must_get": false
-    },
-    {
      "assignment_id": 24431,
      "customer_id": 265,
      "name": "Topnotch (The Roost)",
      "capacity": 150,
      "days_over": 7,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24419,
+     "customer_id": 263,
+     "name": "Edson Hill Manor",
+     "capacity": 65,
+     "days_over": 7,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24417,
+     "customer_id": 1103,
+     "name": "Burt’s Pub/old Blue Donkey",
+     "capacity": 150,
+     "days_over": 13,
      "must_get": false
     },
     {
@@ -268,14 +228,6 @@
      "must_get": false
     },
     {
-     "assignment_id": 24429,
-     "customer_id": 252,
-     "name": "The Bench",
-     "capacity": 195,
-     "days_over": 7,
-     "must_get": false
-    },
-    {
      "assignment_id": 24422,
      "customer_id": 1361,
      "name": "Outbound Stowe",
@@ -289,6 +241,14 @@
      "name": "StoweCider-Shakedown",
      "capacity": 150,
      "days_over": -7,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24429,
+     "customer_id": 252,
+     "name": "The Bench",
+     "capacity": 195,
+     "days_over": 7,
      "must_get": false
     },
     {
@@ -1151,7 +1111,7 @@
    "customer_id": 1394,
    "name": "The Wise Fool",
    "city": "Burlington",
-   "days_over": 0
+   "days_over": -28
   },
   {
    "customer_id": 1529,
@@ -2525,7 +2485,7 @@
    "customer_id": 1544,
    "name": "BBB- Load cones",
    "city": "Plainfield",
-   "days_over": -66
+   "days_over": -67
   },
   {
    "customer_id": 1078,
@@ -2555,7 +2515,7 @@
    "customer_id": 1546,
    "name": "BBB-Asiana Noodle Key",
    "city": "Plainfield",
-   "days_over": -63
+   "days_over": -64
   },
   {
    "customer_id": 1533,
@@ -3587,13 +3547,13 @@
    "customer_id": 1076,
    "name": "Vermont Country Club-Waterbury",
    "city": "Waterbury",
-   "days_over": 0
+   "days_over": -21
   },
   {
    "customer_id": 238,
    "name": "Zen Barn",
    "city": "Waterbury",
-   "days_over": -7
+   "days_over": -28
   },
   {
    "customer_id": 1334,
