@@ -1699,6 +1699,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 711,Bobcat Brewery,Bristol,Addison,2018-06-28,2018,2018-06,75,True,Bristol
 711,Bobcat Brewery,Bristol,Addison,2018-05-24,2018,2018-05,60,True,Bristol
 711,Bobcat Brewery,Bristol,Addison,2018-03-28,2018,2018-03,125,True,Bristol
+1109,Cubbers,Bristol,Addison,2026-11-05,2026,2026-11,20,True,Bristol
 1109,Cubbers,Bristol,Addison,2026-10-15,2026,2026-10,50,True,Bristol
 1109,Cubbers,Bristol,Addison,2026-09-05,2026,2026-09,90,True,Bristol
 1109,Cubbers,Bristol,Addison,2026-07-17,2026,2026-07,65,True,Bristol
@@ -1747,6 +1748,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1109,Cubbers,Bristol,Addison,2022-06-15,2022,2022-06,120,True,Bristol
 1109,Cubbers,Bristol,Addison,2022-05-05,2022,2022-05,40,True,Bristol
 1109,Cubbers,Bristol,Addison,2022-04-05,2022,2022-04,140,True,Bristol
+1382,South Mountain Tavern,Bristol,Addison,2026-11-05,2026,2026-11,15,True,Bristol
 1382,South Mountain Tavern,Bristol,Addison,2026-10-15,2026,2026-10,35,True,Bristol
 1382,South Mountain Tavern,Bristol,Addison,2026-09-05,2026,2026-09,30,True,Bristol
 1382,South Mountain Tavern,Bristol,Addison,2026-07-17,2026,2026-07,40,True,Bristol
@@ -1875,6 +1877,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 317,Arts Riot,Burlington,Chittenden,2018-06-20,2018,2018-06,25,True,Burlington
 317,Arts Riot,Burlington,Chittenden,2018-06-12,2018,2018-06,25,True,Burlington
 317,Arts Riot,Burlington,Chittenden,2018-05-23,2018,2018-05,25,True,Burlington
+329,Asiana Noodle-6974,Burlington,Chittenden,2026-11-04,2026,2026-11,7,True,Burlington
 329,Asiana Noodle-6974,Burlington,Chittenden,2026-11-03,2026,2026-11,90,True,Burlington
 329,Asiana Noodle-6974,Burlington,Chittenden,2026-05-26,2026,2026-05,60,True,Burlington
 329,Asiana Noodle-6974,Burlington,Chittenden,2025-12-23,2025,2025-12,110,True,Burlington
@@ -3077,6 +3080,59 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 361,Farmers & Foragers 4560 (Lauren food truck),Burlington,Chittenden,2017-07-15,2017,2017-07,58,True,Burlington
 361,Farmers & Foragers 4560 (Lauren food truck),Burlington,Chittenden,2016-12-17,2016,2016-12,25,True,Burlington
 361,Farmers & Foragers 4560 (Lauren food truck),Burlington,Chittenden,2016-08-14,2016,2016-08,35,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2026-11-04,2026,2026-11,75,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2026-05-26,2026,2026-05,100,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2026-04-24,2026,2026-04,50,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2026-03-31,2026,2026-03,85,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2026-02-24,2026,2026-02,65,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2026-01-29,2026,2026-01,65,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2026-01-06,2026,2026-01,70,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2025-12-04,2025,2025-12,65,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2025-11-04,2025,2025-11,60,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2025-10-09,2025,2025-10,75,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2025-09-08,2025,2025-09,65,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2025-08-12,2025,2025-08,65,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2025-07-15,2025,2025-07,55,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2025-06-25,2025,2025-06,65,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2025-06-03,2025,2025-06,60,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2025-05-22,2025,2025-05,65,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2025-04-30,2025,2025-04,50,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2025-04-15,2025,2025-04,110,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2025-03-18,2025,2025-03,80,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2025-02-28,2025,2025-02,90,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2025-01-31,2025,2025-01,80,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2025-01-04,2025,2025-01,80,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2024-12-06,2024,2024-12,25,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2024-11-27,2024,2024-11,65,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2024-11-11,2024,2024-11,100,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2024-10-15,2024,2024-10,100,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2024-09-16,2024,2024-09,95,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2024-08-15,2024,2024-08,100,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2024-07-18,2024,2024-07,80,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2024-06-28,2024,2024-06,135,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2024-05-31,2024,2024-05,130,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2024-04-29,2024,2024-04,80,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2024-04-02,2024,2024-04,60,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2024-03-22,2024,2024-03,75,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2024-02-19,2024,2024-02,115,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2024-01-11,2024,2024-01,75,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2023-12-13,2023,2023-12,60,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2023-11-16,2023,2023-11,90,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2023-10-18,2023,2023-10,90,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2023-09-18,2023,2023-09,80,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2023-08-30,2023,2023-08,130,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2023-07-17,2023,2023-07,100,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2023-06-19,2023,2023-06,90,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2023-05-17,2023,2023-05,125,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2023-04-05,2023,2023-04,115,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2023-02-21,2023,2023-02,80,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2023-01-08,2023,2023-01,90,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2022-11-09,2022,2022-11,50,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2022-09-21,2022,2022-09,100,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2022-07-25,2022,2022-07,115,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2022-05-27,2022,2022-05,105,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2022-03-23,2022,2022-03,115,True,Burlington
+1091,Farmers and Foragers 2027/Cafe Hot,Burlington,Chittenden,2021-12-28,2021,2021-12,100,True,Burlington
 325,Farmhouse,Burlington,Chittenden,2026-11-03,2026,2026-11,170,True,Burlington
 325,Farmhouse,Burlington,Chittenden,2026-10-07,2026,2026-10,190,True,Burlington
 325,Farmhouse,Burlington,Chittenden,2026-09-21,2026,2026-09,150,True,Burlington
@@ -3468,6 +3524,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1336,Frankie’s/Old Penny Cluse,Burlington,Chittenden,2024-07-15,2024,2024-07,20,True,Burlington
 1336,Frankie’s/Old Penny Cluse,Burlington,Chittenden,2024-06-06,2024,2024-06,30,True,Burlington
 1336,Frankie’s/Old Penny Cluse,Burlington,Chittenden,2024-05-22,2024,2024-05,40,True,Burlington
+1464,Friendly Toast #3251,Burlington,Chittenden,2026-11-04,2026,2026-11,180,True,Burlington
 1464,Friendly Toast #3251,Burlington,Chittenden,2026-09-16,2026,2026-09,135,True,Burlington
 1464,Friendly Toast #3251,Burlington,Chittenden,2026-08-05,2026,2026-08,220,True,Burlington
 1464,Friendly Toast #3251,Burlington,Chittenden,2026-04-28,2026,2026-04,180,True,Burlington
@@ -4542,6 +4599,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1133,May Day,Burlington,Chittenden,2022-07-27,2022,2022-07,50,True,Burlington
 1457,Mr. Creemee,Burlington,Chittenden,2026-08-28,2026,2026-08,60,True,Burlington
 1457,Mr. Creemee,Burlington,Chittenden,2025-11-25,2025,2025-11,10,True,Burlington
+1220,Nectars,Burlington,Chittenden,2026-11-04,2026,2026-11,85,True,Burlington
 1220,Nectars,Burlington,Chittenden,2025-03-24,2025,2025-03,150,True,Burlington
 1220,Nectars,Burlington,Chittenden,2024-10-29,2024,2024-10,40,True,Burlington
 1220,Nectars,Burlington,Chittenden,2024-09-17,2024,2024-09,50,True,Burlington
@@ -9313,6 +9371,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 710,Addison County Solid Waste Management District,Middlebury,Addison,2018-05-24,2018,2018-05,50,True,Middlebury
 710,Addison County Solid Waste Management District,Middlebury,Addison,2017-09-07,2017,2017-09,50,True,Middlebury
 710,Addison County Solid Waste Management District,Middlebury,Addison,2016-10-18,2016,2016-10,100,True,Middlebury
+1346,Cravens Food Truck-Middlebury,Middlebury,Addison,2026-11-05,2026,2026-11,65,True,Middlebury
 1346,Cravens Food Truck-Middlebury,Middlebury,Addison,2026-10-15,2026,2026-10,85,True,Middlebury
 1346,Cravens Food Truck-Middlebury,Middlebury,Addison,2026-09-14,2026,2026-09,100,True,Middlebury
 1346,Cravens Food Truck-Middlebury,Middlebury,Addison,2026-08-24,2026,2026-08,110,True,Middlebury
@@ -15240,6 +15299,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2025-07-24,2025,2025-07,60,True,Stowe
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2025-06-17,2025,2025-06,45,True,Stowe
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2025-04-15,2025,2025-04,35,True,Stowe
+287,Backyard Tavern 50%,Stowe,Lamoille,2026-11-04,2026,2026-11,50,True,Stowe
 287,Backyard Tavern 50%,Stowe,Lamoille,2026-10-14,2026,2026-10,50,True,Stowe
 287,Backyard Tavern 50%,Stowe,Lamoille,2026-09-30,2026,2026-09,80,True,Stowe
 287,Backyard Tavern 50%,Stowe,Lamoille,2026-09-15,2026,2026-09,25,True,Stowe
@@ -15365,6 +15425,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 287,Backyard Tavern 50%,Stowe,Lamoille,2021-08-12,2021,2021-08,25,True,Stowe
 287,Backyard Tavern 50%,Stowe,Lamoille,2021-08-01,2021,2021-08,50,True,Stowe
 287,Backyard Tavern 50%,Stowe,Lamoille,2021-06-23,2021,2021-06,43,True,Stowe
+273,BARBERIAN-Skinny Pancake-Stowe McCarthy's,Stowe,Lamoille,2026-11-04,2026,2026-11,80,True,Stowe
 273,BARBERIAN-Skinny Pancake-Stowe McCarthy's,Stowe,Lamoille,2026-10-14,2026,2026-10,70,True,Stowe
 273,BARBERIAN-Skinny Pancake-Stowe McCarthy's,Stowe,Lamoille,2026-09-30,2026,2026-09,70,True,Stowe
 273,BARBERIAN-Skinny Pancake-Stowe McCarthy's,Stowe,Lamoille,2026-09-15,2026,2026-09,115,True,Stowe
@@ -15394,6 +15455,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 273,BARBERIAN-Skinny Pancake-Stowe McCarthy's,Stowe,Lamoille,2019-10-07,2019,2019-10,25,True,Stowe
 273,BARBERIAN-Skinny Pancake-Stowe McCarthy's,Stowe,Lamoille,2019-09-10,2019,2019-09,25,True,Stowe
 273,BARBERIAN-Skinny Pancake-Stowe McCarthy's,Stowe,Lamoille,2019-08-13,2019,2019-08,50,True,Stowe
+1103,Burt’s Pub/old Blue Donkey,Stowe,Lamoille,2026-11-04,2026,2026-11,70,True,Stowe
 1103,Burt’s Pub/old Blue Donkey,Stowe,Lamoille,2026-08-19,2026,2026-08,60,True,Stowe
 1103,Burt’s Pub/old Blue Donkey,Stowe,Lamoille,2026-06-09,2026,2026-06,20,True,Stowe
 1103,Burt’s Pub/old Blue Donkey,Stowe,Lamoille,2026-04-29,2026,2026-04,70,True,Stowe
@@ -15528,6 +15590,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2016-07-11,2016,2016-07,30,True,Stowe
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2016-04-11,2016,2016-04,35,True,Stowe
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2015-12-04,2015,2015-12,20,True,Stowe
+247,Doc Ponds,Stowe,Lamoille,2026-11-04,2026,2026-11,170,True,Stowe
 247,Doc Ponds,Stowe,Lamoille,2026-10-14,2026,2026-10,160,True,Stowe
 247,Doc Ponds,Stowe,Lamoille,2026-09-30,2026,2026-09,120,True,Stowe
 247,Doc Ponds,Stowe,Lamoille,2026-09-15,2026,2026-09,150,True,Stowe
@@ -15782,6 +15845,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 247,Doc Ponds,Stowe,Lamoille,2015-09-29,2015,2015-09,50,True,Stowe
 247,Doc Ponds,Stowe,Lamoille,2015-09-15,2015,2015-09,40,True,Stowe
 247,Doc Ponds,Stowe,Lamoille,2015-08-29,2015,2015-08,30,True,Stowe
+263,Edson Hill Manor,Stowe,Lamoille,2026-11-04,2026,2026-11,40,True,Stowe
 263,Edson Hill Manor,Stowe,Lamoille,2026-09-30,2026,2026-09,15,True,Stowe
 263,Edson Hill Manor,Stowe,Lamoille,2026-08-31,2026,2026-08,40,True,Stowe
 263,Edson Hill Manor,Stowe,Lamoille,2026-08-04,2026,2026-08,35,True,Stowe
@@ -15901,6 +15965,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2022-04-07,2022,2022-04,90,True,Stowe
 1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2021-12-16,2021,2021-12,50,True,Stowe
 1020,Harrison's Restaurant & Bar,Stowe,Lamoille,2021-09-30,2021,2021-09,75,True,Stowe
+262,Idletyme,Stowe,Lamoille,2026-11-04,2026,2026-11,200,True,Stowe
 262,Idletyme,Stowe,Lamoille,2026-10-14,2026,2026-10,150,True,Stowe
 262,Idletyme,Stowe,Lamoille,2026-09-30,2026,2026-09,120,True,Stowe
 262,Idletyme,Stowe,Lamoille,2026-09-15,2026,2026-09,140,True,Stowe
@@ -16149,6 +16214,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 262,Idletyme,Stowe,Lamoille,2015-02-13,2015,2015-02,45,True,Stowe
 262,Idletyme,Stowe,Lamoille,2015-01-28,2015,2015-01,45,True,Stowe
 262,Idletyme,Stowe,Lamoille,2015-01-08,2015,2015-01,50,True,Stowe
+278,Matterhorn,Stowe,Lamoille,2026-11-04,2026,2026-11,70,True,Stowe
 278,Matterhorn,Stowe,Lamoille,2026-10-14,2026,2026-10,70,True,Stowe
 278,Matterhorn,Stowe,Lamoille,2026-09-15,2026,2026-09,90,True,Stowe
 278,Matterhorn,Stowe,Lamoille,2026-08-19,2026,2026-08,100,True,Stowe
@@ -16281,6 +16347,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1361,Outbound Stowe,Stowe,Lamoille,2025-01-14,2025,2025-01,40,True,Stowe
 1361,Outbound Stowe,Stowe,Lamoille,2024-11-18,2024,2024-11,35,True,Stowe
 1361,Outbound Stowe,Stowe,Lamoille,2024-09-30,2024,2024-09,20,True,Stowe
+261,Piecasso,Stowe,Lamoille,2026-11-04,2026,2026-11,150,True,Stowe
 261,Piecasso,Stowe,Lamoille,2026-10-14,2026,2026-10,120,True,Stowe
 261,Piecasso,Stowe,Lamoille,2026-09-30,2026,2026-09,100,True,Stowe
 261,Piecasso,Stowe,Lamoille,2026-09-15,2026,2026-09,140,True,Stowe
@@ -16574,6 +16641,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 276,RAJA- Umami,Stowe,Lamoille,2020-12-24,2020,2020-12,25,True,Stowe
 276,RAJA- Umami,Stowe,Lamoille,2020-12-02,2020,2020-12,40,True,Stowe
 276,RAJA- Umami,Stowe,Lamoille,2020-10-06,2020,2020-10,65,True,Stowe
+248,Ranch Camp 50%,Stowe,Lamoille,2026-11-04,2026,2026-11,50,True,Stowe
 248,Ranch Camp 50%,Stowe,Lamoille,2026-10-14,2026,2026-10,50,True,Stowe
 248,Ranch Camp 50%,Stowe,Lamoille,2026-09-30,2026,2026-09,80,True,Stowe
 248,Ranch Camp 50%,Stowe,Lamoille,2026-09-15,2026,2026-09,25,True,Stowe
@@ -16727,6 +16795,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 248,Ranch Camp 50%,Stowe,Lamoille,2019-03-30,2019,2019-03,30,True,Stowe
 248,Ranch Camp 50%,Stowe,Lamoille,2019-03-03,2019,2019-03,40,True,Stowe
 248,Ranch Camp 50%,Stowe,Lamoille,2019-02-03,2019,2019-02,90,True,Stowe
+249,Rim Rock-Stowe,Stowe,Lamoille,2026-11-04,2026,2026-11,55,True,Stowe
 249,Rim Rock-Stowe,Stowe,Lamoille,2026-10-14,2026,2026-10,35,True,Stowe
 249,Rim Rock-Stowe,Stowe,Lamoille,2026-09-30,2026,2026-09,50,True,Stowe
 249,Rim Rock-Stowe,Stowe,Lamoille,2026-09-15,2026,2026-09,30,True,Stowe
@@ -16920,6 +16989,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 243,Stowe Hockey Arena,Stowe,Lamoille,2016-02-27,2016,2016-02,50,True,Stowe
 243,Stowe Hockey Arena,Stowe,Lamoille,2015-03-30,2015,2015-03,5,True,Stowe
 243,Stowe Hockey Arena,Stowe,Lamoille,2015-02-13,2015,2015-02,50,True,Stowe
+270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-11-04,2026,2026-11,185,True,Stowe
 270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-10-14,2026,2026-10,170,True,Stowe
 270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-09-30,2026,2026-09,160,True,Stowe
 270,Stowe Mountain-Spruce Peak,Stowe,Lamoille,2026-09-15,2026,2026-09,170,True,Stowe
@@ -17077,6 +17147,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 275,Stowe Transfer Station,Stowe,Lamoille,2021-09-30,2021,2021-09,15,True,Stowe
 275,Stowe Transfer Station,Stowe,Lamoille,2021-03-18,2021,2021-03,20,True,Stowe
 275,Stowe Transfer Station,Stowe,Lamoille,2020-10-01,2020,2020-10,100,True,Stowe
+258,Stowebowl,Stowe,Lamoille,2026-11-04,2026,2026-11,65,True,Stowe
 258,Stowebowl,Stowe,Lamoille,2026-09-30,2026,2026-09,40,True,Stowe
 258,Stowebowl,Stowe,Lamoille,2026-08-31,2026,2026-08,50,True,Stowe
 258,Stowebowl,Stowe,Lamoille,2026-08-04,2026,2026-08,40,True,Stowe
@@ -17293,6 +17364,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 254,Thai in the mountain (SaenSook)-Mountain Rd,Stowe,Lamoille,2016-09-19,2016,2016-09,30,True,Stowe
 254,Thai in the mountain (SaenSook)-Mountain Rd,Stowe,Lamoille,2016-08-08,2016,2016-08,32,True,Stowe
 254,Thai in the mountain (SaenSook)-Mountain Rd,Stowe,Lamoille,2016-07-11,2016,2016-07,30,True,Stowe
+252,The Bench,Stowe,Lamoille,2026-11-04,2026,2026-11,60,True,Stowe
 252,The Bench,Stowe,Lamoille,2026-10-14,2026,2026-10,40,True,Stowe
 252,The Bench,Stowe,Lamoille,2026-09-30,2026,2026-09,50,True,Stowe
 252,The Bench,Stowe,Lamoille,2026-09-15,2026,2026-09,40,True,Stowe
@@ -17598,6 +17670,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 246,The Stowe Inn Tavern,Stowe,Lamoille,2016-05-09,2016,2016-05,30,True,Stowe
 246,The Stowe Inn Tavern,Stowe,Lamoille,2015-12-04,2015,2015-12,20,True,Stowe
 246,The Stowe Inn Tavern,Stowe,Lamoille,2015-05-06,2015,2015-05,20,True,Stowe
+265,Topnotch (The Roost),Stowe,Lamoille,2026-11-04,2026,2026-11,70,True,Stowe
 265,Topnotch (The Roost),Stowe,Lamoille,2026-09-30,2026,2026-09,110,True,Stowe
 265,Topnotch (The Roost),Stowe,Lamoille,2026-09-15,2026,2026-09,70,True,Stowe
 265,Topnotch (The Roost),Stowe,Lamoille,2026-08-19,2026,2026-08,100,True,Stowe
@@ -17773,6 +17846,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 265,Topnotch (The Roost),Stowe,Lamoille,2015-02-25,2015,2015-02,40,True,Stowe
 265,Topnotch (The Roost),Stowe,Lamoille,2015-01-28,2015,2015-01,40,True,Stowe
 265,Topnotch (The Roost),Stowe,Lamoille,2015-01-08,2015,2015-01,70,True,Stowe
+1445,Trapp Family Lodge,Stowe,Lamoille,2026-11-04,2026,2026-11,75,True,Stowe
 1445,Trapp Family Lodge,Stowe,Lamoille,2026-09-30,2026,2026-09,25,True,Stowe
 1445,Trapp Family Lodge,Stowe,Lamoille,2026-09-15,2026,2026-09,60,True,Stowe
 1445,Trapp Family Lodge,Stowe,Lamoille,2026-08-19,2026,2026-08,50,True,Stowe
@@ -17790,6 +17864,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1445,Trapp Family Lodge,Stowe,Lamoille,2025-11-18,2025,2025-11,50,True,Stowe
 1445,Trapp Family Lodge,Stowe,Lamoille,2025-10-15,2025,2025-10,55,True,Stowe
 1445,Trapp Family Lodge,Stowe,Lamoille,2025-09-22,2025,2025-09,40,True,Stowe
+267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2026-11-04,2026,2026-11,125,True,Stowe
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2026-10-14,2026,2026-10,75,True,Stowe
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2026-09-30,2026,2026-09,70,True,Stowe
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2026-09-15,2026,2026-09,85,True,Stowe
@@ -19776,6 +19851,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 232,Crossroads Deli,Waterbury,Washington,2015-10-14,2015,2015-10,20,True,Waterbury
 232,Crossroads Deli,Waterbury,Washington,2015-06-11,2015,2015-06,20,True,Waterbury
 232,Crossroads Deli,Waterbury,Washington,2015-04-15,2015,2015-04,50,True,Waterbury
+1345,Gallus-Waterbury,Waterbury,Washington,2026-11-04,2026,2026-11,110,True,Waterbury
 1345,Gallus-Waterbury,Waterbury,Washington,2026-10-14,2026,2026-10,135,True,Waterbury
 1345,Gallus-Waterbury,Waterbury,Washington,2026-09-25,2026,2026-09,75,True,Waterbury
 1345,Gallus-Waterbury,Waterbury,Washington,2026-08-31,2026,2026-08,75,True,Waterbury
@@ -19813,6 +19889,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1345,Gallus-Waterbury,Waterbury,Washington,2024-09-19,2024,2024-09,40,True,Waterbury
 1345,Gallus-Waterbury,Waterbury,Washington,2024-09-02,2024,2024-09,60,True,Waterbury
 1345,Gallus-Waterbury,Waterbury,Washington,2024-08-14,2024,2024-08,140,True,Waterbury
+234,Hen of the Wood-WATERBURY,Waterbury,Washington,2026-11-04,2026,2026-11,50,True,Waterbury
 234,Hen of the Wood-WATERBURY,Waterbury,Washington,2026-10-14,2026,2026-10,75,True,Waterbury
 234,Hen of the Wood-WATERBURY,Waterbury,Washington,2026-09-25,2026,2026-09,75,True,Waterbury
 234,Hen of the Wood-WATERBURY,Waterbury,Washington,2026-08-18,2026,2026-08,75,True,Waterbury
@@ -20088,6 +20165,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 233,Maxi's,Waterbury,Washington,2015-06-11,2015,2015-06,25,True,Waterbury
 233,Maxi's,Waterbury,Washington,2015-03-19,2015,2015-03,40,True,Waterbury
 233,Maxi's,Waterbury,Washington,2015-01-09,2015,2015-01,25,True,Waterbury
+241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2026-11-04,2026,2026-11,100,True,Waterbury
 241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2026-10-14,2026,2026-10,100,True,Waterbury
 241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2026-09-25,2026,2026-09,70,True,Waterbury
 241,McGillicuddy's Irish Pub-Waterbury,Waterbury,Washington,2026-08-31,2026,2026-08,60,True,Waterbury
@@ -23881,58 +23959,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 165,"Burgers, Dawgs and More",Burlington,Chittenden,2017-09-28,2017,2017-09,70,False,Burlington
 165,"Burgers, Dawgs and More",Burlington,Chittenden,2015-11-02,2015,2015-11,30,False,Burlington
 165,"Burgers, Dawgs and More",Burlington,Chittenden,2015-08-15,2015,2015-08,50,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2026-05-26,2026,2026-05,100,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2026-04-24,2026,2026-04,50,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2026-03-31,2026,2026-03,85,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2026-02-24,2026,2026-02,65,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2026-01-29,2026,2026-01,65,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2026-01-06,2026,2026-01,70,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-12-04,2025,2025-12,65,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-11-04,2025,2025-11,60,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-10-09,2025,2025-10,75,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-09-08,2025,2025-09,65,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-08-12,2025,2025-08,65,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-07-15,2025,2025-07,55,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-06-25,2025,2025-06,65,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-06-03,2025,2025-06,60,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-05-22,2025,2025-05,65,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-04-30,2025,2025-04,50,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-04-15,2025,2025-04,110,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-03-18,2025,2025-03,80,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-02-28,2025,2025-02,90,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-01-31,2025,2025-01,80,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2025-01-04,2025,2025-01,80,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-12-06,2024,2024-12,25,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-11-27,2024,2024-11,65,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-11-11,2024,2024-11,100,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-10-15,2024,2024-10,100,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-09-16,2024,2024-09,95,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-08-15,2024,2024-08,100,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-07-18,2024,2024-07,80,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-06-28,2024,2024-06,135,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-05-31,2024,2024-05,130,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-04-29,2024,2024-04,80,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-04-02,2024,2024-04,60,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-03-22,2024,2024-03,75,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-02-19,2024,2024-02,115,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2024-01-11,2024,2024-01,75,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2023-12-13,2023,2023-12,60,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2023-11-16,2023,2023-11,90,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2023-10-18,2023,2023-10,90,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2023-09-18,2023,2023-09,80,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2023-08-30,2023,2023-08,130,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2023-07-17,2023,2023-07,100,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2023-06-19,2023,2023-06,90,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2023-05-17,2023,2023-05,125,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2023-04-05,2023,2023-04,115,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2023-02-21,2023,2023-02,80,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2023-01-08,2023,2023-01,90,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2022-11-09,2022,2022-11,50,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2022-09-21,2022,2022-09,100,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2022-07-25,2022,2022-07,115,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2022-05-27,2022,2022-05,105,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2022-03-23,2022,2022-03,115,False,Burlington
-1091,Cafe Hot,Burlington,Chittenden,2021-12-28,2021,2021-12,100,False,Burlington
 1331,CafeMamaJuana 3-Colchester,Colchester,Chittenden,2024-06-18,2024,2024-06,20,False,Colchester
 1330,Cashew-Maddie,Colchester,Chittenden,2024-04-09,2024,2024-04,90,False,Colchester
 1260,CentralPerks-Berlin Mall,Berlin,Washington,2023-05-25,2023,2023-05,35,False,Berlin

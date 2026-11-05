@@ -1,44 +1,27 @@
 {
- "scraped_at": "2026-11-05T12:00:12+00:00",
+ "scraped_at": "2026-11-05T15:11:44+00:00",
  "source": "routes_assigned.php, assign_routes.php",
  "routes": [
   {
-   "route_id": 14,
-   "name": "Central Vt 2",
-   "assigned_capacity": 2720,
+   "route_id": 10,
+   "name": "Route 7",
+   "assigned_capacity": 300,
    "stops": [
     {
-     "assignment_id": 24463,
-     "customer_id": 1382,
-     "name": "South Mountain Tavern",
-     "capacity": 100,
-     "days_over": -5,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24462,
-     "customer_id": 1109,
-     "name": "Cubbers",
-     "capacity": 150,
-     "days_over": -14,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24461,
-     "customer_id": 711,
-     "name": "Bobcat Brewery",
-     "capacity": 130,
-     "days_over": -21,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24437,
-     "customer_id": 1346,
-     "name": "Cravens Food Truck-Middlebury",
-     "capacity": 110,
-     "days_over": -7,
-     "must_get": false
-    },
+     "assignment_id": 24464,
+     "customer_id": 147,
+     "name": "Buddy's Famous Burgers",
+     "capacity": 300,
+     "days_over": 9,
+     "must_get": true
+    }
+   ]
+  },
+  {
+   "route_id": 14,
+   "name": "Central Vt 2",
+   "assigned_capacity": 2230,
+   "stops": [
     {
      "assignment_id": 24333,
      "customer_id": 710,
@@ -700,19 +683,19 @@
    "customer_id": 711,
    "name": "Bobcat Brewery",
    "city": "Bristol",
-   "days_over": -21
+   "days_over": -42
   },
   {
    "customer_id": 1109,
    "name": "Cubbers",
    "city": "Bristol",
-   "days_over": -14
+   "days_over": -35
   },
   {
    "customer_id": 1382,
    "name": "South Mountain Tavern",
    "city": "Bristol",
-   "days_over": -5
+   "days_over": -26
   },
   {
    "customer_id": 1456,
@@ -1840,7 +1823,7 @@
    "customer_id": 1346,
    "name": "Cravens Food Truck-Middlebury",
    "city": "Middlebury",
-   "days_over": -7
+   "days_over": -28
   },
   {
    "customer_id": 717,
