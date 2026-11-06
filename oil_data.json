@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-05T15:11:38.338159",
+  "last_updated": "2026-11-06T14:49:37.143429",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -34413,15 +34413,39 @@
     },
     {
       "month": "2026-11",
+      "geo_town": "Hinesburg",
+      "gallons": 200,
+      "city": "Hinesburg"
+    },
+    {
+      "month": "2026-11",
       "geo_town": "Middlebury",
-      "gallons": 65,
+      "gallons": 511,
       "city": "Middlebury"
+    },
+    {
+      "month": "2026-11",
+      "geo_town": "Montpelier",
+      "gallons": 605,
+      "city": "Montpelier"
+    },
+    {
+      "month": "2026-11",
+      "geo_town": "New Haven",
+      "gallons": 20,
+      "city": "New Haven"
     },
     {
       "month": "2026-11",
       "geo_town": "North Hero",
       "gallons": 90,
       "city": "North Hero"
+    },
+    {
+      "month": "2026-11",
+      "geo_town": "Northfield",
+      "gallons": 160,
+      "city": "Northfield"
     },
     {
       "month": "2026-11",
@@ -34437,6 +34461,12 @@
     },
     {
       "month": "2026-11",
+      "geo_town": "South Burlington",
+      "gallons": 275,
+      "city": "South Burlington"
+    },
+    {
+      "month": "2026-11",
       "geo_town": "South Hero",
       "gallons": 245,
       "city": "South Hero"
@@ -34446,6 +34476,12 @@
       "geo_town": "Stowe",
       "gallons": 1515,
       "city": "Stowe"
+    },
+    {
+      "month": "2026-11",
+      "geo_town": "Vergennes",
+      "gallons": 200,
+      "city": "Vergennes"
     },
     {
       "month": "2026-11",
@@ -42319,12 +42355,12 @@
     {
       "month": "2026-11",
       "county": "Addison",
-      "gallons": 100
+      "gallons": 766
     },
     {
       "month": "2026-11",
       "county": "Chittenden",
-      "gallons": 2222
+      "gallons": 2697
     },
     {
       "month": "2026-11",
@@ -42349,7 +42385,7 @@
     {
       "month": "2026-11",
       "county": "Washington",
-      "gallons": 580
+      "gallons": 1345
     }
   ],
   "yearly_totals": [
@@ -42399,11 +42435,11 @@
     },
     {
       "year": 2026,
-      "gallons": 253293
+      "gallons": 255199
     }
   ],
-  "all_time_total": 2172060,
-  "current_year_total": 253293,
+  "all_time_total": 2173966,
+  "current_year_total": 255199,
   "customer_count": 806,
   "unmapped_total": 40915,
   "monthly_totals": [
@@ -42977,7 +43013,7 @@
     },
     {
       "month": "2026-11",
-      "gallons": 5368
+      "gallons": 7274
     }
   ],
   "monthly_by_region": [
@@ -54759,7 +54795,12 @@
     {
       "month": "2026-11",
       "region": "Burlington / South Burlington",
-      "gallons": 1632
+      "gallons": 1907
+    },
+    {
+      "month": "2026-11",
+      "region": "Central",
+      "gallons": 765
     },
     {
       "month": "2026-11",
@@ -54774,7 +54815,7 @@
     {
       "month": "2026-11",
       "region": "Route 7",
-      "gallons": 100
+      "gallons": 966
     },
     {
       "month": "2026-11",
@@ -55831,12 +55872,12 @@
     {
       "year": 2026,
       "region": "Burlington / South Burlington",
-      "gallons": 46658
+      "gallons": 46933
     },
     {
       "year": 2026,
       "region": "Central",
-      "gallons": 24492
+      "gallons": 25257
     },
     {
       "year": 2026,
@@ -55881,7 +55922,7 @@
     {
       "year": 2026,
       "region": "Route 7",
-      "gallons": 11035
+      "gallons": 11901
     },
     {
       "year": 2026,
@@ -55933,9 +55974,9 @@
     "Northwest",
     "North-Northeast",
     "Central South",
+    "Route 7",
     "Route 15",
     "Route 2 East / Route 5",
-    "Route 7",
     "Warren / Waitsfield",
     "Southern Ski Slopes",
     "South",
@@ -55970,20 +56011,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 27962,
+  "collections_count": 27990,
   "out_of_state_total": 40915,
   "active_customer_count": 532,
   "projection": {
-    "latest_data_date": "2026-11-05",
+    "latest_data_date": "2026-11-06",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 253293,
+    "current_ytd": 255199,
     "previous_year_full": 269909,
     "previous_through_prior_month": 230827,
     "previous_same_month_total": 20207,
-    "previous_prorated_ytd": 234194.83,
-    "projected_current_year": 291920,
-    "percent_vs_previous_year": 0.081548
+    "previous_prorated_ytd": 234868.4,
+    "projected_current_year": 293273,
+    "percent_vs_previous_year": 0.086562
   },
   "region_stats": {
     "Burlington / South Burlington": {

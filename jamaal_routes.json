@@ -1,124 +1,12 @@
 {
- "scraped_at": "2026-11-06T12:00:13+00:00",
+ "scraped_at": "2026-11-06T14:49:43+00:00",
  "source": "routes_assigned.php, assign_routes.php",
  "routes": [
   {
    "route_id": 10,
    "name": "Route 7",
-   "assigned_capacity": 3000,
+   "assigned_capacity": 300,
    "stops": [
-    {
-     "assignment_id": 24464,
-     "customer_id": 147,
-     "name": "Buddy's Famous Burgers",
-     "capacity": 300,
-     "days_over": 10,
-     "must_get": true
-    },
-    {
-     "assignment_id": 24475,
-     "customer_id": 146,
-     "name": "Sarduccis",
-     "capacity": 200,
-     "days_over": -3,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24486,
-     "customer_id": 1100,
-     "name": "Hugo’s ~",
-     "capacity": 150,
-     "days_over": 11,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24487,
-     "customer_id": 140,
-     "name": "Positive Pie 2-Montpelier",
-     "capacity": 150,
-     "days_over": 4,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24477,
-     "customer_id": 130,
-     "name": "Three Penny Taproom 67%",
-     "capacity": 300,
-     "days_over": -10,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24485,
-     "customer_id": 131,
-     "name": "Namaste ~ 33%",
-     "capacity": 300,
-     "days_over": -10,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24471,
-     "customer_id": 133,
-     "name": "JJ’s- Langdon Street Tavern",
-     "capacity": 150,
-     "days_over": -3,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24484,
-     "customer_id": 169,
-     "name": "Oakes and Evelyn-33%",
-     "capacity": 150,
-     "days_over": 10,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24473,
-     "customer_id": 143,
-     "name": "Julio's-67%",
-     "capacity": 150,
-     "days_over": 10,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24480,
-     "customer_id": 162,
-     "name": "O'Maddis 50%",
-     "capacity": 100,
-     "days_over": -17,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24479,
-     "customer_id": 159,
-     "name": "Northfield Pizza/ Depot Square 50%",
-     "capacity": 100,
-     "days_over": -17,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24456,
-     "customer_id": 161,
-     "name": "GOOD MEASURE!!!!-(1980)",
-     "capacity": 1980,
-     "days_over": -11,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24481,
-     "customer_id": 158,
-     "name": "South Village Mobile (Convenience Plus)",
-     "capacity": 150,
-     "days_over": -17,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24279,
-     "customer_id": 113,
-     "name": "Asia Gourmet-Barre",
-     "capacity": 150,
-     "days_over": 10,
-     "must_get": false
-    },
     {
      "assignment_id": 24467,
      "customer_id": 112,
@@ -134,22 +22,22 @@
      "capacity": 100,
      "days_over": -9,
      "must_get": false
-    },
-    {
-     "assignment_id": 24483,
-     "customer_id": 1498,
-     "name": "Barre Country Club-Plainfield",
-     "capacity": 150,
-     "days_over": 42,
-     "must_get": false
     }
    ]
   },
   {
    "route_id": 15,
    "name": "Drop tote",
-   "assigned_capacity": 400,
+   "assigned_capacity": 608,
    "stops": [
+    {
+     "assignment_id": 24507,
+     "customer_id": 1548,
+     "name": "Lawsons Finest",
+     "capacity": 208,
+     "days_over": -28,
+     "must_get": true
+    },
     {
      "assignment_id": 24275,
      "customer_id": 624,
@@ -248,16 +136,111 @@
   {
    "route_id": 6,
    "name": "OuterBton",
-   "assigned_capacity": 700,
+   "assigned_capacity": 2100,
    "stops": [
     {
-     "assignment_id": 24341,
-     "customer_id": 1402,
-     "name": "Pick Thai -50% EssexJCT",
-     "capacity": 200,
-     "days_over": 29,
+     "assignment_id": 24505,
+     "customer_id": 1188,
+     "name": "Windjammer",
+     "capacity": 150,
+     "days_over": -5,
      "must_get": false
     },
+    {
+     "assignment_id": 24493,
+     "customer_id": 356,
+     "name": "UVM -Central. Residence",
+     "capacity": 200,
+     "days_over": 1,
+     "must_get": true
+    },
+    {
+     "assignment_id": 24496,
+     "customer_id": 354,
+     "name": "UVM- Red Stone",
+     "capacity": 150,
+     "days_over": 1,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24497,
+     "customer_id": 355,
+     "name": "UVM-Living Learning",
+     "capacity": 150,
+     "days_over": 1,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24495,
+     "customer_id": 358,
+     "name": "UVM- Davis Campus",
+     "capacity": 300,
+     "days_over": 1,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24494,
+     "customer_id": 353,
+     "name": "UVM Harris-Milles",
+     "capacity": 150,
+     "days_over": 1,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24492,
+     "customer_id": 444,
+     "name": "Skinny Pancake-Burlington LakeFront8741",
+     "capacity": 150,
+     "days_over": -6,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24490,
+     "customer_id": 1122,
+     "name": "Hannaford-Burlington North Ave",
+     "capacity": 200,
+     "days_over": 1,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24506,
+     "customer_id": 1375,
+     "name": "Cafe Mammajuana-Colchester2025",
+     "capacity": 150,
+     "days_over": 22,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24500,
+     "customer_id": 1214,
+     "name": "Pioneer Lakeshore Cafe 50%",
+     "capacity": 150,
+     "days_over": -7,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24499,
+     "customer_id": 1215,
+     "name": "NY Oven Pizza 50%",
+     "capacity": 150,
+     "days_over": -7,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24498,
+     "customer_id": 446,
+     "name": "McGillicuddy's On The Green",
+     "capacity": 200,
+     "days_over": -3,
+     "must_get": false
+    }
+   ]
+  },
+  {
+   "route_id": 7,
+   "name": "Burlington",
+   "assigned_capacity": 900,
+   "stops": [
     {
      "assignment_id": 24368,
      "customer_id": 300,
@@ -267,20 +250,21 @@
      "must_get": true
     },
     {
+     "assignment_id": 24341,
+     "customer_id": 1402,
+     "name": "Pick Thai -50% EssexJCT",
+     "capacity": 200,
+     "days_over": 29,
+     "must_get": false
+    },
+    {
      "assignment_id": 24340,
      "customer_id": 1053,
      "name": "Namaste Garden 50%-Essex Jct",
      "capacity": 200,
      "days_over": 29,
      "must_get": false
-    }
-   ]
-  },
-  {
-   "route_id": 7,
-   "name": "Burlington",
-   "assigned_capacity": 200,
-   "stops": [
+    },
     {
      "assignment_id": 24397,
      "customer_id": 304,
@@ -426,7 +410,7 @@
    "customer_id": 113,
    "name": "Asia Gourmet-Barre",
    "city": "Barre",
-   "days_over": 10
+   "days_over": -28
   },
   {
    "customer_id": 1365,
@@ -1956,7 +1940,7 @@
    "customer_id": 147,
    "name": "Buddy's Famous Burgers",
    "city": "Montpelier",
-   "days_over": 10
+   "days_over": -28
   },
   {
    "customer_id": 1315,
@@ -1986,13 +1970,13 @@
    "customer_id": 1100,
    "name": "Hugo’s ~",
    "city": "Montpelier",
-   "days_over": 11
+   "days_over": -60
   },
   {
    "customer_id": 133,
    "name": "JJ’s- Langdon Street Tavern",
    "city": "Montpelier",
-   "days_over": -3
+   "days_over": -28
   },
   {
    "customer_id": 1379,
@@ -2004,7 +1988,7 @@
    "customer_id": 143,
    "name": "Julio's-67%",
    "city": "Montpelier",
-   "days_over": 10
+   "days_over": -28
   },
   {
    "customer_id": 1209,
@@ -2022,7 +2006,7 @@
    "customer_id": 131,
    "name": "Namaste ~ 33%",
    "city": "Montpelier",
-   "days_over": -10
+   "days_over": -17
   },
   {
    "customer_id": 149,
@@ -2034,7 +2018,7 @@
    "customer_id": 169,
    "name": "Oakes and Evelyn-33%",
    "city": "Montpelier",
-   "days_over": 10
+   "days_over": -28
   },
   {
    "customer_id": 1313,
@@ -2058,7 +2042,7 @@
    "customer_id": 140,
    "name": "Positive Pie 2-Montpelier",
    "city": "Montpelier",
-   "days_over": 4
+   "days_over": -21
   },
   {
    "customer_id": 137,
@@ -2070,7 +2054,7 @@
    "customer_id": 146,
    "name": "Sarduccis",
    "city": "Montpelier",
-   "days_over": -3
+   "days_over": -28
   },
   {
    "customer_id": 302,
@@ -2088,7 +2072,7 @@
    "customer_id": 130,
    "name": "Three Penny Taproom 67%",
    "city": "Montpelier",
-   "days_over": -10
+   "days_over": -17
   },
   {
    "customer_id": 152,
@@ -2292,7 +2276,7 @@
    "customer_id": 161,
    "name": "GOOD MEASURE!!!!-(1980)",
    "city": "Northfield",
-   "days_over": -11
+   "days_over": -22
   },
   {
    "customer_id": 159,
@@ -2316,7 +2300,7 @@
    "customer_id": 158,
    "name": "South Village Mobile (Convenience Plus)",
    "city": "Northfield",
-   "days_over": -17
+   "days_over": -42
   },
   {
    "customer_id": 1419,
@@ -2688,7 +2672,7 @@
    "customer_id": 1417,
    "name": "AL’s FRENCH FRIES 1251-South Burlington",
    "city": "South Burlington",
-   "days_over": -13
+   "days_over": -28
   },
   {
    "customer_id": 1418,
@@ -2700,7 +2684,7 @@
    "customer_id": 1195,
    "name": "Chicken Charlies",
    "city": "South Burlington",
-   "days_over": 2
+   "days_over": -13
   },
   {
    "customer_id": 1448,
@@ -2760,7 +2744,7 @@
    "customer_id": 365,
    "name": "Skinny Pancake- BTV airport",
    "city": "South Burlington",
-   "days_over": -3
+   "days_over": -39
   },
   {
    "customer_id": 1188,
@@ -3265,6 +3249,12 @@
    "name": "Irasville County Store",
    "city": "Waitsfield",
    "days_over": -6
+  },
+  {
+   "customer_id": 1548,
+   "name": "Lawsons Finest",
+   "city": "Waitsfield",
+   "days_over": -28
   },
   {
    "customer_id": 208,
