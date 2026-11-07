@@ -1,62 +1,62 @@
 {
- "data_last_updated": "2026-11-06T14:49:37.143429",
+ "data_last_updated": "2026-11-07T13:47:43.208651",
  "latest_pickup": "2026-11-06",
  "summary": [
   {
    "window": "Last 7 days",
    "from": "2026-10-31",
-   "scored": 85,
+   "scored": 94,
    "not_projected": 2,
-   "projected_total": 6838.4,
-   "actual_total": 7079,
-   "net_error": -240.6,
-   "wape": 25.3,
-   "bias": -3.4,
-   "median_miss": 14.1,
+   "projected_total": 7707.3,
+   "actual_total": 7997,
+   "net_error": -289.7,
+   "wape": 26.6,
+   "bias": -3.6,
+   "median_miss": 16.9,
    "vs_line": {
-    "paired": 84,
-    "wape_new": 25.3,
-    "bias_new": -3.6,
-    "wape_line": 26.8,
-    "bias_line": -5.3
+    "paired": 93,
+    "wape_new": 26.6,
+    "bias_new": -3.8,
+    "wape_line": 28.5,
+    "bias_line": -5.7
    }
   },
   {
    "window": "Last 30 days",
    "from": "2026-10-08",
-   "scored": 291,
+   "scored": 301,
    "not_projected": 19,
-   "projected_total": 23022.8,
-   "actual_total": 23314,
-   "net_error": -291.2,
-   "wape": 29.0,
-   "bias": -1.2,
-   "median_miss": 13.9,
+   "projected_total": 23942.0,
+   "actual_total": 24275,
+   "net_error": -333.0,
+   "wape": 29.3,
+   "bias": -1.4,
+   "median_miss": 14.2,
    "vs_line": {
-    "paired": 106,
-    "wape_new": 25.9,
-    "bias_new": -4.0,
-    "wape_line": 26.9,
-    "bias_line": -5.9
+    "paired": 116,
+    "wape_new": 26.9,
+    "bias_new": -4.1,
+    "wape_line": 28.3,
+    "bias_line": -6.2
    }
   },
   {
    "window": "All",
    "from": null,
-   "scored": 446,
+   "scored": 456,
    "not_projected": 45,
-   "projected_total": 33193.5,
-   "actual_total": 34098,
-   "net_error": -904.5,
-   "wape": 28.3,
+   "projected_total": 34112.7,
+   "actual_total": 35059,
+   "net_error": -946.3,
+   "wape": 28.5,
    "bias": -2.7,
-   "median_miss": 13.4,
+   "median_miss": 13.7,
    "vs_line": {
-    "paired": 106,
-    "wape_new": 25.9,
-    "bias_new": -4.0,
-    "wape_line": 26.9,
-    "bias_line": -5.9
+    "paired": 116,
+    "wape_new": 26.9,
+    "bias_new": -4.1,
+    "wape_line": 28.3,
+    "bias_line": -6.2
    }
   }
  ],
@@ -99,20 +99,20 @@
   },
   {
    "stage": "established",
-   "scored": 215,
+   "scored": 222,
    "not_projected": 0,
-   "projected_total": 16562.7,
-   "actual_total": 17294,
-   "net_error": -731.3,
-   "wape": 26.7,
-   "bias": -4.2,
-   "median_miss": 13.4,
+   "projected_total": 17108.9,
+   "actual_total": 17980,
+   "net_error": -871.1,
+   "wape": 27.0,
+   "bias": -4.8,
+   "median_miss": 13.8,
    "vs_line": {
-    "paired": 82,
-    "wape_new": 24.5,
-    "bias_new": -4.9,
-    "wape_line": 24.8,
-    "bias_line": -6.1
+    "paired": 89,
+    "wape_new": 25.5,
+    "bias_new": -6.3,
+    "wape_line": 26.4,
+    "bias_line": -8.0
    }
   },
   {
@@ -153,20 +153,20 @@
   },
   {
    "stage": "seasonal",
-   "scored": 19,
+   "scored": 22,
    "not_projected": 0,
-   "projected_total": 1800.7,
-   "actual_total": 2020,
-   "net_error": -219.3,
-   "wape": 25.0,
-   "bias": -10.9,
-   "median_miss": 11.7,
+   "projected_total": 2173.7,
+   "actual_total": 2295,
+   "net_error": -121.3,
+   "wape": 26.2,
+   "bias": -5.3,
+   "median_miss": 18.0,
    "vs_line": {
-    "paired": 5,
-    "wape_new": 30.7,
-    "bias_new": 11.5,
-    "wape_line": 31.5,
-    "bias_line": 13.3
+    "paired": 8,
+    "wape_new": 32.3,
+    "bias_new": 19.4,
+    "wape_line": 33.4,
+    "bias_line": 21.2
    }
   }
  ],
@@ -181,20 +181,20 @@
  "days": [
   {
    "date": "2026-11-06",
-   "scored": 12,
+   "scored": 21,
    "not_projected": 0,
-   "projected_total": 830.8,
-   "actual_total": 1040,
-   "net_error": -209.2,
-   "wape": 37.9,
-   "bias": -20.1,
-   "median_miss": 14.0,
+   "projected_total": 1699.7,
+   "actual_total": 1958,
+   "net_error": -258.3,
+   "wape": 37.3,
+   "bias": -13.2,
+   "median_miss": 22.3,
    "vs_line": {
-    "paired": 11,
-    "wape_new": 38.0,
-    "bias_new": -22.3,
-    "wape_line": 35.8,
-    "bias_line": -22.3
+    "paired": 20,
+    "wape_new": 37.4,
+    "bias_new": -14.2,
+    "wape_line": 38.8,
+    "bias_line": -15.5
    },
    "rows": [
     {
@@ -211,6 +211,21 @@
      "actual": 185,
      "error": -89.4,
      "pct_error": -48.3
+    },
+    {
+     "id": 113,
+     "name": "Asia Gourmet-Barre",
+     "town": "Barre City",
+     "stage": "established",
+     "section": "ranked",
+     "previous_pickup": "2026-09-29",
+     "predicted_as_of": "2026-11-06",
+     "projected": 84.5,
+     "range_low": 72.3,
+     "range_high": 96.8,
+     "actual": 70,
+     "error": 14.5,
+     "pct_error": 20.7
     },
     {
      "id": 147,
@@ -258,6 +273,21 @@
      "pct_error": -13.7
     },
     {
+     "id": 1122,
+     "name": "Hannaford-Burlington North Ave",
+     "town": "Burlington",
+     "stage": "established",
+     "section": "ranked",
+     "previous_pickup": "2026-10-08",
+     "predicted_as_of": "2026-11-06",
+     "projected": 120.7,
+     "range_low": 110.1,
+     "range_high": 131.3,
+     "actual": 143,
+     "error": -22.3,
+     "pct_error": -15.6
+    },
+    {
      "id": 1100,
      "name": "Hugo’s ~",
      "town": "Montpelier",
@@ -301,6 +331,21 @@
      "actual": 80,
      "error": -6.0,
      "pct_error": -7.5
+    },
+    {
+     "id": 112,
+     "name": "Mulligans-Barre",
+     "town": "Barre City",
+     "stage": "established",
+     "section": "ranked",
+     "previous_pickup": "2026-10-22",
+     "predicted_as_of": "2026-11-06",
+     "projected": 121.4,
+     "range_low": 97.7,
+     "range_high": 145.2,
+     "actual": 90,
+     "error": 31.4,
+     "pct_error": 34.9
     },
     {
      "id": 140,
@@ -348,6 +393,21 @@
      "pct_error": 52.7
     },
     {
+     "id": 444,
+     "name": "Skinny Pancake-Burlington LakeFront8741",
+     "town": "Burlington",
+     "stage": "seasonal",
+     "section": "ranked",
+     "previous_pickup": "2026-10-08",
+     "predicted_as_of": "2026-11-06",
+     "projected": 77.3,
+     "range_low": 58.0,
+     "range_high": 112.1,
+     "actual": 55,
+     "error": 22.3,
+     "pct_error": 40.5
+    },
+    {
      "id": 158,
      "name": "South Village Mobile (Convenience Plus)",
      "town": "Northfield",
@@ -376,6 +436,81 @@
      "actual": 50,
      "error": 21.2,
      "pct_error": 42.4
+    },
+    {
+     "id": 356,
+     "name": "UVM -Central. Residence",
+     "town": "Burlington",
+     "stage": "established",
+     "section": "ranked",
+     "previous_pickup": "2026-10-08",
+     "predicted_as_of": "2026-11-06",
+     "projected": 78.9,
+     "range_low": 30.3,
+     "range_high": 127.6,
+     "actual": 200,
+     "error": -121.1,
+     "pct_error": -60.5
+    },
+    {
+     "id": 353,
+     "name": "UVM Harris-Milles",
+     "town": "Burlington",
+     "stage": "established",
+     "section": "ranked",
+     "previous_pickup": "2026-10-08",
+     "predicted_as_of": "2026-11-06",
+     "projected": 55.5,
+     "range_low": 32.6,
+     "range_high": 78.4,
+     "actual": 60,
+     "error": -4.5,
+     "pct_error": -7.5
+    },
+    {
+     "id": 358,
+     "name": "UVM- Davis Campus",
+     "town": "Burlington",
+     "stage": "seasonal",
+     "section": "ranked",
+     "previous_pickup": "2026-10-08",
+     "predicted_as_of": "2026-11-06",
+     "projected": 185.1,
+     "range_low": 100.0,
+     "range_high": 270.2,
+     "actual": 140,
+     "error": 45.1,
+     "pct_error": 32.2
+    },
+    {
+     "id": 354,
+     "name": "UVM- Red Stone",
+     "town": "Burlington",
+     "stage": "seasonal",
+     "section": "ranked",
+     "previous_pickup": "2026-10-08",
+     "predicted_as_of": "2026-11-06",
+     "projected": 110.6,
+     "range_low": 47.2,
+     "range_high": 150.0,
+     "actual": 80,
+     "error": 30.6,
+     "pct_error": 38.2
+    },
+    {
+     "id": 355,
+     "name": "UVM-Living Learning",
+     "town": "Burlington",
+     "stage": "established",
+     "section": "ranked",
+     "previous_pickup": "2026-10-08",
+     "predicted_as_of": "2026-11-06",
+     "projected": 34.9,
+     "range_low": 10.1,
+     "range_high": 59.7,
+     "actual": 80,
+     "error": -45.1,
+     "pct_error": -56.4
     }
    ]
   },
@@ -527,7 +662,7 @@
      "predicted_as_of": "2026-11-05",
      "projected": 56.0,
      "range_low": 42.0,
-     "range_high": 65,
+     "range_high": 65.0,
      "actual": 60,
      "error": -4.0,
      "pct_error": -6.7
@@ -632,7 +767,7 @@
      "predicted_as_of": "2026-11-05",
      "projected": 54.2,
      "range_low": 38.5,
-     "range_high": 55,
+     "range_high": 55.0,
      "actual": 20,
      "error": 34.2,
      "pct_error": 171.0
@@ -1831,20 +1966,20 @@
   },
   {
    "date": "2026-10-29",
-   "scored": 4,
+   "scored": 5,
    "not_projected": 2,
-   "projected_total": 253.0,
-   "actual_total": 365,
-   "net_error": -112.0,
-   "wape": 38.6,
-   "bias": -30.7,
-   "median_miss": 29.4,
+   "projected_total": 303.3,
+   "actual_total": 408,
+   "net_error": -104.7,
+   "wape": 36.3,
+   "bias": -25.7,
+   "median_miss": 14.4,
    "vs_line": {
-    "paired": 4,
-    "wape_new": 38.6,
-    "bias_new": -30.7,
-    "wape_line": 36.7,
-    "bias_line": -25.5
+    "paired": 5,
+    "wape_new": 36.3,
+    "bias_new": -25.7,
+    "wape_line": 34.7,
+    "bias_line": -24.6
    },
    "rows": [
     {
@@ -1861,6 +1996,21 @@
      "actual": 45,
      "error": -5.2,
      "pct_error": -11.6
+    },
+    {
+     "id": 111,
+     "name": "Gunner Brook (Brookside Mkt)",
+     "town": "Barre Town",
+     "stage": "established",
+     "section": "ranked",
+     "previous_pickup": "2026-10-06",
+     "predicted_as_of": "2026-11-06",
+     "projected": 50.3,
+     "range_low": 37.7,
+     "range_high": 72.9,
+     "actual": 43,
+     "error": 7.3,
+     "pct_error": 17.0
     },
     {
      "id": 447,
