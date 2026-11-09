@@ -1,5 +1,5 @@
 {
- "scraped_at": "2026-11-08T14:06:09+00:00",
+ "scraped_at": "2026-11-09T17:08:13+00:00",
  "source": "dumps.php",
  "trucks": {
   "MB": "mammabear",
@@ -4601,6 +4601,12 @@
    "schmutz": [
     650
    ]
+  },
+  "2026-11-09": {
+   "stillage": {
+    "mammabear": 2
+   },
+   "schmutz": []
   }
  }
 }
