@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-09T17:08:06.757806",
+  "last_updated": "2026-11-10T15:27:40.591270",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -34419,6 +34419,24 @@
     },
     {
       "month": "2026-11",
+      "geo_town": "Colchester",
+      "gallons": 255,
+      "city": "Colchester"
+    },
+    {
+      "month": "2026-11",
+      "geo_town": "East Montpelier",
+      "gallons": 15,
+      "city": "East Montpelier"
+    },
+    {
+      "month": "2026-11",
+      "geo_town": "Essex Junction",
+      "gallons": 120,
+      "city": "Essex Junction"
+    },
+    {
+      "month": "2026-11",
       "geo_town": "Hinesburg",
       "gallons": 200,
       "city": "Hinesburg"
@@ -42366,7 +42384,7 @@
     {
       "month": "2026-11",
       "county": "Chittenden",
-      "gallons": 3455
+      "gallons": 3830
     },
     {
       "month": "2026-11",
@@ -42391,7 +42409,7 @@
     {
       "month": "2026-11",
       "county": "Washington",
-      "gallons": 1505
+      "gallons": 1520
     }
   ],
   "yearly_totals": [
@@ -42441,12 +42459,12 @@
     },
     {
       "year": 2026,
-      "gallons": 256160
+      "gallons": 256550
     }
   ],
-  "all_time_total": 2174927,
-  "current_year_total": 256160,
-  "customer_count": 806,
+  "all_time_total": 2175317,
+  "current_year_total": 256550,
+  "customer_count": 807,
   "unmapped_total": 40915,
   "monthly_totals": [
     {
@@ -43019,7 +43037,7 @@
     },
     {
       "month": "2026-11",
-      "gallons": 8192
+      "gallons": 8582
     }
   ],
   "monthly_by_region": [
@@ -54806,17 +54824,17 @@
     {
       "month": "2026-11",
       "region": "Central",
-      "gallons": 925
+      "gallons": 940
     },
     {
       "month": "2026-11",
       "region": "Northwest",
-      "gallons": 951
+      "gallons": 1206
     },
     {
       "month": "2026-11",
       "region": "Outer Burlington",
-      "gallons": 590
+      "gallons": 710
     },
     {
       "month": "2026-11",
@@ -55883,7 +55901,7 @@
     {
       "year": 2026,
       "region": "Central",
-      "gallons": 25460
+      "gallons": 25475
     },
     {
       "year": 2026,
@@ -55898,7 +55916,7 @@
     {
       "year": 2026,
       "region": "Northwest",
-      "gallons": 15773
+      "gallons": 16028
     },
     {
       "year": 2026,
@@ -55908,7 +55926,7 @@
     {
       "year": 2026,
       "region": "Outer Burlington",
-      "gallons": 26183
+      "gallons": 26303
     },
     {
       "year": 2026,
@@ -56017,20 +56035,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 28000,
+  "collections_count": 28010,
   "out_of_state_total": 40915,
-  "active_customer_count": 532,
+  "active_customer_count": 533,
   "projection": {
-    "latest_data_date": "2026-11-06",
+    "latest_data_date": "2026-11-10",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 256160,
+    "current_ytd": 256550,
     "previous_year_full": 269909,
     "previous_through_prior_month": 230827,
     "previous_same_month_total": 20207,
-    "previous_prorated_ytd": 234868.4,
-    "projected_current_year": 294377,
-    "percent_vs_previous_year": 0.090653
+    "previous_prorated_ytd": 237562.67,
+    "projected_current_year": 291482,
+    "percent_vs_previous_year": 0.079926
   },
   "region_stats": {
     "Burlington / South Burlington": {
@@ -56038,8 +56056,8 @@
       "active": 82
     },
     "Central": {
-      "customers": 99,
-      "active": 68
+      "customers": 100,
+      "active": 69
     },
     "Central South": {
       "customers": 45,
@@ -56190,10 +56208,10 @@
     },
     {
       "year": 2026,
-      "places_serviced": 479,
-      "gained": 44,
+      "places_serviced": 480,
+      "gained": 45,
       "lost": 8,
-      "net": 36
+      "net": 37
     }
   ],
   "dormant_cutoff": "2025-01-01",
@@ -56511,7 +56529,8 @@
       1488,
       1489,
       1492,
-      1530
+      1530,
+      1549
     ],
     "Central South": [
       800,
@@ -57377,7 +57396,7 @@
     {
       "year": 2026,
       "active_jan1": 471,
-      "gained_new": 44,
+      "gained_new": 45,
       "gained_successor": 6,
       "lost": 0,
       "closed": 0,
@@ -57385,7 +57404,7 @@
       "moved": 0,
       "unknown": 8,
       "moved_followed": 0,
-      "gained": 50,
+      "gained": 51,
       "ended": 10,
       "churn": 0.0,
       "churn_high": 0.017,
@@ -57410,6 +57429,6 @@
     "avg_gained_new": 62.1,
     "avg_gained_successor": 1.8,
     "median_years_served": 1.6,
-    "current_businesses": 511
+    "current_businesses": 512
   }
 }

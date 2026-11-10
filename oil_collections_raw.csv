@@ -6345,6 +6345,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1192,Hannaford-Claremont,Claremont,Out-of-State (NH),2022-11-08,2022,2022-11,165,True,
 1337,Adventure Diner,Colchester,Chittenden,2026-01-22,2026,2026-01,55,True,Colchester
 1337,Adventure Diner,Colchester,Chittenden,2025-03-18,2025,2025-03,55,True,Colchester
+1375,Cafe Mammajuana-Colchester2025,Colchester,Chittenden,2026-11-10,2026,2026-11,80,True,Colchester
 1375,Cafe Mammajuana-Colchester2025,Colchester,Chittenden,2026-09-17,2026,2026-09,35,True,Colchester
 1375,Cafe Mammajuana-Colchester2025,Colchester,Chittenden,2026-08-21,2026,2026-08,50,True,Colchester
 1375,Cafe Mammajuana-Colchester2025,Colchester,Chittenden,2026-07-28,2026,2026-07,40,True,Colchester
@@ -6362,6 +6363,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1375,Cafe Mammajuana-Colchester2025,Colchester,Chittenden,2025-04-18,2025,2025-04,50,True,Colchester
 1375,Cafe Mammajuana-Colchester2025,Colchester,Chittenden,2025-03-20,2025,2025-03,60,True,Colchester
 1375,Cafe Mammajuana-Colchester2025,Colchester,Chittenden,2025-02-22,2025,2025-02,55,True,Colchester
+1139,Cloud 9 catering- Sarah-COOK-Food Truck,Colchester,Chittenden,2026-11-10,2026,2026-11,35,True,Colchester
 1139,Cloud 9 catering- Sarah-COOK-Food Truck,Colchester,Chittenden,2026-05-28,2026,2026-05,50,True,Colchester
 1139,Cloud 9 catering- Sarah-COOK-Food Truck,Colchester,Chittenden,2024-10-23,2024,2024-10,45,True,Colchester
 1139,Cloud 9 catering- Sarah-COOK-Food Truck,Colchester,Chittenden,2024-03-12,2024,2024-03,45,True,Colchester
@@ -6369,6 +6371,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1139,Cloud 9 catering- Sarah-COOK-Food Truck,Colchester,Chittenden,2023-06-14,2023,2023-06,50,True,Colchester
 1139,Cloud 9 catering- Sarah-COOK-Food Truck,Colchester,Chittenden,2022-12-08,2022,2022-12,40,True,Colchester
 1139,Cloud 9 catering- Sarah-COOK-Food Truck,Colchester,Chittenden,2022-07-25,2022,2022-07,60,True,Colchester
+446,McGillicuddy's On The Green,Colchester,Chittenden,2026-11-10,2026,2026-11,90,True,Colchester
 446,McGillicuddy's On The Green,Colchester,Chittenden,2026-10-16,2026,2026-10,110,True,Colchester
 446,McGillicuddy's On The Green,Colchester,Chittenden,2026-09-17,2026,2026-09,120,True,Colchester
 446,McGillicuddy's On The Green,Colchester,Chittenden,2026-08-21,2026,2026-08,20,True,Colchester
@@ -6455,6 +6458,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 446,McGillicuddy's On The Green,Colchester,Chittenden,2021-09-14,2021,2021-09,125,True,Colchester
 446,McGillicuddy's On The Green,Colchester,Chittenden,2021-08-31,2021,2021-08,100,True,Colchester
 446,McGillicuddy's On The Green,Colchester,Chittenden,2021-08-19,2021,2021-08,75,True,Colchester
+1215,NY Oven Pizza 50%,Colchester,Chittenden,2026-11-10,2026,2026-11,15,True,Colchester
 1215,NY Oven Pizza 50%,Colchester,Chittenden,2026-10-16,2026,2026-10,45,True,Colchester
 1215,NY Oven Pizza 50%,Colchester,Chittenden,2026-09-17,2026,2026-09,50,True,Colchester
 1215,NY Oven Pizza 50%,Colchester,Chittenden,2026-08-21,2026,2026-08,45,True,Colchester
@@ -6515,6 +6519,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1215,NY Oven Pizza 50%,Colchester,Chittenden,2023-03-22,2023,2023-03,45,True,Colchester
 1215,NY Oven Pizza 50%,Colchester,Chittenden,2023-02-24,2023,2023-02,36,True,Colchester
 1215,NY Oven Pizza 50%,Colchester,Chittenden,2023-02-07,2023,2023-02,15,True,Colchester
+425,Pickled Perch,Colchester,Chittenden,2026-11-10,2026,2026-11,20,True,Colchester
 425,Pickled Perch,Colchester,Chittenden,2026-10-16,2026,2026-10,25,True,Colchester
 425,Pickled Perch,Colchester,Chittenden,2026-09-17,2026,2026-09,45,True,Colchester
 425,Pickled Perch,Colchester,Chittenden,2026-07-28,2026,2026-07,30,True,Colchester
@@ -6583,6 +6588,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 425,Pickled Perch,Colchester,Chittenden,2019-05-31,2019,2019-05,50,True,Colchester
 425,Pickled Perch,Colchester,Chittenden,2019-04-10,2019,2019-04,100,True,Colchester
 425,Pickled Perch,Colchester,Chittenden,2018-10-05,2018,2018-10,60,True,Colchester
+1214,Pioneer Lakeshore Cafe 50%,Colchester,Chittenden,2026-11-10,2026,2026-11,15,True,Colchester
 1214,Pioneer Lakeshore Cafe 50%,Colchester,Chittenden,2026-10-16,2026,2026-10,45,True,Colchester
 1214,Pioneer Lakeshore Cafe 50%,Colchester,Chittenden,2026-09-17,2026,2026-09,50,True,Colchester
 1214,Pioneer Lakeshore Cafe 50%,Colchester,Chittenden,2026-08-21,2026,2026-08,45,True,Colchester
@@ -7069,6 +7075,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1309,CUTLER,East Montpelier,Washington,2024-01-22,2024,2024-01,25,True,East Montpelier
 1407,Fox Market-East Montpelier,East Montpelier,Washington,2025-04-22,2025,2025-04,30,True,East Montpelier
 1407,Fox Market-East Montpelier,East Montpelier,Washington,2025-03-10,2025,2025-03,35,True,East Montpelier
+1549,Peck Farm Orchard,East Montpelier,Washington,2026-11-10,2026,2026-11,15,True,East Montpelier
 1364,Snake and Apple,Eden,Lamoille,2026-10-23,2026,2026-10,75,True,Eden
 1364,Snake and Apple,Eden,Lamoille,2026-09-15,2026,2026-09,70,True,Eden
 1364,Snake and Apple,Eden,Lamoille,2026-08-31,2026,2026-08,30,True,Eden
@@ -7352,6 +7359,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 409,Mad Taco-Essex Jct,Essex Junction,Chittenden,2020-01-09,2020,2020-01,40,True,Essex Junction
 409,Mad Taco-Essex Jct,Essex Junction,Chittenden,2019-07-09,2019,2019-07,25,True,Essex Junction
 409,Mad Taco-Essex Jct,Essex Junction,Chittenden,2019-02-11,2019,2019-02,55,True,Essex Junction
+447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2026-11-10,2026,2026-11,75,True,Essex Junction
 447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2026-10-29,2026,2026-10,180,True,Essex Junction
 447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2026-10-05,2026,2026-10,125,True,Essex Junction
 447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2026-09-17,2026,2026-09,70,True,Essex Junction
@@ -7445,6 +7453,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2021-07-16,2021,2021-07,100,True,Essex Junction
 447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2021-07-12,2021,2021-07,65,True,Essex Junction
 447,McGillicuddy's Five Corners,Essex Junction,Chittenden,2021-07-01,2021,2021-07,355,True,Essex Junction
+1053,Namaste Garden 50%-Essex Jct,Essex Junction,Chittenden,2026-11-10,2026,2026-11,20,True,Essex Junction
 1053,Namaste Garden 50%-Essex Jct,Essex Junction,Chittenden,2026-09-17,2026,2026-09,25,True,Essex Junction
 1053,Namaste Garden 50%-Essex Jct,Essex Junction,Chittenden,2026-07-24,2026,2026-07,20,True,Essex Junction
 1053,Namaste Garden 50%-Essex Jct,Essex Junction,Chittenden,2026-05-12,2026,2026-05,10,True,Essex Junction
@@ -7500,6 +7509,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1053,Namaste Garden 50%-Essex Jct,Essex Junction,Chittenden,2021-12-29,2021,2021-12,75,True,Essex Junction
 1053,Namaste Garden 50%-Essex Jct,Essex Junction,Chittenden,2021-12-01,2021,2021-12,55,True,Essex Junction
 1053,Namaste Garden 50%-Essex Jct,Essex Junction,Chittenden,2021-10-22,2021,2021-10,100,True,Essex Junction
+1402,Pick Thai -50% EssexJCT,Essex Junction,Chittenden,2026-11-10,2026,2026-11,25,True,Essex Junction
 1402,Pick Thai -50% EssexJCT,Essex Junction,Chittenden,2026-09-17,2026,2026-09,25,True,Essex Junction
 1402,Pick Thai -50% EssexJCT,Essex Junction,Chittenden,2026-07-24,2026,2026-07,15,True,Essex Junction
 1402,Pick Thai -50% EssexJCT,Essex Junction,Chittenden,2026-05-12,2026,2026-05,10,True,Essex Junction

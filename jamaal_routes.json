@@ -1,5 +1,5 @@
 {
- "scraped_at": "2026-11-10T12:00:14+00:00",
+ "scraped_at": "2026-11-10T15:27:46+00:00",
  "source": "routes_assigned.php, assign_routes.php",
  "routes": [
   {
@@ -263,80 +263,8 @@
   {
    "route_id": 6,
    "name": "OuterBton",
-   "assigned_capacity": 2475,
+   "assigned_capacity": 960,
    "stops": [
-    {
-     "assignment_id": 24530,
-     "customer_id": 447,
-     "name": "McGillicuddy's Five Corners",
-     "capacity": 300,
-     "days_over": -6,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24340,
-     "customer_id": 1053,
-     "name": "Namaste Garden 50%-Essex Jct",
-     "capacity": 200,
-     "days_over": 33,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24341,
-     "customer_id": 1402,
-     "name": "Pick Thai -50% EssexJCT",
-     "capacity": 200,
-     "days_over": 33,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24526,
-     "customer_id": 1139,
-     "name": "Cloud 9 catering- Sarah-COOK-Food Truck",
-     "capacity": 55,
-     "days_over": 55,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24498,
-     "customer_id": 446,
-     "name": "McGillicuddy's On The Green",
-     "capacity": 200,
-     "days_over": 1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24537,
-     "customer_id": 425,
-     "name": "Pickled Perch",
-     "capacity": 110,
-     "days_over": -15,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24499,
-     "customer_id": 1215,
-     "name": "NY Oven Pizza 50%",
-     "capacity": 150,
-     "days_over": -3,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24500,
-     "customer_id": 1214,
-     "name": "Pioneer Lakeshore Cafe 50%",
-     "capacity": 150,
-     "days_over": -3,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24506,
-     "customer_id": 1375,
-     "name": "Cafe Mammajuana-Colchester2025",
-     "capacity": 150,
-     "days_over": 26,
-     "must_get": false
-    },
     {
      "assignment_id": 24532,
      "customer_id": 1437,
@@ -1295,37 +1223,37 @@
    "customer_id": 1375,
    "name": "Cafe Mammajuana-Colchester2025",
    "city": "Colchester",
-   "days_over": 26
+   "days_over": -28
   },
   {
    "customer_id": 1139,
    "name": "Cloud 9 catering- Sarah-COOK-Food Truck",
    "city": "Colchester",
-   "days_over": 55
+   "days_over": -111
   },
   {
    "customer_id": 446,
    "name": "McGillicuddy's On The Green",
    "city": "Colchester",
-   "days_over": 1
+   "days_over": -24
   },
   {
    "customer_id": 1215,
    "name": "NY Oven Pizza 50%",
    "city": "Colchester",
-   "days_over": -3
+   "days_over": -28
   },
   {
    "customer_id": 425,
    "name": "Pickled Perch",
    "city": "Colchester",
-   "days_over": -15
+   "days_over": -40
   },
   {
    "customer_id": 1214,
    "name": "Pioneer Lakeshore Cafe 50%",
    "city": "Colchester",
-   "days_over": -3
+   "days_over": -28
   },
   {
    "customer_id": 1433,
@@ -1460,6 +1388,12 @@
    "days_over": -286
   },
   {
+   "customer_id": 1549,
+   "name": "Peck Farm Orchard",
+   "city": "East Montpelier",
+   "days_over": -350
+  },
+  {
    "customer_id": 1523,
    "name": "SNORLAX",
    "city": "East Montpelier",
@@ -1547,19 +1481,19 @@
    "customer_id": 447,
    "name": "McGillicuddy's Five Corners",
    "city": "Essex Junction",
-   "days_over": -6
+   "days_over": -18
   },
   {
    "customer_id": 1053,
    "name": "Namaste Garden 50%-Essex Jct",
    "city": "Essex Junction",
-   "days_over": 33
+   "days_over": -21
   },
   {
    "customer_id": 1402,
    "name": "Pick Thai -50% EssexJCT",
    "city": "Essex Junction",
-   "days_over": 33
+   "days_over": -21
   },
   {
    "customer_id": 1248,
