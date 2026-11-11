@@ -1,5 +1,5 @@
 {
- "scraped_at": "2026-11-11T12:00:14+00:00",
+ "scraped_at": "2026-11-11T14:58:23+00:00",
  "source": "routes_assigned.php, assign_routes.php",
  "routes": [
   {
@@ -28,40 +28,8 @@
   {
    "route_id": 11,
    "name": "Southwest",
-   "assigned_capacity": 2109,
+   "assigned_capacity": 1560,
    "stops": [
-    {
-     "assignment_id": 24541,
-     "customer_id": 1550,
-     "name": "BBB-BK Key",
-     "capacity": 1,
-     "days_over": -364,
-     "must_get": true
-    },
-    {
-     "assignment_id": 24542,
-     "customer_id": 834,
-     "name": "Gifford Retirement (Morgan Orchard)",
-     "capacity": 50,
-     "days_over": 26,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24540,
-     "customer_id": 815,
-     "name": "Summit Lodge / Irish pub",
-     "capacity": 200,
-     "days_over": 64,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24539,
-     "customer_id": 1526,
-     "name": "Apricity Tavern",
-     "capacity": 298,
-     "days_over": 51,
-     "must_get": false
-    },
     {
      "assignment_id": 24515,
      "customer_id": 734,
@@ -294,8 +262,16 @@
   {
    "route_id": 9,
    "name": "Pickup tote",
-   "assigned_capacity": 260,
+   "assigned_capacity": 360,
    "stops": [
+    {
+     "assignment_id": 24543,
+     "customer_id": 255,
+     "name": "The Butchery",
+     "capacity": 100,
+     "days_over": -42,
+     "must_get": true
+    },
     {
      "assignment_id": 24508,
      "customer_id": 1346,
@@ -1706,7 +1682,7 @@
    "customer_id": 1526,
    "name": "Apricity Tavern",
    "city": "Killington",
-   "days_over": 51
+   "days_over": -28
   },
   {
    "customer_id": 1391,
@@ -1718,7 +1694,7 @@
    "customer_id": 815,
    "name": "Summit Lodge / Irish pub",
    "city": "Killington",
-   "days_over": 64
+   "days_over": -55
   },
   {
    "customer_id": 1439,
@@ -2432,7 +2408,7 @@
    "customer_id": 1550,
    "name": "BBB-BK Key",
    "city": "Plainfield",
-   "days_over": -364
+   "days_over": -365
   },
   {
    "customer_id": 1533,
@@ -2582,7 +2558,7 @@
    "customer_id": 834,
    "name": "Gifford Retirement (Morgan Orchard)",
    "city": "Randolph Center",
-   "days_over": 26
+   "days_over": -42
   },
   {
    "customer_id": 1058,
