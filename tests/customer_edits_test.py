@@ -32,11 +32,17 @@ rows = [
     {"id": -5, "site_name": "Added here", "site_town": "Winooski", "site_capacity": 40},
     {"id": 4, "site_region": "Route 7", "site_themes": [], "site_status": "inactive", "site_status_since": "2026-11-01"},
     {"id": 6, "site_themes": ["Ski Slopes", "Summer Snack Stops"]},
+    {"id": 7, "site_model": "seasonal", "site_season": "May-Oct"},
+    {"id": 8, "site_model": "will_call", "site_season": None},
 ]
-ok(sync.edit_lines(rows) == [[1, "Mad Moose", "", "", "", "", "", ""], [2, "", "Barre Town", 0, "", "", "", ""],
-                             [4, "", "", "", "Route 7", "none", "inactive", "2026-11-01"],
-                             [6, "", "", "", "", "Ski Slopes;Summer Snack Stops", "", ""]],
-   "export: edited source-site customers only, by id, trimmed; a 0 capacity is kept; an empty theme list is 'none'")
+ok(sync.edit_lines(rows) == [[1, "Mad Moose", "", "", "", "", "", "", "", ""],
+                             [2, "", "Barre Town", 0, "", "", "", "", "", ""],
+                             [4, "", "", "", "Route 7", "none", "inactive", "2026-11-01", "", ""],
+                             [6, "", "", "", "", "Ski Slopes;Summer Snack Stops", "", "", "", ""],
+                             [7, "", "", "", "", "", "", "", "seasonal", "May-Oct"],
+                             [8, "", "", "", "", "", "", "", "will_call", ""]],
+   "export: edited source-site customers only, by id, trimmed; a 0 capacity is kept; an empty theme list is 'none'; "
+   "a projection type and its season")
 ok(sync.lapsed_statuses([{"id": 1, "site_status": "inactive", "site_status_since": "2026-10-01"},
                          {"id": 2, "site_status": "closed_season", "site_status_since": "2026-10-01"},
                          {"id": 3, "site_status": "open", "site_status_since": "2026-10-05"}],
@@ -109,5 +115,55 @@ hold, _ = bpt.site_status_plan(5, p, asof, {"status": "closed_season", "status_s
 ok(hold and "no usual season" in hold[2], "no known season: held until marked open or a pickup")
 ok(bpt.next_season_start("May-Oct", date(2026, 3, 1)) == date(2026, 5, 1)
    and bpt.next_season_start("Nov-Apr", date(2026, 11, 15)) == date(2027, 11, 1), "the next season start after a day")
+# Projection type set on the customer page (Sarge, 2026-11-12): it replaces the
+# model's choice and any MODEL_OVERRIDES entry; a shared member's lands on its group.
+types = bpt.site_overrides({1503: {"model": "will_call", "season": ""},
+                            836: {"model": "seasonal", "season": "Jun-Sep"},
+                            131: {"model": "event", "season": ""},
+                            7: {"model": "seasonal", "season": ""},
+                            8: {"model": "", "season": ""}})
+ok(sorted(types) == [130, 836, 1503], "types: a shared member's on its group (131 -> 130); seasonal without months, or none, ignored")
+ok(types[1503].status == bpt.STATUS_SITE_WILL_CALL and types[836] == bpt.Override(
+    bpt.STATUS_SEMI_CLOSER, None, "Jun-Sep", "marked seasonal on the site (Jun-Sep)")
+   and types[130].status == bpt.STATUS_EVENT, "will-call, seasonal as a semi-closer with its months, event-driven")
+saved_types = dict(bpt.SITE_OVERRIDES)
+try:
+    bpt.SITE_OVERRIDES.clear()
+    bpt.SITE_OVERRIDES.update(types)
+    ok(bpt.override_for(836).status == bpt.STATUS_SEMI_CLOSER and bpt.override_for(413).status == bpt.STATUS_EVENT
+       and bpt.override_for(2) is None, "the page's type beats the registry's; the registry stands where none is set")
+    few = [{"date": date(2026, 5, 27), "gallons": 60, "name": "Way Out Wax", "town": "Burlington"}]
+    ok(bpt.route(types[1503], False, 30, date(2026, 5, 27), few, date(2026, 6, 26))
+       == (bpt.STATUS_SITE_WILL_CALL, bpt.SECTION_WILL_CALL, "marked will-call on the site"),
+       "marked will-call: listed as will-call even with one pickup")
+    ok(bpt.route(types[1503], True, 200, date(2026, 5, 27), few, date(2026, 12, 13))[1] == bpt.SECTION_STALE,
+       "marked will-call but silent past STALE_DAYS: stale, as a detected one")
+finally:
+    bpt.SITE_OVERRIDES.clear()
+    bpt.SITE_OVERRIDES.update(saved_types)
+
+# Thefts marked on the site (Sarge, 2026-11-12): exported without notes, read by the builder as THEFTS.
+ok(sync.theft_lines([{"customer_id": 1188, "picked_on": "2026-11-06", "gallons": 1, "theft_note": "x"},
+                     {"customer_id": 325, "picked_on": "2026-10-21", "gallons": 0}])
+   == [(325, "2026-10-21", 0), (1188, "2026-11-06", 1)], "theft export: id, day, gallons; never the note")
+import tempfile  # noqa: E402
+from pathlib import Path  # noqa: E402
+saved_file = bpt.SITE_THEFTS
+try:
+    with tempfile.TemporaryDirectory() as tmp:
+        bpt.SITE_THEFTS = Path(tmp) / "thefts.csv"
+        ok(bpt.theft_registry() == bpt.THEFTS, "no thefts.csv: the registry alone")
+        bpt.SITE_THEFTS.write_text("customer_id,date,collected\n1188,2026-11-06,1\n325,2026-10-21,1\n")
+        reg = bpt.theft_registry()
+        ok(reg[(1188, date(2026, 11, 6))].name is None and reg[(325, date(2026, 10, 21))] == bpt.THEFTS[(325, date(2026, 10, 21))],
+           "a site theft joins the registry; the registry's entry wins for the same day")
+        hist = {1188: [{"date": date(2026, 10, 22), "gallons": 90, "name": "Windjammer", "town": "x"},
+                       {"date": date(2026, 11, 20), "gallons": 40, "name": "Windjammer", "town": "x"}]}
+        found, flags = bpt.apply_thefts(hist, date(2026, 11, 30), reg)
+        ok([d for d, _ in found[1188]] == [date(2026, 11, 6)] and hist[1188][1].get("theft_gap") == date(2026, 11, 6)
+           and not flags.get(1188), "a site theft marks the gap it spans, with no name flag")
+finally:
+    bpt.SITE_THEFTS = saved_file
+
 print(f"\n{fails} FAILURE(S)" if fails else "\nALL CHECKS PASSED")
 sys.exit(1 if fails else 0)

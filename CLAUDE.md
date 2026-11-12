@@ -78,6 +78,9 @@ supabase_sync.py --export-oil-left ──> oil_left.csv  (committed: customer id
                      before the projection build). Oil Left = gallons a driver saw left in a barrel and did
                      not collect; its own table, never a collection. The builder starts the barrel's level
                      from it and adds it back into the gap's rate (analysis/ROADMAP.md, Oil Left).
+supabase_sync.py --export-thefts ──> thefts.csv  (committed: customer id, day, gallons collected; never the
+                     note; nightly, before the build). Every theft marked on the site (My Route or the
+                     customer page) joins the builder's THEFTS: its gap leaves the rate, its clock restarts.
 db/schema.sql        the database's whole definition. Idempotent: change it, then paste ALL of it into
                      Supabase's SQL editor. Every table is login-only (RLS + `people`); nothing is open to the
                      public key. The secret key lives only in GitHub secrets (SUPABASE_SERVICE_KEY).
@@ -337,7 +340,12 @@ registry are flagged on the row, never fatal, so they cannot stop the nightly.
 `analysis/build_projection_table.py` routes named customers around the 50/50
 ranking (true closer, semi-closer, open-ish, event-driven, on-demand). Each
 entry is keyed by customer id, asserts the customer name, and carries a
-month-level season where one applies. `fringe_seasonal_candidates` informs the
+month-level season where one applies. The customer page's Edit info can set a
+projection type (will-call, seasonal with its months, event-driven; `customers.site_model`,
+exported in `customer_edits.csv`, `SITE_OVERRIDES` in the builder): it REPLACES the
+model's choice and any registry entry for that id (Sarge, 2026-11-12), the report
+flags each replacement, and it takes effect at the next nightly. Seasonal is a
+semi-closer. `fringe_seasonal_candidates` informs the
 registry but is never read by it: its labels are review prompts, not
 classifications. Overrides change routing and which columns show, never the
 50/50 arithmetic or a listed capacity. Operator `% full` is capped at 100; the

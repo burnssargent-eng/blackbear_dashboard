@@ -125,6 +125,21 @@ alter table public.customers add column if not exists site_status_since date;
 alter table public.customers drop constraint if exists customers_site_status_check;
 alter table public.customers add constraint customers_site_status_check
   check (site_status in ('inactive', 'closed_season', 'open'));
+-- Projection type set on the customer page (Sarge, 2026-11-12), in place of
+-- the model's own choice and of any MODEL_OVERRIDES entry (the page wins):
+--   will_call  listed as will-call, with its estimate (as a detected one)
+--   seasonal   a semi-closer open `site_season` ("May-Oct"): held out while
+--              closed unless it called recently
+--   event      no daily rate (fairs), listed as event-driven
+-- Null = automatic. Exported in customer_edits.csv; read by the next nightly.
+alter table public.customers add column if not exists site_model  text;
+alter table public.customers add column if not exists site_season text;
+alter table public.customers drop constraint if exists customers_site_model_check;
+alter table public.customers add constraint customers_site_model_check
+  check ((site_model is null and site_season is null)
+         or (site_model in ('will_call', 'event') and site_season is null)
+         or (site_model = 'seasonal' and site_season ~
+           '^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)$'));
 
 -- Routes: Jamaal's route ids. Jamaal shows some routes under different names on
 -- different pages, kept in `other_names`.

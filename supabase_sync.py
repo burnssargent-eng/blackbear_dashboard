@@ -77,10 +77,14 @@ Oil Left (gallons a driver saw left in a barrel and did not collect) is
 entered only on the site. --export-oil-left writes it to oil_left.csv
 (customer id, day, gallons: nothing private), which is committed so the
 projection builder can read it; the builder never contacts the database.
+Thefts marked on the site (collections.theft) go the same way:
+--export-thefts writes thefts.csv (customer id, day, gallons collected; never
+the note), and the builder treats each as a confirmed theft (THEFTS).
 
     python3 supabase_sync.py --seed   # first fill (run after jamaal_customers.py --refresh)
     python3 supabase_sync.py --export-details   # nightly, first: the details files from the database
     python3 supabase_sync.py --export-oil-left  # nightly, before the projections: oil_left.csv
+    python3 supabase_sync.py --export-thefts    # nightly, before the projections: thefts.csv
     python3 supabase_sync.py          # nightly
     python3 supabase_sync.py --routes   # 7am: the site's routes set to the source site's
     python3 supabase_sync.py --history  # also re-copy the source site's whole history
@@ -115,6 +119,7 @@ OUTGOING_FILE = "outgoing.json"
 EDITS_FILE = "customer_edits.csv"   # names, towns, capacities edited on the site
 PIN_LIMIT = 60                     # geocoder calls a night for --place-pins
 OIL_LEFT_FILE = "oil_left.csv"
+THEFTS_FILE = "thefts.csv"
 SWEEP_FILE = "jamaal_sweep.local.json"
 SWEPT = ("address", "notes", "phone")   # fields --sweep follows
 ROUTES_MAX_AGE = timedelta(hours=1)   # --routes refuses an older jamaal_routes.json
@@ -558,6 +563,24 @@ def oil_left_lines(rows):
     return sorted((int(r["customer_id"]), r["checked_on"], int(r["gallons_left"])) for r in rows)
 
 
+def theft_lines(rows):
+    """The database's theft collections as thefts.csv rows (no notes), by customer then day."""
+    return sorted({(int(r["customer_id"]), r["picked_on"], int(r["gallons"])) for r in rows})
+
+
+def export_thefts(db, out=THEFTS_FILE):
+    """--export-thefts: thefts marked on the site, for the projection builder."""
+    rows = theft_lines(db.select("collections", "select=customer_id,picked_on,gallons&theft=is.true"))
+    tmp = out + ".tmp"
+    with open(tmp, "w", newline="") as fh:
+        w = csv.writer(fh, lineterminator="\n")
+        w.writerow(["customer_id", "date", "collected"])
+        w.writerows(rows)
+    os.replace(tmp, out)
+    print(f"Exported {len(rows)} theft(s) to {out}")
+    return rows
+
+
 def export_oil_left(db, out=OIL_LEFT_FILE):
     rows = oil_left_lines(db.select("oil_left", "select=customer_id,checked_on,gallons_left"))
     tmp = out + ".tmp"
@@ -570,8 +593,12 @@ def export_oil_left(db, out=OIL_LEFT_FILE):
     return rows
 
 
-EDIT_COLUMNS = ["customer_id", "name", "town", "capacity", "region", "themes", "status", "status_since"]
+EDIT_COLUMNS = ["customer_id", "name", "town", "capacity", "region", "themes", "status", "status_since",
+                "model", "season"]
 EDIT_SELECT = "select=id,site_name,site_town,site_capacity,site_region,site_themes,site_status,site_status_since"
+# Projection type (db/schema.sql, site_model): read separately so the export
+# still runs before the schema adds the columns.
+EDIT_SELECT_MODEL = EDIT_SELECT + ",site_model,site_season"
 
 
 def edit_lines(rows):
@@ -590,7 +617,8 @@ def edit_lines(rows):
         line = [int(r["id"]), (r.get("site_name") or "").strip(), (r.get("site_town") or "").strip(),
                 "" if cap is None else int(cap), (r.get("site_region") or "").strip(),
                 "" if themes is None else (";".join(themes) or "none"),
-                r.get("site_status") or "", r.get("site_status_since") or ""]
+                r.get("site_status") or "", r.get("site_status_since") or "",
+                r.get("site_model") or "", r.get("site_season") or ""]
         if any(v != "" for v in line[1:]):
             out.append(line)
     return out
@@ -625,7 +653,11 @@ def clear_lapsed_statuses(db):
 
 def export_site_edits(db, out=EDITS_FILE):
     """--export-site-edits: write customer_edits.csv (nothing private) for the scraper and the builder."""
-    rows = edit_lines(db.select("customers", EDIT_SELECT))
+    try:
+        rows = edit_lines(db.select("customers", EDIT_SELECT_MODEL))
+    except SyncError as exc:   # before db/schema.sql adds site_model
+        print(f"Projection types not exported: {exc}")
+        rows = edit_lines(db.select("customers", EDIT_SELECT))
     tmp = out + ".tmp"
     with open(tmp, "w", newline="") as fh:
         w = csv.writer(fh, lineterminator="\n")
@@ -938,6 +970,8 @@ def main():
                     help=f"apply {SWEEP_FILE} (address and notes edits on the source site), and nothing else")
     ap.add_argument("--export-oil-left", action="store_true",
                     help=f"write {OIL_LEFT_FILE} from the database, and nothing else")
+    ap.add_argument("--export-thefts", action="store_true",
+                    help=f"write {THEFTS_FILE} (thefts marked on the site) from the database, and nothing else")
     ap.add_argument("--export-site-edits", action="store_true",
                     help=f"write {EDITS_FILE} (names, towns, capacities edited on the site), and nothing else")
     ap.add_argument("--place-pins", action="store_true",
@@ -953,6 +987,8 @@ def main():
             export_details(db)
         elif args.export_oil_left:
             export_oil_left(db)
+        elif args.export_thefts:
+            export_thefts(db)
         elif args.export_site_edits:
             export_site_edits(db)
         elif args.place_pins:

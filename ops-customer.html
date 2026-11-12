@@ -336,6 +336,7 @@ function editReadyCustomer() {
 function infoHtml(onRoutes, barrelRows) {
   return `<section class="ops-cp-card ops-cp-info">
     ${statusRowHtml()}
+    ${modelRowHtml()}
     ${barrelRows}
     ${kv("Address", details.address
       ? `<a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(details.address)}"
@@ -382,6 +383,8 @@ function infoValues() {
     collected_with: cw ? cw.with : "",
     region: db.site_region || "",
     themes: shownRegions()[1].slice(),
+    model: db.site_model || "",
+    season: db.site_season || "",
   };
 }
 
@@ -410,6 +413,7 @@ function infoFormHtml() {
     <div id="ie-town-hint" class="small ${n.townErr ? "text-danger" : "ops-muted"}" aria-live="polite">${escapeHtml(n.townMsg)}</div>
     <div class="ops-muted">Group w/: listed under that town on Assign, for a one-off town picked up on its run.</div>
     ${customer.customer_id > 0 ? regionFieldHtml() : ""}
+    ${modelFieldHtml()}
     ${field("capacity", "Capacity (gal)", 'type="number" inputmode="numeric" min="0"')}
     <div class="ops-cp-field">Phones
       <div class="ops-cp-phone">
@@ -444,6 +448,9 @@ async function saveInfo() {
   const cap = String(v.capacity ?? "").trim();
   v.capacity = cap === "" ? null : Math.round(Number(cap));
   if (v.capacity !== null && !(v.capacity >= 0)) { n.msg = "Capacity is a number of gallons."; render(); return; }
+  if (v.model === "seasonal" && !/^[A-Z][a-z]{2}-[A-Z][a-z]{2}$/.test(v.season || "")) {
+    n.msg = "Pick the months a seasonal customer opens and closes."; render(); return;
+  }
   const id = customer.customer_id;
   if (id < 0) {
     const c = store.added.find(x => x.customer_id === id);
@@ -471,6 +478,50 @@ async function saveInfo() {
     n.busy = false; n.msg = `Not saved (${err.message}).`;
   }
   render();
+}
+
+/* ── Projection type (Sarge, 2026-11-12): db/schema.sql site_model; the nightly's projections follow it ── */
+
+const MODEL_TEXT = { will_call: "Will-call", seasonal: "Seasonal", event: "Event-driven" };
+const MONTHS_SHORT = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const modelReady = () => customer.customer_id > 0 && !!opsCustomerDbRow(customer.customer_id)
+  && "site_model" in opsCustomerDbRow(customer.customer_id);
+
+/** "Seasonal · May–Oct" for a type set here, else "". */
+function modelText(model, season) {
+  if (!MODEL_TEXT[model]) return "";
+  return MODEL_TEXT[model] + (model === "seasonal" && season ? ` · ${season.replace("-", "–")}` : "");
+}
+
+/** Info's Type row, only when one is set here (automatic shows nothing). */
+function modelRowHtml() {
+  if (!modelReady()) return "";
+  const db = opsCustomerDbRow(customer.customer_id);
+  const text = modelText(db.site_model, db.site_season);
+  return text ? kv("Type", escapeHtml(text)) : "";
+}
+
+/** Edit's Projection type: Automatic (what the model picks now), Will-call, Seasonal with its months, Event-driven. */
+function modelFieldHtml() {
+  if (!modelReady()) return "";
+  const v = infoEdit.now;
+  const row = data.index.get(customer.customer_id);
+  const now = row && row.id === customer.customer_id ? row.status : "";
+  const [open, close] = v.model === "seasonal" && v.season ? v.season.split("-") : ["", ""];
+  const month = (part, picked, label) => `<label class="ops-cp-field" for="ie-${part}">${label}
+    <select class="form-select" id="ie-${part}" data-ie-month="${part}">
+      <option value="">—</option>
+      ${MONTHS_SHORT.map(m => `<option${m === picked ? " selected" : ""}>${m}</option>`).join("")}
+    </select></label>`;
+  return `<label class="ops-cp-field" for="ie-model">Projection type
+      <select class="form-select" id="ie-model" data-ie-field="model">
+        <option value="">Automatic${now ? ` (now ${escapeHtml(now)})` : ""}</option>
+        ${Object.entries(MODEL_TEXT).map(([k, t]) => `<option value="${k}"${k === v.model ? " selected" : ""}>${t}</option>`).join("")}
+      </select></label>
+    ${v.model === "seasonal" ? `<div class="ops-cp-pair">${month("open", open, "Opens")}${month("close", close, "Closes")}</div>
+      <div class="ops-muted">Held out while closed, unless it calls.</div>` : ""}
+    ${v.model !== infoEdit.opened.model || v.season !== infoEdit.opened.season
+      ? `<div class="ops-muted">The projections follow from tonight's update.</div>` : ""}`;
 }
 
 /** Every town a customer is listed in, for Collected with (its own town left out). */
@@ -782,6 +833,19 @@ async function init() {
       return;
     }
     if (infoEdit && e.target.dataset && e.target.dataset.statusSince !== undefined) { infoEdit.status.since = e.target.value; return; }
+    if (infoEdit && e.target.dataset && e.target.dataset.ieField === "model") {
+      if (infoEdit.now.model !== "seasonal") infoEdit.now.season = "";
+      render();
+      return;
+    }
+    const part = infoEdit && e.target.dataset && e.target.dataset.ieMonth;
+    if (part) {
+      const [open, close] = (infoEdit.now.season || "-").split("-");
+      const next = part === "open" ? [e.target.value, close] : [open, e.target.value];
+      infoEdit.now.season = next.join("-");
+      render();
+      return;
+    }
     if (!infoEdit || !e.target.dataset || e.target.dataset.ieField !== "town") return;
     const r = resolveTownInput(e.target.value);
     if (r.town) { infoEdit.now.town = r.town; e.target.value = r.town; }
