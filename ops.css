@@ -4,6 +4,11 @@
  * dashboard pages keep dashboard.css; nothing here touches them.
  */
 
+/* A light page in the browser's eyes too: without it Chrome draws its own popups
+   (the Town suggestions, select menus, date pickers) in the Mac's dark mode, white
+   text on the page's light list (Sarge, 2026-11-12). */
+:root { color-scheme: light; }
+
 body { background: #fff; }
 
 .ops-shadow { background: #fff8e1; border-bottom: 1px solid #f0d78c; font-size: 13px; }
