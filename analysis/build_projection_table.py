@@ -1549,6 +1549,16 @@ def season_opened(spec, asof):
     return date(year, first, 1)
 
 
+def season_closed_on(spec, asof):
+    """First day after the season `spec` last ended, on or before `asof` (off-season), else None."""
+    if season_opened(spec, asof) is not None:
+        return None
+    after = MONTHS.index(spec.split("-")[1]) + 2          # the month after the last open one, 1-13
+    year, month = (asof.year + 1, 1) if after == 13 else (asof.year, after)
+    closed = date(year, month, 1)
+    return closed if closed <= asof else date(closed.year - 1, closed.month, 1)
+
+
 def inferred_season(pickups):
     """The active block build_fringe_seasonal_candidates would infer today."""
     years = fringe.profile(pickups)
@@ -1609,6 +1619,19 @@ def route(override, has_rate, days_since, last_date, pickups, asof, will_call=No
             if status == STATUS_TRUE_CLOSER:
                 return (status, SECTION_SEASONAL,
                         f"off-season (closed; season {override.season})")
+            # A type set on the customer page (no name): it is held while
+            # closed unless it called AFTER the season ended (Sarge,
+            # 2026-11-12: Arlington Dairy Bar's September pickup kept it
+            # ranked all winter under the recent-call threshold below).
+            if override.name is None:
+                closed = season_closed_on(override.season, asof)
+                if not pickups or pickups[-1]["date"] < closed:
+                    return (status, SECTION_SEASONAL,
+                            f"off-season (closed since {closed.isoformat()}; season "
+                            f"{override.season}; no pickup since it closed)")
+                return (status, SECTION_RANKED,
+                        f"off-season but called {days_since} days ago, after the season "
+                        f"closed; season {override.season}")
             threshold = silence_threshold(pickups)
             if days_since > threshold:
                 return (status, SECTION_SEASONAL,

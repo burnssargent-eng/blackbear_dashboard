@@ -138,6 +138,24 @@ try:
        "marked will-call: listed as will-call even with one pickup")
     ok(bpt.route(types[1503], True, 200, date(2026, 5, 27), few, date(2026, 12, 13))[1] == bpt.SECTION_STALE,
        "marked will-call but silent past STALE_DAYS: stale, as a detected one")
+    # Seasonal set on the page, off-season: held unless a pickup came after the season closed.
+    arl = bpt.Override(bpt.STATUS_SEMI_CLOSER, None, "May-Oct", "marked seasonal on the site (May-Oct)")
+    summer = [{"date": date(2026, 7, 15), "gallons": 60, "name": "x", "town": "x"},
+              {"date": date(2026, 9, 10), "gallons": 60, "name": "x", "town": "x"}]
+    ok(bpt.season_closed_on("May-Oct", date(2026, 11, 12)) == date(2026, 11, 1)
+       and bpt.season_closed_on("May-Oct", date(2027, 2, 1)) == date(2026, 11, 1)
+       and bpt.season_closed_on("Nov-Apr", date(2026, 7, 1)) == date(2026, 5, 1)
+       and bpt.season_closed_on("Jun-Dec", date(2027, 3, 1)) == date(2027, 1, 1)
+       and bpt.season_closed_on("May-Oct", date(2026, 7, 1)) is None, "the day a season last closed")
+    ok(bpt.route(arl, True, 63, date(2026, 9, 10), summer, date(2026, 11, 12))[1] == bpt.SECTION_SEASONAL,
+       "page seasonal, off-season, last pickup in season: held (Arlington Dairy Bar)")
+    called = summer + [{"date": date(2026, 11, 5), "gallons": 30, "name": "x", "town": "x"}]
+    ok(bpt.route(arl, True, 7, date(2026, 11, 5), called, date(2026, 11, 12))[1] == bpt.SECTION_RANKED,
+       "page seasonal, off-season, a pickup after it closed: ranked")
+    coded = bpt.MODEL_OVERRIDES[803]
+    ok(bpt.route(coded, True, 20, date(2026, 10, 23), summer[:1] + [{"date": date(2026, 10, 23), "gallons": 60,
+       "name": "x", "town": "x"}], date(2026, 11, 12))[1] == bpt.SECTION_RANKED,
+       "a coded semi-closer keeps the recent-call threshold")
 finally:
     bpt.SITE_OVERRIDES.clear()
     bpt.SITE_OVERRIDES.update(saved_types)
