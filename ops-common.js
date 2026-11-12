@@ -306,6 +306,90 @@ const ONE_NAME_TOWNS = ["Barre"];
 const TOWN_CHOICES = [...ONE_NAME_TOWNS, ...VT_TOWNS.filter(t => !/^Barre (City|Town)$/.test(t))]
   .sort((a, b) => a.localeCompare(b));
 
+/**
+ * Town suggestions drawn by the page (Sarge, 2026-11-12), in place of the
+ * browser's <datalist>: Chrome drew that popup in the Mac's dark mode, white
+ * text on a light list, whatever the page declared. Any input with
+ * data-town-suggest gets it: typed letters match the start of a town first,
+ * then anywhere in it; tap or Enter picks one (an input and a change event
+ * follow, as typing would); Escape or leaving the field closes it.
+ */
+const TOWN_SUGGEST_MAX = 8;
+const townSuggest = { input: null, box: null, items: [], active: -1 };
+
+function townSuggestMatches(text) {
+  const q = String(text || "").trim().toLowerCase();
+  if (!q) return [];
+  const all = [...TOWN_CHOICES, ...(typeof OUT_OF_STATE_TOWNS !== "undefined" ? OUT_OF_STATE_TOWNS : [])];
+  const starts = all.filter(t => t.toLowerCase().startsWith(q));
+  const inside = all.filter(t => !t.toLowerCase().startsWith(q) && t.toLowerCase().includes(q));
+  return [...starts, ...inside].slice(0, TOWN_SUGGEST_MAX);
+}
+
+function townSuggestClose() {
+  if (townSuggest.box) townSuggest.box.remove();
+  Object.assign(townSuggest, { input: null, box: null, items: [], active: -1 });
+}
+
+function townSuggestDraw(input) {
+  const items = townSuggestMatches(input.value);
+  if (!items.length || (items.length === 1 && items[0] === input.value.trim())) { townSuggestClose(); return; }
+  if (!townSuggest.box || townSuggest.input !== input) {
+    townSuggestClose();
+    const box = document.createElement("div");
+    box.className = "ops-suggest";
+    box.setAttribute("role", "listbox");
+    box.addEventListener("pointerdown", e => e.preventDefault());   // keep the field focused
+    box.addEventListener("click", e => {
+      const el = e.target.closest("[data-suggest]");
+      if (el) townSuggestPick(Number(el.dataset.suggest));
+    });
+    document.body.appendChild(box);
+    Object.assign(townSuggest, { input, box });
+  }
+  townSuggest.items = items;
+  townSuggest.active = -1;
+  townSuggest.box.innerHTML = items.map((t, k) =>
+    `<div class="ops-suggest-item" role="option" data-suggest="${k}">${escapeHtml(t)}</div>`).join("");
+  const r = input.getBoundingClientRect();
+  Object.assign(townSuggest.box.style, { left: `${r.left + window.scrollX}px`, top: `${r.bottom + window.scrollY + 2}px`,
+    width: `${r.width}px` });
+}
+
+function townSuggestPick(k) {
+  const input = townSuggest.input;
+  const town = townSuggest.items[k];
+  if (!input || town === undefined) return;
+  input.value = town;
+  townSuggestClose();
+  input.dispatchEvent(new Event("input", { bubbles: true }));
+  input.dispatchEvent(new Event("change", { bubbles: true }));
+}
+
+// Wired once per page; the test harness loads this file without a document.
+if (typeof document !== "undefined" && typeof document.addEventListener === "function") {
+  document.addEventListener("input", e => {
+    if (e.target.matches && e.target.matches("input[data-town-suggest]") && e.isTrusted) townSuggestDraw(e.target);
+  });
+  document.addEventListener("keydown", e => {
+    if (!townSuggest.box || e.target !== townSuggest.input) return;
+    const n = townSuggest.items.length;
+    if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+      e.preventDefault();
+      const was = townSuggest.active;
+      townSuggest.active = e.key === "ArrowDown" ? (was + 1) % n : (was <= 0 ? n - 1 : was - 1);
+      [...townSuggest.box.children].forEach((el, k) => el.classList.toggle("ops-suggest-on", k === townSuggest.active));
+    } else if (e.key === "Enter" && townSuggest.active >= 0) {
+      e.preventDefault();
+      townSuggestPick(townSuggest.active);
+    } else if (e.key === "Escape") {
+      townSuggestClose();
+    }
+  });
+  document.addEventListener("focusout", e => { if (e.target === townSuggest.input) townSuggestClose(); });
+  window.addEventListener("resize", townSuggestClose);
+}
+
 /** Names that are two towns on the map; the person adding has to say which. */
 const SPLIT_TOWNS = {
   "newport": ["Newport City", "Newport Town"],
