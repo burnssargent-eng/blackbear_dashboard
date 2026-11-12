@@ -400,7 +400,7 @@ function infoFormHtml() {
     ${field("address", "Address")}
     <div class="ops-cp-pair">
       <label class="ops-cp-field" for="ie-town">Town
-        <input class="form-control" id="ie-town" data-ie-field="town" list="ie-town-options" value="${escapeHtml(v.town)}"
+        <input class="form-control" id="ie-town" data-ie-field="town" data-town-suggest value="${escapeHtml(v.town)}"
           autocapitalize="words" placeholder="Pick from the list"></label>
       <label class="ops-cp-field" for="ie-cw">Group w/
         <select class="form-select" id="ie-cw" data-ie-field="collected_with">
@@ -408,8 +408,6 @@ function infoFormHtml() {
           ${townChoices().map(t => `<option${t === v.collected_with ? " selected" : ""}>${escapeHtml(t)}</option>`).join("")}
         </select></label>
     </div>
-    <datalist id="ie-town-options">${[...TOWN_CHOICES, ...OUT_OF_STATE_TOWNS]
-      .map(t => `<option value="${escapeHtml(t)}">`).join("")}</datalist>
     <div id="ie-town-hint" class="small ${n.townErr ? "text-danger" : "ops-muted"}" aria-live="polite">${escapeHtml(n.townMsg)}</div>
     <div class="ops-muted">Group w/: listed under that town on Assign, for a one-off town picked up on its run.</div>
     ${customer.customer_id > 0 ? regionFieldHtml() : ""}

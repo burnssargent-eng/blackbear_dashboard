@@ -507,3 +507,10 @@ body.ops-viewer-open { overflow: hidden; }
 .ops-cp-history .end-moved { color: #432874; border-color: #c5b3e6; background: #e2d9f3; }
 .ops-cp-history .end-lost { color: #842029; border-color: #f1aeb5; background: #f8d7da; }
 .ops-cp-history .end-unknown { color: #984c0c; border-color: #fecba1; background: #ffe5d0; }
+
+/* Town suggestions drawn by the page (townSuggestDraw in ops-common.js), not the browser's datalist. */
+.ops-suggest { position: absolute; z-index: 2100; max-height: 320px; overflow-y: auto; background: #fff;
+  border: 1px solid #ced4da; border-radius: 8px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12); padding: 4px 0; }
+.ops-suggest-item { min-height: 40px; display: flex; align-items: center; padding: 0 12px; font-size: 16px;
+  color: #212529; cursor: pointer; }
+.ops-suggest-item:hover, .ops-suggest-item.ops-suggest-on { background: #e8eef6; color: #34507a; }

@@ -383,9 +383,7 @@ function buildShell() {
         <input type="search" class="form-control" id="take-search" placeholder="Search the old owner's account" autocomplete="off">
         <div id="take-results"></div></div>
       ${field("address", "Street address", 'placeholder="e.g. 12 Main St"')}
-      ${field("city", "Town", 'required list="town-options" placeholder="Start typing; pick from the list" autocapitalize="words"')}
-      <datalist id="town-options">${[...TOWN_CHOICES, ...OUT_OF_STATE_TOWNS]
-        .map(t => `<option value="${escapeHtml(t)}">`).join("")}</datalist>
+      ${field("city", "Town", 'required data-town-suggest placeholder="Start typing; pick from the list" autocapitalize="words"')}
       <div class="ops-muted ops-town-hint" id="add-city-hint" aria-live="polite"></div>
       ${field("capacity", "Capacity (gal)", 'type="number" inputmode="numeric" min="0"')}
       ${field("phone", "Phone", 'type="tel"')}
