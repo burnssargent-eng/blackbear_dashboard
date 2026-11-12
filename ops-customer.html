@@ -350,7 +350,10 @@ function infoHtml(onRoutes, row, est, capacity, inactive) {
   const proj = est.kind === "projected"
     ? `<span class="ops-proj ops-fill-${fillLevel(row)}">~${formatWhole(est.gal)}${cap ? ` / ${cap}` : ""}</span>${daysBracketHtml(row.days_past_full)}`
     : `${inactive ? "none" : "—"}${cap ? ` / ${cap}` : ""}`;
-  const every = row && row.periodicity_days ? `${formatWhole(row.periodicity_days)} days` : "—";
+  // Capped like the [days] bracket (DAYS_SHOWN_CAP, ops-common.js): a slow barrel's 2,039 days
+  // to 75% full reads "90+ days" (Sarge, 2026-11-12). Display only; the export keeps the figure.
+  const every = !row || !row.periodicity_days ? "—"
+    : row.periodicity_days > DAYS_SHOWN_CAP ? `${DAYS_SHOWN_CAP}+ days` : `${formatWhole(row.periodicity_days)} days`;
   const avg = row && row.avg_collection
     ? `${formatWhole(row.avg_collection)} gal${row.usual_gap_days ? ` · ${formatWhole(row.usual_gap_days)} days` : ""}` : "—";
   const fig = (value, caption) => `<div class="ops-cp-fig"><div>${value}</div><div class="ops-cp-cap">${caption}</div></div>`;
