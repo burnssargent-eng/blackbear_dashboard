@@ -25,8 +25,8 @@
 <script>
 /*
  * Calendar (shadow). The source site's month grid of gallons per day, with a
- * day's list of "Customer: gallons" under it. The latest day is the source
- * site's "Today's Totals".
+ * day's list of "Customer: gallons" under it, each name linking to its
+ * customer page. The latest day is the source site's "Today's Totals".
  *
  * One deliberate difference: the source site adds the 0-3 codes into a day's
  * total as if they were gallons. Here a day's total is gallons collected only
@@ -103,6 +103,18 @@ function gridHtml(ym) {
   });
 }
 
+/**
+ * A customer's name as a link to their customer page, as the source site's
+ * day list does. Only a customer the page can open (on the Assign list or
+ * added on the site) is linked; a former customer's name stays plain.
+ */
+function nameHtml(id, name) {
+  const shown = escapeHtml(name || `#${id}`);
+  const open = (snap.assign_list || []).some(a => a.customer_id === id) ||
+    ((store && store.added) || []).some(c => c.customer_id === id);
+  return open ? `<a href="ops-customer.html?id=${id}">${shown}</a>` : shown;
+}
+
 function dayHtml(date) {
   if (!date) return "";
   const real = byDay.get(date);
@@ -112,15 +124,15 @@ function dayHtml(date) {
   return `
     <h3 class="mt-4" id="day">Collections for ${escapeHtml(formatDate(date))}</h3>
     ${rows.length ? `<ul class="cal-list">${rows.map(r =>
-      `<li>${escapeHtml(r.name)}: ${formatNumber(r.gallons)}</li>`).join("")}</ul>
+      `<li>${nameHtml(r.customer_id, r.name)}: ${formatNumber(r.gallons)}</li>`).join("")}</ul>
       <div class="fw-bold">Total: ${formatNumber(real.gallons)}</div>`
       : `<div class="text-muted">No gallons recorded${date > latestDay ? " yet: the data runs through " + escapeHtml(formatDate(latestDay)) : ""}.</div>`}
     ${codes.length ? `<div class="mt-3 ops-muted">Not gallons (codes 0–3):</div>
       <ul class="cal-list ops-muted">${codes.map(c =>
-        `<li>${escapeHtml(names.get(c.customer_id) || `#${c.customer_id}`)}: ${c.qty} - ${CODE_LABELS[c.qty] || "code"}</li>`).join("")}</ul>` : ""}
+        `<li>${nameHtml(c.customer_id, names.get(c.customer_id))}: ${c.qty} - ${CODE_LABELS[c.qty] || "code"}</li>`).join("")}</ul>` : ""}
     ${shadow.length ? `<div class="mt-3 ops-new">${opsShared() ? "Entered on this site:" : "Entered in this browser (shadow copy, not real):"}</div>
       <ul class="cal-list">${shadow.map(c =>
-        `<li>${escapeHtml(c.name)}: ${c.gallons}${c.gallons <= 3 ? ` - ${CODE_LABELS[c.gallons]}` : ""}</li>`).join("")}</ul>` : ""}`;
+        `<li>${nameHtml(c.customer_id, c.name)}: ${c.gallons}${c.gallons <= 3 ? ` - ${CODE_LABELS[c.gallons]}` : ""}</li>`).join("")}</ul>` : ""}`;
 }
 
 function render() {
