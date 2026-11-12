@@ -363,7 +363,7 @@ function infoHtml(onRoutes, row, est, capacity, inactive) {
     <div class="ops-cp-line">${address}</div>
     <div class="ops-cp-line ops-cp-phones">${phones.length ? phones.join("") : `<span class="ops-cp-none">No phone</span>`}</div>
     ${customer.sharedWith ? `<div class="ops-cp-line">Shared barrel with ${escapeHtml(customer.sharedWith)}</div>` : ""}
-    <div class="ops-cp-strip">${fig(proj, "Projected gal")}${fig(every, "Periodicity (75% full)")}${fig(avg, "Averages")}</div>
+    <div class="ops-cp-strip">${fig(proj, "Projected gal")}${fig(every, "Periodicity (75%)")}${fig(avg, "Averages")}</div>
     <div class="ops-cp-line ops-cp-split"><span>${escapeHtml([...geo, ...themes].join(" · ") || "No region")}</span>
       <span class="ops-cp-none">${onRoutes.length ? escapeHtml(onRoutes.join(", ")) : "No route"}</span></div>
   </section>`;
