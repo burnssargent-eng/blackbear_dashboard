@@ -935,6 +935,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1146,Par 13 @ Bellows Falls Country Club,Bellows Falls,Windham,2023-07-18,2023,2023-07,90,True,Rockingham
 1146,Par 13 @ Bellows Falls Country Club,Bellows Falls,Windham,2022-09-19,2022,2022-09,60,True,Rockingham
 1146,Par 13 @ Bellows Falls Country Club,Bellows Falls,Windham,2022-08-02,2022,2022-08,70,True,Rockingham
+911,The Mojo Cafe-Belmont,Belmont,Rutland,2026-11-11,2026,2026-11,90,True,Mount Holly
 911,The Mojo Cafe-Belmont,Belmont,Rutland,2026-04-02,2026,2026-04,150,True,Mount Holly
 911,The Mojo Cafe-Belmont,Belmont,Rutland,2025-07-29,2025,2025-07,45,True,Mount Holly
 911,The Mojo Cafe-Belmont,Belmont,Rutland,2025-04-10,2025,2025-04,80,True,Mount Holly
@@ -971,6 +972,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 911,The Mojo Cafe-Belmont,Belmont,Rutland,2017-07-11,2017,2017-07,50,True,Mount Holly
 911,The Mojo Cafe-Belmont,Belmont,Rutland,2017-05-11,2017,2017-05,15,True,Mount Holly
 911,The Mojo Cafe-Belmont,Belmont,Rutland,2017-02-27,2017,2017-02,15,True,Mount Holly
+1296,Burger King- Bennington/Mahoney,Bennington,Bennington,2026-11-11,2026,2026-11,160,True,Bennington
 1296,Burger King- Bennington/Mahoney,Bennington,Bennington,2026-09-10,2026,2026-09,150,True,Bennington
 1296,Burger King- Bennington/Mahoney,Bennington,Bennington,2026-07-15,2026,2026-07,160,True,Bennington
 1296,Burger King- Bennington/Mahoney,Bennington,Bennington,2026-05-13,2026,2026-05,145,True,Bennington
@@ -9186,6 +9188,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1465,Lyndonville Station Irving,Lyndonville,Caledonia,2026-02-09,2026,2026-02,15,True,Lyndon
 1465,Lyndonville Station Irving,Lyndonville,Caledonia,2026-01-02,2026,2026-01,20,True,Lyndon
 1465,Lyndonville Station Irving,Lyndonville,Caledonia,2025-11-17,2025,2025-11,50,True,Lyndon
+733,Copper Grouse,Manchester,Bennington,2026-11-11,2026,2026-11,60,True,Manchester
 733,Copper Grouse,Manchester,Bennington,2026-10-13,2026,2026-10,125,True,Manchester
 733,Copper Grouse,Manchester,Bennington,2026-09-10,2026,2026-09,90,True,Manchester
 733,Copper Grouse,Manchester,Bennington,2026-08-20,2026,2026-08,120,True,Manchester
@@ -9271,6 +9274,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 733,Copper Grouse,Manchester,Bennington,2017-06-05,2017,2017-06,230,True,Manchester
 733,Copper Grouse,Manchester,Bennington,2017-02-27,2017,2017-02,150,True,Manchester
 733,Copper Grouse,Manchester,Bennington,2017-01-31,2017,2017-01,130,True,Manchester
+1462,Lost Marble-Manchester,Manchester,Bennington,2026-11-11,2026,2026-11,55,True,Manchester
 1462,Lost Marble-Manchester,Manchester,Bennington,2026-10-13,2026,2026-10,100,True,Manchester
 1462,Lost Marble-Manchester,Manchester,Bennington,2026-09-10,2026,2026-09,70,True,Manchester
 1462,Lost Marble-Manchester,Manchester,Bennington,2026-08-20,2026,2026-08,100,True,Manchester
@@ -9283,6 +9287,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1462,Lost Marble-Manchester,Manchester,Bennington,2026-01-28,2026,2026-01,60,True,Manchester
 1462,Lost Marble-Manchester,Manchester,Bennington,2026-01-09,2026,2026-01,85,True,Manchester
 1462,Lost Marble-Manchester,Manchester,Bennington,2025-12-11,2025,2025-12,100,True,Manchester
+1234,Road Runner,Manchester,Bennington,2026-11-11,2026,2026-11,70,True,Manchester
 1234,Road Runner,Manchester,Bennington,2026-10-13,2026,2026-10,95,True,Manchester
 1234,Road Runner,Manchester,Bennington,2026-09-10,2026,2026-09,75,True,Manchester
 1234,Road Runner,Manchester,Bennington,2026-08-20,2026,2026-08,120,True,Manchester
@@ -9326,6 +9331,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1234,Road Runner,Manchester,Bennington,2023-05-03,2023,2023-05,20,True,Manchester
 1234,Road Runner,Manchester,Bennington,2023-04-06,2023,2023-04,75,True,Manchester
 1234,Road Runner,Manchester,Bennington,2023-03-08,2023,2023-03,60,True,Manchester
+1443,Lola Woodfired /Austin Poulin/ Sam's Wood Fired Pi,Manchester Center,Bennington,2026-11-11,2026,2026-11,50,True,Manchester
 1443,Lola Woodfired /Austin Poulin/ Sam's Wood Fired Pi,Manchester Center,Bennington,2026-10-13,2026,2026-10,35,True,Manchester
 1443,Lola Woodfired /Austin Poulin/ Sam's Wood Fired Pi,Manchester Center,Bennington,2026-09-10,2026,2026-09,25,True,Manchester
 1443,Lola Woodfired /Austin Poulin/ Sam's Wood Fired Pi,Manchester Center,Bennington,2026-08-20,2026,2026-08,35,True,Manchester
@@ -9337,6 +9343,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1443,Lola Woodfired /Austin Poulin/ Sam's Wood Fired Pi,Manchester Center,Bennington,2026-01-28,2026,2026-01,15,True,Manchester
 1443,Lola Woodfired /Austin Poulin/ Sam's Wood Fired Pi,Manchester Center,Bennington,2026-01-09,2026,2026-01,35,True,Manchester
 1443,Lola Woodfired /Austin Poulin/ Sam's Wood Fired Pi,Manchester Center,Bennington,2025-12-11,2025,2025-12,35,True,Manchester
+734,Manchester Hockeypas-0150,Manchester Center,Bennington,2026-11-11,2026,2026-11,45,True,Manchester
 734,Manchester Hockeypas-0150,Manchester Center,Bennington,2026-04-16,2026,2026-04,10,True,Manchester
 734,Manchester Hockeypas-0150,Manchester Center,Bennington,2026-03-23,2026,2026-03,80,True,Manchester
 734,Manchester Hockeypas-0150,Manchester Center,Bennington,2026-01-28,2026,2026-01,10,True,Manchester
@@ -12725,7 +12732,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1144,Shore Acres-North Hero,North Hero,Grand Isle,2022-10-27,2022,2022-10,30,True,North Hero
 1144,Shore Acres-North Hero,North Hero,Grand Isle,2022-09-13,2022,2022-09,25,True,North Hero
 1144,Shore Acres-North Hero,North Hero,Grand Isle,2022-08-12,2022,2022-08,25,True,North Hero
-1503,Way Out Wax,Burlington,Chittenden,2026-05-27,2026,2026-05,60,True,Burlington
+1503,Way Out Wax,Burlington,Lamoille,2026-05-27,2026,2026-05,60,True,Hyde Park
 1500,802 Deli and Market,North Troy,Orleans,2026-10-20,2026,2026-10,30,True,Troy
 1500,802 Deli and Market,North Troy,Orleans,2026-09-15,2026,2026-09,40,True,Troy
 1500,802 Deli and Market,North Troy,Orleans,2026-07-24,2026,2026-07,80,True,Troy
@@ -18329,6 +18336,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2015-03-09,2015,2015-03,80,True,Stowe
 244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2015-02-18,2015,2015-02,50,True,Stowe
 244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2015-01-28,2015,2015-01,85,True,Stowe
+1162,Grange at Hill Farm-Sunderland,Sunderland,Windham,2026-11-11,2026,2026-11,30,True,Sunderland
 1162,Grange at Hill Farm-Sunderland,Sunderland,Windham,2026-09-10,2026,2026-09,45,True,Sunderland
 1162,Grange at Hill Farm-Sunderland,Sunderland,Windham,2026-07-15,2026,2026-07,95,True,Sunderland
 1162,Grange at Hill Farm-Sunderland,Sunderland,Windham,2026-02-19,2026,2026-02,30,True,Sunderland
@@ -21011,6 +21019,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 903,Cousins (Mt. Snow),West Dover,Windham,2018-02-20,2018,2018-02,150,True,Dover
 903,Cousins (Mt. Snow),West Dover,Windham,2018-02-02,2018,2018-02,225,True,Dover
 903,Cousins (Mt. Snow),West Dover,Windham,2018-01-08,2018,2018-01,200,True,Dover
+900,Grand Summit Hotel (Mt. Snow),West Dover,Windham,2026-11-11,2026,2026-11,140,True,Dover
 900,Grand Summit Hotel (Mt. Snow),West Dover,Windham,2026-05-13,2026,2026-05,20,True,Dover
 900,Grand Summit Hotel (Mt. Snow),West Dover,Windham,2026-03-30,2026,2026-03,25,True,Dover
 900,Grand Summit Hotel (Mt. Snow),West Dover,Windham,2026-03-04,2026,2026-03,15,True,Dover
@@ -22120,6 +22129,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 405,Williston Place -Retirement home,Williston,Chittenden,2021-11-04,2021,2021-11,10,True,Williston
 405,Williston Place -Retirement home,Williston,Chittenden,2021-02-23,2021,2021-02,55,True,Williston
 405,Williston Place -Retirement home,Williston,Chittenden,2020-05-01,2020,2020-05,55,True,Williston
+1536,Farmhouse Market-Wilmington,Wilmington,Windham,2026-11-11,2026,2026-11,20,True,Wilmington
 905,Haystack Golf course,Wilmington,Windham,2025-07-01,2025,2025-07,35,True,Wilmington
 905,Haystack Golf course,Wilmington,Windham,2024-10-14,2024,2024-10,40,True,Wilmington
 905,Haystack Golf course,Wilmington,Windham,2024-07-16,2024,2024-07,140,True,Wilmington
@@ -22132,6 +22142,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 905,Haystack Golf course,Wilmington,Windham,2020-12-02,2020,2020-12,150,True,Wilmington
 1129,Hog back Mountain (Collect July)country store,Wilmington,Windham,2025-07-23,2025,2025-07,50,True,Wilmington
 1129,Hog back Mountain (Collect July)country store,Wilmington,Windham,2024-07-16,2024,2024-07,60,True,Wilmington
+1532,Valley Crest Ales-Wilmington,Wilmington,Windham,2026-11-11,2026,2026-11,65,True,Wilmington
 1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-10-28,2026,2026-10,110,True,Winooski
 1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-09-16,2026,2026-09,130,True,Winooski
 1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-08-11,2026,2026-08,80,True,Winooski

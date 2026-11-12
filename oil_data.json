@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-11T14:58:16.020288",
+  "last_updated": "2026-11-12T15:48:09.922847",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -32422,7 +32422,7 @@
     {
       "month": "2026-05",
       "geo_town": "Burlington",
-      "gallons": 3651,
+      "gallons": 3591,
       "city": "Burlington"
     },
     {
@@ -32512,7 +32512,7 @@
     {
       "month": "2026-05",
       "geo_town": "Hyde Park",
-      "gallons": 60,
+      "gallons": 120,
       "city": "Hyde Park"
     },
     {
@@ -34407,6 +34407,12 @@
     },
     {
       "month": "2026-11",
+      "geo_town": "Bennington",
+      "gallons": 160,
+      "city": "Bennington"
+    },
+    {
+      "month": "2026-11",
       "geo_town": "Bristol",
       "gallons": 35,
       "city": "Bristol"
@@ -34422,6 +34428,12 @@
       "geo_town": "Colchester",
       "gallons": 255,
       "city": "Colchester"
+    },
+    {
+      "month": "2026-11",
+      "geo_town": "Dover",
+      "gallons": 140,
+      "city": "Dover"
     },
     {
       "month": "2026-11",
@@ -34455,6 +34467,12 @@
     },
     {
       "month": "2026-11",
+      "geo_town": "Manchester",
+      "gallons": 280,
+      "city": "Manchester"
+    },
+    {
+      "month": "2026-11",
       "geo_town": "Middlebury",
       "gallons": 511,
       "city": "Middlebury"
@@ -34470,6 +34488,12 @@
       "geo_town": "Montpelier",
       "gallons": 605,
       "city": "Montpelier"
+    },
+    {
+      "month": "2026-11",
+      "geo_town": "Mount Holly",
+      "gallons": 90,
+      "city": "Mount Holly"
     },
     {
       "month": "2026-11",
@@ -34527,6 +34551,12 @@
     },
     {
       "month": "2026-11",
+      "geo_town": "Sunderland",
+      "gallons": 30,
+      "city": "Sunderland"
+    },
+    {
+      "month": "2026-11",
       "geo_town": "Vergennes",
       "gallons": 200,
       "city": "Vergennes"
@@ -34542,6 +34572,12 @@
       "geo_town": "Williston",
       "gallons": 590,
       "city": "Williston"
+    },
+    {
+      "month": "2026-11",
+      "geo_town": "Wilmington",
+      "gallons": 85,
+      "city": "Wilmington"
     }
   ],
   "monthly_by_county": [
@@ -42008,7 +42044,7 @@
     {
       "month": "2026-05",
       "county": "Chittenden",
-      "gallons": 6850
+      "gallons": 6790
     },
     {
       "month": "2026-05",
@@ -42023,7 +42059,7 @@
     {
       "month": "2026-05",
       "county": "Lamoille",
-      "gallons": 3254
+      "gallons": 3314
     },
     {
       "month": "2026-05",
@@ -42407,6 +42443,11 @@
     },
     {
       "month": "2026-11",
+      "county": "Bennington",
+      "gallons": 440
+    },
+    {
+      "month": "2026-11",
       "county": "Chittenden",
       "gallons": 4015
     },
@@ -42438,12 +42479,17 @@
     {
       "month": "2026-11",
       "county": "Rutland",
-      "gallons": 50
+      "gallons": 140
     },
     {
       "month": "2026-11",
       "county": "Washington",
       "gallons": 1520
+    },
+    {
+      "month": "2026-11",
+      "county": "Windham",
+      "gallons": 255
     },
     {
       "month": "2026-11",
@@ -42498,12 +42544,12 @@
     },
     {
       "year": 2026,
-      "gallons": 256997
+      "gallons": 257782
     }
   ],
-  "all_time_total": 2175764,
-  "current_year_total": 256997,
-  "customer_count": 808,
+  "all_time_total": 2176549,
+  "current_year_total": 257782,
+  "customer_count": 810,
   "unmapped_total": 40915,
   "monthly_totals": [
     {
@@ -43076,7 +43122,7 @@
     },
     {
       "month": "2026-11",
-      "gallons": 9029
+      "gallons": 9814
     }
   ],
   "monthly_by_region": [
@@ -54313,7 +54359,7 @@
     {
       "month": "2026-05",
       "region": "Burlington / South Burlington",
-      "gallons": 4256
+      "gallons": 4196
     },
     {
       "month": "2026-05",
@@ -54343,7 +54389,7 @@
     {
       "month": "2026-05",
       "region": "Route 15",
-      "gallons": 1684
+      "gallons": 1744
     },
     {
       "month": "2026-05",
@@ -54877,6 +54923,11 @@
     },
     {
       "month": "2026-11",
+      "region": "Other",
+      "gallons": 90
+    },
+    {
+      "month": "2026-11",
       "region": "Outer Burlington",
       "gallons": 710
     },
@@ -54888,17 +54939,22 @@
     {
       "month": "2026-11",
       "region": "Ski Slopes",
-      "gallons": 220
+      "gallons": 360
+    },
+    {
+      "month": "2026-11",
+      "region": "South",
+      "gallons": 555
     },
     {
       "month": "2026-11",
       "region": "South / Ski Combined",
-      "gallons": 50
+      "gallons": 745
     },
     {
       "month": "2026-11",
       "region": "Southern Ski Slopes",
-      "gallons": 50
+      "gallons": 190
     },
     {
       "month": "2026-11",
@@ -54913,7 +54969,7 @@
     {
       "month": "2026-11",
       "region": "Winter / Summer Combined",
-      "gallons": 325
+      "gallons": 465
     }
   ],
   "yearly_by_region": [
@@ -55950,7 +56006,7 @@
     {
       "year": 2026,
       "region": "Burlington / South Burlington",
-      "gallons": 47691
+      "gallons": 47631
     },
     {
       "year": 2026,
@@ -55975,7 +56031,7 @@
     {
       "year": 2026,
       "region": "Other",
-      "gallons": 1322
+      "gallons": 1412
     },
     {
       "year": 2026,
@@ -55990,7 +56046,7 @@
     {
       "year": 2026,
       "region": "Route 15",
-      "gallons": 11630
+      "gallons": 11690
     },
     {
       "year": 2026,
@@ -56005,22 +56061,22 @@
     {
       "year": 2026,
       "region": "Ski Slopes",
-      "gallons": 16980
+      "gallons": 17120
     },
     {
       "year": 2026,
       "region": "South",
-      "gallons": 3980
+      "gallons": 4535
     },
     {
       "year": 2026,
       "region": "South / Ski Combined",
-      "gallons": 10445
+      "gallons": 11140
     },
     {
       "year": 2026,
       "region": "Southern Ski Slopes",
-      "gallons": 6465
+      "gallons": 6605
     },
     {
       "year": 2026,
@@ -56040,7 +56096,7 @@
     {
       "year": 2026,
       "region": "Winter / Summer Combined",
-      "gallons": 30475
+      "gallons": 30615
     }
   ],
   "region_names": [
@@ -56089,25 +56145,25 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 28019,
+  "collections_count": 28030,
   "out_of_state_total": 40915,
-  "active_customer_count": 534,
+  "active_customer_count": 536,
   "projection": {
     "latest_data_date": "2026-11-11",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 256997,
+    "current_ytd": 257782,
     "previous_year_full": 269909,
     "previous_through_prior_month": 230827,
     "previous_same_month_total": 20207,
     "previous_prorated_ytd": 238236.23,
-    "projected_current_year": 291164,
-    "percent_vs_previous_year": 0.078749
+    "projected_current_year": 292053,
+    "percent_vs_previous_year": 0.082044
   },
   "region_stats": {
     "Burlington / South Burlington": {
-      "customers": 212,
-      "active": 82
+      "customers": 211,
+      "active": 81
     },
     "Central": {
       "customers": 100,
@@ -56138,8 +56194,8 @@
       "active": 1
     },
     "Route 15": {
-      "customers": 34,
-      "active": 31
+      "customers": 35,
+      "active": 32
     },
     "Route 2 East / Route 5": {
       "customers": 50,
@@ -56154,12 +56210,12 @@
       "active": 20
     },
     "South": {
-      "customers": 16,
-      "active": 13
+      "customers": 18,
+      "active": 15
     },
     "South / Ski Combined": {
-      "customers": 37,
-      "active": 26
+      "customers": 39,
+      "active": 28
     },
     "Southern Ski Slopes": {
       "customers": 21,
@@ -56262,10 +56318,10 @@
     },
     {
       "year": 2026,
-      "places_serviced": 481,
-      "gained": 46,
+      "places_serviced": 483,
+      "gained": 48,
       "lost": 8,
-      "net": 38
+      "net": 40
     }
   ],
   "dormant_cutoff": "2025-01-01",
@@ -56479,7 +56535,6 @@
       1482,
       1483,
       1502,
-      1503,
       1505,
       1510,
       1529
@@ -56849,6 +56904,7 @@
       1460,
       1479,
       1497,
+      1503,
       1504,
       1515
     ],
@@ -56998,7 +57054,9 @@
       1252,
       1296,
       1443,
-      1462
+      1462,
+      1532,
+      1536
     ],
     "South / Ski Combined": [
       733,
@@ -57037,7 +57095,9 @@
       1391,
       1443,
       1462,
-      1526
+      1526,
+      1532,
+      1536
     ],
     "Southern Ski Slopes": [
       810,
@@ -57452,7 +57512,7 @@
     {
       "year": 2026,
       "active_jan1": 471,
-      "gained_new": 46,
+      "gained_new": 48,
       "gained_successor": 6,
       "lost": 0,
       "closed": 0,
@@ -57460,7 +57520,7 @@
       "moved": 0,
       "unknown": 8,
       "moved_followed": 0,
-      "gained": 52,
+      "gained": 54,
       "ended": 10,
       "churn": 0.0,
       "churn_high": 0.017,
@@ -57485,6 +57545,6 @@
     "avg_gained_new": 62.1,
     "avg_gained_successor": 1.8,
     "median_years_served": 1.6,
-    "current_businesses": 513
+    "current_businesses": 515
   }
 }
