@@ -532,7 +532,7 @@ body.ops-viewer-open { overflow: hidden; }
   border-top: 1px solid #f1f3f5; }
 .ops-cp-fig:first-child > div:first-child { white-space: nowrap; }
 .ops-cp-fig:last-child > div:first-child { white-space: nowrap; }
-.ops-cp-fig { padding: 10px 8px; min-width: 0; }
+.ops-cp-fig { padding: 10px 8px; min-width: 0; text-align: center; }   /* centred in its box (Sarge, 2026-11-12) */
 .ops-cp-fig:first-child { padding-left: 14px; }
 .ops-cp-fig:last-child { padding-right: 14px; }
 .ops-cp-fig + .ops-cp-fig { border-left: 1px solid #f1f3f5; }
