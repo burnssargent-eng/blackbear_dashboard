@@ -526,9 +526,11 @@ body.ops-viewer-open { overflow: hidden; }
 .ops-cp-split > span:last-child { text-align: right; }
 .ops-cp-tag, .ops-cp-cap { font-size: 12px; color: #6c757d; }
 .ops-cp-none { color: #6c757d; }
-/* Averages sizes to its text and never wraps (Sarge, 2026-11-12: "60 gal · 44 days" wrapped in an
-   equal third); the days box sizes to its text; Projection takes what is left. */
-.ops-cp-strip { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; border-top: 1px solid #f1f3f5; }
+/* Equal thirds; when Projection or Averages would wrap it widens to its text, and the room comes
+   from the days box in the middle (Sarge, 2026-11-12). */
+.ops-cp-strip { display: grid; grid-template-columns: minmax(33.333%, max-content) minmax(0, 1fr) minmax(33.333%, max-content);
+  border-top: 1px solid #f1f3f5; }
+.ops-cp-fig:first-child > div:first-child { white-space: nowrap; }
 .ops-cp-fig:last-child > div:first-child { white-space: nowrap; }
 .ops-cp-fig { padding: 10px 8px; min-width: 0; }
 .ops-cp-fig:first-child { padding-left: 14px; }
