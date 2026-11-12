@@ -422,16 +422,12 @@ body.ops-viewer-open { overflow: hidden; }
 .ops-cp-entry { display: flex; gap: 8px; }
 .ops-cp-entry .form-control { flex: 1 1 0; min-width: 0; height: 40px; font-size: 16px; }
 .ops-cp-entry .btn { flex: 0 0 150px; height: 40px; }
-.ops-cp-card { background: #fff; border: 1px solid #adb5bd; border-radius: 8px; margin-bottom: 12px;
+.ops-cp-card { background: #fff; border: 1px solid #dee2e6; border-radius: 8px; margin-bottom: 12px;
   display: flex; flex-direction: column; }
 .ops-cp-head { display: flex; align-items: center; justify-content: space-between; min-height: 40px; padding: 4px 12px; }
 .ops-cp-title { font-size: 13px; font-weight: 700; color: #495057; letter-spacing: 0.04em; }
 .ops-cp-head .btn { height: 32px; padding: 0 12px; font-size: 14px; }
 .ops-cp-head-near { justify-content: flex-start; gap: 10px; }
-.ops-cp-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 9px 12px;
-  border-top: 1px solid #dee2e6; }
-.ops-cp-label { flex: 0 0 auto; color: #6c757d; }
-.ops-cp-value { min-width: 0; text-align: right; overflow-wrap: anywhere; }
 .ops-cp-assign { display: flex; gap: 8px; align-items: center; margin-bottom: 12px; }
 .ops-cp-assign .form-select { flex: 1 1 0; min-width: 0; height: 40px; }
 .ops-cp-assign .btn { height: 40px; }
@@ -474,9 +470,6 @@ body.ops-viewer-open { overflow: hidden; }
 .ops-cp-row1 .form-control { flex: 1 1 0; width: auto; min-width: 0; padding: 0 4px 0 6px; }
 .ops-cp-row1 .form-control::placeholder { font-size: 14px; }
 /* Info: no header, so the first row has no rule above it; ✎ Edit info centred at the bottom. */
-.ops-cp-info > .ops-cp-row:first-child { border-top: 0; }
-.ops-cp-info-foot { border-top: 1px solid #dee2e6; display: flex; justify-content: center; }
-.ops-cp-info-foot .btn-link { text-decoration: none; padding: 6px 12px; }
 .ops-cp-left { padding: 10px 12px; }
 .ops-cp-theft { border-color: #f1aeb5; background: #fff5f5; padding: 4px 12px 12px; }
 .ops-pick-inactive .ops-pick-name { color: #6c757d; }
@@ -514,3 +507,27 @@ body.ops-viewer-open { overflow: hidden; }
 .ops-suggest-item { min-height: 40px; display: flex; align-items: center; padding: 0 12px; font-size: 16px;
   color: #212529; cursor: pointer; }
 .ops-suggest-item:hover, .ops-suggest-item.ops-suggest-on { background: #e8eef6; color: #34507a; }
+
+/* Info card (Sarge, 2026-11-12, layout "I"): chips, address, phones, a 3-figure strip, region and routes. */
+.ops-cp-info { padding: 0; font-size: 15px; line-height: 1.3; border-radius: 10px; }
+.ops-cp-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 10px 14px; }
+.ops-chip { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; font-size: 14px;
+  border: 1px solid #ced4da; color: #495057; }
+.ops-chip-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.ops-chip-type .ops-chip-dot { display: none; }
+.ops-chip-open { background: #e8f5e9; border-color: #e8f5e9; color: #146c43; font-weight: 600; }
+.ops-chip-closed_season { background: #e8eef6; border-color: #e8eef6; color: #34507a; font-weight: 600; }
+.ops-chip-inactive { background: #f1f3f5; border-color: #f1f3f5; color: #495057; font-weight: 600; }
+.ops-cp-info a { text-decoration: none; }
+.ops-cp-edit { margin-left: auto; padding: 0; font-size: 14px; text-decoration: none; }
+.ops-cp-line { padding: 10px 14px; border-top: 1px solid #f1f3f5; overflow-wrap: anywhere; }
+.ops-cp-phones { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+.ops-cp-split { display: flex; justify-content: space-between; gap: 10px; }
+.ops-cp-split > span:last-child { text-align: right; }
+.ops-cp-tag, .ops-cp-cap { font-size: 12px; color: #6c757d; }
+.ops-cp-none { color: #6c757d; }
+.ops-cp-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #f1f3f5; }
+.ops-cp-fig { padding: 10px 8px; min-width: 0; }
+.ops-cp-fig:first-child { padding-left: 14px; }
+.ops-cp-fig:last-child { padding-right: 14px; }
+.ops-cp-fig + .ops-cp-fig { border-left: 1px solid #f1f3f5; }

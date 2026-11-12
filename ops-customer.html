@@ -251,7 +251,7 @@ function homeHtml(row, today, onRoutes, capacity, left) {
       <button type="button" class="btn btn-link btn-sm p-0 ms-2" data-undo>Undo</button></div>` : ""}
     ${flash ? `<div class="text-success mb-2">${flash}</div>` : ""}
 
-    ${infoEdit ? infoFormHtml() : infoHtml(onRoutes, barrelRowsHtml(row, est, capacity, inactive))}
+    ${infoEdit ? infoFormHtml() : infoHtml(onRoutes, row, est, capacity, inactive)}
 
     ${inactive ? "" : `<div class="ops-cp-assign">
       <select id="route" class="form-select" aria-label="Assign to route">
@@ -293,29 +293,26 @@ function leftFormHtml() {
   </form>`;
 }
 
-/** One label | value line in a card. */
-function kv(label, value) {
-  return `<div class="ops-cp-row"><span class="ops-cp-label">${label}</span><span class="ops-cp-value">${value}</span></div>`;
+/* ── Projection type in plain words, for the Info card's type chip ── */
+
+// The builder's model status in plain words, for Type when no type is set on this page.
+const MODEL_STATUS_WORDS = {
+  "50/50 default": "Steady", "limited data": "Limited data", "will-call (detected)": "Will-call",
+  "will-call (marked on the site)": "Will-call", "closer (detected)": "Seasonal", "true closer": "Seasonal",
+  "semi-closer / call-driven": "Seasonal", "seasonal open-ish": "Seasonal", "event-driven": "Event-driven",
+  "on-demand / unlimited": "On demand", "lump-sum / interval-based": "Lump sum",
+  "stale - projection not meaningful": "Stale", "inactive (marked on the site)": "Inactive",
+  "closed for the season (marked on the site)": "Seasonal",
+};
+
+/** Type: the one set on this page (Edit info), else what the model chose, in plain words. */
+function typeWords(row) {
+  const db = modelReady() ? opsCustomerDbRow(customer.customer_id) : null;
+  if (db && MODEL_TEXT[db.site_model]) return MODEL_TEXT[db.site_model];
+  if (!row || row.id !== customer.customer_id) return "—";
+  return MODEL_STATUS_WORDS[row.status] || row.status || "—";
 }
 
-/**
- * Info's barrel rows, under Status (Sarge, 2026-11-03): Projection "~53/55 gal [-6]", coloured
- * and bracketed as on the route pages (stopFiguresHtml), and
- * Average "53 gal · Every 49 days". Every is the usual gap, the median of the recent
- * gaps between pickups (usual_gap_days): how often it is actually picked up, not the
- * builder's days-to-75% periodicity.
- */
-function barrelRowsHtml(row, est, capacity, inactive) {
-  const cap = capacity != null ? formatWhole(capacity) : null;
-  const proj = est.kind === "projected"
-    ? `<span class="ops-proj ops-fill-${fillLevel(row)}">~${formatWhole(est.gal)}${cap ? `/${cap}` : ""} gal</span>` +
-      daysBracketHtml(row.days_past_full) +
-      (projectionLabel(row) ? ` <span class="ops-muted">${escapeHtml(projectionLabel(row))}</span>` : "")
-    : `<span class="ops-muted">${inactive ? "none while inactive" : "none"}</span>${cap ? ` · holds ${cap} gal` : ""}`;
-  const avg = row && row.avg_collection ? `${formatWhole(row.avg_collection)} gal` : "";
-  const gap = row && row.usual_gap_days ? `Every ${formatWhole(row.usual_gap_days)} days` : "";
-  return kv("Projection", proj) + kv("Average", [avg, gap].filter(Boolean).join(" · ") || "—");
-}
 
 /** The town to show: the projection's official town (site edits included), else the source site's city. */
 function shownTown() {
@@ -329,30 +326,43 @@ function editReadyCustomer() {
 }
 
 /**
- * The Info card, no header: status, the barrel's two rows (barrelRowsHtml), address, phones
- * (each extra one under its own label), region, shared barrel, on route, and ✎ Edit info centred at the bottom. Town and Group w/
- * show only in the Edit form (Sarge, 2026-11-03).
+ * The Info card (Sarge, 2026-11-12, layout "I"): a top line of chips (status, projection type)
+ * with ✎ Edit info on the right; the address on its own line and the phones on the next, each
+ * extra one with its small grey label, wrapping when there are several; a strip of three oil
+ * figures split by fine lines (projection, days to 75% full, average); and region and routes
+ * last, right above Assign. No field names: each value says what it is.
  */
-function infoHtml(onRoutes, barrelRows) {
+function infoHtml(onRoutes, row, est, capacity, inactive) {
+  const st = statusReady && customer.customer_id > 0 && opsCustomerDbRow(customer.customer_id) ? (siteStatus() || {}).status || "open" : null;
+  const chips = [
+    st ? `<span class="ops-chip ops-chip-${st}"><span class="ops-chip-dot"></span>${escapeHtml(STATUS_TEXT[st] || "Open")}</span>` : "",
+    `<span class="ops-chip ops-chip-type">${escapeHtml(typeWords(row))}</span>`,
+  ].join("");
+  const address = details.address
+    ? `<a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(details.address)}"
+        target="_blank" rel="noopener">${escapeHtml(details.address)}</a>`
+    : `<span class="ops-cp-none">No address</span>`;
+  const phones = [customer.phone ? phoneHtml(customer.phone) : "",
+    ...contacts.map(p => `<span>${p.label ? `<span class="ops-cp-tag">${escapeHtml(p.label)}</span> ` : ""}${phoneHtml(p.value)}</span>`)]
+    .filter(Boolean);
+  const [geo, themes] = shownRegions();
+  const cap = capacity != null ? formatWhole(capacity) : null;
+  const proj = est.kind === "projected"
+    ? `<span class="ops-proj ops-fill-${fillLevel(row)}">~${formatWhole(est.gal)}${cap ? ` / ${cap}` : ""}</span>${daysBracketHtml(row.days_past_full)}`
+    : `${inactive ? "none" : "—"}${cap ? ` / ${cap}` : ""}`;
+  const every = row && row.periodicity_days ? `${formatWhole(row.periodicity_days)} days` : "—";
+  const avg = row && row.avg_collection
+    ? `${formatWhole(row.avg_collection)} gal${row.usual_gap_days ? ` · ${formatWhole(row.usual_gap_days)} days` : ""}` : "—";
+  const fig = (value, caption) => `<div class="ops-cp-fig"><div>${value}</div><div class="ops-cp-cap">${caption}</div></div>`;
   return `<section class="ops-cp-card ops-cp-info">
-    ${statusRowHtml()}
-    ${modelRowHtml()}
-    ${barrelRows}
-    ${kv("Address", details.address
-      ? `<a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(details.address)}"
-          target="_blank" rel="noopener">${escapeHtml(details.address)}</a>`
-      : "—")}
-    ${kv("Phone", customer.phone ? phoneHtml(customer.phone) : "—")}
-    ${contacts.map(p => kv(escapeHtml(p.label || "Phone"), phoneHtml(p.value))).join("")}
-    ${(() => {
-      const [geo, themes] = shownRegions();
-      return geo.length || themes.length ? kv("Region", `${escapeHtml(geo.join(", ") || "—")}${themes.length
-        ? ` <span class="ops-muted">· ${escapeHtml(themes.join(", "))}</span>` : ""}`) : "";
-    })()}
-    ${customer.sharedWith ? kv("Shared barrel", `with ${escapeHtml(customer.sharedWith)}`) : ""}
-    ${kv("On route", onRoutes.length ? escapeHtml(onRoutes.join(", ")) : "—")}
-    ${editReadyCustomer() ? `<div class="ops-cp-info-foot">
-      <button type="button" class="btn btn-link" data-info-edit>✎ Edit info</button></div>` : ""}
+    <div class="ops-cp-chips">${chips}
+      ${editReadyCustomer() ? `<button type="button" class="btn btn-link ops-cp-edit" data-info-edit>✎ Edit info</button>` : ""}</div>
+    <div class="ops-cp-line">${address}</div>
+    <div class="ops-cp-line ops-cp-phones">${phones.length ? phones.join("") : `<span class="ops-cp-none">No phone</span>`}</div>
+    ${customer.sharedWith ? `<div class="ops-cp-line">Shared barrel with ${escapeHtml(customer.sharedWith)}</div>` : ""}
+    <div class="ops-cp-strip">${fig(proj, "Projected gal")}${fig(every, "To 75% full")}${fig(avg, "Averages")}</div>
+    <div class="ops-cp-line ops-cp-split"><span>${escapeHtml([...geo, ...themes].join(" · ") || "No region")}</span>
+      <span class="ops-cp-none">${onRoutes.length ? escapeHtml(onRoutes.join(", ")) : "No route"}</span></div>
   </section>`;
 }
 
@@ -491,14 +501,6 @@ function modelText(model, season) {
   return MODEL_TEXT[model] + (model === "seasonal" && season ? ` · ${season.replace("-", "–")}` : "");
 }
 
-/** Info's Type row, only when one is set here (automatic shows nothing). */
-function modelRowHtml() {
-  if (!modelReady()) return "";
-  const db = opsCustomerDbRow(customer.customer_id);
-  const text = modelText(db.site_model, db.site_season);
-  return text ? kv("Type", escapeHtml(text)) : "";
-}
-
 /** Edit's Projection type: Automatic (what the model picks now), Will-call, Seasonal with its months, Event-driven. */
 function modelFieldHtml() {
   if (!modelReady()) return "";
@@ -582,14 +584,6 @@ function statusBandHtml() {
         <button type="button" class="btn" data-status-quick="">Mark reopened</button></div>`
     : `<div class="ops-cp-band ops-cp-band-closed"><span>Closed for the season since ${since}</span>
         <button type="button" class="btn" data-status-quick="open">Mark open</button></div>`;
-}
-
-/** Info's Status row (changed in the Edit form, or by the band's one button). */
-function statusRowHtml() {
-  if (!statusReady || customer.customer_id < 0 || !opsCustomerDbRow(customer.customer_id)) return "";
-  const st = siteStatus();
-  const key = st ? st.status : "";
-  return kv("Status", `<span class="ops-cp-status-${key || "open"}">${STATUS_TEXT[key] || "Open"}</span>`);
 }
 
 /** The Edit form's Status: the moves that make sense from here, and Since once one is picked. */
