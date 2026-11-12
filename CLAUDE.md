@@ -345,7 +345,8 @@ projection type (will-call, seasonal with its months, event-driven; `customers.s
 exported in `customer_edits.csv`, `SITE_OVERRIDES` in the builder): it REPLACES the
 model's choice and any registry entry for that id (Sarge, 2026-11-12), the report
 flags each replacement, and it takes effect at the next nightly. Seasonal is a
-semi-closer. `fringe_seasonal_candidates` informs the
+semi-closer, but held while closed unless it had a pickup after the season ended (a
+coded semi-closer keeps the recent-call threshold). `fringe_seasonal_candidates` informs the
 registry but is never read by it: its labels are review prompts, not
 classifications. Overrides change routing and which columns show, never the
 50/50 arithmetic or a listed capacity. Operator `% full` is capped at 100; the
