@@ -280,7 +280,7 @@ ok(rankedSection.every(c => STAGES.includes(c.stage)), "every ranked row has a s
 ok(customers.filter(c => c.section === "limited data" && !c.history_start)
   .every(c => c.stage === null), "limited-data rows have no stage");
 const willCall = customers.filter(c => c.section === "will-call");
-ok(willCall.length > 0 && willCall.every(c => c.status === "will-call (detected)" &&
+ok(willCall.length > 0 && willCall.every(c => ["will-call (detected)", "will-call (marked on the site)"].includes(c.status) &&
   c.projected_gal === c.estimate_gal && c.reason),
   `${willCall.length} will-call rows, each projecting its estimate, each with a reason`);
 ok(willCall.every(c => !["on-demand / unlimited", "event-driven", "true closer",

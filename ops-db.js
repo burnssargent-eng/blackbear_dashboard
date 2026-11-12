@@ -328,8 +328,10 @@ async function opsFetchRows() {
   const [routes, stops, customers, collections, outgoing, trucks, oilLeft, dailyNotes] = await Promise.all([
     all(() => c.from("routes").select("id,name,sort").order("id"), "routes"),
     all(() => c.from("route_stops").select("id,route_id,customer_id,position,must_get,jamaal_assignment_id").order("id"), "stops"),
-    // Before collected_with_town and replaced_by exist (db/schema.sql not yet pasted) the pages load without them.
-    all(() => c.from("customers").select(`${OPS_CUSTOMER_COLS},collected_with_town,replaced_by,${OPS_SITE_EDIT_COLS}`).order("id"), "customers")
+    // Before collected_with_town and replaced_by exist (db/schema.sql not yet pasted) the pages load without them;
+    // likewise site_model and site_season (the projection type).
+    all(() => c.from("customers").select(`${OPS_CUSTOMER_COLS},collected_with_town,replaced_by,${OPS_SITE_EDIT_COLS},site_model,site_season`).order("id"), "customers")
+      .catch(() => all(() => c.from("customers").select(`${OPS_CUSTOMER_COLS},collected_with_town,replaced_by,${OPS_SITE_EDIT_COLS}`).order("id"), "customers"))
       .catch(() => all(() => c.from("customers").select(`${OPS_CUSTOMER_COLS},collected_with_town,replaced_by`).order("id"), "customers"))
       .catch(() => all(() => c.from("customers").select(`${OPS_CUSTOMER_COLS},collected_with_town`).order("id"), "customers"))
       .catch(() => all(() => c.from("customers").select(OPS_CUSTOMER_COLS).order("id"), "customers")),
@@ -729,6 +731,11 @@ async function opsSaveCustomer(id, now, opened) {
     up.site_themes = [...now.themes];   // an explicit list: [] = in neither theme
   }
   set("collected_with_town", now.collected_with || null);
+  if (now.model !== undefined && (now.model !== opened.model || now.season !== opened.season)) {
+    // The projection type (db/schema.sql, site_model): a season only for seasonal.
+    set("site_model", now.model || null);
+    set("site_season", now.model === "seasonal" ? now.season : null);
+  }
   const address = now.address.trim() || null;
   if ((row.address || null) !== address) { up.address = address; up.loc = null; }
   const phone = opsPhoneStored(now.phone) || null;
@@ -838,8 +845,9 @@ async function opsRefresh() {
   const store = opsStoreFromRows(rows, opsDb.snap, { my: opsDb.store ? opsDb.store.my : null });
   opsApplySiteEdits(opsDb.snap, opsDb.index, rows.customers);
   const withTowns = r => (r && r.customers || []).filter(c => c.collected_with_town || c.site_name || c.site_town ||
-    c.site_capacity != null || c.site_region || c.site_themes || c.site_status).map(c => [c.id, c.collected_with_town,
-    c.site_name, c.site_town, c.site_capacity, c.site_region, c.site_themes, c.site_status, c.site_status_since]);
+    c.site_capacity != null || c.site_region || c.site_themes || c.site_status || c.site_model).map(c => [c.id,
+    c.collected_with_town, c.site_name, c.site_town, c.site_capacity, c.site_region, c.site_themes, c.site_status,
+    c.site_status_since, c.site_model, c.site_season]);
   const sameNotes = JSON.stringify(rows.dailyNotes) === JSON.stringify(opsDb.rows && opsDb.rows.dailyNotes)
     && JSON.stringify(withTowns(rows)) === JSON.stringify(withTowns(opsDb.rows));
   if (sameNotes && JSON.stringify(opsSharedPart(store)) === JSON.stringify(opsDb.synced)) return;   // nothing new

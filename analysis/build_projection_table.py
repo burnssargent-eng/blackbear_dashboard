@@ -126,6 +126,9 @@ OIL_DATA = ROOT / "oil_data.json"
 CAPACITY_CACHE = ROOT / "capacity_cache.csv"
 NON_PICKUPS = ROOT / "oil_non_pickups.csv"
 OIL_LEFT = ROOT / "oil_left.csv"
+# Thefts marked on the site (collections.theft), exported nightly by
+# supabase_sync.py --export-thefts: customer id, day, gallons collected.
+SITE_THEFTS = ROOT / "thefts.csv"
 # Names, towns and capacities edited on the site's customer page (Sarge,
 # 2026-11-02), exported nightly by supabase_sync.py --export-site-edits. The
 # scraper applies the town (and the roster name); here a site capacity beats
@@ -349,6 +352,7 @@ STATUS_INSUFFICIENT = "limited data"
 STATUS_STALE = "stale - projection not meaningful"
 STATUS_SITE_INACTIVE = "inactive (marked on the site)"
 STATUS_SITE_CLOSED = "closed for the season (marked on the site)"
+STATUS_SITE_WILL_CALL = "will-call (marked on the site)"
 
 # Statuses that never take a daily-rate urgency, whatever the date.
 NO_RATE_SECTIONS = {
@@ -458,6 +462,46 @@ MODEL_OVERRIDES = {
 }
 
 
+# Projection types set on the customer page (Sarge, 2026-11-12; db/schema.sql
+# site_model), read from customer_edits.csv by main(). Each one REPLACES the
+# model's own choice and any MODEL_OVERRIDES entry for that id: the page holds
+# the latest human decision. Seasonal is a semi-closer (held out while closed
+# unless it called recently); will-call lists the row as will-call with its
+# estimate, as a detected one; event has no daily rate. Keyed by id like the
+# registry, but with no name to check: the id comes from the database. A
+# shared-barrel member's type lands on its group's row (the lowest id).
+SITE_MODEL_STATUS = {
+    "will_call": STATUS_SITE_WILL_CALL,
+    "seasonal": STATUS_SEMI_CLOSER,
+    "event": STATUS_EVENT,
+}
+SITE_MODEL_TEXT = {"will_call": "will-call", "seasonal": "seasonal", "event": "event-driven"}
+SITE_OVERRIDES = {}
+
+
+def site_overrides(edits):
+    """customer_id -> Override from the site's projection types (`edits`: load_site_edits())."""
+    group_of = {cid: min(g.members) for g in SHARED_CONTAINERS for cid in g.members}
+    out = {}
+    for cid in sorted(edits):
+        model = (edits[cid].get("model") or "").strip()
+        season = (edits[cid].get("season") or "").strip() or None
+        if model not in SITE_MODEL_STATUS:
+            continue
+        if model == "seasonal" and not season:
+            continue                # no months: nothing to route on
+        reason = f"marked {SITE_MODEL_TEXT[model]} on the site" + (f" ({season})" if season else "")
+        out.setdefault(group_of.get(cid, cid),
+                       Override(SITE_MODEL_STATUS[model], None,
+                                season if model == "seasonal" else None, reason))
+    return out
+
+
+def override_for(cid):
+    """The site's projection type for this id, else its MODEL_OVERRIDES entry, else None."""
+    return SITE_OVERRIDES.get(cid) or MODEL_OVERRIDES.get(cid)
+
+
 # ─────────────────────────────────────────────
 # Shared barrels and new owners
 # ─────────────────────────────────────────────
@@ -541,7 +585,9 @@ class Theft(NamedTuple):
 # left, x gallons means x were left and pumped, so either way the barrel is
 # empty and the entry is already a check or a pickup. A qty-1 check is never
 # labelled a theft automatically: Jim confirms each one first. Name checked,
-# flagged on mismatch.
+# flagged on mismatch. Thefts marked on the site join these at build time
+# (load_site_thefts): marking one on My Route or the customer page IS the
+# confirmation. An entry here wins over the site's for the same id and day.
 THEFTS = {
     (325, date(2026, 10, 21)): Theft("Farmhouse", "Barrel found robbed; recorded as qty 1"),
 }
@@ -673,7 +719,23 @@ def combine_shared(pickups, empty_checks, capacities, regions, active):
     return extras
 
 
-def apply_thefts(pickups, asof):
+def load_site_thefts():
+    """(customer_id, day) -> Theft for thefts marked on the site (thefts.csv); {} without the file."""
+    if not SITE_THEFTS.exists():
+        print(f"  note: {SITE_THEFTS.name} missing; only the THEFTS registry applies")
+        return {}
+    with open(SITE_THEFTS, newline="") as f:
+        return {(int(r["customer_id"]), date.fromisoformat(r["date"])):
+                Theft(None, "Marked on the site")
+                for r in csv.DictReader(f)}
+
+
+def theft_registry():
+    """THEFTS plus the site's thefts; the registry's entry wins for the same id and day."""
+    return {**load_site_thefts(), **THEFTS}
+
+
+def apply_thefts(pickups, asof, registry=None):
     """
     Mark the pickup that ends each theft's gap with `theft_gap`, in place,
     after combine_shared (a shared member's theft lands on its group). Returns
@@ -682,13 +744,15 @@ def apply_thefts(pickups, asof):
     """
     group_of = {cid: g for g in SHARED_CONTAINERS for cid in g.members}
     thefts, flags = defaultdict(list), defaultdict(list)
-    for (cid, day), theft in sorted(THEFTS.items()):
+    for (cid, day), theft in sorted((THEFTS if registry is None else registry).items()):
         if day > asof:
             continue
         group = group_of.get(cid)
         key = min(group.members) if group else cid
         history = pickups.get(key, [])
-        if group and group.members[cid] != theft.name:
+        if theft.name is None:
+            pass                    # marked on the site: the id is the database's
+        elif group and group.members[cid] != theft.name:
             flags[key].append(f"THEFTS[{cid}] names {theft.name!r} but the group "
                               f"lists {group.members[cid]!r}; check the registry")
         elif not group:
@@ -1165,7 +1229,7 @@ def site_status_plan(cid, pickups, asof, edit):
     if status == "open":
         return None, since
     if status == "closed_season":
-        override = MODEL_OVERRIDES.get(cid) or (detected_closer(cid, pickups, asof) if pickups else None)
+        override = override_for(cid) or (detected_closer(cid, pickups, asof) if pickups else None)
         start = next_season_start(override.season if override else None, since)
         if start and start <= asof:
             return None, start
@@ -1522,6 +1586,11 @@ def route(override, has_rate, days_since, last_date, pickups, asof, will_call=No
     if will_call and not override and days_since <= STALE_DAYS:
         return STATUS_WILL_CALL, SECTION_WILL_CALL, will_call
 
+    # Marked will-call on the site: listed as will-call, however few its
+    # pickups, until stale (which says more, as for a detected one).
+    if status == STATUS_SITE_WILL_CALL and days_since <= STALE_DAYS:
+        return status, SECTION_WILL_CALL, override.reason
+
     if not has_rate:
         reason = (f"{len(pickups)} pickup{'s' if len(pickups) != 1 else ''} so far; "
                   f"projections start at {NEW_MIN_PICKUPS}"
@@ -1700,8 +1769,10 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thef
             f"MODEL_OVERRIDES[{cid}] expects {registry.name!r} but the pickup "
             f"record says {last['name']!r}. Check the id before trusting the "
             "override.")
-    # The registry wins; otherwise the closer detector may supply a season.
-    override = registry or detected_closer(cid, pickups, asof)
+    # The page's projection type wins, then the registry; otherwise the closer
+    # detector may supply a season.
+    site = SITE_OVERRIDES.get(cid)
+    override = site or registry or detected_closer(cid, pickups, asof)
 
     # An in-season closer is ranked on its open-season gaps, not the 50/50.
     closer_rate = None
@@ -1853,7 +1924,10 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thef
 
     month_index = season["shape"][asof.month - 1] if season else None
     configured_season = override.season if override else None
-    inferred = inferred_season(pickups) if registry and registry.season else None
+    inferred = inferred_season(pickups) if registry and registry.season and not site else None
+    if site and registry:
+        findings["flags"].append(f"{site.reason}, in place of MODEL_OVERRIDES' {registry.status}"
+                                 + (f" ({registry.season})" if registry.season else ""))
 
     row = {
         "table_section": section,
@@ -2346,9 +2420,17 @@ def overrides_table():
     lines = ["| Id | Customer | Status | Season | Why |", "|---:|---|---|---|---|"]
     for cid, o in sorted(MODEL_OVERRIDES.items(),
                          key=lambda item: (item[1].status, item[1].name)):
+        replaced = " **Replaced by the site's type.**" if cid in SITE_OVERRIDES else ""
         lines.append(f"| {cid} | {o.name} | {o.status} | {o.season or '-'} "
-                     f"| {o.reason} |")
+                     f"| {o.reason}{replaced} |")
     return "\n".join(lines)
+
+
+def site_overrides_table(names):
+    lines = ["| Id | Customer | Status | Season |", "|---:|---|---|---|"]
+    for cid, o in sorted(SITE_OVERRIDES.items()):
+        lines.append(f"| {cid} | {names.get(cid, '-')} | {o.status} | {o.season or '-'} |")
+    return "\n".join(lines) if len(lines) > 2 else "_none_"
 
 
 def theft_table(rows):
@@ -2586,7 +2668,7 @@ built here.
 
 ## Thefts ({sum(len(r["_thefts"]) for r in rows)})
 
-Confirmed thefts in `THEFTS`. The gap spanning each is left out of every rate;
+Confirmed thefts: `THEFTS` plus those marked on the site (`thefts.csv`). The gap spanning each is left out of every rate;
 the clock restarts at the theft. *Stolen (est.)* is today's rate x days from
 the last pickup to the theft, capped at capacity, less what was collected that
 day: an upper bound, for the record only, never used in a rate.
@@ -2596,6 +2678,12 @@ day: an upper bound, for the record only, never used in a rate.
 ## Model-status overrides ({len(MODEL_OVERRIDES)})
 
 {overrides_table()}
+
+### Set on the site's customer page ({len(SITE_OVERRIDES)})
+
+Each replaces the model's own choice and any entry above for that id.
+
+{site_overrides_table({r["customer_id"]: r["customer"] for r in rows})}
 
 Overridden customers still ranked: {", ".join(
     f"{r['customer']} ({r['model_status']})" for r in flagged_overrides) or "none"}.
@@ -2708,11 +2796,13 @@ def main():
 
     empty_checks = load_empty_checks(asof)
     site_edits = load_site_edits()
+    SITE_OVERRIDES.clear()
+    SITE_OVERRIDES.update(site_overrides(site_edits))
 
     _check_registries()
     owner_extras = apply_history_starts(pickups, empty_checks)
     shared_extras = combine_shared(pickups, empty_checks, capacities, regions, active)
-    thefts, theft_flags = apply_thefts(pickups, asof)
+    thefts, theft_flags = apply_thefts(pickups, asof, theft_registry())
     oil_left = apply_oil_left(pickups, load_oil_left(asof))
 
     rows = []

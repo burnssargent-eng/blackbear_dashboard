@@ -678,11 +678,46 @@ def check_oil_left(report, coll):
                   "the rest are checks at stops not collected.")
 
 
+def check_thefts(report):
+    """
+    thefts.csv: thefts marked on the site, exported nightly from the shared
+    database (supabase_sync.py --export-thefts); the builder reads each as a
+    confirmed theft. Customer id, day and gallons collected only: never the note.
+    """
+    import csv
+    from datetime import date
+    report.section("TH", "Thefts export")
+    path = "thefts.csv"
+    if not os.path.exists(path):
+        report.fail(f"{path} missing; the nightly commits it, and the projections read it.")
+        return
+    with open(path, newline="") as f:
+        reader = csv.DictReader(f)
+        header = reader.fieldnames
+        rows = list(reader)
+    if header != ["customer_id", "date", "collected"]:
+        report.fail(f"{path} has columns {header}; expected customer_id, date, collected only.")
+        return
+    bad = []
+    for r in rows:
+        try:
+            if int(r["collected"]) < 0:
+                raise ValueError
+            int(r["customer_id"]), date.fromisoformat(r["date"])
+        except (TypeError, ValueError):
+            bad.append(r)
+    if bad:
+        report.fail(f"{len(bad)} row(s) in {path} are not a whole id, a date and gallons >= 0, e.g. {bad[0]}.")
+    else:
+        report.ok(f"{path}: {len(rows)} theft(s) marked on the site.")
+
+
 def check_site_edits(report, geo_towns, data=None):
     """
     customer_edits.csv: names, towns and capacities edited on the site's
     customer page, exported nightly (supabase_sync.py --export-site-edits) for
-    the scraper and the projection builder. Ids, names, towns and capacities
+    the scraper and the projection builder, with the projection type and its
+    season. Ids, names, towns and capacities
     only: an address or phone never belongs in it. A town is an official
     Vermont town on the map or "Place, ST".
     """
@@ -699,7 +734,8 @@ def check_site_edits(report, geo_towns, data=None):
         header = reader.fieldnames
         rows = list(reader)
     from oil_scraper import SITE_THEMES
-    expected = ["customer_id", "name", "town", "capacity", "region", "themes", "status", "status_since"]
+    expected = ["customer_id", "name", "town", "capacity", "region", "themes", "status", "status_since",
+                "model", "season"]
     if header != expected:
         report.fail(f"{path} has columns {header}; expected {', '.join(expected)} only.")
         return
@@ -718,6 +754,11 @@ def check_site_edits(report, geo_towns, data=None):
                 date.fromisoformat(since)
             except ValueError:
                 odd.append(f"{r['customer_id']}: status since {since!r}")
+        model, season = r["model"].strip(), r["season"].strip()
+        if model not in ("", "will_call", "seasonal", "event") or (model == "seasonal") != bool(season) \
+                or (season and not re.fullmatch(r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-"
+                                                r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)", season)):
+            odd.append(f"{r['customer_id']}: projection type {model!r} season {season!r}")
     if odd:
         report.fail(f"Edits in {path} the scraper or builder cannot read: {', '.join(odd[:5])}.")
     bad, towns = [], []
@@ -1786,6 +1827,7 @@ def main():
     check_quantity_rule(report, coll)
     check_oil_left(report, coll)
     check_site_edits(report, geo_towns, data)
+    check_thefts(report)
     check_projection(report, data)
     check_live_test(report)
     check_route_snapshot(report)
