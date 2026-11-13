@@ -482,7 +482,7 @@ function actionBlockHtml(id, d, c, open) {
       <div class="ops-act-side">
         <div class="ops-act-pair">
           ${oilLeftReady ? `<button type="button" class="btn btn-outline-primary" data-act="left" data-id="${id}">Oil Left</button>` : ""}
-          ${c ? "" : `<button type="button" class="btn btn-danger" data-act="theft" data-id="${id}" aria-label="Report theft">Report Theft</button>`}
+          ${c && c.theft ? "" : `<button type="button" class="btn btn-danger" data-act="theft" data-id="${id}" aria-label="Report theft">Report Theft</button>`}
         </div>
         ${tel ? `<a class="btn ops-call-btn" href="${escapeHtml(tel)}" aria-label="Call the customer">${PHONE_ICON}Call</a>` : ""}
       </div>
@@ -596,7 +596,7 @@ function stopHtml(l, k, c, showing) {
     </div>` : theftForm ? `<div class="ops-theft-form">
       <label for="theft-gal-${k}" class="ops-theft-label">Theft. Gallons collected:</label>
       <input type="number" inputmode="numeric" min="0" class="form-control" id="theft-gal-${k}" placeholder="gal"
-        value="${theft ? c.gallons : ""}">
+        value="${theft || (c && c.gallons > 3) ? c.gallons : ""}">
       <label for="theft-note-${k}">Note <span class="text-muted">(optional)</span></label>
       <textarea class="form-control" id="theft-note-${k}" rows="2" placeholder="What happened?">${theft ? escapeHtml(theft.note) : ""}</textarea>
       <div class="d-flex gap-2">
