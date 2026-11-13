@@ -21,7 +21,7 @@ const window = {
 const code = ["dashboard-utils.js", "route-utils.js", "ops-common.js", "site-gate.js", "ops-db.js"]
   .map(f => fs.readFileSync(f, "utf8")).join("\n");
 const api = new Function("window", "const document = { getElementById: () => null };\n" + code + `
-  return { gateCardHtml, setDb: v => { opsDb = v; }, getDb: () => opsDb, opsFlush, freshStore, saveStore, loadStore, assignToRoute, moveStop, removeStop, recordCollection, recordTheft,
+  return { opsOfficePhones, gateCardHtml, setDb: v => { opsDb = v; }, getDb: () => opsDb, opsFlush, freshStore, saveStore, loadStore, assignToRoute, moveStop, removeStop, recordCollection, recordTheft,
     recordOilLeft, clearOilLeft, todaysOilLeft, oilLeftText, addShadowCustomer, createRoute, renameRoute, todaysCollection, todayIso, opsDiff, opsSharedPart,
     opsEnsureClientIds, opsStoreFromRows, opsDbAvailable, opsShared, opsWhere, shadowBannerHtml, OPS_STORAGE_KEY,
     opsTodayNote, opsSaveNotes, opsDayBefore, opsCollectedWith, opsCollectedWithText, opsSaveCollectedWith,
@@ -444,6 +444,17 @@ ok(rNew < -1000000000 && cNew.customer_id < -1000000000, "ids made on the device
   await api.opsSaveCustomer(60, { ...regOpened, region: "Central", themes: [] }, regOpened);
   ok(notesSent[0][3].site_region === "Central" && Array.isArray(notesSent[0][3].site_themes) && notesSent[0][3].site_themes.length === 0,
      "Change region and unticking a theme send site_region and an explicit empty theme list");
+
+  // ── My Route's Call ▾: office numbers live only in the database, read by members ──
+  ok(Array.isArray(await api.opsOfficePhones()) && (await api.opsOfficePhones()).length === 0,
+    "signed out (no database), Call ▾ has no numbers and does not show");
+  {
+    const schema = fs.readFileSync("db/schema.sql", "utf8");
+    const block = schema.slice(schema.indexOf("create table if not exists public.office_phones"));
+    ok(/enable row level security/.test(block) && /for select to authenticated\s+using \(\(select public\.is_member\(\)\)\)/.test(block)
+       && /revoke all on public\.office_phones from anon, authenticated;\s*grant select on public\.office_phones to authenticated;/.test(block),
+      "office_phones: members read it, nobody writes it from the site, the public key sees nothing");
+  }
 
   console.log(fails ? `\n${fails} FAILURE(S)` : "\nALL CHECKS PASSED");
   process.exit(fails ? 1 : 0);
