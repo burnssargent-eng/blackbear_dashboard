@@ -677,8 +677,8 @@ function opsApplySiteEdits(snap, index, customers) {
     if (!("_held" in row)) row._held = null;
     if (fresh && !row._held) {
       row._held = { section: row.section, status: row.status, projected_gal: row.projected_gal,
-        range_low: row.range_low, range_high: row.range_high, days_past_full: row.days_past_full, pct_full: row.pct_full };
-      Object.assign(row, { projected_gal: null, range_low: null, range_high: null, days_past_full: null, pct_full: null });
+        range_low: row.range_low, range_high: row.range_high, days_past_full: row.days_past_full, days_until_75: row.days_until_75, pct_full: row.pct_full };
+      Object.assign(row, { projected_gal: null, range_low: null, range_high: null, days_past_full: null, days_until_75: null, pct_full: null });
     } else if (!fresh && row._held) {
       Object.assign(row, row._held);
       row._held = null;

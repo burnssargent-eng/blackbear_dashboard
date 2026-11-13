@@ -348,7 +348,7 @@ function infoHtml(onRoutes, row, est, capacity, inactive) {
   const [geo, themes] = shownRegions();
   const cap = capacity != null ? formatWhole(capacity) : null;
   const proj = est.kind === "projected"
-    ? `<span class="ops-proj ops-fill-${fillLevel(row)}">~${formatWhole(est.gal)}${cap ? ` / ${cap}` : ""}</span>${daysBracketHtml(row.days_past_full)}`
+    ? `<span class="ops-proj ops-fill-${fillLevel(row)}">~${formatWhole(est.gal)}${cap ? ` / ${cap}` : ""}</span>${daysBracketHtml(daysPast75(row))}`
     : `${inactive ? "none" : "—"}${cap ? ` / ${cap}` : ""}`;
   // Capped like the [days] bracket (DAYS_SHOWN_CAP, ops-common.js): a slow barrel's 2,039 days
   // to 75% full reads "90+ days" (Sarge, 2026-11-12). Display only; the export keeps the figure.

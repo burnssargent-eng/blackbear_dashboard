@@ -1917,8 +1917,9 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thef
             days_past_cap = (exposure_days - reach(capacity)
                              if projected > capacity else 0.0)
             # Signed, as the source site's [days over]: negative = days still
-            # to reach full, positive = days past it. The shadow site shows it
-            # beside each stop. Open days to full count as calendar days, as
+            # to reach full, positive = days past it. The shadow site showed it
+            # beside each stop until 2026-11-13; its [n] now counts to 75%
+            # (-days_until_75), and this stays for the projection table. Open days to full count as calendar days, as
             # days_until does above.
             to_full = reach(capacity) - exposure_days
             if open_months and to_full > 0:

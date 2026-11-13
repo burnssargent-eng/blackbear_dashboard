@@ -421,7 +421,7 @@ ok(rNew < -1000000000 && cNew.customer_id < -1000000000, "ids made on the device
   // Status and region from the customer page.
   notesSent.length = 0;
   const stIndex = new Map([[60, { id: 60, name: "S", town: "Stowe", section: "ranked", status: "50/50 default",
-    projected_gal: 40, range_low: 30, range_high: 50, days_past_full: -3, pct_full: 72, last_pickup: "2026-10-01" }]]);
+    projected_gal: 40, range_low: 30, range_high: 50, days_past_full: -3, days_until_75: 2, pct_full: 72, last_pickup: "2026-10-01" }]]);
   stIndex.asOf = "2026-11-02";
   const stSnap = { assign_list: [{ customer_id: 60, name: "S", city: "Stowe" }], routes: [] };
   api.setDb({ client: { from: table }, rows: { customers: [{ id: 60, name: "S", city: "Stowe", site_status: null }] },
@@ -430,11 +430,11 @@ ok(rNew < -1000000000 && cNew.customer_id < -1000000000, "ids made on the device
   await api.opsSaveStatus(60, "inactive", "2026-11-02");
   ok(notesSent[0][3].site_status === "inactive" && notesSent[0][3].site_status_since === "2026-11-02"
      && api.opsSiteStatus(60, "2026-10-01").status === "inactive", "marking inactive saves the status and its day");
-  ok(stIndex.get(60).projected_gal === null && stIndex.get(60).section === "inactive",
+  ok(stIndex.get(60).projected_gal === null && stIndex.get(60).days_until_75 === null && stIndex.get(60).section === "inactive",
      "marked since the projections were built, the row drops its projection at once");
   ok(api.opsSiteStatus(60, "2026-11-03") === null, "a pickup after its day ends it");
   await api.opsSaveStatus(60, null, null);
-  ok(notesSent[1][3].site_status === null && stIndex.get(60).projected_gal === 40 && stIndex.get(60).section === "ranked",
+  ok(notesSent[1][3].site_status === null && stIndex.get(60).projected_gal === 40 && stIndex.get(60).days_until_75 === 2 && stIndex.get(60).section === "ranked",
      "reopened: the status clears and the row's projection comes back");
   stIndex.asOf = "2026-11-05";
   await api.opsSaveStatus(60, "closed_season", "2026-11-02");
