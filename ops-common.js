@@ -526,13 +526,23 @@ function stopFiguresHtml(row, capacity) {
   // A will-call / limited-data estimate carries its section in grey.
   const label = projectionLabel(row);
   return `<span class="ops-proj ops-fill-${fillLevel(row)}">(~${formatWhole(est.gal)} gal / ${capText})</span>` +
-    daysBracketHtml(row.days_past_full) +
+    daysBracketHtml(daysPast75(row)) +
     (label ? ` <span class="ops-muted">${escapeHtml(label)}</span>` : "");
 }
 
 /**
- * " [28]": days past full, shown capped at ±90 ("[90]", "[-90]"); nothing when there is no figure.
- * Display only: the export, the ranking and every sort keep the real days_past_full.
+ * The [n] beside a stop: signed days from the 75% pickup point (Sarge, 2026-11-13), "[-31]" = 31
+ * days still to reach 75%, "[12]" = 12 days past it. Until then it counted to a FULL barrel
+ * (days_past_full), which ran far out for customers whose projection slows near capacity (the
+ * Genny, 551: [-76] to full, [-31] to 75%). From the builder's own days_until_75; null without one.
+ */
+function daysPast75(row) {
+  return row && row.days_until_75 !== null && row.days_until_75 !== undefined ? -row.days_until_75 : null;
+}
+
+/**
+ * " [28]": days past 75% (daysPast75), shown capped at ±90 ("[90]", "[-90]"); nothing when there
+ * is no figure. Display only: the export, the ranking and every sort keep the real figure.
  */
 const DAYS_SHOWN_CAP = 90;
 function daysBracketHtml(days) {

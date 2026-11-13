@@ -25,7 +25,7 @@ const api = new Function("window", code + `
     recordCollection, todaysCollection, liveRouteTotals, routeSummary, recordTheft, theftGallonsText,
     recordOilLeft, todaysOilLeft, clearOilLeft, collectionLines, daysBracketHtml,
     resolveTownInput, VT_TOWNS, OUT_OF_STATE_TOWNS, TOWN_ALIASES, SPLIT_TOWNS, TOWN_CHOICES,
-    stopFiguresHtml, projectionBadgeText };`)(window);
+    stopFiguresHtml, projectionBadgeText, daysPast75 };`)(window);
 
 let fails = 0;
 const ok = (cond, msg) => {
@@ -343,6 +343,16 @@ ok(api.daysBracketHtml(28.4).includes("[28]") && api.daysBracketHtml(90).include
    && api.daysBracketHtml(213).includes("[90]") && api.daysBracketHtml(-1661.3).includes("[-90]")
    && api.daysBracketHtml(-89.6).includes("[-90]") && api.daysBracketHtml(null) === "" && api.daysBracketHtml(0).includes("[0]"),
    "[days] shows capped at ±90, nothing without a figure");
+
+// The [n] counts to the 75% pickup point, not to full: negative = days to go, positive = days past.
+{
+  const toGo = { section: "ranked", projected_gal: 70, capacity: 165, pct_full: 42, days_until_75: 30.6, days_past_full: -76.4 };
+  const past = { ...toGo, days_until_75: -12.2, days_past_full: 20 };
+  ok(api.daysPast75(toGo) === -30.6 && api.daysPast75(past) === 12.2 && api.daysPast75({}) === null && api.daysPast75(null) === null,
+    "daysPast75: negative before 75%, positive after, null without a figure");
+  ok(api.stopFiguresHtml(toGo, 165).includes("[-31]") && !api.stopFiguresHtml(toGo, 165).includes("[-76]")
+     && api.stopFiguresHtml(past, 165).includes("[12]"), "a stop's [n] is days from 75%, not from full");
+}
 
 console.log(fails ? `${fails} FAILED` : "all shadow site checks passed");
 process.exit(fails ? 1 : 0);

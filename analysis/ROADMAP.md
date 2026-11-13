@@ -93,8 +93,9 @@ runs on a copy of its data, and every change stays in the viewer's browser.
     Positions come from the customer details (the shared database since step 6): the site's own when stored,
     else the US Census geocoder, else the town centre.
   - Label rule: one hedge only, "~", with figures beside the name as on the
-    source site. "Name (~87 gal / 300) [28]", where [28] is days past full
-    (negative = to full), from the new `days_past_full` export. % full only
+    source site. "Name (~87 gal / 300) [28]", where [28] is days past the 75%
+    pickup point (negative = to 75%), from `days_until_75` since 2026-11-13
+    (days past full, `days_past_full`, before). % full only
     sets the colour; it is not shown as a column. Only the route table's
     total row is written out, in bold: "Total projected gal: 500 / 1000".
   - The driver view enters gallons inline again (box, Save, Empty), with a
