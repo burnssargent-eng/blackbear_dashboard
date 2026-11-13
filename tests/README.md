@@ -66,6 +66,14 @@ nightly doing nothing before a first copy by hand, skipped customers not yet in
 the database, a broken file reported while the rest copy and retried the next
 night, a photo removed on the site never copied back, and dry runs writing nothing.
 
+`export_collections_test.py` is Python too: `python3 tests/export_collections_test.py`.
+It runs `supabase_sync.py --export-collections` on made-up rows with a stand-in
+database: the site's entries replace the scrape's from `--since` on while older
+rows stay, pickups and 0-3 codes split as the scraper splits them (its
+`EMPTY_QTYS` and columns), each customer keeps its newest-first block, name and
+status follow the database, a second run changes nothing, and an empty or
+partial read or a bad `--since` is refused with the files untouched.
+
 `supabase_sync_test.py` is Python, so `run_all.js` does not run it: run it with
 `python3 tests/supabase_sync_test.py`. It runs `supabase_sync.py` against the
 committed data files and a stand-in database (no network, no key): the seed

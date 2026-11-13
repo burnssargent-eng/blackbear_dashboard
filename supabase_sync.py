@@ -81,10 +81,20 @@ Thefts marked on the site (collections.theft) go the same way:
 --export-thefts writes thefts.csv (customer id, day, gallons collected; never
 the note), and the builder treats each as a confirmed theft (THEFTS).
 
-    python3 supabase_sync.py --seed   # first fill (run after jamaal_customers.py --refresh)
+--export-collections --since DAY (Sarge, 2026-11-13: the step that lets the
+site run without the source site) replaces the scrape's pickups and 0-3 codes
+from DAY on, in oil_collections_raw.csv and oil_non_pickups.csv, with the
+site's; rows before DAY, the source site's history, are kept as they are. A
+plain `python3 oil_scraper.py` (no network) then rebuilds the dashboard files
+and the projection builder runs as usual. It refuses, writing nothing, when
+the database returns under half the pickups the file holds for the window.
+Not in the nightly yet: until the switch the scrape stays the source.
+
+    python3 supabase_sync.py --seed  # first fill (run after jamaal_customers.py --refresh)
     python3 supabase_sync.py --export-details   # nightly, first: the details files from the database
     python3 supabase_sync.py --export-oil-left  # nightly, before the projections: oil_left.csv
     python3 supabase_sync.py --export-thefts    # nightly, before the projections: thefts.csv
+    python3 supabase_sync.py --export-collections --since 2026-10-26   # the site's pickups from that day on
     python3 supabase_sync.py          # nightly
     python3 supabase_sync.py --routes   # 7am: the site's routes set to the source site's
     python3 supabase_sync.py --history  # also re-copy the source site's whole history
@@ -568,6 +578,131 @@ def theft_lines(rows):
     return sorted({(int(r["customer_id"]), r["picked_on"], int(r["gallons"])) for r in rows})
 
 
+RAW_FILE = "oil_collections_raw.csv"
+RAW_FIELDS = ["customer_id", "name", "city", "county", "date", "year", "month", "gallons", "is_active", "geo_town"]
+NON_PICKUP_FILE = "oil_non_pickups.csv"
+NON_PICKUP_FIELDS = ["customer_id", "date", "qty"]
+EMPTY_QTYS = {0, 1, 2, 3}          # must match oil_scraper.EMPTY_QTYS (tests/export_collections_test.py)
+EXPORT_MIN_SHARE = 0.5             # refuse when the database has under half the window's pickups
+
+
+def site_collection_files(collections, customers, raw_rows, code_rows, since):
+    """
+    --export-collections, without files or network: the scrape's two outputs
+    with every entry from `since` (a "YYYY-MM-DD" day) on replaced by the
+    site's. Returns (raw rows, code rows, window counts), rows as dicts in the
+    files' own columns.
+
+      collections  the database's site rows: customer_id, picked_on, gallons
+      customers    the database's customers: id, name, city, active
+      raw_rows     oil_collections_raw.csv as it stands (dicts of strings)
+      code_rows    oil_non_pickups.csv as it stands
+
+    Rows before `since` are kept as they are: that is the source site's
+    history, and nothing after the switch can rebuild it. A pickup over 3
+    gallons goes to the raw file and a 0-3 code to the non-pickups file, as
+    the scraper splits them. Each customer keeps its block in the raw file
+    (newest first, as the scraper writes it) with the site's rows at the top;
+    a customer new to the file goes at the end. name and is_active follow the
+    database on every row, as a scrape stamps the current ones (after the
+    switch the site decides who is active). A new row's city is the
+    customer's newest row's, else the database's; customer_edits.csv corrects
+    towns, and a plain oil_scraper.py run re-derives county and geo_town.
+    """
+    by_id = {int(c["id"]): c for c in customers}
+    order, kept, newest = [], {}, {}
+    for r in raw_rows:
+        cid = int(r["customer_id"])
+        if cid not in newest:
+            order.append(cid)
+            newest[cid] = r
+        if r["date"] < since:
+            kept.setdefault(cid, []).append(dict(r))
+
+    fresh, codes = {}, []
+    for row in collections:
+        day, gal, cid = row["picked_on"], int(row["gallons"]), int(row["customer_id"])
+        if day < since:
+            continue
+        if gal in EMPTY_QTYS:
+            codes.append({"customer_id": str(cid), "date": day, "qty": str(gal)})
+            continue
+        old = newest.get(cid) or {}
+        db_city = (by_id.get(cid) or {}).get("city") or ""
+        fresh.setdefault(cid, []).append({
+            "customer_id": str(cid), "city": old.get("city") or db_city, "county": old.get("county", ""),
+            "date": day, "year": day[:4], "month": day[:7], "gallons": str(gal),
+            "geo_town": old.get("geo_town", "")})
+    for rows in fresh.values():
+        rows.sort(key=lambda r: (r["date"], int(r["gallons"])), reverse=True)
+
+    out = []
+    for cid in order:
+        out += fresh.get(cid, []) + kept.get(cid, [])
+    for cid in sorted(set(fresh) - set(order)):
+        out += fresh[cid]
+    for r in out:
+        cid = int(r["customer_id"])
+        c, old = by_id.get(cid), newest.get(cid)
+        r["name"] = (c and c.get("name")) or (old and old["name"]) or f"#{cid}"
+        if c and c.get("active") is not None:
+            r["is_active"] = str(bool(c["active"]))
+        else:
+            r["is_active"] = old["is_active"] if old else ""
+
+    codes_out = [dict(r) for r in code_rows if r["date"] < since] + codes
+    codes_out.sort(key=lambda r: (int(r["customer_id"]), r["date"], int(r["qty"])))
+    window = {"file_pickups": sum(1 for r in raw_rows if r["date"] >= since),
+              "file_codes": sum(1 for r in code_rows if r["date"] >= since),
+              "site_pickups": sum(len(v) for v in fresh.values()), "site_codes": len(codes)}
+    return out, codes_out, window
+
+
+def write_collection_files(raw, codes, raw_file=RAW_FILE, codes_file=NON_PICKUP_FILE):
+    """The two files in the scraper's own formats (pandas' \\n; csv's \\r\\n for the codes)."""
+    for path, fields, rows, term in ((raw_file, RAW_FIELDS, raw, "\n"),
+                                     (codes_file, NON_PICKUP_FIELDS, codes, "\r\n")):
+        tmp = path + ".tmp"
+        with open(tmp, "w", newline="") as fh:
+            w = csv.DictWriter(fh, fieldnames=fields, lineterminator=term, extrasaction="ignore")
+            w.writeheader()
+            w.writerows(rows)
+        os.replace(tmp, path)
+
+
+def read_csv_rows(path):
+    if not os.path.exists(path):
+        return []
+    with open(path, newline="") as fh:
+        return list(csv.DictReader(fh))
+
+
+def export_collections(db, since, raw_file=RAW_FILE, codes_file=NON_PICKUP_FILE):
+    """
+    --export-collections --since DAY: the site's pickups and 0-3 codes replace
+    the scrape's from DAY on, in oil_collections_raw.csv and oil_non_pickups.csv.
+    Then a plain `python3 oil_scraper.py` (no network) rebuilds the dashboard
+    files from them, and the projection builder runs as usual. Refuses,
+    writing nothing, when the database returns under EXPORT_MIN_SHARE of the
+    pickups the file already holds for the window: an empty or partial read
+    must never replace real history.
+    """
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", since or ""):
+        raise SyncError(f"--since must be a YYYY-MM-DD day, not {since!r}")
+    collections = db.select("collections", "select=customer_id,picked_on,gallons"
+                                           f"&source=eq.site&picked_on=gte.{since}&order=id")
+    customers = db.select("customers", "select=id,name,city,active&order=id")
+    raw, codes, window = site_collection_files(collections, customers, read_csv_rows(raw_file),
+                                               read_csv_rows(codes_file), since)
+    if window["site_pickups"] < EXPORT_MIN_SHARE * window["file_pickups"]:
+        raise SyncError(f"the database has {window['site_pickups']} site pickup(s) since {since}, "
+                        f"the file {window['file_pickups']}: nothing written")
+    write_collection_files(raw, codes, raw_file, codes_file)
+    print(f"Site collections since {since}: {window['site_pickups']} pickup(s) and {window['site_codes']} "
+          f"code(s), in place of the file's {window['file_pickups']} and {window['file_codes']}")
+    return window
+
+
 def export_thefts(db, out=THEFTS_FILE):
     """--export-thefts: thefts marked on the site, for the projection builder."""
     rows = theft_lines(db.select("collections", "select=customer_id,picked_on,gallons&theft=is.true"))
@@ -974,6 +1109,10 @@ def main():
                     help=f"write {THEFTS_FILE} (thefts marked on the site) from the database, and nothing else")
     ap.add_argument("--export-site-edits", action="store_true",
                     help=f"write {EDITS_FILE} (names, towns, capacities edited on the site), and nothing else")
+    ap.add_argument("--export-collections", action="store_true",
+                    help=f"replace the entries from --since on in {RAW_FILE} and {NON_PICKUP_FILE} "
+                         "with the site's, and nothing else")
+    ap.add_argument("--since", help="--export-collections: the first day taken from the site (YYYY-MM-DD)")
     ap.add_argument("--place-pins", action="store_true",
                     help="move the map pin of each address edited on the site, and nothing else")
     args = ap.parse_args()
@@ -991,6 +1130,8 @@ def main():
             export_thefts(db)
         elif args.export_site_edits:
             export_site_edits(db)
+        elif args.export_collections:
+            export_collections(db, args.since)
         elif args.place_pins:
             place_pins(db)
         elif args.routes:
