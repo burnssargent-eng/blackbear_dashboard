@@ -1,5 +1,5 @@
 {
- "scraped_at": "2026-11-13T12:00:11+00:00",
+ "scraped_at": "2026-11-13T15:07:31+00:00",
  "source": "routes_assigned.php, assign_routes.php",
  "routes": [
   {
@@ -159,40 +159,8 @@
   {
    "route_id": 6,
    "name": "OuterBton",
-   "assigned_capacity": 2220,
+   "assigned_capacity": 1615,
    "stops": [
-    {
-     "assignment_id": 24547,
-     "customer_id": 1492,
-     "name": "Pizza Hut Berlin",
-     "capacity": 55,
-     "days_over": 17,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24546,
-     "customer_id": 107,
-     "name": "Exit 7, Berlin Rest Area-Maplewoods",
-     "capacity": 200,
-     "days_over": 5,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24558,
-     "customer_id": 1135,
-     "name": "Waterworks-Winooski",
-     "capacity": 150,
-     "days_over": -5,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24555,
-     "customer_id": 1538,
-     "name": "Sugar House Hotel",
-     "capacity": 200,
-     "days_over": -19,
-     "must_get": false
-    },
     {
      "assignment_id": 24552,
      "customer_id": 1547,
@@ -595,7 +563,7 @@
    "customer_id": 107,
    "name": "Exit 7, Berlin Rest Area-Maplewoods",
    "city": "Berlin",
-   "days_over": 5
+   "days_over": -20
   },
   {
    "customer_id": 1210,
@@ -607,7 +575,7 @@
    "customer_id": 1492,
    "name": "Pizza Hut Berlin",
    "city": "Berlin",
-   "days_over": 17
+   "days_over": -28
   },
   {
    "customer_id": 106,
@@ -3805,7 +3773,7 @@
    "customer_id": 1538,
    "name": "Sugar House Hotel",
    "city": "Winooski",
-   "days_over": -19
+   "days_over": -28
   },
   {
    "customer_id": 1259,
@@ -3829,7 +3797,7 @@
    "customer_id": 1135,
    "name": "Waterworks-Winooski",
    "city": "Winooski",
-   "days_over": -5
+   "days_over": -21
   },
   {
    "customer_id": 1517,

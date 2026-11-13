@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-12T15:48:09.922847",
+  "last_updated": "2026-11-13T15:07:25.335929",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -34413,6 +34413,12 @@
     },
     {
       "month": "2026-11",
+      "geo_town": "Berlin",
+      "gallons": 260,
+      "city": "Berlin"
+    },
+    {
+      "month": "2026-11",
       "geo_town": "Bristol",
       "gallons": 35,
       "city": "Bristol"
@@ -34503,6 +34509,12 @@
     },
     {
       "month": "2026-11",
+      "geo_town": "Newport City",
+      "gallons": 280,
+      "city": "Newport City"
+    },
+    {
+      "month": "2026-11",
       "geo_town": "North Hero",
       "gallons": 90,
       "city": "North Hero"
@@ -34578,6 +34590,12 @@
       "geo_town": "Wilmington",
       "gallons": 85,
       "city": "Wilmington"
+    },
+    {
+      "month": "2026-11",
+      "geo_town": "Winooski",
+      "gallons": 120,
+      "city": "Winooski"
     }
   ],
   "monthly_by_county": [
@@ -42449,7 +42467,7 @@
     {
       "month": "2026-11",
       "county": "Chittenden",
-      "gallons": 4015
+      "gallons": 4135
     },
     {
       "month": "2026-11",
@@ -42469,7 +42487,7 @@
     {
       "month": "2026-11",
       "county": "Orleans",
-      "gallons": 162
+      "gallons": 442
     },
     {
       "month": "2026-11",
@@ -42484,7 +42502,7 @@
     {
       "month": "2026-11",
       "county": "Washington",
-      "gallons": 1520
+      "gallons": 1780
     },
     {
       "month": "2026-11",
@@ -42544,12 +42562,12 @@
     },
     {
       "year": 2026,
-      "gallons": 257782
+      "gallons": 258442
     }
   ],
-  "all_time_total": 2176549,
-  "current_year_total": 257782,
-  "customer_count": 810,
+  "all_time_total": 2177209,
+  "current_year_total": 258442,
+  "customer_count": 811,
   "unmapped_total": 40915,
   "monthly_totals": [
     {
@@ -43122,7 +43140,7 @@
     },
     {
       "month": "2026-11",
-      "gallons": 9814
+      "gallons": 10474
     }
   ],
   "monthly_by_region": [
@@ -54909,12 +54927,17 @@
     {
       "month": "2026-11",
       "region": "Central",
-      "gallons": 940
+      "gallons": 1200
     },
     {
       "month": "2026-11",
       "region": "Central South",
       "gallons": 50
+    },
+    {
+      "month": "2026-11",
+      "region": "North-Northeast",
+      "gallons": 280
     },
     {
       "month": "2026-11",
@@ -54929,7 +54952,7 @@
     {
       "month": "2026-11",
       "region": "Outer Burlington",
-      "gallons": 710
+      "gallons": 830
     },
     {
       "month": "2026-11",
@@ -56011,7 +56034,7 @@
     {
       "year": 2026,
       "region": "Central",
-      "gallons": 25475
+      "gallons": 25735
     },
     {
       "year": 2026,
@@ -56021,7 +56044,7 @@
     {
       "year": 2026,
       "region": "North-Northeast",
-      "gallons": 15542
+      "gallons": 15822
     },
     {
       "year": 2026,
@@ -56036,7 +56059,7 @@
     {
       "year": 2026,
       "region": "Outer Burlington",
-      "gallons": 26303
+      "gallons": 26423
     },
     {
       "year": 2026,
@@ -56145,20 +56168,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 28030,
+  "collections_count": 28035,
   "out_of_state_total": 40915,
-  "active_customer_count": 536,
+  "active_customer_count": 537,
   "projection": {
-    "latest_data_date": "2026-11-11",
+    "latest_data_date": "2026-11-13",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 257782,
+    "current_ytd": 258442,
     "previous_year_full": 269909,
     "previous_through_prior_month": 230827,
     "previous_same_month_total": 20207,
-    "previous_prorated_ytd": 238236.23,
-    "projected_current_year": 292053,
-    "percent_vs_previous_year": 0.082044
+    "previous_prorated_ytd": 239583.37,
+    "projected_current_year": 291155,
+    "percent_vs_previous_year": 0.078714
   },
   "region_stats": {
     "Burlington / South Burlington": {
@@ -56186,8 +56209,8 @@
       "active": 15
     },
     "Outer Burlington": {
-      "customers": 59,
-      "active": 47
+      "customers": 60,
+      "active": 48
     },
     "Perrigo": {
       "customers": 1,
@@ -56318,10 +56341,10 @@
     },
     {
       "year": 2026,
-      "places_serviced": 483,
-      "gained": 48,
+      "places_serviced": 484,
+      "gained": 49,
       "lost": 8,
-      "net": 40
+      "net": 41
     }
   ],
   "dormant_cutoff": "2025-01-01",
@@ -56866,7 +56889,8 @@
       1459,
       1495,
       1509,
-      1517
+      1517,
+      1538
     ],
     "Perrigo": [
       423
@@ -57512,7 +57536,7 @@
     {
       "year": 2026,
       "active_jan1": 471,
-      "gained_new": 48,
+      "gained_new": 49,
       "gained_successor": 6,
       "lost": 0,
       "closed": 0,
@@ -57520,7 +57544,7 @@
       "moved": 0,
       "unknown": 8,
       "moved_followed": 0,
-      "gained": 54,
+      "gained": 55,
       "ended": 10,
       "churn": 0.0,
       "churn_high": 0.017,
@@ -57545,6 +57569,6 @@
     "avg_gained_new": 62.1,
     "avg_gained_successor": 1.8,
     "median_years_served": 1.6,
-    "current_businesses": 515
+    "current_businesses": 516
   }
 }

@@ -1045,6 +1045,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 108,CVMC-Berlin Hospital,Berlin,Washington,2017-05-13,2017,2017-05,55,True,Berlin
 108,CVMC-Berlin Hospital,Berlin,Washington,2017-04-01,2017,2017-04,10,True,Berlin
 1444,Dan-Jockey Hollow 2025,Berlin,Washington,2025-08-21,2025,2025-08,85,True,Berlin
+107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2026-11-13,2026,2026-11,230,True,Berlin
 107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2026-10-19,2026,2026-10,150,True,Berlin
 107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2026-09-29,2026,2026-09,110,True,Berlin
 107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2026-09-18,2026,2026-09,190,True,Berlin
@@ -1184,6 +1185,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2019-05-09,2019,2019-05,75,True,Berlin
 107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2019-04-11,2019,2019-04,150,True,Berlin
 107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,Washington,2019-03-15,2019,2019-03,110,True,Berlin
+1492,Pizza Hut Berlin,Berlin,Washington,2026-11-13,2026,2026-11,30,True,Berlin
 1492,Pizza Hut Berlin,Berlin,Washington,2026-09-29,2026,2026-09,15,True,Berlin
 1492,Pizza Hut Berlin,Berlin,Washington,2026-08-27,2026,2026-08,25,True,Berlin
 1492,Pizza Hut Berlin,Berlin,Washington,2026-07-15,2026,2026-07,30,True,Berlin
@@ -12444,6 +12446,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 534,Dusit Thai,Newport,Orleans,2017-02-21,2017,2017-02,15,True,Newport City
 534,Dusit Thai,Newport,Orleans,2017-01-31,2017,2017-01,40,True,Newport City
 534,Dusit Thai,Newport,Orleans,2016-12-09,2016,2016-12,20,True,Newport City
+1171,Hoagies-Newport,Newport,Orleans,2026-11-12,2026,2026-11,280,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2026-10-20,2026,2026-10,180,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2026-10-06,2026,2026-10,250,True,Newport City
 1171,Hoagies-Newport,Newport,Orleans,2026-09-15,2026,2026-09,165,True,Newport City
@@ -22143,33 +22146,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1129,Hog back Mountain (Collect July)country store,Wilmington,Windham,2025-07-23,2025,2025-07,50,True,Wilmington
 1129,Hog back Mountain (Collect July)country store,Wilmington,Windham,2024-07-16,2024,2024-07,60,True,Wilmington
 1532,Valley Crest Ales-Wilmington,Wilmington,Windham,2026-11-11,2026,2026-11,65,True,Wilmington
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-10-28,2026,2026-10,110,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-09-16,2026,2026-09,130,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-08-11,2026,2026-08,80,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-07-08,2026,2026-07,65,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-06-17,2026,2026-06,60,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-05-28,2026,2026-05,50,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-05-14,2026,2026-05,75,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-04-27,2026,2026-04,80,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-04-08,2026,2026-04,65,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-03-19,2026,2026-03,50,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-03-05,2026,2026-03,65,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-02-10,2026,2026-02,60,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-01-14,2026,2026-01,50,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2026-01-03,2026,2026-01,10,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2025-12-16,2025,2025-12,70,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2025-11-19,2025,2025-11,45,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2025-11-07,2025,2025-11,90,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2025-10-15,2025,2025-10,80,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2025-09-24,2025,2025-09,100,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2025-09-01,2025,2025-09,60,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2025-08-15,2025,2025-08,90,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2025-07-07,2025,2025-07,65,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2025-06-17,2025,2025-06,50,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2025-06-02,2025,2025-06,60,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2025-05-20,2025,2025-05,80,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2025-04-28,2025,2025-04,50,True,Winooski
-1408,*NEW *Donwoori-Winooski,Winooski,Chittenden,2025-04-15,2025,2025-04,80,True,Winooski
 434,Asian Bistro-Winooski,Winooski,Chittenden,2026-10-28,2026,2026-10,40,True,Winooski
 434,Asian Bistro-Winooski,Winooski,Chittenden,2026-09-11,2026,2026-09,45,True,Winooski
 434,Asian Bistro-Winooski,Winooski,Chittenden,2026-07-17,2026,2026-07,70,True,Winooski
@@ -22238,6 +22214,33 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 434,Asian Bistro-Winooski,Winooski,Chittenden,2018-03-16,2018,2018-03,30,True,Winooski
 434,Asian Bistro-Winooski,Winooski,Chittenden,2018-02-15,2018,2018-02,20,True,Winooski
 434,Asian Bistro-Winooski,Winooski,Chittenden,2018-01-27,2018,2018-01,100,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2026-10-28,2026,2026-10,110,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2026-09-16,2026,2026-09,130,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2026-08-11,2026,2026-08,80,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2026-07-08,2026,2026-07,65,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2026-06-17,2026,2026-06,60,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2026-05-28,2026,2026-05,50,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2026-05-14,2026,2026-05,75,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2026-04-27,2026,2026-04,80,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2026-04-08,2026,2026-04,65,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2026-03-19,2026,2026-03,50,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2026-03-05,2026,2026-03,65,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2026-02-10,2026,2026-02,60,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2026-01-14,2026,2026-01,50,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2026-01-03,2026,2026-01,10,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2025-12-16,2025,2025-12,70,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2025-11-19,2025,2025-11,45,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2025-11-07,2025,2025-11,90,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2025-10-15,2025,2025-10,80,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2025-09-24,2025,2025-09,100,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2025-09-01,2025,2025-09,60,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2025-08-15,2025,2025-08,90,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2025-07-07,2025,2025-07,65,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2025-06-17,2025,2025-06,50,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2025-06-02,2025,2025-06,60,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2025-05-20,2025,2025-05,80,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2025-04-28,2025,2025-04,50,True,Winooski
+1408,Donwoori-Winooski,Winooski,Chittenden,2025-04-15,2025,2025-04,80,True,Winooski
 445,Four Quarters-Winooski,Winooski,Chittenden,2026-10-16,2026,2026-10,90,True,Winooski
 445,Four Quarters-Winooski,Winooski,Chittenden,2026-08-11,2026,2026-08,65,True,Winooski
 445,Four Quarters-Winooski,Winooski,Chittenden,2026-07-08,2026,2026-07,70,True,Winooski
@@ -22686,6 +22689,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 443,Southern Smoke-Winooski,Winooski,Chittenden,2021-11-01,2021,2021-11,30,True,Winooski
 443,Southern Smoke-Winooski,Winooski,Chittenden,2021-08-04,2021,2021-08,50,True,Winooski
 443,Southern Smoke-Winooski,Winooski,Chittenden,2020-09-11,2020,2020-09,50,True,Winooski
+1538,Sugar House Hotel,Winooski,Chittenden,2026-11-13,2026,2026-11,20,True,Winooski
 1259,Test Kitchen winooski/Canoli,Winooski,Chittenden,2024-04-25,2024,2024-04,15,True,Winooski
 1259,Test Kitchen winooski/Canoli,Winooski,Chittenden,2024-04-16,2024,2024-04,45,True,Winooski
 1259,Test Kitchen winooski/Canoli,Winooski,Chittenden,2023-08-16,2023,2023-08,20,True,Winooski
@@ -22927,6 +22931,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 433,Tiny Thai,Winooski,Chittenden,2018-08-09,2018,2018-08,125,True,Winooski
 433,Tiny Thai,Winooski,Chittenden,2018-04-03,2018,2018-04,25,True,Winooski
 433,Tiny Thai,Winooski,Chittenden,2018-03-16,2018,2018-03,5,True,Winooski
+1135,Waterworks-Winooski,Winooski,Chittenden,2026-11-13,2026,2026-11,100,True,Winooski
 1135,Waterworks-Winooski,Winooski,Chittenden,2026-10-28,2026,2026-10,100,True,Winooski
 1135,Waterworks-Winooski,Winooski,Chittenden,2026-10-08,2026,2026-10,120,True,Winooski
 1135,Waterworks-Winooski,Winooski,Chittenden,2026-09-16,2026,2026-09,80,True,Winooski
