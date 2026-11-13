@@ -309,6 +309,28 @@ const opsDbSession = (async () => {
   } catch (err) { return null; }
 })();
 
+/*
+ * The office's numbers for My Route's Call menu (table office_phones), minus the person signed
+ * in, as [{ name, phone }] in menu order. Kept on this device after each load, so the menu still
+ * works where the truck has no signal; [] when signed out or before the table exists.
+ */
+const OPS_OFFICE_PHONES_KEY = "bbb-ops-office-phones";
+async function opsOfficePhones() {
+  const session = await opsDbSession;
+  if (!opsDbClient || !session || !session.person) return [];
+  const mine = list => list.filter(p => p.name !== session.person.name);
+  const cached = opsReadJson(OPS_OFFICE_PHONES_KEY, null);
+  try {
+    const { data, error } = await opsDbClient.from("office_phones").select("name,phone,position").order("position");
+    if (error) throw error;
+    const list = (data || []).map(p => ({ name: p.name, phone: p.phone }));
+    opsWriteJson(OPS_OFFICE_PHONES_KEY, { user_id: session.user.id, list });
+    return mine(list);
+  } catch (err) {
+    return cached && cached.user_id === session.user.id ? mine(cached.list) : [];
+  }
+}
+
 const OPS_CUSTOMER_COLS = "id,name,city,address,capacity,periodicity_days,phone,notes,shared_with,created_on,lat,lon,loc";
 // Name, town and capacity edited on the customer page (db/schema.sql); empty = the source site's.
 const OPS_SITE_EDIT_COLS = "site_name,site_town,site_capacity,site_region,site_themes,site_status,site_status_since";
@@ -908,7 +930,7 @@ function opsWireSignIn(container) {
           !window.confirm(`${opsDb.queue.length} change(s) have not been sent yet. Sign out and lose them?`)) return;
       await opsDbClient.auth.signOut();
       gateRemember(null);
-      [OPS_QUEUE_KEY, OPS_CACHE_KEY].forEach(k => { try { window.localStorage.removeItem(k); } catch (err) { /* */ } });
+      [OPS_QUEUE_KEY, OPS_CACHE_KEY, OPS_OFFICE_PHONES_KEY].forEach(k => { try { window.localStorage.removeItem(k); } catch (err) { /* */ } });
       window.location.reload();
     }
   });

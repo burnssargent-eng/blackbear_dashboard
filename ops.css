@@ -354,6 +354,15 @@ details.ops-route[open] > summary .ops-row-chev { transform: rotate(90deg); }
 .ops-left-form input { width: 90px; height: 33px; padding: 2px 8px; font-size: 16px; }
 .ops-left-form .btn { height: 33px; padding: 0 12px; font-size: 14px;
   display: inline-flex; align-items: center; }
+/* My Route's title row: Call ▾ to the office, its numbers in a list dropping below (above the map). */
+.ops-call-office { position: relative; flex: 0 0 auto; }
+.ops-call-office > .btn { height: 31px; padding: 0 10px; font-size: 14px; font-weight: 600;
+  display: inline-flex; align-items: center; gap: 5px; }
+.ops-call-list { position: absolute; right: 0; top: calc(100% + 6px); z-index: 1100; display: flex;
+  flex-direction: column; gap: 8px; padding: 8px; background: #fff; border: 1px solid #dee2e6;
+  border-radius: 8px; box-shadow: 0 4px 16px rgba(0, 0, 0, .15); }
+.ops-call-list .btn { height: 44px; padding: 0 16px; font-size: 16px; font-weight: 600;
+  display: inline-flex; align-items: center; gap: 8px; }
 .ops-drive-title { font-size: 20px; font-weight: 600; line-height: 1.2; min-width: 0;
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ops-shadow .btn { font-size: 12px; }

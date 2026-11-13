@@ -346,6 +346,8 @@ const photosReady = typeof opsPhotoStripHtml === "function";
 let photosKey = "";       // the route's customers whose photos are loaded
 let activeId = null;      // customer id showing its controls; null = the next one to collect
 let compact = true;       // only the active stop shows controls (a per-phone preference)
+let officePhones = [];    // [{ name, phone }]: the office numbers for Call ▾ (not the signed-in person's own)
+let callOpen = false;     // Call ▾'s menu is showing
 
 const COMPACT_KEY = "bbb-ops-compact";
 try { compact = window.localStorage.getItem(COMPACT_KEY) !== "off"; } catch (err) { /* default on */ }
@@ -396,6 +398,7 @@ function renderDriver() {
       <div class="ops-drive-title flex-grow-1">${escapeHtml(route.name)}</div>
       <label class="form-check-label text-nowrap small"><input type="checkbox" class="form-check-input" id="compact"
         ${compact ? "checked" : ""}> Compact</label>
+      ${callMenuHtml()}
       <button type="button" class="btn btn-outline-secondary btn-sm text-nowrap" data-act="change">All routes</button>
     </div>
     ${order.map(k => stopHtml(lines[k], k, done[k], !compact || lines[k].stop.customer_id === current)).join("")}
@@ -436,6 +439,21 @@ const PIN_ICON = `<svg class="ops-btn-icon" width="14" height="16" viewBox="0 0 
 
 const PHONE_ICON = `<svg class="ops-btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
   stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></svg>`;
+
+/**
+ * The title row's call to the office: "Call ▾" opening one green button per number (Jim,
+ * Stacey), the person signed in left out. Always the menu, even for one number, so the button
+ * stays narrow and the route name keeps its room (Sarge). Nothing without numbers (signed out,
+ * or office_phones still empty).
+ */
+function callMenuHtml() {
+  const list = officePhones.map(p => ({ name: p.name, tel: telHref(p.phone) })).filter(p => p.tel);
+  const link = p => `<a class="btn ops-call-btn text-nowrap" href="${escapeHtml(p.tel)}">${PHONE_ICON}Call ${escapeHtml(p.name)}</a>`;
+  if (!list.length) return "";
+  return `<div class="ops-call-office">
+      <button type="button" class="btn ops-call-btn text-nowrap" data-act="call-menu" aria-expanded="${callOpen}">${PHONE_ICON}Call ▾</button>
+      ${callOpen ? `<div class="ops-call-list">${list.map(link).join("")}</div>` : ""}</div>`;
+}
 
 /** The customer's phone as a tel: target ("+1" and ten digits when it reads as a US number), else "". */
 function telHref(phone) {
@@ -763,6 +781,7 @@ function onAct(b) {
       render();
       return;
     }
+    case "call-menu": callOpen = !callOpen; render(); return;
     case "change": store.my = null; activeId = null; openDetails = null; theftOpen = null; leftOpen = null; break;
     default: return;
   }
@@ -774,6 +793,14 @@ function wire() {
   const page = document.getElementById("page");
   wireDrag(page);
   page.addEventListener("click", e => {
+    // Call ▾ open: a tap on a number dials and closes it; a tap anywhere else only closes it.
+    if (callOpen && !(e.target.closest && e.target.closest("[data-act=call-menu]"))) {
+      const dial = e.target.closest && e.target.closest(".ops-call-list a");
+      callOpen = false;
+      if (dial) { setTimeout(render, 0); return; }
+      render();
+      return;
+    }
     const ph = e.target.closest && e.target.closest("[data-photo]");
     const phLine = ph && ph.closest("[data-pick]");
     if (phLine) { opsPhotoViewer(Number(phLine.dataset.pick), Number(ph.dataset.photo)); return; }
@@ -852,6 +879,10 @@ async function init() {
     return;
   }
   routeList = opsRouteList(data.snap, store);
+  if (typeof opsOfficePhones === "function") opsOfficePhones().then(list => {
+    officePhones = list;
+    if (store.my && list.length) render();
+  });
   // Arriving from Assign Routes' "New Route…": open the new route, its name ready to type.
   const made = routeList.find(r => r.shadow && String(r.route_id) === getUrlParam("new"));
   if (made) {
