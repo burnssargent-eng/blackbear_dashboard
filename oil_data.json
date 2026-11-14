@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-13T15:07:25.335929",
+  "last_updated": "2026-11-14T13:59:38.658330",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -34594,7 +34594,7 @@
     {
       "month": "2026-11",
       "geo_town": "Winooski",
-      "gallons": 120,
+      "gallons": 550,
       "city": "Winooski"
     }
   ],
@@ -42467,7 +42467,7 @@
     {
       "month": "2026-11",
       "county": "Chittenden",
-      "gallons": 4135
+      "gallons": 4565
     },
     {
       "month": "2026-11",
@@ -42562,11 +42562,11 @@
     },
     {
       "year": 2026,
-      "gallons": 258442
+      "gallons": 258872
     }
   ],
-  "all_time_total": 2177209,
-  "current_year_total": 258442,
+  "all_time_total": 2177639,
+  "current_year_total": 258872,
   "customer_count": 811,
   "unmapped_total": 40915,
   "monthly_totals": [
@@ -43140,7 +43140,7 @@
     },
     {
       "month": "2026-11",
-      "gallons": 10474
+      "gallons": 10904
     }
   ],
   "monthly_by_region": [
@@ -54952,7 +54952,7 @@
     {
       "month": "2026-11",
       "region": "Outer Burlington",
-      "gallons": 830
+      "gallons": 1260
     },
     {
       "month": "2026-11",
@@ -56059,7 +56059,7 @@
     {
       "year": 2026,
       "region": "Outer Burlington",
-      "gallons": 26423
+      "gallons": 26853
     },
     {
       "year": 2026,
@@ -56168,20 +56168,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 28035,
+  "collections_count": 28042,
   "out_of_state_total": 40915,
-  "active_customer_count": 537,
+  "active_customer_count": 536,
   "projection": {
     "latest_data_date": "2026-11-13",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 258442,
+    "current_ytd": 258872,
     "previous_year_full": 269909,
     "previous_through_prior_month": 230827,
     "previous_same_month_total": 20207,
     "previous_prorated_ytd": 239583.37,
-    "projected_current_year": 291155,
-    "percent_vs_previous_year": 0.078714
+    "projected_current_year": 291639,
+    "percent_vs_previous_year": 0.080509
   },
   "region_stats": {
     "Burlington / South Burlington": {
@@ -56202,7 +56202,7 @@
     },
     "Northwest": {
       "customers": 50,
-      "active": 37
+      "active": 36
     },
     "Other": {
       "customers": 26,
@@ -56343,8 +56343,8 @@
       "year": 2026,
       "places_serviced": 484,
       "gained": 49,
-      "lost": 8,
-      "net": 41
+      "lost": 9,
+      "net": 40
     }
   ],
   "dormant_cutoff": "2025-01-01",
@@ -57542,12 +57542,12 @@
       "closed": 0,
       "changed_hands": 2,
       "moved": 0,
-      "unknown": 8,
+      "unknown": 9,
       "moved_followed": 0,
       "gained": 55,
-      "ended": 10,
+      "ended": 11,
       "churn": 0.0,
-      "churn_high": 0.017,
+      "churn_high": 0.0191,
       "history_start": false,
       "partial": true
     }
@@ -57560,8 +57560,8 @@
     "avg_churn": 0.0003,
     "avg_churn_high": 0.0994,
     "lost_total": 1,
-    "unknown_total": 285,
-    "ended_total": 314,
+    "unknown_total": 286,
+    "ended_total": 315,
     "site_retention": 0.9259,
     "site_handovers": 25,
     "site_closures": 27,
@@ -57569,6 +57569,6 @@
     "avg_gained_new": 62.1,
     "avg_gained_successor": 1.8,
     "median_years_served": 1.6,
-    "current_businesses": 516
+    "current_businesses": 515
   }
 }

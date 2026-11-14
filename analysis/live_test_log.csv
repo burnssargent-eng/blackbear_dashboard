@@ -524,7 +524,14 @@ pickup_date,customer_id,member_ids,customer,town,stage,status,section,previous_p
 2026-11-11,1296,1296,Burger King- Bennington/Mahoney,Bennington,established,50/50 default,ranked,2026-09-10,2026-11-11,2026-11-11,152.1,114.1,200.0,171.5,160,-7.9,-4.9,11.5
 2026-11-11,1443,1443,Lola Woodfired /Austin Poulin/ Sam's Wood Fired Pi,Manchester,new,50/50 default,ranked,2026-10-13,2026-11-11,2026-11-11,31.6,22.1,42.6,28.4,50,-18.4,-36.8,-21.6
 2026-11-11,1462,1462,Lost Marble-Manchester,Manchester,new,50/50 default,ranked,2026-10-13,2026-11-11,2026-11-11,83.2,58.2,112.3,78.9,55,28.2,51.3,23.9
-2026-11-12,1171,1171,Hoagies-Newport,Newport City,established,50/50 default,ranked,2026-10-20,2026-11-12,2026-11-12,262.9,184.0,300,280.3,280,-17.1,-6.1,0.3
+2026-11-12,1171,1171,Hoagies-Newport,Newport City,established,50/50 default,ranked,2026-10-20,2026-11-12,2026-11-12,262.9,184.0,300.0,280.3,280,-17.1,-6.1,0.3
 2026-11-13,107,107,"Exit 7, Berlin Rest Area-Maplewoods",Berlin,established,50/50 default,ranked,2026-10-19,2026-11-12,2026-11-12,143.2,102.1,184.1,145.4,230,-86.8,-37.7,-84.6
+2026-11-13,429,429,The Mule Bar 100pct!,Winooski,established,50/50 default,ranked,2026-10-16,2026-11-13,2026-11-13,109.5,78.2,140.9,98.9,100,9.5,9.5,-1.1
+2026-11-13,433,433,Tiny Thai,Winooski,established,50/50 default,ranked,2026-10-16,2026-11-13,2026-11-13,42.1,34.9,49.3,35.9,40,2.1,5.2,-4.1
+2026-11-13,434,434,Asian Bistro-Winooski,Winooski,established,50/50 default,ranked,2026-10-28,2026-11-13,2026-11-13,23.4,17.6,34.0,16.4,15,8.4,56.0,1.4
+2026-11-13,443,443,Southern Smoke-Winooski,Winooski,new,50/50 default,ranked,2026-09-25,2026-11-13,2026-11-13,41.2,24.7,54.9,38.4,15,26.2,174.7,23.4
+2026-11-13,445,445,Four Quarters-Winooski,Winooski,established,50/50 default,ranked,2026-10-16,2026-11-13,2026-11-13,52.9,31.5,74.4,43.9,60,-7.1,-11.8,-16.1
 2026-11-13,1135,1135,Waterworks-Winooski,Winooski,established,50/50 default,ranked,2026-10-28,2026-11-12,2026-11-12,91.3,74.3,108.3,84.5,100,-8.7,-8.7,-15.5
-2026-11-13,1492,1492,Pizza Hut Berlin,Berlin,new,50/50 default,ranked,2026-09-29,2026-11-12,2026-11-12,49.1,34.3,55,23.5,30,19.1,63.7,-6.5
+2026-11-13,1168,1168,Onion City Chicken and Oysters,Winooski,established,50/50 default,ranked,2026-10-28,2026-11-13,2026-11-13,117.0,90.4,143.7,107.0,150,-33.0,-22.0,-43.0
+2026-11-13,1408,1408,Donwoori-Winooski,Winooski,established,50/50 default,ranked,2026-10-28,2026-11-13,2026-11-13,56.6,42.5,82.1,47.7,50,6.6,13.2,-2.3
+2026-11-13,1492,1492,Pizza Hut Berlin,Berlin,new,50/50 default,ranked,2026-09-29,2026-11-12,2026-11-12,49.1,34.3,55.0,23.5,30,19.1,63.7,-6.5
