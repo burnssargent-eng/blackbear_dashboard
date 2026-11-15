@@ -1450,6 +1450,17 @@ REQUIRED_TOWN_REGION = {
     # Lunenburg reaches the region through Gilman.
     "Lunenburg": "Route 2 East / Route 5",
     "Readsboro": "South",
+    # Sarge, 2026-11-14: the towns that had no geographic region.
+    "Brandon": "Route 7", "Pittsford": "Route 7", "Lincoln": "Route 7", "Fair Haven": "Route 7",
+    "Mount Holly": "Southern Ski Slopes", "Stratton": "Southern Ski Slopes",
+    "Arlington": "South", "Whitingham": "South",
+    "Roxbury": "Central", "Westford": "Outer Burlington",
+    "Worcester": "Route 15", "Bakersfield": "Route 15",
+    "Claremont": "Central South", "Rockingham": "Central South", "Rochester": "Central South",
+    "Weathersfield": "Central South", "Barnard": "Central South", "Hartland": "Central South",
+    "Waterford": "Route 2 East / Route 5", "Groton": "Route 2 East / Route 5",
+    "Hanover": "Route 2 East / Route 5", "Berlin, NH": "Route 2 East / Route 5",
+    "Lancaster, NH": "Route 2 East / Route 5", "Northumberland, NH": "Route 2 East / Route 5",
 }
 
 # Towns knowingly claimed by two regions. Anything shared but absent from here
@@ -1677,10 +1688,10 @@ def check_region_taxonomy(report, data, coll):
     # 9. Every configured town should actually appear in the data. A town that
     #    matches nothing is usually a typo; report it rather than fail, since a
     #    town can legitimately be configured ahead of its first customer.
-    seen = set()
-    for row in coll or []:
-        town = (row.get("geo_town") or "").strip()
-        seen.add(town or (row.get("city") or "").strip())
+    #    Read through region_key, as the regions match, so an out-of-state
+    #    place ("Berlin, NH") counts as seen.
+    from oil_scraper import region_key
+    seen = {region_key(row) for row in coll or []}
 
     unmatched = sorted(
         f"{region}:{town}"

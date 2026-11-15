@@ -403,7 +403,8 @@ node tests/run_all.js             # seven front-end suites; see tests/README.md
 ```
 
 One standing warning, a town configured ahead of its first customer:
-`Northwest:Alburgh`. Expected. (`Route 7:New Haven` cleared on 2026-11-02, when
+`Northwest:Alburgh`. (The check reads towns through `region_key`, so an
+out-of-state place such as `Berlin, NH` counts as matched.) Expected. (`Route 7:New Haven` cleared on 2026-11-02, when
 Tourterelle was moved there.)
 
 **The tests cannot see layout.** They evaluate the real functions and templates
@@ -432,29 +433,29 @@ Raised by the data, not yet decided by Jim:
 
 - **Rutland has collected nothing in 2026.** Jim put it in Route 7 on
   2026-09-21 and its 11,123 all-time gallons are real, but the last pickup was
-  2025-09-10. Service dates went 15 in 2024 to 4 in 2025 to 0 since, and the
-  three accounts still flagged active — Hannaford, Mad Rose, Uncle Sam's — all
-  stopped on that same day, on a combined run. Three accounts lapsing
-  separately would stop on three dates; this reads as the route being dropped.
-  Ask Jim whether that was deliberate. Note the committed CSV is written after
-  the `EMPTY_QTYS` filter (`oil_scraper.py:337`, written at `:989`), so a
-  zero-quantity customer call in 2026 would not show up either way — the claim
-  is no collected volume, not no contact.
-- **Pittsford** (customer 1090, Proctor-Pittsford Country Club, 435 gallons) is
-  one letter from Pittsfield, which Jim put in Central South on 2026-09-20. He
-  named Pittsfield and it was taken literally; Pittsford is a different town, in
-  Rutland County on US-7. It is NOT in `Other` — it is masked by two theme
-  regions — and the case for Route 7 is now concrete: all six of its pickups
-  happened on days the truck was also in Rutland City, three of them alongside
-  Middlebury and Vergennes, and Jim put Rutland in Route 7 on 2026-09-21, which
-  leaves Pittsford sitting in the gap. Ask him; the club is named for Proctor,
-  the next town over, which is likely why nobody said "Pittsford" out loud.
-  Brandon is the other gap town and has not been checked for customers.
-- **Twelve Vermont towns have no geographic region**, one customer each, 7,118
-  gallons: Arlington, Mount Holly, Westford, Whitingham, Pittsford, Waterford,
-  Rockingham, Rochester, Roxbury, Weathersfield, Barnard, Lincoln. Eleven are
-  active. Arlington, Whitingham and Rockingham are all Windham County and may be
-  one question rather than three.
+  2025-09-10. Service dates went 19 in 2023, 15 in 2024, 4 in 2025, 0 since,
+  and the three accounts still flagged active — Hannaford, Mad Rose, Uncle
+  Sam's — all stopped on that same day, on a combined run. Three accounts
+  lapsing separately would stop on three dates; this reads as the route being
+  dropped. Ask Jim whether that was deliberate. Re-checked 2026-11-14:
+  `oil_non_pickups.csv` has no 0-3 entry for them after 2025-09-10 either (the
+  last, an empty check, was 2025-03-05), so no recorded contact at all since.
+- **Towns with no region: placed by Sarge on 2026-11-14, out to Jim for
+  review** (draft for Jim written 2026-11-14; the closest calls were Hanover NH in Route 2
+  East / Route 5 by its pickup days though it borders West Lebanon, Bakersfield
+  Route 15 vs Northwest, Westford Outer Burlington vs Northwest). The 30
+  customers with no geographic region (26,325 gal) went into Route 7, Southern
+  Ski Slopes, South, Central South, Route 2 East / Route 5, Central, Route 15
+  and Outer Burlington; `REQUIRED_TOWN_REGION` asserts each town. `Other` is
+  now one customer, 1095 in Pawtucket RI (a person, 42 gal), left there on
+  purpose. Mount Holly's year-round cafe moved Southern Ski Slopes' Nov-Mar
+  share from 81% to 79%, one more failure in the already-failing
+  `seasonality_test`. Eleven held name-only Burlington accounts got towns by id
+  the same day (129 and 216 by zip, nine from the place in the name; all
+  inactive); 1002 (Enfield, NH or CT?) and 1019 ("NY") are still held.
+- **The Add customer Town list still asks City or Town** for Newport, Rutland
+  and Saint Albans (`SPLIT_TOWNS`, `ops-common.js`); only Barre is accepted as
+  one name. Re-checked 2026-11-14; unchanged.
 
 ## People
 

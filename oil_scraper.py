@@ -367,6 +367,21 @@ CITY_TOWN_BY_CUSTOMER = {
     # Third batch: the handover review (Sarge, 2026-11-03).
     259:  "Stowe",              # Blue Donkey's early years; there was no Burlington one
     812:  "Killington",         # Outback Pizza / Fuzzy Diner, one shared spot in Killington
+    # Fourth batch (Sarge, 2026-11-14): held accounts with no address on the site.
+    # 129 and 216 by zip (129's pickup days also ran with Montpelier); the rest
+    # from the place in the account name alone. All inactive. 1002 (Enfield NH
+    # or CT) and 1019 ("NY") stay held.
+    129:  "Montpelier",         # Bluestone-Waterbury: zip 05602
+    216:  "Waitsfield",         # Slide Brook Lodge: zip 05673
+    1006: "Concord",
+    609:  "Danville",
+    906:  "Brattleboro",
+    1008: "Milton",
+    1003: "Middlebury",
+    1007: "Charlotte",
+    1009: "Richford",
+    1000: "Montpelier",
+    1010: "Groton",
 }
 
 # Customers the source site lists in Burlington who are out of state. They take
@@ -581,6 +596,9 @@ REGION_TOWNS = {
         "Middlebury", "Vergennes", "Bristol", "Charlotte", "Hinesburg",
         "New Haven", "Shelburne", "Whiting",
         "Rutland City", "Rutland Town",
+        # Sarge, 2026-11-14: Brandon and Pittsford on US-7 between Whiting and
+        # Rutland, Lincoln by Bristol, Fair Haven with Rutland (one pickup).
+        "Brandon", "Pittsford", "Lincoln", "Fair Haven",
     ),
     # Bolton added by Jim on 2026-09-21. GEO_TOWN_NAME_MAP already folds
     # "Bolton Valley" into Bolton, so this is what finally gives customer 279 a
@@ -593,10 +611,13 @@ REGION_TOWNS = {
     # old customer-name matcher missed. Do NOT add name matching back:
     # "Snow Shoe Lodge-Montgomery" is a false positive for any "snow" rule, and
     # "Killington Diner" is addressed in Burlington.
-    "Southern Ski Slopes": ("Dover", "Ludlow", "Killington"),
+    # Mount Holly (Belmont, next to Ludlow) and Stratton (next to Dover) added
+    # by Sarge on 2026-11-14.
+    "Southern Ski Slopes": ("Dover", "Ludlow", "Killington", "Mount Holly", "Stratton"),
     "South": (
         "Bennington", "Brattleboro", "Manchester", "Sunderland", "Readsboro",
         "Wilmington",
+        "Arlington", "Whitingham",   # Sarge, 2026-11-14
     ),
     # Vermont splits Barre into a City and a Town; both belong here. East
     # Montpelier is its own town, not a village of Montpelier, so it needs its
@@ -606,11 +627,13 @@ REGION_TOWNS = {
         "Berlin", "Barre City", "Barre Town", "Northfield", "Montpelier",
         "Williamstown", "Brookfield", "Orange", "East Montpelier",
         "Middlesex",
+        "Roxbury",                    # Sarge, 2026-11-14
     ),
     # Essex and Essex Junction are two separate municipalities.
     "Outer Burlington": (
         "Winooski", "Essex", "Essex Junction", "Williston", "Richmond",
         "Jericho",
+        "Westford",                   # Sarge, 2026-11-14
     ),
     # Plattsburgh NY has no geo_town and is reached by the raw-city fallback.
     # Newport City was in both Northwest and North-Northeast until Jim moved it
@@ -631,6 +654,8 @@ REGION_TOWNS = {
     "Route 15": (
         "Hardwick", "Wolcott", "Johnson", "Hyde Park", "Morristown",
         "Cambridge", "Underhill",
+        # Sarge, 2026-11-14: both ran on Route 15 days (Bakersfield via VT-108).
+        "Worcester", "Bakersfield",
     ),
     # Jim: "Quechee and Woodstock and Bethel & Randolph and West Leb".
     # Hartford is the official town for Quechee, and Pomfret rides with
@@ -642,6 +667,10 @@ REGION_TOWNS = {
     "Central South": (
         "Hartford", "Woodstock", "Pomfret", "Bethel", "Randolph",
         "West Lebanon", "Tunbridge", "Royalton", "Pittsfield", "Braintree",
+        # Sarge, 2026-11-14: Claremont NH (raw-city fallback, like West Lebanon)
+        # and the river towns down to Bellows Falls, plus Rochester and Barnard.
+        "Claremont", "Rockingham", "Rochester", "Weathersfield", "Barnard",
+        "Hartland",
     ),
     # Brighton is the official town for Island Pond, Lyndon for Lyndonville,
     # Burke for East Burke, Newbury for Wells River and Lunenburg for Gilman.
@@ -653,6 +682,10 @@ REGION_TOWNS = {
         "Cabot", "Plainfield", "Danville", "Saint Johnsbury", "Concord",
         "Brighton", "Lyndon", "Burke", "East Haven", "Marshfield",
         "Newbury", "Fairlee", "Bradford", "Lunenburg",
+        # Sarge, 2026-11-14. Hanover NH by its pickup days (all on this run);
+        # the US-2 NH places match as OUT_OF_STATE_BY_CUSTOMER's "Place, ST".
+        "Waterford", "Groton", "Hanover",
+        "Berlin, NH", "Lancaster, NH", "Northumberland, NH",
     ),
     "Warren / Waitsfield": ("Warren", "Waitsfield"),
     # Was "Jay / Montgomery / Troy" until Jim widened it across the Northeast

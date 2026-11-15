@@ -23934,34 +23934,34 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 259,Blue Donkey,Burlington,Lamoille,2015-06-24,2015,2015-06,45,False,Stowe
 259,Blue Donkey,Burlington,Lamoille,2015-05-15,2015,2015-05,45,False,Stowe
 259,Blue Donkey,Burlington,Lamoille,2015-02-18,2015,2015-02,40,False,Stowe
-129,Bluestone-Waterbury,Burlington,Chittenden,2022-07-17,2022,2022-07,25,False,Burlington
-129,Bluestone-Waterbury,Burlington,Chittenden,2020-04-01,2020,2020-04,50,False,Burlington
-129,Bluestone-Waterbury,Burlington,Chittenden,2020-03-03,2020,2020-03,85,False,Burlington
-129,Bluestone-Waterbury,Burlington,Chittenden,2019-12-09,2019,2019-12,75,False,Burlington
-129,Bluestone-Waterbury,Burlington,Chittenden,2019-11-14,2019,2019-11,50,False,Burlington
-129,Bluestone-Waterbury,Burlington,Chittenden,2019-09-19,2019,2019-09,150,False,Burlington
-129,Bluestone-Waterbury,Burlington,Chittenden,2019-08-19,2019,2019-08,125,False,Burlington
-129,Bluestone-Waterbury,Burlington,Chittenden,2019-07-16,2019,2019-07,150,False,Burlington
-129,Bluestone-Waterbury,Burlington,Chittenden,2019-05-08,2019,2019-05,75,False,Burlington
-129,Bluestone-Waterbury,Burlington,Chittenden,2019-04-11,2019,2019-04,150,False,Burlington
-129,Bluestone-Waterbury,Burlington,Chittenden,2019-03-14,2019,2019-03,50,False,Burlington
-129,Bluestone-Waterbury,Burlington,Chittenden,2019-02-14,2019,2019-02,75,False,Burlington
-129,Bluestone-Waterbury,Burlington,Chittenden,2019-01-15,2019,2019-01,100,False,Burlington
-129,Bluestone-Waterbury,Burlington,Chittenden,2018-12-18,2018,2018-12,100,False,Burlington
-129,Bluestone-Waterbury,Burlington,Chittenden,2018-11-08,2018,2018-11,125,False,Burlington
-129,Bluestone-Waterbury,Burlington,Chittenden,2018-10-16,2018,2018-10,100,False,Burlington
-129,Bluestone-Waterbury,Burlington,Chittenden,2018-09-20,2018,2018-09,100,False,Burlington
-129,Bluestone-Waterbury,Burlington,Chittenden,2018-08-22,2018,2018-08,125,False,Burlington
-129,Bluestone-Waterbury,Burlington,Chittenden,2018-07-24,2018,2018-07,100,False,Burlington
-129,Bluestone-Waterbury,Burlington,Chittenden,2018-06-27,2018,2018-06,150,False,Burlington
-129,Bluestone-Waterbury,Burlington,Chittenden,2018-04-02,2018,2018-04,75,False,Burlington
+129,Bluestone-Waterbury,Burlington,Washington,2022-07-17,2022,2022-07,25,False,Montpelier
+129,Bluestone-Waterbury,Burlington,Washington,2020-04-01,2020,2020-04,50,False,Montpelier
+129,Bluestone-Waterbury,Burlington,Washington,2020-03-03,2020,2020-03,85,False,Montpelier
+129,Bluestone-Waterbury,Burlington,Washington,2019-12-09,2019,2019-12,75,False,Montpelier
+129,Bluestone-Waterbury,Burlington,Washington,2019-11-14,2019,2019-11,50,False,Montpelier
+129,Bluestone-Waterbury,Burlington,Washington,2019-09-19,2019,2019-09,150,False,Montpelier
+129,Bluestone-Waterbury,Burlington,Washington,2019-08-19,2019,2019-08,125,False,Montpelier
+129,Bluestone-Waterbury,Burlington,Washington,2019-07-16,2019,2019-07,150,False,Montpelier
+129,Bluestone-Waterbury,Burlington,Washington,2019-05-08,2019,2019-05,75,False,Montpelier
+129,Bluestone-Waterbury,Burlington,Washington,2019-04-11,2019,2019-04,150,False,Montpelier
+129,Bluestone-Waterbury,Burlington,Washington,2019-03-14,2019,2019-03,50,False,Montpelier
+129,Bluestone-Waterbury,Burlington,Washington,2019-02-14,2019,2019-02,75,False,Montpelier
+129,Bluestone-Waterbury,Burlington,Washington,2019-01-15,2019,2019-01,100,False,Montpelier
+129,Bluestone-Waterbury,Burlington,Washington,2018-12-18,2018,2018-12,100,False,Montpelier
+129,Bluestone-Waterbury,Burlington,Washington,2018-11-08,2018,2018-11,125,False,Montpelier
+129,Bluestone-Waterbury,Burlington,Washington,2018-10-16,2018,2018-10,100,False,Montpelier
+129,Bluestone-Waterbury,Burlington,Washington,2018-09-20,2018,2018-09,100,False,Montpelier
+129,Bluestone-Waterbury,Burlington,Washington,2018-08-22,2018,2018-08,125,False,Montpelier
+129,Bluestone-Waterbury,Burlington,Washington,2018-07-24,2018,2018-07,100,False,Montpelier
+129,Bluestone-Waterbury,Burlington,Washington,2018-06-27,2018,2018-06,150,False,Montpelier
+129,Bluestone-Waterbury,Burlington,Washington,2018-04-02,2018,2018-04,75,False,Montpelier
 235,Blush Hill CC,Waterbury,Washington,2016-10-09,2016,2016-10,55,False,Waterbury
 1019,"Brandy & Mary, NY",Burlington,Chittenden,2021-06-07,2021,2021-06,225,False,Burlington
 1019,"Brandy & Mary, NY",Burlington,Chittenden,2020-07-03,2020,2020-07,450,False,Burlington
 1019,"Brandy & Mary, NY",Burlington,Chittenden,2020-06-18,2020,2020-06,240,False,Burlington
 1019,"Brandy & Mary, NY",Burlington,Chittenden,2019-06-06,2019,2019-06,130,False,Burlington
-906,Brattleboro parking lot,Burlington,Chittenden,2021-09-15,2021,2021-09,150,False,Burlington
-906,Brattleboro parking lot,Burlington,Chittenden,2020-12-02,2020,2020-12,70,False,Burlington
+906,Brattleboro parking lot,Burlington,Windham,2021-09-15,2021,2021-09,150,False,Brattleboro
+906,Brattleboro parking lot,Burlington,Windham,2020-12-02,2020,2020-12,70,False,Brattleboro
 535,Brendas Home Cooking,Burlington,Chittenden,2020-01-15,2020,2020-01,50,False,Burlington
 535,Brendas Home Cooking,Burlington,Chittenden,2018-08-24,2018,2018-08,25,False,Burlington
 535,Brendas Home Cooking,Burlington,Chittenden,2018-04-04,2018,2018-04,25,False,Burlington
@@ -24355,7 +24355,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 818,Coburns Tonic,Woodstock,Windsor,2015-03-10,2015,2015-03,90,False,Woodstock
 818,Coburns Tonic,Woodstock,Windsor,2015-01-29,2015,2015-01,80,False,Woodstock
 1152,Coffee Cup Bakery,Burlington,Chittenden,2022-08-08,2022,2022-08,400,False,Burlington
-1006,Concord VT,Burlington,Chittenden,2017-10-04,2017,2017-10,810,False,Burlington
+1006,Concord VT,Burlington,Caledonia,2017-10-04,2017,2017-10,810,False,Concord
 718,Corriander,Burlington,Chittenden,2021-09-16,2021,2021-09,70,False,Burlington
 718,Corriander,Burlington,Chittenden,2021-07-19,2021,2021-07,130,False,Burlington
 718,Corriander,Burlington,Chittenden,2021-05-11,2021,2021-05,100,False,Burlington
@@ -24792,7 +24792,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 109,George's Dawg House,Berlin,Washington,2019-08-29,2019,2019-08,65,False,Berlin
 109,George's Dawg House,Berlin,Washington,2019-07-16,2019,2019-07,50,False,Berlin
 109,George's Dawg House,Berlin,Washington,2019-05-09,2019,2019-05,50,False,Berlin
-1008,George...Milton,Burlington,Chittenden,2016-04-23,2016,2016-04,160,False,Burlington
+1008,George...Milton,Burlington,Chittenden,2016-04-23,2016,2016-04,160,False,Milton
 348,Grandma's Spanish Kitchen,Burlington,Chittenden,2020-08-12,2020,2020-08,50,False,Burlington
 1105,Grazers-WINOOSKI 50pct,Winooski,Chittenden,2025-04-15,2025,2025-04,7,False,Winooski
 1105,Grazers-WINOOSKI 50pct,Winooski,Chittenden,2025-03-03,2025,2025-03,35,False,Winooski
@@ -24911,7 +24911,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1324,Heart n Soul BBQ by Mark,South Burlington,Chittenden,2024-04-05,2024,2024-04,85,False,South Burlington
 1324,Heart n Soul BBQ by Mark,South Burlington,Chittenden,2024-03-07,2024,2024-03,125,False,South Burlington
 1427,Heidi’s Food Truck,Burlington,Chittenden,2025-05-13,2025,2025-05,150,False,Burlington
-1003,"Hemp, Middlebury",Burlington,Chittenden,2019-10-14,2019,2019-10,125,False,Burlington
+1003,"Hemp, Middlebury",Burlington,Addison,2019-10-14,2019,2019-10,125,False,Middlebury
 1291,Hilton Garden,Burlington,Chittenden,2024-09-17,2024,2024-09,25,False,Burlington
 1291,Hilton Garden,Burlington,Chittenden,2024-08-23,2024,2024-08,75,False,Burlington
 1291,Hilton Garden,Burlington,Chittenden,2024-07-15,2024,2024-07,45,False,Burlington
@@ -24980,7 +24980,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1001,Howie Michaelson,Burlington,Chittenden,2020-05-20,2020,2020-05,150,False,Burlington
 237,Ice rink,Waterbury,Washington,2017-10-04,2017,2017-10,20,False,Waterbury
 237,Ice rink,Waterbury,Washington,2017-02-25,2017,2017-02,12,False,Waterbury
-1010,Janna Sedgwick (Groton),Burlington,Chittenden,2018-06-11,2018,2018-06,250,False,Burlington
+1010,Janna Sedgwick (Groton),Burlington,Caledonia,2018-06-11,2018,2018-06,250,False,Groton
 1125,Jason Hill,Burlington,Chittenden,2022-08-15,2022,2022-08,500,False,Burlington
 1125,Jason Hill,Burlington,Chittenden,2022-06-30,2022,2022-06,600,False,Burlington
 1453,Jeffrey Burger - Lyndonville,Lyndonville,Caledonia,2025-11-10,2025,2025-11,10,False,Lyndon
@@ -25181,7 +25181,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 309,Kountry Kart,Burlington,Chittenden,2018-03-13,2018,2018-03,50,False,Burlington
 309,Kountry Kart,Burlington,Chittenden,2018-02-15,2018,2018-02,75,False,Burlington
 1281,Lancaster NH Oil,Burlington,Out-of-State (NH),2023-09-27,2023,2023-09,75,False,
-1009,Larissa Reynolds (Richford),Burlington,Chittenden,2018-06-11,2018,2018-06,350,False,Burlington
+1009,Larissa Reynolds (Richford),Burlington,Franklin,2018-06-11,2018,2018-06,350,False,Richford
 1467,Lyndonville Station Irving,Lyndonville,Caledonia,2025-11-21,2025,2025-11,50,False,Lyndon
 801,M and M,Burlington,Chittenden,2018-03-20,2018,2018-03,10,False,Burlington
 373,M-Saigon,Burlington,Chittenden,2022-03-17,2022,2022-03,20,False,Burlington
@@ -25367,7 +25367,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 821,MeLaza,Woodstock,Windsor,2017-06-10,2017,2017-06,40,False,Woodstock
 821,MeLaza,Woodstock,Windsor,2017-04-15,2017,2017-04,125,False,Woodstock
 821,MeLaza,Woodstock,Windsor,2017-02-19,2017,2017-02,35,False,Woodstock
-1007,Michael B. Charlotte,Burlington,Chittenden,2016-05-07,2016,2016-05,245,False,Burlington
+1007,Michael B. Charlotte,Burlington,Chittenden,2016-05-07,2016,2016-05,245,False,Charlotte
 239,Michael's on the Hill,Waterbury,Washington,2026-05-11,2026,2026-05,15,False,Waterbury
 239,Michael's on the Hill,Waterbury,Washington,2026-03-20,2026,2026-03,40,False,Waterbury
 239,Michael's on the Hill,Waterbury,Washington,2026-02-18,2026,2026-02,40,False,Waterbury
@@ -26313,7 +26313,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 368,Quarry Hill (Residence Inn),South Burlington,Chittenden,2018-05-17,2018,2018-05,50,False,South Burlington
 368,Quarry Hill (Residence Inn),South Burlington,Chittenden,2018-03-13,2018,2018-03,60,False,South Burlington
 832,Randolph Tech School,Randolph Center,Windsor,2016-08-03,2016,2016-08,125,False,Randolph
-1000,RandyMontP,Burlington,Chittenden,2019-11-01,2019,2019-11,50,False,Burlington
+1000,RandyMontP,Burlington,Washington,2019-11-01,2019,2019-11,50,False,Montpelier
 516,RB Green,Burlington,Chittenden,2017-10-11,2017,2017-10,6000,False,Burlington
 312,Red Panda (Thia Dishes),Burlington,Chittenden,2022-10-03,2022,2022-10,33,False,Burlington
 312,Red Panda (Thia Dishes),Burlington,Chittenden,2022-09-06,2022,2022-09,30,False,Burlington
@@ -26861,10 +26861,10 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 105,Simons Convienience (redemption?),Burlington,Chittenden,2021-01-13,2021,2021-01,25,False,Burlington
 105,Simons Convienience (redemption?),Burlington,Chittenden,2019-03-20,2019,2019-03,75,False,Burlington
 105,Simons Convienience (redemption?),Burlington,Chittenden,2019-01-07,2019,2019-01,25,False,Burlington
-216,Slide Brook Lodge,Burlington,Chittenden,2016-04-25,2016,2016-04,10,False,Burlington
-216,Slide Brook Lodge,Burlington,Chittenden,2016-01-03,2016,2016-01,25,False,Burlington
-216,Slide Brook Lodge,Burlington,Chittenden,2015-10-31,2015,2015-10,25,False,Burlington
-216,Slide Brook Lodge,Burlington,Chittenden,2015-05-19,2015,2015-05,75,False,Burlington
+216,Slide Brook Lodge,Burlington,Washington,2016-04-25,2016,2016-04,10,False,Waitsfield
+216,Slide Brook Lodge,Burlington,Washington,2016-01-03,2016,2016-01,25,False,Waitsfield
+216,Slide Brook Lodge,Burlington,Washington,2015-10-31,2015,2015-10,25,False,Waitsfield
+216,Slide Brook Lodge,Burlington,Washington,2015-05-19,2015,2015-05,75,False,Waitsfield
 933,Smokin Bowls,Burlington,Chittenden,2018-11-08,2018,2018-11,15,False,Burlington
 933,Smokin Bowls,Burlington,Chittenden,2018-02-08,2018,2018-02,35,False,Burlington
 933,Smokin Bowls,Burlington,Chittenden,2017-10-27,2017,2017-10,25,False,Burlington
@@ -27340,14 +27340,14 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 230,The Blue Stone-Waterbury,Waterbury,Washington,2015-03-18,2015,2015-03,50,False,Waterbury
 230,The Blue Stone-Waterbury,Waterbury,Washington,2015-01-28,2015,2015-01,50,False,Waterbury
 230,The Blue Stone-Waterbury,Waterbury,Washington,2015-01-09,2015,2015-01,40,False,Waterbury
-609,The Danville Inn,Burlington,Chittenden,2017-03-05,2017,2017-03,12,False,Burlington
-609,The Danville Inn,Burlington,Chittenden,2017-01-04,2017,2017-01,8,False,Burlington
-609,The Danville Inn,Burlington,Chittenden,2016-10-22,2016,2016-10,4,False,Burlington
-609,The Danville Inn,Burlington,Chittenden,2016-09-24,2016,2016-09,4,False,Burlington
-609,The Danville Inn,Burlington,Chittenden,2016-09-03,2016,2016-09,4,False,Burlington
-609,The Danville Inn,Burlington,Chittenden,2016-07-10,2016,2016-07,4,False,Burlington
-609,The Danville Inn,Burlington,Chittenden,2016-06-07,2016,2016-06,13,False,Burlington
-609,The Danville Inn,Burlington,Chittenden,2016-03-27,2016,2016-03,12,False,Burlington
+609,The Danville Inn,Burlington,Caledonia,2017-03-05,2017,2017-03,12,False,Danville
+609,The Danville Inn,Burlington,Caledonia,2017-01-04,2017,2017-01,8,False,Danville
+609,The Danville Inn,Burlington,Caledonia,2016-10-22,2016,2016-10,4,False,Danville
+609,The Danville Inn,Burlington,Caledonia,2016-09-24,2016,2016-09,4,False,Danville
+609,The Danville Inn,Burlington,Caledonia,2016-09-03,2016,2016-09,4,False,Danville
+609,The Danville Inn,Burlington,Caledonia,2016-07-10,2016,2016-07,4,False,Danville
+609,The Danville Inn,Burlington,Caledonia,2016-06-07,2016,2016-06,13,False,Danville
+609,The Danville Inn,Burlington,Caledonia,2016-03-27,2016,2016-03,12,False,Danville
 256,The Dutch Pancake,Burlington,Chittenden,2018-05-06,2018,2018-05,25,False,Burlington
 256,The Dutch Pancake,Burlington,Chittenden,2018-03-25,2018,2018-03,35,False,Burlington
 1039,The Fiddler's Green,Northfield,Washington,2021-05-26,2021,2021-05,300,False,Northfield

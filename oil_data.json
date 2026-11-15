@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-14T13:59:38.658330",
+  "last_updated": "2026-11-14T23:45:37.911258",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -442,7 +442,7 @@
     {
       "month": "2015-05",
       "geo_town": "Burlington",
-      "gallons": 1831,
+      "gallons": 1756,
       "city": "Burlington"
     },
     {
@@ -526,7 +526,7 @@
     {
       "month": "2015-05",
       "geo_town": "Waitsfield",
-      "gallons": 40,
+      "gallons": 115,
       "city": "Waitsfield"
     },
     {
@@ -1072,7 +1072,7 @@
     {
       "month": "2015-10",
       "geo_town": "Burlington",
-      "gallons": 1905,
+      "gallons": 1880,
       "city": "Burlington"
     },
     {
@@ -1162,7 +1162,7 @@
     {
       "month": "2015-10",
       "geo_town": "Waitsfield",
-      "gallons": 40,
+      "gallons": 65,
       "city": "Waitsfield"
     },
     {
@@ -1492,7 +1492,7 @@
     {
       "month": "2016-01",
       "geo_town": "Burlington",
-      "gallons": 1768,
+      "gallons": 1743,
       "city": "Burlington"
     },
     {
@@ -1576,7 +1576,7 @@
     {
       "month": "2016-01",
       "geo_town": "Waitsfield",
-      "gallons": 30,
+      "gallons": 55,
       "city": "Waitsfield"
     },
     {
@@ -1774,8 +1774,14 @@
     {
       "month": "2016-03",
       "geo_town": "Burlington",
-      "gallons": 2069,
+      "gallons": 2057,
       "city": "Burlington"
+    },
+    {
+      "month": "2016-03",
+      "geo_town": "Danville",
+      "gallons": 12,
+      "city": "Danville"
     },
     {
       "month": "2016-03",
@@ -1924,7 +1930,7 @@
     {
       "month": "2016-04",
       "geo_town": "Burlington",
-      "gallons": 1753,
+      "gallons": 1583,
       "city": "Burlington"
     },
     {
@@ -1956,6 +1962,12 @@
       "geo_town": "Middlebury",
       "gallons": 350,
       "city": "Middlebury"
+    },
+    {
+      "month": "2016-04",
+      "geo_town": "Milton",
+      "gallons": 160,
+      "city": "Milton"
     },
     {
       "month": "2016-04",
@@ -2026,7 +2038,7 @@
     {
       "month": "2016-04",
       "geo_town": "Waitsfield",
-      "gallons": 68,
+      "gallons": 78,
       "city": "Waitsfield"
     },
     {
@@ -2068,7 +2080,7 @@
     {
       "month": "2016-05",
       "geo_town": "Burlington",
-      "gallons": 2374,
+      "gallons": 2129,
       "city": "Burlington"
     },
     {
@@ -2076,6 +2088,12 @@
       "geo_town": "Cambridge",
       "gallons": 60,
       "city": "Cambridge"
+    },
+    {
+      "month": "2016-05",
+      "geo_town": "Charlotte",
+      "gallons": 245,
+      "city": "Charlotte"
     },
     {
       "month": "2016-05",
@@ -2200,8 +2218,14 @@
     {
       "month": "2016-06",
       "geo_town": "Burlington",
-      "gallons": 7055,
+      "gallons": 7042,
       "city": "Burlington"
+    },
+    {
+      "month": "2016-06",
+      "geo_town": "Danville",
+      "gallons": 13,
+      "city": "Danville"
     },
     {
       "month": "2016-06",
@@ -2344,8 +2368,14 @@
     {
       "month": "2016-07",
       "geo_town": "Burlington",
-      "gallons": 2781,
+      "gallons": 2777,
       "city": "Burlington"
+    },
+    {
+      "month": "2016-07",
+      "geo_town": "Danville",
+      "gallons": 4,
+      "city": "Danville"
     },
     {
       "month": "2016-07",
@@ -2686,8 +2716,14 @@
     {
       "month": "2016-09",
       "geo_town": "Burlington",
-      "gallons": 2200,
+      "gallons": 2192,
       "city": "Burlington"
+    },
+    {
+      "month": "2016-09",
+      "geo_town": "Danville",
+      "gallons": 8,
+      "city": "Danville"
     },
     {
       "month": "2016-09",
@@ -2854,7 +2890,7 @@
     {
       "month": "2016-10",
       "geo_town": "Burlington",
-      "gallons": 2083,
+      "gallons": 2079,
       "city": "Burlington"
     },
     {
@@ -2862,6 +2898,12 @@
       "geo_town": "Cambridge",
       "gallons": 190,
       "city": "Cambridge"
+    },
+    {
+      "month": "2016-10",
+      "geo_town": "Danville",
+      "gallons": 4,
+      "city": "Danville"
     },
     {
       "month": "2016-10",
@@ -3310,8 +3352,14 @@
     {
       "month": "2017-01",
       "geo_town": "Burlington",
-      "gallons": 2893,
+      "gallons": 2885,
       "city": "Burlington"
+    },
+    {
+      "month": "2017-01",
+      "geo_town": "Danville",
+      "gallons": 8,
+      "city": "Danville"
     },
     {
       "month": "2017-01",
@@ -3652,7 +3700,7 @@
     {
       "month": "2017-03",
       "geo_town": "Burlington",
-      "gallons": 1817,
+      "gallons": 1805,
       "city": "Burlington"
     },
     {
@@ -3666,6 +3714,12 @@
       "geo_town": "Cambridge",
       "gallons": 190,
       "city": "Cambridge"
+    },
+    {
+      "month": "2017-03",
+      "geo_town": "Danville",
+      "gallons": 12,
+      "city": "Danville"
     },
     {
       "month": "2017-03",
@@ -4990,7 +5044,7 @@
     {
       "month": "2017-10",
       "geo_town": "Burlington",
-      "gallons": 8692,
+      "gallons": 7882,
       "city": "Burlington"
     },
     {
@@ -4998,6 +5052,12 @@
       "geo_town": "Cambridge",
       "gallons": 50,
       "city": "Cambridge"
+    },
+    {
+      "month": "2017-10",
+      "geo_town": "Concord",
+      "gallons": 810,
+      "city": "Concord"
     },
     {
       "month": "2017-10",
@@ -6094,7 +6154,7 @@
     {
       "month": "2018-04",
       "geo_town": "Burlington",
-      "gallons": 4050,
+      "gallons": 3975,
       "city": "Burlington"
     },
     {
@@ -6184,7 +6244,7 @@
     {
       "month": "2018-04",
       "geo_town": "Montpelier",
-      "gallons": 670,
+      "gallons": 745,
       "city": "Montpelier"
     },
     {
@@ -6562,7 +6622,7 @@
     {
       "month": "2018-06",
       "geo_town": "Burlington",
-      "gallons": 3915,
+      "gallons": 3165,
       "city": "Burlington"
     },
     {
@@ -6582,6 +6642,12 @@
       "geo_town": "Fairlee",
       "gallons": 30,
       "city": "Fairlee"
+    },
+    {
+      "month": "2018-06",
+      "geo_town": "Groton",
+      "gallons": 250,
+      "city": "Groton"
     },
     {
       "month": "2018-06",
@@ -6628,7 +6694,7 @@
     {
       "month": "2018-06",
       "geo_town": "Montpelier",
-      "gallons": 735,
+      "gallons": 885,
       "city": "Montpelier"
     },
     {
@@ -6660,6 +6726,12 @@
       "geo_town": "Pittsfield",
       "gallons": 25,
       "city": "Pittsfield"
+    },
+    {
+      "month": "2018-06",
+      "geo_town": "Richford",
+      "gallons": 350,
+      "city": "Richford"
     },
     {
       "month": "2018-06",
@@ -6748,7 +6820,7 @@
     {
       "month": "2018-07",
       "geo_town": "Burlington",
-      "gallons": 4930,
+      "gallons": 4830,
       "city": "Burlington"
     },
     {
@@ -6820,7 +6892,7 @@
     {
       "month": "2018-07",
       "geo_town": "Montpelier",
-      "gallons": 1430,
+      "gallons": 1530,
       "city": "Montpelier"
     },
     {
@@ -6940,7 +7012,7 @@
     {
       "month": "2018-08",
       "geo_town": "Burlington",
-      "gallons": 2715,
+      "gallons": 2590,
       "city": "Burlington"
     },
     {
@@ -7030,7 +7102,7 @@
     {
       "month": "2018-08",
       "geo_town": "Montpelier",
-      "gallons": 780,
+      "gallons": 905,
       "city": "Montpelier"
     },
     {
@@ -7180,7 +7252,7 @@
     {
       "month": "2018-09",
       "geo_town": "Burlington",
-      "gallons": 3250,
+      "gallons": 3150,
       "city": "Burlington"
     },
     {
@@ -7228,7 +7300,7 @@
     {
       "month": "2018-09",
       "geo_town": "Montpelier",
-      "gallons": 675,
+      "gallons": 775,
       "city": "Montpelier"
     },
     {
@@ -7384,7 +7456,7 @@
     {
       "month": "2018-10",
       "geo_town": "Burlington",
-      "gallons": 3695,
+      "gallons": 3595,
       "city": "Burlington"
     },
     {
@@ -7492,7 +7564,7 @@
     {
       "month": "2018-10",
       "geo_town": "Montpelier",
-      "gallons": 585,
+      "gallons": 685,
       "city": "Montpelier"
     },
     {
@@ -7648,7 +7720,7 @@
     {
       "month": "2018-11",
       "geo_town": "Burlington",
-      "gallons": 3704,
+      "gallons": 3579,
       "city": "Burlington"
     },
     {
@@ -7708,7 +7780,7 @@
     {
       "month": "2018-11",
       "geo_town": "Montpelier",
-      "gallons": 635,
+      "gallons": 760,
       "city": "Montpelier"
     },
     {
@@ -7858,7 +7930,7 @@
     {
       "month": "2018-12",
       "geo_town": "Burlington",
-      "gallons": 3785,
+      "gallons": 3685,
       "city": "Burlington"
     },
     {
@@ -7930,7 +8002,7 @@
     {
       "month": "2018-12",
       "geo_town": "Montpelier",
-      "gallons": 445,
+      "gallons": 545,
       "city": "Montpelier"
     },
     {
@@ -8074,7 +8146,7 @@
     {
       "month": "2019-01",
       "geo_town": "Burlington",
-      "gallons": 2290,
+      "gallons": 2190,
       "city": "Burlington"
     },
     {
@@ -8140,7 +8212,7 @@
     {
       "month": "2019-01",
       "geo_town": "Montpelier",
-      "gallons": 690,
+      "gallons": 790,
       "city": "Montpelier"
     },
     {
@@ -8290,7 +8362,7 @@
     {
       "month": "2019-02",
       "geo_town": "Burlington",
-      "gallons": 3523,
+      "gallons": 3448,
       "city": "Burlington"
     },
     {
@@ -8368,7 +8440,7 @@
     {
       "month": "2019-02",
       "geo_town": "Montpelier",
-      "gallons": 843,
+      "gallons": 918,
       "city": "Montpelier"
     },
     {
@@ -8524,7 +8596,7 @@
     {
       "month": "2019-03",
       "geo_town": "Burlington",
-      "gallons": 2850,
+      "gallons": 2800,
       "city": "Burlington"
     },
     {
@@ -8578,7 +8650,7 @@
     {
       "month": "2019-03",
       "geo_town": "Montpelier",
-      "gallons": 740,
+      "gallons": 790,
       "city": "Montpelier"
     },
     {
@@ -8734,7 +8806,7 @@
     {
       "month": "2019-04",
       "geo_town": "Burlington",
-      "gallons": 2800,
+      "gallons": 2650,
       "city": "Burlington"
     },
     {
@@ -8818,7 +8890,7 @@
     {
       "month": "2019-04",
       "geo_town": "Montpelier",
-      "gallons": 920,
+      "gallons": 1070,
       "city": "Montpelier"
     },
     {
@@ -8968,7 +9040,7 @@
     {
       "month": "2019-05",
       "geo_town": "Burlington",
-      "gallons": 3385,
+      "gallons": 3310,
       "city": "Burlington"
     },
     {
@@ -9046,7 +9118,7 @@
     {
       "month": "2019-05",
       "geo_town": "Montpelier",
-      "gallons": 840,
+      "gallons": 915,
       "city": "Montpelier"
     },
     {
@@ -9430,7 +9502,7 @@
     {
       "month": "2019-07",
       "geo_town": "Burlington",
-      "gallons": 3740,
+      "gallons": 3590,
       "city": "Burlington"
     },
     {
@@ -9532,7 +9604,7 @@
     {
       "month": "2019-07",
       "geo_town": "Montpelier",
-      "gallons": 980,
+      "gallons": 1130,
       "city": "Montpelier"
     },
     {
@@ -9694,7 +9766,7 @@
     {
       "month": "2019-08",
       "geo_town": "Burlington",
-      "gallons": 3561,
+      "gallons": 3436,
       "city": "Burlington"
     },
     {
@@ -9736,7 +9808,7 @@
     {
       "month": "2019-08",
       "geo_town": "Montpelier",
-      "gallons": 660,
+      "gallons": 785,
       "city": "Montpelier"
     },
     {
@@ -9856,7 +9928,7 @@
     {
       "month": "2019-09",
       "geo_town": "Burlington",
-      "gallons": 1665,
+      "gallons": 1515,
       "city": "Burlington"
     },
     {
@@ -9934,7 +10006,7 @@
     {
       "month": "2019-09",
       "geo_town": "Montpelier",
-      "gallons": 260,
+      "gallons": 410,
       "city": "Montpelier"
     },
     {
@@ -10078,7 +10150,7 @@
     {
       "month": "2019-10",
       "geo_town": "Burlington",
-      "gallons": 4320,
+      "gallons": 4195,
       "city": "Burlington"
     },
     {
@@ -10150,7 +10222,7 @@
     {
       "month": "2019-10",
       "geo_town": "Middlebury",
-      "gallons": 465,
+      "gallons": 590,
       "city": "Middlebury"
     },
     {
@@ -10318,7 +10390,7 @@
     {
       "month": "2019-11",
       "geo_town": "Burlington",
-      "gallons": 3256,
+      "gallons": 3156,
       "city": "Burlington"
     },
     {
@@ -10354,7 +10426,7 @@
     {
       "month": "2019-11",
       "geo_town": "Montpelier",
-      "gallons": 750,
+      "gallons": 850,
       "city": "Montpelier"
     },
     {
@@ -10456,7 +10528,7 @@
     {
       "month": "2019-12",
       "geo_town": "Burlington",
-      "gallons": 2850,
+      "gallons": 2775,
       "city": "Burlington"
     },
     {
@@ -10546,7 +10618,7 @@
     {
       "month": "2019-12",
       "geo_town": "Montpelier",
-      "gallons": 610,
+      "gallons": 685,
       "city": "Montpelier"
     },
     {
@@ -11110,7 +11182,7 @@
     {
       "month": "2020-03",
       "geo_town": "Burlington",
-      "gallons": 2360,
+      "gallons": 2275,
       "city": "Burlington"
     },
     {
@@ -11200,7 +11272,7 @@
     {
       "month": "2020-03",
       "geo_town": "Montpelier",
-      "gallons": 565,
+      "gallons": 650,
       "city": "Montpelier"
     },
     {
@@ -11368,7 +11440,7 @@
     {
       "month": "2020-04",
       "geo_town": "Burlington",
-      "gallons": 1236,
+      "gallons": 1186,
       "city": "Burlington"
     },
     {
@@ -11440,7 +11512,7 @@
     {
       "month": "2020-04",
       "geo_town": "Montpelier",
-      "gallons": 545,
+      "gallons": 595,
       "city": "Montpelier"
     },
     {
@@ -12855,6 +12927,12 @@
     },
     {
       "month": "2020-12",
+      "geo_town": "Brattleboro",
+      "gallons": 70,
+      "city": "Brattleboro"
+    },
+    {
+      "month": "2020-12",
       "geo_town": "Bristol",
       "gallons": 35,
       "city": "Bristol"
@@ -12862,7 +12940,7 @@
     {
       "month": "2020-12",
       "geo_town": "Burlington",
-      "gallons": 1020,
+      "gallons": 950,
       "city": "Burlington"
     },
     {
@@ -14925,8 +15003,14 @@
     },
     {
       "month": "2021-09",
+      "geo_town": "Brattleboro",
+      "gallons": 150,
+      "city": "Brattleboro"
+    },
+    {
+      "month": "2021-09",
       "geo_town": "Burlington",
-      "gallons": 2140,
+      "gallons": 1990,
       "city": "Burlington"
     },
     {
@@ -17560,7 +17644,7 @@
     {
       "month": "2022-07",
       "geo_town": "Burlington",
-      "gallons": 3125,
+      "gallons": 3100,
       "city": "Burlington"
     },
     {
@@ -17656,7 +17740,7 @@
     {
       "month": "2022-07",
       "geo_town": "Montpelier",
-      "gallons": 889,
+      "gallons": 914,
       "city": "Montpelier"
     },
     {
@@ -34742,7 +34826,7 @@
     {
       "month": "2015-05",
       "county": "Chittenden",
-      "gallons": 2151
+      "gallons": 2076
     },
     {
       "month": "2015-05",
@@ -34757,7 +34841,7 @@
     {
       "month": "2015-05",
       "county": "Washington",
-      "gallons": 928
+      "gallons": 1003
     },
     {
       "month": "2015-05",
@@ -34907,7 +34991,7 @@
     {
       "month": "2015-10",
       "county": "Chittenden",
-      "gallons": 2180
+      "gallons": 2155
     },
     {
       "month": "2015-10",
@@ -34922,7 +35006,7 @@
     {
       "month": "2015-10",
       "county": "Washington",
-      "gallons": 895
+      "gallons": 920
     },
     {
       "month": "2015-10",
@@ -35017,7 +35101,7 @@
     {
       "month": "2016-01",
       "county": "Chittenden",
-      "gallons": 2179
+      "gallons": 2154
     },
     {
       "month": "2016-01",
@@ -35037,7 +35121,7 @@
     {
       "month": "2016-01",
       "county": "Washington",
-      "gallons": 770
+      "gallons": 795
     },
     {
       "month": "2016-01",
@@ -35092,12 +35176,12 @@
     {
       "month": "2016-03",
       "county": "Caledonia",
-      "gallons": 95
+      "gallons": 107
     },
     {
       "month": "2016-03",
       "county": "Chittenden",
-      "gallons": 2544
+      "gallons": 2532
     },
     {
       "month": "2016-03",
@@ -35132,7 +35216,7 @@
     {
       "month": "2016-04",
       "county": "Chittenden",
-      "gallons": 2198
+      "gallons": 2188
     },
     {
       "month": "2016-04",
@@ -35152,7 +35236,7 @@
     {
       "month": "2016-04",
       "county": "Washington",
-      "gallons": 1650
+      "gallons": 1660
     },
     {
       "month": "2016-04",
@@ -35202,12 +35286,12 @@
     {
       "month": "2016-06",
       "county": "Caledonia",
-      "gallons": 95
+      "gallons": 108
     },
     {
       "month": "2016-06",
       "county": "Chittenden",
-      "gallons": 7518
+      "gallons": 7505
     },
     {
       "month": "2016-06",
@@ -35237,12 +35321,12 @@
     {
       "month": "2016-07",
       "county": "Caledonia",
-      "gallons": 140
+      "gallons": 144
     },
     {
       "month": "2016-07",
       "county": "Chittenden",
-      "gallons": 4833
+      "gallons": 4829
     },
     {
       "month": "2016-07",
@@ -35327,12 +35411,12 @@
     {
       "month": "2016-09",
       "county": "Caledonia",
-      "gallons": 145
+      "gallons": 153
     },
     {
       "month": "2016-09",
       "county": "Chittenden",
-      "gallons": 3530
+      "gallons": 3522
     },
     {
       "month": "2016-09",
@@ -35372,12 +35456,12 @@
     {
       "month": "2016-10",
       "county": "Caledonia",
-      "gallons": 100
+      "gallons": 104
     },
     {
       "month": "2016-10",
       "county": "Chittenden",
-      "gallons": 2923
+      "gallons": 2919
     },
     {
       "month": "2016-10",
@@ -35512,12 +35596,12 @@
     {
       "month": "2017-01",
       "county": "Caledonia",
-      "gallons": 100
+      "gallons": 108
     },
     {
       "month": "2017-01",
       "county": "Chittenden",
-      "gallons": 3743
+      "gallons": 3735
     },
     {
       "month": "2017-01",
@@ -35612,12 +35696,12 @@
     {
       "month": "2017-03",
       "county": "Caledonia",
-      "gallons": 94
+      "gallons": 106
     },
     {
       "month": "2017-03",
       "county": "Chittenden",
-      "gallons": 2290
+      "gallons": 2278
     },
     {
       "month": "2017-03",
@@ -35972,12 +36056,12 @@
     {
       "month": "2017-10",
       "county": "Caledonia",
-      "gallons": 24
+      "gallons": 834
     },
     {
       "month": "2017-10",
       "county": "Chittenden",
-      "gallons": 9992
+      "gallons": 9182
     },
     {
       "month": "2017-10",
@@ -36282,7 +36366,7 @@
     {
       "month": "2018-04",
       "county": "Chittenden",
-      "gallons": 5625
+      "gallons": 5550
     },
     {
       "month": "2018-04",
@@ -36312,7 +36396,7 @@
     {
       "month": "2018-04",
       "county": "Washington",
-      "gallons": 5103
+      "gallons": 5178
     },
     {
       "month": "2018-04",
@@ -36387,12 +36471,17 @@
     {
       "month": "2018-06",
       "county": "Caledonia",
-      "gallons": 325
+      "gallons": 575
     },
     {
       "month": "2018-06",
       "county": "Chittenden",
-      "gallons": 6175
+      "gallons": 5425
+    },
+    {
+      "month": "2018-06",
+      "county": "Franklin",
+      "gallons": 350
     },
     {
       "month": "2018-06",
@@ -36422,7 +36511,7 @@
     {
       "month": "2018-06",
       "county": "Washington",
-      "gallons": 2840
+      "gallons": 2990
     },
     {
       "month": "2018-06",
@@ -36447,7 +36536,7 @@
     {
       "month": "2018-07",
       "county": "Chittenden",
-      "gallons": 9215
+      "gallons": 9115
     },
     {
       "month": "2018-07",
@@ -36467,7 +36556,7 @@
     {
       "month": "2018-07",
       "county": "Washington",
-      "gallons": 4135
+      "gallons": 4235
     },
     {
       "month": "2018-07",
@@ -36487,7 +36576,7 @@
     {
       "month": "2018-08",
       "county": "Chittenden",
-      "gallons": 4720
+      "gallons": 4595
     },
     {
       "month": "2018-08",
@@ -36522,7 +36611,7 @@
     {
       "month": "2018-08",
       "county": "Washington",
-      "gallons": 3217
+      "gallons": 3342
     },
     {
       "month": "2018-08",
@@ -36547,7 +36636,7 @@
     {
       "month": "2018-09",
       "county": "Chittenden",
-      "gallons": 6120
+      "gallons": 6020
     },
     {
       "month": "2018-09",
@@ -36572,7 +36661,7 @@
     {
       "month": "2018-09",
       "county": "Washington",
-      "gallons": 3390
+      "gallons": 3490
     },
     {
       "month": "2018-09",
@@ -36597,7 +36686,7 @@
     {
       "month": "2018-10",
       "county": "Chittenden",
-      "gallons": 5640
+      "gallons": 5540
     },
     {
       "month": "2018-10",
@@ -36627,7 +36716,7 @@
     {
       "month": "2018-10",
       "county": "Washington",
-      "gallons": 3385
+      "gallons": 3485
     },
     {
       "month": "2018-10",
@@ -36647,7 +36736,7 @@
     {
       "month": "2018-11",
       "county": "Chittenden",
-      "gallons": 5759
+      "gallons": 5634
     },
     {
       "month": "2018-11",
@@ -36672,7 +36761,7 @@
     {
       "month": "2018-11",
       "county": "Washington",
-      "gallons": 3365
+      "gallons": 3490
     },
     {
       "month": "2018-11",
@@ -36702,7 +36791,7 @@
     {
       "month": "2018-12",
       "county": "Chittenden",
-      "gallons": 5380
+      "gallons": 5280
     },
     {
       "month": "2018-12",
@@ -36732,7 +36821,7 @@
     {
       "month": "2018-12",
       "county": "Washington",
-      "gallons": 2505
+      "gallons": 2605
     },
     {
       "month": "2018-12",
@@ -36762,7 +36851,7 @@
     {
       "month": "2019-01",
       "county": "Chittenden",
-      "gallons": 3586
+      "gallons": 3486
     },
     {
       "month": "2019-01",
@@ -36792,7 +36881,7 @@
     {
       "month": "2019-01",
       "county": "Washington",
-      "gallons": 3260
+      "gallons": 3360
     },
     {
       "month": "2019-01",
@@ -36817,7 +36906,7 @@
     {
       "month": "2019-02",
       "county": "Chittenden",
-      "gallons": 5633
+      "gallons": 5558
     },
     {
       "month": "2019-02",
@@ -36842,7 +36931,7 @@
     {
       "month": "2019-02",
       "county": "Washington",
-      "gallons": 3539
+      "gallons": 3614
     },
     {
       "month": "2019-02",
@@ -36872,7 +36961,7 @@
     {
       "month": "2019-03",
       "county": "Chittenden",
-      "gallons": 7135
+      "gallons": 7085
     },
     {
       "month": "2019-03",
@@ -36892,7 +36981,7 @@
     {
       "month": "2019-03",
       "county": "Washington",
-      "gallons": 3350
+      "gallons": 3400
     },
     {
       "month": "2019-03",
@@ -36912,7 +37001,7 @@
     {
       "month": "2019-04",
       "county": "Chittenden",
-      "gallons": 5420
+      "gallons": 5270
     },
     {
       "month": "2019-04",
@@ -36937,7 +37026,7 @@
     {
       "month": "2019-04",
       "county": "Washington",
-      "gallons": 3910
+      "gallons": 4060
     },
     {
       "month": "2019-04",
@@ -36962,7 +37051,7 @@
     {
       "month": "2019-05",
       "county": "Chittenden",
-      "gallons": 7775
+      "gallons": 7700
     },
     {
       "month": "2019-05",
@@ -36992,7 +37081,7 @@
     {
       "month": "2019-05",
       "county": "Washington",
-      "gallons": 3975
+      "gallons": 4050
     },
     {
       "month": "2019-05",
@@ -37062,7 +37151,7 @@
     {
       "month": "2019-07",
       "county": "Chittenden",
-      "gallons": 6500
+      "gallons": 6350
     },
     {
       "month": "2019-07",
@@ -37092,7 +37181,7 @@
     {
       "month": "2019-07",
       "county": "Washington",
-      "gallons": 3380
+      "gallons": 3530
     },
     {
       "month": "2019-07",
@@ -37112,7 +37201,7 @@
     {
       "month": "2019-08",
       "county": "Chittenden",
-      "gallons": 6542
+      "gallons": 6417
     },
     {
       "month": "2019-08",
@@ -37137,7 +37226,7 @@
     {
       "month": "2019-08",
       "county": "Washington",
-      "gallons": 2925
+      "gallons": 3050
     },
     {
       "month": "2019-08",
@@ -37162,7 +37251,7 @@
     {
       "month": "2019-09",
       "county": "Chittenden",
-      "gallons": 5785
+      "gallons": 5635
     },
     {
       "month": "2019-09",
@@ -37192,7 +37281,7 @@
     {
       "month": "2019-09",
       "county": "Washington",
-      "gallons": 2085
+      "gallons": 2235
     },
     {
       "month": "2019-09",
@@ -37202,7 +37291,7 @@
     {
       "month": "2019-10",
       "county": "Addison",
-      "gallons": 675
+      "gallons": 800
     },
     {
       "month": "2019-10",
@@ -37212,7 +37301,7 @@
     {
       "month": "2019-10",
       "county": "Chittenden",
-      "gallons": 7055
+      "gallons": 6930
     },
     {
       "month": "2019-10",
@@ -37262,7 +37351,7 @@
     {
       "month": "2019-11",
       "county": "Chittenden",
-      "gallons": 6087
+      "gallons": 5987
     },
     {
       "month": "2019-11",
@@ -37287,7 +37376,7 @@
     {
       "month": "2019-11",
       "county": "Washington",
-      "gallons": 4585
+      "gallons": 4685
     },
     {
       "month": "2019-11",
@@ -37302,7 +37391,7 @@
     {
       "month": "2019-12",
       "county": "Chittenden",
-      "gallons": 5100
+      "gallons": 5025
     },
     {
       "month": "2019-12",
@@ -37332,7 +37421,7 @@
     {
       "month": "2019-12",
       "county": "Washington",
-      "gallons": 2485
+      "gallons": 2560
     },
     {
       "month": "2019-12",
@@ -37462,7 +37551,7 @@
     {
       "month": "2020-03",
       "county": "Chittenden",
-      "gallons": 4210
+      "gallons": 4125
     },
     {
       "month": "2020-03",
@@ -37497,7 +37586,7 @@
     {
       "month": "2020-03",
       "county": "Washington",
-      "gallons": 3350
+      "gallons": 3435
     },
     {
       "month": "2020-03",
@@ -37527,7 +37616,7 @@
     {
       "month": "2020-04",
       "county": "Chittenden",
-      "gallons": 8956
+      "gallons": 8906
     },
     {
       "month": "2020-04",
@@ -37557,7 +37646,7 @@
     {
       "month": "2020-04",
       "county": "Washington",
-      "gallons": 2140
+      "gallons": 2190
     },
     {
       "month": "2020-04",
@@ -37912,7 +38001,7 @@
     {
       "month": "2020-12",
       "county": "Chittenden",
-      "gallons": 4305
+      "gallons": 4235
     },
     {
       "month": "2020-12",
@@ -37947,7 +38036,7 @@
     {
       "month": "2020-12",
       "county": "Windham",
-      "gallons": 150
+      "gallons": 220
     },
     {
       "month": "2020-12",
@@ -38382,7 +38471,7 @@
     {
       "month": "2021-09",
       "county": "Chittenden",
-      "gallons": 4260
+      "gallons": 4110
     },
     {
       "month": "2021-09",
@@ -38407,7 +38496,7 @@
     {
       "month": "2021-09",
       "county": "Windham",
-      "gallons": 205
+      "gallons": 355
     },
     {
       "month": "2021-09",
@@ -38932,7 +39021,7 @@
     {
       "month": "2022-07",
       "county": "Chittenden",
-      "gallons": 9730
+      "gallons": 9705
     },
     {
       "month": "2022-07",
@@ -38967,7 +39056,7 @@
     {
       "month": "2022-07",
       "county": "Washington",
-      "gallons": 2629
+      "gallons": 2654
     },
     {
       "month": "2022-07",
@@ -43332,7 +43421,7 @@
     {
       "month": "2015-05",
       "region": "Burlington / South Burlington",
-      "gallons": 1916
+      "gallons": 1841
     },
     {
       "month": "2015-05",
@@ -43382,7 +43471,7 @@
     {
       "month": "2015-05",
       "region": "Warren / Waitsfield",
-      "gallons": 40
+      "gallons": 115
     },
     {
       "month": "2015-05",
@@ -43411,18 +43500,13 @@
     },
     {
       "month": "2015-06",
-      "region": "Other",
-      "gallons": 25
-    },
-    {
-      "month": "2015-06",
       "region": "Outer Burlington",
       "gallons": 180
     },
     {
       "month": "2015-06",
       "region": "Route 15",
-      "gallons": 375
+      "gallons": 400
     },
     {
       "month": "2015-06",
@@ -43471,11 +43555,6 @@
     },
     {
       "month": "2015-07",
-      "region": "Other",
-      "gallons": 30
-    },
-    {
-      "month": "2015-07",
       "region": "Outer Burlington",
       "gallons": 191
     },
@@ -43487,7 +43566,7 @@
     {
       "month": "2015-07",
       "region": "Route 2 East / Route 5",
-      "gallons": 180
+      "gallons": 210
     },
     {
       "month": "2015-07",
@@ -43632,7 +43711,7 @@
     {
       "month": "2015-10",
       "region": "Burlington / South Burlington",
-      "gallons": 1930
+      "gallons": 1905
     },
     {
       "month": "2015-10",
@@ -43687,7 +43766,7 @@
     {
       "month": "2015-10",
       "region": "Warren / Waitsfield",
-      "gallons": 40
+      "gallons": 65
     },
     {
       "month": "2015-10",
@@ -43796,23 +43875,18 @@
     },
     {
       "month": "2015-12",
-      "region": "Other",
-      "gallons": 85
-    },
-    {
-      "month": "2015-12",
       "region": "Outer Burlington",
       "gallons": 396
     },
     {
       "month": "2015-12",
       "region": "Route 15",
-      "gallons": 297
+      "gallons": 312
     },
     {
       "month": "2015-12",
       "region": "Route 2 East / Route 5",
-      "gallons": 40
+      "gallons": 110
     },
     {
       "month": "2015-12",
@@ -43837,7 +43911,7 @@
     {
       "month": "2016-01",
       "region": "Burlington / South Burlington",
-      "gallons": 1893
+      "gallons": 1868
     },
     {
       "month": "2016-01",
@@ -43887,7 +43961,7 @@
     {
       "month": "2016-01",
       "region": "Warren / Waitsfield",
-      "gallons": 150
+      "gallons": 175
     },
     {
       "month": "2016-01",
@@ -43962,7 +44036,7 @@
     {
       "month": "2016-03",
       "region": "Burlington / South Burlington",
-      "gallons": 2229
+      "gallons": 2217
     },
     {
       "month": "2016-03",
@@ -43983,6 +44057,11 @@
       "month": "2016-03",
       "region": "Route 15",
       "gallons": 325
+    },
+    {
+      "month": "2016-03",
+      "region": "Route 2 East / Route 5",
+      "gallons": 12
     },
     {
       "month": "2016-03",
@@ -44022,7 +44101,7 @@
     {
       "month": "2016-04",
       "region": "Burlington / South Burlington",
-      "gallons": 1858
+      "gallons": 1688
     },
     {
       "month": "2016-04",
@@ -44038,6 +44117,11 @@
       "month": "2016-04",
       "region": "North-Northeast",
       "gallons": 990
+    },
+    {
+      "month": "2016-04",
+      "region": "Northwest",
+      "gallons": 160
     },
     {
       "month": "2016-04",
@@ -44072,7 +44156,7 @@
     {
       "month": "2016-04",
       "region": "Warren / Waitsfield",
-      "gallons": 158
+      "gallons": 168
     },
     {
       "month": "2016-04",
@@ -44087,7 +44171,7 @@
     {
       "month": "2016-05",
       "region": "Burlington / South Burlington",
-      "gallons": 2537
+      "gallons": 2292
     },
     {
       "month": "2016-05",
@@ -44112,7 +44196,7 @@
     {
       "month": "2016-05",
       "region": "Route 7",
-      "gallons": 225
+      "gallons": 470
     },
     {
       "month": "2016-05",
@@ -44137,7 +44221,7 @@
     {
       "month": "2016-06",
       "region": "Burlington / South Burlington",
-      "gallons": 7170
+      "gallons": 7157
     },
     {
       "month": "2016-06",
@@ -44167,7 +44251,7 @@
     {
       "month": "2016-06",
       "region": "Route 2 East / Route 5",
-      "gallons": 70
+      "gallons": 83
     },
     {
       "month": "2016-06",
@@ -44202,7 +44286,7 @@
     {
       "month": "2016-07",
       "region": "Burlington / South Burlington",
-      "gallons": 2921
+      "gallons": 2917
     },
     {
       "month": "2016-07",
@@ -44212,17 +44296,12 @@
     {
       "month": "2016-07",
       "region": "Central South",
-      "gallons": 440
+      "gallons": 590
     },
     {
       "month": "2016-07",
       "region": "North-Northeast",
       "gallons": 875
-    },
-    {
-      "month": "2016-07",
-      "region": "Other",
-      "gallons": 150
     },
     {
       "month": "2016-07",
@@ -44242,7 +44321,7 @@
     {
       "month": "2016-07",
       "region": "Route 2 East / Route 5",
-      "gallons": 65
+      "gallons": 69
     },
     {
       "month": "2016-07",
@@ -44287,17 +44366,12 @@
     {
       "month": "2016-08",
       "region": "Central South",
-      "gallons": 560
+      "gallons": 660
     },
     {
       "month": "2016-08",
       "region": "North-Northeast",
       "gallons": 1010
-    },
-    {
-      "month": "2016-08",
-      "region": "Other",
-      "gallons": 100
     },
     {
       "month": "2016-08",
@@ -44357,7 +44431,7 @@
     {
       "month": "2016-09",
       "region": "Burlington / South Burlington",
-      "gallons": 2335
+      "gallons": 2327
     },
     {
       "month": "2016-09",
@@ -44367,17 +44441,12 @@
     {
       "month": "2016-09",
       "region": "Central South",
-      "gallons": 880
+      "gallons": 1150
     },
     {
       "month": "2016-09",
       "region": "Northwest",
       "gallons": 100
-    },
-    {
-      "month": "2016-09",
-      "region": "Other",
-      "gallons": 270
     },
     {
       "month": "2016-09",
@@ -44397,7 +44466,7 @@
     {
       "month": "2016-09",
       "region": "Route 2 East / Route 5",
-      "gallons": 25
+      "gallons": 33
     },
     {
       "month": "2016-09",
@@ -44432,7 +44501,7 @@
     {
       "month": "2016-10",
       "region": "Burlington / South Burlington",
-      "gallons": 2218
+      "gallons": 2214
     },
     {
       "month": "2016-10",
@@ -44442,7 +44511,7 @@
     {
       "month": "2016-10",
       "region": "Central South",
-      "gallons": 415
+      "gallons": 565
     },
     {
       "month": "2016-10",
@@ -44453,11 +44522,6 @@
       "month": "2016-10",
       "region": "Northwest",
       "gallons": 50
-    },
-    {
-      "month": "2016-10",
-      "region": "Other",
-      "gallons": 150
     },
     {
       "month": "2016-10",
@@ -44477,7 +44541,7 @@
     {
       "month": "2016-10",
       "region": "Route 2 East / Route 5",
-      "gallons": 95
+      "gallons": 99
     },
     {
       "month": "2016-10",
@@ -44522,17 +44586,12 @@
     {
       "month": "2016-11",
       "region": "Central South",
-      "gallons": 440
+      "gallons": 590
     },
     {
       "month": "2016-11",
       "region": "North-Northeast",
       "gallons": 310
-    },
-    {
-      "month": "2016-11",
-      "region": "Other",
-      "gallons": 230
     },
     {
       "month": "2016-11",
@@ -44552,7 +44611,7 @@
     {
       "month": "2016-11",
       "region": "Route 2 East / Route 5",
-      "gallons": 70
+      "gallons": 150
     },
     {
       "month": "2016-11",
@@ -44592,17 +44651,12 @@
     {
       "month": "2016-12",
       "region": "Central South",
-      "gallons": 275
+      "gallons": 385
     },
     {
       "month": "2016-12",
       "region": "North-Northeast",
       "gallons": 50
-    },
-    {
-      "month": "2016-12",
-      "region": "Other",
-      "gallons": 110
     },
     {
       "month": "2016-12",
@@ -44652,7 +44706,7 @@
     {
       "month": "2017-01",
       "region": "Burlington / South Burlington",
-      "gallons": 3278
+      "gallons": 3270
     },
     {
       "month": "2017-01",
@@ -44662,7 +44716,7 @@
     {
       "month": "2017-01",
       "region": "Central South",
-      "gallons": 610
+      "gallons": 880
     },
     {
       "month": "2017-01",
@@ -44673,11 +44727,6 @@
       "month": "2017-01",
       "region": "Northwest",
       "gallons": 125
-    },
-    {
-      "month": "2017-01",
-      "region": "Other",
-      "gallons": 270
     },
     {
       "month": "2017-01",
@@ -44692,7 +44741,7 @@
     {
       "month": "2017-01",
       "region": "Route 2 East / Route 5",
-      "gallons": 160
+      "gallons": 168
     },
     {
       "month": "2017-01",
@@ -44747,17 +44796,12 @@
     {
       "month": "2017-02",
       "region": "Central South",
-      "gallons": 335
+      "gallons": 450
     },
     {
       "month": "2017-02",
       "region": "North-Northeast",
       "gallons": 390
-    },
-    {
-      "month": "2017-02",
-      "region": "Other",
-      "gallons": 130
     },
     {
       "month": "2017-02",
@@ -44787,12 +44831,12 @@
     {
       "month": "2017-02",
       "region": "South / Ski Combined",
-      "gallons": 420
+      "gallons": 435
     },
     {
       "month": "2017-02",
       "region": "Southern Ski Slopes",
-      "gallons": 270
+      "gallons": 285
     },
     {
       "month": "2017-02",
@@ -44812,7 +44856,7 @@
     {
       "month": "2017-03",
       "region": "Burlington / South Burlington",
-      "gallons": 1947
+      "gallons": 1935
     },
     {
       "month": "2017-03",
@@ -44822,17 +44866,12 @@
     {
       "month": "2017-03",
       "region": "Central South",
-      "gallons": 350
+      "gallons": 500
     },
     {
       "month": "2017-03",
       "region": "North-Northeast",
       "gallons": 1653
-    },
-    {
-      "month": "2017-03",
-      "region": "Other",
-      "gallons": 150
     },
     {
       "month": "2017-03",
@@ -44847,7 +44886,7 @@
     {
       "month": "2017-03",
       "region": "Route 2 East / Route 5",
-      "gallons": 15
+      "gallons": 27
     },
     {
       "month": "2017-03",
@@ -44897,12 +44936,7 @@
     {
       "month": "2017-04",
       "region": "Central South",
-      "gallons": 490
-    },
-    {
-      "month": "2017-04",
-      "region": "Other",
-      "gallons": 225
+      "gallons": 715
     },
     {
       "month": "2017-04",
@@ -44937,17 +44971,12 @@
     {
       "month": "2017-05",
       "region": "Central South",
-      "gallons": 400
+      "gallons": 500
     },
     {
       "month": "2017-05",
       "region": "North-Northeast",
       "gallons": 270
-    },
-    {
-      "month": "2017-05",
-      "region": "Other",
-      "gallons": 115
     },
     {
       "month": "2017-05",
@@ -44982,12 +45011,12 @@
     {
       "month": "2017-05",
       "region": "South / Ski Combined",
-      "gallons": 215
+      "gallons": 230
     },
     {
       "month": "2017-05",
       "region": "Southern Ski Slopes",
-      "gallons": 215
+      "gallons": 230
     },
     {
       "month": "2017-05",
@@ -45022,7 +45051,7 @@
     {
       "month": "2017-06",
       "region": "Central South",
-      "gallons": 460
+      "gallons": 760
     },
     {
       "month": "2017-06",
@@ -45033,11 +45062,6 @@
       "month": "2017-06",
       "region": "Northwest",
       "gallons": 60
-    },
-    {
-      "month": "2017-06",
-      "region": "Other",
-      "gallons": 300
     },
     {
       "month": "2017-06",
@@ -45117,7 +45141,7 @@
     {
       "month": "2017-07",
       "region": "Central South",
-      "gallons": 675
+      "gallons": 775
     },
     {
       "month": "2017-07",
@@ -45128,11 +45152,6 @@
       "month": "2017-07",
       "region": "Northwest",
       "gallons": 75
-    },
-    {
-      "month": "2017-07",
-      "region": "Other",
-      "gallons": 150
     },
     {
       "month": "2017-07",
@@ -45172,12 +45191,12 @@
     {
       "month": "2017-07",
       "region": "South / Ski Combined",
-      "gallons": 210
+      "gallons": 260
     },
     {
       "month": "2017-07",
       "region": "Southern Ski Slopes",
-      "gallons": 60
+      "gallons": 110
     },
     {
       "month": "2017-07",
@@ -45212,17 +45231,12 @@
     {
       "month": "2017-08",
       "region": "Central South",
-      "gallons": 560
+      "gallons": 635
     },
     {
       "month": "2017-08",
       "region": "North-Northeast",
       "gallons": 325
-    },
-    {
-      "month": "2017-08",
-      "region": "Other",
-      "gallons": 125
     },
     {
       "month": "2017-08",
@@ -45262,12 +45276,12 @@
     {
       "month": "2017-08",
       "region": "South / Ski Combined",
-      "gallons": 190
+      "gallons": 240
     },
     {
       "month": "2017-08",
       "region": "Southern Ski Slopes",
-      "gallons": 50
+      "gallons": 100
     },
     {
       "month": "2017-08",
@@ -45302,7 +45316,7 @@
     {
       "month": "2017-09",
       "region": "Central South",
-      "gallons": 615
+      "gallons": 740
     },
     {
       "month": "2017-09",
@@ -45313,11 +45327,6 @@
       "month": "2017-09",
       "region": "Northwest",
       "gallons": 100
-    },
-    {
-      "month": "2017-09",
-      "region": "Other",
-      "gallons": 210
     },
     {
       "month": "2017-09",
@@ -45357,12 +45366,12 @@
     {
       "month": "2017-09",
       "region": "South / Ski Combined",
-      "gallons": 310
+      "gallons": 395
     },
     {
       "month": "2017-09",
       "region": "Southern Ski Slopes",
-      "gallons": 125
+      "gallons": 210
     },
     {
       "month": "2017-09",
@@ -45387,7 +45396,7 @@
     {
       "month": "2017-10",
       "region": "Burlington / South Burlington",
-      "gallons": 8927
+      "gallons": 8117
     },
     {
       "month": "2017-10",
@@ -45418,6 +45427,11 @@
       "month": "2017-10",
       "region": "Route 15",
       "gallons": 274
+    },
+    {
+      "month": "2017-10",
+      "region": "Route 2 East / Route 5",
+      "gallons": 810
     },
     {
       "month": "2017-10",
@@ -45472,17 +45486,12 @@
     {
       "month": "2017-11",
       "region": "Central South",
-      "gallons": 1070
+      "gallons": 1270
     },
     {
       "month": "2017-11",
       "region": "North-Northeast",
       "gallons": 385
-    },
-    {
-      "month": "2017-11",
-      "region": "Other",
-      "gallons": 260
     },
     {
       "month": "2017-11",
@@ -45512,12 +45521,12 @@
     {
       "month": "2017-11",
       "region": "South / Ski Combined",
-      "gallons": 115
+      "gallons": 175
     },
     {
       "month": "2017-11",
       "region": "Southern Ski Slopes",
-      "gallons": 115
+      "gallons": 175
     },
     {
       "month": "2017-11",
@@ -45607,17 +45616,12 @@
     {
       "month": "2018-01",
       "region": "Central South",
-      "gallons": 120
+      "gallons": 245
     },
     {
       "month": "2018-01",
       "region": "North-Northeast",
       "gallons": 250
-    },
-    {
-      "month": "2018-01",
-      "region": "Other",
-      "gallons": 153
     },
     {
       "month": "2018-01",
@@ -45647,12 +45651,12 @@
     {
       "month": "2018-01",
       "region": "South / Ski Combined",
-      "gallons": 1125
+      "gallons": 1153
     },
     {
       "month": "2018-01",
       "region": "Southern Ski Slopes",
-      "gallons": 875
+      "gallons": 903
     },
     {
       "month": "2018-01",
@@ -45682,7 +45686,7 @@
     {
       "month": "2018-02",
       "region": "Central South",
-      "gallons": 740
+      "gallons": 790
     },
     {
       "month": "2018-02",
@@ -45693,11 +45697,6 @@
       "month": "2018-02",
       "region": "Northwest",
       "gallons": 100
-    },
-    {
-      "month": "2018-02",
-      "region": "Other",
-      "gallons": 50
     },
     {
       "month": "2018-02",
@@ -45767,7 +45766,7 @@
     {
       "month": "2018-03",
       "region": "Central South",
-      "gallons": 420
+      "gallons": 520
     },
     {
       "month": "2018-03",
@@ -45778,11 +45777,6 @@
       "month": "2018-03",
       "region": "Northwest",
       "gallons": 125
-    },
-    {
-      "month": "2018-03",
-      "region": "Other",
-      "gallons": 100
     },
     {
       "month": "2018-03",
@@ -45842,17 +45836,17 @@
     {
       "month": "2018-04",
       "region": "Burlington / South Burlington",
-      "gallons": 4215
+      "gallons": 4140
     },
     {
       "month": "2018-04",
       "region": "Central",
-      "gallons": 2245
+      "gallons": 2320
     },
     {
       "month": "2018-04",
       "region": "Central South",
-      "gallons": 400
+      "gallons": 500
     },
     {
       "month": "2018-04",
@@ -45866,18 +45860,13 @@
     },
     {
       "month": "2018-04",
-      "region": "Other",
-      "gallons": 210
-    },
-    {
-      "month": "2018-04",
       "region": "Outer Burlington",
       "gallons": 1085
     },
     {
       "month": "2018-04",
       "region": "Route 15",
-      "gallons": 563
+      "gallons": 673
     },
     {
       "month": "2018-04",
@@ -45937,7 +45926,7 @@
     {
       "month": "2018-05",
       "region": "Central South",
-      "gallons": 620
+      "gallons": 695
     },
     {
       "month": "2018-05",
@@ -45948,11 +45937,6 @@
       "month": "2018-05",
       "region": "Northwest",
       "gallons": 100
-    },
-    {
-      "month": "2018-05",
-      "region": "Other",
-      "gallons": 275
     },
     {
       "month": "2018-05",
@@ -45967,7 +45951,7 @@
     {
       "month": "2018-05",
       "region": "Route 15",
-      "gallons": 475
+      "gallons": 500
     },
     {
       "month": "2018-05",
@@ -45992,12 +45976,12 @@
     {
       "month": "2018-05",
       "region": "South / Ski Combined",
-      "gallons": 400
+      "gallons": 575
     },
     {
       "month": "2018-05",
       "region": "Southern Ski Slopes",
-      "gallons": 200
+      "gallons": 375
     },
     {
       "month": "2018-05",
@@ -46022,32 +46006,27 @@
     {
       "month": "2018-06",
       "region": "Burlington / South Burlington",
-      "gallons": 3915
+      "gallons": 3165
     },
     {
       "month": "2018-06",
       "region": "Central",
-      "gallons": 2285
+      "gallons": 2435
     },
     {
       "month": "2018-06",
       "region": "Central South",
-      "gallons": 845
+      "gallons": 920
     },
     {
       "month": "2018-06",
       "region": "North-Northeast",
-      "gallons": 550
+      "gallons": 900
     },
     {
       "month": "2018-06",
       "region": "Northwest",
       "gallons": 100
-    },
-    {
-      "month": "2018-06",
-      "region": "Other",
-      "gallons": 75
     },
     {
       "month": "2018-06",
@@ -46067,7 +46046,7 @@
     {
       "month": "2018-06",
       "region": "Route 2 East / Route 5",
-      "gallons": 105
+      "gallons": 355
     },
     {
       "month": "2018-06",
@@ -46102,27 +46081,22 @@
     {
       "month": "2018-07",
       "region": "Burlington / South Burlington",
-      "gallons": 5325
+      "gallons": 5225
     },
     {
       "month": "2018-07",
       "region": "Central",
-      "gallons": 2690
+      "gallons": 2790
     },
     {
       "month": "2018-07",
       "region": "Central South",
-      "gallons": 560
+      "gallons": 660
     },
     {
       "month": "2018-07",
       "region": "North-Northeast",
       "gallons": 350
-    },
-    {
-      "month": "2018-07",
-      "region": "Other",
-      "gallons": 100
     },
     {
       "month": "2018-07",
@@ -46182,17 +46156,17 @@
     {
       "month": "2018-08",
       "region": "Burlington / South Burlington",
-      "gallons": 2855
+      "gallons": 2730
     },
     {
       "month": "2018-08",
       "region": "Central",
-      "gallons": 2195
+      "gallons": 2320
     },
     {
       "month": "2018-08",
       "region": "Central South",
-      "gallons": 945
+      "gallons": 1095
     },
     {
       "month": "2018-08",
@@ -46203,11 +46177,6 @@
       "month": "2018-08",
       "region": "Northwest",
       "gallons": 825
-    },
-    {
-      "month": "2018-08",
-      "region": "Other",
-      "gallons": 325
     },
     {
       "month": "2018-08",
@@ -46242,12 +46211,12 @@
     {
       "month": "2018-08",
       "region": "South / Ski Combined",
-      "gallons": 50
+      "gallons": 225
     },
     {
       "month": "2018-08",
       "region": "Southern Ski Slopes",
-      "gallons": 50
+      "gallons": 225
     },
     {
       "month": "2018-08",
@@ -46272,22 +46241,17 @@
     {
       "month": "2018-09",
       "region": "Burlington / South Burlington",
-      "gallons": 3470
+      "gallons": 3370
     },
     {
       "month": "2018-09",
       "region": "Central",
-      "gallons": 2375
+      "gallons": 2475
     },
     {
       "month": "2018-09",
       "region": "Central South",
-      "gallons": 1065
-    },
-    {
-      "month": "2018-09",
-      "region": "Other",
-      "gallons": 165
+      "gallons": 1165
     },
     {
       "month": "2018-09",
@@ -46297,7 +46261,7 @@
     {
       "month": "2018-09",
       "region": "Route 15",
-      "gallons": 70
+      "gallons": 135
     },
     {
       "month": "2018-09",
@@ -46352,17 +46316,17 @@
     {
       "month": "2018-10",
       "region": "Burlington / South Burlington",
-      "gallons": 3845
+      "gallons": 3745
     },
     {
       "month": "2018-10",
       "region": "Central",
-      "gallons": 1695
+      "gallons": 1795
     },
     {
       "month": "2018-10",
       "region": "Central South",
-      "gallons": 1000
+      "gallons": 1075
     },
     {
       "month": "2018-10",
@@ -46373,11 +46337,6 @@
       "month": "2018-10",
       "region": "Northwest",
       "gallons": 585
-    },
-    {
-      "month": "2018-10",
-      "region": "Other",
-      "gallons": 230
     },
     {
       "month": "2018-10",
@@ -46392,12 +46351,12 @@
     {
       "month": "2018-10",
       "region": "Route 15",
-      "gallons": 606
+      "gallons": 631
     },
     {
       "month": "2018-10",
       "region": "Route 2 East / Route 5",
-      "gallons": 490
+      "gallons": 560
     },
     {
       "month": "2018-10",
@@ -46417,12 +46376,12 @@
     {
       "month": "2018-10",
       "region": "South / Ski Combined",
-      "gallons": 210
+      "gallons": 270
     },
     {
       "month": "2018-10",
       "region": "Southern Ski Slopes",
-      "gallons": 35
+      "gallons": 95
     },
     {
       "month": "2018-10",
@@ -46447,12 +46406,12 @@
     {
       "month": "2018-11",
       "region": "Burlington / South Burlington",
-      "gallons": 3804
+      "gallons": 3679
     },
     {
       "month": "2018-11",
       "region": "Central",
-      "gallons": 2315
+      "gallons": 2440
     },
     {
       "month": "2018-11",
@@ -46522,17 +46481,17 @@
     {
       "month": "2018-12",
       "region": "Burlington / South Burlington",
-      "gallons": 4000
+      "gallons": 3900
     },
     {
       "month": "2018-12",
       "region": "Central",
-      "gallons": 1480
+      "gallons": 1580
     },
     {
       "month": "2018-12",
       "region": "Central South",
-      "gallons": 665
+      "gallons": 740
     },
     {
       "month": "2018-12",
@@ -46543,11 +46502,6 @@
       "month": "2018-12",
       "region": "Northwest",
       "gallons": 235
-    },
-    {
-      "month": "2018-12",
-      "region": "Other",
-      "gallons": 75
     },
     {
       "month": "2018-12",
@@ -46617,17 +46571,17 @@
     {
       "month": "2019-01",
       "region": "Burlington / South Burlington",
-      "gallons": 2490
+      "gallons": 2390
     },
     {
       "month": "2019-01",
       "region": "Central",
-      "gallons": 1550
+      "gallons": 1650
     },
     {
       "month": "2019-01",
       "region": "Central South",
-      "gallons": 480
+      "gallons": 630
     },
     {
       "month": "2019-01",
@@ -46638,11 +46592,6 @@
       "month": "2019-01",
       "region": "Northwest",
       "gallons": 50
-    },
-    {
-      "month": "2019-01",
-      "region": "Other",
-      "gallons": 150
     },
     {
       "month": "2019-01",
@@ -46712,17 +46661,17 @@
     {
       "month": "2019-02",
       "region": "Burlington / South Burlington",
-      "gallons": 3958
+      "gallons": 3883
     },
     {
       "month": "2019-02",
       "region": "Central",
-      "gallons": 1953
+      "gallons": 2028
     },
     {
       "month": "2019-02",
       "region": "Central South",
-      "gallons": 570
+      "gallons": 645
     },
     {
       "month": "2019-02",
@@ -46733,11 +46682,6 @@
       "month": "2019-02",
       "region": "Northwest",
       "gallons": 250
-    },
-    {
-      "month": "2019-02",
-      "region": "Other",
-      "gallons": 75
     },
     {
       "month": "2019-02",
@@ -46797,12 +46741,12 @@
     {
       "month": "2019-03",
       "region": "Burlington / South Burlington",
-      "gallons": 3180
+      "gallons": 3130
     },
     {
       "month": "2019-03",
       "region": "Central",
-      "gallons": 1810
+      "gallons": 1860
     },
     {
       "month": "2019-03",
@@ -46813,11 +46757,6 @@
       "month": "2019-03",
       "region": "North-Northeast",
       "gallons": 1010
-    },
-    {
-      "month": "2019-03",
-      "region": "Other",
-      "gallons": 150
     },
     {
       "month": "2019-03",
@@ -46857,6 +46796,11 @@
     {
       "month": "2019-03",
       "region": "South / Ski Combined",
+      "gallons": 300
+    },
+    {
+      "month": "2019-03",
+      "region": "Southern Ski Slopes",
       "gallons": 150
     },
     {
@@ -46882,12 +46826,12 @@
     {
       "month": "2019-04",
       "region": "Burlington / South Burlington",
-      "gallons": 3025
+      "gallons": 2875
     },
     {
       "month": "2019-04",
       "region": "Central",
-      "gallons": 2295
+      "gallons": 2445
     },
     {
       "month": "2019-04",
@@ -46906,11 +46850,6 @@
     },
     {
       "month": "2019-04",
-      "region": "Other",
-      "gallons": 100
-    },
-    {
-      "month": "2019-04",
       "region": "Outer Burlington",
       "gallons": 965
     },
@@ -46922,7 +46861,7 @@
     {
       "month": "2019-04",
       "region": "Route 15",
-      "gallons": 1000
+      "gallons": 1100
     },
     {
       "month": "2019-04",
@@ -46972,17 +46911,17 @@
     {
       "month": "2019-05",
       "region": "Burlington / South Burlington",
-      "gallons": 3605
+      "gallons": 3530
     },
     {
       "month": "2019-05",
       "region": "Central",
-      "gallons": 2620
+      "gallons": 2695
     },
     {
       "month": "2019-05",
       "region": "Central South",
-      "gallons": 555
+      "gallons": 930
     },
     {
       "month": "2019-05",
@@ -46993,11 +46932,6 @@
       "month": "2019-05",
       "region": "Northwest",
       "gallons": 380
-    },
-    {
-      "month": "2019-05",
-      "region": "Other",
-      "gallons": 420
     },
     {
       "month": "2019-05",
@@ -47037,12 +46971,12 @@
     {
       "month": "2019-05",
       "region": "South / Ski Combined",
-      "gallons": 255
+      "gallons": 300
     },
     {
       "month": "2019-05",
       "region": "Southern Ski Slopes",
-      "gallons": 80
+      "gallons": 125
     },
     {
       "month": "2019-05",
@@ -47072,17 +47006,12 @@
     {
       "month": "2019-06",
       "region": "Central South",
-      "gallons": 1050
+      "gallons": 1200
     },
     {
       "month": "2019-06",
       "region": "North-Northeast",
       "gallons": 875
-    },
-    {
-      "month": "2019-06",
-      "region": "Other",
-      "gallons": 150
     },
     {
       "month": "2019-06",
@@ -47147,17 +47076,17 @@
     {
       "month": "2019-07",
       "region": "Burlington / South Burlington",
-      "gallons": 4025
+      "gallons": 3875
     },
     {
       "month": "2019-07",
       "region": "Central",
-      "gallons": 2490
+      "gallons": 2640
     },
     {
       "month": "2019-07",
       "region": "Central South",
-      "gallons": 1180
+      "gallons": 1480
     },
     {
       "month": "2019-07",
@@ -47168,11 +47097,6 @@
       "month": "2019-07",
       "region": "Northwest",
       "gallons": 475
-    },
-    {
-      "month": "2019-07",
-      "region": "Other",
-      "gallons": 300
     },
     {
       "month": "2019-07",
@@ -47242,17 +47166,17 @@
     {
       "month": "2019-08",
       "region": "Burlington / South Burlington",
-      "gallons": 3991
+      "gallons": 3866
     },
     {
       "month": "2019-08",
       "region": "Central",
-      "gallons": 1755
+      "gallons": 1880
     },
     {
       "month": "2019-08",
       "region": "Central South",
-      "gallons": 590
+      "gallons": 865
     },
     {
       "month": "2019-08",
@@ -47263,11 +47187,6 @@
       "month": "2019-08",
       "region": "Northwest",
       "gallons": 100
-    },
-    {
-      "month": "2019-08",
-      "region": "Other",
-      "gallons": 375
     },
     {
       "month": "2019-08",
@@ -47297,12 +47216,12 @@
     {
       "month": "2019-08",
       "region": "South / Ski Combined",
-      "gallons": 100
+      "gallons": 200
     },
     {
       "month": "2019-08",
       "region": "Southern Ski Slopes",
-      "gallons": 100
+      "gallons": 200
     },
     {
       "month": "2019-08",
@@ -47327,17 +47246,17 @@
     {
       "month": "2019-09",
       "region": "Burlington / South Burlington",
-      "gallons": 2065
+      "gallons": 1915
     },
     {
       "month": "2019-09",
       "region": "Central",
-      "gallons": 860
+      "gallons": 1010
     },
     {
       "month": "2019-09",
       "region": "Central South",
-      "gallons": 780
+      "gallons": 980
     },
     {
       "month": "2019-09",
@@ -47348,11 +47267,6 @@
       "month": "2019-09",
       "region": "Northwest",
       "gallons": 150
-    },
-    {
-      "month": "2019-09",
-      "region": "Other",
-      "gallons": 200
     },
     {
       "month": "2019-09",
@@ -47422,7 +47336,7 @@
     {
       "month": "2019-10",
       "region": "Burlington / South Burlington",
-      "gallons": 4470
+      "gallons": 4345
     },
     {
       "month": "2019-10",
@@ -47432,7 +47346,7 @@
     {
       "month": "2019-10",
       "region": "Central South",
-      "gallons": 900
+      "gallons": 1350
     },
     {
       "month": "2019-10",
@@ -47443,11 +47357,6 @@
       "month": "2019-10",
       "region": "Northwest",
       "gallons": 775
-    },
-    {
-      "month": "2019-10",
-      "region": "Other",
-      "gallons": 525
     },
     {
       "month": "2019-10",
@@ -47462,7 +47371,7 @@
     {
       "month": "2019-10",
       "region": "Route 15",
-      "gallons": 1025
+      "gallons": 1100
     },
     {
       "month": "2019-10",
@@ -47472,7 +47381,7 @@
     {
       "month": "2019-10",
       "region": "Route 7",
-      "gallons": 675
+      "gallons": 800
     },
     {
       "month": "2019-10",
@@ -47512,27 +47421,22 @@
     {
       "month": "2019-11",
       "region": "Burlington / South Burlington",
-      "gallons": 3556
+      "gallons": 3456
     },
     {
       "month": "2019-11",
       "region": "Central",
-      "gallons": 2625
+      "gallons": 2725
     },
     {
       "month": "2019-11",
       "region": "Central South",
-      "gallons": 550
+      "gallons": 850
     },
     {
       "month": "2019-11",
       "region": "North-Northeast",
       "gallons": 80
-    },
-    {
-      "month": "2019-11",
-      "region": "Other",
-      "gallons": 300
     },
     {
       "month": "2019-11",
@@ -47587,17 +47491,17 @@
     {
       "month": "2019-12",
       "region": "Burlington / South Burlington",
-      "gallons": 2910
+      "gallons": 2835
     },
     {
       "month": "2019-12",
       "region": "Central",
-      "gallons": 1685
+      "gallons": 1760
     },
     {
       "month": "2019-12",
       "region": "Central South",
-      "gallons": 680
+      "gallons": 880
     },
     {
       "month": "2019-12",
@@ -47608,11 +47512,6 @@
       "month": "2019-12",
       "region": "Northwest",
       "gallons": 275
-    },
-    {
-      "month": "2019-12",
-      "region": "Other",
-      "gallons": 200
     },
     {
       "month": "2019-12",
@@ -47696,11 +47595,6 @@
     },
     {
       "month": "2020-01",
-      "region": "Other",
-      "gallons": 140
-    },
-    {
-      "month": "2020-01",
       "region": "Outer Burlington",
       "gallons": 1220
     },
@@ -47737,12 +47631,12 @@
     {
       "month": "2020-01",
       "region": "South / Ski Combined",
-      "gallons": 265
+      "gallons": 405
     },
     {
       "month": "2020-01",
       "region": "Southern Ski Slopes",
-      "gallons": 135
+      "gallons": 275
     },
     {
       "month": "2020-01",
@@ -47772,7 +47666,7 @@
     {
       "month": "2020-02",
       "region": "Central South",
-      "gallons": 850
+      "gallons": 950
     },
     {
       "month": "2020-02",
@@ -47783,11 +47677,6 @@
       "month": "2020-02",
       "region": "Northwest",
       "gallons": 650
-    },
-    {
-      "month": "2020-02",
-      "region": "Other",
-      "gallons": 100
     },
     {
       "month": "2020-02",
@@ -47847,17 +47736,17 @@
     {
       "month": "2020-03",
       "region": "Burlington / South Burlington",
-      "gallons": 2690
+      "gallons": 2605
     },
     {
       "month": "2020-03",
       "region": "Central",
-      "gallons": 1415
+      "gallons": 1500
     },
     {
       "month": "2020-03",
       "region": "Central South",
-      "gallons": 700
+      "gallons": 825
     },
     {
       "month": "2020-03",
@@ -47868,11 +47757,6 @@
       "month": "2020-03",
       "region": "Northwest",
       "gallons": 300
-    },
-    {
-      "month": "2020-03",
-      "region": "Other",
-      "gallons": 340
     },
     {
       "month": "2020-03",
@@ -47887,7 +47771,7 @@
     {
       "month": "2020-03",
       "region": "Route 15",
-      "gallons": 850
+      "gallons": 865
     },
     {
       "month": "2020-03",
@@ -47907,12 +47791,12 @@
     {
       "month": "2020-03",
       "region": "South / Ski Combined",
-      "gallons": 1215
+      "gallons": 1415
     },
     {
       "month": "2020-03",
       "region": "Southern Ski Slopes",
-      "gallons": 1215
+      "gallons": 1415
     },
     {
       "month": "2020-03",
@@ -47937,17 +47821,17 @@
     {
       "month": "2020-04",
       "region": "Burlington / South Burlington",
-      "gallons": 1236
+      "gallons": 1186
     },
     {
       "month": "2020-04",
       "region": "Central",
-      "gallons": 1555
+      "gallons": 1605
     },
     {
       "month": "2020-04",
       "region": "Central South",
-      "gallons": 250
+      "gallons": 350
     },
     {
       "month": "2020-04",
@@ -47957,11 +47841,6 @@
     {
       "month": "2020-04",
       "region": "Northwest",
-      "gallons": 100
-    },
-    {
-      "month": "2020-04",
-      "region": "Other",
       "gallons": 100
     },
     {
@@ -48032,12 +47911,7 @@
     {
       "month": "2020-05",
       "region": "Central South",
-      "gallons": 495
-    },
-    {
-      "month": "2020-05",
-      "region": "Other",
-      "gallons": 125
+      "gallons": 620
     },
     {
       "month": "2020-05",
@@ -48092,17 +47966,12 @@
     {
       "month": "2020-06",
       "region": "Central South",
-      "gallons": 475
+      "gallons": 600
     },
     {
       "month": "2020-06",
       "region": "Northwest",
       "gallons": 805
-    },
-    {
-      "month": "2020-06",
-      "region": "Other",
-      "gallons": 175
     },
     {
       "month": "2020-06",
@@ -48132,12 +48001,12 @@
     {
       "month": "2020-06",
       "region": "South / Ski Combined",
-      "gallons": 100
+      "gallons": 150
     },
     {
       "month": "2020-06",
       "region": "Southern Ski Slopes",
-      "gallons": 100
+      "gallons": 150
     },
     {
       "month": "2020-06",
@@ -48172,7 +48041,7 @@
     {
       "month": "2020-07",
       "region": "Central South",
-      "gallons": 825
+      "gallons": 950
     },
     {
       "month": "2020-07",
@@ -48183,11 +48052,6 @@
       "month": "2020-07",
       "region": "Northwest",
       "gallons": 502
-    },
-    {
-      "month": "2020-07",
-      "region": "Other",
-      "gallons": 250
     },
     {
       "month": "2020-07",
@@ -48202,7 +48066,7 @@
     {
       "month": "2020-07",
       "region": "Route 15",
-      "gallons": 900
+      "gallons": 1025
     },
     {
       "month": "2020-07",
@@ -48262,7 +48126,7 @@
     {
       "month": "2020-08",
       "region": "Central South",
-      "gallons": 1100
+      "gallons": 1200
     },
     {
       "month": "2020-08",
@@ -48273,11 +48137,6 @@
       "month": "2020-08",
       "region": "Northwest",
       "gallons": 430
-    },
-    {
-      "month": "2020-08",
-      "region": "Other",
-      "gallons": 100
     },
     {
       "month": "2020-08",
@@ -48337,7 +48196,7 @@
     {
       "month": "2020-09",
       "region": "Central South",
-      "gallons": 1200
+      "gallons": 1425
     },
     {
       "month": "2020-09",
@@ -48348,11 +48207,6 @@
       "month": "2020-09",
       "region": "Northwest",
       "gallons": 50
-    },
-    {
-      "month": "2020-09",
-      "region": "Other",
-      "gallons": 345
     },
     {
       "month": "2020-09",
@@ -48377,12 +48231,12 @@
     {
       "month": "2020-09",
       "region": "South / Ski Combined",
-      "gallons": 220
+      "gallons": 340
     },
     {
       "month": "2020-09",
       "region": "Southern Ski Slopes",
-      "gallons": 220
+      "gallons": 340
     },
     {
       "month": "2020-09",
@@ -48417,7 +48271,7 @@
     {
       "month": "2020-10",
       "region": "Central South",
-      "gallons": 560
+      "gallons": 675
     },
     {
       "month": "2020-10",
@@ -48428,11 +48282,6 @@
       "month": "2020-10",
       "region": "Northwest",
       "gallons": 475
-    },
-    {
-      "month": "2020-10",
-      "region": "Other",
-      "gallons": 115
     },
     {
       "month": "2020-10",
@@ -48512,7 +48361,7 @@
     {
       "month": "2020-11",
       "region": "Central South",
-      "gallons": 1160
+      "gallons": 1210
     },
     {
       "month": "2020-11",
@@ -48526,18 +48375,13 @@
     },
     {
       "month": "2020-11",
-      "region": "Other",
-      "gallons": 150
-    },
-    {
-      "month": "2020-11",
       "region": "Outer Burlington",
       "gallons": 1095
     },
     {
       "month": "2020-11",
       "region": "Route 15",
-      "gallons": 920
+      "gallons": 1000
     },
     {
       "month": "2020-11",
@@ -48557,12 +48401,12 @@
     {
       "month": "2020-11",
       "region": "South / Ski Combined",
-      "gallons": 460
+      "gallons": 480
     },
     {
       "month": "2020-11",
       "region": "Southern Ski Slopes",
-      "gallons": 460
+      "gallons": 480
     },
     {
       "month": "2020-11",
@@ -48587,7 +48431,7 @@
     {
       "month": "2020-12",
       "region": "Burlington / South Burlington",
-      "gallons": 2055
+      "gallons": 1985
     },
     {
       "month": "2020-12",
@@ -48597,7 +48441,7 @@
     {
       "month": "2020-12",
       "region": "Central South",
-      "gallons": 405
+      "gallons": 465
     },
     {
       "month": "2020-12",
@@ -48608,11 +48452,6 @@
       "month": "2020-12",
       "region": "Northwest",
       "gallons": 540
-    },
-    {
-      "month": "2020-12",
-      "region": "Other",
-      "gallons": 80
     },
     {
       "month": "2020-12",
@@ -48627,7 +48466,7 @@
     {
       "month": "2020-12",
       "region": "Route 15",
-      "gallons": 1145
+      "gallons": 1165
     },
     {
       "month": "2020-12",
@@ -48647,12 +48486,12 @@
     {
       "month": "2020-12",
       "region": "South",
-      "gallons": 275
+      "gallons": 345
     },
     {
       "month": "2020-12",
       "region": "South / Ski Combined",
-      "gallons": 375
+      "gallons": 445
     },
     {
       "month": "2020-12",
@@ -48692,7 +48531,7 @@
     {
       "month": "2021-01",
       "region": "Central South",
-      "gallons": 465
+      "gallons": 565
     },
     {
       "month": "2021-01",
@@ -48703,11 +48542,6 @@
       "month": "2021-01",
       "region": "Northwest",
       "gallons": 100
-    },
-    {
-      "month": "2021-01",
-      "region": "Other",
-      "gallons": 235
     },
     {
       "month": "2021-01",
@@ -48742,12 +48576,12 @@
     {
       "month": "2021-01",
       "region": "South / Ski Combined",
-      "gallons": 560
+      "gallons": 695
     },
     {
       "month": "2021-01",
       "region": "Southern Ski Slopes",
-      "gallons": 560
+      "gallons": 695
     },
     {
       "month": "2021-01",
@@ -48791,11 +48625,6 @@
     },
     {
       "month": "2021-02",
-      "region": "Other",
-      "gallons": 50
-    },
-    {
-      "month": "2021-02",
       "region": "Outer Burlington",
       "gallons": 1400
     },
@@ -48822,12 +48651,12 @@
     {
       "month": "2021-02",
       "region": "South / Ski Combined",
-      "gallons": 535
+      "gallons": 585
     },
     {
       "month": "2021-02",
       "region": "Southern Ski Slopes",
-      "gallons": 535
+      "gallons": 585
     },
     {
       "month": "2021-02",
@@ -48857,7 +48686,7 @@
     {
       "month": "2021-03",
       "region": "Central South",
-      "gallons": 275
+      "gallons": 400
     },
     {
       "month": "2021-03",
@@ -48868,11 +48697,6 @@
       "month": "2021-03",
       "region": "Northwest",
       "gallons": 400
-    },
-    {
-      "month": "2021-03",
-      "region": "Other",
-      "gallons": 175
     },
     {
       "month": "2021-03",
@@ -48907,12 +48731,12 @@
     {
       "month": "2021-03",
       "region": "South / Ski Combined",
-      "gallons": 600
+      "gallons": 650
     },
     {
       "month": "2021-03",
       "region": "Southern Ski Slopes",
-      "gallons": 400
+      "gallons": 450
     },
     {
       "month": "2021-03",
@@ -48942,7 +48766,7 @@
     {
       "month": "2021-04",
       "region": "Central South",
-      "gallons": 325
+      "gallons": 375
     },
     {
       "month": "2021-04",
@@ -48953,11 +48777,6 @@
       "month": "2021-04",
       "region": "Northwest",
       "gallons": 175
-    },
-    {
-      "month": "2021-04",
-      "region": "Other",
-      "gallons": 75
     },
     {
       "month": "2021-04",
@@ -48992,12 +48811,12 @@
     {
       "month": "2021-04",
       "region": "South / Ski Combined",
-      "gallons": 775
+      "gallons": 800
     },
     {
       "month": "2021-04",
       "region": "Southern Ski Slopes",
-      "gallons": 775
+      "gallons": 800
     },
     {
       "month": "2021-04",
@@ -49032,7 +48851,7 @@
     {
       "month": "2021-05",
       "region": "Central South",
-      "gallons": 1325
+      "gallons": 1450
     },
     {
       "month": "2021-05",
@@ -49043,11 +48862,6 @@
       "month": "2021-05",
       "region": "Northwest",
       "gallons": 475
-    },
-    {
-      "month": "2021-05",
-      "region": "Other",
-      "gallons": 275
     },
     {
       "month": "2021-05",
@@ -49082,12 +48896,12 @@
     {
       "month": "2021-05",
       "region": "South / Ski Combined",
-      "gallons": 150
+      "gallons": 300
     },
     {
       "month": "2021-05",
       "region": "Southern Ski Slopes",
-      "gallons": 150
+      "gallons": 300
     },
     {
       "month": "2021-05",
@@ -49202,7 +49016,7 @@
     {
       "month": "2021-07",
       "region": "Central South",
-      "gallons": 1325
+      "gallons": 1400
     },
     {
       "month": "2021-07",
@@ -49213,11 +49027,6 @@
       "month": "2021-07",
       "region": "Northwest",
       "gallons": 480
-    },
-    {
-      "month": "2021-07",
-      "region": "Other",
-      "gallons": 75
     },
     {
       "month": "2021-07",
@@ -49292,7 +49101,7 @@
     {
       "month": "2021-08",
       "region": "Central South",
-      "gallons": 975
+      "gallons": 1105
     },
     {
       "month": "2021-08",
@@ -49303,11 +49112,6 @@
       "month": "2021-08",
       "region": "Northwest",
       "gallons": 785
-    },
-    {
-      "month": "2021-08",
-      "region": "Other",
-      "gallons": 425
     },
     {
       "month": "2021-08",
@@ -49322,7 +49126,7 @@
     {
       "month": "2021-08",
       "region": "Route 15",
-      "gallons": 230
+      "gallons": 350
     },
     {
       "month": "2021-08",
@@ -49347,12 +49151,12 @@
     {
       "month": "2021-08",
       "region": "South / Ski Combined",
-      "gallons": 900
+      "gallons": 1075
     },
     {
       "month": "2021-08",
       "region": "Southern Ski Slopes",
-      "gallons": 650
+      "gallons": 825
     },
     {
       "month": "2021-08",
@@ -49377,7 +49181,7 @@
     {
       "month": "2021-09",
       "region": "Burlington / South Burlington",
-      "gallons": 2290
+      "gallons": 2140
     },
     {
       "month": "2021-09",
@@ -49387,17 +49191,12 @@
     {
       "month": "2021-09",
       "region": "Central South",
-      "gallons": 805
+      "gallons": 905
     },
     {
       "month": "2021-09",
       "region": "Northwest",
       "gallons": 265
-    },
-    {
-      "month": "2021-09",
-      "region": "Other",
-      "gallons": 120
     },
     {
       "month": "2021-09",
@@ -49427,17 +49226,17 @@
     {
       "month": "2021-09",
       "region": "South",
-      "gallons": 315
+      "gallons": 465
     },
     {
       "month": "2021-09",
       "region": "South / Ski Combined",
-      "gallons": 730
+      "gallons": 900
     },
     {
       "month": "2021-09",
       "region": "Southern Ski Slopes",
-      "gallons": 415
+      "gallons": 435
     },
     {
       "month": "2021-09",
@@ -49472,7 +49271,7 @@
     {
       "month": "2021-10",
       "region": "Central South",
-      "gallons": 850
+      "gallons": 935
     },
     {
       "month": "2021-10",
@@ -49483,11 +49282,6 @@
       "month": "2021-10",
       "region": "Northwest",
       "gallons": 610
-    },
-    {
-      "month": "2021-10",
-      "region": "Other",
-      "gallons": 105
     },
     {
       "month": "2021-10",
@@ -49502,7 +49296,7 @@
     {
       "month": "2021-10",
       "region": "Route 15",
-      "gallons": 465
+      "gallons": 485
     },
     {
       "month": "2021-10",
@@ -49547,7 +49341,7 @@
     {
       "month": "2021-11",
       "region": "Central South",
-      "gallons": 610
+      "gallons": 690
     },
     {
       "month": "2021-11",
@@ -49558,11 +49352,6 @@
       "month": "2021-11",
       "region": "Northwest",
       "gallons": 4050
-    },
-    {
-      "month": "2021-11",
-      "region": "Other",
-      "gallons": 80
     },
     {
       "month": "2021-11",
@@ -49642,7 +49431,7 @@
     {
       "month": "2021-12",
       "region": "Central South",
-      "gallons": 680
+      "gallons": 755
     },
     {
       "month": "2021-12",
@@ -49657,7 +49446,7 @@
     {
       "month": "2021-12",
       "region": "Other",
-      "gallons": 150
+      "gallons": 25
     },
     {
       "month": "2021-12",
@@ -49697,12 +49486,12 @@
     {
       "month": "2021-12",
       "region": "South / Ski Combined",
-      "gallons": 1175
+      "gallons": 1225
     },
     {
       "month": "2021-12",
       "region": "Southern Ski Slopes",
-      "gallons": 905
+      "gallons": 955
     },
     {
       "month": "2021-12",
@@ -49737,7 +49526,7 @@
     {
       "month": "2022-01",
       "region": "Central South",
-      "gallons": 233
+      "gallons": 313
     },
     {
       "month": "2022-01",
@@ -49748,11 +49537,6 @@
       "month": "2022-01",
       "region": "Northwest",
       "gallons": 55
-    },
-    {
-      "month": "2022-01",
-      "region": "Other",
-      "gallons": 80
     },
     {
       "month": "2022-01",
@@ -49812,7 +49596,7 @@
     {
       "month": "2022-02",
       "region": "Central South",
-      "gallons": 470
+      "gallons": 600
     },
     {
       "month": "2022-02",
@@ -49823,11 +49607,6 @@
       "month": "2022-02",
       "region": "Northwest",
       "gallons": 425
-    },
-    {
-      "month": "2022-02",
-      "region": "Other",
-      "gallons": 130
     },
     {
       "month": "2022-02",
@@ -49902,7 +49681,7 @@
     {
       "month": "2022-03",
       "region": "Central South",
-      "gallons": 510
+      "gallons": 680
     },
     {
       "month": "2022-03",
@@ -49913,11 +49692,6 @@
       "month": "2022-03",
       "region": "Northwest",
       "gallons": 410
-    },
-    {
-      "month": "2022-03",
-      "region": "Other",
-      "gallons": 320
     },
     {
       "month": "2022-03",
@@ -49957,12 +49731,12 @@
     {
       "month": "2022-03",
       "region": "South / Ski Combined",
-      "gallons": 965
+      "gallons": 1115
     },
     {
       "month": "2022-03",
       "region": "Southern Ski Slopes",
-      "gallons": 815
+      "gallons": 965
     },
     {
       "month": "2022-03",
@@ -49992,7 +49766,7 @@
     {
       "month": "2022-04",
       "region": "Central South",
-      "gallons": 510
+      "gallons": 610
     },
     {
       "month": "2022-04",
@@ -50003,11 +49777,6 @@
       "month": "2022-04",
       "region": "Northwest",
       "gallons": 620
-    },
-    {
-      "month": "2022-04",
-      "region": "Other",
-      "gallons": 100
     },
     {
       "month": "2022-04",
@@ -50087,7 +49856,7 @@
     {
       "month": "2022-05",
       "region": "Central South",
-      "gallons": 665
+      "gallons": 765
     },
     {
       "month": "2022-05",
@@ -50098,11 +49867,6 @@
       "month": "2022-05",
       "region": "Northwest",
       "gallons": 770
-    },
-    {
-      "month": "2022-05",
-      "region": "Other",
-      "gallons": 100
     },
     {
       "month": "2022-05",
@@ -50182,7 +49946,7 @@
     {
       "month": "2022-06",
       "region": "Central South",
-      "gallons": 1085
+      "gallons": 1185
     },
     {
       "month": "2022-06",
@@ -50193,11 +49957,6 @@
       "month": "2022-06",
       "region": "Northwest",
       "gallons": 625
-    },
-    {
-      "month": "2022-06",
-      "region": "Other",
-      "gallons": 150
     },
     {
       "month": "2022-06",
@@ -50222,7 +49981,7 @@
     {
       "month": "2022-06",
       "region": "Route 7",
-      "gallons": 1165
+      "gallons": 1265
     },
     {
       "month": "2022-06",
@@ -50237,12 +49996,12 @@
     {
       "month": "2022-06",
       "region": "South / Ski Combined",
-      "gallons": 600
+      "gallons": 650
     },
     {
       "month": "2022-06",
       "region": "Southern Ski Slopes",
-      "gallons": 245
+      "gallons": 295
     },
     {
       "month": "2022-06",
@@ -50267,17 +50026,17 @@
     {
       "month": "2022-07",
       "region": "Burlington / South Burlington",
-      "gallons": 3565
+      "gallons": 3540
     },
     {
       "month": "2022-07",
       "region": "Central",
-      "gallons": 2174
+      "gallons": 2199
     },
     {
       "month": "2022-07",
       "region": "Central South",
-      "gallons": 1265
+      "gallons": 1460
     },
     {
       "month": "2022-07",
@@ -50288,11 +50047,6 @@
       "month": "2022-07",
       "region": "Northwest",
       "gallons": 625
-    },
-    {
-      "month": "2022-07",
-      "region": "Other",
-      "gallons": 195
     },
     {
       "month": "2022-07",
@@ -50317,7 +50071,7 @@
     {
       "month": "2022-07",
       "region": "Route 7",
-      "gallons": 1090
+      "gallons": 1200
     },
     {
       "month": "2022-07",
@@ -50327,12 +50081,12 @@
     {
       "month": "2022-07",
       "region": "South",
-      "gallons": 125
+      "gallons": 300
     },
     {
       "month": "2022-07",
       "region": "South / Ski Combined",
-      "gallons": 380
+      "gallons": 555
     },
     {
       "month": "2022-07",
@@ -50367,7 +50121,7 @@
     {
       "month": "2022-08",
       "region": "Central South",
-      "gallons": 1000
+      "gallons": 1070
     },
     {
       "month": "2022-08",
@@ -50437,12 +50191,12 @@
     {
       "month": "2022-09",
       "region": "Central",
-      "gallons": 2448
+      "gallons": 2498
     },
     {
       "month": "2022-09",
       "region": "Central South",
-      "gallons": 2132
+      "gallons": 2412
     },
     {
       "month": "2022-09",
@@ -50453,11 +50207,6 @@
       "month": "2022-09",
       "region": "Northwest",
       "gallons": 1741
-    },
-    {
-      "month": "2022-09",
-      "region": "Other",
-      "gallons": 421
     },
     {
       "month": "2022-09",
@@ -50477,7 +50226,7 @@
     {
       "month": "2022-09",
       "region": "Route 7",
-      "gallons": 1354
+      "gallons": 1600
     },
     {
       "month": "2022-09",
@@ -50492,12 +50241,12 @@
     {
       "month": "2022-09",
       "region": "South / Ski Combined",
-      "gallons": 1210
+      "gallons": 1290
     },
     {
       "month": "2022-09",
       "region": "Southern Ski Slopes",
-      "gallons": 565
+      "gallons": 645
     },
     {
       "month": "2022-09",
@@ -50532,7 +50281,7 @@
     {
       "month": "2022-10",
       "region": "Central South",
-      "gallons": 1596
+      "gallons": 1721
     },
     {
       "month": "2022-10",
@@ -50543,11 +50292,6 @@
       "month": "2022-10",
       "region": "Northwest",
       "gallons": 1098
-    },
-    {
-      "month": "2022-10",
-      "region": "Other",
-      "gallons": 199
     },
     {
       "month": "2022-10",
@@ -50567,12 +50311,12 @@
     {
       "month": "2022-10",
       "region": "Route 2 East / Route 5",
-      "gallons": 820
+      "gallons": 860
     },
     {
       "month": "2022-10",
       "region": "Route 7",
-      "gallons": 626
+      "gallons": 660
     },
     {
       "month": "2022-10",
@@ -50622,7 +50366,7 @@
     {
       "month": "2022-11",
       "region": "Central South",
-      "gallons": 964
+      "gallons": 1207
     },
     {
       "month": "2022-11",
@@ -50636,18 +50380,13 @@
     },
     {
       "month": "2022-11",
-      "region": "Other",
-      "gallons": 298
-    },
-    {
-      "month": "2022-11",
       "region": "Outer Burlington",
       "gallons": 2125
     },
     {
       "month": "2022-11",
       "region": "Route 15",
-      "gallons": 2740
+      "gallons": 2795
     },
     {
       "month": "2022-11",
@@ -50712,7 +50451,7 @@
     {
       "month": "2022-12",
       "region": "Central South",
-      "gallons": 397
+      "gallons": 574
     },
     {
       "month": "2022-12",
@@ -50723,11 +50462,6 @@
       "month": "2022-12",
       "region": "Northwest",
       "gallons": 2597
-    },
-    {
-      "month": "2022-12",
-      "region": "Other",
-      "gallons": 475
     },
     {
       "month": "2022-12",
@@ -50742,12 +50476,12 @@
     {
       "month": "2022-12",
       "region": "Route 2 East / Route 5",
-      "gallons": 530
+      "gallons": 753
     },
     {
       "month": "2022-12",
       "region": "Route 7",
-      "gallons": 822
+      "gallons": 867
     },
     {
       "month": "2022-12",
@@ -50762,12 +50496,12 @@
     {
       "month": "2022-12",
       "region": "South / Ski Combined",
-      "gallons": 671
+      "gallons": 746
     },
     {
       "month": "2022-12",
       "region": "Southern Ski Slopes",
-      "gallons": 546
+      "gallons": 621
     },
     {
       "month": "2022-12",
@@ -50802,7 +50536,7 @@
     {
       "month": "2023-01",
       "region": "Central South",
-      "gallons": 860
+      "gallons": 1039
     },
     {
       "month": "2023-01",
@@ -50813,11 +50547,6 @@
       "month": "2023-01",
       "region": "Northwest",
       "gallons": 370
-    },
-    {
-      "month": "2023-01",
-      "region": "Other",
-      "gallons": 275
     },
     {
       "month": "2023-01",
@@ -50837,7 +50566,7 @@
     {
       "month": "2023-01",
       "region": "Route 7",
-      "gallons": 848
+      "gallons": 944
     },
     {
       "month": "2023-01",
@@ -50901,11 +50630,6 @@
     },
     {
       "month": "2023-02",
-      "region": "Other",
-      "gallons": 46
-    },
-    {
-      "month": "2023-02",
       "region": "Outer Burlington",
       "gallons": 1140
     },
@@ -50922,7 +50646,7 @@
     {
       "month": "2023-02",
       "region": "Route 7",
-      "gallons": 730
+      "gallons": 776
     },
     {
       "month": "2023-02",
@@ -50957,7 +50681,7 @@
     {
       "month": "2023-03",
       "region": "Central South",
-      "gallons": 728
+      "gallons": 924
     },
     {
       "month": "2023-03",
@@ -50971,13 +50695,8 @@
     },
     {
       "month": "2023-03",
-      "region": "Other",
-      "gallons": 477
-    },
-    {
-      "month": "2023-03",
       "region": "Outer Burlington",
-      "gallons": 2337
+      "gallons": 2392
     },
     {
       "month": "2023-03",
@@ -50992,7 +50711,7 @@
     {
       "month": "2023-03",
       "region": "Route 7",
-      "gallons": 1731
+      "gallons": 1957
     },
     {
       "month": "2023-03",
@@ -51042,7 +50761,7 @@
     {
       "month": "2023-04",
       "region": "Central South",
-      "gallons": 667
+      "gallons": 830
     },
     {
       "month": "2023-04",
@@ -51053,11 +50772,6 @@
       "month": "2023-04",
       "region": "Northwest",
       "gallons": 799
-    },
-    {
-      "month": "2023-04",
-      "region": "Other",
-      "gallons": 253
     },
     {
       "month": "2023-04",
@@ -51097,12 +50811,12 @@
     {
       "month": "2023-04",
       "region": "South / Ski Combined",
-      "gallons": 310
+      "gallons": 400
     },
     {
       "month": "2023-04",
       "region": "Southern Ski Slopes",
-      "gallons": 85
+      "gallons": 175
     },
     {
       "month": "2023-04",
@@ -51132,7 +50846,7 @@
     {
       "month": "2023-05",
       "region": "Central South",
-      "gallons": 1226
+      "gallons": 1348
     },
     {
       "month": "2023-05",
@@ -51146,13 +50860,8 @@
     },
     {
       "month": "2023-05",
-      "region": "Other",
-      "gallons": 192
-    },
-    {
-      "month": "2023-05",
       "region": "Outer Burlington",
-      "gallons": 1828
+      "gallons": 1898
     },
     {
       "month": "2023-05",
@@ -51182,12 +50891,12 @@
     {
       "month": "2023-05",
       "region": "South",
-      "gallons": 945
+      "gallons": 1115
     },
     {
       "month": "2023-05",
       "region": "South / Ski Combined",
-      "gallons": 1455
+      "gallons": 1625
     },
     {
       "month": "2023-05",
@@ -51227,7 +50936,7 @@
     {
       "month": "2023-06",
       "region": "Central South",
-      "gallons": 1201
+      "gallons": 1612
     },
     {
       "month": "2023-06",
@@ -51238,11 +50947,6 @@
       "month": "2023-06",
       "region": "Northwest",
       "gallons": 2145
-    },
-    {
-      "month": "2023-06",
-      "region": "Other",
-      "gallons": 578
     },
     {
       "month": "2023-06",
@@ -51267,7 +50971,7 @@
     {
       "month": "2023-06",
       "region": "Route 7",
-      "gallons": 983
+      "gallons": 1105
     },
     {
       "month": "2023-06",
@@ -51282,12 +50986,12 @@
     {
       "month": "2023-06",
       "region": "South / Ski Combined",
-      "gallons": 480
+      "gallons": 525
     },
     {
       "month": "2023-06",
       "region": "Southern Ski Slopes",
-      "gallons": 235
+      "gallons": 280
     },
     {
       "month": "2023-06",
@@ -51322,17 +51026,12 @@
     {
       "month": "2023-07",
       "region": "Central South",
-      "gallons": 697
+      "gallons": 918
     },
     {
       "month": "2023-07",
       "region": "Northwest",
       "gallons": 2330
-    },
-    {
-      "month": "2023-07",
-      "region": "Other",
-      "gallons": 131
     },
     {
       "month": "2023-07",
@@ -51407,7 +51106,7 @@
     {
       "month": "2023-08",
       "region": "Central",
-      "gallons": 2148
+      "gallons": 2198
     },
     {
       "month": "2023-08",
@@ -51426,13 +51125,8 @@
     },
     {
       "month": "2023-08",
-      "region": "Other",
-      "gallons": 90
-    },
-    {
-      "month": "2023-08",
       "region": "Outer Burlington",
-      "gallons": 2882
+      "gallons": 2972
     },
     {
       "month": "2023-08",
@@ -51462,12 +51156,12 @@
     {
       "month": "2023-08",
       "region": "South",
-      "gallons": 400
+      "gallons": 550
     },
     {
       "month": "2023-08",
       "region": "South / Ski Combined",
-      "gallons": 615
+      "gallons": 765
     },
     {
       "month": "2023-08",
@@ -51507,7 +51201,7 @@
     {
       "month": "2023-09",
       "region": "Central South",
-      "gallons": 1299
+      "gallons": 1493
     },
     {
       "month": "2023-09",
@@ -51518,11 +51212,6 @@
       "month": "2023-09",
       "region": "Northwest",
       "gallons": 1008
-    },
-    {
-      "month": "2023-09",
-      "region": "Other",
-      "gallons": 347
     },
     {
       "month": "2023-09",
@@ -51537,12 +51226,12 @@
     {
       "month": "2023-09",
       "region": "Route 2 East / Route 5",
-      "gallons": 1013
+      "gallons": 1088
     },
     {
       "month": "2023-09",
       "region": "Route 7",
-      "gallons": 713
+      "gallons": 791
     },
     {
       "month": "2023-09",
@@ -51592,7 +51281,7 @@
     {
       "month": "2023-10",
       "region": "Central South",
-      "gallons": 2151
+      "gallons": 2299
     },
     {
       "month": "2023-10",
@@ -51606,13 +51295,8 @@
     },
     {
       "month": "2023-10",
-      "region": "Other",
-      "gallons": 213
-    },
-    {
-      "month": "2023-10",
       "region": "Outer Burlington",
-      "gallons": 2221
+      "gallons": 2246
     },
     {
       "month": "2023-10",
@@ -51647,12 +51331,12 @@
     {
       "month": "2023-10",
       "region": "South / Ski Combined",
-      "gallons": 877
+      "gallons": 917
     },
     {
       "month": "2023-10",
       "region": "Southern Ski Slopes",
-      "gallons": 7
+      "gallons": 47
     },
     {
       "month": "2023-10",
@@ -51687,7 +51371,7 @@
     {
       "month": "2023-11",
       "region": "Central South",
-      "gallons": 725
+      "gallons": 859
     },
     {
       "month": "2023-11",
@@ -51698,11 +51382,6 @@
       "month": "2023-11",
       "region": "Northwest",
       "gallons": 1392
-    },
-    {
-      "month": "2023-11",
-      "region": "Other",
-      "gallons": 134
     },
     {
       "month": "2023-11",
@@ -51796,13 +51475,8 @@
     },
     {
       "month": "2023-12",
-      "region": "Other",
-      "gallons": 167
-    },
-    {
-      "month": "2023-12",
       "region": "Outer Burlington",
-      "gallons": 1752
+      "gallons": 1832
     },
     {
       "month": "2023-12",
@@ -51817,7 +51491,7 @@
     {
       "month": "2023-12",
       "region": "Route 7",
-      "gallons": 934
+      "gallons": 1021
     },
     {
       "month": "2023-12",
@@ -51867,7 +51541,7 @@
     {
       "month": "2024-01",
       "region": "Central South",
-      "gallons": 605
+      "gallons": 855
     },
     {
       "month": "2024-01",
@@ -51878,11 +51552,6 @@
       "month": "2024-01",
       "region": "Northwest",
       "gallons": 1097
-    },
-    {
-      "month": "2024-01",
-      "region": "Other",
-      "gallons": 195
     },
     {
       "month": "2024-01",
@@ -51957,7 +51626,7 @@
     {
       "month": "2024-02",
       "region": "Central South",
-      "gallons": 954
+      "gallons": 1129
     },
     {
       "month": "2024-02",
@@ -51968,11 +51637,6 @@
       "month": "2024-02",
       "region": "Northwest",
       "gallons": 1131
-    },
-    {
-      "month": "2024-02",
-      "region": "Other",
-      "gallons": 282
     },
     {
       "month": "2024-02",
@@ -51992,7 +51656,7 @@
     {
       "month": "2024-02",
       "region": "Route 7",
-      "gallons": 764
+      "gallons": 871
     },
     {
       "month": "2024-02",
@@ -52047,7 +51711,7 @@
     {
       "month": "2024-03",
       "region": "Central South",
-      "gallons": 619
+      "gallons": 839
     },
     {
       "month": "2024-03",
@@ -52061,13 +51725,8 @@
     },
     {
       "month": "2024-03",
-      "region": "Other",
-      "gallons": 420
-    },
-    {
-      "month": "2024-03",
       "region": "Outer Burlington",
-      "gallons": 2735
+      "gallons": 2825
     },
     {
       "month": "2024-03",
@@ -52077,7 +51736,7 @@
     {
       "month": "2024-03",
       "region": "Route 2 East / Route 5",
-      "gallons": 919
+      "gallons": 959
     },
     {
       "month": "2024-03",
@@ -52092,12 +51751,12 @@
     {
       "month": "2024-03",
       "region": "South",
-      "gallons": 600
+      "gallons": 670
     },
     {
       "month": "2024-03",
       "region": "South / Ski Combined",
-      "gallons": 1720
+      "gallons": 1790
     },
     {
       "month": "2024-03",
@@ -52137,7 +51796,7 @@
     {
       "month": "2024-04",
       "region": "Central South",
-      "gallons": 1247
+      "gallons": 1436
     },
     {
       "month": "2024-04",
@@ -52148,11 +51807,6 @@
       "month": "2024-04",
       "region": "Northwest",
       "gallons": 1637
-    },
-    {
-      "month": "2024-04",
-      "region": "Other",
-      "gallons": 189
     },
     {
       "month": "2024-04",
@@ -52232,7 +51886,7 @@
     {
       "month": "2024-05",
       "region": "Central South",
-      "gallons": 1005
+      "gallons": 1275
     },
     {
       "month": "2024-05",
@@ -52246,13 +51900,8 @@
     },
     {
       "month": "2024-05",
-      "region": "Other",
-      "gallons": 457
-    },
-    {
-      "month": "2024-05",
       "region": "Outer Burlington",
-      "gallons": 2028
+      "gallons": 2093
     },
     {
       "month": "2024-05",
@@ -52272,7 +51921,7 @@
     {
       "month": "2024-05",
       "region": "Route 7",
-      "gallons": 717
+      "gallons": 839
     },
     {
       "month": "2024-05",
@@ -52327,7 +51976,7 @@
     {
       "month": "2024-06",
       "region": "Central South",
-      "gallons": 1954
+      "gallons": 2269
     },
     {
       "month": "2024-06",
@@ -52338,11 +51987,6 @@
       "month": "2024-06",
       "region": "Northwest",
       "gallons": 988
-    },
-    {
-      "month": "2024-06",
-      "region": "Other",
-      "gallons": 325
     },
     {
       "month": "2024-06",
@@ -52372,12 +52016,17 @@
     {
       "month": "2024-06",
       "region": "South",
-      "gallons": 900
+      "gallons": 1050
     },
     {
       "month": "2024-06",
       "region": "South / Ski Combined",
-      "gallons": 900
+      "gallons": 1100
+    },
+    {
+      "month": "2024-06",
+      "region": "Southern Ski Slopes",
+      "gallons": 50
     },
     {
       "month": "2024-06",
@@ -52426,13 +52075,8 @@
     },
     {
       "month": "2024-07",
-      "region": "Other",
-      "gallons": 187
-    },
-    {
-      "month": "2024-07",
       "region": "Outer Burlington",
-      "gallons": 3276
+      "gallons": 3326
     },
     {
       "month": "2024-07",
@@ -52452,7 +52096,7 @@
     {
       "month": "2024-07",
       "region": "Route 7",
-      "gallons": 3713
+      "gallons": 3850
     },
     {
       "month": "2024-07",
@@ -52502,7 +52146,7 @@
     {
       "month": "2024-08",
       "region": "Central South",
-      "gallons": 1714
+      "gallons": 1914
     },
     {
       "month": "2024-08",
@@ -52513,11 +52157,6 @@
       "month": "2024-08",
       "region": "Northwest",
       "gallons": 876
-    },
-    {
-      "month": "2024-08",
-      "region": "Other",
-      "gallons": 260
     },
     {
       "month": "2024-08",
@@ -52547,12 +52186,12 @@
     {
       "month": "2024-08",
       "region": "South",
-      "gallons": 1120
+      "gallons": 1295
     },
     {
       "month": "2024-08",
       "region": "South / Ski Combined",
-      "gallons": 1120
+      "gallons": 1295
     },
     {
       "month": "2024-08",
@@ -52582,12 +52221,12 @@
     {
       "month": "2024-09",
       "region": "Central",
-      "gallons": 3650
+      "gallons": 3715
     },
     {
       "month": "2024-09",
       "region": "Central South",
-      "gallons": 1520
+      "gallons": 1745
     },
     {
       "month": "2024-09",
@@ -52601,13 +52240,8 @@
     },
     {
       "month": "2024-09",
-      "region": "Other",
-      "gallons": 415
-    },
-    {
-      "month": "2024-09",
       "region": "Outer Burlington",
-      "gallons": 3635
+      "gallons": 3690
     },
     {
       "month": "2024-09",
@@ -52617,7 +52251,7 @@
     {
       "month": "2024-09",
       "region": "Route 2 East / Route 5",
-      "gallons": 551
+      "gallons": 601
     },
     {
       "month": "2024-09",
@@ -52632,17 +52266,17 @@
     {
       "month": "2024-09",
       "region": "South",
-      "gallons": 675
+      "gallons": 705
     },
     {
       "month": "2024-09",
       "region": "South / Ski Combined",
-      "gallons": 805
+      "gallons": 920
     },
     {
       "month": "2024-09",
       "region": "Southern Ski Slopes",
-      "gallons": 130
+      "gallons": 215
     },
     {
       "month": "2024-09",
@@ -52677,7 +52311,7 @@
     {
       "month": "2024-10",
       "region": "Central South",
-      "gallons": 1613
+      "gallons": 1896
     },
     {
       "month": "2024-10",
@@ -52688,11 +52322,6 @@
       "month": "2024-10",
       "region": "Northwest",
       "gallons": 876
-    },
-    {
-      "month": "2024-10",
-      "region": "Other",
-      "gallons": 469
     },
     {
       "month": "2024-10",
@@ -52707,7 +52336,7 @@
     {
       "month": "2024-10",
       "region": "Route 15",
-      "gallons": 821
+      "gallons": 831
     },
     {
       "month": "2024-10",
@@ -52717,7 +52346,7 @@
     {
       "month": "2024-10",
       "region": "Route 7",
-      "gallons": 730
+      "gallons": 866
     },
     {
       "month": "2024-10",
@@ -52727,12 +52356,12 @@
     {
       "month": "2024-10",
       "region": "South",
-      "gallons": 325
+      "gallons": 365
     },
     {
       "month": "2024-10",
       "region": "South / Ski Combined",
-      "gallons": 515
+      "gallons": 555
     },
     {
       "month": "2024-10",
@@ -52772,7 +52401,7 @@
     {
       "month": "2024-11",
       "region": "Central South",
-      "gallons": 1087
+      "gallons": 1447
     },
     {
       "month": "2024-11",
@@ -52783,11 +52412,6 @@
       "month": "2024-11",
       "region": "Northwest",
       "gallons": 1152
-    },
-    {
-      "month": "2024-11",
-      "region": "Other",
-      "gallons": 385
     },
     {
       "month": "2024-11",
@@ -52807,7 +52431,7 @@
     {
       "month": "2024-11",
       "region": "Route 2 East / Route 5",
-      "gallons": 680
+      "gallons": 705
     },
     {
       "month": "2024-11",
@@ -52862,7 +52486,7 @@
     {
       "month": "2024-12",
       "region": "Central South",
-      "gallons": 722
+      "gallons": 932
     },
     {
       "month": "2024-12",
@@ -52873,11 +52497,6 @@
       "month": "2024-12",
       "region": "Northwest",
       "gallons": 749
-    },
-    {
-      "month": "2024-12",
-      "region": "Other",
-      "gallons": 250
     },
     {
       "month": "2024-12",
@@ -52917,12 +52536,12 @@
     {
       "month": "2024-12",
       "region": "South / Ski Combined",
-      "gallons": 619
+      "gallons": 659
     },
     {
       "month": "2024-12",
       "region": "Southern Ski Slopes",
-      "gallons": 310
+      "gallons": 350
     },
     {
       "month": "2024-12",
@@ -52957,7 +52576,7 @@
     {
       "month": "2025-01",
       "region": "Central South",
-      "gallons": 473
+      "gallons": 631
     },
     {
       "month": "2025-01",
@@ -52968,11 +52587,6 @@
       "month": "2025-01",
       "region": "Northwest",
       "gallons": 819
-    },
-    {
-      "month": "2025-01",
-      "region": "Other",
-      "gallons": 360
     },
     {
       "month": "2025-01",
@@ -52987,7 +52601,7 @@
     {
       "month": "2025-01",
       "region": "Route 7",
-      "gallons": 988
+      "gallons": 1135
     },
     {
       "month": "2025-01",
@@ -52997,12 +52611,12 @@
     {
       "month": "2025-01",
       "region": "South",
-      "gallons": 260
+      "gallons": 315
     },
     {
       "month": "2025-01",
       "region": "South / Ski Combined",
-      "gallons": 2230
+      "gallons": 2285
     },
     {
       "month": "2025-01",
@@ -53037,7 +52651,7 @@
     {
       "month": "2025-02",
       "region": "Central South",
-      "gallons": 567
+      "gallons": 822
     },
     {
       "month": "2025-02",
@@ -53048,11 +52662,6 @@
       "month": "2025-02",
       "region": "Northwest",
       "gallons": 980
-    },
-    {
-      "month": "2025-02",
-      "region": "Other",
-      "gallons": 255
     },
     {
       "month": "2025-02",
@@ -53122,7 +52731,7 @@
     {
       "month": "2025-03",
       "region": "Central South",
-      "gallons": 959
+      "gallons": 1058
     },
     {
       "month": "2025-03",
@@ -53133,11 +52742,6 @@
       "month": "2025-03",
       "region": "Northwest",
       "gallons": 1236
-    },
-    {
-      "month": "2025-03",
-      "region": "Other",
-      "gallons": 139
     },
     {
       "month": "2025-03",
@@ -53157,7 +52761,7 @@
     {
       "month": "2025-03",
       "region": "Route 2 East / Route 5",
-      "gallons": 1209
+      "gallons": 1249
     },
     {
       "month": "2025-03",
@@ -53217,7 +52821,7 @@
     {
       "month": "2025-04",
       "region": "Central South",
-      "gallons": 645
+      "gallons": 729
     },
     {
       "month": "2025-04",
@@ -53228,11 +52832,6 @@
       "month": "2025-04",
       "region": "Northwest",
       "gallons": 1676
-    },
-    {
-      "month": "2025-04",
-      "region": "Other",
-      "gallons": 164
     },
     {
       "month": "2025-04",
@@ -53272,12 +52871,12 @@
     {
       "month": "2025-04",
       "region": "South / Ski Combined",
-      "gallons": 1140
+      "gallons": 1220
     },
     {
       "month": "2025-04",
       "region": "Southern Ski Slopes",
-      "gallons": 570
+      "gallons": 650
     },
     {
       "month": "2025-04",
@@ -53321,11 +52920,6 @@
     },
     {
       "month": "2025-05",
-      "region": "Other",
-      "gallons": 174
-    },
-    {
-      "month": "2025-05",
       "region": "Outer Burlington",
       "gallons": 2009
     },
@@ -53342,12 +52936,12 @@
     {
       "month": "2025-05",
       "region": "Route 2 East / Route 5",
-      "gallons": 680
+      "gallons": 720
     },
     {
       "month": "2025-05",
       "region": "Route 7",
-      "gallons": 1919
+      "gallons": 2108
     },
     {
       "month": "2025-05",
@@ -53402,7 +52996,7 @@
     {
       "month": "2025-06",
       "region": "Central South",
-      "gallons": 1507
+      "gallons": 1661
     },
     {
       "month": "2025-06",
@@ -53413,11 +53007,6 @@
       "month": "2025-06",
       "region": "Northwest",
       "gallons": 1602
-    },
-    {
-      "month": "2025-06",
-      "region": "Other",
-      "gallons": 209
     },
     {
       "month": "2025-06",
@@ -53452,12 +53041,12 @@
     {
       "month": "2025-06",
       "region": "South",
-      "gallons": 770
+      "gallons": 910
     },
     {
       "month": "2025-06",
       "region": "South / Ski Combined",
-      "gallons": 770
+      "gallons": 910
     },
     {
       "month": "2025-06",
@@ -53492,7 +53081,7 @@
     {
       "month": "2025-07",
       "region": "Central South",
-      "gallons": 2297
+      "gallons": 2382
     },
     {
       "month": "2025-07",
@@ -53503,11 +53092,6 @@
       "month": "2025-07",
       "region": "Northwest",
       "gallons": 1418
-    },
-    {
-      "month": "2025-07",
-      "region": "Other",
-      "gallons": 110
     },
     {
       "month": "2025-07",
@@ -53547,12 +53131,12 @@
     {
       "month": "2025-07",
       "region": "South / Ski Combined",
-      "gallons": 670
+      "gallons": 715
     },
     {
       "month": "2025-07",
       "region": "Southern Ski Slopes",
-      "gallons": 260
+      "gallons": 305
     },
     {
       "month": "2025-07",
@@ -53601,11 +53185,6 @@
     },
     {
       "month": "2025-08",
-      "region": "Other",
-      "gallons": 147
-    },
-    {
-      "month": "2025-08",
       "region": "Outer Burlington",
       "gallons": 3301
     },
@@ -53622,7 +53201,7 @@
     {
       "month": "2025-08",
       "region": "Route 7",
-      "gallons": 1341
+      "gallons": 1488
     },
     {
       "month": "2025-08",
@@ -53672,7 +53251,7 @@
     {
       "month": "2025-09",
       "region": "Central South",
-      "gallons": 1952
+      "gallons": 2127
     },
     {
       "month": "2025-09",
@@ -53687,7 +53266,7 @@
     {
       "month": "2025-09",
       "region": "Other",
-      "gallons": 257
+      "gallons": 17
     },
     {
       "month": "2025-09",
@@ -53722,12 +53301,12 @@
     {
       "month": "2025-09",
       "region": "South",
-      "gallons": 655
+      "gallons": 780
     },
     {
       "month": "2025-09",
       "region": "South / Ski Combined",
-      "gallons": 655
+      "gallons": 780
     },
     {
       "month": "2025-09",
@@ -53757,12 +53336,12 @@
     {
       "month": "2025-10",
       "region": "Central",
-      "gallons": 2697
+      "gallons": 2752
     },
     {
       "month": "2025-10",
       "region": "Central South",
-      "gallons": 1467
+      "gallons": 1487
     },
     {
       "month": "2025-10",
@@ -53773,11 +53352,6 @@
       "month": "2025-10",
       "region": "Northwest",
       "gallons": 2373
-    },
-    {
-      "month": "2025-10",
-      "region": "Other",
-      "gallons": 20
     },
     {
       "month": "2025-10",
@@ -53812,12 +53386,12 @@
     {
       "month": "2025-10",
       "region": "South",
-      "gallons": 390
+      "gallons": 455
     },
     {
       "month": "2025-10",
       "region": "South / Ski Combined",
-      "gallons": 430
+      "gallons": 495
     },
     {
       "month": "2025-10",
@@ -53871,11 +53445,6 @@
     },
     {
       "month": "2025-11",
-      "region": "Other",
-      "gallons": 135
-    },
-    {
-      "month": "2025-11",
       "region": "Outer Burlington",
       "gallons": 1715
     },
@@ -53892,12 +53461,12 @@
     {
       "month": "2025-11",
       "region": "Route 2 East / Route 5",
-      "gallons": 855
+      "gallons": 940
     },
     {
       "month": "2025-11",
       "region": "Route 7",
-      "gallons": 770
+      "gallons": 820
     },
     {
       "month": "2025-11",
@@ -54031,11 +53600,6 @@
     },
     {
       "month": "2026-01",
-      "region": "Other",
-      "gallons": 110
-    },
-    {
-      "month": "2026-01",
       "region": "Outer Burlington",
       "gallons": 2182
     },
@@ -54052,7 +53616,7 @@
     {
       "month": "2026-01",
       "region": "Route 2 East / Route 5",
-      "gallons": 1363
+      "gallons": 1473
     },
     {
       "month": "2026-01",
@@ -54107,7 +53671,7 @@
     {
       "month": "2026-02",
       "region": "Central South",
-      "gallons": 469
+      "gallons": 580
     },
     {
       "month": "2026-02",
@@ -54118,11 +53682,6 @@
       "month": "2026-02",
       "region": "Northwest",
       "gallons": 1527
-    },
-    {
-      "month": "2026-02",
-      "region": "Other",
-      "gallons": 255
     },
     {
       "month": "2026-02",
@@ -54147,7 +53706,7 @@
     {
       "month": "2026-02",
       "region": "Route 7",
-      "gallons": 875
+      "gallons": 1019
     },
     {
       "month": "2026-02",
@@ -54216,11 +53775,6 @@
     },
     {
       "month": "2026-03",
-      "region": "Other",
-      "gallons": 95
-    },
-    {
-      "month": "2026-03",
       "region": "Outer Burlington",
       "gallons": 2734
     },
@@ -54237,7 +53791,7 @@
     {
       "month": "2026-03",
       "region": "Route 2 East / Route 5",
-      "gallons": 855
+      "gallons": 900
     },
     {
       "month": "2026-03",
@@ -54252,12 +53806,12 @@
     {
       "month": "2026-03",
       "region": "South",
-      "gallons": 535
+      "gallons": 585
     },
     {
       "month": "2026-03",
       "region": "South / Ski Combined",
-      "gallons": 2515
+      "gallons": 2565
     },
     {
       "month": "2026-03",
@@ -54292,7 +53846,7 @@
     {
       "month": "2026-04",
       "region": "Central South",
-      "gallons": 1448
+      "gallons": 1498
     },
     {
       "month": "2026-04",
@@ -54303,11 +53857,6 @@
       "month": "2026-04",
       "region": "Northwest",
       "gallons": 2219
-    },
-    {
-      "month": "2026-04",
-      "region": "Other",
-      "gallons": 300
     },
     {
       "month": "2026-04",
@@ -54327,7 +53876,7 @@
     {
       "month": "2026-04",
       "region": "Route 2 East / Route 5",
-      "gallons": 1344
+      "gallons": 1444
     },
     {
       "month": "2026-04",
@@ -54347,12 +53896,12 @@
     {
       "month": "2026-04",
       "region": "South / Ski Combined",
-      "gallons": 605
+      "gallons": 755
     },
     {
       "month": "2026-04",
       "region": "Southern Ski Slopes",
-      "gallons": 445
+      "gallons": 595
     },
     {
       "month": "2026-04",
@@ -54486,11 +54035,6 @@
     },
     {
       "month": "2026-06",
-      "region": "Other",
-      "gallons": 50
-    },
-    {
-      "month": "2026-06",
       "region": "Outer Burlington",
       "gallons": 4423
     },
@@ -54507,7 +54051,7 @@
     {
       "month": "2026-06",
       "region": "Route 2 East / Route 5",
-      "gallons": 1300
+      "gallons": 1350
     },
     {
       "month": "2026-06",
@@ -54581,11 +54125,6 @@
     },
     {
       "month": "2026-07",
-      "region": "Other",
-      "gallons": 165
-    },
-    {
-      "month": "2026-07",
       "region": "Outer Burlington",
       "gallons": 3041
     },
@@ -54602,7 +54141,7 @@
     {
       "month": "2026-07",
       "region": "Route 2 East / Route 5",
-      "gallons": 1787
+      "gallons": 1952
     },
     {
       "month": "2026-07",
@@ -54617,12 +54156,12 @@
     {
       "month": "2026-07",
       "region": "South",
-      "gallons": 570
+      "gallons": 630
     },
     {
       "month": "2026-07",
       "region": "South / Ski Combined",
-      "gallons": 630
+      "gallons": 690
     },
     {
       "month": "2026-07",
@@ -54676,11 +54215,6 @@
     },
     {
       "month": "2026-08",
-      "region": "Other",
-      "gallons": 33
-    },
-    {
-      "month": "2026-08",
       "region": "Outer Burlington",
       "gallons": 1327
     },
@@ -54697,7 +54231,7 @@
     {
       "month": "2026-08",
       "region": "Route 7",
-      "gallons": 945
+      "gallons": 978
     },
     {
       "month": "2026-08",
@@ -54742,12 +54276,12 @@
     {
       "month": "2026-09",
       "region": "Central",
-      "gallons": 3296
+      "gallons": 3351
     },
     {
       "month": "2026-09",
       "region": "Central South",
-      "gallons": 2204
+      "gallons": 2333
     },
     {
       "month": "2026-09",
@@ -54758,11 +54292,6 @@
       "month": "2026-09",
       "region": "Northwest",
       "gallons": 2492
-    },
-    {
-      "month": "2026-09",
-      "region": "Other",
-      "gallons": 129
     },
     {
       "month": "2026-09",
@@ -54792,12 +54321,12 @@
     {
       "month": "2026-09",
       "region": "South",
-      "gallons": 505
+      "gallons": 565
     },
     {
       "month": "2026-09",
       "region": "South / Ski Combined",
-      "gallons": 605
+      "gallons": 665
     },
     {
       "month": "2026-09",
@@ -54851,11 +54380,6 @@
     },
     {
       "month": "2026-10",
-      "region": "Other",
-      "gallons": 185
-    },
-    {
-      "month": "2026-10",
       "region": "Outer Burlington",
       "gallons": 2805
     },
@@ -54867,12 +54391,12 @@
     {
       "month": "2026-10",
       "region": "Route 15",
-      "gallons": 1354
+      "gallons": 1379
     },
     {
       "month": "2026-10",
       "region": "Route 2 East / Route 5",
-      "gallons": 1207
+      "gallons": 1367
     },
     {
       "month": "2026-10",
@@ -54946,11 +54470,6 @@
     },
     {
       "month": "2026-11",
-      "region": "Other",
-      "gallons": 90
-    },
-    {
-      "month": "2026-11",
       "region": "Outer Burlington",
       "gallons": 1260
     },
@@ -54972,12 +54491,12 @@
     {
       "month": "2026-11",
       "region": "South / Ski Combined",
-      "gallons": 745
+      "gallons": 835
     },
     {
       "month": "2026-11",
       "region": "Southern Ski Slopes",
-      "gallons": 190
+      "gallons": 280
     },
     {
       "month": "2026-11",
@@ -54999,7 +54518,7 @@
     {
       "year": 2015,
       "region": "Burlington / South Burlington",
-      "gallons": 22324
+      "gallons": 22224
     },
     {
       "year": 2015,
@@ -55023,23 +54542,18 @@
     },
     {
       "year": 2015,
-      "region": "Other",
-      "gallons": 140
-    },
-    {
-      "year": 2015,
       "region": "Outer Burlington",
       "gallons": 2745
     },
     {
       "year": 2015,
       "region": "Route 15",
-      "gallons": 2907
+      "gallons": 2947
     },
     {
       "year": 2015,
       "region": "Route 2 East / Route 5",
-      "gallons": 733
+      "gallons": 833
     },
     {
       "year": 2015,
@@ -55069,7 +54583,7 @@
     {
       "year": 2015,
       "region": "Warren / Waitsfield",
-      "gallons": 337
+      "gallons": 437
     },
     {
       "year": 2015,
@@ -55084,7 +54598,7 @@
     {
       "year": 2016,
       "region": "Burlington / South Burlington",
-      "gallons": 32049
+      "gallons": 31568
     },
     {
       "year": 2016,
@@ -55094,7 +54608,7 @@
     {
       "year": 2016,
       "region": "Central South",
-      "gallons": 4485
+      "gallons": 5415
     },
     {
       "year": 2016,
@@ -55104,12 +54618,7 @@
     {
       "year": 2016,
       "region": "Northwest",
-      "gallons": 195
-    },
-    {
-      "year": 2016,
-      "region": "Other",
-      "gallons": 1010
+      "gallons": 355
     },
     {
       "year": 2016,
@@ -55129,12 +54638,12 @@
     {
       "year": 2016,
       "region": "Route 2 East / Route 5",
-      "gallons": 508
+      "gallons": 629
     },
     {
       "year": 2016,
       "region": "Route 7",
-      "gallons": 4300
+      "gallons": 4545
     },
     {
       "year": 2016,
@@ -55159,7 +54668,7 @@
     {
       "year": 2016,
       "region": "Warren / Waitsfield",
-      "gallons": 2431
+      "gallons": 2466
     },
     {
       "year": 2016,
@@ -55174,7 +54683,7 @@
     {
       "year": 2017,
       "region": "Burlington / South Burlington",
-      "gallons": 35811
+      "gallons": 34981
     },
     {
       "year": 2017,
@@ -55184,7 +54693,7 @@
     {
       "year": 2017,
       "region": "Central South",
-      "gallons": 5990
+      "gallons": 7650
     },
     {
       "year": 2017,
@@ -55195,11 +54704,6 @@
       "year": 2017,
       "region": "Northwest",
       "gallons": 360
-    },
-    {
-      "year": 2017,
-      "region": "Other",
-      "gallons": 1935
     },
     {
       "year": 2017,
@@ -55219,7 +54723,7 @@
     {
       "year": 2017,
       "region": "Route 2 East / Route 5",
-      "gallons": 2120
+      "gallons": 2950
     },
     {
       "year": 2017,
@@ -55239,12 +54743,12 @@
     {
       "year": 2017,
       "region": "South / Ski Combined",
-      "gallons": 2375
+      "gallons": 2650
     },
     {
       "year": 2017,
       "region": "Southern Ski Slopes",
-      "gallons": 1290
+      "gallons": 1565
     },
     {
       "year": 2017,
@@ -55269,32 +54773,27 @@
     {
       "year": 2018,
       "region": "Burlington / South Burlington",
-      "gallons": 44497
+      "gallons": 43022
     },
     {
       "year": 2018,
       "region": "Central",
-      "gallons": 23017
+      "gallons": 23892
     },
     {
       "year": 2018,
       "region": "Central South",
-      "gallons": 7960
+      "gallons": 8985
     },
     {
       "year": 2018,
       "region": "North-Northeast",
-      "gallons": 7090
+      "gallons": 7440
     },
     {
       "year": 2018,
       "region": "Northwest",
       "gallons": 2100
-    },
-    {
-      "year": 2018,
-      "region": "Other",
-      "gallons": 1758
     },
     {
       "year": 2018,
@@ -55309,12 +54808,12 @@
     {
       "year": 2018,
       "region": "Route 15",
-      "gallons": 5487
+      "gallons": 5712
     },
     {
       "year": 2018,
       "region": "Route 2 East / Route 5",
-      "gallons": 2271
+      "gallons": 2591
     },
     {
       "year": 2018,
@@ -55334,12 +54833,12 @@
     {
       "year": 2018,
       "region": "South / Ski Combined",
-      "gallons": 5125
+      "gallons": 5563
     },
     {
       "year": 2018,
       "region": "Southern Ski Slopes",
-      "gallons": 3600
+      "gallons": 4038
     },
     {
       "year": 2018,
@@ -55364,17 +54863,17 @@
     {
       "year": 2019,
       "region": "Burlington / South Burlington",
-      "gallons": 41425
+      "gallons": 40250
     },
     {
       "year": 2019,
       "region": "Central",
-      "gallons": 23078
+      "gallons": 24128
     },
     {
       "year": 2019,
       "region": "Central South",
-      "gallons": 8550
+      "gallons": 11025
     },
     {
       "year": 2019,
@@ -55385,11 +54884,6 @@
       "year": 2019,
       "region": "Northwest",
       "gallons": 2805
-    },
-    {
-      "year": 2019,
-      "region": "Other",
-      "gallons": 2945
     },
     {
       "year": 2019,
@@ -55404,7 +54898,7 @@
     {
       "year": 2019,
       "region": "Route 15",
-      "gallons": 6912
+      "gallons": 7087
     },
     {
       "year": 2019,
@@ -55414,7 +54908,7 @@
     {
       "year": 2019,
       "region": "Route 7",
-      "gallons": 10405
+      "gallons": 10530
     },
     {
       "year": 2019,
@@ -55429,12 +54923,12 @@
     {
       "year": 2019,
       "region": "South / Ski Combined",
-      "gallons": 5215
+      "gallons": 5510
     },
     {
       "year": 2019,
       "region": "Southern Ski Slopes",
-      "gallons": 4215
+      "gallons": 4510
     },
     {
       "year": 2019,
@@ -55459,17 +54953,17 @@
     {
       "year": 2020,
       "region": "Burlington / South Burlington",
-      "gallons": 27817
+      "gallons": 27612
     },
     {
       "year": 2020,
       "region": "Central",
-      "gallons": 16900
+      "gallons": 17035
     },
     {
       "year": 2020,
       "region": "Central South",
-      "gallons": 8545
+      "gallons": 9795
     },
     {
       "year": 2020,
@@ -55480,11 +54974,6 @@
       "year": 2020,
       "region": "Northwest",
       "gallons": 4522
-    },
-    {
-      "year": 2020,
-      "region": "Other",
-      "gallons": 2020
     },
     {
       "year": 2020,
@@ -55499,7 +54988,7 @@
     {
       "year": 2020,
       "region": "Route 15",
-      "gallons": 8000
+      "gallons": 8240
     },
     {
       "year": 2020,
@@ -55519,17 +55008,17 @@
     {
       "year": 2020,
       "region": "South",
-      "gallons": 880
+      "gallons": 950
     },
     {
       "year": 2020,
       "region": "South / Ski Combined",
-      "gallons": 4250
+      "gallons": 4850
     },
     {
       "year": 2020,
       "region": "Southern Ski Slopes",
-      "gallons": 3370
+      "gallons": 3900
     },
     {
       "year": 2020,
@@ -55554,7 +55043,7 @@
     {
       "year": 2021,
       "region": "Burlington / South Burlington",
-      "gallons": 32454
+      "gallons": 32304
     },
     {
       "year": 2021,
@@ -55564,7 +55053,7 @@
     {
       "year": 2021,
       "region": "Central South",
-      "gallons": 8175
+      "gallons": 9120
     },
     {
       "year": 2021,
@@ -55579,7 +55068,7 @@
     {
       "year": 2021,
       "region": "Other",
-      "gallons": 1765
+      "gallons": 25
     },
     {
       "year": 2021,
@@ -55594,7 +55083,7 @@
     {
       "year": 2021,
       "region": "Route 15",
-      "gallons": 7080
+      "gallons": 7220
     },
     {
       "year": 2021,
@@ -55614,17 +55103,17 @@
     {
       "year": 2021,
       "region": "South",
-      "gallons": 1360
+      "gallons": 1510
     },
     {
       "year": 2021,
       "region": "South / Ski Combined",
-      "gallons": 6315
+      "gallons": 7120
     },
     {
       "year": 2021,
       "region": "Southern Ski Slopes",
-      "gallons": 4955
+      "gallons": 5610
     },
     {
       "year": 2021,
@@ -55649,17 +55138,17 @@
     {
       "year": 2022,
       "region": "Burlington / South Burlington",
-      "gallons": 44448
+      "gallons": 44423
     },
     {
       "year": 2022,
       "region": "Central",
-      "gallons": 24048
+      "gallons": 24123
     },
     {
       "year": 2022,
       "region": "Central South",
-      "gallons": 10827
+      "gallons": 12597
     },
     {
       "year": 2022,
@@ -55670,11 +55159,6 @@
       "year": 2022,
       "region": "Northwest",
       "gallons": 10487
-    },
-    {
-      "year": 2022,
-      "region": "Other",
-      "gallons": 2468
     },
     {
       "year": 2022,
@@ -55689,17 +55173,17 @@
     {
       "year": 2022,
       "region": "Route 15",
-      "gallons": 11944
+      "gallons": 11999
     },
     {
       "year": 2022,
       "region": "Route 2 East / Route 5",
-      "gallons": 8814
+      "gallons": 9077
     },
     {
       "year": 2022,
       "region": "Route 7",
-      "gallons": 10632
+      "gallons": 11167
     },
     {
       "year": 2022,
@@ -55709,17 +55193,17 @@
     {
       "year": 2022,
       "region": "South",
-      "gallons": 2215
+      "gallons": 2390
     },
     {
       "year": 2022,
       "region": "South / Ski Combined",
-      "gallons": 6826
+      "gallons": 7356
     },
     {
       "year": 2022,
       "region": "Southern Ski Slopes",
-      "gallons": 4611
+      "gallons": 4966
     },
     {
       "year": 2022,
@@ -55749,12 +55233,12 @@
     {
       "year": 2023,
       "region": "Central",
-      "gallons": 25433
+      "gallons": 25483
     },
     {
       "year": 2023,
       "region": "Central South",
-      "gallons": 11584
+      "gallons": 13352
     },
     {
       "year": 2023,
@@ -55768,13 +55252,8 @@
     },
     {
       "year": 2023,
-      "region": "Other",
-      "gallons": 2903
-    },
-    {
-      "year": 2023,
       "region": "Outer Burlington",
-      "gallons": 26023
+      "gallons": 26343
     },
     {
       "year": 2023,
@@ -55789,12 +55268,12 @@
     {
       "year": 2023,
       "region": "Route 2 East / Route 5",
-      "gallons": 6676
+      "gallons": 6751
     },
     {
       "year": 2023,
       "region": "Route 7",
-      "gallons": 13475
+      "gallons": 14130
     },
     {
       "year": 2023,
@@ -55804,17 +55283,17 @@
     {
       "year": 2023,
       "region": "South",
-      "gallons": 4697
+      "gallons": 5017
     },
     {
       "year": 2023,
       "region": "South / Ski Combined",
-      "gallons": 9004
+      "gallons": 9499
     },
     {
       "year": 2023,
       "region": "Southern Ski Slopes",
-      "gallons": 4307
+      "gallons": 4482
     },
     {
       "year": 2023,
@@ -55844,12 +55323,12 @@
     {
       "year": 2024,
       "region": "Central",
-      "gallons": 29613
+      "gallons": 29678
     },
     {
       "year": 2024,
       "region": "Central South",
-      "gallons": 13945
+      "gallons": 16642
     },
     {
       "year": 2024,
@@ -55863,13 +55342,8 @@
     },
     {
       "year": 2024,
-      "region": "Other",
-      "gallons": 3834
-    },
-    {
-      "year": 2024,
       "region": "Outer Burlington",
-      "gallons": 32450
+      "gallons": 32710
     },
     {
       "year": 2024,
@@ -55879,17 +55353,17 @@
     {
       "year": 2024,
       "region": "Route 15",
-      "gallons": 11963
+      "gallons": 11973
     },
     {
       "year": 2024,
       "region": "Route 2 East / Route 5",
-      "gallons": 8840
+      "gallons": 8955
     },
     {
       "year": 2024,
       "region": "Route 7",
-      "gallons": 14120
+      "gallons": 14622
     },
     {
       "year": 2024,
@@ -55899,17 +55373,17 @@
     {
       "year": 2024,
       "region": "South",
-      "gallons": 6484
+      "gallons": 6949
     },
     {
       "year": 2024,
       "region": "South / Ski Combined",
-      "gallons": 10459
+      "gallons": 11099
     },
     {
       "year": 2024,
       "region": "Southern Ski Slopes",
-      "gallons": 3975
+      "gallons": 4150
     },
     {
       "year": 2024,
@@ -55939,12 +55413,12 @@
     {
       "year": 2025,
       "region": "Central",
-      "gallons": 30259
+      "gallons": 30314
     },
     {
       "year": 2025,
       "region": "Central South",
-      "gallons": 14428
+      "gallons": 15458
     },
     {
       "year": 2025,
@@ -55959,7 +55433,7 @@
     {
       "year": 2025,
       "region": "Other",
-      "gallons": 1970
+      "gallons": 17
     },
     {
       "year": 2025,
@@ -55979,12 +55453,12 @@
     {
       "year": 2025,
       "region": "Route 2 East / Route 5",
-      "gallons": 10262
+      "gallons": 10427
     },
     {
       "year": 2025,
       "region": "Route 7",
-      "gallons": 15119
+      "gallons": 15652
     },
     {
       "year": 2025,
@@ -55994,17 +55468,17 @@
     {
       "year": 2025,
       "region": "South",
-      "gallons": 4642
+      "gallons": 5027
     },
     {
       "year": 2025,
       "region": "South / Ski Combined",
-      "gallons": 11692
+      "gallons": 12202
     },
     {
       "year": 2025,
       "region": "Southern Ski Slopes",
-      "gallons": 7050
+      "gallons": 7175
     },
     {
       "year": 2025,
@@ -56034,12 +55508,12 @@
     {
       "year": 2026,
       "region": "Central",
-      "gallons": 25735
+      "gallons": 25790
     },
     {
       "year": 2026,
       "region": "Central South",
-      "gallons": 14767
+      "gallons": 15057
     },
     {
       "year": 2026,
@@ -56050,11 +55524,6 @@
       "year": 2026,
       "region": "Northwest",
       "gallons": 16375
-    },
-    {
-      "year": 2026,
-      "region": "Other",
-      "gallons": 1412
     },
     {
       "year": 2026,
@@ -56069,17 +55538,17 @@
     {
       "year": 2026,
       "region": "Route 15",
-      "gallons": 11690
+      "gallons": 11715
     },
     {
       "year": 2026,
       "region": "Route 2 East / Route 5",
-      "gallons": 11146
+      "gallons": 11776
     },
     {
       "year": 2026,
       "region": "Route 7",
-      "gallons": 11901
+      "gallons": 12078
     },
     {
       "year": 2026,
@@ -56089,17 +55558,17 @@
     {
       "year": 2026,
       "region": "South",
-      "gallons": 4535
+      "gallons": 4705
     },
     {
       "year": 2026,
       "region": "South / Ski Combined",
-      "gallons": 11140
+      "gallons": 11550
     },
     {
       "year": 2026,
       "region": "Southern Ski Slopes",
-      "gallons": 6605
+      "gallons": 6845
     },
     {
       "year": 2026,
@@ -56132,8 +55601,8 @@
     "North-Northeast",
     "Central South",
     "Route 7",
-    "Route 15",
     "Route 2 East / Route 5",
+    "Route 15",
     "Warren / Waitsfield",
     "Southern Ski Slopes",
     "South",
@@ -56149,16 +55618,16 @@
     "Winter / Summer Combined"
   ],
   "region_descriptions": {
-    "Route 7": "Middlebury, Vergennes, Bristol, Charlotte, Hinesburg, New Haven, Shelburne, Whiting, Rutland City, Rutland Town",
+    "Route 7": "Middlebury, Vergennes, Bristol, Charlotte, Hinesburg, New Haven, Shelburne, Whiting, Rutland City, Rutland Town, Brandon, Pittsford, Lincoln, Fair Haven",
     "Waterbury / Stowe": "Waterbury, Stowe, Bolton",
-    "Southern Ski Slopes": "Dover, Ludlow, Killington",
-    "South": "Bennington, Brattleboro, Manchester, Sunderland, Readsboro, Wilmington",
-    "Central": "Berlin, Barre City, Barre Town, Northfield, Montpelier, Williamstown, Brookfield, Orange, East Montpelier, Middlesex",
-    "Outer Burlington": "Winooski, Essex, Essex Junction, Williston, Richmond, Jericho",
+    "Southern Ski Slopes": "Dover, Ludlow, Killington, Mount Holly, Stratton",
+    "South": "Bennington, Brattleboro, Manchester, Sunderland, Readsboro, Wilmington, Arlington, Whitingham",
+    "Central": "Berlin, Barre City, Barre Town, Northfield, Montpelier, Williamstown, Brookfield, Orange, East Montpelier, Middlesex, Roxbury",
+    "Outer Burlington": "Winooski, Essex, Essex Junction, Williston, Richmond, Jericho, Westford",
     "Northwest": "Plattsburgh, Enosburgh, North Hero, South Hero, Colchester, Milton, Fairfax, Swanton, Alburgh, Saint Albans City, Saint Albans Town",
-    "Route 15": "Hardwick, Wolcott, Johnson, Hyde Park, Morristown, Cambridge, Underhill",
-    "Central South": "Hartford/Quechee, Woodstock, Pomfret, Bethel, Randolph, West Lebanon, Tunbridge, Royalton, Pittsfield, Braintree",
-    "Route 2 East / Route 5": "Cabot, Plainfield, Danville, Saint Johnsbury, Concord, Brighton, Lyndon, Burke, East Haven, Marshfield, Newbury, Fairlee, Bradford, Lunenburg",
+    "Route 15": "Hardwick, Wolcott, Johnson, Hyde Park, Morristown, Cambridge, Underhill, Worcester, Bakersfield",
+    "Central South": "Hartford/Quechee, Woodstock, Pomfret, Bethel, Randolph, West Lebanon, Tunbridge, Royalton, Pittsfield, Braintree, Claremont, Rockingham, Rochester, Weathersfield, Barnard, Hartland",
+    "Route 2 East / Route 5": "Cabot, Plainfield, Danville, Saint Johnsbury, Concord, Brighton, Lyndon, Burke, East Haven, Marshfield, Newbury, Fairlee, Bradford, Lunenburg, Waterford, Groton, Hanover, Berlin, NH, Lancaster, NH, Northumberland, NH",
     "North-Northeast": "Jay, Montgomery, Troy, Glover, Eden, Barton, Newport City, Derby, Albany, Craftsbury, Richford, Greensboro",
     "Ski Slopes": "on-mountain and resort stops statewide, from Jay Peak to Mount Snow",
     "Summer Snack Stops": "seasonal snack bars, food trucks, fairgrounds and golf courses",
@@ -56185,31 +55654,31 @@
   },
   "region_stats": {
     "Burlington / South Burlington": {
-      "customers": 211,
+      "customers": 200,
       "active": 81
     },
     "Central": {
-      "customers": 100,
-      "active": 69
+      "customers": 103,
+      "active": 70
     },
     "Central South": {
-      "customers": 45,
-      "active": 35
+      "customers": 55,
+      "active": 42
     },
     "North-Northeast": {
-      "customers": 37,
+      "customers": 38,
       "active": 34
     },
     "Northwest": {
-      "customers": 50,
+      "customers": 51,
       "active": 36
     },
     "Other": {
-      "customers": 26,
-      "active": 15
+      "customers": 1,
+      "active": 1
     },
     "Outer Burlington": {
-      "customers": 60,
+      "customers": 61,
       "active": 48
     },
     "Perrigo": {
@@ -56217,39 +55686,39 @@
       "active": 1
     },
     "Route 15": {
-      "customers": 35,
-      "active": 32
+      "customers": 38,
+      "active": 33
     },
     "Route 2 East / Route 5": {
-      "customers": 50,
-      "active": 37
+      "customers": 59,
+      "active": 40
     },
     "Route 7": {
-      "customers": 54,
-      "active": 40
+      "customers": 60,
+      "active": 43
     },
     "Ski Slopes": {
       "customers": 20,
       "active": 20
     },
     "South": {
-      "customers": 18,
-      "active": 15
+      "customers": 21,
+      "active": 17
     },
     "South / Ski Combined": {
-      "customers": 39,
-      "active": 28
+      "customers": 44,
+      "active": 31
     },
     "Southern Ski Slopes": {
-      "customers": 21,
-      "active": 13
+      "customers": 23,
+      "active": 14
     },
     "Summer Snack Stops": {
       "customers": 30,
       "active": 27
     },
     "Warren / Waitsfield": {
-      "customers": 30,
+      "customers": 31,
       "active": 27
     },
     "Waterbury / Stowe": {
@@ -56354,12 +55823,10 @@
       105,
       114,
       120,
-      129,
       132,
       141,
       155,
       165,
-      216,
       217,
       223,
       228,
@@ -56456,7 +55923,6 @@
       546,
       601,
       604,
-      609,
       613,
       621,
       712,
@@ -56472,7 +55938,6 @@
       811,
       813,
       835,
-      906,
       907,
       908,
       915,
@@ -56480,17 +55945,10 @@
       927,
       929,
       933,
-      1000,
       1001,
       1002,
-      1003,
       1004,
       1005,
-      1006,
-      1007,
-      1008,
-      1009,
-      1010,
       1013,
       1014,
       1015,
@@ -56587,6 +56045,7 @@
       126,
       127,
       128,
+      129,
       130,
       131,
       133,
@@ -56625,12 +56084,14 @@
       201,
       302,
       602,
+      1000,
       1011,
       1039,
       1057,
       1082,
       1100,
       1114,
+      1117,
       1126,
       1128,
       1184,
@@ -56672,6 +56133,7 @@
       806,
       807,
       808,
+      809,
       817,
       818,
       819,
@@ -56695,6 +56157,8 @@
       925,
       928,
       930,
+      931,
+      932,
       1027,
       1056,
       1083,
@@ -56702,14 +56166,21 @@
       1097,
       1106,
       1119,
+      1146,
       1150,
       1161,
+      1192,
       1194,
+      1218,
       1233,
+      1255,
+      1256,
+      1333,
       1369,
       1438,
       1455,
-      1463
+      1463,
+      1486
     ],
     "North-Northeast": [
       520,
@@ -56731,6 +56202,7 @@
       538,
       550,
       551,
+      1009,
       1072,
       1073,
       1074,
@@ -56765,6 +56237,7 @@
       517,
       518,
       519,
+      1008,
       1040,
       1086,
       1115,
@@ -56803,32 +56276,7 @@
       1508
     ],
     "Other": [
-      539,
-      620,
-      624,
-      809,
-      911,
-      921,
-      926,
-      931,
-      932,
-      1095,
-      1159,
-      1179,
-      1192,
-      1196,
-      1206,
-      1218,
-      1245,
-      1255,
-      1256,
-      1281,
-      1300,
-      1333,
-      1439,
-      1484,
-      1486,
-      1506
+      1095
     ],
     "Outer Burlington": [
       135,
@@ -56873,6 +56321,7 @@
       1156,
       1168,
       1183,
+      1206,
       1207,
       1211,
       1247,
@@ -56911,13 +56360,16 @@
       512,
       513,
       515,
+      539,
       540,
       542,
       543,
       544,
       545,
+      624,
       1071,
       1085,
+      1159,
       1181,
       1193,
       1239,
@@ -56942,6 +56394,7 @@
       606,
       607,
       608,
+      609,
       610,
       611,
       612,
@@ -56950,18 +56403,24 @@
       616,
       617,
       618,
+      620,
       622,
       623,
+      926,
+      1006,
+      1010,
       1078,
       1080,
       1094,
       1142,
       1178,
       1186,
+      1196,
       1249,
       1264,
       1268,
       1280,
+      1281,
       1284,
       1293,
       1304,
@@ -56977,7 +56436,9 @@
       1461,
       1465,
       1467,
+      1484,
       1498,
+      1506,
       1507,
       1519,
       1528,
@@ -57012,16 +56473,21 @@
       729,
       732,
       914,
+      1003,
+      1007,
       1030,
       1077,
+      1090,
       1109,
       1120,
       1148,
       1160,
       1164,
+      1179,
       1182,
       1197,
       1201,
+      1245,
       1258,
       1274,
       1275,
@@ -57034,6 +56500,7 @@
       1393,
       1416,
       1422,
+      1439,
       1441,
       1472,
       1475,
@@ -57066,17 +56533,20 @@
       733,
       734,
       905,
+      906,
       1054,
       1055,
       1058,
       1060,
       1096,
       1129,
+      1137,
       1162,
       1185,
       1234,
       1252,
       1296,
+      1300,
       1443,
       1462,
       1532,
@@ -57096,10 +56566,13 @@
       903,
       904,
       905,
+      906,
       909,
       910,
+      911,
       912,
       913,
+      921,
       934,
       1054,
       1055,
@@ -57108,6 +56581,7 @@
       1079,
       1096,
       1129,
+      1137,
       1162,
       1169,
       1185,
@@ -57115,6 +56589,7 @@
       1234,
       1252,
       1296,
+      1300,
       1388,
       1391,
       1443,
@@ -57136,8 +56611,10 @@
       904,
       909,
       910,
+      911,
       912,
       913,
+      921,
       934,
       1079,
       1169,
@@ -57191,6 +56668,7 @@
       213,
       214,
       215,
+      216,
       218,
       219,
       220,
