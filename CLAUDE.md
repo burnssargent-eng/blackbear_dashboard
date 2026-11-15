@@ -84,6 +84,10 @@ supabase_sync.py --export-thefts ──> thefts.csv  (committed: customer id, da
 db/schema.sql        the database's whole definition. Idempotent: change it, then paste ALL of it into
                      Supabase's SQL editor. Every table is login-only (RLS + `people`); nothing is open to the
                      public key. The secret key lives only in GitHub secrets (SUPABASE_SERVICE_KEY).
+supabase_backup.py ──> the PRIVATE repo burnssargent-eng/blackbear-backup (backup.yml, nightly 09:30 UTC):
+                     every table as JSON + every photo file; its git history is the nightly copies. The free
+                     plan has no backups. This repo's Actions logs are public: print counts, never contents.
+                     A new table in db/schema.sql must join TABLES there (its test fails until it does).
 
 site-gate.js         the sign-in card in front of EVERY page (email + password, team list in `people`; one
                      sign-in per device until Sign out). Analytics pages load it with data-protect and stay
