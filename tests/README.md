@@ -80,6 +80,12 @@ It runs `supabase_backup.py` against a stand-in database: every table in
 nothing, photos are copied once and never removed, only counts are printed,
 and `backup.yml` pushes to the private repo and never logs or uploads contents.
 
+`nightly_alerts_test.py` is Python too: `python3 tests/nightly_alerts_test.py`. It
+runs each nightly step's own shell commands with `python` failing: a step that
+matters after the cutover carries on and records the failure, a step reading
+the source site only warns, the last step (after the commit) fails the run when
+anything was recorded, and a night without failures passes.
+
 `takeover_check_test.py` is Python too: `python3 tests/takeover_check_test.py`. It
 runs `takeover_check.py` on made-up builds: missing, site-only, different and
 day-off entries each land in their own list, the source site's own 0s are never
