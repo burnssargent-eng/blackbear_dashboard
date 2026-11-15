@@ -32,6 +32,7 @@
  * can be reordered (hold a stop a quarter of a second and drag it), opened on
  * their customer page, removed (with Undo), or added to straight from a search. A route made with
  * Assign Routes' "New Route…" arrives as ?new=<id>: it opens first, its name ready to type.
+ * The driver view lists the route's tasks (not pickups) at the top, ticked as they are done.
  * "Set as My Route" opens the driver view
  * for entering gallons. Everything is saved in the shadow copy, in this
  * browser only.
@@ -129,7 +130,9 @@ function routeHtml(route) {
   // Today's collections replace their stops' projections in every figure shown.
   const live = { ...totals, ...liveRouteTotals(lines, store) };
   const id = route.route_id;
-  const sum = `${stops.length} stop${stops.length === 1 ? "" : "s"}${stops.length
+  const openTasks = tasksReady ? routeTasks(store, route.route_id).filter(t => !t.done_at).length : 0;
+  const sum = `${stops.length} stop${stops.length === 1 ? "" : "s"}${openTasks
+    ? ` · ${openTasks} task${openTasks === 1 ? "" : "s"}` : ""}${stops.length
     ? ` · ~${formatWhole(live.projected)} gal` : ""}`;
   // While its name is being typed the route is a plain box, not a <details>:
   // keys typed in a <summary> can fold it.
@@ -159,10 +162,13 @@ function routeHtml(route) {
           </select>
           <button type="button" class="btn btn-primary btn-sm" data-act="set" data-route="${id}"
             ${stops.length ? "" : "disabled"}>Set as My Route</button>
+          ${tasksReady ? `<button type="button" class="btn btn-outline-primary btn-sm" data-act="taskadd-open" data-route="${id}">+ Task</button>` : ""}
           ${route.shadow && !isNaming ? `<button type="button" class="btn ops-plain-btn btn-sm" data-act="rename"
             data-route="${id}">Rename</button>` : ""}
         </div>
         ${route.aliases.length ? `<div class="ops-muted mb-2">Also called ${escapeHtml(route.aliases.join(", "))} on the source site.</div>` : ""}
+        ${taskAdd && taskAdd.routeId === id ? `<div class="mb-2">${taskAddHtml()}</div>` : ""}
+        ${listTasksHtml(id)}
         ${stops.length ? `
         <div class="ops-cards">${stopCardsHtml(id, lines)}</div>` : `<div class="ops-muted mb-2">No stops.</div>`}
         ${stops.length ? routeTotalHtml(live, id) : ""}
@@ -189,7 +195,7 @@ function renderList() {
       <div class="ops-route-list">${empty.map(routeHtml).join("")}</div>` : ""}
     ${removed ? `<div class="ops-undo" role="status">
       <span class="ops-undo-text">Removed ${escapeHtml(removed.stop.name)}</span>
-      <button type="button" class="btn ops-undo-btn" data-act="unremove">Undo</button></div>` : ""}`;
+      <button type="button" class="btn ops-undo-btn" data-act="unremove">Undo</button></div>` : footBarHtml()}`;
   document.getElementById("page").innerHTML = html;
   lastMoved = null;
   const box = naming && document.querySelector(`[data-name="${naming.route}"]`);
@@ -348,6 +354,17 @@ let activeId = null;      // customer id showing its controls; null = the next o
 let compact = true;       // only the active stop shows controls (a per-phone preference)
 let officePhones = [];    // [{ name, phone }]: the office numbers for Call ▾ (not the signed-in person's own)
 let callOpen = false;     // Call ▾'s menu is showing
+let taskOpen = null;      // client_id of the task showing its Note and Remove
+let taskNote = null;      // { id, text }: a task's note being edited
+let taskAdd = null;       // { kind, text, note, customerId, search, msg }: the Add task form, open
+let stopAdd = false;      // Add stop's search box open under the stops
+// The bar at the foot of the driver view, one at a time (the newest wins):
+//   { kind: "taskrm", task, timer }      a task just removed: Undo
+//   { kind: "two", customerId }          a typed 2 saved as a sign-up call: "Make it Empty"
+//   { kind: "cap", ids, name, capacity, editing, msg, busy, saved }   after a Barrel drop: Update capacity
+let footBar = null;
+// Without the task helpers (an older ops-common.js for a few minutes after a deploy) tasks stay hidden.
+const tasksReady = typeof routeTasks === "function";
 
 const COMPACT_KEY = "bbb-ops-compact";
 try { compact = window.localStorage.getItem(COMPACT_KEY) !== "off"; } catch (err) { /* default on */ }
@@ -379,13 +396,17 @@ function renderDriver() {
   const done = lines.map(l => todaysCollection(store, l.stop.customer_id));
   const live = liveRouteTotals(lines, store);
   const thefts = done.filter(c => c && c.theft).length;
+  const drops = tasksReady ? lines.filter(l => todaysDrop(store, l.stop.customer_id)).length : 0;
 
   // Uncollected stops in route order, then collected ones in the order entered.
   const entered = new Map(store.collections.filter(c => c.date === todayIso()).map((c, k) => [c.customer_id, k]));
   const order = lines.map((l, k) => k).sort((a, b) =>
     (done[a] ? entered.get(lines[a].stop.customer_id) : -1) - (done[b] ? entered.get(lines[b].stop.customer_id) : -1) || a - b);
   const next = order.find(k => !done[k]);
-  const current = activeId !== null && lines.some(l => l.stop.customer_id === activeId)
+  // Compact shows one thing open at a time: an open task or the Add form closes the stop's controls.
+  // "+ Add" and its forms leave the stop open, so they open where the bar was (Sarge, 2026-11-15).
+  const elsewhere = compact && (taskOpen !== null || taskNote);
+  const current = elsewhere ? null : activeId !== null && lines.some(l => l.stop.customer_id === activeId)
     ? activeId : (next !== undefined ? lines[next].stop.customer_id : null);
 
   const share = g => (truck ? Math.max(0, 100 * g / truck.capacity) : 0);
@@ -401,11 +422,14 @@ function renderDriver() {
       ${callMenuHtml()}
       <button type="button" class="btn btn-outline-secondary btn-sm text-nowrap" data-act="change">All routes</button>
     </div>
+    ${tasksBlockHtml(route.route_id)}
     ${order.map(k => stopHtml(lines[k], k, done[k], !compact || lines[k].stop.customer_id === current)).join("")}
+    ${addFootHtml(route.route_id)}
     <div class="mt-2">
       <div class="ops-route-sum"><strong>Total: ${formatNumber(live.collected)}</strong> of
         ${formatWhole(live.projected)} projected gal · ${live.done} of ${lines.length} stops${thefts
-        ? ` · ${thefts} theft${thefts === 1 ? "" : "s"}` : ""}</div>
+        ? ` · ${thefts} theft${thefts === 1 ? "" : "s"}` : ""}${drops
+        ? ` · ${drops} barrel${drops === 1 ? "" : "s"} dropped` : ""}</div>
       ${truck ? `<div class="d-flex align-items-center gap-2 mt-1">
         <div class="progress flex-grow-1">
           <div class="progress-bar ${over ? "bg-danger" : "bg-success"}" style="width:${solid}%"></div>
@@ -414,7 +438,8 @@ function renderDriver() {
         <span class="small text-muted text-nowrap">${Math.round(share(live.projected))}% of ${escapeHtml(truck.name)}'s ${formatNumber(truck.capacity)} gal</span></div>` : ""}
     </div>
     <div id="route-map" class="ops-map mt-3 mb-1"></div>
-    <div class="ops-muted mb-3" id="map-note"></div>`;
+    <div class="ops-muted mb-3" id="map-note"></div>
+    ${footBarHtml()}`;
   drawRouteMap(lines, done);
 }
 
@@ -462,29 +487,26 @@ function telHref(phone) {
 }
 
 /**
- * The More block: Add note and Add photo as the customer page's dashed tiles on the left; to their
- * right Oil Left and Report Theft side by side over one long Call strip (green; only when the
- * customer has a phone). Oil Left sits nearest the gallons box; Call stays under the other two, away
- * from Maps and gallons. Under More ▾ on a phone; always on a wide screen, where More ▾ is hidden.
+ * The More block (Sarge, 2026-11-14): two rows of 33px buttons, each as wide as its words. Top:
+ * Note · Photo · Oil Left · Barrel drop (hidden once a barrel is dropped there today: the stop's
+ * line then offers Undo). Bottom: Call (green, only when the customer has a phone) at the left,
+ * Report Theft at the right, so the red one stays apart. Under More ▾ on a phone; always on a wide
+ * screen, where More ▾ is hidden.
  */
 function actionBlockHtml(id, d, c, open) {
   const busy = photoAdd && photoAdd.id === id && !photoAdd.msg;
   const tel = telHref(d.phone);
+  const dropped = tasksReady && todaysDrop(store, id);
   return `<div class="ops-act-block${open ? "" : " ops-wide-only"}">
-      <button type="button" class="ops-photo-add" data-act="note-edit" data-id="${id}">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"></path></svg>
-        ${d.notes || todayNoteFor(id) ? "Edit note" : "Add note"}</button>
-      ${photosReady ? `<button type="button" class="ops-photo-add" data-act="photo-add" data-id="${id}"${busy ? " disabled" : ""}>
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M3 8h4l2-3h6l2 3h4v11H3z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-        ${busy ? "Adding…" : "Add photo"}</button>` : ""}
-      <div class="ops-act-side">
-        <div class="ops-act-pair">
-          ${oilLeftReady ? `<button type="button" class="btn btn-outline-primary" data-act="left" data-id="${id}">Oil Left</button>` : ""}
-          ${c && c.theft ? "" : `<button type="button" class="btn btn-danger" data-act="theft" data-id="${id}" aria-label="Report theft">Report Theft</button>`}
-        </div>
-        ${tel ? `<a class="btn ops-call-btn" href="${escapeHtml(tel)}" aria-label="Call the customer">${PHONE_ICON}Call</a>` : ""}
+      <div class="ops-act-row">
+        <button type="button" class="btn ops-act-tile" data-act="note-edit" data-id="${id}">✎ ${d.notes || todayNoteFor(id) ? "Edit note" : "Note"}</button>
+        ${photosReady ? `<button type="button" class="btn ops-act-tile" data-act="photo-add" data-id="${id}"${busy ? " disabled" : ""}>${busy ? "Adding…" : "Photo"}</button>` : ""}
+        ${oilLeftReady ? `<button type="button" class="btn btn-outline-primary" data-act="left" data-id="${id}">Oil Left</button>` : ""}
+        ${tasksReady && !dropped ? `<button type="button" class="btn ops-drop-btn" data-act="drop" data-id="${id}">Barrel drop</button>` : ""}
+      </div>
+      <div class="ops-act-row">
+        ${tel ? `<a class="btn ops-call-btn" href="${escapeHtml(tel)}" aria-label="Call the customer">${PHONE_ICON}Call</a>` : "<span></span>"}
+        ${c && c.theft ? "" : `<button type="button" class="btn btn-danger" data-act="theft" data-id="${id}" aria-label="Report theft">Report Theft</button>`}
       </div>
     </div>`;
 }
@@ -570,10 +592,11 @@ function stopHtml(l, k, c, showing) {
   const leftForm = showing && leftOpen === id && !theftForm;
   // Collected with another town's run: "New Haven · w/ Middlebury" under the name.
   const cw = typeof opsCollectedWith === "function" ? opsCollectedWith(id) : null;
+  const drop = tasksReady ? todaysDrop(store, id) : null;
   const figures = theft && !showing
     ? `<span class="ops-line-figs ops-theft-text">${theftGallonsText(c)}</span>`
     : !showing && c
-    ? `<span class="ops-line-figs text-success">✓ ${c.gallons <= 3 ? "Empty" : `${formatNumber(c.gallons)} gal`}</span>`
+    ? `<span class="ops-line-figs text-success">✓ ${entryText(c.gallons)}</span>`
     : `<span class="ops-line-figs">${stopLabelHtml(l)}</span>`;
   const cls = theftForm ? " ops-theft-open" : leftForm ? " ops-left-open"
     : (theft ? " ops-theft" : (c ? " ops-done" : ""));
@@ -583,6 +606,9 @@ function stopHtml(l, k, c, showing) {
       ${figures}
     </div>
     ${cw ? `<div class="ops-line-sub">${escapeHtml(opsCollectedWithText(cw))}</div>` : ""}
+    ${stopTasksHtml(id)}
+    ${drop ? `<div class="ops-drop-note">✓ Barrel dropped${showing
+      ? ` · <button type="button" class="btn btn-link p-0 ops-drop-undo" data-act="drop-undo" data-id="${id}">Undo</button>` : ""}</div>` : ""}
     ${theft && theft.note && !theftForm ? `<div class="ops-theft-note">${escapeHtml(theft.note)}</div>` : ""}
     ${left && !leftForm ? `<div class="ops-left-note">${oilLeftText(left)}</div>` : ""}
     ${leftForm ? `<div class="ops-left-form">
@@ -606,7 +632,7 @@ function stopHtml(l, k, c, showing) {
     </div>` : showing ? `<div class="ops-row">${mapsBtn}
       ${theft ? `<span class="ops-theft-text">${theftGallonsText(c)}</span>
              <button type="button" class="btn ops-plain-btn" data-act="theft" data-id="${id}">Edit</button>`
-        : c ? `<span>${c.gallons <= 3 ? "Empty" : `${formatNumber(c.gallons)} gal`} ✓</span>
+        : c ? `<span>${entryText(c.gallons)} ✓</span>
              <button type="button" class="btn ops-plain-btn" data-act="undo" data-id="${id}">Edit</button>`
           : `<input type="number" inputmode="numeric" min="0" class="form-control" id="gal-${k}" placeholder="gal"
                aria-label="Gallons for ${escapeHtml(l.stop.name)}">
@@ -639,6 +665,232 @@ function drawRouteMap(lines, done) {
   document.getElementById("map-note").textContent = notes.join(" · ");
 }
 
+
+/* ── Route tasks (Sarge, 2026-11-14) ─────────────────────── */
+
+/** A customer's name for a task, from the Assign list or the site's own customers. */
+function customerName(id) {
+  if (id === null || id === undefined) return "";
+  const a = data.snap.assign_list.find(c => c.customer_id === id) || store.added.find(c => c.customer_id === id);
+  const row = data.index.get(id);
+  return (a && a.name) || (row && row.id === id && row.name) || `#${id}`;
+}
+
+/** Undone tasks naming this customer, as a line in its stop: "Task: Barrel drop". */
+function stopTasksHtml(id) {
+  if (!tasksReady || !store.my) return "";
+  const list = routeTasks(store, store.my.routeId).filter(t => t.customer_id === id && !t.done_at);
+  return list.map(t => `<div class="ops-task-in"><b>Task:</b> ${escapeHtml(taskTitle(t))}${
+    t.note ? ` <span class="text-muted">· ${escapeHtml(t.note)}</span>` : ""}</div>`).join("");
+}
+
+/** One task row: a checkbox, the words (and its customer), a "from Wed" tag when carried over. */
+function taskHtml(t) {
+  const done = !!t.done_at, open = taskOpen === t.client_id;
+  const from = taskCarriedLabel(t);
+  // The customer sits on the title's line, the note on the line under it (Sarge, 2026-11-14: two
+  // lines at most, closed).
+  const who = t.customer_id !== null && t.customer_id !== undefined
+    ? `<span class="ops-task-at">at <a href="ops-customer.html?id=${t.customer_id}&from=myroute">${escapeHtml(customerName(t.customer_id))}</a></span>` : "";
+  const editing = taskNote && taskNote.id === t.client_id;
+  return `<div class="ops-task${done ? " ops-task-done" : ""}${open ? " ops-task-open" : ""}" data-task="${escapeHtml(t.client_id)}">
+    <div class="ops-task-head">
+      <input type="checkbox" class="form-check-input ops-task-check" data-act="task-tick" data-task-id="${escapeHtml(t.client_id)}"
+        ${done ? "checked" : ""} aria-label="Done: ${escapeHtml(taskTitle(t))}">
+      <div class="ops-task-main">
+        <div class="ops-task-line"><span class="ops-task-text">${escapeHtml(taskTitle(t))}</span>${who}</div>
+        ${t.note && !editing ? `<div class="ops-task-note${open ? " ops-task-note-full" : ""}">${escapeHtml(t.note)}</div>` : ""}
+      </div>
+      ${from ? `<span class="ops-task-tag">from ${escapeHtml(from)}</span>` : ""}
+    </div>
+    ${editing ? `<div class="ops-task-edit">
+        <label for="task-note-${escapeHtml(t.client_id)}" class="ops-note-label">Note</label>
+        <textarea class="form-control" rows="2" id="task-note-${escapeHtml(t.client_id)}" data-task-note-draft>${escapeHtml(taskNote.text)}</textarea>
+        <div class="d-flex gap-2">
+          <button type="button" class="btn btn-primary" data-act="task-note-save">Save</button>
+          <button type="button" class="btn ops-plain-btn" data-act="task-note-cancel">Cancel</button>
+        </div></div>`
+      : open ? `<div class="ops-task-ctl">
+        <button type="button" class="btn ops-plain-btn" data-act="task-note" data-task-id="${escapeHtml(t.client_id)}">✎ Note</button>
+        <button type="button" class="btn ops-plain-btn" data-act="task-remove" data-task-id="${escapeHtml(t.client_id)}">Remove</button>
+      </div>` : ""}
+  </div>`;
+}
+
+/**
+ * A route's tasks in the route list (Sarge, 2026-11-15): one line each above the stops, ✕ at the
+ * left as on a stop card (Undo after). No box to tick: tasks are ticked on the route being driven.
+ */
+function listTasksHtml(routeId) {
+  if (!tasksReady) return "";
+  const list = routeTasks(store, routeId);
+  if (!list.length) return "";
+  return `<div class="ops-task-cap">Tasks</div>
+    ${list.map(t => {
+      const from = taskCarriedLabel(t);
+      const who = t.customer_id !== null && t.customer_id !== undefined
+        ? `<span class="ops-task-at">at ${escapeHtml(customerName(t.customer_id))}</span>` : "";
+      return `<div class="ops-card ops-list-task${t.done_at ? " ops-task-done" : ""}">
+        <button type="button" class="btn ops-plain-btn ops-card-x" data-act="task-remove" data-task-id="${escapeHtml(t.client_id)}"
+          aria-label="Remove ${escapeHtml(taskTitle(t))}">✕</button>
+        <div class="ops-card-main">
+          <div class="ops-task-line"><span class="ops-task-text">${escapeHtml(taskTitle(t))}</span>${who}</div>
+          ${t.note ? `<div class="ops-task-note">${escapeHtml(t.note)}</div>` : ""}
+        </div>
+        ${t.done_at ? `<span class="ops-task-tag">done</span>` : from ? `<span class="ops-task-tag">from ${escapeHtml(from)}</span>` : ""}
+      </div>`;
+    }).join("")}
+    <div class="ops-task-cap mt-2">Stops</div>`;
+}
+
+/** The Tasks block at the top of the route (nothing when the route has none). */
+function tasksBlockHtml(routeId) {
+  if (!tasksReady) return "";
+  const list = routeTasks(store, routeId);
+  if (!list.length) return "";
+  const done = list.filter(t => t.done_at).length;
+  return `<div class="ops-task-cap">Tasks · ${done} of ${list.length} done</div>
+    ${list.map(taskHtml).join("")}
+    <div class="ops-task-cap mt-2">Stops</div>`;
+}
+
+/** Up to 6 customers matching the Add task form's customer box. */
+function taskMatchesHtml() {
+  const q = ((taskAdd && taskAdd.search) || "").trim().toLowerCase();
+  if (!q) return "";
+  const pool = [...data.snap.assign_list,
+    ...store.added.map(c => ({ customer_id: c.customer_id, name: c.name, city: c.city }))];
+  const hits = pool.filter(c => !isReplaced(store, c.customer_id) && matchesNameSearch(q, [c.name, c.city])).slice(0, 6);
+  if (!hits.length) return `<div class="ops-muted mt-1">No match.</div>`;
+  return `<div class="list-group mt-1">${hits.map(c => {
+    const row = data.index.get(c.customer_id);
+    return `<button type="button" class="list-group-item list-group-item-action" data-act="taskadd-pick" data-id="${c.customer_id}">
+      ${escapeHtml(c.name || `#${c.customer_id}`)} <span class="ops-muted">${escapeHtml(townLabel((row && row.town) || c.city || ""))}</span></button>`;
+  }).join("")}</div>`;
+}
+
+/**
+ * At the foot of the stops, one dashed bar split in two, + Stop | + Task (Sarge, 2026-11-15: 5A,
+ * stop first), so a stop or a task joins the route while it is being driven, in one tap. Add stop
+ * is the route list's search box; the stop goes at the end of the route.
+ */
+function addFootHtml(routeId) {
+  if (stopAdd) return `<div class="ops-task-form">
+      <label for="stop-add" class="ops-note-label">Add stop</label>
+      <input type="search" class="form-control" id="stop-add" data-add-search="${routeId}"
+        placeholder="Search name or town" value="${escapeHtml(addSearch[routeId] || "")}" autocomplete="off">
+      <div data-add-results="${routeId}">${addMatchesHtml(routeId)}</div>
+      <div><button type="button" class="btn ops-plain-btn" data-act="add-cancel">Cancel</button></div>
+    </div>`;
+  if (taskAdd) return taskAddHtml();
+  return `<div class="ops-add-split">
+      <button type="button" data-act="stopadd-open">+ Stop</button>
+      ${tasksReady ? `<button type="button" data-act="taskadd-open">+ Task</button>` : ""}
+    </div>`;
+}
+
+/** The Add task form: Task | Barrel drop, words, customer, note. */
+function taskAddHtml() {
+  if (!tasksReady || !taskAdd) return "";
+  const a = taskAdd, drop = a.kind === "barrel_drop";
+  return `<div class="ops-task-form">
+    <div class="btn-group ops-task-kind" role="group" aria-label="Kind">
+      <button type="button" class="btn ${drop ? "btn-outline-primary" : "btn-primary"}" data-act="taskadd-kind" data-kind="task">Task</button>
+      <button type="button" class="btn ${drop ? "btn-primary" : "btn-outline-primary"}" data-act="taskadd-kind" data-kind="barrel_drop">Barrel drop</button>
+    </div>
+    ${drop ? "" : `<label for="task-text" class="ops-note-label">New task</label>
+      <input class="form-control" id="task-text" maxlength="200" data-taskadd="text" value="${escapeHtml(a.text)}">`}
+    <label for="task-cust" class="ops-note-label">Customer${drop ? "" : ` <span class="text-muted fw-normal">(optional)</span>`}</label>
+    ${a.customerId !== null ? `<div><span class="ops-task-chip">${escapeHtml(customerName(a.customerId))}
+        <button type="button" class="btn ops-task-chip-x" data-act="taskadd-clear" aria-label="Clear customer">✕</button></span></div>`
+      : `<input type="search" class="form-control" id="task-cust" data-taskadd="search" value="${escapeHtml(a.search)}" autocomplete="off">
+        <div data-task-results>${taskMatchesHtml()}</div>`}
+    <label for="task-note" class="ops-note-label">Note <span class="text-muted fw-normal">(optional)</span></label>
+    <input class="form-control" id="task-note" maxlength="500" data-taskadd="note" value="${escapeHtml(a.note)}">
+    ${a.msg ? `<div class="text-danger small">${escapeHtml(a.msg)}</div>` : ""}
+    <div class="d-flex gap-2">
+      <button type="button" class="btn btn-primary" data-act="taskadd-save">Add</button>
+      <button type="button" class="btn ops-plain-btn" data-act="taskadd-cancel">Cancel</button>
+    </div>
+  </div>`;
+}
+
+/** Every member of a customer's shared barrel (each lists the whole barrel's capacity), else just it. */
+function barrelGroup(id) {
+  const row = data.index.get(id);
+  const ids = row && row.members ? row.members.map(m => m.id) : [id];
+  return ids.includes(id) ? ids : [id, ...ids];
+}
+
+/** A customer's listed capacity: the projection row's, else the stop's. */
+function capacityOf(id) {
+  const row = data.index.get(id);
+  const stop = store.my && storeStops(store, store.my.routeId).find(s => s.customer_id === id);
+  const added = store.added.find(c => c.customer_id === id);
+  return (row && row.capacity) ?? (stop && stop.capacity) ?? (added && added.capacity) ?? null;
+}
+
+/** After a Barrel drop (button or ticked task): the Update capacity bar. Ignored, nothing changes. */
+function openCapBar(id) {
+  footBar = { kind: "cap", ids: barrelGroup(id), name: customerName(id), capacity: capacityOf(id),
+    editing: false, msg: "", busy: false, saved: null };
+}
+
+/** Save the capacity typed in the bar on every member of the barrel. */
+async function saveCapBar() {
+  const b = footBar;
+  if (!b || b.kind !== "cap" || b.busy) return;
+  const cap = parseInt((document.getElementById("cap-new") || {}).value, 10);
+  if (!Number.isFinite(cap) || cap <= 0) { b.msg = "Type the new capacity in gallons."; render(); return; }
+  const real = b.ids.filter(x => x > 0), mine = b.ids.filter(x => x < 0);
+  b.busy = true; b.msg = ""; render();
+  try {
+    if (real.length) {
+      if (typeof opsSaveCapacity !== "function") throw new Error("sign in to change the capacity");
+      await opsSaveCapacity(real, cap);
+    }
+    if (mine.length) {
+      store.added.forEach(c => { if (mine.includes(c.customer_id)) c.capacity = cap; });
+      saveStore(store);
+    }
+  } catch (err) {
+    b.busy = false; b.msg = `Not saved (${err.message}).`; render(); return;
+  }
+  footBar = { kind: "cap", saved: cap, name: b.name, ids: b.ids, timer: setTimeout(() => {
+    if (footBar && footBar.saved) { footBar = null; render(); }
+  }, UNDO_MS) };
+  render();
+}
+
+/** The bar at the foot of the driver view, if any. */
+function footBarHtml() {
+  const b = footBar;
+  if (!b) return "";
+  if (b.kind === "taskrm") return `<div class="ops-undo" role="status">
+      <span class="ops-undo-text">Removed ${escapeHtml(taskTitle(b.task))}</span>
+      <button type="button" class="btn ops-undo-btn" data-act="taskrm-undo">Undo</button></div>`;
+  if (b.kind === "two") return `<div class="ops-undo ops-undo-wrap" role="status">
+      <span class="ops-undo-text">2 = sign-up call. Did you mean 1 (empty)?</span>
+      <button type="button" class="btn ops-undo-btn" data-act="two-empty">Make it Empty</button></div>`;
+  if (b.saved) return `<div class="ops-undo ops-undo-wrap" role="status">
+      <span class="ops-undo-text">Capacity ${formatNumber(b.saved)} gal saved${b.ids.length > 1 ? " on every share of the barrel" : ""}.
+        Projections use it from tonight.</span></div>`;
+  return `<div class="ops-undo ops-undo-wrap ops-cap-bar" role="status">
+      <div class="ops-cap-row">
+        <span class="ops-undo-text">Barrel dropped at ${escapeHtml(b.name)}.${b.capacity !== null
+          ? `<br><span class="ops-cap-now">Capacity is ${formatNumber(b.capacity)} gal.</span>` : ""}</span>
+        ${b.editing ? "" : `<button type="button" class="btn ops-undo-btn" data-act="cap-open">Update capacity</button>`}
+      </div>
+      ${b.editing ? `<div class="ops-cap-row ops-cap-edit">
+        <label for="cap-new" class="flex-grow-1">New capacity${b.ids.length > 1 ? " (every share)" : ""}</label>
+        <input type="number" inputmode="numeric" min="1" class="form-control" id="cap-new">
+        <span>gal</span>
+        <button type="button" class="btn btn-light" data-act="cap-save"${b.busy ? " disabled" : ""}>${b.busy ? "Saving…" : "Save"}</button>
+      </div>` : ""}
+      ${b.msg ? `<div class="ops-cap-msg">${escapeHtml(b.msg)}</div>` : ""}
+    </div>`;
+}
+
 /* ── Events ─────────────────────────────────────────────── */
 
 function render() {
@@ -669,6 +921,12 @@ function onAct(b) {
   const routeId = d.route !== undefined ? Number(d.route) : null;
   const i = Number(d.i);
   const stops = routeId !== null ? storeStops(store, routeId) : null;
+  // The foot bar stays until a tap on anything but itself (Undo, Make it Empty, Update capacity).
+  if (footBar && !String(d.act).startsWith(`${footBar.kind}-`)) {
+    clearTimeout(footBar.timer);
+    footBar = null;
+  }
+  const task = d.taskId ? (store.tasks || []).find(t => t.client_id === d.taskId) : null;
   switch (d.act) {
     case "remove":   // gone at once; Undo puts it back in its place for a few seconds
       if (removed) clearTimeout(removed.timer);
@@ -694,6 +952,7 @@ function onAct(b) {
       assignToRoute(store, routeId, [{ customer_id: id, name: src.name,
         capacity: row && row.capacity != null ? row.capacity : (src.capacity ?? null) }], false);
       addSearch[routeId] = "";
+      stopAdd = false;
       break;
     }
     case "rename": {
@@ -709,21 +968,116 @@ function onAct(b) {
       naming = null;
       break;
     }
-    case "set": store.my = { routeId }; activeId = null; openDetails = null; theftOpen = null; leftOpen = null; window.scrollTo(0, 0); break;
+    case "set": store.my = { routeId }; taskAdd = null; activeId = null; openDetails = null; theftOpen = null; leftOpen = null; window.scrollTo(0, 0); break;
     case "save": {
       const stop = storeStops(store, store.my.routeId)[i];
-      const gallons = parseInt(document.getElementById(`gal-${i}`).value, 10);
-      if (!Number.isFinite(gallons) || gallons < 0) return;
-      recordCollection(store, stop, gallons);
+      const typed = parseInt(document.getElementById(`gal-${i}`).value, 10);
+      if (!Number.isFinite(typed) || typed < 0) return;
+      // 0 and 1 save as Empty, 2 as a sign-up call (with a check), 3 as a barrel delivery.
+      recordCollection(store, stop, typedEntry(typed));
+      if (typed === 2) footBar = { kind: "two", customerId: stop.customer_id };
       activeId = null;      // on to the next stop to collect
       openDetails = null;
       break;
     }
+    case "two-empty": {   // the typed 2 was meant as an empty check
+      const id = footBar && footBar.customerId;
+      const stop = id !== undefined && storeStops(store, store.my.routeId).find(s => s.customer_id === id);
+      if (stop && todaysCollection(store, id)) recordCollection(store, stop, 1);
+      footBar = null;
+      break;
+    }
     case "undo":
-      store.collections = store.collections.filter(c =>
-        !(c.date === todayIso() && c.customer_id === Number(d.id)));
+      clearTodaysEntry(store, Number(d.id));
       activeId = Number(d.id);   // stays open, back in its route place
       break;
+    case "drop": {   // a barrel dropped here: recorded beside the stop, which stays open for gallons
+      const id = Number(d.id);
+      const stop = storeStops(store, store.my.routeId).find(s => s.customer_id === id);
+      if (!stop) return;
+      recordDrop(store, stop, store.my.routeId);
+      activeId = id;
+      openDetails = null;
+      openCapBar(id);
+      break;
+    }
+    case "drop-undo": {
+      const drop = todaysDrop(store, Number(d.id));
+      if (drop) clearDrop(store, drop.client_id);
+      break;
+    }
+    case "cap-open":
+      footBar.editing = true;
+      render();
+      setTimeout(() => { const el = document.getElementById("cap-new"); if (el) el.focus(); }, 0);
+      return;
+    case "cap-save": saveCapBar(); return;
+    case "task-tick": {
+      if (!task) return;
+      const by = typeof opsDb !== "undefined" && opsDb && opsDb.user ? opsDb.user.id : null;
+      const entry = setTaskDone(store, task, !task.done_at, { by, name: customerName(task.customer_id) });
+      if (entry) openCapBar(task.customer_id);
+      break;
+    }
+    case "task-note":
+      if (!task) return;
+      taskNote = { id: task.client_id, text: task.note || "" };
+      render();
+      return;
+    case "task-note-cancel": taskNote = null; render(); return;
+    case "task-note-save": {
+      const t = taskNote && (store.tasks || []).find(x => x.client_id === taskNote.id);
+      const el = taskNote && document.getElementById(`task-note-${taskNote.id}`);
+      if (!t) { taskNote = null; render(); return; }
+      t.note = (el ? el.value : taskNote.text).trim().slice(0, 500) || null;
+      taskNote = null;
+      break;
+    }
+    case "task-remove": {   // gone at once; Undo puts it back for a few seconds
+      if (!task) return;
+      setTaskRemoved(store, task.client_id, true);
+      taskOpen = null;
+      taskNote = null;
+      footBar = { kind: "taskrm", task: { ...task, removed_at: null },
+        timer: setTimeout(() => { if (footBar && footBar.kind === "taskrm") { footBar = null; render(); } }, UNDO_MS) };
+      break;
+    }
+    case "taskrm-undo": {
+      const back = footBar.task;
+      clearTimeout(footBar.timer);
+      footBar = null;
+      // Still in the store, or reloaded without it meanwhile: put it back either way.
+      if (!setTaskRemoved(store, back.client_id, false)) (store.tasks = store.tasks || []).push(back);
+      break;
+    }
+    case "add-cancel": stopAdd = false; taskAdd = null; if (store.my) addSearch[store.my.routeId] = ""; render(); return;
+    case "stopadd-open":
+      stopAdd = true; taskOpen = null; taskNote = null;
+      render();
+      setTimeout(() => { const el = document.getElementById("stop-add"); if (el) el.focus(); }, 0);
+      return;
+    case "taskadd-open":
+      stopAdd = false;
+      taskOpen = null;
+      taskAdd = { routeId: d.route !== undefined ? Number(d.route) : Number(store.my.routeId),
+        kind: "task", text: "", note: "", customerId: null, search: "", msg: "" };
+      render();
+      setTimeout(() => { const el = document.getElementById("task-text"); if (el) el.focus(); }, 0);
+      return;
+    case "taskadd-cancel": taskAdd = null; render(); return;
+    case "taskadd-kind": taskAdd.kind = d.kind; taskAdd.msg = ""; render(); return;
+    case "taskadd-pick": taskAdd.customerId = Number(d.id); taskAdd.search = ""; taskAdd.msg = ""; render(); return;
+    case "taskadd-clear": taskAdd.customerId = null; render(); return;
+    case "taskadd-save": {
+      const a = taskAdd;
+      ["text", "note"].forEach(k => { const el = document.querySelector(`[data-taskadd="${k}"]`); if (el) a[k] = el.value; });
+      if (a.kind === "task" && !a.text.trim()) { a.msg = "Type the task."; render(); return; }
+      if (a.kind === "barrel_drop" && a.customerId === null) { a.msg = "Pick the customer getting the barrel."; render(); return; }
+      if (store.my === null) openRoutes.add(a.routeId);
+      addTask(store, { routeId: a.routeId, kind: a.kind, text: a.text, customerId: a.customerId, note: a.note });
+      taskAdd = null;
+      break;
+    }
     case "theft":   // open the theft form (Edit on a saved theft reopens it filled in)
       theftOpen = activeId = Number(d.id);
       openDetails = null;
@@ -750,8 +1104,7 @@ function onAct(b) {
       break;
     }
     case "theft-cancel":   // back to the plain gallons row; a saved theft is cleared too (a mistaken press)
-      store.collections = store.collections.filter(c =>
-        !(c.date === todayIso() && c.customer_id === theftOpen && c.theft));
+      clearTodaysEntry(store, theftOpen, c => !c.theft);
       activeId = theftOpen;
       theftOpen = null;
       break;
@@ -782,7 +1135,10 @@ function onAct(b) {
       return;
     }
     case "call-menu": callOpen = !callOpen; render(); return;
-    case "change": store.my = null; activeId = null; openDetails = null; theftOpen = null; leftOpen = null; break;
+    case "change":
+      store.my = null; activeId = null; openDetails = null; theftOpen = null; leftOpen = null;
+      taskAdd = null; taskOpen = null; taskNote = null; stopAdd = false;
+      break;
     default: return;
   }
   saveStore(store);
@@ -814,12 +1170,26 @@ function wire() {
     }
     const b = e.target.closest && e.target.closest("[data-act]");
     if (b) { onAct(b); return; }
+    // A tap on a task (not its box, link or buttons) shows its Note and Remove; again hides them.
+    const tk = e.target.closest && e.target.closest("[data-task]");
+    if (tk && !e.target.closest("a, input, textarea, label, button")) {
+      taskOpen = taskOpen === tk.dataset.task ? null : tk.dataset.task;
+      taskNote = null;
+      if (taskOpen) { taskAdd = null; stopAdd = false; }
+      render();
+      return;
+    }
     // Compact: a tap on a stop's line shows that stop's controls, and closes
     // any Notes or theft form left open on another stop.
     const line = e.target.closest && e.target.closest("[data-pick]");
     if (store.my && compact && line && !e.target.closest("a, input, textarea, label, button, .ops-act-block, .ops-note-edit, .ops-auto-notes")) {
       const id = Number(line.dataset.pick);
-      if (id !== activeId) { activeId = id; openDetails = null; theftOpen = null; leftOpen = null; noteEdit = null; render(); }
+      const other = taskOpen !== null || taskNote;
+      if (id !== activeId || other) {
+        activeId = id; openDetails = null; theftOpen = null; leftOpen = null; noteEdit = null;
+        taskOpen = null; taskNote = null;
+        render();
+      }
     }
   });
   page.addEventListener("toggle", e => {
@@ -843,6 +1213,11 @@ function wire() {
     render();
   });
   page.addEventListener("keydown", e => {
+    if (e.key === "Enter" && taskAdd && e.target.dataset && (e.target.dataset.taskadd === "text" || e.target.dataset.taskadd === "note")) {
+      e.preventDefault();
+      onAct({ dataset: { act: "taskadd-save" } });
+      return;
+    }
     if (e.key === "Enter" && e.target.dataset && e.target.dataset.name !== undefined) {
       e.preventDefault();
       onAct({ dataset: { act: "name-done" } });
@@ -852,6 +1227,14 @@ function wire() {
     if (naming && e.target.dataset && e.target.dataset.name !== undefined) { naming.text = e.target.value; return; }
     if (noteEdit && e.target.dataset && e.target.dataset.noteDraft !== undefined) { noteEdit.text = e.target.value; return; }
     if (noteEdit && e.target.dataset && e.target.dataset.todayDraft !== undefined) { noteEdit.today = e.target.value; return; }
+    if (taskNote && e.target.dataset && e.target.dataset.taskNoteDraft !== undefined) { taskNote.text = e.target.value; return; }
+    const ta = e.target.dataset && e.target.dataset.taskadd;
+    if (taskAdd && ta) {
+      taskAdd[ta] = e.target.value;
+      // Only the matches redraw, so typing keeps focus.
+      if (ta === "search") page.querySelector("[data-task-results]").innerHTML = taskMatchesHtml();
+      return;
+    }
     const id = e.target.dataset && e.target.dataset.addSearch;
     if (id === undefined) return;
     addSearch[id] = e.target.value;

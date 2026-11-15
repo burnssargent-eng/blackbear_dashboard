@@ -36,7 +36,6 @@
  */
 
 const NON_PICKUP_FILE = "oil_non_pickups.csv";
-const CODE_LABELS = { 0: "empty", 1: "empty", 2: "sign-up call", 3: "barrel delivery" };
 
 let byDay = new Map();      // "YYYY-MM-DD" -> { gallons, rows: [{customer_id, name, gallons}] }
 let codesByDay = new Map(); // "YYYY-MM-DD" -> [{customer_id, name, qty}]
@@ -118,7 +117,8 @@ function nameHtml(id, name) {
 function dayHtml(date) {
   if (!date) return "";
   const real = byDay.get(date);
-  const codes = codesByDay.get(date) || [];
+  // A 0 is the source site's own entry when a customer is reactivated, not a person's: hidden.
+  const codes = (codesByDay.get(date) || []).filter(c => Number(c.qty) !== 0);
   const shadow = shadowEntries(date);
   const rows = real ? real.rows.slice().sort((a, b) => a.name.localeCompare(b.name)) : [];
   return `
@@ -127,12 +127,12 @@ function dayHtml(date) {
       `<li>${nameHtml(r.customer_id, r.name)}: ${formatNumber(r.gallons)}</li>`).join("")}</ul>
       <div class="fw-bold">Total: ${formatNumber(real.gallons)}</div>`
       : `<div class="text-muted">No gallons recorded${date > latestDay ? " yet: the data runs through " + escapeHtml(formatDate(latestDay)) : ""}.</div>`}
-    ${codes.length ? `<div class="mt-3 ops-muted">Not gallons (codes 0–3):</div>
+    ${codes.length ? `<div class="mt-3 ops-muted">Not gallons:</div>
       <ul class="cal-list ops-muted">${codes.map(c =>
-        `<li>${nameHtml(c.customer_id, names.get(c.customer_id))}: ${c.qty} - ${CODE_LABELS[c.qty] || "code"}</li>`).join("")}</ul>` : ""}
+        `<li>${nameHtml(c.customer_id, names.get(c.customer_id))}: ${codeText(Number(c.qty))}</li>`).join("")}</ul>` : ""}
     ${shadow.length ? `<div class="mt-3 ops-new">${opsShared() ? "Entered on this site:" : "Entered in this browser (shadow copy, not real):"}</div>
       <ul class="cal-list">${shadow.map(c =>
-        `<li>${nameHtml(c.customer_id, c.name)}: ${c.gallons}${c.gallons <= 3 ? ` - ${CODE_LABELS[c.gallons]}` : ""}</li>`).join("")}</ul>` : ""}`;
+        `<li>${nameHtml(c.customer_id, c.name)}: ${c.gallons <= 3 ? codeText(c.gallons) : c.gallons}</li>`).join("")}</ul>` : ""}`;
 }
 
 function render() {
@@ -141,7 +141,7 @@ function render() {
     ${calendarNavHtml(anchor, monthOptions(todayIso().slice(0, 7)),
       `<button type="button" class="btn btn-outline-success btn-sm text-nowrap" data-today>Latest day</button>`)}
     <div class="text-center mb-1">This month: ${formatNumber(monthTotal(month))} Last year: ${formatNumber(monthTotal(shiftMonth(month, -12)))}</div>
-    <div class="ops-muted text-center mb-2">0–3 codes are excluded, so gallons read below Jamaal.</div>
+    <div class="ops-muted text-center mb-2">Empty, sign-up call and barrel delivery entries are left out of the totals, so they read below Jamaal's.</div>
     <div class="cal-month">${escapeHtml(monthLabel(month))}</div>
     ${gridHtml(month)}
     ${dayHtml(day)}`;

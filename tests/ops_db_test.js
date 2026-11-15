@@ -27,7 +27,8 @@ const api = new Function("window", "const document = { getElementById: () => nul
     opsTodayNote, opsSaveNotes, opsDayBefore, opsCollectedWith, opsCollectedWithText, opsSaveCollectedWith,
     takeOverCustomer, undoTakeOver, isReplaced, opsPredecessors,
     opsApplySiteEdits, opsSaveCustomer, opsPhoneStored, opsCustomerDbRow, opsSiteStatus, opsSaveStatus,
-    opsRetryFailed, opsDismissFailed, opsFailedLabel, opsFailedPanelHtml, opsStatusText, opsDbBannerHtml, OPS_FAILED_KEY };`)(window);
+    opsRetryFailed, opsDismissFailed, opsFailedLabel, opsFailedPanelHtml, opsStatusText, opsDbBannerHtml, OPS_FAILED_KEY,
+    addTask, setTaskDone, setTaskRemoved, recordDrop, opsTaskRow };`)(window);
 
 let fails = 0;
 const ok = (cond, msg) => {
@@ -124,6 +125,36 @@ ok(api.todaysOilLeft(shared, route.stops[2].customer_id).gallons === 30 && share
 ok(api.opsStoreFromRows({ ...rows, oilLeft: undefined }, snap).oilLeft.length === 0,
   "before the oil_left table exists the store still loads, with no Oil Left");
 ok(shared.nextId < -1000000000 && shared.nextId > -2147483648, "new ids start at a random point, inside the column's range");
+
+// ── Route tasks and barrel drops (Sarge, 2026-11-14) ──
+{
+  const base = api.opsStoreFromRows({ ...rows, collections: rows.collections.concat([{ customer_id: route.stops[1].customer_id,
+    picked_on: today, gallons: 3, route_id: rid, client_id: "c-drop", theft: false, extra: true }]),
+    tasks: [{ client_id: "t-old", route_id: rid, day: today, position: 1, kind: "task", text: "Load cones",
+      customer_id: null, note: null, done_at: null, done_by: null, drop_client_id: null, removed_at: null }] }, snap);
+  ok(base.collections.find(c => c.client_id === "c-drop").extra === true
+     && !base.collections.find(c => c.client_id === "c-old").extra, "a barrel drop comes back marked extra");
+  ok(base.tasks.length === 1 && base.tasks[0].text === "Load cones", "tasks come back from their rows");
+  ok(api.opsStoreFromRows(rows, snap).tasks.length === 0, "before the route_tasks table exists the store loads with none");
+  const prev = api.opsSharedPart(base);
+  const next = api.opsSharedPart(base);
+  const t = api.addTask(next, { routeId: rid, kind: "barrel_drop", customerId: route.stops[2].customer_id });
+  api.setTaskDone(next, t, true, { name: "x" });
+  api.setTaskRemoved(next, "t-old", true);
+  let ops = api.opsDiff(prev, next, { today });
+  const kinds = ops.map(o => o.t);
+  ok(kinds.join() === "pickup-new,task-set,task-set", `a ticked drop task sends its pickup, then the tasks (${kinds.join()})`);
+  const pick = ops[0].row;
+  ok(pick.extra === true && pick.gallons === 3 && pick.client_id === t.drop_client_id, "the drop is sent as an extra 3");
+  ok(ops.find(o => o.t === "task-set" && o.row.client_id === "t-old").row.removed_at, "Remove sends removed_at, never a delete");
+  const plainPick = api.opsDiff(api.opsSharedPart(api.freshStore(snap)), (() => {
+    const st = api.freshStore(snap); api.recordCollection(st, route.stops[0], 80); api.opsEnsureClientIds(st, makeId); return api.opsSharedPart(st);
+  })(), { today })[0].row;
+  ok(!("extra" in plainPick), "an ordinary pickup is sent without `extra`, so it saves before the column exists");
+  const gone = api.opsSharedPart(base);
+  gone.tasks = [];
+  ok(api.opsDiff(prev, gone, { today }).length === 0, "a task dropping out of the load sends nothing");
+}
 
 // ── Taking over from: the old account replaced, the new one on its routes ──
 {
@@ -504,6 +535,15 @@ ok(rNew < -1000000000 && cNew.customer_id < -1000000000, "ids made on the device
     ok(/enable row level security/.test(block) && /for select to authenticated\s+using \(\(select public\.is_member\(\)\)\)/.test(block)
        && /revoke all on public\.office_phones from anon, authenticated;\s*grant select on public\.office_phones to authenticated;/.test(block),
       "office_phones: members read it, nobody writes it from the site, the public key sees nothing");
+  }
+  {
+    const schema = fs.readFileSync("db/schema.sql", "utf8");
+    const membersOnly = schema.match(/foreach t in array array\[([^\]]+)\] loop\s+execute format\('drop policy if exists "members only"/);
+    ok(/alter table public\.route_tasks\s+enable row level security/.test(schema) && membersOnly && /'route_tasks'/.test(membersOnly[1])
+       && /public\.daily_notes, public\.route_tasks from anon/.test(schema),
+      "route_tasks: row-level security, members only, nothing for the public key");
+    ok(!/route_tasks/.test(fs.readFileSync("supabase_sync.py", "utf8")),
+      "the nightly and the 7am route reset never touch route_tasks");
   }
 
   console.log(fails ? `\n${fails} FAILURE(S)` : "\nALL CHECKS PASSED");

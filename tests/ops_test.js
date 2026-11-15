@@ -25,7 +25,9 @@ const api = new Function("window", code + `
     recordCollection, todaysCollection, liveRouteTotals, routeSummary, recordTheft, theftGallonsText,
     recordOilLeft, todaysOilLeft, clearOilLeft, collectionLines, daysBracketHtml,
     resolveTownInput, VT_TOWNS, OUT_OF_STATE_TOWNS, TOWN_ALIASES, SPLIT_TOWNS, TOWN_CHOICES,
-    stopFiguresHtml, projectionBadgeText, daysPast75 };`)(window);
+    stopFiguresHtml, projectionBadgeText, daysPast75,
+    typedEntry, codeText, entryText, todaysDrop, recordDrop, clearDrop, clearTodaysEntry,
+    routeTasks, addTask, setTaskDone, setTaskRemoved, taskCarriedLabel, taskTitle, todayIso, localDay };`)(window);
 
 let fails = 0;
 const ok = (cond, msg) => {
@@ -352,6 +354,75 @@ ok(api.daysBracketHtml(28.4).includes("[28]") && api.daysBracketHtml(90).include
     "daysPast75: negative before 75%, positive after, null without a figure");
   ok(api.stopFiguresHtml(toGo, 165).includes("[-31]") && !api.stopFiguresHtml(toGo, 165).includes("[-76]")
      && api.stopFiguresHtml(past, 165).includes("[12]"), "a stop's [n] is days from 75%, not from full");
+}
+
+// ── Named outcomes, barrel drops and route tasks (Sarge, 2026-11-14) ──
+{
+  ok([0, 1, 2, 3, 4, 52].map(api.typedEntry).join() === "1,1,2,3,4,52",
+    "a typed 0 saves as Empty (1); 2 and 3 stay; 4 and up are gallons");
+  ok(api.codeText(1) === "Empty" && api.codeText(2) === "Sign-up call" && api.codeText(3) === "Barrel delivery"
+     && !/\d/.test(api.codeText(3)), "codes show by name, never the number");
+  ok(api.entryText(3) === "Barrel delivery" && api.entryText(52) === "52 gal", "an entry reads as a name or gallons");
+
+  const lines = api.collectionLines(
+    [{ date: "2026-10-01", gallons: 0, code: true }, { date: "2026-10-02", gallons: 1, code: true },
+     { date: "2026-10-03", gallons: 140 }],
+    [{ client_id: "x", date: "2026-10-03", gallons: 3, extra: true }]);
+  ok(!lines.some(l => l.date === "2026-10-01"), "a source-site 0 (written on reactivation) is hidden");
+  ok(lines.some(l => l.date === "2026-10-03" && l.gallons === 140 && !l.site),
+    "a barrel drop beside the day does not hide the source site's pickup that day");
+
+  const s = api.freshStore(snap);
+  const r = snap.routes.find(x => x.stops.length >= 2);
+  const [a, b] = r.stops;
+  s.my = { routeId: r.route_id };
+  const drop = api.recordDrop(s, a, r.route_id);
+  ok(drop.extra && drop.gallons === 3 && drop.route_id === r.route_id && api.todaysDrop(s, a.customer_id) === drop,
+    "Barrel drop records a 3 beside the stop");
+  ok(api.todaysCollection(s, a.customer_id) === null, "a drop does not close the stop");
+  ok(api.recordDrop(s, a, r.route_id) === drop && s.collections.length === 1, "a second drop the same day is the same entry");
+  api.recordCollection(s, a, 120);
+  ok(api.todaysCollection(s, a.customer_id).gallons === 120 && api.todaysDrop(s, a.customer_id) === drop,
+    "gallons saved after a drop sit beside it");
+  api.recordCollection(s, a, 130);
+  api.clearTodaysEntry(s, a.customer_id);
+  ok(api.todaysCollection(s, a.customer_id) === null && api.todaysDrop(s, a.customer_id) === drop,
+    "Edit/Undo of the stop's entry keeps the drop");
+  api.recordCollection(s, b, 3);
+  ok(api.todaysCollection(s, b.customer_id).gallons === 3 && api.todaysDrop(s, b.customer_id) === null,
+    "a typed 3 is the stop's own entry (it closes the stop), not a drop");
+
+  // Tasks
+  const t1 = api.addTask(s, { routeId: r.route_id, text: "  Load cones " });
+  const t2 = api.addTask(s, { routeId: r.route_id, kind: "barrel_drop", customerId: b.customer_id, note: "2 x 55" });
+  ok(t1.text === "Load cones" && t1.position === 1 && t2.position === 2 && t2.text === "" && t2.note === "2 x 55",
+    "tasks are added in order, words trimmed; a Barrel drop keeps only its note");
+  ok(api.taskTitle(t2) === "Barrel drop" && api.routeTasks(s, r.route_id).length === 2
+     && api.routeTasks(s, String(r.route_id)).length === 2, "both show on the route");
+  const entry = api.setTaskDone(s, t2, true, { name: b.name });
+  ok(entry && entry.extra && t2.drop_client_id === entry.client_id && api.todaysDrop(s, b.customer_id) === entry,
+    "ticking a Barrel drop task records the delivery");
+  api.setTaskDone(s, t2, false);
+  ok(!api.todaysDrop(s, b.customer_id) && t2.drop_client_id === null && !t2.done_at, "unticking takes it back");
+  api.setTaskDone(s, t2, true, { name: b.name });
+  api.clearDrop(s, t2.drop_client_id);
+  ok(!t2.done_at && !api.todaysDrop(s, b.customer_id), "undoing the drop on the stop unticks its task");
+  const plain = api.setTaskDone(s, t1, true);
+  ok(plain === null && s.collections.filter(c => c.extra).length === 1, "a plain task records nothing");
+
+  const today = api.todayIso();
+  const old = new Date(Date.now() - 3 * 86400000);
+  t1.done_at = old.toISOString();
+  ok(!api.routeTasks(s, r.route_id).includes(t1), "a task ticked on an earlier day leaves the list");
+  t1.done_at = null;
+  t1.day = api.localDay(old.toISOString());
+  ok(api.routeTasks(s, r.route_id).includes(t1) && api.taskCarriedLabel(t1, today).length === 3,
+    "an unticked task carries over, tagged with the weekday it was written");
+  ok(api.taskCarriedLabel(t2, today) === "", "a task written today has no tag");
+  api.setTaskRemoved(s, t1.client_id, true);
+  ok(!api.routeTasks(s, r.route_id).includes(t1) && s.tasks.includes(t1), "Remove hides a task and keeps its row");
+  api.setTaskRemoved(s, t1.client_id, false);
+  ok(api.routeTasks(s, r.route_id).includes(t1), "Undo puts it back");
 }
 
 console.log(fails ? `${fails} FAILED` : "all shadow site checks passed");
