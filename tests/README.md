@@ -80,6 +80,12 @@ It runs `supabase_backup.py` against a stand-in database: every table in
 nothing, photos are copied once and never removed, only counts are printed,
 and `backup.yml` pushes to the private repo and never logs or uploads contents.
 
+`takeover_check_test.py` is Python too: `python3 tests/takeover_check_test.py`. It
+runs `takeover_check.py` on made-up builds: missing, site-only, different and
+day-off entries each land in their own list, the source site's own 0s are never
+a difference, today is "not yet in Jamaal", a day with nothing on the site is
+called out, and matching builds read MATCH.
+
 `supabase_sync_test.py` is Python, so `run_all.js` does not run it: run it with
 `python3 tests/supabase_sync_test.py`. It runs `supabase_sync.py` against the
 committed data files and a stand-in database (no network, no key): the seed
