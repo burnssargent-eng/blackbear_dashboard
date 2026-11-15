@@ -13,8 +13,10 @@
  * a device stays signed in until Sign out). Only if the library cannot load
  * does a page fall back to this browser's own copy, as before.
  *
- * Kept on the device: the queue, the last copy loaded (to open offline), and
- * which route is My Route (each phone drives its own).
+ * Kept on the device: the queue, the changes the database refused (until
+ * someone tries them again or dismisses them: "N not saved" › Review in the
+ * banner), the last copy loaded (to open offline), and which route is My
+ * Route (each phone drives its own).
  */
 
 // The project address and key come from site-gate.js, loaded just before.
@@ -37,6 +39,10 @@ const OPS_DB_URL = opsGateLoaded ? GATE_DB_URL : "";
 const OPS_DB_KEY = opsGateLoaded ? GATE_DB_KEY : "";
 const OPS_QUEUE_KEY = "bbb-ops-queue-v1";
 const OPS_CACHE_KEY = "bbb-ops-shared-cache-v1";
+// Changes the database refused, as { op, at, reason }. Kept on the device like
+// the queue (Sarge, 2026-11-14): until then they lived only in the open page,
+// so a reload lost the pickup for good.
+const OPS_FAILED_KEY = "bbb-ops-failed-v1";
 const OPS_COLLECTION_DAYS = 60;   // how far back pickups are loaded
 const OPS_SEND_MS = 15000;        // one write gives up after this and is retried
 
@@ -388,7 +394,7 @@ async function opsOpenStore(snap, { index = null, onRemote = null } = {}) {
   const cache = opsReadJson(OPS_CACHE_KEY, null);
   const mine = cache && cache.user_id === session.user.id ? cache : null;
   opsDb = { client: opsDbClient, user: session.user, person: session.person, snap, index, onRemote,
-    queue: opsReadJson(OPS_QUEUE_KEY, []), failed: [], offline: false, synced: null, store: null,
+    queue: opsReadJson(OPS_QUEUE_KEY, []), failed: opsReadJson(OPS_FAILED_KEY, []), offline: false, synced: null, store: null,
     rows: null, flushing: null, refreshWanted: false };
   await opsFlush();
   let store;
@@ -519,13 +525,14 @@ async function opsSend(op) {
       break;
     case "truck-clear":
       res = await c.from("route_trucks").delete().eq("route_id", op.route_id).eq("day", op.day); break;
-    default: return "failed";
+    default: opsDb.lastRefusal = `unknown change "${op.t}"`; return "failed";
   }
   if (res.error) opsLog("send error", op.t, "status", res.status, String(res.error.message || "").slice(0, 120));
   if (!res.error) return "ok";
   // No answer at all, a timeout, or a lapsed login: try again later.
   if (!res.status || res.status === 401 || res.status === 408 || res.status === 429 || res.status >= 500) return "retry";
   console.warn("[ops-db] refused", op, res.error);
+  opsDb.lastRefusal = String(res.error.message || `refused (${res.status})`).slice(0, 200);
   return "failed";
 }
 
@@ -549,7 +556,11 @@ function opsFlush() {
       if (result === "retry") { opsDb.offline = true; break; }
       opsDb.offline = false;
       const op = opsDb.queue.shift();
-      if (result === "failed") opsDb.failed.push(op);
+      // Set aside on the device BEFORE the queue drops it, so no moment holds it in neither.
+      if (result === "failed") {
+        opsDb.failed.push({ op, at: new Date().toISOString(), reason: opsDb.lastRefusal || "refused" });
+        opsWriteJson(OPS_FAILED_KEY, opsDb.failed);
+      }
       opsWriteJson(OPS_QUEUE_KEY, opsDb.queue);
     }
   };
@@ -898,6 +909,72 @@ function opsShowStatus() {
     el.textContent = opsStatusText();
     el.className = opsDb && (opsDb.queue.length || opsDb.failed.length || opsDb.offline) ? "ops-sync-wait" : "";
   }
+  const review = document.getElementById("ops-failed-review");
+  if (review) review.hidden = !(opsDb && opsDb.failed.length);
+  const panel = document.querySelector && document.querySelector("[data-ops-failed-panel]");
+  if (panel) panel.outerHTML = opsFailedPanelHtml();
+}
+
+/** A refused change in words: what, who, which day, how much. */
+function opsFailedLabel(op) {
+  const custs = (opsDb && opsDb.rows && opsDb.rows.customers) || [];
+  const who = id => {
+    const c = custs.find(x => x.id === id);
+    return c ? (c.site_name || c.name) : `#${id}`;
+  };
+  const day = iso => (iso ? `${Number(iso.slice(5, 7))}/${Number(iso.slice(8, 10))}` : "");   // "11/13"
+  const r = op.row || op.values || {};
+  switch (op.t) {
+    case "pickup-new": return `Pickup · ${who(r.customer_id)} · ${day(r.picked_on)} · ${r.gallons} gal`;
+    case "pickup-edit": return `Pickup change · ${who(r.customer_id)} · ${day(r.picked_on)} · ${r.gallons} gal`;
+    case "pickup-delete": return "Pickup deleted";
+    case "left-set": return `Oil Left · ${who(r.customer_id)} · ${day(r.checked_on)} · ${r.gallons_left} gal`;
+    case "left-delete": return `Oil Left removed · ${who(op.customer_id)} · ${day(op.day)}`;
+    case "outgoing-new": return "Outgoing entry";
+    case "outgoing-delete": return "Outgoing entry deleted";
+    case "stops": return `Route stops · route ${op.route_id}`;
+    case "route-new": case "route-name": return `Route · ${op.name}`;
+    case "customer": return `Customer · ${r.name || `#${r.id}`}`;
+    case "truck": case "truck-clear": return `Truck · route ${op.route_id} · ${day(op.day)}`;
+    default: return op.t;
+  }
+}
+
+/** The list behind "Review": each refused change with Try again and Dismiss; "" when none. */
+function opsFailedPanelHtml() {
+  const failed = (opsDb && opsDb.failed) || [];
+  if (!failed.length) return "";
+  const when = at => new Date(at).toLocaleString([], { month: "numeric", day: "numeric", hour: "numeric", minute: "2-digit" });
+  return `<div class="ops-signin px-3 py-2" data-ops-failed-panel>
+    <div class="mb-1"><strong>Not saved.</strong> The database refused ${failed.length === 1 ? "this change" : "these changes"}.
+      ${failed.length === 1 ? "It stays" : "They stay"} on this phone until you try again or dismiss.</div>
+    <ul class="list-unstyled mb-0">${failed.map((f, i) => `
+      <li class="d-flex flex-wrap align-items-center gap-2 py-1">
+        <span class="flex-grow-1">${escapeHtml(opsFailedLabel(f.op))}
+          <span class="d-block small text-muted">${escapeHtml(when(f.at))} · ${escapeHtml(f.reason)}</span></span>
+        <button type="button" class="btn btn-sm btn-dark py-0" data-ops-failed-retry="${i}">Try again</button>
+        <button type="button" class="btn btn-sm btn-outline-dark py-0" data-ops-failed-dismiss="${i}">Dismiss</button>
+      </li>`).join("")}</ul>
+  </div>`;
+}
+
+/** Try a refused change again: back on the queue, sent, and the page redrawn once it goes. */
+function opsRetryFailed(i) {
+  if (!opsDb || !opsDb.failed[i]) return Promise.resolve();
+  const [f] = opsDb.failed.splice(i, 1);
+  opsDb.queue.push(f.op);
+  opsWriteJson(OPS_QUEUE_KEY, opsDb.queue);
+  opsWriteJson(OPS_FAILED_KEY, opsDb.failed);
+  opsShowStatus();
+  return opsFlush().then(() => { if (typeof opsRefresh === "function" && opsDb.onRemote) opsRefresh(); });
+}
+
+/** Drop a refused change for good (the panel asks first). */
+function opsDismissFailed(i) {
+  if (!opsDb || !opsDb.failed[i]) return;
+  opsDb.failed.splice(i, 1);
+  opsWriteJson(OPS_FAILED_KEY, opsDb.failed);
+  opsShowStatus();
 }
 
 /** The shared-mode banner, or null when the page is on this browser's copy. */
@@ -905,7 +982,10 @@ function opsDbBannerHtml() {
   if (!opsDb || !opsDb.person) return null;
   return `<div class="ops-shadow ops-shared px-3 py-1 d-flex align-items-center gap-2">
     <span class="flex-grow-1"><strong>Shared</strong> · ${escapeHtml(opsDb.person.name)} ·
-      <span id="ops-sync-status">${escapeHtml(opsStatusText())}</span></span>
+      <span id="ops-sync-status" class="${opsDb.queue.length || opsDb.failed.length || opsDb.offline
+        ? "ops-sync-wait" : ""}">${escapeHtml(opsStatusText())}</span>
+      <button type="button" id="ops-failed-review" class="btn btn-sm btn-warning py-0 ms-1" data-ops-failed-toggle
+        ${opsDb.failed.length ? "" : "hidden"}>Review</button></span>
     <button type="button" class="btn btn-sm btn-outline-dark py-0" data-ops-password>Password</button>
     <button type="button" class="btn btn-sm btn-outline-dark py-0" data-ops-signout>Sign out</button>
   </div>`;
@@ -915,7 +995,21 @@ function opsDbBannerHtml() {
 function opsWireSignIn(container) {
   container.addEventListener("click", async e => {
     if (!e.target.closest) return;
-    if (e.target.closest("[data-ops-password]")) {
+    const retry = e.target.closest("[data-ops-failed-retry]");
+    const dismiss = e.target.closest("[data-ops-failed-dismiss]");
+    if (e.target.closest("[data-ops-failed-toggle]")) {
+      const open = container.querySelector("[data-ops-failed-panel]");
+      if (open) open.remove();
+      else container.insertAdjacentHTML("beforeend", opsFailedPanelHtml());
+    } else if (retry) {
+      retry.disabled = true;
+      opsRetryFailed(Number(retry.dataset.opsFailedRetry));
+    } else if (dismiss) {
+      const f = opsDb && opsDb.failed[Number(dismiss.dataset.opsFailedDismiss)];
+      if (f && window.confirm(`Drop "${opsFailedLabel(f.op)}" for good? It was never saved to the database.`)) {
+        opsDismissFailed(Number(dismiss.dataset.opsFailedDismiss));
+      }
+    } else if (e.target.closest("[data-ops-password]")) {
       const open = container.querySelector("[data-ops-password-form]");
       if (open) { open.remove(); return; }
       container.insertAdjacentHTML("beforeend", `<form class="ops-signin px-3 py-2 d-flex flex-wrap align-items-center gap-2" data-ops-password-form>
@@ -926,11 +1020,11 @@ function opsWireSignIn(container) {
       </form>`);
       container.querySelector("[data-ops-password-form] input").focus();
     } else if (e.target.closest("[data-ops-signout]")) {
-      if (opsDb && opsDb.queue && opsDb.queue.length &&
-          !window.confirm(`${opsDb.queue.length} change(s) have not been sent yet. Sign out and lose them?`)) return;
+      const unsent = opsDb ? (opsDb.queue || []).length + (opsDb.failed || []).length : 0;
+      if (unsent && !window.confirm(`${unsent} change(s) have not been saved yet. Sign out and lose them?`)) return;
       await opsDbClient.auth.signOut();
       gateRemember(null);
-      [OPS_QUEUE_KEY, OPS_CACHE_KEY, OPS_OFFICE_PHONES_KEY].forEach(k => { try { window.localStorage.removeItem(k); } catch (err) { /* */ } });
+      [OPS_QUEUE_KEY, OPS_FAILED_KEY, OPS_CACHE_KEY, OPS_OFFICE_PHONES_KEY].forEach(k => { try { window.localStorage.removeItem(k); } catch (err) { /* */ } });
       window.location.reload();
     }
   });
