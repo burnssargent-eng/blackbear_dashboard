@@ -26,7 +26,8 @@ const api = new Function("window", "const document = { getElementById: () => nul
     opsEnsureClientIds, opsStoreFromRows, opsDbAvailable, opsShared, opsWhere, shadowBannerHtml, OPS_STORAGE_KEY,
     opsTodayNote, opsSaveNotes, opsDayBefore, opsCollectedWith, opsCollectedWithText, opsSaveCollectedWith,
     takeOverCustomer, undoTakeOver, isReplaced, opsPredecessors,
-    opsApplySiteEdits, opsSaveCustomer, opsPhoneStored, opsCustomerDbRow, opsSiteStatus, opsSaveStatus };`)(window);
+    opsApplySiteEdits, opsSaveCustomer, opsPhoneStored, opsCustomerDbRow, opsSiteStatus, opsSaveStatus,
+    opsRetryFailed, opsDismissFailed, opsFailedLabel, opsFailedPanelHtml, opsStatusText, opsDbBannerHtml, OPS_FAILED_KEY };`)(window);
 
 let fails = 0;
 const ok = (cond, msg) => {
@@ -298,14 +299,15 @@ ok(rNew < -1000000000 && cNew.customer_id < -1000000000, "ids made on the device
 
 // ── Sending the queue (opsFlush with a stand-in database) ──
 (async () => {
-  let online = true;
+  let online = true, refuse = false;
   const sent = [];
   const call = (table, kind) => ({
     abortSignal: () => {
       const req = { eq: () => req, not: () => req,
-        then: (done, fail) => Promise.resolve(online
-          ? (sent.push(`${kind} ${table}`), { error: null, status: 201 })
-          : { error: { message: "TypeError: Load failed" }, status: 0 }).then(done, fail) };
+        then: (done, fail) => Promise.resolve(!online
+          ? { error: { message: "TypeError: Load failed" }, status: 0 }
+          : refuse ? { error: { message: 'new row violates check constraint "collections_gallons_check"' }, status: 400 }
+          : (sent.push(`${kind} ${table}`), { error: null, status: 201 })).then(done, fail) };
       return req;
     },
   });
@@ -328,6 +330,54 @@ ok(rNew < -1000000000 && cNew.customer_id < -1000000000, "ids made on the device
   online = true;
   await api.opsFlush();
   ok(db.queue.length === 0 && !db.offline && sent.length === 2, "back online: the next flush sends it");
+
+  // A change the database refuses is kept on the device, not only in the open page (2026-11-14).
+  db.rows = { customers: [{ id: 4242, name: "Test <Diner>" }] };
+  const pickupOp = { t: "pickup-new", row: { customer_id: 4242, picked_on: "2026-11-13", gallons: 40, client_id: "p-1" } };
+  refuse = true;
+  db.queue.push(pickupOp, { ...truckOp, truck: "cub" });
+  await api.opsFlush();
+  const stored = JSON.parse(memory[api.OPS_FAILED_KEY] || "[]");
+  ok(db.queue.length === 0 && db.failed.length === 2 && !db.offline,
+    "refused: each change is set aside and the queue moves on (not treated as offline)");
+  ok(stored.length === 2 && stored[0].op.row.client_id === "p-1" && /check constraint/.test(stored[0].reason) && stored[0].at,
+    "refused changes are stored on the device with when and why, so a reload keeps them");
+  ok(/opsReadJson\(OPS_FAILED_KEY, \[\]\)/.test(fs.readFileSync("ops-db.js", "utf8")),
+    "a page opening reads the stored refused changes back");
+  ok(api.opsStatusText() === "2 not saved", "the banner counts them");
+  ok(api.opsFailedLabel(pickupOp) === "Pickup · Test <Diner> · 11/13 · 40 gal", "a refused pickup reads as who, day and gallons");
+  const panel = api.opsFailedPanelHtml();
+  ok(panel.includes("Test &lt;Diner&gt;") && !panel.includes("<Diner>") && /data-ops-failed-retry="1"/.test(panel)
+     && /data-ops-failed-dismiss="0"/.test(panel) && panel.includes("check constraint"),
+    "Review lists each with its reason, Try again and Dismiss, names escaped");
+  ok(api.opsDbBannerHtml().includes('id="ops-failed-review"') && !/id="ops-failed-review"[^>]*hidden/.test(api.opsDbBannerHtml()),
+    "the banner shows Review while any are kept");
+
+  refuse = false;
+  const before = sent.length;
+  await api.opsRetryFailed(0);
+  ok(sent.length === before + 1 && sent[sent.length - 1] === "upsert collections" && db.failed.length === 1
+     && JSON.parse(memory[api.OPS_FAILED_KEY]).length === 1, "Try again sends it, and it leaves the stored list");
+  refuse = true;
+  await api.opsRetryFailed(0);
+  ok(db.failed.length === 1 && JSON.parse(memory[api.OPS_FAILED_KEY]).length === 1,
+    "refused again: it is set aside again, never lost");
+  online = false; refuse = false;
+  await api.opsRetryFailed(0);
+  ok(db.failed.length === 0 && db.queue.length === 1 && db.offline, "Try again with no signal waits in the queue like any save");
+  online = true;
+  await api.opsFlush();
+  refuse = true;
+  db.queue.push({ ...truckOp, truck: "babybird" });
+  await api.opsFlush();
+  api.opsDismissFailed(0);
+  ok(db.failed.length === 0 && memory[api.OPS_FAILED_KEY] === "[]" && api.opsStatusText() === "all saved"
+     && api.opsFailedPanelHtml() === "" && /id="ops-failed-review"[^>]*hidden/.test(api.opsDbBannerHtml()),
+    "Dismiss drops it from the device; the banner reads all saved and hides Review");
+  refuse = false;
+  ok(/\[OPS_QUEUE_KEY, OPS_FAILED_KEY,/.test(fs.readFileSync("ops-db.js", "utf8"))
+     && /queue \|\| \[\]\)\.length \+ \(opsDb\.failed/.test(fs.readFileSync("ops-db.js", "utf8")),
+    "Sign out warns about refused changes too, and clears them with the queue");
 
   // Today's note shows the day it is written and all of the next, then clears, also on a page
   // left open (Jim writes them the night before a route).
