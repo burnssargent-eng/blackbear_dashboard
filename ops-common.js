@@ -110,13 +110,13 @@ function freshStore(snap) {
     }));
   });
   return { v: 1, base: snap.scraped_at, nextId: -1, routes, added: [], collections: [],
-    outgoing: [], oilLeft: [], trucks: {}, my: null, newRoutes: [], replaced: {} };
+    outgoing: [], oilLeft: [], trucks: {}, my: null, newRoutes: [], replaced: {}, tasks: [] };
 }
 
 function loadStore(snap) {
   try {
     const saved = JSON.parse(window.localStorage.getItem(OPS_STORAGE_KEY) || "null");
-    if (saved && saved.v === 1 && saved.routes) return { outgoing: [], newRoutes: [], oilLeft: [], replaced: {}, ...saved };
+    if (saved && saved.v === 1 && saved.routes) return { outgoing: [], newRoutes: [], oilLeft: [], replaced: {}, tasks: [], ...saved };
   } catch (err) { /* blocked storage: work in memory */ }
   return freshStore(snap);
 }
@@ -660,18 +660,145 @@ function recordCollection(store, customer, gallons) {
   const stop = routeId !== null
     ? storeStops(store, routeId).find(s => s.customer_id === customer.customer_id) : null;
   const prev = todaysCollection(store, customer.customer_id);
-  store.collections = store.collections.filter(c =>
-    !(c.date === today && c.customer_id === customer.customer_id));
+  clearTodaysEntry(store, customer.customer_id);
   // A re-save keeps the entry's id, so the shared database records an edit.
   store.collections.push({ customer_id: customer.customer_id, name: customer.name, gallons, date: today,
     route_id: stop ? routeId : null, assignment_id: stop ? stop.assignment_id : null,
     ...(prev && prev.client_id ? { client_id: prev.client_id } : {}) });
 }
 
-/** Today's shadow entry for a customer, or null. */
+/**
+ * Today's entry for a customer (the stop's own: gallons, a code or a theft), or null. A barrel
+ * drop saved beside it (`extra`) is not the stop's entry: see todaysDrop.
+ */
 function todaysCollection(store, customerId) {
   const today = todayIso();
-  return store.collections.find(c => c.date === today && c.customer_id === customerId) || null;
+  return store.collections.find(c => c.date === today && c.customer_id === customerId && !c.extra) || null;
+}
+
+/** Remove today's own entry for a customer (Edit, Undo, a cancelled theft), keeping a barrel drop beside it. */
+function clearTodaysEntry(store, customerId, keep = () => false) {
+  const today = todayIso();
+  store.collections = store.collections.filter(c =>
+    !(c.date === today && c.customer_id === customerId && !c.extra && !keep(c)));
+}
+
+/**
+ * What a typed number saves (Sarge, 2026-11-14): 0 and 1 are both Empty (the 1 code, the empty
+ * check that restarts the oil clock; a 0 is the source site's own entry and never a person's),
+ * 2 a sign-up call, 3 a barrel delivery; anything else is gallons.
+ */
+function typedEntry(gallons) {
+  return gallons === 0 ? 1 : gallons;
+}
+
+/** A new entry id. crypto.randomUUID is missing on an http LAN test page (ops-db.js's opsRandomId covers it). */
+function newClientId() {
+  if (typeof opsRandomId === "function") return opsRandomId();
+  return crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+}
+
+/* ── Barrel drops ───────────────────────────────────────── */
+
+/**
+ * Today's barrel drop at a customer, or null: a 3 (barrel delivery) saved with the Barrel drop
+ * button or a ticked Barrel drop task. It sits beside the stop's own entry and never closes the
+ * stop (Sarge, 2026-11-14); a 3 typed in the gallons box is the stop's entry instead.
+ */
+function todaysDrop(store, customerId) {
+  const today = todayIso();
+  return store.collections.find(c => c.date === today && c.customer_id === customerId && c.extra) || null;
+}
+
+/** Record a barrel drop today (once: a second press or task returns the first). Returns the entry. */
+function recordDrop(store, customer, routeId = null) {
+  const had = todaysDrop(store, customer.customer_id);
+  if (had) return had;
+  const onRoute = routeId !== null && storeStops(store, routeId).some(s => s.customer_id === customer.customer_id);
+  const entry = { customer_id: customer.customer_id, name: customer.name, gallons: 3, date: todayIso(),
+    extra: true, route_id: onRoute ? Number(routeId) : null, assignment_id: null, client_id: newClientId() };
+  store.collections.push(entry);
+  return entry;
+}
+
+/** Take back a barrel drop by its entry id (Undo, or unticking its task); a task that made it is unticked too. */
+function clearDrop(store, clientId) {
+  store.collections = store.collections.filter(c => !(c.extra && c.client_id === clientId));
+  (store.tasks || []).forEach(t => {
+    if (t.drop_client_id === clientId) Object.assign(t, { drop_client_id: null, done_at: null, done_by: null });
+  });
+}
+
+/* ── Route tasks ────────────────────────────────────────── */
+
+/*
+ * Checklist rows on a route that are not oil pickups (Sarge, 2026-11-14): "Load cones", "Pick up
+ * fittings at Shop", or a Barrel drop at a customer. Shown at the top of My Route, never in a route
+ * total. A task is { client_id, route_id, day (written), position, kind ('task' | 'barrel_drop'),
+ * text, customer_id, note, done_at, done_by, drop_client_id, removed_at }: route_tasks in the
+ * database (db/schema.sql), store.tasks here. An unticked task carries over until ticked or
+ * removed; a ticked one shows until the end of the day it was ticked.
+ */
+
+/** "YYYY-MM-DD" in this device's time for a timestamp. */
+function localDay(iso) {
+  const d = new Date(iso);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
+/** The tasks showing on a route today, in the order they were added. */
+function routeTasks(store, routeId, today = todayIso()) {
+  return (store.tasks || []).filter(t => String(t.route_id) === String(routeId) && !t.removed_at
+    && (!t.done_at || localDay(t.done_at) === today))
+    .sort((a, b) => a.position - b.position);
+}
+
+/** Add a task to a route; returns it. A Barrel drop needs a customer; a task needs its words. */
+function addTask(store, { routeId, kind = "task", text = "", customerId = null, note = "" }) {
+  const tasks = store.tasks || (store.tasks = []);
+  const mine = tasks.filter(t => String(t.route_id) === String(routeId));
+  const task = { client_id: newClientId(), route_id: Number(routeId), day: todayIso(),
+    position: mine.reduce((m, t) => Math.max(m, t.position), 0) + 1, kind,
+    text: kind === "task" ? String(text).trim() : "", customer_id: customerId ?? null,
+    note: String(note || "").trim() || null, done_at: null, done_by: null, drop_client_id: null, removed_at: null };
+  tasks.push(task);
+  return task;
+}
+
+/**
+ * Tick or untick a task. A Barrel drop task records the barrel delivery on its customer when
+ * ticked (the same entry as the stop's Barrel drop button: one, never two) and takes it back
+ * when unticked. Returns the drop entry when one was recorded.
+ */
+function setTaskDone(store, task, done, { by = null, name = "", now = new Date() } = {}) {
+  if (!done && task.drop_client_id) clearDrop(store, task.drop_client_id);
+  Object.assign(task, { done_at: done ? now.toISOString() : null, done_by: done ? by : null });
+  if (done && task.kind === "barrel_drop" && task.customer_id !== null) {
+    const entry = recordDrop(store, { customer_id: task.customer_id, name }, task.route_id);
+    task.drop_client_id = entry.client_id;
+    return entry;
+  }
+  return null;
+}
+
+/** Remove (removed_at set; Undo clears it) or put back a task. */
+function setTaskRemoved(store, clientId, removed, now = new Date()) {
+  const task = (store.tasks || []).find(t => t.client_id === clientId);
+  if (task) task.removed_at = removed ? now.toISOString() : null;
+  return task || null;
+}
+
+/** "Wed" (or "Nov 3" a week on) for a task carried over from an earlier day, else "". */
+function taskCarriedLabel(task, today = todayIso()) {
+  if (!task.day || task.day >= today || task.done_at) return "";
+  const d = new Date(`${task.day}T12:00:00`), t = new Date(`${today}T12:00:00`);
+  return (t - d) / 86400000 < 7 ? d.toLocaleDateString("en-US", { weekday: "short" })
+    : d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+}
+
+/** A task's words: its text, or "Barrel drop". */
+function taskTitle(task) {
+  return task.kind === "barrel_drop" ? "Barrel drop" : task.text;
 }
 
 /**
@@ -775,17 +902,29 @@ function opsTileLayer() {
  * added to them. Site lines carry `client_id`, which makes them editable.
  */
 function collectionLines(history, siteRows) {
-  const siteDays = new Set(siteRows.map(r => r.date));
-  const lines = history.filter(h => !siteDays.has(h.date)).map(h => ({ ...h, site: false }))
+  // A barrel drop beside the day (`extra`) does not stand in for the source site's pickup that day.
+  const siteDays = new Set(siteRows.filter(r => !r.extra).map(r => r.date));
+  // A source-site 0 is written by the source site itself when a customer is reactivated (Jim,
+  // 2026-10-29), not by a person: hidden (Sarge, 2026-11-14). It stays in the files.
+  const lines = history.filter(h => !siteDays.has(h.date) && !(h.code && h.gallons === 0))
+    .map(h => ({ ...h, site: false }))
     .concat(siteRows.map(r => ({ date: r.date, gallons: r.gallons, code: r.gallons <= 3, site: true,
-      client_id: r.client_id, theft: !!r.theft })));
+      client_id: r.client_id, theft: !!r.theft, extra: !!r.extra })));
   return lines.sort((a, b) => b.date.localeCompare(a.date));
 }
 
-/** A 0-3 code as the customer pages show it: "1 empty", "2 sign-up call", "3 barrel delivery". */
-const CODE_WORDS = { 0: "empty", 1: "empty", 2: "sign-up call", 3: "barrel delivery" };
+/**
+ * A 0-3 code by its name, never its number (Sarge, 2026-11-14): "Empty", "Sign-up call", "Barrel
+ * delivery". The numbers stay underneath (collections.gallons, oil_non_pickups.csv).
+ */
+const CODE_WORDS = { 0: "Empty", 1: "Empty", 2: "Sign-up call", 3: "Barrel delivery" };
 function codeText(qty) {
-  return CODE_WORDS[qty] ? `${qty} ${CODE_WORDS[qty]}` : String(qty);
+  return CODE_WORDS[qty] || String(qty);
+}
+
+/** An entry's figure: "52 gal", or the code's name. */
+function entryText(gallons) {
+  return gallons <= 3 ? codeText(gallons) : `${formatNumber(gallons)} gal`;
 }
 
 /**

@@ -410,11 +410,18 @@ def pickup_differences(site_rows, jamaal, through, names):
     pickup from before the site existed. The source site stamps an entry with
     the day it was typed, so a match one day either side counts.
     """
-    site = {}
+    # A day's gallons over 3 add up; a 0-3 code stands only on a day with no gallons. A barrel
+    # drop saved beside a pickup (Sarge, 2026-11-14) would otherwise read as 3 gallons more.
+    site, codes = {}, {}
     for c in site_rows:
         if c["picked_on"] <= through:
             key = (c["customer_id"], c["picked_on"])
-            site[key] = site.get(key, 0) + c["gallons"]
+            if c["gallons"] > 3:
+                site[key] = site.get(key, 0) + c["gallons"]
+            else:
+                codes[key] = max(codes.get(key, 0), c["gallons"])
+    for key, code in codes.items():
+        site.setdefault(key, code)
     used_days = {d for (_, d) in site}
 
     def near(table, cid, day):

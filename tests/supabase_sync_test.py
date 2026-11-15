@@ -151,6 +151,8 @@ ok([x["id"] for x in p["gallons_differ"]] == [4] and p["gallons_differ"][0]["jam
 ok([x["id"] for x in p["only_jamaal"]] == [], "a source-site pickup on a day the site was not used is not listed")
 p = ss.pickup_differences(site, {**jam, (7, "2026-10-20"): 90}, "2026-10-23", {})
 ok([x["id"] for x in p["only_jamaal"]] == [7], "a source-site pickup on a day the site was used is listed")
+p = ss.pickup_differences(site + [{"customer_id": 1, "picked_on": "2026-10-20", "gallons": 3}], jam, "2026-10-23", {})
+ok([x["id"] for x in p["gallons_differ"]] == [4], "a barrel drop (3) beside a pickup does not read as 3 more gallons")
 
 # ── The source site's history (2026-10-24) ──
 import csv as _csv  # noqa: E402

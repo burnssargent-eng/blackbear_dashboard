@@ -35,6 +35,9 @@
  *     gallons and truck fill before → after assigning them;
  *   - "+ New Route…" in the route list: makes a route of the ticked customers
  *     and opens it on My Route with its name ready to type;
+ *   - "+ Task…" in the same list: a task for a route (Sarge, 2026-11-14), set the night before
+ *     like Today's notes; tied to the ticked customer when exactly one is ticked. It shows at the
+ *     top of that route on My Route;
  *   - Add customer, kept in this browser like every other change.
  */
 
@@ -53,6 +56,8 @@ let takeUndo = null;      // { text, run, timer }: the Undo bar after a takeover
 const UNDO_MS = 8000;
 
 const NEW_ROUTE = "new";
+const NEW_TASK = "task";
+let taskForm = { route: "", kind: "task", text: "", note: "", msg: "" };   // "+ Task…" chosen in the route list
 
 let rowCache = null;      // customerRows(), until a customer is added or the copy reset
 
@@ -229,12 +234,55 @@ function routeLineHtml(stops) {
       style="width:${Math.min(100, fill.pct)}%"></div></div>` : ""}</div>`;
 }
 
+/**
+ * The bar with "+ Task…" chosen: the route the task goes on, Task | Barrel drop, its words and an
+ * optional note. Exactly one ticked customer ties the task to it (a Barrel drop needs one).
+ */
+function taskBarHtml(stops, sel) {
+  const f = taskForm, drop = f.kind === "barrel_drop";
+  const one = picked.size === 1 ? stops[0] : null;
+  return `
+    ${flash ? `<div class="text-success">${flash}</div>` : ""}
+    ${stops.length ? `<div class="ops-assign-sel">
+      <div class="flex-grow-1"><strong>${stops.length} selected</strong> · ~${formatWhole(sel.projected)} gal / ${formatWhole(sel.capacity)} capacity</div>
+      <button type="button" class="btn ops-plain-btn ops-assign-clear" data-clear>Clear</button>
+    </div>` : ""}
+    <div class="ops-assign-task">
+      <div class="btn-group ops-task-kind" role="group" aria-label="Kind">
+        <button type="button" class="btn ${drop ? "btn-outline-primary" : "btn-primary"}" data-task-kind="task">Task</button>
+        <button type="button" class="btn ${drop ? "btn-primary" : "btn-outline-primary"}" data-task-kind="barrel_drop">Barrel drop</button>
+      </div>
+      <label for="task-route" class="ops-note-label">Task on route</label>
+      <select id="task-route" class="form-select">
+        <option value="">Choose a route…</option>
+        ${routeList.map(r => `<option value="${r.route_id}"${String(r.route_id) === String(f.route) ? " selected" : ""}>${escapeHtml(r.name)}</option>`).join("")}
+      </select>
+      ${drop ? "" : `<label for="task-text" class="ops-note-label">Task</label>
+        <input class="form-control" id="task-text" maxlength="200" value="${escapeHtml(f.text)}">`}
+      <label for="task-note" class="ops-note-label">Note <span class="text-muted fw-normal">(optional)</span></label>
+      <input class="form-control" id="task-note" maxlength="500" value="${escapeHtml(f.note)}">
+      <div class="ops-muted">${one ? `At ${escapeHtml(one.name)} (the ticked customer).`
+        : picked.size > 1 ? "Tick one customer to tie the task to it." : drop ? "Tick the customer getting the barrel." : "No customer ticked: a task for the route."}</div>
+      ${f.msg ? `<div class="text-danger small">${escapeHtml(f.msg)}</div>` : ""}
+    </div>
+    <div class="ops-assign-row">
+      <select id="route" class="form-select" aria-label="Assign to route">
+        <option value="">Assign to route…</option>
+        ${routeList.map(r => `<option value="${r.route_id}">${escapeHtml(r.name)}</option>`).join("")}
+        <option value="${NEW_ROUTE}">+ New Route…</option>
+        <option value="${NEW_TASK}" selected>+ Task…</option>
+      </select>
+      <button type="button" class="btn btn-primary" data-task-add>Add task</button>
+    </div>`;
+}
+
 function renderBar() {
   const bar = document.getElementById("bar");
   bar.hidden = false;
   const stops = pickedStops();
   const sel = routeSummary(stops, data.index).totals;
   const isNew = view.route === NEW_ROUTE;
+  if (view.route === NEW_TASK && typeof addTask === "function") { bar.innerHTML = taskBarHtml(stops, sel); return; }
   // Bottom up: the dropdown row is always there, with the same space above it
   // as below; the selection, the chosen route and any message stack above it.
   bar.innerHTML = `
@@ -250,6 +298,7 @@ function renderBar() {
         ${routeList.map(r => `<option value="${r.route_id}"${String(r.route_id) === String(view.route) ? " selected" : ""}>` +
           `${escapeHtml(r.name)}</option>`).join("")}
         <option value="${NEW_ROUTE}"${isNew ? " selected" : ""}>+ New Route…</option>
+        ${typeof addTask === "function" ? `<option value="${NEW_TASK}">+ Task…</option>` : ""}
       </select>
       <label class="ops-assign-must"><input type="checkbox" class="form-check-input" id="must"
         ${view.mustGet ? "checked" : ""}> Must get</label>
@@ -556,11 +605,35 @@ function buildShell() {
 
   const bar = document.getElementById("bar");
   bar.addEventListener("change", e => {
-    if (e.target.id === "route") { view.route = e.target.value; flash = ""; renderBar(); }
+    if (e.target.id === "route") { view.route = e.target.value; flash = ""; taskForm.msg = ""; renderBar(); }
     if (e.target.id === "must") view.mustGet = e.target.checked;
+    if (e.target.id === "task-route") taskForm.route = e.target.value;
+  });
+  bar.addEventListener("input", e => {
+    if (e.target.id === "task-text") taskForm.text = e.target.value;
+    if (e.target.id === "task-note") taskForm.note = e.target.value;
   });
   bar.addEventListener("click", e => {
     if (e.target.closest("[data-clear]")) { picked.clear(); flash = ""; render(); return; }
+    const kind = e.target.closest("[data-task-kind]");
+    if (kind) { taskForm.kind = kind.dataset.taskKind; taskForm.msg = ""; renderBar(); return; }
+    if (e.target.closest("[data-task-add]")) {
+      const f = taskForm, one = picked.size === 1 ? pickedStops()[0] : null;
+      f.msg = !f.route ? "Pick the route for the task."
+        : f.kind === "task" && !f.text.trim() ? "Type the task."
+        : f.kind === "barrel_drop" && !one ? "Tick the one customer getting the barrel." : "";
+      if (f.msg) { renderBar(); return; }
+      addTask(store, { routeId: Number(f.route), kind: f.kind, text: f.text,
+        customerId: one ? one.customer_id : null, note: f.note });
+      saveStore(store);
+      const name = routeList.find(r => String(r.route_id) === String(f.route)).name;
+      flash = `Task added to ${escapeHtml(name)}. <a href="ops-myroute.html">Open My Route</a>`;
+      taskForm = { route: f.route, kind: "task", text: "", note: "", msg: "" };
+      view.route = "";
+      picked.clear();
+      render();
+      return;
+    }
     if (!e.target.closest("[data-assign]")) return;
     if (view.route === NEW_ROUTE) {
       // The route is made here; My Route opens it with its name ready to type.

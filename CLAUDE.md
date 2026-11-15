@@ -108,6 +108,11 @@ ops-assign.html  ops-myroute.html  ops-calendar.html  ops-outgoing.html  ops-cus
                      ops.css. Linked from the dashboard nav as "Ops" (last; "Former" made it
                      eight on 2026-11-03, which fit a 375px phone only at 10px text under 400px).
                      Route maths for both betas: route-utils.js.
+route tasks          checklist rows on a route that are not pickups (route_tasks, db/schema.sql; the 7am reset and
+                     the nightly never touch it; Sarge, 2026-11-14): a Tasks block at the top of My Route, "+ Add
+                     task" at its foot, "+ Task…" in Assign Routes' route list. Never in a route total. An unticked
+                     task carries over ("from Wed") until ticked or removed (Remove only sets removed_at); a ticked
+                     one shows to the end of that day. A "Barrel drop" task records a barrel delivery when ticked.
 ops-photos.js        customer photos (barrel, spot, lock): private bucket `photos` + table, members only. The phone
                      shrinks each to a 1600 px JPEG + 400 px thumbnail (free plan: 1 GB, no server resizing).
                      Added/removed on ops-customer's Home tab; view-only in My Route's Notes. Remove only hides
@@ -202,6 +207,14 @@ change ~25 customers' projections, so it is a model change, not done).
 nothing to do with fullness), 3 is a barrel delivery. **4 is NOT
 excluded**: it is a data-entry quirk that counts as exactly 4 gallons and is
 never rounded up. `validate_data.py` fails if either changes.
+
+**On the site the codes have names, never numbers** (Sarge, 2026-11-14): Empty,
+Sign-up call, Barrel delivery (`codeText`, ops-common.js); a source-site 0 is
+hidden. Underneath they are still the 0-3 in `collections.gallons`. A typed 0
+or 1 saves as 1, a typed 2 saves with a "Did you mean 1 (empty)?" bar, a typed
+3 closes the stop as a delivery. My Route's Barrel drop button (and a ticked
+Barrel drop task) saves a 3 with `collections.extra`, BESIDE the day's entry:
+it never closes the stop, and `todaysCollection` skips it.
 
 **Dropped from totals is not thrown away.** Since 2026-10-05 every 0–3 entry is
 kept in `oil_non_pickups.csv` (merged on each `--rescrape`, like the capacity

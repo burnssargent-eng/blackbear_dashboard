@@ -92,7 +92,12 @@ body { background: #fff; }
 .ops-assign-clear { height: 32px; padding: 0 10px; font-size: 14px; display: inline-flex; align-items: center; }
 .ops-assign-row { display: flex; align-items: center; gap: 8px; }
 .ops-assign-row .form-select { flex: 1 1 auto; min-width: 0; max-width: 320px; height: 40px; font-size: 16px; }
-.ops-assign-row .btn { height: 40px; padding: 0 16px; font-size: 16px; font-weight: 600; }
+.ops-assign-row .btn { flex: 0 0 auto; height: 40px; padding: 0 16px; font-size: 16px; font-weight: 600; white-space: nowrap; }
+/* "+ Task…": the task form stacks above the dropdown row. */
+.ops-assign-task { display: flex; flex-direction: column; gap: 4px; margin-bottom: 8px; }
+.ops-assign-task .form-select, .ops-assign-task .form-control { height: 40px; font-size: 16px; max-width: 420px; }
+.ops-assign-task .ops-task-kind { margin-bottom: 2px; }
+.ops-assign-task .ops-task-kind .btn { height: 36px; }
 .ops-assign-must { display: flex; align-items: center; gap: 6px; height: 40px; font-size: 15px; white-space: nowrap; }
 .ops-assign-must .form-check-input { width: 22px; height: 22px; margin: 0; }
 .ops-assign-route { font-size: 14px; color: #495057; }
@@ -302,21 +307,26 @@ details.ops-route[open] > summary .ops-row-chev { transform: rotate(90deg); }
   background: linear-gradient(#f1f3f5, #f1f3f5) padding-box,
     conic-gradient(from 210deg, #4285F4, #EA4335, #FBBC04, #34A853, #4285F4) border-box; }
 .ops-btn-icon { flex: 0 0 auto; margin-right: 3px; }
-/* The More ▾ block, below a dashed line: Add note and Add photo as dashed 84px tiles on the left;
-   to their right Oil Left and Report Theft side by side (top half) over one long Call strip (bottom
-   half; Apple's Phone/FaceTime green, systemGreen #34C759, white icon and text). The note and photos
-   come after it. A wide screen has no More ▾ and always shows the block. */
-.ops-act-block { display: flex; gap: 6px; align-items: stretch; margin-top: 6px; padding-top: 6px;
-  border-top: 1px dashed #ccc; cursor: default; }
-.ops-act-block .ops-photo-add { width: 84px; height: 84px; }
-.ops-act-side { flex: 1 1 0; min-width: 0; max-width: 260px; display: flex; flex-direction: column; gap: 6px; }
-.ops-act-pair { display: flex; gap: 6px; }
-.ops-act-side .ops-act-pair .btn { flex: 1 1 auto; }
-.ops-act-side .btn { flex: 1 1 0; min-width: 0; height: 39px; padding: 0 4px; font-size: 14px; white-space: nowrap;
+/* The More ▾ block, below a dashed line (Sarge, 2026-11-14): two rows of 33px buttons, each as
+   wide as its words, spread across the row. Top: Note · Photo (dashed, as the old tiles) · Oil Left
+   · Barrel drop. Bottom: Call (Apple's Phone green, systemGreen #34C759) left, Report Theft right.
+   The note and photos come after it. A wide screen has no More ▾ and always shows the block. */
+.ops-act-block { margin-top: 6px; padding-top: 6px; border-top: 1px dashed #ccc; cursor: default; }
+.ops-act-row { display: flex; justify-content: space-between; align-items: center; gap: 6px; }
+.ops-act-row + .ops-act-row { margin-top: 6px; }
+.ops-act-row .btn { height: 33px; padding: 0 10px; font-size: 14px; white-space: nowrap;
   display: inline-flex; align-items: center; justify-content: center; }
+.ops-act-tile { color: #495057; background: #fff; border: 1px dashed #6c757d; }
+.ops-act-tile:hover, .ops-act-tile:focus { color: #212529; background: #f1f3f5; }
 .ops-call-btn, .ops-call-btn:hover, .ops-call-btn:focus { color: #fff; background: #34C759; border-color: #34C759; }
 .ops-call-btn:hover, .ops-call-btn:focus { background: #2DB24F; border-color: #2DB24F; }
-.ops-act-side .ops-call-btn { flex: 0 0 39px; font-size: 15px; font-weight: 600; }
+.ops-act-row .ops-call-btn { font-weight: 600; }
+/* Barrel drop: brown, a colour no other control uses (green, gold, orange are % full; red is theft). */
+.ops-drop-btn { color: #6f4e37; background: #fff; border: 1px solid #6f4e37; }
+.ops-drop-btn:hover, .ops-drop-btn:focus { color: #4e3626; background: #f6efe9; border-color: #6f4e37; }
+.ops-drop-note { font-size: 13px; color: #6f4e37; }
+.ops-drop-undo { font-size: 13px; color: #6f4e37; vertical-align: baseline; text-decoration: underline; }
+.ops-task-in { font-size: 13px; color: #495057; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 /* A clear gap between Call and the note text and photos below it. */
 .ops-act-block + .ops-auto-notes, .ops-act-block + div + .ops-auto-notes { margin-top: 12px; }
 @media (max-width: 767.98px) { .ops-wide-only { display: none !important; } }
@@ -545,3 +555,52 @@ body.ops-viewer-open { overflow: hidden; }
 .ops-cp-fig:first-child { padding-left: 14px; }
 .ops-cp-fig:last-child { padding-right: 14px; }
 .ops-cp-fig + .ops-cp-fig { border-left: 1px solid #f1f3f5; }
+
+/* Route tasks at the top of My Route (Sarge, 2026-11-14): a checkbox row per task, no gallons, no
+   colour for % full, never in the total. A ticked one goes grey until the end of the day. */
+.ops-task-cap { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #6c757d; margin: 2px 0 4px; }
+.ops-task { border: 1px solid #dee2e6; border-radius: 6px; padding: 6px 8px; margin-bottom: 5px; cursor: pointer; }
+.ops-task.ops-task-open { border-color: #0d6efd; box-shadow: 0 0 0 1px #0d6efd; }
+.ops-task.ops-task-done { background: #f1f8f3; border-color: #b7dfc4; }
+.ops-task-head { display: flex; align-items: center; gap: 10px; }
+.ops-task-check { flex: 0 0 auto; width: 26px; height: 26px; margin: 0; cursor: pointer; }
+.ops-task-main { flex: 1 1 auto; min-width: 0; }
+/* Title and "at <customer>" share one line; the customer gives way first (ellipsis). */
+.ops-task-line { display: flex; align-items: baseline; gap: 6px; min-width: 0; }
+.ops-task-text { flex: 0 1 auto; min-width: 0; font-size: 16px; color: #212529;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ops-task-at { flex: 1 1 0; min-width: 0; font-size: 13px; color: #6c757d; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ops-task-done .ops-task-text { color: #6c757d; }
+.ops-task-tag { flex: 0 0 auto; font-size: 12px; color: #6c757d; border: 1px solid #ced4da; border-radius: 10px; padding: 0 7px; white-space: nowrap; }
+.ops-task-note { font-size: 13px; color: #495057; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ops-task-note.ops-task-note-full { white-space: normal; overflow-wrap: anywhere; }
+.ops-task-ctl { display: flex; justify-content: space-between; margin: 6px 0 0 36px; cursor: default; }
+.ops-task-ctl .btn { height: 33px; padding: 0 12px; font-size: 14px; display: inline-flex; align-items: center; }
+.ops-task-edit { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; cursor: default; }
+.ops-task-edit textarea { font-size: 16px; }
+/* + Stop | + Task: one dashed bar split in two halves, at the foot of the route being driven; 36px
+   with its border, the height of a closed stop line (Sarge, 2026-11-15). */
+.ops-add-split { display: flex; margin-top: 4px; border: 1px dashed #adb5bd; border-radius: 6px; overflow: hidden; background: #fff; }
+.ops-add-split button { flex: 1 1 0; height: 34px; border: 0; background: #fff; color: #495057; font-size: 15px; }
+.ops-add-split button + button { border-left: 1px dashed #adb5bd; }
+.ops-add-split button:active { background: #e9ecef; }
+.ops-task-form { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; padding: 8px 10px 10px;
+  border: 1px solid #0d6efd; box-shadow: 0 0 0 1px #0d6efd; border-radius: 6px; }
+.ops-task-form .form-control { height: 40px; font-size: 16px; }
+.ops-task-form .btn { min-height: 40px; }
+.ops-task-kind { align-self: flex-start; }
+.ops-task-chip { display: inline-flex; align-items: center; gap: 4px; border: 1px solid #ced4da; border-radius: 16px;
+  padding: 2px 2px 2px 12px; font-size: 14px; background: #f8f9fa; }
+.ops-task-chip-x { width: 32px; height: 32px; padding: 0; color: #6c757d; }
+/* Foot bars that need two lines: the typed-2 check and Update capacity after a Barrel drop. */
+.ops-undo-wrap .ops-undo-text { white-space: normal; }
+.ops-cap-bar { flex-direction: column; align-items: stretch; gap: 0; }
+.ops-cap-row { display: flex; align-items: center; gap: 10px; }
+.ops-cap-now { color: #ced4da; }
+.ops-cap-edit { border-top: 1px solid #495057; padding-top: 8px; margin-top: 6px; }
+.ops-cap-edit .form-control { width: 84px; height: 38px; font-size: 16px; }
+.ops-cap-msg { color: #ffb3b3; font-size: 13px; margin-top: 4px; }
+.ops-list-task { cursor: default; }
+.ops-list-task .ops-card-main { min-width: 0; }
+/* The route list's control row: Truck…, Set as My Route and + Task on one line on a 375px phone. */
+.ops-route-body select[data-truck] { max-width: 126px; padding-right: 26px; background-position: right 6px center; }

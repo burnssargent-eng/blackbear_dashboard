@@ -228,6 +228,14 @@ alter table public.collections add column if not exists jamaal_key text unique;
 alter table public.collections alter column entered_at drop not null;
 create index if not exists collections_source_day_idx on public.collections (source, picked_on);
 
+-- A barrel drop recorded beside the day's stop (Sarge, 2026-11-14): `extra`
+-- marks a 3 (barrel delivery) saved with My Route's Barrel drop button or by
+-- ticking a Barrel drop task. It sits beside that day's pickup, Empty or theft
+-- and never closes the stop; a 3 typed in the gallons box is the stop's own
+-- entry and closes it. The nightly files read only the gallons (3 = a code in
+-- oil_non_pickups.csv), so this changes nothing downstream.
+alter table public.collections add column if not exists extra boolean not null default false;
+
 -- Every insert, update and delete of a collection, appended by trigger. The
 -- site can read it but never write it, so the first account of a theft
 -- survives later edits and a deleted pickup is still on record. No foreign
@@ -350,6 +358,41 @@ drop trigger if exists daily_notes_stamp on public.daily_notes;
 create trigger daily_notes_stamp before update on public.daily_notes
   for each row execute function public.stamp_collection_update();
 
+-- Route tasks (Sarge, 2026-11-14): checklist rows on a route that are not oil
+-- pickups ("Load cones", "Pick up fittings at Shop"), shown at the top of My
+-- Route. Their own table: supabase_sync.py --routes rewrites route_stops every
+-- morning and never touches this. `day` is the day it was written; an unticked
+-- task carries over to later days until ticked or removed, and a ticked one
+-- shows until the end of the day it was ticked. Remove only sets `removed_at`
+-- (Undo clears it): rows are kept, though nothing shows old ones. A task may
+-- name a customer; `kind` 'barrel_drop' (customer required) records a barrel
+-- delivery when ticked: the 3 row in collections whose client_id is
+-- `drop_client_id`, deleted again on untick. Never counted in a route total.
+create table if not exists public.route_tasks (
+  id             bigint generated always as identity primary key,
+  client_id      uuid not null unique,
+  route_id       integer not null references public.routes (id) on delete cascade,
+  day            date not null default ((now() at time zone 'America/New_York')::date),
+  position       integer not null default 0,
+  kind           text not null default 'task' check (kind in ('task', 'barrel_drop')),
+  text           text not null default '' check (char_length(text) <= 200),
+  customer_id    integer references public.customers (id),
+  note           text check (note is null or char_length(note) <= 500),
+  done_at        timestamptz,
+  done_by        uuid,
+  drop_client_id uuid,
+  removed_at     timestamptz,
+  created_by     uuid default auth.uid(),
+  created_at     timestamptz not null default now(),
+  updated_at     timestamptz,
+  updated_by     uuid,
+  check (kind = 'task' and char_length(text) >= 1 or kind = 'barrel_drop' and customer_id is not null)
+);
+create index if not exists route_tasks_route_idx on public.route_tasks (route_id, position);
+drop trigger if exists route_tasks_stamp on public.route_tasks;
+create trigger route_tasks_stamp before update on public.route_tasks
+  for each row execute function public.stamp_collection_update();
+
 -- Photos: files in the private Storage bucket `photos`, one row each here. A
 -- photo belongs to a customer (the barrel, the spot) and optionally to one
 -- collection (a theft, a spill). Members may add and view, edit a caption and
@@ -425,6 +468,7 @@ alter table public.collection_history enable row level security;
 alter table public.photos       enable row level security;
 alter table public.oil_left     enable row level security;
 alter table public.daily_notes  enable row level security;
+alter table public.route_tasks  enable row level security;
 
 drop policy if exists "members read history" on public.collection_history;
 create policy "members read history" on public.collection_history
@@ -446,7 +490,8 @@ create policy "members read people" on public.people
 do $$
 declare t text;
 begin
-  foreach t in array array['customers', 'routes', 'route_stops', 'route_trucks', 'collections', 'outgoing', 'oil_left', 'daily_notes'] loop
+  foreach t in array array['customers', 'routes', 'route_stops', 'route_trucks', 'collections', 'outgoing', 'oil_left', 'daily_notes',
+                       'route_tasks'] loop
     execute format('drop policy if exists "members only" on public.%I', t);
     execute format('create policy "members only" on public.%I for all to authenticated
                     using ((select public.is_member())) with check ((select public.is_member()))', t);
@@ -476,7 +521,7 @@ end $$;
 revoke all on public.people, public.customers, public.routes, public.route_stops,
               public.route_trucks, public.collections, public.outgoing,
               public.collection_history, public.photos, public.theft_log, public.oil_left,
-              public.daily_notes from anon;
+              public.daily_notes, public.route_tasks from anon;
 grant select on public.people to authenticated;
 -- History is read-only to the site (the trigger writes it). Photos: add, view,
 -- and change only the caption and the Remove mark -- after the revoke, which
@@ -487,14 +532,15 @@ revoke update, delete on public.photos from authenticated;
 grant select, insert on public.photos to authenticated;
 grant update (caption, removed_at, removed_by) on public.photos to authenticated;
 grant select, insert, update, delete on public.customers, public.routes, public.route_stops,
-      public.route_trucks, public.collections, public.outgoing, public.oil_left, public.daily_notes to authenticated;
+      public.route_trucks, public.collections, public.outgoing, public.oil_left, public.daily_notes,
+      public.route_tasks to authenticated;
 
 -- Live updates: Jim sees Sarge's route edits without reloading. Realtime still
 -- applies the policies above.
 do $$
 declare t text;
 begin
-  foreach t in array array['route_stops', 'route_trucks', 'collections', 'outgoing', 'oil_left', 'daily_notes'] loop
+  foreach t in array array['route_stops', 'route_trucks', 'collections', 'outgoing', 'oil_left', 'daily_notes', 'route_tasks'] loop
     if not exists (select 1 from pg_publication_tables
                    where pubname = 'supabase_realtime' and schemaname = 'public' and tablename = t) then
       execute format('alter publication supabase_realtime add table public.%I', t);

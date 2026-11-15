@@ -103,7 +103,7 @@ function siteRows() {
   // Signed in, saving gives every entry its id; the browser copy needs its own.
   mine.forEach(c => { if (!c.client_id) c.client_id = typeof opsRandomId === "function" ? opsRandomId() : crypto.randomUUID(); });
   const held = new Set(mine.map(c => c.client_id));
-  return mine.map(c => ({ client_id: c.client_id, date: c.date, gallons: c.gallons, theft: !!c.theft }))
+  return mine.map(c => ({ client_id: c.client_id, date: c.date, gallons: c.gallons, theft: !!c.theft, extra: !!c.extra }))
     .concat(siteOld.filter(r => !held.has(r.client_id)));
 }
 
@@ -737,8 +737,8 @@ function render() {
     <div class="pt-2">${tab === "home" ? homeHtml(row, today, onRoutes, capacity, oilLeftReady ? todaysOilLeft(store, id) : null)
       : collectionsHtml()}</div>
     ${tab === "home" ? siteHistoryHtml(id) : ""}
-    ${undo ? `<div class="ops-undo" role="status"><span class="ops-undo-text">${escapeHtml(undo.text)}</span>
-      <button type="button" class="btn ops-undo-btn" data-undo-bar>Undo</button></div>` : ""}`;
+    ${undo ? `<div class="ops-undo${undo.wrap ? " ops-undo-wrap" : ""}" role="status"><span class="ops-undo-text">${escapeHtml(undo.text)}</span>
+      <button type="button" class="btn ops-undo-btn" data-undo-bar>${escapeHtml(undo.label || "Undo")}</button></div>` : ""}`;
 
   if (tab === "home" && details.lat != null) {
     const map = L.map("map", { scrollWheelZoom: false }).setView([details.lat, details.lon], details.loc === "town" ? 12 : 15);
@@ -916,11 +916,14 @@ async function init() {
     }
     if (e.target.id !== "add") return;
     e.preventDefault();
-    const gallons = parseInt(new FormData(e.target).get("gallons"), 10);
-    if (!Number.isFinite(gallons) || gallons < 0) return;
-    recordCollection(store, customer, gallons);
+    const typed = parseInt(new FormData(e.target).get("gallons"), 10);
+    if (!Number.isFinite(typed) || typed < 0) return;
+    // 0 and 1 save as Empty, 2 as a sign-up call (checked below), 3 as a barrel delivery.
+    recordCollection(store, customer, typedEntry(typed));
     saveStore(store);
     flash = "";
+    if (typed === 2) undo = { text: "2 = sign-up call. Did you mean 1 (empty)?", label: "Make it Empty", wrap: true,
+      run: () => { recordCollection(store, customer, 1); saveStore(store); } };
     if (param("from") === "myroute") { window.location.href = "ops-myroute.html"; return; }
     render();
   });
@@ -1011,8 +1014,7 @@ async function init() {
       saveStore(store);
       render();
     } else if (e.target.closest("[data-undo]")) {
-      store.collections = store.collections.filter(c =>
-        !(c.date === todayIso() && c.customer_id === customer.customer_id));
+      clearTodaysEntry(store, customer.customer_id);
       saveStore(store);
       render();
     } else if (e.target.closest("[data-assign]")) {

@@ -56,7 +56,7 @@ const opsClone = x => JSON.parse(JSON.stringify(x));
 function opsSharedPart(store) {
   return opsClone({ routes: store.routes || {}, newRoutes: store.newRoutes || [], added: store.added || [],
     collections: store.collections || [], outgoing: store.outgoing || [], oilLeft: store.oilLeft || [],
-    trucks: store.trucks || {}, replaced: store.replaced || {} });
+    trucks: store.trucks || {}, replaced: store.replaced || {}, tasks: store.tasks || [] });
 }
 
 /**
@@ -76,7 +76,16 @@ function opsRandomId() {
 function opsEnsureClientIds(store, makeId) {
   (store.collections || []).forEach(c => { if (!c.client_id) c.client_id = makeId(); });
   (store.outgoing || []).forEach(e => { if (!e.client_id) e.client_id = makeId(); });
+  (store.tasks || []).forEach(t => { if (!t.client_id) t.client_id = makeId(); });
 }
+
+/** A task as its route_tasks row (db/schema.sql). */
+function opsTaskRow(t) {
+  return { client_id: t.client_id, route_id: t.route_id, day: t.day, position: t.position, kind: t.kind,
+    text: t.text || "", customer_id: t.customer_id ?? null, note: t.note || null, done_at: t.done_at || null,
+    done_by: t.done_by || null, drop_client_id: t.drop_client_id || null, removed_at: t.removed_at || null };
+}
+const OPS_TASK_COLS = "client_id,route_id,day,position,kind,text,customer_id,note,done_at,done_by,drop_client_id,removed_at";
 
 /** A customer added on the site, as a `customers` row. */
 function opsCustomerRow(c) {
@@ -134,8 +143,11 @@ function opsDiff(prev, next, { today, projectedFor = () => null }) {
     ops.push({ t: "stops", route_id: Number(id), stops });
   });
 
+  // `extra` (a barrel drop beside the day's entry) is sent only when set, so a pickup saves even
+  // before db/schema.sql adds the column.
   const values = c => ({ customer_id: c.customer_id, picked_on: c.date, gallons: c.gallons,
-    route_id: c.route_id ?? null, theft: !!c.theft, theft_note: c.theft ? (c.theft.note || null) : null });
+    route_id: c.route_id ?? null, theft: !!c.theft, theft_note: c.theft ? (c.theft.note || null) : null,
+    ...(c.extra ? { extra: true } : {}) });
   const prevColl = new Map((prev.collections || []).map(c => [c.client_id, c]));
   const nextColl = new Set();
   (next.collections || []).forEach(c => {
@@ -148,6 +160,16 @@ function opsDiff(prev, next, { today, projectedFor = () => null }) {
     }
   });
   prevColl.forEach((c, id) => { if (!nextColl.has(id)) ops.push({ t: "pickup-delete", client_id: id }); });
+
+  // Route tasks, after the pickups (a ticked Barrel drop's entry goes first). Never deleted:
+  // Remove sets removed_at, and a task missing from `next` has only dropped out of the load.
+  const prevTasks = new Map((prev.tasks || []).map(t => [t.client_id, t]));
+  (next.tasks || []).forEach(t => {
+    const p = prevTasks.get(t.client_id);
+    if (!p || JSON.stringify(opsTaskRow(p)) !== JSON.stringify(opsTaskRow(t))) {
+      ops.push({ t: "task-set", row: opsTaskRow(t) });
+    }
+  });
 
   // Oil Left: one row per customer and day, so the pair is the key.
   const leftKey = e => `${e.customer_id}|${e.date}`;
@@ -226,12 +248,14 @@ function opsStoreFromRows(rows, snap, keep = {}) {
       name: (names.get(c.customer_id) || {}).site_name || (names.get(c.customer_id) || {}).name || `#${c.customer_id}`,
       gallons: c.gallons,
       date: c.picked_on, route_id: c.route_id, assignment_id: null, client_id: c.client_id,
+      ...(c.extra ? { extra: true } : {}),
       ...(c.theft ? { theft: { note: c.theft_note || "", recorded_at: c.entered_at, versions: [] } } : {}) })),
     oilLeft: (rows.oilLeft || []).map(e => ({ customer_id: e.customer_id, date: e.checked_on,
       gallons: e.gallons_left, route_id: e.route_id })),
     outgoing: rows.outgoing.map(e => ({ id: e.client_id, client_id: e.client_id, date: e.day, kind: e.kind,
       ...(e.truck ? { truck: e.truck } : {}), ...(e.gallons !== null ? { gallons: e.gallons } : {}) })),
     trucks,
+    tasks: (rows.tasks || []).map(opsTaskRow),
     my: keep.my || null,
   };
 }
@@ -353,7 +377,10 @@ async function opsFetchRows() {
     }
   };
   const c = opsDbClient;
-  const [routes, stops, customers, collections, outgoing, trucks, oilLeft, dailyNotes] = await Promise.all([
+  const pickupCols = "customer_id,picked_on,gallons,route_id,client_id,theft,theft_note,entered_at";
+  // A ticked task shows to the end of its day: two days back covers any time zone.
+  const tasksSince = new Date(Date.now() - 2 * 86400000).toISOString();
+  const [routes, stops, customers, collections, outgoing, trucks, oilLeft, dailyNotes, tasks] = await Promise.all([
     all(() => c.from("routes").select("id,name,sort").order("id"), "routes"),
     all(() => c.from("route_stops").select("id,route_id,customer_id,position,must_get,jamaal_assignment_id").order("id"), "stops"),
     // Before collected_with_town and replaced_by exist (db/schema.sql not yet pasted) the pages load without them;
@@ -365,8 +392,11 @@ async function opsFetchRows() {
       .catch(() => all(() => c.from("customers").select(OPS_CUSTOMER_COLS).order("id"), "customers")),
     // Only this site's entries: the source site's history is in the database
     // too (source 'jamaal'), but the pages already show it from the nightly files.
-    all(() => c.from("collections").select("customer_id,picked_on,gallons,route_id,client_id,theft,theft_note,entered_at")
-      .eq("source", "site").gte("picked_on", since).order("id"), "pickups"),
+    // `extra` (barrel drops) only once db/schema.sql has added it.
+    all(() => c.from("collections").select(`${pickupCols},extra`)
+      .eq("source", "site").gte("picked_on", since).order("id"), "pickups")
+      .catch(() => all(() => c.from("collections").select(pickupCols)
+        .eq("source", "site").gte("picked_on", since).order("id"), "pickups")),
     all(() => c.from("outgoing").select("client_id,day,kind,truck,gallons").eq("source", "site").order("id"), "outgoing"),
     all(() => c.from("route_trucks").select("route_id,day,truck"), "trucks"),
     // Before the oil_left table exists the pages still load, without it.
@@ -375,8 +405,11 @@ async function opsFetchRows() {
     // Notes written yesterday or today (older ones have cleared); none before the table exists.
     all(() => c.from("daily_notes").select("customer_id,day,note").gte("day", opsDayBefore(todayIso()))
       .order("customer_id"), "today's notes").catch(() => []),
+    // Route tasks not removed and not ticked before yesterday; none before the table exists.
+    all(() => c.from("route_tasks").select(OPS_TASK_COLS).is("removed_at", null)
+      .or(`done_at.is.null,done_at.gte.${tasksSince}`).order("id"), "tasks").catch(() => []),
   ]);
-  return { routes, stops, customers, collections, outgoing, trucks, oilLeft, dailyNotes };
+  return { routes, stops, customers, collections, outgoing, trucks, oilLeft, dailyNotes, tasks };
 }
 
 /**
@@ -468,12 +501,15 @@ function opsStoreSince() {
 /** Every pickup entered on this site for one customer, any age, or null when signed out or offline. */
 async function opsSitePickups(customerId) {
   if (!opsDb || !opsDb.person) return null;
-  const { data, error } = await opsDb.client.from("collections")
-    .select("client_id,picked_on,gallons,route_id,theft,theft_note,projected_gal,entered_at")
+  const cols = "client_id,picked_on,gallons,route_id,theft,theft_note,projected_gal,entered_at";
+  const q = sel => opsDb.client.from("collections").select(sel)
     .eq("source", "site").eq("customer_id", customerId).order("picked_on", { ascending: false });
+  let { data, error } = await q(`${cols},extra`);
+  if (error) ({ data, error } = await q(cols));   // before db/schema.sql adds `extra`
   if (error) return null;
   return data.map(r => ({ client_id: r.client_id, date: r.picked_on, gallons: r.gallons, route_id: r.route_id,
-    theft: r.theft, theft_note: r.theft_note, projected_gal: r.projected_gal, entered_at: r.entered_at }));
+    theft: r.theft, theft_note: r.theft_note, projected_gal: r.projected_gal, entered_at: r.entered_at,
+    extra: !!r.extra }));
 }
 
 /** One write. Returns "ok", "retry" (no signal: keep it) or "failed" (refused: set aside). */
@@ -523,6 +559,7 @@ async function opsSend(op) {
       res = await c.from("route_trucks").upsert({ route_id: op.route_id, day: op.day, truck: op.truck },
         { onConflict: "route_id,day" });
       break;
+    case "task-set": res = await c.from("route_tasks").upsert(op.row, { onConflict: "client_id" }); break;
     case "truck-clear":
       res = await c.from("route_trucks").delete().eq("route_id", op.route_id).eq("day", op.day); break;
     default: opsDb.lastRefusal = `unknown change "${op.t}"`; return "failed";
@@ -786,6 +823,26 @@ async function opsSaveCustomer(id, now, opened) {
   return { ...row, ...up };
 }
 
+/**
+ * Set one capacity on source-site customers (ids > 0), as the customer page's Edit does: the
+ * site's figure in site_capacity, emptied when it equals the source site's own. A shared barrel
+ * passes every member: each lists the whole barrel's capacity (agreed with Jim, 2026-10-06).
+ * Throws when not saved.
+ */
+async function opsSaveCapacity(ids, capacity) {
+  const c = opsDb && opsDb.client;
+  if (!c) throw new Error("sign in to change the capacity");
+  for (const id of ids) {
+    const row = opsCustomerDbRow(id) || {};
+    const value = capacity === (row.capacity ?? null) ? null : capacity;
+    const { error } = await c.from("customers").update({ site_capacity: value }).eq("id", id);
+    if (error) throw new Error(error.message);
+    const k = opsDb.rows && opsDb.rows.customers ? opsDb.rows.customers.findIndex(r => r.id === id) : -1;
+    if (k >= 0) opsDb.rows.customers[k] = { ...opsDb.rows.customers[k], site_capacity: value };
+  }
+  opsApplySiteEdits(opsDb.snap, opsDb.index, opsDb.rows && opsDb.rows.customers);
+}
+
 /** A customer's other phone numbers (customer_contacts), oldest first; [] when signed out or none. */
 async function opsContactsLoad(id) {
   const c = opsDb && opsDb.client;
@@ -924,9 +981,11 @@ function opsFailedLabel(op) {
   };
   const day = iso => (iso ? `${Number(iso.slice(5, 7))}/${Number(iso.slice(8, 10))}` : "");   // "11/13"
   const r = op.row || op.values || {};
+  const gal = g => (g <= 3 && typeof codeText === "function" ? codeText(g) : `${g} gal`);   // "Barrel delivery", "52 gal"
   switch (op.t) {
-    case "pickup-new": return `Pickup · ${who(r.customer_id)} · ${day(r.picked_on)} · ${r.gallons} gal`;
-    case "pickup-edit": return `Pickup change · ${who(r.customer_id)} · ${day(r.picked_on)} · ${r.gallons} gal`;
+    case "pickup-new": return `Pickup · ${who(r.customer_id)} · ${day(r.picked_on)} · ${gal(r.gallons)}`;
+    case "pickup-edit": return `Pickup change · ${who(r.customer_id)} · ${day(r.picked_on)} · ${gal(r.gallons)}`;
+    case "task-set": return `Task · ${r.kind === "barrel_drop" ? `Barrel drop · ${who(r.customer_id)}` : r.text}`;
     case "pickup-delete": return "Pickup deleted";
     case "left-set": return `Oil Left · ${who(r.customer_id)} · ${day(r.checked_on)} · ${r.gallons_left} gal`;
     case "left-delete": return `Oil Left removed · ${who(op.customer_id)} · ${day(op.day)}`;
