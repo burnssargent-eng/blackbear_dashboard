@@ -190,6 +190,11 @@ that had pickups.
 A plain run rewrites the CSV, the Excel report and both JSONs, and is
 idempotent. `.github/workflows/nightly-update.yml` runs `--rescrape` at 07:00
 UTC and commits straight to `main`, so expect a data diff most mornings.
+Its steps carry on when they fail, so one never blocks the commit; since
+2026-11-15 each step that matters after the cutover records its failure, and
+the last step ("Report failed steps", after the commit) fails the run so
+GitHub emails. Steps reading the source site only warn. A new failure-tolerant
+step must do one or the other (`tests/nightly_alerts_test.py` fails otherwise).
 
 ## Rules that are easy to break
 

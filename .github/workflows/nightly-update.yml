@@ -38,7 +38,7 @@ jobs:
         env:
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
         run: |
-          python supabase_sync.py --export-site-edits || echo "::warning::Customer edits export failed; customer_edits.csv left as-is"
+          python supabase_sync.py --export-site-edits || { echo "::warning::Customer edits export failed; customer_edits.csv left as-is"; echo "Export customer page edits: Customer edits export failed; customer_edits.csv left as-is" >> "$RUNNER_TEMP/nightly-failures.txt"; }
 
       - name: Run scraper
         run: |
@@ -50,7 +50,7 @@ jobs:
       # is left as it was.
       - name: Score live test
         run: |
-          python analysis/live_test.py || echo "::warning::Live test scoring failed; log left as-is"
+          python analysis/live_test.py || { echo "::warning::Live test scoring failed; log left as-is"; echo "Score live test: Live test scoring failed; log left as-is" >> "$RUNNER_TEMP/nightly-failures.txt"; }
 
       # Oil Left from the shared database, for the build below. On failure the
       # committed oil_left.csv stays, so the build uses the previous export.
@@ -58,7 +58,7 @@ jobs:
         env:
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
         run: |
-          python supabase_sync.py --export-oil-left || echo "::warning::Oil Left export failed; oil_left.csv left as-is"
+          python supabase_sync.py --export-oil-left || { echo "::warning::Oil Left export failed; oil_left.csv left as-is"; echo "Export Oil Left: Oil Left export failed; oil_left.csv left as-is" >> "$RUNNER_TEMP/nightly-failures.txt"; }
 
       # Thefts marked on the site, for the build below (its THEFTS). On failure
       # the committed thefts.csv stays, so the build uses the previous export.
@@ -66,7 +66,7 @@ jobs:
         env:
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
         run: |
-          python supabase_sync.py --export-thefts || echo "::warning::Thefts export failed; thefts.csv left as-is"
+          python supabase_sync.py --export-thefts || { echo "::warning::Thefts export failed; thefts.csv left as-is"; echo "Export thefts: Thefts export failed; thefts.csv left as-is" >> "$RUNNER_TEMP/nightly-failures.txt"; }
 
       # Beta projections page. A failure here must never block the data commit
       # below: the previous oil_projections.json is kept, and projections.html
@@ -74,7 +74,7 @@ jobs:
       # today, so My Route reads today's figure even after a day with no pickups.
       - name: Build projections
         run: |
-          python analysis/build_projection_table.py --today || echo "::warning::Projection build failed; oil_projections.json left as-is"
+          python analysis/build_projection_table.py --today || { echo "::warning::Projection build failed; oil_projections.json left as-is"; echo "Build projections: Projection build failed; oil_projections.json left as-is" >> "$RUNNER_TEMP/nightly-failures.txt"; }
 
       # Route planner beta: a read-only snapshot of the routes currently assigned
       # on the source site. Independent of the steps above; on failure the old
@@ -110,7 +110,7 @@ jobs:
         env:
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
         run: |
-          python supabase_sync.py || echo "::warning::Shared database sync failed; database left as-is"
+          python supabase_sync.py || { echo "::warning::Shared database sync failed; database left as-is"; echo "Sync shared database: Shared database sync failed; database left as-is" >> "$RUNNER_TEMP/nightly-failures.txt"; }
 
       # Map pins for addresses edited on the site (the Census geocoder, else the
       # town centre). After the sync, which writes back the exported positions.
@@ -119,7 +119,7 @@ jobs:
         env:
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
         run: |
-          python supabase_sync.py --place-pins || echo "::warning::Pin placing failed; the next night retries"
+          python supabase_sync.py --place-pins || { echo "::warning::Pin placing failed; the next night retries"; echo "Place pins for edited addresses: Pin placing failed; the next night retries" >> "$RUNNER_TEMP/nightly-failures.txt"; }
 
       # Sundays (Vermont): address and notes edits made on the source site after
       # a customer reached the database (supabase_sync.py, --sweep). Reads every
@@ -151,3 +151,22 @@ jobs:
           git add oil_data.json oil_collections.json customer_history.json oil_collections_raw.csv oil_collection_report.xlsx capacity_cache.csv oil_non_pickups.csv oil_projections.json analysis/live_test_log.csv oil_live_test.json jamaal_routes.json outgoing.json oil_left.csv customer_edits.csv thefts.csv
           git commit -m "Nightly oil data update" || echo "No changes to commit"
           git push
+
+      # Failure alerts (Sarge, 2026-11-15). The steps above carry on when they
+      # fail, so one bad step never blocks the rest or the commit, and until
+      # now the run still showed green and nobody heard. Each step that
+      # matters after the switch from the source site adds a line to
+      # nightly-failures.txt when it fails; this step, after the commit, fails
+      # the run if any did, so GitHub emails the owner and the run page lists
+      # them. Steps reading the source site (assigned routes, outgoing log,
+      # new customers' details, the Sunday sweep, photos) only warn: they are
+      # switched off at the cutover.
+      - name: Report failed steps
+        if: always()
+        run: |
+          f="$RUNNER_TEMP/nightly-failures.txt"
+          if [ -s "$f" ]; then
+            while IFS= read -r line; do echo "::error::$line"; done < "$f"
+            exit 1
+          fi
+          echo "No failures in the steps that alert"
