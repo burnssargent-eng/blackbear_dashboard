@@ -1,0 +1,74 @@
+name: Nightly Database Backup
+
+# The shared database, every table and every photo file, committed to the
+# PRIVATE repo burnssargent-eng/blackbear-backup (supabase_backup.py; Sarge,
+# 2026-11-14). That repo's history is the set of nightly copies: to restore,
+# check out the night wanted there.
+#
+# This repo is public and so are its Actions logs: nothing here may print or
+# upload the backup's contents. supabase_backup.py prints row counts only.
+#
+# Needs two secrets: SUPABASE_SERVICE_KEY (already set) and BACKUP_REPO_TOKEN,
+# a fine-grained token with Contents: Read and write on blackbear-backup only.
+#
+# A failed export fails the run, and GitHub emails the owner. Whatever was
+# backed up before the failure (photos copied before one that failed) is
+# still committed.
+on:
+  schedule:
+    - cron: "30 9 * * *"   # 09:30 UTC, after the nightly data update
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: db-backup
+  cancel-in-progress: false
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Check out the private backup repository
+        uses: actions/checkout@v4
+        with:
+          repository: burnssargent-eng/blackbear-backup
+          token: ${{ secrets.BACKUP_REPO_TOKEN }}
+          path: backup
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Export the database
+        env:
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          python supabase_backup.py backup
+
+      - name: Commit the backup
+        if: always()
+        working-directory: backup
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          for p in tables counts.json photos; do
+            if [ -e "$p" ]; then git add -- "$p"; fi
+          done
+          if git diff --cached --quiet; then
+            echo "Nothing new to back up"
+          else
+            git commit -q -m "Backup $(date -u +%Y-%m-%d)"
+            git push -q
+          fi

@@ -74,6 +74,12 @@ rows stay, pickups and 0-3 codes split as the scraper splits them (its
 status follow the database, a second run changes nothing, and an empty or
 partial read or a bad `--since` is refused with the files untouched.
 
+`supabase_backup_test.py` is Python too: `python3 tests/supabase_backup_test.py`.
+It runs `supabase_backup.py` against a stand-in database: every table in
+`db/schema.sql` is backed up in its key's order, a failed or empty read writes
+nothing, photos are copied once and never removed, only counts are printed,
+and `backup.yml` pushes to the private repo and never logs or uploads contents.
+
 `supabase_sync_test.py` is Python, so `run_all.js` does not run it: run it with
 `python3 tests/supabase_sync_test.py`. It runs `supabase_sync.py` against the
 committed data files and a stand-in database (no network, no key): the seed
