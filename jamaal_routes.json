@@ -1,5 +1,5 @@
 {
- "scraped_at": "2026-11-15T14:33:25+00:00",
+ "scraped_at": "2026-11-15T20:47:16+00:00",
  "source": "routes_assigned.php, assign_routes.php",
  "routes": [
   {
@@ -230,16 +230,8 @@
   {
    "route_id": 7,
    "name": "Burlington",
-   "assigned_capacity": 3470,
+   "assigned_capacity": 3635,
    "stops": [
-    {
-     "assignment_id": 24572,
-     "customer_id": 352,
-     "name": "Great Northern",
-     "capacity": 150,
-     "days_over": -5,
-     "must_get": false
-    },
     {
      "assignment_id": 24588,
      "customer_id": 335,
@@ -249,10 +241,26 @@
      "must_get": false
     },
     {
-     "assignment_id": 24582,
-     "customer_id": 1350,
-     "name": "Switchback",
-     "capacity": 200,
+     "assignment_id": 24571,
+     "customer_id": 1381,
+     "name": "Fire and Gold-North Winooski Ave - 100%",
+     "capacity": 100,
+     "days_over": 2,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24577,
+     "customer_id": 1133,
+     "name": "May Day",
+     "capacity": 150,
+     "days_over": -5,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24568,
+     "customer_id": 1306,
+     "name": "Crispy Burger- Jason (Volcano)",
+     "capacity": 150,
      "days_over": -2,
      "must_get": false
     },
@@ -265,6 +273,14 @@
      "must_get": false
     },
     {
+     "assignment_id": 24564,
+     "customer_id": 1273,
+     "name": "BKK-inTheAlley 10%",
+     "capacity": 300,
+     "days_over": -3,
+     "must_get": false
+    },
+    {
      "assignment_id": 24580,
      "customer_id": 327,
      "name": "RiRa's 40%",
@@ -273,27 +289,35 @@
      "must_get": false
     },
     {
-     "assignment_id": 24579,
-     "customer_id": 1386,
-     "name": "Poco- Burlington",
-     "capacity": 65,
-     "days_over": 11,
+     "assignment_id": 24590,
+     "customer_id": 326,
+     "name": "Leunigs Bistro",
+     "capacity": 165,
+     "days_over": -16,
      "must_get": false
     },
     {
-     "assignment_id": 24578,
-     "customer_id": 323,
-     "name": "Pascolo 50% with Henrys",
+     "assignment_id": 24569,
+     "customer_id": 332,
+     "name": "Daily Planet-65270",
+     "capacity": 100,
+     "days_over": -2,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24566,
+     "customer_id": 321,
+     "name": "BURLS/El Cortijo-Burlington",
      "capacity": 150,
      "days_over": -2,
      "must_get": false
     },
     {
-     "assignment_id": 24577,
-     "customer_id": 1133,
-     "name": "May Day",
-     "capacity": 150,
-     "days_over": -5,
+     "assignment_id": 24561,
+     "customer_id": 325,
+     "name": "Farmhouse",
+     "capacity": 300,
+     "days_over": -2,
      "must_get": false
     },
     {
@@ -301,6 +325,14 @@
      "customer_id": 1338,
      "name": "Ken’s Pizza",
      "capacity": 55,
+     "days_over": -2,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24578,
+     "customer_id": 323,
+     "name": "Pascolo 50% with Henrys",
+     "capacity": 150,
      "days_over": -2,
      "must_get": false
     },
@@ -313,59 +345,11 @@
      "must_get": false
     },
     {
-     "assignment_id": 24571,
-     "customer_id": 1381,
-     "name": "Fire and Gold-North Winooski Ave - 100%",
-     "capacity": 100,
-     "days_over": 2,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24569,
-     "customer_id": 332,
-     "name": "Daily Planet-65270",
-     "capacity": 100,
-     "days_over": -2,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24568,
-     "customer_id": 1306,
-     "name": "Crispy Burger- Jason (Volcano)",
-     "capacity": 150,
-     "days_over": -2,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24567,
-     "customer_id": 315,
-     "name": "Citizen Cider - 0316",
-     "capacity": 150,
-     "days_over": -9,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24566,
-     "customer_id": 321,
-     "name": "BURLS/El Cortijo-Burlington",
-     "capacity": 150,
-     "days_over": -2,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24565,
-     "customer_id": 1070,
-     "name": "Burlington Beer Co",
+     "assignment_id": 24397,
+     "customer_id": 304,
+     "name": "Hotel Vermont - 50%",
      "capacity": 200,
-     "days_over": -2,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24564,
-     "customer_id": 1273,
-     "name": "BKK-inTheAlley 10%",
-     "capacity": 300,
-     "days_over": -3,
+     "days_over": 4,
      "must_get": false
     },
     {
@@ -377,19 +361,43 @@
      "must_get": false
     },
     {
-     "assignment_id": 24397,
-     "customer_id": 304,
-     "name": "Hotel Vermont - 50%",
-     "capacity": 200,
-     "days_over": 4,
+     "assignment_id": 24579,
+     "customer_id": 1386,
+     "name": "Poco- Burlington",
+     "capacity": 65,
+     "days_over": 11,
      "must_get": false
     },
     {
-     "assignment_id": 24561,
-     "customer_id": 325,
-     "name": "Farmhouse",
-     "capacity": 300,
+     "assignment_id": 24572,
+     "customer_id": 352,
+     "name": "Great Northern",
+     "capacity": 150,
+     "days_over": -5,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24565,
+     "customer_id": 1070,
+     "name": "Burlington Beer Co",
+     "capacity": 200,
      "days_over": -2,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24582,
+     "customer_id": 1350,
+     "name": "Switchback",
+     "capacity": 200,
+     "days_over": -2,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24567,
+     "customer_id": 315,
+     "name": "Citizen Cider - 0316",
+     "capacity": 150,
+     "days_over": -9,
      "must_get": false
     }
    ]
