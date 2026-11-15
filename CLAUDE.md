@@ -88,6 +88,10 @@ supabase_backup.py ──> the PRIVATE repo burnssargent-eng/blackbear-backup (b
                      every table as JSON + every photo file; its git history is the nightly copies. The free
                      plan has no backups. This repo's Actions logs are public: print counts, never contents.
                      A new table in db/schema.sql must join TABLES there (its test fails until it does).
+takeover_check.py    the takeover dry run (takeover-dry-run.yml, after each nightly; commits nothing): builds
+                     the dashboard from the scrape and, in a copy, from the site (supabase_sync.py
+                     --export-collections --since 2026-10-26), and reports the differences through yesterday
+                     on the run's summary page. Fails only when the export or a build breaks.
 
 site-gate.js         the sign-in card in front of EVERY page (email + password, team list in `people`; one
                      sign-in per device until Sign out). Analytics pages load it with data-protect and stay
