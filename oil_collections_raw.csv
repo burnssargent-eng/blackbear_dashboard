@@ -1,6 +1,5 @@
 customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1498,Barre Country Club-Plainfield,Burlington,Washington,2026-07-29,2026,2026-07,150,True,Plainfield
-1509,"Champlain Valley Fairgrounds, Lot P",Burlington,Chittenden,2026-06-13,2026,2026-06,2700,True,Essex Junction
 551,The Genny- Albany General Store,Albany,Orleans,2026-10-20,2026,2026-10,150,True,Albany
 551,The Genny- Albany General Store,Albany,Orleans,2026-08-31,2026,2026-08,145,True,Albany
 551,The Genny- Albany General Store,Albany,Orleans,2026-07-05,2026,2026-07,165,True,Albany
@@ -9937,7 +9936,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 423,Perrigo Nutritionals,Milton,Chittenden,2026-10-22,2026,2026-10,650,True,Milton
 423,Perrigo Nutritionals,Milton,Chittenden,2026-07-02,2026,2026-07,1600,True,Milton
 423,Perrigo Nutritionals,Milton,Chittenden,2026-06-24,2026,2026-06,3300,True,Milton
-423,Perrigo Nutritionals,Milton,Chittenden,2026-06-16,2026,2026-06,4000,True,Milton
+423,Perrigo Nutritionals,Milton,Chittenden,2026-06-16,2026,2026-06,6700,True,Milton
 423,Perrigo Nutritionals,Milton,Chittenden,2026-06-10,2026,2026-06,6100,True,Milton
 423,Perrigo Nutritionals,Milton,Chittenden,2026-04-02,2026,2026-04,650,True,Milton
 423,Perrigo Nutritionals,Milton,Chittenden,2026-03-26,2026,2026-03,275,True,Milton
@@ -13249,6 +13248,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1090,Proctor-Pittsford Country Club,Pittsford,Rutland,2022-09-09,2022,2022-09,100,True,Pittsford
 1090,Proctor-Pittsford Country Club,Pittsford,Rutland,2022-07-26,2022,2022-07,110,True,Pittsford
 1090,Proctor-Pittsford Country Club,Pittsford,Rutland,2022-06-10,2022,2022-06,100,True,Pittsford
+1078,BBB- Pump oil @ Shop,Plainfield,Washington,2026-11-14,2026,2026-11,25,True,Plainfield
 1078,BBB- Pump oil @ Shop,Plainfield,Washington,2026-09-14,2026,2026-09,25,True,Plainfield
 1078,BBB- Pump oil @ Shop,Plainfield,Washington,2026-07-14,2026,2026-07,125,True,Plainfield
 1078,BBB- Pump oil @ Shop,Plainfield,Washington,2026-07-03,2026,2026-07,400,True,Plainfield

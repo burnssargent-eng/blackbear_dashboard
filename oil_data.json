@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-14T23:45:37.911258",
+  "last_updated": "2026-11-15T14:33:20.430701",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -32884,7 +32884,7 @@
     {
       "month": "2026-06",
       "geo_town": "Essex Junction",
-      "gallons": 2935,
+      "gallons": 235,
       "city": "Essex Junction"
     },
     {
@@ -32944,7 +32944,7 @@
     {
       "month": "2026-06",
       "geo_town": "Milton",
-      "gallons": 13554,
+      "gallons": 16254,
       "city": "Milton"
     },
     {
@@ -34608,6 +34608,12 @@
       "geo_town": "Northfield",
       "gallons": 160,
       "city": "Northfield"
+    },
+    {
+      "month": "2026-11",
+      "geo_town": "Plainfield",
+      "gallons": 25,
+      "city": "Plainfield"
     },
     {
       "month": "2026-11",
@@ -42591,7 +42597,7 @@
     {
       "month": "2026-11",
       "county": "Washington",
-      "gallons": 1780
+      "gallons": 1805
     },
     {
       "month": "2026-11",
@@ -42651,12 +42657,12 @@
     },
     {
       "year": 2026,
-      "gallons": 258872
+      "gallons": 258897
     }
   ],
-  "all_time_total": 2177639,
-  "current_year_total": 258872,
-  "customer_count": 811,
+  "all_time_total": 2177664,
+  "current_year_total": 258897,
+  "customer_count": 810,
   "unmapped_total": 40915,
   "monthly_totals": [
     {
@@ -43229,7 +43235,7 @@
     },
     {
       "month": "2026-11",
-      "gallons": 10904
+      "gallons": 10929
     }
   ],
   "monthly_by_region": [
@@ -54036,12 +54042,12 @@
     {
       "month": "2026-06",
       "region": "Outer Burlington",
-      "gallons": 4423
+      "gallons": 1723
     },
     {
       "month": "2026-06",
       "region": "Perrigo",
-      "gallons": 13400
+      "gallons": 16100
     },
     {
       "month": "2026-06",
@@ -54081,7 +54087,7 @@
     {
       "month": "2026-06",
       "region": "Summer Snack Stops",
-      "gallons": 3880
+      "gallons": 1180
     },
     {
       "month": "2026-06",
@@ -54096,7 +54102,7 @@
     {
       "month": "2026-06",
       "region": "Winter / Summer Combined",
-      "gallons": 4135
+      "gallons": 1435
     },
     {
       "month": "2026-07",
@@ -54472,6 +54478,11 @@
       "month": "2026-11",
       "region": "Outer Burlington",
       "gallons": 1260
+    },
+    {
+      "month": "2026-11",
+      "region": "Route 2 East / Route 5",
+      "gallons": 25
     },
     {
       "month": "2026-11",
@@ -55528,12 +55539,12 @@
     {
       "year": 2026,
       "region": "Outer Burlington",
-      "gallons": 26853
+      "gallons": 24153
     },
     {
       "year": 2026,
       "region": "Perrigo",
-      "gallons": 20325
+      "gallons": 23025
     },
     {
       "year": 2026,
@@ -55543,7 +55554,7 @@
     {
       "year": 2026,
       "region": "Route 2 East / Route 5",
-      "gallons": 11776
+      "gallons": 11801
     },
     {
       "year": 2026,
@@ -55573,7 +55584,7 @@
     {
       "year": 2026,
       "region": "Summer Snack Stops",
-      "gallons": 13495
+      "gallons": 10795
     },
     {
       "year": 2026,
@@ -55588,14 +55599,14 @@
     {
       "year": 2026,
       "region": "Winter / Summer Combined",
-      "gallons": 30615
+      "gallons": 27915
     }
   ],
   "region_names": [
     "Burlington / South Burlington",
     "Waterbury / Stowe",
-    "Outer Burlington",
     "Central",
+    "Outer Burlington",
     "Perrigo",
     "Northwest",
     "North-Northeast",
@@ -55608,8 +55619,8 @@
     "South",
     "Winter / Summer Combined",
     "Ski Slopes",
-    "Summer Snack Stops",
-    "South / Ski Combined"
+    "South / Ski Combined",
+    "Summer Snack Stops"
   ],
   "theme_regions": [
     "Ski Slopes",
@@ -55639,18 +55650,18 @@
   "collections_file": "oil_collections.json",
   "collections_count": 28042,
   "out_of_state_total": 40915,
-  "active_customer_count": 536,
+  "active_customer_count": 535,
   "projection": {
-    "latest_data_date": "2026-11-13",
+    "latest_data_date": "2026-11-14",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 258872,
+    "current_ytd": 258897,
     "previous_year_full": 269909,
     "previous_through_prior_month": 230827,
     "previous_same_month_total": 20207,
-    "previous_prorated_ytd": 239583.37,
-    "projected_current_year": 291639,
-    "percent_vs_previous_year": 0.080509
+    "previous_prorated_ytd": 240256.93,
+    "projected_current_year": 290850,
+    "percent_vs_previous_year": 0.077584
   },
   "region_stats": {
     "Burlington / South Burlington": {
@@ -55678,8 +55689,8 @@
       "active": 1
     },
     "Outer Burlington": {
-      "customers": 61,
-      "active": 48
+      "customers": 60,
+      "active": 47
     },
     "Perrigo": {
       "customers": 1,
@@ -55714,8 +55725,8 @@
       "active": 14
     },
     "Summer Snack Stops": {
-      "customers": 30,
-      "active": 27
+      "customers": 29,
+      "active": 26
     },
     "Warren / Waitsfield": {
       "customers": 31,
@@ -55726,8 +55737,8 @@
       "active": 49
     },
     "Winter / Summer Combined": {
-      "customers": 50,
-      "active": 47
+      "customers": 49,
+      "active": 46
     }
   },
   "lifecycle_by_year": [
@@ -55810,10 +55821,10 @@
     },
     {
       "year": 2026,
-      "places_serviced": 484,
-      "gained": 49,
+      "places_serviced": 483,
+      "gained": 48,
       "lost": 9,
-      "net": 40
+      "net": 39
     }
   ],
   "dormant_cutoff": "2025-01-01",
@@ -56337,7 +56348,6 @@
       1426,
       1459,
       1495,
-      1509,
       1517,
       1538
     ],
@@ -56652,8 +56662,7 @@
       1441,
       1457,
       1497,
-      1508,
-      1509
+      1508
     ],
     "Warren / Waitsfield": [
       204,
@@ -56808,8 +56817,7 @@
       1441,
       1457,
       1497,
-      1508,
-      1509
+      1508
     ]
   },
   "retention_by_year": [
@@ -57014,7 +57022,7 @@
     {
       "year": 2026,
       "active_jan1": 471,
-      "gained_new": 49,
+      "gained_new": 48,
       "gained_successor": 6,
       "lost": 0,
       "closed": 0,
@@ -57022,7 +57030,7 @@
       "moved": 0,
       "unknown": 9,
       "moved_followed": 0,
-      "gained": 55,
+      "gained": 54,
       "ended": 11,
       "churn": 0.0,
       "churn_high": 0.0191,
@@ -57047,6 +57055,6 @@
     "avg_gained_new": 62.1,
     "avg_gained_successor": 1.8,
     "median_years_served": 1.6,
-    "current_businesses": 515
+    "current_businesses": 514
   }
 }

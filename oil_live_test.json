@@ -1,62 +1,62 @@
 {
- "data_last_updated": "2026-11-14T13:59:38.658330",
- "latest_pickup": "2026-11-13",
+ "data_last_updated": "2026-11-15T14:33:20.430701",
+ "latest_pickup": "2026-11-14",
  "summary": [
   {
    "window": "Last 7 days",
-   "from": "2026-11-07",
-   "scored": 32,
+   "from": "2026-11-08",
+   "scored": 33,
    "not_projected": 3,
-   "projected_total": 2484.0,
-   "actual_total": 2302,
-   "net_error": 182.0,
-   "wape": 26.2,
-   "bias": 7.9,
-   "median_miss": 12.2,
+   "projected_total": 2880.5,
+   "actual_total": 2327,
+   "net_error": 553.5,
+   "wape": 41.8,
+   "bias": 23.8,
+   "median_miss": 12.6,
    "vs_line": {
-    "paired": 32,
-    "wape_new": 26.2,
-    "bias_new": 7.9,
-    "wape_line": 21.9,
-    "bias_line": 0.5
+    "paired": 33,
+    "wape_new": 41.8,
+    "bias_new": 23.8,
+    "wape_line": 37.8,
+    "bias_line": 16.6
    }
   },
   {
    "window": "Last 30 days",
-   "from": "2026-10-15",
-   "scored": 266,
+   "from": "2026-10-16",
+   "scored": 252,
    "not_projected": 20,
-   "projected_total": 20933.0,
-   "actual_total": 21043,
-   "net_error": -110.0,
-   "wape": 29.0,
-   "bias": -0.5,
-   "median_miss": 13.8,
+   "projected_total": 20074.7,
+   "actual_total": 19668,
+   "net_error": 406.7,
+   "wape": 31.2,
+   "bias": 2.1,
+   "median_miss": 14.2,
    "vs_line": {
-    "paired": 148,
-    "wape_new": 26.8,
-    "bias_new": -1.7,
-    "wape_line": 27.1,
-    "bias_line": -4.9
+    "paired": 149,
+    "wape_new": 29.8,
+    "bias_new": 1.4,
+    "wape_line": 30.2,
+    "bias_line": -1.7
    }
   },
   {
    "window": "All",
    "from": null,
-   "scored": 488,
+   "scored": 489,
    "not_projected": 48,
-   "projected_total": 36596.7,
-   "actual_total": 37361,
-   "net_error": -764.3,
-   "wape": 28.3,
-   "bias": -2.0,
+   "projected_total": 36993.2,
+   "actual_total": 37386,
+   "net_error": -392.8,
+   "wape": 29.3,
+   "bias": -1.1,
    "median_miss": 13.6,
    "vs_line": {
-    "paired": 148,
-    "wape_new": 26.8,
-    "bias_new": -1.7,
-    "wape_line": 27.1,
-    "bias_line": -4.9
+    "paired": 149,
+    "wape_new": 29.8,
+    "bias_new": 1.4,
+    "wape_line": 30.2,
+    "bias_line": -1.7
    }
   }
  ],
@@ -99,20 +99,20 @@
   },
   {
    "stage": "established",
-   "scored": 248,
+   "scored": 249,
    "not_projected": 0,
-   "projected_total": 19291.9,
-   "actual_total": 20082,
-   "net_error": -790.1,
-   "wape": 26.5,
-   "bias": -3.9,
+   "projected_total": 19688.4,
+   "actual_total": 20107,
+   "net_error": -418.6,
+   "wape": 28.3,
+   "bias": -2.1,
    "median_miss": 12.9,
    "vs_line": {
-    "paired": 115,
-    "wape_new": 24.8,
-    "bias_new": -4.1,
-    "wape_line": 24.7,
-    "bias_line": -6.5
+    "paired": 116,
+    "wape_new": 28.6,
+    "bias_new": -0.2,
+    "wape_line": 28.5,
+    "bias_line": -2.6
    }
   },
   {
@@ -197,6 +197,41 @@
   "will-call": 4
  },
  "days": [
+  {
+   "date": "2026-11-14",
+   "scored": 1,
+   "not_projected": 0,
+   "projected_total": 396.5,
+   "actual_total": 25,
+   "net_error": 371.5,
+   "wape": 1486.0,
+   "bias": 1486.0,
+   "median_miss": 371.5,
+   "vs_line": {
+    "paired": 1,
+    "wape_new": 1486.0,
+    "bias_new": 1486.0,
+    "wape_line": 1500.0,
+    "bias_line": 1500.0
+   },
+   "rows": [
+    {
+     "id": 1078,
+     "name": "BBB- Pump oil @ Shop",
+     "town": "Plainfield",
+     "stage": "established",
+     "section": "ranked",
+     "previous_pickup": "2026-09-14",
+     "predicted_as_of": "2026-11-14",
+     "projected": 396.5,
+     "range_low": 7.2,
+     "range_high": 399.9,
+     "actual": 25,
+     "error": 371.5,
+     "pct_error": 1486.0
+    }
+   ]
+  },
   {
    "date": "2026-11-13",
    "scored": 10,
