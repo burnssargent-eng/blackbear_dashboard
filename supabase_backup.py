@@ -49,6 +49,7 @@ TABLES = {
     "routes": "id",
     "route_stops": "id",
     "route_trucks": "route_id,day",
+    "route_tasks": "id",
     "collections": "id",
     "collection_history": "id",
     "oil_left": "id",
