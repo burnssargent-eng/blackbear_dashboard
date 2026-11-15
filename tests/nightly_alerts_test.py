@@ -30,10 +30,10 @@ def ok(cond, msg):
         fails += 1
 
 
-ALERTS = ["Export customer page edits", "Score live test", "Export Oil Left", "Export thefts",
-          "Build projections", "Sync shared database", "Place pins for edited addresses"]
-SOURCE_SITE = ["Read assigned routes", "Read outgoing log", "Read new customers' details",
-               "Weekly sweep of customer addresses and notes", "Copy new source-site photos"]
+ALERTS = ["Export customer page edits", "Export site collections", "Score live test", "Export Oil Left",
+          "Export thefts", "Build projections", "Place pins for edited addresses",
+          "Clear site statuses ended by a pickup"]
+SOURCE_SITE = []   # since the cutover no step reads the source site (CUTOVER.md)
 
 
 def steps(path=".github/workflows/nightly-update.yml"):
@@ -64,6 +64,12 @@ names = [n for n, _, _ in all_steps]
 
 print("The workflow")
 ok(set(ALERTS) | set(SOURCE_SITE) <= set(by_name), "every step named here is in the nightly")
+ok(not re.search(r"jamaal_|--rescrape|--routes|--sweep|supabase_sync\.py \|\|", open(".github/workflows/nightly-update.yml").read()),
+   "since the cutover nothing in the nightly reads the source site or mirrors it")
+ok("--export-collections --since \"$CUTOVER_SINCE\"" in by_name["Export site collections"][0]
+   and names.index("Export site collections") < names.index("Rebuild dashboard data") < names.index("Score live test")
+   < names.index("Build projections"),
+   "the site's pickups are exported, then the dashboard rebuilt, then the live test, then the projections")
 ok(names[-1] == "Report failed steps" and names[-2] == "Commit updated data files" and by_name["Report failed steps"][1],
    "the report is the last step, after the commit, and always runs")
 warning_steps = {n for n, s, _ in all_steps if "::warning::" in s}

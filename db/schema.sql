@@ -584,48 +584,18 @@ grant select on public.sync_reports to authenticated;
 grant usage on schema public to service_role;
 grant select, insert, update, delete on all tables in schema public to service_role;
 
--- 7am routes (Sarge, 2026-10-26): every morning at 7:00 Vermont time the site's
--- routes are set to the source site's Today's Routes, before the drivers leave
--- at 7:30-8:30. This starts the GitHub workflow refresh-routes.yml, which reads
--- the source site and runs supabase_sync.py --routes. GitHub's own schedules
--- ran hours late, so the database keeps the clock. pg_cron counts in UTC: it
--- fires at 11:00 and 12:00 UTC and only the one that is 7am in Vermont calls
--- GitHub, so daylight saving needs no change.
--- Needs a GitHub token in the vault, created once by hand and never in this
--- file (fine-grained, this repository only, Actions: read and write):
---   select vault.create_secret('<the token>', 'github_dispatch_token');
--- To replace it later:
---   select vault.update_secret((select id from vault.secrets where name = 'github_dispatch_token'), '<new token>');
--- To start the workflow now (a test): select public.dispatch_morning_routes();
--- then look at Actions on GitHub, and at the reply:
---   select status_code, left(content, 200) from net._http_response order by created desc limit 1;
--- (204 = started; 401 = bad or expired token.)
+-- 7am routes: OFF since the cutover (CUTOVER.md). From 2026-10-26 until then,
+-- pg_cron started refresh-routes.yml at 7am Vermont time to set the site's
+-- routes to the source site's Today's Routes (supabase_sync.py --routes). The
+-- site's routes are now its own, so the job and its function are removed;
+-- pasting this file again is safe (nothing to remove the second time). The
+-- GitHub token it used stays in the vault until removed by hand (Supabase >
+-- Project Settings > Vault, the secret `github_dispatch_token`); revoke it on
+-- GitHub too (Settings > Developer settings > Fine-grained tokens).
+-- To go back (rollback), restore this block from git history before the cutover.
 create extension if not exists pg_cron;
-create extension if not exists pg_net;
-
-create or replace function public.dispatch_morning_routes()
-returns bigint
-language sql
-security definer
-set search_path = ''
-as $$
-  select net.http_post(
-    url := 'https://api.github.com/repos/burnssargent-eng/blackbear_dashboard/actions/workflows/refresh-routes.yml/dispatches',
-    headers := jsonb_build_object(
-      'Authorization', 'Bearer ' || (select decrypted_secret from vault.decrypted_secrets
-                                      where name = 'github_dispatch_token'),
-      'Accept', 'application/vnd.github+json',
-      'X-GitHub-Api-Version', '2022-11-28',
-      'User-Agent', 'blackbear-morning-routes'),
-    body := '{"ref": "main"}'::jsonb);
-$$;
-revoke all on function public.dispatch_morning_routes() from public, anon, authenticated;
-
--- Scheduling under an existing name replaces that job, so a re-run is safe.
-select cron.schedule('morning-routes', '0 11,12 * * *', $cron$
-  select public.dispatch_morning_routes()
-  where extract(hour from now() at time zone 'America/New_York') = 7
-$cron$);
+select cron.unschedule(jobid) from cron.job where jobname = 'morning-routes';
+drop function if exists public.dispatch_morning_routes();
 
 -- A customer's other numbers and emails (a manager's cell, the kitchen line),
 -- beside the main `customers.phone`. Empty until Jim's contacts are checked

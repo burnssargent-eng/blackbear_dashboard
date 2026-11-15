@@ -35,14 +35,22 @@ rows = [
     {"id": 7, "site_model": "seasonal", "site_season": "May-Oct"},
     {"id": 8, "site_model": "will_call", "site_season": None},
 ]
-ok(sync.edit_lines(rows) == [[1, "Mad Moose", "", "", "", "", "", "", "", ""],
+ok(sync.edit_lines(rows) == [[-5, "Added here", "Winooski", 40, "", "", "", "", "", ""],
+                             [1, "Mad Moose", "", "", "", "", "", "", "", ""],
                              [2, "", "Barre Town", 0, "", "", "", "", "", ""],
                              [4, "", "", "", "Route 7", "none", "inactive", "2026-11-01", "", ""],
                              [6, "", "", "", "", "Ski Slopes;Summer Snack Stops", "", "", "", ""],
                              [7, "", "", "", "", "", "", "", "seasonal", "May-Oct"],
                              [8, "", "", "", "", "", "", "", "will_call", ""]],
-   "export: edited source-site customers only, by id, trimmed; a 0 capacity is kept; an empty theme list is 'none'; "
-   "a projection type and its season")
+   "export: edited customers by id, trimmed, and a site-added one always; a 0 capacity is kept; an empty theme "
+   "list is 'none'; a projection type and its season")
+added = [{"id": -9, "name": "New Bakery", "city": "Montpelier", "capacity": 55},
+         {"id": -8, "name": "Old name", "city": "Barre City", "capacity": 30, "site_name": "Renamed", "site_capacity": 80},
+         {"id": 9, "name": "From Jamaal", "city": "Burlington", "capacity": 300}]
+ok(sync.edit_lines(added) == [[-9, "New Bakery", "Montpelier", 55, "", "", "", "", "", ""],
+                              [-8, "Renamed", "Barre City", 80, "", "", "", "", "", ""]],
+   "a site-added customer's own name, town and capacity are exported (its pickups reach the build since the "
+   "cutover), a site_* edit still wins, and a source-site customer's own fields never are")
 ok(sync.lapsed_statuses([{"id": 1, "site_status": "inactive", "site_status_since": "2026-10-01"},
                          {"id": 2, "site_status": "closed_season", "site_status_since": "2026-10-01"},
                          {"id": 3, "site_status": "open", "site_status_since": "2026-10-05"}],

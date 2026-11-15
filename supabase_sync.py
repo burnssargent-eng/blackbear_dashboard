@@ -2,6 +2,12 @@
 """
 Keep the shared database (Supabase, db/schema.sql) in step with the source site.
 
+SINCE THE CUTOVER (CUTOVER.md) the site no longer follows the source site: the
+nightly runs only --export-site-edits, --export-collections, --export-oil-left,
+--export-thefts, --place-pins and --statuses. The plain sync, --routes, --seed,
+--history, --sweep and --export-details below mirror the source site and are
+not run; they are kept for the record and for a rollback.
+
 The site and the source site are both sources (Sarge, 2026-10-21): gallons
 are entered in both, and the nightly never overwrites a route or a pickup.
 Routes are the one exception, by --routes (below). The nightly:
@@ -737,7 +743,8 @@ def export_oil_left(db, out=OIL_LEFT_FILE):
 
 EDIT_COLUMNS = ["customer_id", "name", "town", "capacity", "region", "themes", "status", "status_since",
                 "model", "season"]
-EDIT_SELECT = "select=id,site_name,site_town,site_capacity,site_region,site_themes,site_status,site_status_since"
+EDIT_SELECT = ("select=id,name,city,capacity,site_name,site_town,site_capacity,site_region,site_themes,"
+               "site_status,site_status_since")
 # Projection type (db/schema.sql, site_model): read separately so the export
 # still runs before the schema adds the columns.
 EDIT_SELECT_MODEL = EDIT_SELECT + ",site_model,site_season"
@@ -747,16 +754,18 @@ def edit_lines(rows):
     """
     The customers edited on the site's customer page, as customer_edits.csv
     rows (EDIT_COLUMNS; blank = the source site's or the config's). Themes are
-    joined with ";", and an explicit empty list is written "none". Source-site
-    customers only: one added on the site is not in the scrape, and its own
-    fields are already the site's.
+    joined with ";", and an explicit empty list is written "none".
+    A customer added on the site (negative id) keeps its name, town and
+    capacity in its own fields, not site_*: since the cutover its pickups
+    reach the build (--export-collections), so those go in its line too, or
+    its projection would have no capacity and no town.
     """
     out = []
     for r in sorted(rows, key=lambda r: r["id"]):
-        if r["id"] <= 0:
-            continue
-        cap, themes = r.get("site_capacity"), r.get("site_themes")
-        line = [int(r["id"]), (r.get("site_name") or "").strip(), (r.get("site_town") or "").strip(),
+        own = r["id"] < 0
+        pick = lambda site, base: r.get(site) if r.get(site) not in (None, "") or not own else r.get(base)
+        cap, themes = pick("site_capacity", "capacity"), r.get("site_themes")
+        line = [int(r["id"]), (pick("site_name", "name") or "").strip(), (pick("site_town", "city") or "").strip(),
                 "" if cap is None else int(cap), (r.get("site_region") or "").strip(),
                 "" if themes is None else (";".join(themes) or "none"),
                 r.get("site_status") or "", r.get("site_status_since") or "",
@@ -1122,6 +1131,8 @@ def main():
     ap.add_argument("--since", help="--export-collections: the first day taken from the site (YYYY-MM-DD)")
     ap.add_argument("--place-pins", action="store_true",
                     help="move the map pin of each address edited on the site, and nothing else")
+    ap.add_argument("--statuses", action="store_true",
+                    help="end the site statuses a later pickup has ended, and nothing else (the nightly since the cutover)")
     args = ap.parse_args()
     key = os.environ.get("SUPABASE_SERVICE_KEY", "").strip()
     if not key:
@@ -1141,6 +1152,8 @@ def main():
             export_collections(db, args.since)
         elif args.place_pins:
             place_pins(db)
+        elif args.statuses:
+            clear_lapsed_statuses(db)
         elif args.routes:
             mirror_routes(db)
         elif args.sweep:

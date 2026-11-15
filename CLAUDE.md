@@ -6,6 +6,22 @@ generates that JSON; the browser does everything else.
 
 Live from `main`. **Merging a PR deploys.**
 
+## Since the cutover from Jamaal (CUTOVER.md)
+
+**The site is the source of every pickup.** The nightly no longer reads the
+source site: `supabase_sync.py --export-collections --since 2026-10-26` writes
+the site's pickups and 0-3 codes into `oil_collections_raw.csv` and
+`oil_non_pickups.csv` (history before that day stays as scraped), then a plain
+`oil_scraper.py` rebuilds the dashboard. The 7am route reset, the source-site
+sync (customers, active flags, routes, history), the Sunday sweep, the photo
+copy and the routes/outgoing reads are OFF. `jamaal_routes.json`,
+`outgoing.json` and `capacity_cache.csv` are frozen at the cutover: the
+shadow pages start from that roster, and customers, statuses, routes and
+capacities come from the database. Passages below that describe the nightly
+scrape, `--rescrape`, `--routes`, the 7am reset, the sweep or copying from
+Jamaal describe the time before the cutover; they stay for the record and a
+rollback (CUTOVER.md, "Going back").
+
 **Projection, capacity or seasonality work: read `analysis/README.md` first**
 (the pipeline, the method and every decision so far), then
 `analysis/ROADMAP.md` (what is in flight and what comes next). Update the
@@ -88,10 +104,6 @@ supabase_backup.py ──> the PRIVATE repo burnssargent-eng/blackbear-backup (b
                      every table as JSON + every photo file; its git history is the nightly copies. The free
                      plan has no backups. This repo's Actions logs are public: print counts, never contents.
                      A new table in db/schema.sql must join TABLES there (its test fails until it does).
-takeover_check.py    the takeover dry run (takeover-dry-run.yml, after each nightly; commits nothing): builds
-                     the dashboard from the scrape and, in a copy, from the site (supabase_sync.py
-                     --export-collections --since 2026-10-26), and reports the differences through yesterday
-                     on the run's summary page. Fails only when the export or a build breaks.
 
 site-gate.js         the sign-in card in front of EVERY page (email + password, team list in `people`; one
                      sign-in per device until Sign out). Analytics pages load it with data-protect and stay
@@ -176,9 +188,9 @@ notes, no codes), so it is still in the public git history.
 ## Regenerating data
 
 ```
+python3 supabase_sync.py --export-collections --since 2026-10-26   # the site's pickups (needs the secret key)
 python3 oil_scraper.py            # reuses the committed CSV — no network
-python3 oil_scraper.py --rescrape # live scrape; the nightly does this, you rarely should
-python3 analysis/build_projection_table.py   # after either: rebuilds oil_projections.json
+python3 analysis/build_projection_table.py   # after it: rebuilds oil_projections.json
 ```
 
 The nightly builds with `--today`: the file is dated today (Vermont), not the
@@ -188,13 +200,14 @@ run dates it to the latest pickup, so it matches the nightly only on a day
 that had pickups.
 
 A plain run rewrites the CSV, the Excel report and both JSONs, and is
-idempotent. `.github/workflows/nightly-update.yml` runs `--rescrape` at 07:00
-UTC and commits straight to `main`, so expect a data diff most mornings.
+idempotent. `.github/workflows/nightly-update.yml` runs the export and a plain
+run at 07:00 UTC (`--rescrape` until the cutover) and commits straight to
+`main`, so expect a data diff most mornings.
 Its steps carry on when they fail, so one never blocks the commit; since
 2026-11-15 each step that matters after the cutover records its failure, and
 the last step ("Report failed steps", after the commit) fails the run so
-GitHub emails. Steps reading the source site only warn. A new failure-tolerant
-step must do one or the other (`tests/nightly_alerts_test.py` fails otherwise).
+GitHub emails. A new failure-tolerant step must record its failure too
+(`tests/nightly_alerts_test.py` fails otherwise).
 
 ## Rules that are easy to break
 

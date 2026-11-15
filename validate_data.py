@@ -831,7 +831,6 @@ def check_route_snapshot(report):
     drafts without it -- so a missing or old file only warns.
     """
     import csv
-    from datetime import datetime, timezone
 
     report.section("RT", "Route snapshot (planner beta)")
     path = "jamaal_routes.json"
@@ -844,9 +843,10 @@ def check_route_snapshot(report):
     stops = [s for r in routes for s in r["stops"]]
     report.ok(f"{len(routes)} routes, {len(stops)} stops, read {snap.get('scraped_at')}.")
 
-    age = datetime.now(timezone.utc) - datetime.fromisoformat(snap["scraped_at"])
-    if age.days >= 3:
-        report.warn(f"Route snapshot is {age.days} days old; the nightly may be failing to read it.")
+    # Frozen since the cutover (CUTOVER.md): nothing reads the source site any
+    # more. The shadow pages take their starting roster from it; routes,
+    # customers and statuses come from the database.
+    report.info(f"Route snapshot frozen at the cutover (read {snap.get('scraped_at')}).")
 
     # The site's own Assigned Capacity is the sum of its stops' capacities.
     off = [r["name"] for r in routes if r["assigned_capacity"] is not None

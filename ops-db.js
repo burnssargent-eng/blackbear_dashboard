@@ -900,8 +900,8 @@ let opsRefreshTimer = null;
 
 function opsListen() {
   // A phone left asleep misses live updates, and a route edited from its old
-  // copy would send yesterday's stops back over the 7am reset
-  // (refresh-routes.yml): reload whenever the page is shown again.
+  // copy would send yesterday's stops back over someone else's edits (until
+  // the cutover, over the 7am reset): reload whenever the page is shown again.
   if (typeof document !== "undefined" && document.addEventListener) {
     document.addEventListener("visibilitychange", () => {
       if (document.visibilityState === "visible") opsRefresh();
