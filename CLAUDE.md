@@ -105,9 +105,6 @@ ops-db.js            the shadow pages' database link. Signed in, a page's store 
                      until sent, so offline saves wait). Signed out, the page shows site-gate.js's card; only if
                      the library fails to load does it fall back to the browser copy. ?debug shows a sync log.
 
-index.html      dashboard + Leaflet heatmap. Keeps its OWN inline styles.
-region.html     per-region page. The most complex page.
-year.html  town.html  customers.html  schmootz.html
 projections.html     beta pickup projections. In the nav as "Projections", after Dashboard.
 former.html          former customers: every ended BUSINESS (not account) with how it ended, the
                      headline retention figures, and ?b=<id> for one business's eras, months and
@@ -131,8 +128,6 @@ ops-photos.js        customer photos (barrel, spot, lock): private bucket `photo
                      SITE pickups of any age (gallons, date, Theft + note), lists Oil Left ("Left: 75", editable), and
                      "+ Add entry" adds a pickup, theft or Oil Left for any day up to today (2026-11-16); Jamaal's
                      are fixed in Jamaal and arrive overnight.
-dashboard-utils.js   shared helpers for the detail pages
-dashboard.css        shared styles for the detail pages — NOT index.html
 ```
 
 **`projections.html` only displays `oil_projections.json`.** It never
@@ -367,63 +362,9 @@ member capacities together — some were per-share, some full-barrel.
 old Blue Stone account, 2026-01-01 — opened 2025-12-26). Renames in either
 registry are flagged on the row, never fatal, so they cannot stop the nightly.
 
-**Projection overrides are config, keyed by id.** `MODEL_OVERRIDES` in
-`analysis/build_projection_table.py` routes named customers around the 50/50
-ranking (true closer, semi-closer, open-ish, event-driven, on-demand). Each
-entry is keyed by customer id, asserts the customer name, and carries a
-month-level season where one applies. The customer page's Edit info can set a
-projection type (will-call, seasonal with its months, event-driven; `customers.site_model`,
-exported in `customer_edits.csv`, `SITE_OVERRIDES` in the builder): it REPLACES the
-model's choice and any registry entry for that id (Sarge, 2026-11-12), the report
-flags each replacement, and it takes effect at the next nightly. Seasonal is a
-semi-closer, but held while closed unless it had a pickup after the season ended (a
-coded semi-closer keeps the recent-call threshold). `fringe_seasonal_candidates` informs the
-registry but is never read by it: its labels are review prompts, not
-classifications. Overrides change routing and which columns show, never the
-50/50 arithmetic or a listed capacity. Operator `% full` is capped at 100; the
-raw figure lives in the detail CSV. Shown projected gallons and the range's
-high end are capped at listed capacity too (since 2026-10-15); the uncapped
-figure is `model_projected_gallons`, and the ranking and days-past columns
-keep using it, so the cap changes no order. Since 2026-10-29 every projection
-is the **cycle blend** (`CYCLE_BLEND`, `CYCLE_FACTOR`): rate × days leans toward
-the customer's typical pickup as its usual gap nears, ×1.04. The straight line
-is exported as `line_gal` and scored beside it in the live test until the
-comparison is settled (`analysis/ROADMAP.md`).
-
-**Everyone else is placed automatically by the ladder** (since 2026-10-08,
-`analysis/replay_newcomers.md`): fewer than 3 pickups is *limited data* ("insufficient
-data" until 2026-11-02; the live-test log keeps the old name in its frozen rows) (the
-first pickup only starts the clock; its gallons never enter a rate — and a
-customer back after more than 365 days counts its pickups from the return,
-`COMEBACK_HOLD_DAYS`, since 2026-10-15; back after 181–365 days from a
-closure that repeats an earlier year's, its 2nd and 3rd pickups back are a
-*return* — same time last year, then half that and half the first rate back —
-and any other such return is held, since 2026-10-18); *new* =
-pooled rate over at most the last 6 gaps — also used, from the reopening on,
-for a customer back after a gap longer than `STALE_DAYS` inside a rate window
-(`dormant_restart`, since 2026-10-09; `dormant_restart.md`); *established* (a previous-year rate
-exists) = the 50/50; *seasonal* (passes `analysis/seasonal_open.py`, scored
-from complete years before this one, shuffles seeded per customer) = half
-Sarge's 70/30 (last year around the date / last 2 pickups) + half the last 3
-pickups re-timed by the month index (`seasonal_formulas.md`). No growth factor:
-it amplified customers whose volume had shifted (`recent_override.md`). A will-call detector (median gap > 120 d, or gap
-sd/mean > 0.8 once gaps over 3× the median are dropped as closures) lists an
-account separately. **Will-call and limited-data rows still get a projection**
-(since 2026-11-02, `held_estimate`): the same cycle blend, leaning by
-s = 8 ÷ (8 + gaps in the last year) (`SPARSITY_K`, every row), one pickup ramping to
-it over 44 days, a comeback's typical pickup from its whole history. It is their
-`projected_gal`: ranked, on every ops page and in route totals, with the section in
-grey ("limited data", "will-call"), and they are still listed in their own
-section. A seasonal closer gets none while closed. **An override always wins over the detector**,
-and stale wins over will-call. Rows without their own WAPE get calibrated
-range factors (`RANGE_FACTORS`), never a flat ±20%. A customer NOT in the
-registry whose last 2 complete years show a closed block is a *detected
-closer* (`seasonal_open.closed_months`), routed like a semi-closer; every
-closer in season is ranked on its open-season gaps, and a closer ranked
-off-season on a recent call accrues on open-season days only (*closer
-off-season*, `model_research_2026_10/reopening.md`). **Monthly shapes keep
-zero months as zero** (`seasonal_open.zero_keeping_shape`):
-`cf.factor_from_years` turns an all-zero month into 1.0, which hid closures.
+**The projection model's rules live in `analysis/CLAUDE.md`** (overrides, the ladder, will-call
+and limited-data estimates, closers): it loads whenever you work in `analysis/`. Read it before any
+projection change, along with `analysis/README.md`.
 
 ## Checks
 
@@ -460,33 +401,7 @@ its own command — printing it inside the same chain as the commit is too late.
 
 ## Open follow-ups
 
-Raised by the data, not yet decided by Jim:
-
-- **Rutland has collected nothing in 2026.** Jim put it in Route 7 on
-  2026-09-21 and its 11,123 all-time gallons are real, but the last pickup was
-  2025-09-10. Service dates went 19 in 2023, 15 in 2024, 4 in 2025, 0 since,
-  and the three accounts still flagged active — Hannaford, Mad Rose, Uncle
-  Sam's — all stopped on that same day, on a combined run. Three accounts
-  lapsing separately would stop on three dates; this reads as the route being
-  dropped. Ask Jim whether that was deliberate. Re-checked 2026-11-14:
-  `oil_non_pickups.csv` has no 0-3 entry for them after 2025-09-10 either (the
-  last, an empty check, was 2025-03-05), so no recorded contact at all since.
-- **Towns with no region: placed by Sarge on 2026-11-14, out to Jim for
-  review** (draft for Jim written 2026-11-14; the closest calls were Hanover NH in Route 2
-  East / Route 5 by its pickup days though it borders West Lebanon, Bakersfield
-  Route 15 vs Northwest, Westford Outer Burlington vs Northwest). The 30
-  customers with no geographic region (26,325 gal) went into Route 7, Southern
-  Ski Slopes, South, Central South, Route 2 East / Route 5, Central, Route 15
-  and Outer Burlington; `REQUIRED_TOWN_REGION` asserts each town. `Other` is
-  now one customer, 1095 in Pawtucket RI (a person, 42 gal), left there on
-  purpose. Mount Holly's year-round cafe moved Southern Ski Slopes' Nov-Mar
-  share from 81% to 79%, one more failure in the already-failing
-  `seasonality_test`. Eleven held name-only Burlington accounts got towns by id
-  the same day (129 and 216 by zip, nine from the place in the name; all
-  inactive); 1002 (Enfield, NH or CT?) and 1019 ("NY") are still held.
-- **The Add customer Town list still asks City or Town** for Newport, Rutland
-  and Saint Albans (`SPLIT_TOWNS`, `ops-common.js`); only Barre is accepted as
-  one name. Re-checked 2026-11-14; unchanged.
+Questions raised by the data and still waiting on Jim: `analysis/ROADMAP.md`, "Open follow-ups for Jim".
 
 ## People
 
