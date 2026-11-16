@@ -153,8 +153,10 @@ function opsDiff(prev, next, { today, projectedFor = () => null }) {
   (next.collections || []).forEach(c => {
     nextColl.add(c.client_id);
     const p = prevColl.get(c.client_id);
+    // The projection is frozen only on a pickup saved the day it happened: one added later for an
+    // earlier day (the customer page's Add entry) would freeze today's figure, not that day's.
     if (!p) ops.push({ t: "pickup-new", row: { ...values(c), client_id: c.client_id,
-      projected_gal: projectedFor(c.customer_id) } });
+      projected_gal: c.date === today ? projectedFor(c.customer_id) : null } });
     else if (JSON.stringify(values(p)) !== JSON.stringify(values(c))) {
       ops.push({ t: "pickup-edit", client_id: c.client_id, values: values(c) });
     }

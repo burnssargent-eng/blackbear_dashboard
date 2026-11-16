@@ -63,6 +63,7 @@ let history = [];         // [{ date, gallons, code }] newest first
 let siteOld = [];         // this site's pickups older than the store holds (any age)
 let leftOld = [];         // this customer's Oil Left checks of any age, from the database (signed in)
 let editing = null;       // client_id whose edit form is open, or "left:<day>" for an Oil Left check
+let adding = false;       // the Collections tab's Add entry form is showing
 let undo = null;          // { text, run } for the Undo bar after a delete or a removed photo
 let newPhoto = null;      // { file, url, caption, busy, msg } while a picked photo waits for its caption
 let flash = "";
@@ -105,7 +106,8 @@ function siteRows() {
   // Signed in, saving gives every entry its id; the browser copy needs its own.
   mine.forEach(c => { if (!c.client_id) c.client_id = typeof opsRandomId === "function" ? opsRandomId() : crypto.randomUUID(); });
   const held = new Set(mine.map(c => c.client_id));
-  return mine.map(c => ({ client_id: c.client_id, date: c.date, gallons: c.gallons, theft: !!c.theft, extra: !!c.extra }))
+  return mine.map(c => ({ client_id: c.client_id, date: c.date, gallons: c.gallons, theft: !!c.theft,
+    theft_note: c.theft ? c.theft.note || "" : "", extra: !!c.extra }))
     .concat(siteOld.filter(r => !held.has(r.client_id)));
 }
 
@@ -211,15 +213,78 @@ const pickText = (date, gallons) => `${usDate(date)} · ${gallons <= 3 ? codeTex
  * Edit a site pickup: through the store when it holds it (the last
  * OPS_COLLECTION_DAYS), so every page agrees, else straight to the queue.
  */
-function updatePickup(clientId, gallons, date) {
+function updatePickup(clientId, gallons, date, theft, note) {
   const c = store.collections.find(x => x.client_id === clientId);
-  if (c) { c.gallons = gallons; c.date = date; saveStore(store); return; }
+  if (c) {
+    c.gallons = gallons;
+    c.date = date;
+    if (theft) {
+      // Each change of a theft is kept as a version, as Report Theft does.
+      const was = c.theft || { recorded_at: new Date().toISOString(), versions: [] };
+      c.theft = { ...was, note, versions: [...(was.versions || []), { at: new Date().toISOString(), gallons, note }] };
+    } else delete c.theft;
+    saveStore(store);
+    return;
+  }
   const r = siteOld.find(x => x.client_id === clientId);
   if (!r) return;
   r.gallons = gallons;
   r.date = date;
-  opsQueueOps([{ t: "pickup-edit", client_id: clientId, values: { gallons, picked_on: date } }]);
+  r.theft = theft;
+  r.theft_note = theft ? note : null;
+  opsQueueOps([{ t: "pickup-edit", client_id: clientId,
+    values: { gallons, picked_on: date, theft, theft_note: theft ? note || null : null } }]);
 }
+
+/**
+ * Add an entry for any day up to today (Sarge, 2026-11-16): a pickup, a
+ * theft or Oil Left that was missed or belongs to an earlier day. Today's
+ * pickup or theft goes through the same path as Home's, replacing today's
+ * entry; an earlier day's is a new entry beside whatever that day has.
+ */
+function addEntry(kind, gallons, date, note) {
+  const id = customer.customer_id;
+  if (kind === "left") {
+    store.oilLeft = (store.oilLeft || []).filter(e => !(e.customer_id === id && e.date === date));
+    leftOld = leftOld.filter(e => e.date !== date);
+    store.oilLeft.push({ customer_id: id, date, gallons, route_id: null });
+  } else if (date === todayIso()) {
+    if (kind === "theft") recordTheft(store, customer, gallons, note);
+    else recordCollection(store, customer, typedEntry(gallons));
+  } else {
+    const at = new Date().toISOString();
+    store.collections.push({ customer_id: id, name: customer.name, gallons: kind === "theft" ? gallons : typedEntry(gallons),
+      date, route_id: null, assignment_id: null, client_id: newClientId(),
+      ...(kind === "theft" ? { theft: { note, recorded_at: at, versions: [{ at, gallons, note }] } } : {}) });
+  }
+  saveStore(store);
+}
+
+function addFormHtml() {
+  return `<form class="ops-edit-pick mb-3" data-add-form autocomplete="off">
+    <div class="d-flex gap-2 flex-wrap">
+      <label>Entry <select name="kind" class="form-select" data-add-kind>
+        <option value="pickup">Pickup</option><option value="left">Oil Left</option><option value="theft">Theft</option>
+      </select></label>
+      <label>Gallons <input type="number" inputmode="numeric" min="0" name="gallons" class="form-control"
+        style="width: 90px" required></label>
+      <label>Date <input type="date" name="date" class="form-control" value="${todayIso()}" max="${todayIso()}" required></label>
+    </div>
+    <label class="d-block mt-2" data-add-note hidden>Note <span class="text-muted">(optional)</span>
+      <textarea class="form-control" name="note" rows="2" placeholder="What happened?"></textarea></label>
+    <div class="ops-muted mt-1" data-add-help>A pickup's gallons collected; 0 or 1 saves as Empty.</div>
+    <div class="d-flex gap-2 align-items-center mt-2">
+      <button class="btn btn-primary">Add</button>
+      <button type="button" class="btn ops-plain-btn" data-add-cancel>Cancel</button>
+    </div>
+  </form>`;
+}
+
+const ADD_HELP = {
+  pickup: "A pickup's gallons collected; 0 or 1 saves as Empty.",
+  left: "Gallons seen left in the barrel and not collected. One per day: it replaces that day's.",
+  theft: "Gallons collected at the theft; 0 or 1 if nothing was left.",
+};
 
 /** Delete a site pickup, with an Undo bar that puts the same entry back. */
 function deletePickup(clientId) {
@@ -250,6 +315,9 @@ function editFormHtml(line) {
         style="width: 90px" value="${line.gallons}" required></label>
       <label>Date <input type="date" name="date" class="form-control" value="${line.date}" max="${todayIso()}" required></label>
     </div>
+    <label class="d-block mt-2"><input type="checkbox" name="theft" data-edit-theft ${line.theft ? "checked" : ""}> Theft</label>
+    <label class="d-block" data-edit-note ${line.theft ? "" : "hidden"}>Note
+      <textarea class="form-control" name="note" rows="2" placeholder="What happened?">${escapeHtml(line.theft_note || "")}</textarea></label>
     <div class="d-flex gap-2 align-items-center mt-2">
       <button class="btn btn-primary">Update</button>
       <button type="button" class="btn ops-plain-btn" data-edit-cancel>Cancel</button>
@@ -268,10 +336,12 @@ function collectionsHtml() {
   // Oil Left checks sit among the pickups by day (after a pickup the same day), in no total.
   const lines = picks.concat(leftRows().map(e => ({ date: e.date, gallons: e.gallons, left: true })))
     .sort((a, b) => b.date.localeCompare(a.date));
-  if (!lines.length) return `<div class="text-muted">No collections on record.</div>`;
+  const add = adding ? addFormHtml()
+    : `<button type="button" class="btn btn-outline-primary btn-sm mb-3" data-add-open>+ Add entry</button>`;
+  if (!lines.length) return `${add}<div class="text-muted">No collections on record.</div>`;
   const total = picks.filter(h => !h.code).reduce((sum, h) => sum + h.gallons, 0);
   const figure = h => (h.code ? codeText(h.gallons) : formatNumber(h.gallons));
-  return `<ul class="list-unstyled ops-history mb-1">${lines.map(h => h.left
+  return `${add}<ul class="list-unstyled ops-history mb-1">${lines.map(h => h.left
     ? `<li>${usDate(h.date)} : <button type="button" class="ops-pick-link" data-edit="left:${h.date}"
         aria-expanded="${editing === `left:${h.date}`}">Left: ${formatNumber(h.gallons)}</button>
       ${editing === `left:${h.date}` ? leftEditFormHtml(h) : ""}</li>`
@@ -279,7 +349,8 @@ function collectionsHtml() {
     ? `<li>${usDate(h.date)} : ${figure(h)}</li>`
     : `<li>${usDate(h.date)} : <button type="button" class="ops-pick-link" data-edit="${escapeHtml(h.client_id)}"
         aria-expanded="${editing === h.client_id}">${figure(h)}</button>${h.theft
-        ? ` <span class="ops-theft-text">· Theft</span>` : ""}
+        ? ` <span class="ops-theft-text">· Theft</span>${h.theft_note && editing !== h.client_id
+          ? `<div class="ops-muted" style="overflow-wrap:anywhere">${escapeHtml(h.theft_note)}</div>` : ""}` : ""}
       ${editing === h.client_id ? editFormHtml(h) : ""}</li>`).join("")}</ul>
     <div>Total: ${formatNumber(total)}</div>
     ${lines.some(h => h.site || h.left) ? `<div class="ops-muted mt-2">Blue numbers were entered on this site and can be edited.
@@ -911,6 +982,16 @@ async function init() {
     if (field) notesEdit[field] = e.target.value;
   });
   page.addEventListener("change", e => {
+    // Theft's note shows only while Theft is ticked or picked; the help line follows the entry kind.
+    if (e.target.matches && e.target.matches("[data-edit-theft]")) {
+      e.target.form.querySelector("[data-edit-note]").hidden = !e.target.checked;
+      return;
+    }
+    if (e.target.matches && e.target.matches("[data-add-kind]")) {
+      e.target.form.querySelector("[data-add-note]").hidden = e.target.value !== "theft";
+      e.target.form.querySelector("[data-add-help]").textContent = ADD_HELP[e.target.value];
+      return;
+    }
     const theme = infoEdit && e.target.dataset && e.target.dataset.ieTheme;
     if (theme) {
       const on = new Set(infoEdit.now.themes);
@@ -983,6 +1064,17 @@ async function init() {
       render();
       return;
     }
+    if (e.target.matches("[data-add-form]")) {
+      e.preventDefault();
+      const form = new FormData(e.target);
+      const gallons = parseInt(form.get("gallons"), 10);
+      const date = String(form.get("date") || "");
+      if (!Number.isFinite(gallons) || gallons < 0 || !/^\d{4}-\d{2}-\d{2}$/.test(date) || date > todayIso()) return;
+      addEntry(String(form.get("kind")), gallons, date, String(form.get("note") || "").trim());
+      adding = false;
+      render();
+      return;
+    }
     if (e.target.matches("[data-left-form]")) {
       e.preventDefault();
       const form = new FormData(e.target);
@@ -1000,7 +1092,7 @@ async function init() {
       const gallons = parseInt(form.get("gallons"), 10);
       const date = String(form.get("date") || "");
       if (!Number.isFinite(gallons) || gallons < 0 || !/^\d{4}-\d{2}-\d{2}$/.test(date) || date > todayIso()) return;
-      updatePickup(e.target.dataset.editForm, gallons, date);
+      updatePickup(e.target.dataset.editForm, gallons, date, form.get("theft") === "on", String(form.get("note") || "").trim());
       editing = null;
       render();
       return;
@@ -1031,7 +1123,7 @@ async function init() {
   });
   page.addEventListener("click", e => {
     const t = e.target.closest && e.target.closest("[data-tab]");
-    if (t) { tab = t.dataset.tab; editing = null; undo = null; notesEdit = null; infoEdit = null; theftOpen = false; leftOpen = false; flash = ""; render(); return; }
+    if (t) { tab = t.dataset.tab; editing = null; adding = false; undo = null; notesEdit = null; infoEdit = null; theftOpen = false; leftOpen = false; flash = ""; render(); return; }
     if (e.target.closest("[data-notes-edit]")) {
       notesEdit = { notes: details.notes || "", today: todayNote(customer.customer_id), busy: false, msg: "" };
       render();
@@ -1082,6 +1174,8 @@ async function init() {
     const ed = e.target.closest("[data-edit]");
     if (ed) { editing = editing === ed.dataset.edit ? null : ed.dataset.edit; undo = null; render(); return; }
     if (e.target.closest("[data-edit-cancel]")) { editing = null; render(); return; }
+    if (e.target.closest("[data-add-open]")) { adding = true; editing = null; undo = null; render(); return; }
+    if (e.target.closest("[data-add-cancel]")) { adding = false; render(); return; }
     if (e.target.closest("[data-left-delete]")) { if (editing) deleteLeft(editing.slice(5)); render(); return; }
     if (e.target.closest("[data-edit-delete]")) { if (editing) deletePickup(editing); render(); return; }
     if (e.target.closest("[data-undo-bar]")) { const u = undo; undo = null; if (u) u.run(); render(); return; }

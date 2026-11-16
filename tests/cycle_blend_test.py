@@ -70,7 +70,7 @@ ok(bp.cycle_projection(50.0, 10, None, 60) == 50.0, "no usual gap: the straight 
 # days_to_reach inverts the curve, before and after the gap, with and without a level.
 for gallons, level in ((30, 0), (225, 0), (40, 10), (200, 25)):
     d = bp.days_to_reach(gallons, level, 2.0, 30, 60)
-    ok(abs(bp.cycle_projection(level + 2.0 * d, d, 30, 60) - gallons) < 1e-6,
+    ok(abs(bp.level_projection(level, 2.0, d, 30, 60) - gallons) < 1e-6,
        f"days_to_reach({gallons}, level {level}) lands on {gallons} gal")
 r = row(10)
 d75 = bp.days_to_reach(225, 0, 2.0, 30, 60, S)
@@ -81,6 +81,14 @@ ok(r["days_past_full"] < 0 and abs(-r["days_past_full"] - (bp.days_to_reach(300,
 r = row(10, oil_left=[(last + timedelta(days=4), 30)])
 ok(abs(r["line_projected_gallons"] - 42) < 1e-9 and r["exposure_days"] == 6,
    "Oil Left: the line starts from the level, the blend's clock from the check")
+# The level sits outside the blend (Sarge, 2026-11-16): what was seen left is
+# never leaned toward a typical pickup, only the oil made since is.
+w6 = bp.sparsity_weight(plain, last + timedelta(days=10)) * 6 / 30
+ok(abs(r["model_projected_gallons"] - (30 + F * ((1 - w6) * 12 + w6 * 60))) < 1e-9,
+   "Oil Left: projected = left + the blend of the oil made since")
+r = row(10, oil_left=[(last + timedelta(days=10), 100)])
+ok(abs(r["model_projected_gallons"] - 100) < 1e-9, "a check today projects exactly what was seen left")
+ok(r["model_projected_gallons"] >= 100, "never below what was seen left (it read 86 for Hog Back's 100 before)")
 
 print(f"\n{'FAILED' if failures else 'All passed'} ({failures} failure(s))")
 sys.exit(1 if failures else 0)
