@@ -27,18 +27,17 @@ const compProj=(api.regionProjection(compTotals,LDD)||{}).projected;
 console.log(`   derived ${Math.round(compProj).toLocaleString()} vs published ${data.projection.projected_current_year.toLocaleString()}`);
 ok(Math.abs(compProj-data.projection.projected_current_year)<1,'matches published projected_current_year');
 
-console.log('\n2. Southern Ski Slopes matches the verified plan figures');
+console.log('\n2. Southern Ski Slopes: the profile is built on the live data');
+// Until 2026-11-16 this pinned the 2026-09-10 snapshot's figures (7,217 gal,
+// each month's share, 24.1x, 81%), which every nightly moved. Section 3 checks
+// the arithmetic for every region; here only what holds whatever the data.
 const ssTot=totalsFor('Southern Ski Slopes');
 const ssProj=(api.regionProjection(ssTot,LDD)||{}).projected;
 const ss=api.seasonalityProfile(ssTot,LDD,ssProj);
-ok(Math.round(ssProj)===7217,`projection 7,217 (got ${Math.round(ssProj).toLocaleString()})`);
-const expectPct=[23.2,20.4,25.4,6.5,4.5,1.4,2.0,1.1,1.5,1.9,1.8,10.4];
-const gotPct=ss.shares.map(s=>+(s*100).toFixed(1));
-ok(JSON.stringify(gotPct)===JSON.stringify(expectPct),`shares match plan: ${gotPct.join('/')}`);
-const expectGal=[1677,1469,1832,466,326,100,148,76,107,138,129,750];
-const gotGal=ss.gallons.map(g=>Math.round(g));
-ok(JSON.stringify(gotGal)===JSON.stringify(expectGal),`gallons match plan: ${gotGal.slice(0,3).join('/')}...`);
-ok(ss.fullyElapsed===8,`2026 contributes through month ${ss.fullyElapsed} (Aug)`);
+ok(ss && ssProj>0,`profile and projection exist (${Math.round(ssProj||0).toLocaleString()} gal)`);
+ok(ss && Math.abs(ss.gallons.reduce((a,b)=>a+b,0)-ssProj)<0.01,'monthly gallons sum to the projection');
+const wantElapsed=Number(LDD.slice(5,7))-1;
+ok(ss && ss.fullyElapsed===wantElapsed,`this year contributes through month ${ss&&ss.fullyElapsed} (the month before ${LDD})`);
 
 console.log('\n3. Invariants hold for ALL regions');
 let bad=[]; const noProfile=[];
@@ -86,8 +85,7 @@ const ssH=api.seasonalityHighlights(ss);
 console.log(`   peak ${ssH.peakMonth} ${(ssH.peakShare*100).toFixed(1)}% | low ${ssH.lowMonth} ${(ssH.lowShare*100).toFixed(1)}% | ${ssH.multiple.toFixed(1)}x | Nov-Mar ${(ssH.winterShare*100).toFixed(0)}%`);
 ok(ssH.peakMonth==='March','Southern Ski Slopes peak = March');
 ok(ssH.lowMonth==='August','low = August');
-ok(Math.abs(ssH.multiple-24.1)<0.1,'peak vs low = 24.1x');
-ok(Math.abs(ssH.winterShare-0.81)<0.005,'Nov-Mar share = 81%');
+ok(ssH.winterShare>0.6,`a ski region takes most of its oil Nov-Mar (${(ssH.winterShare*100).toFixed(0)}%)`);
 // derived from the chart's own array, not recomputed
 const maxShare=Math.max(...ss.shares), minShare=Math.min(...ss.shares);
 ok(ssH.peakShare===maxShare && ssH.lowShare===minShare,'peak/low taken straight from profile.shares');

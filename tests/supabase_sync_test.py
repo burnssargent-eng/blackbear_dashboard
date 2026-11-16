@@ -105,7 +105,8 @@ ok(all(cust[c]["active"] for c in assign_ids), "Assign-list customers are active
 ok(all(not cust[c]["active"] for c in stop_ids - assign_ids), "an on-route customer missing from Assign is kept, not active")
 ok(all("notes" in cust[c] for c in assign_ids | stop_ids), "a seed writes notes for every current customer")
 ok(len(db.t["route_stops"]) == len(ss.stop_rows(snap)) > 0, "the seed copies the source site's stops")
-first = snap["routes"][0]
+# A route with 2+ stops (the tests below use the second): the live file's first had one on 2026-11-16.
+first = next(r for r in snap["routes"] if sum(1 for x in r["stops"] if x["customer_id"]) >= 2)
 seeded = sorted((s for s in db.t["route_stops"] if s["route_id"] == first["route_id"]), key=lambda s: s["position"])
 ok([s["customer_id"] for s in seeded] == [s["customer_id"] for s in first["stops"] if s["customer_id"]],
    "stops keep the source site's order")
@@ -246,7 +247,9 @@ ss.sync(mdb, seed=True, today=date(2026, 10, 24))
 by_route = lambda d, rid: [s["customer_id"] for s in sorted((s for s in d.t["route_stops"] if s["route_id"] == rid),
                                                             key=lambda s: s["position"])]
 want = {r["route_id"]: [s["customer_id"] for s in r["stops"] if s["customer_id"] is not None] for r in snap["routes"]}
-r1, r2 = snap["routes"][0]["route_id"], snap["routes"][1]["route_id"]
+# r1 needs 5+ stops (the edits below use five); r2 is any other route.
+r1 = next(r["route_id"] for r in snap["routes"] if len(want[r["route_id"]]) >= 5)
+r2 = next(r["route_id"] for r in snap["routes"] if r["route_id"] != r1)
 # The site's day: a stop removed, one reordered, one moved to another route,
 # Must Get changed, a stranger added, and a route made on the site.
 s1 = sorted((s for s in mdb.t["route_stops"] if s["route_id"] == r1), key=lambda s: s["position"])

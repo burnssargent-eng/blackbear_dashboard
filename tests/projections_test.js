@@ -294,7 +294,10 @@ const newRows = ranked.filter(c => c.stage === "new");
 ok(newRows.length > 0 && newRows.every(c => c.range_high >= c.projected_gal * 1.3 - 1 ||
   c.range_high === c.capacity),
   `${newRows.length} new customers carry a range wider than +/-20% on the high side`);
-ok(/New customer/.test(api.rankedRowsHtml([newRows[0]])), "a new customer renders its note");
+// A dormant restart is stage "new" too but carries its own note: pick one of each.
+const plainNew = newRows.find(c => !c.restart_from), restartedNew = newRows.find(c => c.restart_from);
+ok(plainNew && /New customer/.test(api.rankedRowsHtml([plainNew])), "a new customer renders its note");
+ok(!restartedNew || /back after a/.test(api.rankedRowsHtml([restartedNew])), "a restarted customer renders its restart note");
 const seasonalRows = ranked.filter(c => c.stage === "seasonal");
 ok(seasonalRows.length > 0 && /Seasonal rate/.test(api.rankedRowsHtml([seasonalRows[0]])),
   `${seasonalRows.length} seasonal-rate customers, note rendered`);
