@@ -84,6 +84,9 @@ supabase_sync.py --export-thefts ──> thefts.csv  (committed: customer id, da
 db/schema.sql        the database's whole definition. Idempotent: change it, then paste ALL of it into
                      Supabase's SQL editor. Every table is login-only (RLS + `people`); nothing is open to the
                      public key. The secret key lives only in GitHub secrets (SUPABASE_SERVICE_KEY).
+                     `activity_log` (Sarge, 2026-11-16): every change a signed-in person makes to pickups, Oil
+                     Left, today's notes, route stops, customers, tasks and trucks (row before/after, who, when).
+                     PRIVATE: no policy or grant, so no page can read it; the SQL editor only. Never show it on the site.
 supabase_backup.py ──> the PRIVATE repo burnssargent-eng/blackbear-backup (backup.yml, nightly 09:30 UTC):
                      every table as JSON + every photo file; its git history is the nightly copies. The free
                      plan has no backups. This repo's Actions logs are public: print counts, never contents.

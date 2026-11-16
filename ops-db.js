@@ -512,6 +512,15 @@ async function opsSitePickups(customerId) {
     extra: !!r.extra }));
 }
 
+/** A customer's Oil Left checks of any age (signed in), newest first; null when they cannot be read. */
+async function opsSiteOilLeft(customerId) {
+  if (!opsDb || !opsDb.person) return null;
+  const { data, error } = await opsDb.client.from("oil_left").select("checked_on,gallons_left,route_id")
+    .eq("customer_id", customerId).order("checked_on", { ascending: false });
+  if (error) return null;
+  return data.map(r => ({ customer_id: customerId, date: r.checked_on, gallons: r.gallons_left, route_id: r.route_id }));
+}
+
 /** One write. Returns "ok", "retry" (no signal: keep it) or "failed" (refused: set aside). */
 async function opsSend(op) {
   // A request begun as the signal drops can hang for minutes and hold up the
