@@ -59,6 +59,7 @@ TABLES = {
     "sync_reports": "id",
     "customer_contacts": "id",
     "office_phones": "name",
+    "activity_log": "id",
 }
 MUST_HAVE_ROWS = ("customers", "collections")   # empty = a broken read, never real
 

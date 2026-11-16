@@ -61,7 +61,8 @@ const cwReady = typeof opsCollectedWith === "function";
 let siteFigures = null;   // { capacity, periodicity_days } from capacity_cache.csv
 let history = [];         // [{ date, gallons, code }] newest first
 let siteOld = [];         // this site's pickups older than the store holds (any age)
-let editing = null;       // client_id whose edit form is open
+let leftOld = [];         // this customer's Oil Left checks of any age, from the database (signed in)
+let editing = null;       // client_id whose edit form is open, or "left:<day>" for an Oil Left check
 let undo = null;          // { text, run } for the Undo bar after a delete or a removed photo
 let newPhoto = null;      // { file, url, caption, busy, msg } while a picked photo waits for its caption
 let flash = "";
@@ -94,6 +95,7 @@ function usDate(iso) {
 // A browser can pair this page with an older ops-db.js or no ops-photos.js for
 // a few minutes after a deploy: editing old pickups and photos then stay hidden.
 const editReady = typeof opsSitePickups === "function";
+const leftEditReady = typeof opsSiteOilLeft === "function" && typeof recordOilLeft === "function";
 const photosReady = typeof opsPhotoPick === "function" && typeof opsRandomId === "function";
 
 /** This customer's pickups entered on this site: the store's, then older ones from the database. */
@@ -114,6 +116,88 @@ async function loadSiteOld() {
   if (!rows) return;
   siteOld = rows;
   if (tab === "collections" && !editing) render();
+}
+
+/**
+ * This customer's Oil Left checks (Sarge, 2026-11-16): the store's (the last
+ * OPS_COLLECTION_DAYS), then older ones from the database. One per day.
+ */
+function leftRows() {
+  if (!leftEditReady) return [];
+  const id = customer.customer_id;
+  const mine = (store.oilLeft || []).filter(e => e.customer_id === id);
+  const held = new Set(mine.map(e => e.date));
+  return mine.concat(leftOld.filter(e => !held.has(e.date)));
+}
+
+async function loadLeftOld() {
+  if (!leftEditReady) return;
+  const rows = await opsSiteOilLeft(customer.customer_id);
+  if (!rows) return;
+  leftOld = rows;
+  if (tab === "collections" && !editing) render();
+}
+
+const leftText = (date, gallons) => `${usDate(date)} · Left: ${formatNumber(gallons)}`;
+
+/**
+ * Change an Oil Left check's gallons or day. Through the store when it holds
+ * the check, else straight to the queue (a new day's row, then the old day's
+ * removed: the day is half the key). Moved onto a day that already has a
+ * check, it replaces that one.
+ */
+function updateLeft(oldDate, gallons, date) {
+  const id = customer.customer_id;
+  const mine = e => e.customer_id === id;
+  const e = store.oilLeft.find(x => mine(x) && x.date === oldDate);
+  const old = leftOld.find(x => x.date === oldDate);
+  if (!e && !old) return;
+  if (date !== oldDate) {
+    store.oilLeft = store.oilLeft.filter(x => !(mine(x) && x.date === date));
+    leftOld = leftOld.filter(x => x.date !== date);
+  }
+  if (old) { old.gallons = gallons; old.date = date; }
+  if (e) { e.gallons = gallons; e.date = date; saveStore(store); return; }
+  saveStore(store);   // first: a replaced check in the store is removed before the new row is written
+  const ops = [{ t: "left-set", row: { customer_id: id, checked_on: date, gallons_left: gallons, route_id: old.route_id ?? null } }];
+  if (date !== oldDate) ops.push({ t: "left-delete", customer_id: id, day: oldDate });
+  opsQueueOps(ops);
+}
+
+/** Delete an Oil Left check, with an Undo bar that puts it back. */
+function deleteLeft(date) {
+  const id = customer.customer_id;
+  const k = store.oilLeft.findIndex(x => x.customer_id === id && x.date === date);
+  const old = leftOld.find(x => x.date === date);
+  leftOld = leftOld.filter(x => x.date !== date);
+  if (k >= 0) {
+    const [e] = store.oilLeft.splice(k, 1);
+    saveStore(store);
+    undo = { text: `Deleted ${leftText(e.date, e.gallons)}`, run: () => { store.oilLeft.push(e); saveStore(store); } };
+  } else if (old) {
+    opsQueueOps([{ t: "left-delete", customer_id: id, day: date }]);
+    undo = { text: `Deleted ${leftText(old.date, old.gallons)}`, run: () => {
+      leftOld.push(old);
+      opsQueueOps([{ t: "left-set", row: { customer_id: id, checked_on: old.date, gallons_left: old.gallons,
+        route_id: old.route_id ?? null } }]);
+    } };
+  }
+  editing = null;
+}
+
+function leftEditFormHtml(line) {
+  return `<form class="ops-edit-pick" data-left-form="${line.date}" autocomplete="off">
+    <div class="d-flex gap-2">
+      <label>Gallons left <input type="number" inputmode="numeric" min="0" name="gallons" class="form-control"
+        style="width: 90px" value="${line.gallons}" required></label>
+      <label>Date <input type="date" name="date" class="form-control" value="${line.date}" max="${todayIso()}" required></label>
+    </div>
+    <div class="d-flex gap-2 align-items-center mt-2">
+      <button class="btn btn-primary">Update</button>
+      <button type="button" class="btn ops-plain-btn" data-edit-cancel>Cancel</button>
+      <button type="button" class="btn ops-edit-delete ms-auto" data-left-delete>Delete</button>
+    </div>
+  </form>`;
 }
 
 async function loadPhotos() {
@@ -180,18 +264,25 @@ function editFormHtml(line) {
  * form; the source site's own pickups are plain (they are fixed there).
  */
 function collectionsHtml() {
-  const lines = collectionLines(history, siteRows());
+  const picks = collectionLines(history, siteRows());
+  // Oil Left checks sit among the pickups by day (after a pickup the same day), in no total.
+  const lines = picks.concat(leftRows().map(e => ({ date: e.date, gallons: e.gallons, left: true })))
+    .sort((a, b) => b.date.localeCompare(a.date));
   if (!lines.length) return `<div class="text-muted">No collections on record.</div>`;
-  const total = lines.filter(h => !h.code).reduce((sum, h) => sum + h.gallons, 0);
+  const total = picks.filter(h => !h.code).reduce((sum, h) => sum + h.gallons, 0);
   const figure = h => (h.code ? codeText(h.gallons) : formatNumber(h.gallons));
-  return `<ul class="list-unstyled ops-history mb-1">${lines.map(h => !h.site
+  return `<ul class="list-unstyled ops-history mb-1">${lines.map(h => h.left
+    ? `<li>${usDate(h.date)} : <button type="button" class="ops-pick-link" data-edit="left:${h.date}"
+        aria-expanded="${editing === `left:${h.date}`}">Left: ${formatNumber(h.gallons)}</button>
+      ${editing === `left:${h.date}` ? leftEditFormHtml(h) : ""}</li>`
+    : !h.site
     ? `<li>${usDate(h.date)} : ${figure(h)}</li>`
     : `<li>${usDate(h.date)} : <button type="button" class="ops-pick-link" data-edit="${escapeHtml(h.client_id)}"
         aria-expanded="${editing === h.client_id}">${figure(h)}</button>${h.theft
         ? ` <span class="ops-theft-text">· Theft</span>` : ""}
       ${editing === h.client_id ? editFormHtml(h) : ""}</li>`).join("")}</ul>
     <div>Total: ${formatNumber(total)}</div>
-    ${lines.some(h => h.site) ? `<div class="ops-muted mt-2">Blue numbers were entered on this site and can be edited.
+    ${lines.some(h => h.site || h.left) ? `<div class="ops-muted mt-2">Blue numbers were entered on this site and can be edited.
       The rest come from Jamaal: fix those there, and the change arrives overnight.</div>` : ""}`;
 }
 
@@ -793,7 +884,7 @@ async function init() {
     return;
   }
   try {
-    store = await opsOpenStore(data.snap, { index: data.index, onRemote: s => { store = s; render(); loadSiteOld(); } });
+    store = await opsOpenStore(data.snap, { index: data.index, onRemote: s => { store = s; render(); loadSiteOld(); loadLeftOld(); } });
   } catch (err) {
     document.getElementById("page").innerHTML = `<div class="alert alert-danger">${escapeHtml(err.message)}</div>`;
     return;
@@ -892,6 +983,17 @@ async function init() {
       render();
       return;
     }
+    if (e.target.matches("[data-left-form]")) {
+      e.preventDefault();
+      const form = new FormData(e.target);
+      const gallons = parseInt(form.get("gallons"), 10);
+      const date = String(form.get("date") || "");
+      if (!Number.isFinite(gallons) || gallons < 0 || !/^\d{4}-\d{2}-\d{2}$/.test(date) || date > todayIso()) return;
+      updateLeft(e.target.dataset.leftForm, gallons, date);
+      editing = null;
+      render();
+      return;
+    }
     if (e.target.matches("[data-edit-form]")) {
       e.preventDefault();
       const form = new FormData(e.target);
@@ -980,6 +1082,7 @@ async function init() {
     const ed = e.target.closest("[data-edit]");
     if (ed) { editing = editing === ed.dataset.edit ? null : ed.dataset.edit; undo = null; render(); return; }
     if (e.target.closest("[data-edit-cancel]")) { editing = null; render(); return; }
+    if (e.target.closest("[data-left-delete]")) { if (editing) deleteLeft(editing.slice(5)); render(); return; }
     if (e.target.closest("[data-edit-delete]")) { if (editing) deletePickup(editing); render(); return; }
     if (e.target.closest("[data-undo-bar]")) { const u = undo; undo = null; if (u) u.run(); render(); return; }
     if (e.target.closest("[data-photo-add]")) {
@@ -1032,6 +1135,7 @@ async function init() {
   });
   render();
   loadSiteOld();
+  loadLeftOld();
   if (id > 0 && typeof opsContactsLoad === "function") opsContactsLoad(id).then(list => {
     contacts = list;
     if (list.length && !infoEdit) render();

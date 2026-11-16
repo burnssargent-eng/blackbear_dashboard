@@ -670,6 +670,66 @@ create policy "members read" on public.office_phones for select to authenticated
 revoke all on public.office_phones from anon, authenticated;
 grant select on public.office_phones to authenticated;
 
+-- Who changed what (Sarge, 2026-11-16): a private log for settling duplicates
+-- and disagreements in the SQL editor, never shown on the site. Every insert,
+-- update and delete a signed-in person makes on these tables, with the row
+-- before and after. No policy and no grant: the site cannot read it (RLS on,
+-- nothing allowed); the SQL editor and the backup's secret key can. Writes
+-- with no person behind them (the nightly, the 7am route reset, the SQL
+-- editor) are not logged: they would fill the free plan's space nightly. An
+-- update that changes nothing is skipped. For example, Oil Left by name:
+--   select a.changed_at at time zone 'America/New_York' as at, p.name, a.op, a.old_row, a.new_row
+--   from public.activity_log a left join public.people p on p.user_id = a.changed_by
+--   where a.table_name = 'oil_left' order by a.changed_at desc;
+create table if not exists public.activity_log (
+  id         bigint generated always as identity primary key,
+  table_name text not null,
+  op         text not null check (op in ('insert', 'update', 'delete')),
+  old_row    jsonb,
+  new_row    jsonb,
+  changed_by uuid not null,
+  changed_at timestamptz not null default now()
+);
+create index if not exists activity_log_idx on public.activity_log (table_name, changed_at);
+alter table public.activity_log enable row level security;
+revoke all on public.activity_log from anon, authenticated;
+
+-- SECURITY DEFINER: writes the log, which the site cannot.
+create or replace function public.log_activity()
+returns trigger
+language plpgsql
+security definer
+set search_path = ''
+as $$
+declare
+  who uuid := auth.uid();
+  o jsonb;
+  n jsonb;
+begin
+  if who is null then return null; end if;
+  if tg_op <> 'INSERT' then o := to_jsonb(old); end if;
+  if tg_op <> 'DELETE' then n := to_jsonb(new); end if;
+  -- Ignore the update stamps when deciding whether anything changed.
+  if tg_op = 'UPDATE' and (o - 'updated_at' - 'updated_by') = (n - 'updated_at' - 'updated_by') then
+    return null;
+  end if;
+  insert into public.activity_log (table_name, op, old_row, new_row, changed_by)
+  values (tg_table_name, lower(tg_op), o, n, who);
+  return null;
+end $$;
+revoke all on function public.log_activity() from public, anon, authenticated;
+
+do $$
+declare t text;
+begin
+  foreach t in array array['collections', 'oil_left', 'daily_notes', 'route_stops', 'customers',
+                           'route_tasks', 'route_trucks'] loop
+    execute format('drop trigger if exists %I on public.%I', t || '_activity', t);
+    execute format('create trigger %I after insert or update or delete on public.%I
+                    for each row execute function public.log_activity()', t || '_activity', t);
+  end loop;
+end $$;
+
 -- ---------------------------------------------------------------------------
 -- AFTER inviting yourself and Jim (Authentication > Users > Invite user) and
 -- each of you accepting the email, run this separately with your real emails:
