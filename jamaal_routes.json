@@ -1,5 +1,5 @@
 {
- "scraped_at": "2026-11-16T12:00:11+00:00",
+ "scraped_at": "2026-11-16T16:46:01+00:00",
  "source": "routes_assigned.php, assign_routes.php",
  "routes": [
   {
@@ -20,8 +20,32 @@
   {
    "route_id": 14,
    "name": "Central Vt 2",
-   "assigned_capacity": 1300,
+   "assigned_capacity": 1490,
    "stops": [
+    {
+     "assignment_id": 24593,
+     "customer_id": 1304,
+     "name": "Lake Morley Resort",
+     "capacity": 150,
+     "days_over": 13,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24594,
+     "customer_id": 622,
+     "name": "Samurai Soul Food",
+     "capacity": 150,
+     "days_over": -4,
+     "must_get": false
+    },
+    {
+     "assignment_id": 24595,
+     "customer_id": 124,
+     "name": "Graniteville General",
+     "capacity": 90,
+     "days_over": 18,
+     "must_get": false
+    },
     {
      "assignment_id": 24524,
      "customer_id": 1128,
@@ -87,19 +111,11 @@
      "must_get": false
     },
     {
-     "assignment_id": 24563,
-     "customer_id": 1498,
-     "name": "Barre Country Club-Plainfield",
-     "capacity": 150,
-     "days_over": 52,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24545,
-     "customer_id": 158,
-     "name": "South Village Mobile (Convenience Plus)",
-     "capacity": 150,
-     "days_over": -32,
+     "assignment_id": 24436,
+     "customer_id": 1268,
+     "name": "CRAVE—-Broken Hearts Burger",
+     "capacity": 100,
+     "days_over": 13,
      "must_get": true
     }
    ]
@@ -107,8 +123,16 @@
   {
    "route_id": 15,
    "name": "Drop tote",
-   "assigned_capacity": 308,
+   "assigned_capacity": 408,
    "stops": [
+    {
+     "assignment_id": 24592,
+     "customer_id": 335,
+     "name": "Pho Hong",
+     "capacity": 100,
+     "days_over": -60,
+     "must_get": true
+    },
     {
      "assignment_id": 24507,
      "customer_id": 1548,
@@ -130,15 +154,23 @@
   {
    "route_id": 2,
    "name": "Central Vt",
-   "assigned_capacity": 100,
+   "assigned_capacity": 300,
    "stops": [
     {
-     "assignment_id": 24436,
-     "customer_id": 1268,
-     "name": "CRAVE—-Broken Hearts Burger",
-     "capacity": 100,
-     "days_over": 13,
+     "assignment_id": 24563,
+     "customer_id": 1498,
+     "name": "Barre Country Club-Plainfield",
+     "capacity": 150,
+     "days_over": 52,
      "must_get": false
+    },
+    {
+     "assignment_id": 24545,
+     "customer_id": 158,
+     "name": "South Village Mobile (Convenience Plus)",
+     "capacity": 150,
+     "days_over": -32,
+     "must_get": true
     }
    ]
   },
@@ -224,189 +256,6 @@
      "capacity": 300,
      "days_over": 11,
      "must_get": true
-    }
-   ]
-  },
-  {
-   "route_id": 7,
-   "name": "Burlington",
-   "assigned_capacity": 3636,
-   "stops": [
-    {
-     "assignment_id": 24591,
-     "customer_id": 1553,
-     "name": "BBB-Drop Cub at New England Autoglass",
-     "capacity": 1,
-     "days_over": -364,
-     "must_get": true
-    },
-    {
-     "assignment_id": 24588,
-     "customer_id": 335,
-     "name": "Pho Hong",
-     "capacity": 100,
-     "days_over": -20,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24571,
-     "customer_id": 1381,
-     "name": "Fire and Gold-North Winooski Ave - 100%",
-     "capacity": 100,
-     "days_over": 3,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24577,
-     "customer_id": 1133,
-     "name": "May Day",
-     "capacity": 150,
-     "days_over": -4,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24568,
-     "customer_id": 1306,
-     "name": "Crispy Burger- Jason (Volcano)",
-     "capacity": 150,
-     "days_over": -1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24581,
-     "customer_id": 328,
-     "name": "Sweetwaters 2.0!!!- 50%",
-     "capacity": 300,
-     "days_over": -6,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24564,
-     "customer_id": 1273,
-     "name": "BKK-inTheAlley 10%",
-     "capacity": 300,
-     "days_over": -2,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24580,
-     "customer_id": 327,
-     "name": "RiRa's 40%",
-     "capacity": 300,
-     "days_over": -8,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24590,
-     "customer_id": 326,
-     "name": "Leunigs Bistro",
-     "capacity": 165,
-     "days_over": -15,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24569,
-     "customer_id": 332,
-     "name": "Daily Planet-65270",
-     "capacity": 100,
-     "days_over": -1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24566,
-     "customer_id": 321,
-     "name": "BURLS/El Cortijo-Burlington",
-     "capacity": 150,
-     "days_over": -1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24561,
-     "customer_id": 325,
-     "name": "Farmhouse",
-     "capacity": 300,
-     "days_over": -1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24576,
-     "customer_id": 1338,
-     "name": "Ken’s Pizza",
-     "capacity": 55,
-     "days_over": -1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24578,
-     "customer_id": 323,
-     "name": "Pascolo 50% with Henrys",
-     "capacity": 150,
-     "days_over": -1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24574,
-     "customer_id": 322,
-     "name": "Henrys Diner-50%",
-     "capacity": 150,
-     "days_over": -1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24397,
-     "customer_id": 304,
-     "name": "Hotel Vermont - 50%",
-     "capacity": 200,
-     "days_over": 5,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24548,
-     "customer_id": 1037,
-     "name": "Hen of the Wood - 50%",
-     "capacity": 200,
-     "days_over": 5,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24579,
-     "customer_id": 1386,
-     "name": "Poco- Burlington",
-     "capacity": 65,
-     "days_over": 12,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24572,
-     "customer_id": 352,
-     "name": "Great Northern",
-     "capacity": 150,
-     "days_over": -4,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24565,
-     "customer_id": 1070,
-     "name": "Burlington Beer Co",
-     "capacity": 200,
-     "days_over": -1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24582,
-     "customer_id": 1350,
-     "name": "Switchback",
-     "capacity": 200,
-     "days_over": -1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24567,
-     "customer_id": 315,
-     "name": "Citizen Cider - 0316",
-     "capacity": 150,
-     "days_over": -8,
-     "must_get": false
     }
    ]
   },
@@ -837,7 +686,7 @@
    "customer_id": 1273,
    "name": "BKK-inTheAlley 10%",
    "city": "Burlington",
-   "days_over": -2
+   "days_over": -28
   },
   {
    "customer_id": 300,
@@ -849,19 +698,19 @@
    "customer_id": 1070,
    "name": "Burlington Beer Co",
    "city": "Burlington",
-   "days_over": -1
+   "days_over": -14
   },
   {
    "customer_id": 321,
    "name": "BURLS/El Cortijo-Burlington",
    "city": "Burlington",
-   "days_over": -1
+   "days_over": -14
   },
   {
    "customer_id": 315,
    "name": "Citizen Cider - 0316",
    "city": "Burlington",
-   "days_over": -8
+   "days_over": -21
   },
   {
    "customer_id": 345,
@@ -885,13 +734,13 @@
    "customer_id": 1306,
    "name": "Crispy Burger- Jason (Volcano)",
    "city": "Burlington",
-   "days_over": -1
+   "days_over": -14
   },
   {
    "customer_id": 332,
    "name": "Daily Planet-65270",
    "city": "Burlington",
-   "days_over": -1
+   "days_over": -14
   },
   {
    "customer_id": 1358,
@@ -939,13 +788,13 @@
    "customer_id": 325,
    "name": "Farmhouse",
    "city": "Burlington",
-   "days_over": -1
+   "days_over": -14
   },
   {
    "customer_id": 1381,
    "name": "Fire and Gold-North Winooski Ave - 100%",
    "city": "Burlington",
-   "days_over": 3
+   "days_over": -28
   },
   {
    "customer_id": 1336,
@@ -963,7 +812,7 @@
    "customer_id": 352,
    "name": "Great Northern",
    "city": "Burlington",
-   "days_over": -4
+   "days_over": -17
   },
   {
    "customer_id": 1187,
@@ -987,25 +836,25 @@
    "customer_id": 1037,
    "name": "Hen of the Wood - 50%",
    "city": "Burlington",
-   "days_over": 5
+   "days_over": -21
   },
   {
    "customer_id": 322,
    "name": "Henrys Diner-50%",
    "city": "Burlington",
-   "days_over": -1
+   "days_over": -14
   },
   {
    "customer_id": 304,
    "name": "Hotel Vermont - 50%",
    "city": "Burlington",
-   "days_over": 5
+   "days_over": -21
   },
   {
    "customer_id": 1338,
    "name": "Ken’s Pizza",
    "city": "Burlington",
-   "days_over": -1
+   "days_over": -14
   },
   {
    "customer_id": 1354,
@@ -1029,13 +878,13 @@
    "customer_id": 326,
    "name": "Leunigs Bistro",
    "city": "Burlington",
-   "days_over": -15
+   "days_over": -28
   },
   {
    "customer_id": 1133,
    "name": "May Day",
    "city": "Burlington",
-   "days_over": -4
+   "days_over": -35
   },
   {
    "customer_id": 1457,
@@ -1059,13 +908,13 @@
    "customer_id": 323,
    "name": "Pascolo 50% with Henrys",
    "city": "Burlington",
-   "days_over": -1
+   "days_over": -14
   },
   {
    "customer_id": 335,
    "name": "Pho Hong",
    "city": "Burlington",
-   "days_over": -20
+   "days_over": -60
   },
   {
    "customer_id": 439,
@@ -1077,13 +926,13 @@
    "customer_id": 1386,
    "name": "Poco- Burlington",
    "city": "Burlington",
-   "days_over": 12
+   "days_over": -28
   },
   {
    "customer_id": 327,
    "name": "RiRa's 40%",
    "city": "Burlington",
-   "days_over": -8
+   "days_over": -21
   },
   {
    "customer_id": 308,
@@ -1119,13 +968,13 @@
    "customer_id": 328,
    "name": "Sweetwaters 2.0!!!- 50%",
    "city": "Burlington",
-   "days_over": -6
+   "days_over": -19
   },
   {
    "customer_id": 1350,
    "name": "Switchback",
    "city": "Burlington",
-   "days_over": -1
+   "days_over": -14
   },
   {
    "customer_id": 1029,
@@ -2085,7 +1934,7 @@
    "customer_id": 1553,
    "name": "BBB-Drop Cub at New England Autoglass",
    "city": "Montpelier",
-   "days_over": -364
+   "days_over": -365
   },
   {
    "customer_id": 147,
