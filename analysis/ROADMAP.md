@@ -467,3 +467,35 @@ be). Sarge also wants to look at the route-entry tool on the source site
 reordering instead of finicky drag and drop, and each route showing capacity,
 expected gallons (e.g. 15/45, 33%) and days until the 75% pickup point.
 **Parked until the two phases above are done.**
+
+## Open follow-ups for Jim
+
+Moved from the root CLAUDE.md on 2026-11-16. Raised by the data, not yet decided by Jim.
+
+Raised by the data, not yet decided by Jim:
+
+- **Rutland has collected nothing in 2026.** Jim put it in Route 7 on
+  2026-09-21 and its 11,123 all-time gallons are real, but the last pickup was
+  2025-09-10. Service dates went 19 in 2023, 15 in 2024, 4 in 2025, 0 since,
+  and the three accounts still flagged active — Hannaford, Mad Rose, Uncle
+  Sam's — all stopped on that same day, on a combined run. Three accounts
+  lapsing separately would stop on three dates; this reads as the route being
+  dropped. Ask Jim whether that was deliberate. Re-checked 2026-11-14:
+  `oil_non_pickups.csv` has no 0-3 entry for them after 2025-09-10 either (the
+  last, an empty check, was 2025-03-05), so no recorded contact at all since.
+- **Towns with no region: placed by Sarge on 2026-11-14, out to Jim for
+  review** (draft for Jim written 2026-11-14; the closest calls were Hanover NH in Route 2
+  East / Route 5 by its pickup days though it borders West Lebanon, Bakersfield
+  Route 15 vs Northwest, Westford Outer Burlington vs Northwest). The 30
+  customers with no geographic region (26,325 gal) went into Route 7, Southern
+  Ski Slopes, South, Central South, Route 2 East / Route 5, Central, Route 15
+  and Outer Burlington; `REQUIRED_TOWN_REGION` asserts each town. `Other` is
+  now one customer, 1095 in Pawtucket RI (a person, 42 gal), left there on
+  purpose. Mount Holly's year-round cafe moved Southern Ski Slopes' Nov-Mar
+  share from 81% to 79%, one more failure in the already-failing
+  `seasonality_test`. Eleven held name-only Burlington accounts got towns by id
+  the same day (129 and 216 by zip, nine from the place in the name; all
+  inactive); 1002 (Enfield, NH or CT?) and 1019 ("NY") are still held.
+- **The Add customer Town list still asks City or Town** for Newport, Rutland
+  and Saint Albans (`SPLIT_TOWNS`, `ops-common.js`); only Barre is accepted as
+  one name. Re-checked 2026-11-14; unchanged.
