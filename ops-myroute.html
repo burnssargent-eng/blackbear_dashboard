@@ -487,27 +487,32 @@ function telHref(phone) {
 }
 
 /**
- * The More block (Sarge, 2026-11-14): two rows of 33px buttons, each as wide as its words. Top:
- * Note · Photo · Oil Left · Barrel drop (hidden once a barrel is dropped there today: the stop's
- * line then offers Undo). Bottom: Call (green, only when the customer has a phone) at the left,
- * Report Theft at the right, so the red one stays apart. Under More ▾ on a phone; always on a wide
- * screen, where More ▾ is hidden.
+ * The More block (Sarge, 2026-11-16, M1): a grid the full width of the stop, 39px buttons, no
+ * gaps. Top: Note · Photo (dashed, with their icons) · Oil Left · Barrel drop, each column sized to
+ * its words and stretched to fill. Under them, Call spans Note+Photo and Report Theft spans Oil
+ * Left+Barrel drop. A button that does not apply (no phone, a barrel already dropped today, a theft
+ * already saved) leaves its cell blank, so nothing shifts. Note never reads "Edit note": it would
+ * not fit at 375px, and a saved note shows below the block anyway. Under More ▾ on a phone; always
+ * on a wide screen, where More ▾ is hidden.
  */
+const NOTE_ICON = `<svg class="ops-btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"></path></svg>`;
+const PHOTO_ICON = `<svg class="ops-btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2" aria-hidden="true"><path d="M3 8h4l2-3h6l2 3h4v11H3z"></path><circle cx="12" cy="13" r="4"></circle></svg>`;
+
 function actionBlockHtml(id, d, c, open) {
   const busy = photoAdd && photoAdd.id === id && !photoAdd.msg;
   const tel = telHref(d.phone);
   const dropped = tasksReady && todaysDrop(store, id);
+  const gap = cls => `<span class="ops-act-gap ${cls}" aria-hidden="true"></span>`;
   return `<div class="ops-act-block${open ? "" : " ops-wide-only"}">
-      <div class="ops-act-row">
-        <button type="button" class="btn ops-act-tile" data-act="note-edit" data-id="${id}">✎ ${d.notes || todayNoteFor(id) ? "Edit note" : "Note"}</button>
-        ${photosReady ? `<button type="button" class="btn ops-act-tile" data-act="photo-add" data-id="${id}"${busy ? " disabled" : ""}>${busy ? "Adding…" : "Photo"}</button>` : ""}
-        ${oilLeftReady ? `<button type="button" class="btn btn-outline-primary" data-act="left" data-id="${id}">Oil Left</button>` : ""}
-        ${tasksReady && !dropped ? `<button type="button" class="btn ops-drop-btn" data-act="drop" data-id="${id}">Barrel drop</button>` : ""}
-      </div>
-      <div class="ops-act-row">
-        ${tel ? `<a class="btn ops-call-btn" href="${escapeHtml(tel)}" aria-label="Call the customer">${PHONE_ICON}Call</a>` : "<span></span>"}
-        ${c && c.theft ? "" : `<button type="button" class="btn btn-danger" data-act="theft" data-id="${id}" aria-label="Report theft">Report Theft</button>`}
-      </div>
+      <button type="button" class="btn ops-act-tile" data-act="note-edit" data-id="${id}">${NOTE_ICON}Note</button>
+      ${photosReady ? `<button type="button" class="btn ops-act-tile" data-act="photo-add" data-id="${id}"${busy ? " disabled" : ""}>${PHOTO_ICON}${busy ? "Adding…" : "Photo"}</button>` : gap("")}
+      ${oilLeftReady ? `<button type="button" class="btn btn-outline-primary" data-act="left" data-id="${id}">Oil Left</button>` : gap("")}
+      ${tasksReady && !dropped ? `<button type="button" class="btn ops-drop-btn" data-act="drop" data-id="${id}">Barrel drop</button>` : gap("")}
+      ${tel ? `<a class="btn ops-call-btn ops-act-left" href="${escapeHtml(tel)}" aria-label="Call the customer">${PHONE_ICON}Call</a>` : gap("ops-act-left")}
+      ${c && c.theft ? gap("ops-act-right")
+        : `<button type="button" class="btn btn-danger ops-act-right" data-act="theft" data-id="${id}" aria-label="Report theft">Report Theft</button>`}
     </div>`;
 }
 
