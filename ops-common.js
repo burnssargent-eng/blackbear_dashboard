@@ -909,7 +909,7 @@ function collectionLines(history, siteRows) {
   const lines = history.filter(h => !siteDays.has(h.date) && !(h.code && h.gallons === 0))
     .map(h => ({ ...h, site: false }))
     .concat(siteRows.map(r => ({ date: r.date, gallons: r.gallons, code: r.gallons <= 3, site: true,
-      client_id: r.client_id, theft: !!r.theft, extra: !!r.extra })));
+      client_id: r.client_id, theft: !!r.theft, theft_note: r.theft_note || "", extra: !!r.extra })));
   return lines.sort((a, b) => b.date.localeCompare(a.date));
 }
 

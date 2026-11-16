@@ -162,9 +162,16 @@ def score_version(payload, gallons, log):
                 line = max(0.0, row["line_gal"] + rate * step)
                 # A file from before the sparsity weight (2026-11-02) leaned
                 # a fixed CYCLE_BLEND; its rows carry no cycle_weight.
-                projected = cycle_projection(line, max(0.0, row["exposure_days"] + step),
-                                             row.get("usual_gap_days"), row.get("avg_collection"),
-                                             row.get("cycle_weight") or CYCLE_BLEND)
+                # Since 2026-11-16 an Oil Left level is added outside the blend
+                # (level_projection); older files leaned it with the line.
+                level = 0.0
+                if payload.get("level_outside_blend") and row.get("oil_left_gallons") is not None:
+                    level = float(row["oil_left_gallons"])
+                    if row.get("capacity"):
+                        level = min(level, row["capacity"])
+                projected = level + cycle_projection(line - level, max(0.0, row["exposure_days"] + step),
+                                                     row.get("usual_gap_days"), row.get("avg_collection"),
+                                                     row.get("cycle_weight") or CYCLE_BLEND)
             else:
                 projected = max(0.0, base + rate * step)
             if base > 0 and row.get("range_low") is not None:

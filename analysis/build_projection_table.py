@@ -1373,23 +1373,32 @@ def cycle_projection(line, days, gap, typical, weight=CYCLE_BLEND):
     return CYCLE_FACTOR * ((1 - w) * line + w * typical)
 
 
+def level_projection(level, rate, days, gap, typical, weight=CYCLE_BLEND):
+    """
+    The projection from an Oil Left level (Sarge, 2026-11-16): the gallons
+    seen left, as they are, plus the cycle blend of the oil made since. The
+    blend leans the oil made since the check toward a typical pickup; until
+    then it leaned the whole line, level included, so 100 gal seen left could
+    project 86 (Hog Back, 2026-11-16). With no level it is cycle_projection.
+    """
+    return level + cycle_projection(rate * days, days, gap, typical, weight)
+
+
 def days_to_reach(gallons, level, rate, gap, typical, weight=CYCLE_BLEND):
     """
-    Accrual days at which cycle_projection(level + rate x days, days, ...)
-    first reaches `gallons` (rate > 0). Its slope is rate x (1 - days/gap) +
-    (typical - level) / (2 gap) before the gap and half the rate after it, so
-    it only rises unless Oil Left starts it above a typical pickup; then the
-    search still lands on a crossing. A level already at `gallons` gives the
-    straight line's (zero or negative) answer.
+    Accrual days at which level_projection(level, rate, days, ...) first
+    reaches `gallons` (rate > 0): the level is a constant, so the blend has
+    `gallons - level` to make. Before the gap the blend's slope is
+    rate x (1 - w) + w x typical / gap and after it rate x (1 - weight), so it
+    only rises. A level already at `gallons` gives the straight line's (zero
+    or negative) answer.
     """
-    if not gap or typical is None:
-        return (gallons - level) / rate
-    curve = lambda d: cycle_projection(level + rate * d, d, gap, typical, weight)
-    if curve(0) >= gallons:
-        return (gallons / CYCLE_FACTOR - level) / rate
+    gallons -= level
+    if not gap or typical is None or gallons <= 0:
+        return gallons / rate
+    curve = lambda d: cycle_projection(rate * d, d, gap, typical, weight)
     # Past the gap the weight is fixed at `weight`, so it is linear there.
-    after = ((gallons / CYCLE_FACTOR - weight * typical) / (1 - weight)
-             - level) / rate
+    after = ((gallons / CYCLE_FACTOR - weight * typical) / (1 - weight)) / rate
     if after >= gap:
         return after
     lo, hi = 0.0, gap
@@ -1864,7 +1873,7 @@ def build_row(cid, pickups, asof, capacity, regions, wape, empty_checks=(), thef
     line = level + rate * exposure_days if rate is not None else None
     gap = usual_gap(pickups)
     weight = sparsity_weight(pickups, asof)
-    projected = (cycle_projection(line, exposure_days, gap, avg_collection, weight)
+    projected = (level_projection(level, rate, exposure_days, gap, avg_collection, weight)
                  if line is not None else None)
     if left_from and rate is not None:
         routing_reason += (f"; from {left_from[1]:g} gal left on "
@@ -2086,7 +2095,7 @@ def held_estimate(pickups, asof, section, level, rate, days, capacity):
         return None
     weight = 1.0 if line is None else sparsity_weight(seen, asof)
     gap = usual_gap(seen) or ESTIMATE_PRIOR_GAP
-    raw = cycle_projection(level if line is None else line, days, gap, typical, weight)
+    raw = level_projection(level, rate or 0.0, days, gap, typical, weight)
     gallons = min(raw, capacity) if capacity else raw
     key = ("will-call" if section == SECTION_WILL_CALL
            else "1 pickup" if len(seen) == 1 else "2 pickups / comeback")
@@ -2104,7 +2113,7 @@ def held_estimate(pickups, asof, section, level, rate, days, capacity):
             if rate and rate > 0:
                 return days_to_reach(gallons, start, rate, gap, typical, weight)
             # No rate (one pickup): the curve only ramps to the typical pickup.
-            curve = lambda d: cycle_projection(start, d, gap, typical, weight)
+            curve = lambda d: level_projection(start, 0.0, d, gap, typical, weight)
             if curve(0) >= gallons:
                 return 0.0
             if curve(gap) < gallons:
@@ -2368,6 +2377,9 @@ def write_json(rows, asof):
         "target_fraction": TARGET_FRACTION,
         "sparsity_k": SPARSITY_K,
         "cycle_factor": CYCLE_FACTOR,
+        # Oil Left's level sits outside the blend (level_projection, 2026-11-16);
+        # the live test carries a row forward the same way only when this is set.
+        "level_outside_blend": True,
         "stale_days": STALE_DAYS,
         "comeback_hold_days": COMEBACK_HOLD_DAYS,
         "section_order": SECTION_ORDER,

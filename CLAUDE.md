@@ -128,7 +128,9 @@ ops-photos.js        customer photos (barrel, spot, lock): private bucket `photo
                      shrinks each to a 1600 px JPEG + 400 px thumbnail (free plan: 1 GB, no server resizing).
                      Added/removed on ops-customer's Home tab; view-only in My Route's Notes. Remove only hides
                      (`removed_at`): a theft photo is evidence. ops-customer's Collections tab edits/deletes
-                     SITE pickups of any age; Jamaal's are fixed in Jamaal and arrive overnight.
+                     SITE pickups of any age (gallons, date, Theft + note), lists Oil Left ("Left: 75", editable), and
+                     "+ Add entry" adds a pickup, theft or Oil Left for any day up to today (2026-11-16); Jamaal's
+                     are fixed in Jamaal and arrive overnight.
 dashboard-utils.js   shared helpers for the detail pages
 dashboard.css        shared styles for the detail pages — NOT index.html
 ```
