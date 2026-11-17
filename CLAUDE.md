@@ -48,6 +48,9 @@ supabase_sync.py ──> the shared database (Supabase; db/schema.sql). Nightly:
                      notes and phone edits made in Jamaal later follow into the database only while ours still matches
                      Jamaal's old value (`jamaal_address`/`_notes`/`_phone`); an edit made here is kept and listed in
                      sync_reports. A customer with no phone takes Jamaal's (how new customers get one).
+                     On a first sweep an EMPTY field takes Jamaal's (address with its pin; 2026-11-17).
+                     inactive-contacts.yml (by hand: dry-run, then write) runs that sweep over the INACTIVE
+                     customers' pages (jamaal_customers.py --sweep --inactive) to fill their empty contacts.
                      A customer taken over on the site (Add customer's "Taking over from";
                      customers.replaced_by) stays inactive whatever Jamaal says, and --routes puts its new
                      account in its place; the Ops pages hide it and show its photos on the new account.
