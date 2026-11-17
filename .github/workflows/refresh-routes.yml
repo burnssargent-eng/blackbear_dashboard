@@ -61,4 +61,8 @@ jobs:
           git config user.email "github-actions@github.com"
           git add jamaal_routes.json
           git commit -m "Refresh assigned routes" || echo "No changes to commit"
-          git push
+          # A PR merged while this ran moves main, and a plain push is then refused
+          # (2026-11-17: the nightly lost its commit this way).
+          # Rebase onto it first: PRs change code, this commits data, so it applies
+          # cleanly; if both touched one file the push still fails and GitHub emails.
+          git pull --rebase origin main && git push
