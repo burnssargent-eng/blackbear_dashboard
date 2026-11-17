@@ -519,6 +519,13 @@ select:disabled {
   background: #21262d;
 }
 
+/* Two or more jump links side by side (customers.html), wrapping on a phone. */
+.jump-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .data-table a {
   color: #e6edf3;
   text-decoration: none;
@@ -705,7 +712,7 @@ select:disabled {
   border-color: #3fb950;
 }
 
-/* ── Projections page (beta) ──────────────────────────────── */
+/* ── Projections page ──────────────────────────────── */
 
 .proj-beta-tag {
   display: inline-block;
@@ -866,7 +873,7 @@ select:disabled {
   .hero-value { font-size: 34px; }
   .stat-val { font-size: 22px; }
   .stats-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  /* Eight links on one line from a 400px phone up: 11px text, 6px gaps. */
+  /* Seven links (eight until Former joined Customers, 2026-11-17) on one line from a 400px phone up: 11px text, 6px gaps. */
   .main-nav { gap: 6px; }
   .main-nav a { font-size: 11px; }
   /* Tables stay readable by scrolling sideways rather than squashing. */
@@ -874,7 +881,7 @@ select:disabled {
   .data-table th, .data-table td { padding: 7px 10px; }
 }
 
-/* ...and on a 375px phone (343px of room): 10px text, 5px gaps (Former made it eight, 2026-11-03). */
+/* ...and on a 375px phone (343px of room): 10px text, 5px gaps (sized when Former made it eight, 2026-11-03). */
 @media (max-width: 400px) {
   .main-nav { gap: 5px; }
   .main-nav a { font-size: 10px; }

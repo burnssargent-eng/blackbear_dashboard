@@ -45,7 +45,7 @@ const api = new Function("document", "window", utils + "\n" + script + `
     setSearch(t) { searchText = t; },
     buildShell, update, filterByRegion, regionOptions, freshnessWarning,
     rankedRowsHtml, heldOutRowsHtml, setSort, renderRanked, daysPastHtml,
-    liveTestHtml, formatSigned,
+    liveTestHtml, formatSigned, summaryHtml,
   };`)(document, window);
 
 // formatDate from dashboard-utils, for comparing rendered dates.
@@ -98,9 +98,9 @@ ok(rowsIn(list.innerHTML) === Math.min(250, ranked.length),
   `ranked list shows ${Math.min(250, ranked.length)} rows collapsed (got ${rowsIn(list.innerHTML)})`);
 
 // Rendered order is the export's order by default.
-const nameOf = c => api.rankedRowsHtml([c]).match(/<td>([^<]*)/)[1];
+const nameOf = c => api.rankedRowsHtml([c]).match(/<td><a href="ops-customer\.html\?id=\d+">([^<]*)/)[1];
 const renderedNames = () =>
-  [...list.innerHTML.matchAll(/<td class="rank">\d+<\/td>\s*<td>([^<]*)/g)].map(m => m[1]);
+  [...list.innerHTML.matchAll(/<td class="rank">\d+<\/td>\s*<td><a href="ops-customer\.html\?id=\d+">([^<]*)/g)].map(m => m[1]);
 const expected = ranked.slice(0, 250).map(nameOf);
 ok(JSON.stringify(renderedNames()) === JSON.stringify(expected), "ranked rows render in the export's order");
 
@@ -378,6 +378,20 @@ ok(customers.every(c => (c.return_gap_days !== null && c.return_gap_days !== und
 const returnHtml = returns.length ? api.rankedRowsHtml([returns[0]]) : "";
 ok(/Back after a [\d,]+-day gap: rate from the same time last year/.test(returnHtml),
   "a return row's note names the gap and the same-time-last-year rate");
+
+// ── Names link to the customer page; the first box carries total capacity ──
+const linked = api.rankedRowsHtml([ranked[0]]);
+ok(linked.includes(`<a href="ops-customer.html?id=${ranked[0].id}">`), "a ranked name links to its customer page");
+ok(api.heldOutRowsHtml(customers.filter(c => c.section === "stale").slice(0, 1)).includes('href="ops-customer.html?id='),
+  "a held-out name links too");
+const capSum = list => list.reduce((s, c) => s + (Number(c.capacity) || 0), 0);
+const capOf = html => Number((html.match(/Total capacity: <span class="stat-sub-value">([\d,]+)/) || [])[1].replace(/,/g, ""));
+ok(capOf(api.summaryHtml(ranked, [], customers)) === Math.round(capSum(customers)),
+  `total capacity is every row's capacity (${capSum(customers)})`);
+const someRegion = api.regionOptions(payload)[0];
+const capRegion = api.filterByRegion(customers, someRegion);
+ok(capOf(api.summaryHtml([], [], capRegion)) === Math.round(capSum(capRegion)) && capSum(capRegion) < capSum(customers),
+  `and follows the region filter (${someRegion}: ${capSum(capRegion)})`);
 
 // ── Freshness ──
 ok(api.freshnessWarning(payload, { last_updated: payload.data_last_updated }) === null,

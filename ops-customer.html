@@ -44,11 +44,17 @@
  * capacity, main phone and other phones (customer_contacts). Name, town and capacity
  * beat the source site's (customers.site_*; opsSaveCustomer) and reach the dashboard
  * through the nightly's customer_edits.csv. Periodicity is the projection's own, not editable.
+ *
+ * A customer the source site lists as inactive (not on its Assign list) opens VIEW-ONLY
+ * from the dashboard roster (Sarge, 2026-11-17: every customer name on the dashboard links
+ * here): name, town, history, photos and notes, but no entry, Assign, edits or Add entry.
  */
 
 
 let data = null, store = null, routeList = [];
-let customer = null;      // { customer_id, name, city }
+let customer = null;      // { customer_id, name, city, viewOnly }
+let roster = [];          // oil_collections.json's customers: the fallback for an inactive one
+let regionCustomers = {}; // oil_data.json's region -> customer ids, for an inactive one's regions
 let details = {};         // this customer's address, notes and position (shared database)
 const todayNote = id => (typeof opsTodayNote === "function" ? opsTodayNote(id) : "");
 let notesEdit = null;     // { notes, today, busy, msg }: Notes and Today's note being edited
@@ -336,7 +342,7 @@ function collectionsHtml() {
   // Oil Left checks sit among the pickups by day (after a pickup the same day), in no total.
   const lines = picks.concat(leftRows().map(e => ({ date: e.date, gallons: e.gallons, left: true })))
     .sort((a, b) => b.date.localeCompare(a.date));
-  const add = adding ? addFormHtml()
+  const add = customer.viewOnly ? "" : adding ? addFormHtml()
     : `<button type="button" class="btn btn-outline-primary btn-sm mb-3" data-add-open>+ Add entry</button>`;
   if (!lines.length) return `${add}<div class="text-muted">No collections on record.</div>`;
   const total = picks.filter(h => !h.code).reduce((sum, h) => sum + h.gallons, 0);
@@ -361,9 +367,10 @@ function collectionsHtml() {
 function photosHtml() {
   if (!photosReady || !opsPhotosOn()) return "";
   const n = opsPhotosFor(customer.customer_id).length;
+  if (customer.viewOnly && !n) return "";
   return `<div class="mb-3">
     <div class="ops-photo-head">PHOTOS${n ? ` · ${n}` : ""}</div>
-    ${opsPhotoStripHtml(customer.customer_id, { add: true })}
+    ${opsPhotoStripHtml(customer.customer_id, { add: !customer.viewOnly })}
     ${newPhoto ? `<form class="ops-photo-new" data-photo-form autocomplete="off">
       <img src="${newPhoto.url}" alt="">
       <input type="text" class="form-control" name="caption" maxlength="200" placeholder="Caption (optional)"
@@ -392,7 +399,7 @@ function phoneHtml(phone) {
 
 function homeHtml(row, today, onRoutes, capacity, left) {
   const st = siteStatus();
-  const inactive = st && st.status === "inactive";
+  const inactive = customer.viewOnly || (st && st.status === "inactive");
   const est = inactive ? { kind: "none" } : stopEstimate(row);   // no projection while inactive
   return `
     ${inactive ? `<div class="mt-3"></div>` : theftOpen ? theftFormHtml() : leftOpen && oilLeftReady ? leftFormHtml()
@@ -424,7 +431,7 @@ function homeHtml(row, today, onRoutes, capacity, left) {
       <button type="button" class="btn btn-outline-primary" data-assign>Assign</button>
     </div>`}
 
-    ${notesEdit ? notesFormHtml() : !details.notes && !todayNote(customer.customer_id) ? `<section class="ops-cp-card">
+    ${notesEdit ? notesFormHtml() : !details.notes && !todayNote(customer.customer_id) ? customer.viewOnly ? "" : `<section class="ops-cp-card">
       <div class="ops-cp-head ops-cp-head-near"><span class="ops-cp-title">NOTES</span>
         ${customer.customer_id > 0 ? `<button type="button" class="btn ops-plain-btn btn-sm" data-notes-edit>✎ Edit</button>` : ""}</div>
     </section>` : `<section class="ops-cp-card">
@@ -432,7 +439,7 @@ function homeHtml(row, today, onRoutes, capacity, left) {
       <div class="ops-cp-notes">
         ${todayNote(customer.customer_id) ? `<div class="ops-today-text">Today: ${escapeHtml(todayNote(customer.customer_id))}</div>` : ""}
         <div>${details.notes ? notesHtml(customer.customer_id, details.notes) : ""}
-          ${customer.customer_id > 0 ? `<button type="button" class="btn ops-plain-btn btn-sm ms-1" data-notes-edit>✎ Edit</button>` : ""}</div>
+          ${customer.customer_id > 0 && !customer.viewOnly ? `<button type="button" class="btn ops-plain-btn btn-sm ms-1" data-notes-edit>✎ Edit</button>` : ""}</div>
       </div>
     </section>`}
 
@@ -484,6 +491,7 @@ function shownTown() {
 
 /** Edit is offered signed in (source-site customers) or for a customer added on the site. */
 function editReadyCustomer() {
+  if (customer.viewOnly) return false;
   return customer.customer_id < 0 || (typeof opsSaveCustomer === "function" && !!opsCustomerDbRow(customer.customer_id));
 }
 
@@ -495,10 +503,13 @@ function editReadyCustomer() {
  * last, right above Assign. No field names: each value says what it is.
  */
 function infoHtml(onRoutes, row, est, capacity, inactive) {
-  const st = statusReady && customer.customer_id > 0 && opsCustomerDbRow(customer.customer_id) ? (siteStatus() || {}).status || "open" : null;
+  const st = !customer.viewOnly && statusReady && customer.customer_id > 0 && opsCustomerDbRow(customer.customer_id) ? (siteStatus() || {}).status || "open" : null;
+  const ended = customer.viewOnly ? endedAs(customer.customer_id) : null;
+  const type = typeWords(row);
   const chips = [
     st ? `<span class="ops-chip ops-chip-${st}"><span class="ops-chip-dot"></span>${escapeHtml(STATUS_TEXT[st] || "Open")}</span>` : "",
-    `<span class="ops-chip ops-chip-type">${escapeHtml(typeWords(row))}</span>`,
+    ended ? `<span class="ops-chip ops-chip-end-${ended}" title="${escapeHtml(END_REASON_HELP[ended] || "")}"><span class="ops-chip-dot"></span>${escapeHtml(END_REASON_LABELS[ended] || ended)}</span>` : "",
+    customer.viewOnly && type === "—" ? "" : `<span class="ops-chip ops-chip-type">${escapeHtml(type)}</span>`,
   ].join("");
   const address = details.address
     ? `<a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(details.address)}"
@@ -529,6 +540,21 @@ function infoHtml(onRoutes, row, est, capacity, inactive) {
     <div class="ops-cp-line ops-cp-split"><span>${escapeHtml([...geo, ...themes].join(" · ") || "No region")}</span>
       <span class="ops-cp-none">${onRoutes.length ? escapeHtml(onRoutes.join(", ")) : "No route"}</span></div>
   </section>`;
+}
+
+/**
+ * How an inactive customer's business ended (Lost, Closed, Changed hands, ... or
+ * Unclassified), from customer_history.json: the same classification as the former
+ * customers list, so it follows customer_eras.csv as endings are classified.
+ */
+function endedAs(id) {
+  if (!siteHistory) return null;
+  const eras = siteHistory.byAccount.get(id) || [];
+  const last = eras[eras.length - 1];
+  if (!last) return "unknown";
+  const biz = siteHistory.businessOfEra.get(last.key);
+  if (biz && biz.status === "ended") return biz.end_reason || "unknown";
+  return (last.ended && last.end_reason) || "unknown";
 }
 
 /** A phone as the form shows it: (802) 555-0123, or as typed. */
@@ -741,6 +767,7 @@ function siteStatus() {
 
 /** The band under the name for a closed or inactive customer, with the one button that reverses it. */
 function statusBandHtml() {
+  if (customer.viewOnly) return `<div class="ops-cp-band ops-cp-band-inactive"><span>Inactive on Jamaal · view only</span></div>`;
   const st = siteStatus();
   if (!st || st.status === "open") return "";
   const since = escapeHtml(formatDate(st.since));
@@ -782,7 +809,8 @@ function shownRegions() {
   const id = customer.customer_id;
   const db = id > 0 && typeof opsCustomerDbRow === "function" ? opsCustomerDbRow(id) : null;
   const row = data.index.get(id);
-  const listed = (row && row.id === id && row.regions) || [];
+  const listed = (row && row.id === id && row.regions) ||
+    (customer.viewOnly ? Object.keys(regionCustomers).filter(r => (regionCustomers[r] || []).includes(id)) : []);
   const geo = db && db.site_region ? [db.site_region]
     : listed.filter(r => !themeRegions.includes(r));
   const themes = db && db.site_themes ? db.site_themes : listed.filter(r => SITE_THEMES.includes(r));
@@ -917,7 +945,15 @@ function render() {
 function applyCustomer(id = customer.customer_id) {
   const listed = data.snap.assign_list.find(a => a.customer_id === id) ||
     store.added.find(c => c.customer_id === id);
-  if (!listed) return false;
+  if (!listed) {
+    // Inactive on the source site: the dashboard roster has its name and town; view only.
+    const past = roster.find(c => c.customer_id === id);
+    if (!past) return false;
+    customer = { customer_id: id, name: past.name, city: past.town || past.city || "",
+      phone: details.phone || "", viewOnly: true };
+    document.title = `${customer.name} (shadow) — Black Bear Biodiesel`;
+    return true;
+  }
   customer = { customer_id: id, name: listed.name, city: listed.city, phone: details.phone || "" };
   if (id < 0) {
     // Added on the site: its own fields stand in for the scraped ones.
@@ -945,9 +981,11 @@ async function init() {
     data = opsData;
     themeRegions = oilData.theme_regions || [];
     regionNames = oilData.region_names || [];
+    regionCustomers = oilData.region_customers || {};
     details = allDetails[String(id)] || {};
     siteFigures = parseCapacityRow(capText, id);
     history = historyFor(id, payload.records || [], codesText);
+    roster = payload.customers || [];
     // Not needed for anything on the page but the history card: carry on without it.
     siteHistory = await loadCustomerHistory(oilData).then(h => historyIndex(h, payload.customers || []), () => null);
   } catch (err) {
@@ -962,7 +1000,7 @@ async function init() {
   }
   routeList = opsRouteList(data.snap, store);
   if (!applyCustomer(id)) {
-    document.getElementById("page").innerHTML = `<div class="alert alert-warning">No active customer #${escapeHtml(String(param("id")))}.</div>`;
+    document.getElementById("page").innerHTML = `<div class="alert alert-warning">No customer #${escapeHtml(String(param("id")))}.</div>`;
     return;
   }
   const banner = document.getElementById("banner");

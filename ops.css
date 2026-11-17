@@ -541,6 +541,11 @@ body.ops-viewer-open { overflow: hidden; }
 .ops-chip-open { background: #e8f5e9; border-color: #e8f5e9; color: #146c43; font-weight: 600; }
 .ops-chip-closed_season { background: #e8eef6; border-color: #e8eef6; color: #34507a; font-weight: 600; }
 .ops-chip-inactive { background: #f1f3f5; border-color: #f1f3f5; color: #495057; font-weight: 600; }
+/* An inactive (source-site) customer's ending, as on the former customers list. */
+.ops-chip[class*="ops-chip-end-"] { font-weight: 600; background: #f1f3f5; border-color: #f1f3f5; color: #495057; }
+.ops-chip.ops-chip-end-lost { background: #fdecea; border-color: #fdecea; color: #b02a37; }
+.ops-chip.ops-chip-end-changed_hands, .ops-chip.ops-chip-end-moved { background: #e8eef6; border-color: #e8eef6; color: #34507a; }
+.ops-chip.ops-chip-end-unknown { background: #fff4e0; border-color: #fff4e0; color: #8a5a00; }
 .ops-cp-info a { text-decoration: none; }
 .ops-cp-edit { margin-left: auto; padding: 0; font-size: 14px; text-decoration: none; }
 .ops-cp-line { padding: 10px 14px; border-top: 1px solid #f1f3f5; overflow-wrap: anywhere; }

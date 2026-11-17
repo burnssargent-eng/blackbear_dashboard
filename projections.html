@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pickup Projections (beta) — Black Bear Biodiesel</title>
+  <title>Pickup Projections — Black Bear Biodiesel</title>
 
   <link rel="stylesheet" href="dashboard.css">
   <!-- Sign-in card: the page stays hidden until a team member signs in (site-gate.js). -->
@@ -190,7 +190,7 @@ function filterByRegion(customers, region) {
 }
 
 function buildShell(page) {
-  renderPageName("Pickup Projections (beta)");
+  renderPageName("Pickup Projections");
 
   const target = Math.round((projections.target_fraction || 0.75) * 100);
   const warning = freshnessWarning(projections, oilData);
@@ -205,7 +205,6 @@ function buildShell(page) {
     ${warning ? `<div class="note proj-warning">${escapeHtml(warning)}</div>` : ""}
 
     <div class="note proj-beta">
-      <span class="proj-beta-tag">Beta</span>
       Each customer's rate is the average of its gallons per day over the last
       year and over its last six pickups. A customer with under a year of
       history uses its pickups so far (from its third pickup on, with a wider
@@ -313,7 +312,7 @@ function update() {
   const heldOut = customers.filter(c => c.section !== "ranked");
 
   // The header boxes describe the region; the search only narrows the tables.
-  document.getElementById("summary").innerHTML = summaryHtml(ranked, heldOut);
+  document.getElementById("summary").innerHTML = summaryHtml(ranked, heldOut, customers);
 
   currentRanks = new Map(ranked.map((c, i) => [c.id, i + 1]));
   currentRanked = ranked.filter(matchesSearch);
@@ -333,18 +332,27 @@ function update() {
 // The held-out sections counted in the fifth header box.
 const HELD_OUT_COUNTED = ["seasonal holdout", "will-call", "stale", "limited data"];
 
-function summaryHtml(ranked, heldOut) {
+/**
+ * `customers` is every row in the region (ranked and held out). Its capacities
+ * make the first box's subline: each row is one barrel (a shared barrel is
+ * already folded into one row), so a plain sum counts it once.
+ */
+function summaryHtml(ranked, heldOut, customers) {
   const totalGal = ranked.reduce((sum, c) => sum + (c.projected_gal || 0), 0);
+  const totalCapacity = customers.reduce((sum, c) =>
+    sum + (Number.isFinite(Number(c.capacity)) ? Number(c.capacity) : 0), 0);
   const pastTarget = ranked.filter(c => (c.days_past_75 || 0) > 0).length;
   const pastHalf = ranked.filter(c => (c.pct_full || 0) > 50).length;
   const counted = heldOut.filter(c => HELD_OUT_COUNTED.includes(c.section)).length;
   const target = Math.round((projections.target_fraction || 0.75) * 100);
-  const stat = (value, label) => `
+  const stat = (value, label, sub) => `
     <div class="stat">
       <div class="stat-val">${formatNumber(value)}</div>
       <div class="stat-label">${label}</div>
+      ${sub ? `<div class="stat-sub">${sub}</div>` : ""}
     </div>`;
-  return stat(Math.round(totalGal), "Total Projected Oil (gal)") +
+  return stat(Math.round(totalGal), "Total Projected Oil (gal)",
+      `Total capacity: <span class="stat-sub-value">${formatNumber(Math.round(totalCapacity))}</span>`) +
     stat(ranked.length, "Route Candidates") +
     stat(pastTarget, `Past Pickup Point (${target}%)`) +
     stat(pastHalf, "Past 50% Full") +
@@ -433,7 +441,7 @@ function rankedRowsHtml(rows, ranks) {
   const body = rows.map((c, i) => `
     <tr>
       <td class="rank">${(ranks && ranks.get(c.id)) || i + 1}</td>
-      <td>${escapeHtml(c.name)}${notesHtml(c)}</td>
+      <td>${customerLink(c.id, c.name)}${notesHtml(c)}</td>
       <td>${escapeHtml(townLabel(c.town) || "—")}</td>
       <td class="gal">${projectedHtml(c)}</td>
       <td class="num">${formatWhole(c.capacity)}</td>
@@ -481,7 +489,7 @@ function heldOutRowsHtml(rows) {
   const withEstimate = rows.some(c => c.estimate_gal !== null && c.estimate_gal !== undefined);
   const body = rows.map(c => `
     <tr>
-      <td>${escapeHtml(c.name)}${heldOutNotesHtml(c)}</td>
+      <td>${customerLink(c.id, c.name)}${heldOutNotesHtml(c)}</td>
       <td>${escapeHtml(townLabel(c.town) || "—")}</td>
       <td>${escapeHtml(c.status)}</td>
       <td class="proj-reason">${escapeHtml(c.reason || "—")}</td>
@@ -600,7 +608,7 @@ function liveDayRowsHtml(rows, day) {
         `(${formatWhole(r.range_low)}–${formatWhole(r.range_high)})</span>`;
     return `
       <tr${r.projected === null ? ' class="proj-live-off"' : ""}>
-        <td>${escapeHtml(r.name)}</td>
+        <td>${customerLink(r.id, r.name)}</td>
         <td>${escapeHtml(townLabel(r.town) || "—")}</td>
         <td>${escapeHtml(r.stage || "—")}</td>
         <td class="gal">${projected}</td>

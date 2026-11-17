@@ -37,6 +37,7 @@
 </div>
 
 <script src="dashboard-utils.js"></script>
+<script src="former-list.js"></script>
 <script>
 let allRecords = [];
 let allMonths = [];
@@ -87,6 +88,24 @@ async function init() {
   buildShell(page);
   update();
   renderLifecycle();
+  renderFormer(data);
+}
+
+/** Former customers (former-list.js), below the lifecycle summary. */
+async function renderFormer(data) {
+  const el = document.getElementById("former-section");
+  let hist;
+  try {
+    hist = await loadCustomerHistory(data);
+  } catch (err) {
+    el.innerHTML = `<div class="section-title" id="former">Former Customers</div>
+      <div class="note">Could not load the customer history: ${escapeHtml(err.message)}</div>`;
+    return;
+  }
+  renderFormerSection(el, data, hist);
+  // Arriving from an old former.html link (or a #former bookmark): the
+  // section is drawn after the page loads, so scroll to it once it exists.
+  if (window.location.hash === "#former") document.getElementById("former").scrollIntoView();
 }
 
 /**
@@ -227,7 +246,10 @@ function buildShell(page) {
              placeholder="Customer name" autocomplete="off">
     </div>
 
-    <a class="jump-link" href="#lifecycle">↓ View lifecycle summary</a>
+    <div class="jump-links">
+      <a class="jump-link" href="#lifecycle">↓ View lifecycle summary</a>
+      <a class="jump-link" href="#former">↓ View former customer analysis</a>
+    </div>
 
     <div class="stats-bar stats-pairs" id="summary"></div>
 
@@ -239,6 +261,8 @@ function buildShell(page) {
     </div>
 
     <div class="section" id="lifecycle-section"></div>
+
+    <div class="section" id="former-section"></div>
   `;
 
   document.getElementById("mode-select").addEventListener("change", update);
@@ -457,7 +481,7 @@ function customerRowsHtml(sorted, ranks) {
     body += `
       <tr>
         <td class="rank">${(ranks && ranks.get(c.customer_id)) || i + 1}</td>
-        <td>${escapeHtml(c.name)}</td>
+        <td>${customerLink(c.customer_id, c.name)}</td>
         <td>${townCell}</td>
         <td>${escapeHtml(regionByCustomer[c.customer_id] || "—")}</td>
         <td class="gal">${formatNumber(c.gallons)}</td>
