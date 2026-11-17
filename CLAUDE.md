@@ -105,16 +105,26 @@ ops-db.js            the shadow pages' database link. Signed in, a page's store 
                      until sent, so offline saves wait). Signed out, the page shows site-gate.js's card; only if
                      the library fails to load does it fall back to the browser copy. ?debug shows a sync log.
 
-projections.html     beta pickup projections. In the nav as "Projections", after Dashboard.
-former.html          former customers: every ended BUSINESS (not account) with how it ended, the
-                     headline retention figures, and ?b=<id> for one business's eras, months and
-                     site timeline. In the nav as "Former", after Customers. Only displays
+projections.html     pickup projections ("beta" dropped 2026-11-17). In the nav as "Projections", after
+                     Dashboard. The Total Projected Oil box's subline sums EVERY row's capacity in the region
+                     (held-out and inactive included; Sarge, 2026-11-17), not just the route candidates.
+former-list.js       former customers: every ended BUSINESS (not account) with how it ended and the
+                     headline retention figures, drawn at the foot of customers.html (#former, below the
+                     lifecycle summary) since 2026-11-17, when "Former" left the nav. Only displays
                      customer_history.json and oil_data.json's retention_summary.
+former.html          ?b=<id>: one business's eras, months and site timeline (nav: Customers). A bare
+                     former.html redirects to customers.html#former.
+customer names       on Projections, Regions, Years, Customers (and Town) link to ops-customer.html?id=
+                     (customerLink, dashboard-utils.js). A customer not on the source site's Assign list
+                     (inactive there) opens VIEW-ONLY from the dashboard roster: history, region, photos,
+                     notes; no entry, Assign, edits or Add entry. Its status chip is how its business ended
+                     (Lost, Closed, Changed hands, ..., Unclassified), from customer_history.json: the
+                     former list's classification, so it follows customer_eras.csv.
 planner.html         route planner beta. UNLISTED (not in the nav). Reads the two JSONs above.
 ops-assign.html  ops-myroute.html  ops-calendar.html  ops-outgoing.html  ops-customer.html   SHADOW site: the source site's workflow on a copy of its
                      data, kept in each browser. Light Bootstrap look, own nav (ops-common.js),
-                     ops.css. Linked from the dashboard nav as "Ops" (last; "Former" made it
-                     eight on 2026-11-03, which fit a 375px phone only at 10px text under 400px).
+                     ops.css. Linked from the dashboard nav as "Ops" (last; seven links since Former
+                     left on 2026-11-17; the 10px-under-400px sizing from eight still stands).
                      Route maths for both betas: route-utils.js.
 route tasks          checklist rows on a route that are not pickups (route_tasks, db/schema.sql; the 7am reset and
                      the nightly never touch it; Sarge, 2026-11-14): a Tasks block at the top of My Route, "+ Add

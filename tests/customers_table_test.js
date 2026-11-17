@@ -59,7 +59,7 @@ api.update();
 
 const area = document.getElementById("table-area");
 const rows = () => [...area.innerHTML.matchAll(
-  /<td class="rank">(\d+)<\/td>\s*<td>([^<]*)<\/td>\s*<td>(?:<a[^>]*>)?([^<]*)(?:<\/a>)?<\/td>\s*<td>([^<]*)<\/td>\s*<td class="gal">([\d,]+)<\/td>/g)]
+  /<td class="rank">(\d+)<\/td>\s*<td><a href="ops-customer\.html\?id=\d+">([^<]*)<\/a><\/td>\s*<td>(?:<a[^>]*>)?([^<]*)(?:<\/a>)?<\/td>\s*<td>([^<]*)<\/td>\s*<td class="gal">([\d,]+)<\/td>/g)]
   .map(m => ({ rank: Number(m[1]), name: m[2], town: m[3], region: m[4],
                gallons: Number(m[5].replace(/,/g, "")) }));
 

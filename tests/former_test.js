@@ -1,4 +1,5 @@
-// Former customers page (former.html), the year page's retention table
+// Former customers list (former-list.js, a section of customers.html), one
+// business's page (former.html?b=), the year page's retention table
 // (year.html) and the era helpers in dashboard-utils.js, against the committed
 // customer_history.json / oil_collections.json / oil_data.json.
 //
@@ -22,8 +23,10 @@ const page = f => {
   const html = fs.readFileSync(f, "utf8");
   return html.slice(html.lastIndexOf("<script>") + 8, html.lastIndexOf("</script>")).replace(/\n\s*init\(\);\s*$/, "\n");
 };
-const former = new Function("document", "Chart", utils + "\n" + page("former.html") +
-  "\nreturn {endedBusinesses, filterBusinesses, listTableHtml, monthSeries, headlineHtml, COLUMNS," +
+const formerList = fs.readFileSync("former-list.js", "utf8");
+const former = new Function("document", "Chart", utils + "\n" + formerList + "\n" + page("former.html") +
+  "\nreturn {endedBusinesses, filterBusinesses, listTableHtml: formerTableHtml, monthSeries," +
+  " headlineHtml: formerHeadlineHtml, COLUMNS: FORMER_COLUMNS," +
   " historyIndex, eraRecords, siteTimelineHtml, navHtml, endReasonBadge};")(document, Chart);
 const year = new Function("document", "Chart", utils + "\n" + page("year.html") +
   "\nreturn {yearBusinesses, retentionTableHtml};")(document, Chart);
@@ -94,9 +97,15 @@ const rt = year.retentionTableHtml(data.retention_by_year, 2025);
 ok((rt.match(/fmr-picked/g) || []).length === 1, "the shown year is highlighted once");
 ok(rt.includes(" to date") && rt.includes(" *"), "this year is marked to date, the first year starred");
 
-console.log("\n7. Nav");
-ok(/former\.html/.test(former.navHtml("former")) && /class="active">Former/.test(former.navHtml("former")), "shared nav links Former");
-ok(/<a href="former\.html">Former<\/a>/.test(fs.readFileSync("index.html", "utf8")), "the homepage's own nav too");
+console.log("\n7. Former lives on the Customers page");
+const custHtml = fs.readFileSync("customers.html", "utf8");
+ok(/<script src="former-list\.js"><\/script>/.test(custHtml) && /renderFormerSection\(/.test(custHtml), "customers.html loads and draws the list");
+ok(/href="#former">↓ View former customer analysis/.test(custHtml), "a jump button beside the lifecycle one");
+ok(!/former\.html/.test(former.navHtml("customers")) && !/>Former</.test(fs.readFileSync("index.html", "utf8")),
+  "Former is out of the shared nav and the homepage's");
+const formerHtml = fs.readFileSync("former.html", "utf8");
+ok(/location\.replace\("customers\.html#former"\)/.test(formerHtml) && /href="customers\.html#former"/.test(formerHtml),
+  "a bare former.html and the back link go to the Customers section");
 
 console.log(fails ? `\n${fails} FAILED` : "\nALL CHECKS PASSED");
 process.exit(fails ? 1 : 0);

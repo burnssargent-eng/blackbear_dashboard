@@ -274,6 +274,17 @@ function escapeHtml(value) {
     .replace(/'/g, "&#39;");
 }
 
+/**
+ * A customer's name linked to its page (ops-customer.html). Inside a
+ * .data-table it reads like the town links: white, green and underlined on
+ * hover. Without an id the name stays plain text.
+ */
+function customerLink(id, name) {
+  const text = escapeHtml(name);
+  if (id === null || id === undefined || id === "") return text;
+  return `<a href="ops-customer.html?id=${encodeURIComponent(id)}">${text}</a>`;
+}
+
 /* ─────────────────────────────────────────────
  * URL parameters
  * ───────────────────────────────────────────── */
@@ -603,7 +614,6 @@ function navHtml(current, latestYear, defaultRegion) {
     { key: "region", href: `region.html?region=${encodeURIComponent(region)}`, label: "Regions" },
     { key: "year", href: `year.html?year=${encodeURIComponent(year)}`, label: "Years" },
     { key: "customers", href: "customers.html", label: "Customers" },
-    { key: "former", href: "former.html", label: "Former" },
     { key: "schmootz", href: "schmootz.html", label: "Schmutz" },
     { key: "ops", href: "ops-assign.html", label: "Ops" }
   ];
@@ -823,7 +833,7 @@ function customerTableHtml(rows, options) {
     return `
       <tr>
         <td class="rank">${i + 1}</td>
-        <td>${escapeHtml(c.name)}</td>
+        <td>${customerLink(c.customer_id, c.name)}</td>
         ${showTown ? `<td>${town}</td>` : ""}
         ${showCounty ? `<td>${escapeHtml(c.county || "—")}</td>` : ""}
         <td class="gal">${formatNumber(c.gallons)}</td>
