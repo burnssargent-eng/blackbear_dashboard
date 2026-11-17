@@ -1,11 +1,11 @@
 {
- "scraped_at": "2026-11-17T12:00:14+00:00",
+ "scraped_at": "2026-11-17T18:35:13+00:00",
  "source": "routes_assigned.php, assign_routes.php",
  "routes": [
   {
    "route_id": 10,
    "name": "Route 7",
-   "assigned_capacity": 200,
+   "assigned_capacity": 265,
    "stops": [
     {
      "assignment_id": 24525,
@@ -14,61 +14,6 @@
      "capacity": 200,
      "days_over": 167,
      "must_get": true
-    }
-   ]
-  },
-  {
-   "route_id": 14,
-   "name": "Central Vt 2",
-   "assigned_capacity": 1640,
-   "stops": [
-    {
-     "assignment_id": 24596,
-     "customer_id": 1305,
-     "name": "Jan’s Fairlee Diner",
-     "capacity": 150,
-     "days_over": -79,
-     "must_get": true
-    },
-    {
-     "assignment_id": 24585,
-     "customer_id": 112,
-     "name": "Mulligans-Barre",
-     "capacity": 200,
-     "days_over": -9,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24587,
-     "customer_id": 1401,
-     "name": "Tasty Bites",
-     "capacity": 90,
-     "days_over": -10,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24562,
-     "customer_id": 115,
-     "name": "Cornerstone Pub & Kitchen-pass 2720",
-     "capacity": 200,
-     "days_over": 4,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24584,
-     "customer_id": 117,
-     "name": "Ladder 1-Barre",
-     "capacity": 90,
-     "days_over": -2,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24586,
-     "customer_id": 1387,
-     "name": "SARKY’s/Foxys Barre",
-     "capacity": 55,
-     "days_over": 21,
-     "must_get": false
     },
     {
      "assignment_id": 24589,
@@ -77,54 +22,6 @@
      "capacity": 65,
      "days_over": 8,
      "must_get": false
-    },
-    {
-     "assignment_id": 24524,
-     "customer_id": 1128,
-     "name": "Hannaford-South Barre",
-     "capacity": 200,
-     "days_over": -6,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24583,
-     "customer_id": 1363,
-     "name": "GE-South Barre Gas Station",
-     "capacity": 100,
-     "days_over": -6,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24595,
-     "customer_id": 124,
-     "name": "Graniteville General",
-     "capacity": 90,
-     "days_over": 19,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24594,
-     "customer_id": 622,
-     "name": "Samurai Soul Food",
-     "capacity": 150,
-     "days_over": -3,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24593,
-     "customer_id": 1304,
-     "name": "Lake Morley Resort",
-     "capacity": 150,
-     "days_over": 14,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24436,
-     "customer_id": 1268,
-     "name": "CRAVE—-Broken Hearts Burger",
-     "capacity": 100,
-     "days_over": 14,
-     "must_get": true
     }
    ]
   },
@@ -430,13 +327,13 @@
    "customer_id": 115,
    "name": "Cornerstone Pub & Kitchen-pass 2720",
    "city": "Barre",
-   "days_over": 4
+   "days_over": -45
   },
   {
    "customer_id": 1363,
    "name": "GE-South Barre Gas Station",
    "city": "Barre",
-   "days_over": -6
+   "days_over": -75
   },
   {
    "customer_id": 111,
@@ -448,13 +345,13 @@
    "customer_id": 1128,
    "name": "Hannaford-South Barre",
    "city": "Barre",
-   "days_over": -6
+   "days_over": -75
   },
   {
    "customer_id": 117,
    "name": "Ladder 1-Barre",
    "city": "Barre",
-   "days_over": -2
+   "days_over": -28
   },
   {
    "customer_id": 1380,
@@ -472,13 +369,13 @@
    "customer_id": 112,
    "name": "Mulligans-Barre",
    "city": "Barre",
-   "days_over": -9
+   "days_over": -20
   },
   {
    "customer_id": 1387,
    "name": "SARKY’s/Foxys Barre",
    "city": "Barre",
-   "days_over": 21
+   "days_over": -28
   },
   {
    "customer_id": 118,
@@ -490,7 +387,7 @@
    "customer_id": 1401,
    "name": "Tasty Bites",
    "city": "Barre",
-   "days_over": -10
+   "days_over": -28
   },
   {
    "customer_id": 127,
@@ -1432,31 +1329,31 @@
    "customer_id": 1268,
    "name": "CRAVE—-Broken Hearts Burger",
    "city": "Fairlee",
-   "days_over": 14
+   "days_over": -28
   },
   {
    "customer_id": 1305,
    "name": "Jan’s Fairlee Diner",
    "city": "Fairlee",
-   "days_over": -79
+   "days_over": -121
   },
   {
    "customer_id": 1304,
    "name": "Lake Morley Resort",
    "city": "Fairlee",
-   "days_over": 14
+   "days_over": -28
   },
   {
    "customer_id": 622,
    "name": "Samurai Soul Food",
    "city": "Fairlee",
-   "days_over": -3
+   "days_over": -45
   },
   {
    "customer_id": 124,
    "name": "Graniteville General",
    "city": "Graniteville",
-   "days_over": 19
+   "days_over": -50
   },
   {
    "customer_id": 1513,

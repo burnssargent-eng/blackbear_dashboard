@@ -221,6 +221,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 110,Canadian Club,Barre,Washington,2017-05-17,2017,2017-05,50,True,Barre Town
 110,Canadian Club,Barre,Washington,2016-04-16,2016,2016-04,25,True,Barre Town
 110,Canadian Club,Barre,Washington,2016-03-12,2016,2016-03,45,True,Barre Town
+115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2026-11-17,2026,2026-11,100,True,Barre City
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2026-09-29,2026,2026-09,85,True,Barre City
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2026-08-24,2026,2026-08,90,True,Barre City
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2026-07-20,2026,2026-07,45,True,Barre City
@@ -335,6 +336,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2015-04-09,2015,2015-04,75,True,Barre City
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2015-02-20,2015,2015-02,60,True,Barre City
 115,Cornerstone Pub & Kitchen-pass 2720,Barre,Washington,2015-01-16,2015,2015-01,45,True,Barre City
+1363,GE-South Barre Gas Station,Barre,Washington,2026-11-17,2026,2026-11,45,True,Barre Town
 1363,GE-South Barre Gas Station,Barre,Washington,2026-09-09,2026,2026-09,90,True,Barre Town
 1363,GE-South Barre Gas Station,Barre,Washington,2026-06-25,2026,2026-06,40,True,Barre Town
 1363,GE-South Barre Gas Station,Barre,Washington,2026-05-08,2026,2026-05,55,True,Barre Town
@@ -390,6 +392,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 111,Gunner Brook (Brookside Mkt),Barre,Washington,2015-09-02,2015,2015-09,25,True,Barre Town
 111,Gunner Brook (Brookside Mkt),Barre,Washington,2015-06-26,2015,2015-06,25,True,Barre Town
 111,Gunner Brook (Brookside Mkt),Barre,Washington,2015-04-20,2015,2015-04,40,True,Barre Town
+1128,Hannaford-South Barre,Barre,Washington,2026-11-17,2026,2026-11,154,True,Barre Town
 1128,Hannaford-South Barre,Barre,Washington,2026-09-09,2026,2026-09,96,True,Barre Town
 1128,Hannaford-South Barre,Barre,Washington,2026-06-25,2026,2026-06,32,True,Barre Town
 1128,Hannaford-South Barre,Barre,Washington,2026-05-08,2026,2026-05,32,True,Barre Town
@@ -427,6 +430,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1128,Hannaford-South Barre,Barre,Washington,2022-08-23,2022,2022-08,114,True,Barre Town
 1128,Hannaford-South Barre,Barre,Washington,2022-07-26,2022,2022-07,85,True,Barre Town
 1128,Hannaford-South Barre,Barre,Washington,2022-06-29,2022,2022-06,110,True,Barre Town
+117,Ladder 1-Barre,Barre,Washington,2026-11-17,2026,2026-11,40,True,Barre City
 117,Ladder 1-Barre,Barre,Washington,2026-10-22,2026,2026-10,30,True,Barre City
 117,Ladder 1-Barre,Barre,Washington,2026-09-29,2026,2026-09,30,True,Barre City
 117,Ladder 1-Barre,Barre,Washington,2026-09-09,2026,2026-09,30,True,Barre City
@@ -593,6 +597,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1380,Masonic Lodge-Barre,Barre,Washington,2025-06-06,2025,2025-06,35,True,Barre City
 1380,Masonic Lodge-Barre,Barre,Washington,2025-04-07,2025,2025-04,15,True,Barre City
 1380,Masonic Lodge-Barre,Barre,Washington,2025-01-11,2025,2025-01,35,True,Barre City
+112,Mulligans-Barre,Barre,Washington,2026-11-17,2026,2026-11,70,True,Barre City
 112,Mulligans-Barre,Barre,Washington,2026-11-06,2026,2026-11,90,True,Barre City
 112,Mulligans-Barre,Barre,Washington,2026-10-22,2026,2026-10,135,True,Barre City
 112,Mulligans-Barre,Barre,Washington,2026-10-06,2026,2026-10,60,True,Barre City
@@ -789,6 +794,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 112,Mulligans-Barre,Barre,Washington,2015-12-23,2015,2015-12,50,True,Barre City
 112,Mulligans-Barre,Barre,Washington,2015-11-23,2015,2015-11,30,True,Barre City
 112,Mulligans-Barre,Barre,Washington,2015-11-02,2015,2015-11,100,True,Barre City
+1387,SARKY’s/Foxys Barre,Barre,Washington,2026-11-17,2026,2026-11,25,True,Barre City
 1387,SARKY’s/Foxys Barre,Barre,Washington,2026-09-29,2026,2026-09,15,True,Barre City
 1387,SARKY’s/Foxys Barre,Barre,Washington,2026-09-09,2026,2026-09,15,True,Barre City
 1387,SARKY’s/Foxys Barre,Barre,Washington,2026-04-10,2026,2026-04,35,True,Barre City
@@ -804,6 +810,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 118,Spaulding High School,Barre,Washington,2017-05-17,2017,2017-05,100,True,Barre City
 118,Spaulding High School,Barre,Washington,2016-06-27,2016,2016-06,30,True,Barre City
 118,Spaulding High School,Barre,Washington,2015-10-13,2015,2015-10,20,True,Barre City
+1401,Tasty Bites,Barre,Washington,2026-11-17,2026,2026-11,30,True,Barre City
 1401,Tasty Bites,Barre,Washington,2026-10-30,2026,2026-10,70,True,Barre City
 1401,Tasty Bites,Barre,Washington,2026-09-29,2026,2026-09,40,True,Barre City
 1401,Tasty Bites,Barre,Washington,2026-09-09,2026,2026-09,40,True,Barre City
@@ -7669,6 +7676,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1461,Arandas-Fairlee,Fairlee,Orange,2026-07-24,2026,2026-07,60,True,Fairlee
 1461,Arandas-Fairlee,Fairlee,Orange,2026-04-01,2026,2026-04,35,True,Fairlee
 1461,Arandas-Fairlee,Fairlee,Orange,2026-01-20,2026,2026-01,35,True,Fairlee
+1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2026-11-17,2026,2026-11,80,True,Fairlee
 1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2026-10-06,2026,2026-10,40,True,Fairlee
 1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2026-09-02,2026,2026-09,45,True,Fairlee
 1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2026-07-24,2026,2026-07,80,True,Fairlee
@@ -7691,6 +7699,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2023-10-16,2023,2023-10,85,True,Fairlee
 1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2023-09-05,2023,2023-09,100,True,Fairlee
 1268,CRAVE—-Broken Hearts Burger,Fairlee,Orange,2023-08-03,2023,2023-08,90,True,Fairlee
+1305,Jan’s Fairlee Diner,Fairlee,Orange,2026-11-17,2026,2026-11,30,True,Fairlee
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2026-10-06,2026,2026-10,55,True,Fairlee
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2026-07-24,2026,2026-07,110,True,Fairlee
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2026-04-01,2026,2026-04,65,True,Fairlee
@@ -7703,6 +7712,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2024-05-30,2024,2024-05,50,True,Fairlee
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2024-03-12,2024,2024-03,50,True,Fairlee
 1305,Jan’s Fairlee Diner,Fairlee,Orange,2024-01-05,2024,2024-01,40,True,Fairlee
+1304,Lake Morley Resort,Fairlee,Orange,2026-11-17,2026,2026-11,20,True,Fairlee
 1304,Lake Morley Resort,Fairlee,Orange,2026-10-06,2026,2026-10,60,True,Fairlee
 1304,Lake Morley Resort,Fairlee,Orange,2026-09-02,2026,2026-09,90,True,Fairlee
 1304,Lake Morley Resort,Fairlee,Orange,2026-07-24,2026,2026-07,110,True,Fairlee
@@ -7719,6 +7729,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1304,Lake Morley Resort,Fairlee,Orange,2024-05-30,2024,2024-05,60,True,Fairlee
 1304,Lake Morley Resort,Fairlee,Orange,2024-03-12,2024,2024-03,50,True,Fairlee
 1304,Lake Morley Resort,Fairlee,Orange,2024-01-05,2024,2024-01,200,True,Fairlee
+622,Samurai Soul Food,Fairlee,Orange,2026-11-17,2026,2026-11,15,True,Fairlee
 622,Samurai Soul Food,Fairlee,Orange,2026-10-06,2026,2026-10,25,True,Fairlee
 622,Samurai Soul Food,Fairlee,Orange,2018-06-13,2018,2018-06,25,True,Fairlee
 622,Samurai Soul Food,Fairlee,Orange,2018-06-04,2018,2018-06,5,True,Fairlee
@@ -7732,6 +7743,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 622,Samurai Soul Food,Fairlee,Orange,2017-06-05,2017,2017-06,70,True,Fairlee
 622,Samurai Soul Food,Fairlee,Orange,2017-05-08,2017,2017-05,110,True,Fairlee
 622,Samurai Soul Food,Fairlee,Orange,2017-04-11,2017,2017-04,75,True,Fairlee
+124,Graniteville General,Graniteville,Washington,2026-11-17,2026,2026-11,60,True,Barre Town
 124,Graniteville General,Graniteville,Washington,2026-09-09,2026,2026-09,35,True,Barre Town
 124,Graniteville General,Graniteville,Washington,2026-07-20,2026,2026-07,30,True,Barre Town
 124,Graniteville General,Graniteville,Washington,2026-06-25,2026,2026-06,30,True,Barre Town
