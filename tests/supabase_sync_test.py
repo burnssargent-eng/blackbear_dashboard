@@ -333,6 +333,7 @@ rows = [
      "phone": "+18025551111", "jamaal_phone": "+18025551111"},
     {**base, "id": 11, "address": "11 Elm", "notes": "", "jamaal_address": "11 Elm", "jamaal_notes": "",
      "phone": "+18025552222", "jamaal_phone": ""},
+    {**base, "id": 12, "address": "", "notes": "", "jamaal_address": None, "jamaal_notes": None, "jamaal_phone": None},
 ]
 theirs = {
     "1": {"address": "1 Main St", "notes": "back door", "lat": None, "lon": None},
@@ -345,10 +346,11 @@ theirs = {
     "10": {"address": "10 Elm", "notes": "", "phone": "+18025553333", "lat": None, "lon": None},
     "11": {"address": "11 Elm", "notes": "", "phone": "+18025554444", "lat": None, "lon": None},
     "2": {"address": "2 Main St", "notes": "n", "phone": "+18025557777", "lat": None, "lon": None},
+    "12": {"address": "12 Old Rd", "notes": "back lot", "phone": "", "lat": 44.2, "lon": -72.6},
 }
 up, rep = ss.sweep_changes(rows, theirs, pin, "2026-11-08")
 ok(up[1] == {"jamaal_address": "1 Main St", "jamaal_notes": "back door", "jamaal_phone": ""}
-   and rep["recorded_first_time"] == 3,
+   and rep["recorded_first_time"] == 4,
    "the first sweep only records what the source site says")
 ok("address" not in up[2] and "phone" not in up[2] and rep["differs_at_first_sweep"] ==
    [{"id": 2, "name": "X", "field": "address"}, {"id": 2, "name": "X", "field": "phone"}],
@@ -368,6 +370,10 @@ ok(up[10] == {"jamaal_phone": "+18025553333", "phone": "+18025553333", "phone_so
               "phone_checked": "2026-11-08"}, "a phone changed there follows while ours was its old one")
 ok(up[11] == {"jamaal_phone": "+18025554444"} and {"id": 11, "name": "X", "field": "phone"}.items()
    <= next(x for x in rep["kept_ours"] if x["id"] == 11).items(), "a phone found elsewhere is kept when one appears there")
+ok(up[12] == {"jamaal_address": "12 Old Rd", "address": "12 Old Rd", "lat": 44.2, "lon": -72.6, "loc": "site",
+             "jamaal_notes": "back lot", "notes": "back lot", "jamaal_phone": ""}
+   and [x["field"] for x in rep["filled_blank"]] == ["address", "notes"],
+   "the first sweep fills an EMPTY address (with its pin) and notes, and lists them")
 ok(ss.sweep_changes([{**r, **up.get(r["id"], {})} for r in rows], theirs, pin)[0] == {},
    "a second sweep with nothing new changes nothing")
 
@@ -381,6 +387,16 @@ c3 = next(r for r in sweep_db.t["customers"] if r["id"] == 3)
 ok(c3["address"] == "33 Main St" and c3["loc"] == "site", "--sweep writes the followed edits")
 ok(sweep_db.t["sync_reports"][-1]["kind"] == "sweep" and srep["kept_ours"], "--sweep leaves a sweep report")
 ok("1234" not in sweep_db.t["sync_reports"][-1]["summary"], "the summary carries counts, never the notes")
+
+dry_db = FakeDb({"customers": [dict(r) for r in rows], "sync_reports": []})
+dry_db.dry_run = True
+dry_db.update = lambda *a, **k: (_ for _ in ()).throw(AssertionError("a dry run must not call update"))
+import contextlib, io  # noqa: E402,E401
+_out = io.StringIO()
+with contextlib.redirect_stdout(_out):
+    ss.sweep_details(dry_db, sweep_file)
+ok("12 Old Rd" not in _out.getvalue() and "back lot" not in _out.getvalue() and "dry run" in _out.getvalue(),
+   "a dry run writes nothing and prints counts, never an address or note (the Actions log is public)")
 
 
 class _Resp:
@@ -405,6 +421,12 @@ try:
     ok(False, "a page that is not a customer page stops the sweep")
 except jc.CustomerPageError:
     ok(json.load(open(swept_file))["customers"] == got, "a page that is not a customer page stops the sweep, file kept")
+
+ok(jc.inactive_ids([{"customer_id": 1}, {"customer_id": 3}], [{"customer_id": c} for c in (3, 2, 1, 5)]) == [2, 5],
+   "the inactive sweep reads the roster's customers not on the Assign list")
+mixed = {"20": pages["10"], "21": _Resp("<html>gone</html>")}
+got2 = jc.sweep([{"customer_id": 20}, {"customer_id": 21}], swept_file, get=lambda cid: mixed[cid], delay=0, skip_bad=True)
+ok(list(got2) == ["20"], "the inactive sweep skips a page that is no longer a customer page")
 
 print(f"\n{'FAILED' if failures else 'All passed'} ({failures} failure(s))")
 sys.exit(1 if failures else 0)

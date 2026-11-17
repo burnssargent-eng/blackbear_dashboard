@@ -23,6 +23,7 @@ database are read here, and supabase_sync.py writes them back.
     python3 jamaal_customers.py            # only customers not yet in the file
     python3 jamaal_customers.py --refresh  # re-read every customer page
     python3 jamaal_customers.py --sweep    # weekly: every page -> jamaal_sweep.local.json
+    python3 jamaal_customers.py --sweep --inactive   # once, by hand (inactive-contacts.yml)
 
 --sweep (Sarge, 2026-11-01) brings in address and notes edits made on the
 source site after a customer reached the database. It reads every active
@@ -30,6 +31,13 @@ customer's page into jamaal_sweep.local.json (full notes, codes included, and
 the Phone field:
 gitignored, never committed) and touches nothing else; supabase_sync.py
 --sweep then decides what changes.
+
+--sweep --inactive (Sarge, 2026-11-17) reads, instead, every customer in the
+dashboard roster (oil_collections.json) who is NOT on the Assign list: the
+inactive ones, whose customer page opens view-only on the site and had no
+address or phone. Same file, same GET-only page; a page that is no longer a
+customer page is skipped, not fatal. supabase_sync.py --sweep then fills only
+fields that are empty in the database.
 
 A failed page keeps that customer's old entry. On a broken page layout nothing
 is written and the exit code is non-zero.
@@ -54,6 +62,7 @@ SWEEP_FILE = "jamaal_sweep.local.json"
 # be committed or published. Only notes that scrub() changed are kept.
 LOCAL_NOTES = "customer_notes.local.json"
 ROUTES_FILE = "jamaal_routes.json"
+COLLECTIONS_FILE = "oil_collections.json"
 PROJECTIONS_FILE = "oil_projections.json"
 TOWNS_FILE = "vermont_towns.geojson"
 CENSUS_URL = "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress"
@@ -164,12 +173,19 @@ def town_centres():
     return out
 
 
-def sweep(assign, out=SWEEP_FILE, get=None, delay=DELAY_SEC):
+def inactive_ids(assign, roster):
+    """Roster customer ids (oil_collections.json) not on the Assign list, ascending."""
+    listed = {int(a["customer_id"]) for a in assign}
+    return sorted({int(c["customer_id"]) for c in roster} - listed)
+
+
+def sweep(assign, out=SWEEP_FILE, get=None, delay=DELAY_SEC, skip_bad=False):
     """
     Every active customer's address, the site's stored position (or none),
     full notes and Phone field, as the source site shows them now. A page that fails to load
     is left out (the sync then leaves that customer alone); a page that is not
-    a customer page stops the sweep with nothing written.
+    a customer page stops the sweep with nothing written, unless `skip_bad`
+    (the inactive sweep: an old account's page may be gone), when it is left out.
     """
     if get is None:
         site = requests.Session()
@@ -184,7 +200,13 @@ def sweep(assign, out=SWEEP_FILE, get=None, delay=DELAY_SEC):
         except requests.RequestException:
             failed += 1
             continue
-        address, lat, lon = parse_customer_page(resp.text)
+        try:
+            address, lat, lon = parse_customer_page(resp.text)
+        except CustomerPageError:
+            if not skip_bad:
+                raise
+            failed += 1
+            continue
         customers[cid] = {"address": address, "lat": lat, "lon": lon, "notes": raw_notes(resp.text),
                           "phone": page_phone(resp.text)}
         if i < len(assign) - 1:
@@ -202,13 +224,21 @@ def main():
     ap.add_argument("--out", default=OUTPUT)
     ap.add_argument("--sweep", action="store_true",
                     help=f"read every page into {SWEEP_FILE} (addresses and full notes) and nothing else")
+    ap.add_argument("--inactive", action="store_true",
+                    help="with --sweep: read the roster's customers NOT on the Assign list instead")
     args = ap.parse_args()
 
     with open(ROUTES_FILE, encoding="utf-8") as fh:
         assign = json.load(fh)["assign_list"]
     if args.sweep:
         try:
-            sweep(assign)
+            if args.inactive:
+                with open(COLLECTIONS_FILE, encoding="utf-8") as fh:
+                    ids = inactive_ids(assign, json.load(fh)["customers"])
+                print(f"Inactive sweep: {len(ids)} customer page(s) to read")
+                sweep([{"customer_id": i} for i in ids], skip_bad=True)
+            else:
+                sweep(assign)
         except CustomerPageError as exc:
             print(f"Sweep NOT written: {exc}", file=sys.stderr)
             return 1

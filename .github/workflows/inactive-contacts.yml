@@ -1,0 +1,55 @@
+name: Fill inactive customers' contacts
+
+# Run by hand (Actions tab > this workflow > Run workflow; Sarge, 2026-11-17).
+# Reads the source site's page (GET only) of every customer in the dashboard
+# roster who is NOT on its Assign list, then fills the shared database's
+# address (with its map pin), notes and phone for those customers, ONLY where
+# the database has none: a value already there is never changed. The
+# customer page then shows them on the inactive customer's view-only page.
+#
+# First "dry-run": reads every page and prints counts of what would be filled,
+# writing nothing. Then "write". Safe to run again: a second run finds the
+# fields filled and changes nothing. Commits nothing. This repo's Actions logs
+# are public: the steps print counts and names, never an address, note or phone.
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "dry-run (write nothing) or write (fill the empty fields)"
+        type: choice
+        options: [dry-run, write]
+        default: dry-run
+
+permissions:
+  contents: read
+
+jobs:
+  contacts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Read inactive customers' pages (GET only)
+        run: python jamaal_customers.py --sweep --inactive
+
+      - name: Fill the empty fields
+        env:
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          if [ "${{ inputs.mode }}" = "write" ]; then
+            python supabase_sync.py --sweep
+          else
+            python supabase_sync.py --sweep --dry-run
+          fi

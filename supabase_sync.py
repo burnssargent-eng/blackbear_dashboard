@@ -49,7 +49,9 @@ undoing edits made here (the reviewed contact lookup, fixes on the site).
 jamaal_customers.py --sweep reads every page first. `jamaal_address`,
 `jamaal_notes` and `jamaal_phone` hold what the source site said at the last
 sweep; per field:
-  none yet                  the first sweep: recorded, nothing changed
+  none yet                  the first sweep: recorded; ours changes only when it is
+                            EMPTY, then it takes the source site's (an address with its
+                            pin; Sarge, 2026-11-17, for inactive customers' contacts)
   the source site unchanged nothing
   the source site changed   ours still matches its old value: ours follows (an
                             address moves the pin: the site's position, else the
@@ -960,8 +962,8 @@ def sweep_changes(rows, theirs, place, today=None):
     Returns ({id: {column: value}}, report).
     """
     updates = {}
-    report = {"recorded_first_time": 0, "differs_at_first_sweep": [], "followed": [], "kept_ours": [],
-              "blank_on_source_site": []}
+    report = {"recorded_first_time": 0, "differs_at_first_sweep": [], "filled_blank": [], "followed": [],
+              "kept_ours": [], "blank_on_source_site": []}
     for r in sorted(rows, key=lambda r: r["id"]):
         seen = theirs.get(str(r["id"]))
         if r["id"] <= 0 or not seen:
@@ -976,7 +978,14 @@ def sweep_changes(rows, theirs, place, today=None):
                 continue
             if last is None:   # blank is recorded too, so notes added there later are followed
                 up[f"jamaal_{f}"], first = now, True
-                if now and ours != now:
+                if now and not ours:   # nothing of ours to keep: take the source site's
+                    up[f] = now
+                    if f == "address":
+                        pin = place(r, seen)
+                        if pin:
+                            up["lat"], up["lon"], up["loc"] = pin
+                    report["filled_blank"].append({**who, "field": f})
+                elif now and ours != now:
                     report["differs_at_first_sweep"].append({**who, "field": f})
                 continue
             if now == last:
@@ -1024,14 +1033,20 @@ def sweep_details(db, path=SWEEP_FILE):
                                   "jamaal_address,jamaal_notes,jamaal_phone")
     updates, report = sweep_changes(rows, sweep.get("customers", {}), place,
                                     datetime.now(VERMONT).date().isoformat())
-    for cid, values in updates.items():
-        db.update("customers", f"id=eq.{cid}", values)
+    # A dry run never reaches db.update, whose dry-run line prints the values: this repo's
+    # Actions logs are public, and these are addresses, notes and phones.
+    if not getattr(db, "dry_run", False):
+        for cid, values in updates.items():
+            db.update("customers", f"id=eq.{cid}", values)
     report["read_at"] = sweep.get("read_at")
     count = lambda k, f: sum(1 for x in report[k] if x["field"] == f)
     summary = (f"{count('followed', 'address')} address(es), {count('followed', 'notes')} note(s) and "
                f"{count('followed', 'phone')} phone(s) followed the "
-               f"source site; {len(report['kept_ours'])} kept ours; {report['recorded_first_time']} recorded "
-               f"for the first time")
+               f"source site; {count('filled_blank', 'address')} empty address(es) and "
+               f"{count('filled_blank', 'notes')} empty note(s) filled; {len(report['kept_ours'])} kept ours; "
+               f"{report['recorded_first_time']} recorded for the first time"
+               + (f" [dry run: {len(updates)} customer(s) would change, nothing written]"
+                  if getattr(db, "dry_run", False) else ""))
     db.insert("sync_reports", [{"kind": "sweep", "summary": summary, "report": report}])
     # Names and ids only: the notes carry door codes and the Actions log is not private.
     print(f"Sweep: {summary}.")
