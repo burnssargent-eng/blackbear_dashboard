@@ -449,6 +449,13 @@ MODEL_OVERRIDES = {
     1219: Override(STATUS_OPEN_ISH, "Mad River Glen", None,
                    "Trough index 0.45, repeatability 0.61. Open year-round."),
 
+    # ── year-round: never closes; overrides the closer detector ──
+    1130: Override(STATUS_DEFAULT, "Texas Roadhouse-# 1122-Mahoney", None,
+                   "Year-round chain restaurant (Sarge, 2026-11-18). The detector read "
+                   "Jan-Oct: its Nov-Dec 2025 oil came in on 2026-01-06, after the "
+                   "detector's cutoff, and Oct 2024-Feb 2025 was one long gap. That "
+                   "projected 0 gal on 2026-11-18, when 70 gal were collected."),
+
     # ── event-driven: production follows an event calendar, not a daily rate ──
     413: Override(STATUS_EVENT, "Champlain Valley Expo", None,
                   "September fair peak at 5.9x an average month; Nov-Mar zero "
