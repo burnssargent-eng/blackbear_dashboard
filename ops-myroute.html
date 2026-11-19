@@ -7,7 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
-  <link rel="stylesheet" href="ops.css?v=37d071bc">
+  <link rel="stylesheet" href="ops.css?v=b8200a8b">
 </head>
 
 <body>
@@ -89,6 +89,32 @@ function stopCardsHtml(routeId, lines) {
       </div>
     </div>`).join("");
 }
+
+/**
+ * Each stop's name keeps at least its first 7 characters and "…" (Sarge, 2026-11-19): its
+ * min-width is those characters measured in its own font, since a fixed width fits "Namaste"
+ * but not "VFW Post" or "MJH Mass". Re-measured on resize (narrow screens use smaller type).
+ */
+const NAME_MIN_CHARS = 7;
+function fitStopNames() {
+  document.querySelectorAll(".ops-cards").forEach(list => {
+    const names = list.querySelectorAll(".ops-stopA .ops-pick-name");
+    if (!names.length) return;
+    // Measured in a hidden copy of a name, so the font, kerning and "…" match exactly.
+    const probe = document.createElement("span");
+    probe.className = "ops-pick-name";
+    probe.style.cssText = "position:absolute;visibility:hidden;white-space:nowrap;min-width:0;width:auto";
+    list.appendChild(probe);
+    const widths = [...names].map(n => {
+      const t = n.textContent;
+      probe.textContent = t.length > NAME_MIN_CHARS ? `${t.slice(0, NAME_MIN_CHARS)}…` : t;
+      return Math.ceil(probe.getBoundingClientRect().width) + 1;
+    });
+    probe.remove();
+    names.forEach((n, k) => { n.style.minWidth = `${widths[k]}px`; });
+  });
+}
+addEventListener("resize", () => fitStopNames());
 
 /** Up to 8 customers matching the route's Add stop box, not already on it. */
 function addMatchesHtml(routeId) {
@@ -201,6 +227,7 @@ function renderList() {
       <span class="ops-undo-text">Removed ${escapeHtml(removed.stop.name)}</span>
       <button type="button" class="btn ops-undo-btn" data-act="unremove">Undo</button></div>` : footBarHtml()}`;
   document.getElementById("page").innerHTML = html;
+  fitStopNames();
   lastMoved = null;
   const box = naming && document.querySelector(`[data-name="${naming.route}"]`);
   if (box) { box.focus(); box.select(); }
