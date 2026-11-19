@@ -154,6 +154,11 @@ jobs:
           # (2026-11-17: the nightly started 9 hours late and lost its commit).
           # Rebase onto it first: PRs change code, this commits data, so it applies
           # cleanly; if both touched one file the push still fails and GitHub emails.
+          # A rebase refuses to start over unstaged edits, and the builder also
+          # rewrites tracked files the nightly does not commit
+          # (analysis/oil_projection_table.md, committed with model changes):
+          # drop them first (2026-11-18/19: every run failed here).
+          git checkout -- .
           git pull --rebase origin main && git push
 
       # Failure alerts (Sarge, 2026-11-15). The steps above carry on when they
