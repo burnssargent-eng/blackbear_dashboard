@@ -423,6 +423,10 @@ MODEL_OVERRIDES = {
                    "pickup, 2021-11-29, was its first). ~150 gal/yr."),
     517: Override(STATUS_TRUE_CLOSER, "Enosburgh Falls Country Club", "Jun-Oct",
                   "Golf course: pickups only Jun-Oct since 2018. ~100 gal/yr."),
+    1346: Override(STATUS_TRUE_CLOSER, "Cravens Food Truck-Middlebury", "Jun-Nov",
+                   "Food truck, closed Dec 1 to Jun 1 (Sarge, 2026-11-19): no pickups "
+                   "Nov 25 2025 - Jun 12 2026. One complete year, so the detector "
+                   "cannot see it until 2027."),
 
     # ── semi-closer / call-driven: held out while off-season AND silent ──
     934: Override(STATUS_SEMI_CLOSER, "Okemo-Jackson Gore Inn", "Dec-Apr",
@@ -438,6 +442,12 @@ MODEL_OVERRIDES = {
                   "2,165 gal/yr; quiet Dec-Feb with November pickups in 2 of 3 years."),
     1056: Override(STATUS_SEMI_CLOSER, "Quechee Gorge Snack Bar", "Mar-Oct",
                    "Quiet Dec-Feb with Nov/Dec off-season pickups."),
+    1352: Override(STATUS_SEMI_CLOSER, "Gondola’s Downtown Morrisville", "Apr-Nov",
+                   "Apr-Nov, as the old detector read it (Sarge, 2026-11-19). One "
+                   "complete year, so the detector cannot see it until 2027."),
+    824: Override(STATUS_SEMI_CLOSER, "White Cottage", "Apr-Nov",
+                  "Apr-Nov (Sarge, 2026-11-19). Pickups May to early Nov; the "
+                  "detector reads Mar-Nov, its spring oil spread back into March."),
 
     # ── seasonal open-ish: strong season, never shuts; stays on 50/50 ──
     270: Override(STATUS_OPEN_ISH, "Stowe Mountain-Spruce Peak", None,
@@ -455,6 +465,9 @@ MODEL_OVERRIDES = {
                    "Jan-Oct: its Nov-Dec 2025 oil came in on 2026-01-06, after the "
                    "detector's cutoff, and Oct 2024-Feb 2025 was one long gap. That "
                    "projected 0 gal on 2026-11-18, when 70 gal were collected."),
+    724: Override(STATUS_DEFAULT, "Mad Taco-Middlebury", None,
+                  "Year-round (Sarge, 2026-11-19). The old detector read Jan-Oct from "
+                  "a quiet late 2025; open all year in 2022-23."),
 
     # ── event-driven: production follows an event calendar, not a daily rate ──
     413: Override(STATUS_EVENT, "Champlain Valley Expo", None,

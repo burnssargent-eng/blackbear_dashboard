@@ -15,10 +15,11 @@ Every one of the last 2 complete years, 3+ months, plus the first January
 pickup once it arrives (`analysis/README.md`, 2026-11-18). Texas Roadhouse also
 has a year-round override (#125).
 
-- **Watch:** White Cottage (824) now reads Mar–Nov and projects through
-  November; Cravens Food Truck (1346) and Gondola's (1352) have one complete
-  year, so no detected season until January 2027. If they mislead routes, mark
-  them closed for the season on the customer page, or add registry seasons.
+- **Registry, 2026-11-19 (Sarge):** Cravens Food Truck (1346) Jun–Nov true
+  closer, Gondola's (1352) and White Cottage (824) Apr–Nov semi-closers, Mad
+  Taco-Middlebury (724) year-round.
+- **Watch:** customers with one complete year get no detected season until
+  their second; mark a seasonal one closed on the customer page meanwhile.
 
 ### Will-call and limited-data projections (2026-11-02)
 
