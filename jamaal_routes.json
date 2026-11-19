@@ -1,5 +1,5 @@
 {
- "scraped_at": "2026-11-19T12:00:20+00:00",
+ "scraped_at": "2026-11-19T18:19:03+00:00",
  "source": "routes_assigned.php, assign_routes.php",
  "routes": [
   {
@@ -113,152 +113,8 @@
   {
    "route_id": 4,
    "name": "Stowe/Wtbry/MRV",
-   "assigned_capacity": 4415,
+   "assigned_capacity": 815,
    "stops": [
-    {
-     "assignment_id": 24637,
-     "customer_id": 229,
-     "name": "Prohibition Pig",
-     "capacity": 200,
-     "days_over": -5,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24634,
-     "customer_id": 232,
-     "name": "Crossroads Deli",
-     "capacity": 150,
-     "days_over": -1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24626,
-     "customer_id": 250,
-     "name": "Sanfo",
-     "capacity": 95,
-     "days_over": 4,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24632,
-     "customer_id": 267,
-     "name": "Von Trapp Bierhall & Taproom",
-     "capacity": 150,
-     "days_over": 1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24631,
-     "customer_id": 1445,
-     "name": "Trapp Family Lodge",
-     "capacity": 110,
-     "days_over": -13,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24627,
-     "customer_id": 270,
-     "name": "Stowe Mountain-Spruce Peak",
-     "capacity": 300,
-     "days_over": 1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24622,
-     "customer_id": 278,
-     "name": "Matterhorn",
-     "capacity": 200,
-     "days_over": -13,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24630,
-     "customer_id": 265,
-     "name": "Topnotch (The Roost)",
-     "capacity": 150,
-     "days_over": -13,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24621,
-     "customer_id": 262,
-     "name": "Idletyme",
-     "capacity": 300,
-     "days_over": 1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24623,
-     "customer_id": 261,
-     "name": "Piecasso",
-     "capacity": 300,
-     "days_over": 1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24615,
-     "customer_id": 1075,
-     "name": "Alfies Wild rides",
-     "capacity": 200,
-     "days_over": 36,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24628,
-     "customer_id": 1223,
-     "name": "StoweCider-Shakedown",
-     "capacity": 150,
-     "days_over": -13,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24629,
-     "customer_id": 252,
-     "name": "The Bench",
-     "capacity": 195,
-     "days_over": 1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24543,
-     "customer_id": 255,
-     "name": "The Butchery",
-     "capacity": 100,
-     "days_over": -34,
-     "must_get": true
-    },
-    {
-     "assignment_id": 24618,
-     "customer_id": 273,
-     "name": "BARBERIAN-Skinny Pancake-Stowe McCarthy's",
-     "capacity": 150,
-     "days_over": 1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24625,
-     "customer_id": 249,
-     "name": "Rim Rock-Stowe",
-     "capacity": 150,
-     "days_over": 1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24616,
-     "customer_id": 1372,
-     "name": "Arandas Mexican-Stowe",
-     "capacity": 100,
-     "days_over": 0,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24624,
-     "customer_id": 248,
-     "name": "Ranch Camp 50%",
-     "capacity": 200,
-     "days_over": -6,
-     "must_get": false
-    },
     {
      "assignment_id": 24633,
      "customer_id": 244,
@@ -268,11 +124,11 @@
      "must_get": false
     },
     {
-     "assignment_id": 24617,
-     "customer_id": 287,
-     "name": "Backyard Tavern 50%",
-     "capacity": 200,
-     "days_over": -6,
+     "assignment_id": 24616,
+     "customer_id": 1372,
+     "name": "Arandas Mexican-Stowe",
+     "capacity": 100,
+     "days_over": 0,
      "must_get": false
     },
     {
@@ -292,11 +148,11 @@
      "must_get": false
     },
     {
-     "assignment_id": 24619,
-     "customer_id": 247,
-     "name": "Doc Ponds",
-     "capacity": 300,
-     "days_over": 1,
+     "assignment_id": 24638,
+     "customer_id": 227,
+     "name": "The Reservoir-Waterbury",
+     "capacity": 200,
+     "days_over": -12,
      "must_get": false
     },
     {
@@ -305,14 +161,6 @@
      "name": "Hen of the Wood-WATERBURY",
      "capacity": 150,
      "days_over": -6,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24638,
-     "customer_id": 227,
-     "name": "The Reservoir-Waterbury",
-     "capacity": 200,
-     "days_over": -12,
      "must_get": false
     }
    ]
@@ -3036,7 +2884,7 @@
    "customer_id": 1075,
    "name": "Alfies Wild rides",
    "city": "Stowe",
-   "days_over": 36
+   "days_over": -29
   },
   {
    "customer_id": 1372,
@@ -3048,13 +2896,13 @@
    "customer_id": 287,
    "name": "Backyard Tavern 50%",
    "city": "Stowe",
-   "days_over": -6
+   "days_over": -21
   },
   {
    "customer_id": 273,
    "name": "BARBERIAN-Skinny Pancake-Stowe McCarthy's",
    "city": "Stowe",
-   "days_over": 1
+   "days_over": -14
   },
   {
    "customer_id": 1103,
@@ -3072,7 +2920,7 @@
    "customer_id": 247,
    "name": "Doc Ponds",
    "city": "Stowe",
-   "days_over": 1
+   "days_over": -14
   },
   {
    "customer_id": 263,
@@ -3102,13 +2950,13 @@
    "customer_id": 262,
    "name": "Idletyme",
    "city": "Stowe",
-   "days_over": 1
+   "days_over": -14
   },
   {
    "customer_id": 278,
    "name": "Matterhorn",
    "city": "Stowe",
-   "days_over": -13
+   "days_over": -28
   },
   {
    "customer_id": 1361,
@@ -3120,7 +2968,7 @@
    "customer_id": 261,
    "name": "Piecasso",
    "city": "Stowe",
-   "days_over": 1
+   "days_over": -14
   },
   {
    "customer_id": 276,
@@ -3132,19 +2980,19 @@
    "customer_id": 248,
    "name": "Ranch Camp 50%",
    "city": "Stowe",
-   "days_over": -6
+   "days_over": -21
   },
   {
    "customer_id": 249,
    "name": "Rim Rock-Stowe",
    "city": "Stowe",
-   "days_over": 1
+   "days_over": -14
   },
   {
    "customer_id": 250,
    "name": "Sanfo",
    "city": "Stowe",
-   "days_over": 4
+   "days_over": -61
   },
   {
    "customer_id": 243,
@@ -3156,7 +3004,7 @@
    "customer_id": 270,
    "name": "Stowe Mountain-Spruce Peak",
    "city": "Stowe",
-   "days_over": 1
+   "days_over": -14
   },
   {
    "customer_id": 1262,
@@ -3180,7 +3028,7 @@
    "customer_id": 1223,
    "name": "StoweCider-Shakedown",
    "city": "Stowe",
-   "days_over": -13
+   "days_over": -28
   },
   {
    "customer_id": 254,
@@ -3192,13 +3040,13 @@
    "customer_id": 252,
    "name": "The Bench",
    "city": "Stowe",
-   "days_over": 1
+   "days_over": -14
   },
   {
    "customer_id": 255,
    "name": "The Butchery",
    "city": "Stowe",
-   "days_over": -34
+   "days_over": -70
   },
   {
    "customer_id": 246,
@@ -3210,19 +3058,19 @@
    "customer_id": 265,
    "name": "Topnotch (The Roost)",
    "city": "Stowe",
-   "days_over": -13
+   "days_over": -28
   },
   {
    "customer_id": 1445,
    "name": "Trapp Family Lodge",
    "city": "Stowe",
-   "days_over": -13
+   "days_over": -28
   },
   {
    "customer_id": 267,
    "name": "Von Trapp Bierhall & Taproom",
    "city": "Stowe",
-   "days_over": 1
+   "days_over": -14
   },
   {
    "customer_id": 1518,
@@ -3504,7 +3352,7 @@
    "customer_id": 232,
    "name": "Crossroads Deli",
    "city": "Waterbury",
-   "days_over": -1
+   "days_over": -56
   },
   {
    "customer_id": 1345,
@@ -3552,7 +3400,7 @@
    "customer_id": 229,
    "name": "Prohibition Pig",
    "city": "Waterbury",
-   "days_over": -5
+   "days_over": -21
   },
   {
    "customer_id": 227,

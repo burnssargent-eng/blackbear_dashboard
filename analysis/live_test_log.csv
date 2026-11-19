@@ -565,3 +565,33 @@ pickup_date,customer_id,member_ids,customer,town,stage,status,section,previous_p
 2026-11-17,1363,1363,GE-South Barre Gas Station,Barre Town,established,50/50 default,ranked,2026-09-09,2026-11-16,2026-11-16,53.5,40.2,77.7,60.1,45,8.5,18.9,15.1
 2026-11-17,1387,1387,SARKY’s/Foxys Barre,Barre City,new,50/50 default,ranked,2026-09-29,2026-11-16,2026-11-16,21.3,12.8,35.0,8.6,25,-3.7,-14.8,-16.4
 2026-11-17,1401,1401,Tasty Bites,Barre City,established,50/50 default,ranked,2026-10-30,2026-11-16,2026-11-16,35.3,26.5,51.2,29.2,30,5.3,17.7,-0.8
+2026-11-18,344,344,Parkway Diner,South Burlington,established,50/50 default,ranked,2026-10-01,2026-11-17,2026-11-17,42.3,31.8,61.4,41.4,40,2.3,5.7,1.4
+2026-11-18,374,374,Pulcinella,South Burlington,established,50/50 default,ranked,2026-10-01,2026-11-17,2026-11-17,26.2,19.6,38.1,26.3,60,-33.8,-56.3,-33.7
+2026-11-18,401,401,Grazers pc 1425- Williston Garage,Williston,established,50/50 default,ranked,2026-11-03,2026-11-17,2026-11-17,91.8,51.7,131.9,80.6,80,11.8,14.8,0.6
+2026-11-18,1032,1032,McGillicuddy's Alehouse-Williston,Williston,established,50/50 default,ranked,2026-11-03,2026-11-17,2026-11-17,51.7,39.0,64.2,47.5,70,-18.3,-26.1,-22.5
+2026-11-18,1130,1130,Texas Roadhouse-# 1122-Mahoney,Williston,closer off-season,closer (detected),ranked,2026-11-03,2026-11-17,2026-11-17,3.0,,,1.9,70,-67.0,-95.7,-68.1
+2026-11-18,1187,1187,Hana-Japanese-Dorset,South Burlington,established,50/50 default,ranked,2026-10-22,2026-11-17,2026-11-17,58.0,32.7,83.3,48.6,40,18.0,45.0,8.6
+2026-11-18,1188,1188,Windjammer,South Burlington,established,50/50 default,ranked,2026-10-22,2026-11-17,2026-11-17,80.7,56.5,104.8,71.2,80,0.7,0.9,-8.8
+2026-11-18,1195,1195,Chicken Charlies,South Burlington,established,50/50 default,ranked,2026-11-06,2026-11-17,2026-11-17,32.1,21.9,42.3,30.0,20,12.1,60.5,10.0
+2026-11-18,1377,1377,Chef Leu -Shelburne,Shelburne,established,50/50 default,ranked,2026-10-22,2026-11-17,2026-11-17,16.0,12.0,23.2,12.4,15,1.0,6.7,-2.6
+2026-11-18,1417,1417,AL’s FRENCH FRIES 1251-South Burlington,South Burlington,established,50/50 default,ranked,2026-11-06,2026-11-17,2026-11-17,87.6,65.7,127.0,75.4,70,17.6,25.1,5.4
+2026-11-18,1458,1458,Jersey Mike's-South Burlington,South Burlington,new,50/50 default,ranked,2026-10-01,2026-11-17,2026-11-17,77.1,54.0,104.0,52.3,45,32.1,71.3,7.3
+2026-11-18,1483,1483,Mountain Valley -South Burlington,South Burlington,new,50/50 default,ranked,2026-10-01,2026-11-17,2026-11-17,33.8,23.7,45.6,31.6,30,3.8,12.7,1.6
+2026-11-18,1495,1495,Folinos-Williston,Williston,new,50/50 default,ranked,2026-10-22,2026-11-17,2026-11-17,78.7,55.1,106.2,85.9,80,-1.3,-1.6,5.9
+2026-11-18,1510,1510,Folinos Pizza-South Burlington,South Burlington,new,50/50 default,ranked,2026-10-01,2026-11-17,2026-11-17,54.0,32.4,88.5,66.3,15,39.0,260.0,51.3
+2026-11-19,229,229,Prohibition Pig,Waterbury,established,50/50 default,ranked,2026-11-03,2026-11-17,2026-11-17,96.7,74.8,118.7,89.5,70,26.7,38.1,19.5
+2026-11-19,232,232,Crossroads Deli,Waterbury,established,50/50 default,ranked,2026-09-25,2026-11-17,2026-11-17,35.9,27.0,52.1,31.3,50,-14.1,-28.2,-18.7
+2026-11-19,248,248;287,Ranch Camp + Backyard Tavern,Stowe,established,50/50 default,ranked,2026-11-04,2026-11-17,2026-11-17,93.0,62.9,123.1,85.0,70,23.0,32.9,15.0
+2026-11-19,249,249,Rim Rock-Stowe,Stowe,established,50/50 default,ranked,2026-11-04,2026-11-17,2026-11-17,40.7,28.8,52.6,39.6,25,15.7,62.8,14.6
+2026-11-19,250,250,Sanfo,Stowe,established,50/50 default,ranked,2026-09-15,2026-11-17,2026-11-17,50.5,37.8,73.1,55.4,40,10.5,26.2,15.4
+2026-11-19,252,252,The Bench,Stowe,established,50/50 default,ranked,2026-11-04,2026-11-17,2026-11-17,45.7,35.0,56.3,43.4,35,10.7,30.6,8.4
+2026-11-19,255,255,The Butchery,Stowe,established,50/50 default,ranked,2026-10-14,2026-11-17,2026-11-17,22.6,16.9,32.8,19.1,15,7.6,50.7,4.1
+2026-11-19,261,261,Piecasso,Stowe,established,50/50 default,ranked,2026-11-04,2026-11-17,2026-11-17,126.7,97.2,156.1,121.6,110,16.7,15.2,11.6
+2026-11-19,262,262,Idletyme,Stowe,seasonal,50/50 default,ranked,2026-11-04,2026-11-17,2026-11-17,116.9,76.1,157.5,104.7,110,6.9,6.3,-5.3
+2026-11-19,267,267,Von Trapp Bierhall & Taproom,Stowe,established,50/50 default,ranked,2026-11-04,2026-11-17,2026-11-17,85.6,67.1,104.0,81.7,65,20.6,31.7,16.7
+2026-11-19,270,270,Stowe Mountain-Spruce Peak,Stowe,seasonal,seasonal open-ish,ranked,2026-11-04,2026-11-17,2026-11-17,143.5,92.5,194.5,130.2,75,68.5,91.3,55.2
+2026-11-19,273,273,BARBERIAN-Skinny Pancake-Stowe McCarthy's,Stowe,new,50/50 default,ranked,2026-11-04,2026-11-17,2026-11-17,64.7,45.3,87.3,51.2,30,34.7,115.7,21.2
+2026-11-19,278,278,Matterhorn,Stowe,seasonal,50/50 default,ranked,2026-11-04,2026-11-17,2026-11-17,46.0,30.4,61.6,38.2,50,-4.0,-8.0,-11.8
+2026-11-19,1075,1075,Alfies Wild rides,Stowe,established,50/50 default,ranked,2026-09-15,2026-11-17,2026-11-17,30.5,22.9,44.2,37.4,50,-19.5,-39.0,-12.6
+2026-11-19,1223,1223,StoweCider-Shakedown,Stowe,established,50/50 default,ranked,2026-10-14,2026-11-17,2026-11-17,34.6,25.9,50.2,29.5,30,4.6,15.3,-0.5
+2026-11-19,1445,1445,Trapp Family Lodge,Stowe,established,50/50 default,ranked,2026-11-04,2026-11-17,2026-11-17,30.3,22.7,44.0,25.4,20,10.3,51.5,5.4

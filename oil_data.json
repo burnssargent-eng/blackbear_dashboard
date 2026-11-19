@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-17T18:35:06.288636",
+  "last_updated": "2026-11-19T18:18:57.329928",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -34647,8 +34647,14 @@
     },
     {
       "month": "2026-11",
+      "geo_town": "Shelburne",
+      "gallons": 15,
+      "city": "Shelburne"
+    },
+    {
+      "month": "2026-11",
       "geo_town": "South Burlington",
-      "gallons": 275,
+      "gallons": 675,
       "city": "South Burlington"
     },
     {
@@ -34660,7 +34666,7 @@
     {
       "month": "2026-11",
       "geo_town": "Stowe",
-      "gallons": 1515,
+      "gallons": 2240,
       "city": "Stowe"
     },
     {
@@ -34678,13 +34684,13 @@
     {
       "month": "2026-11",
       "geo_town": "Waterbury",
-      "gallons": 580,
+      "gallons": 700,
       "city": "Waterbury"
     },
     {
       "month": "2026-11",
       "geo_town": "Williston",
-      "gallons": 590,
+      "gallons": 890,
       "city": "Williston"
     },
     {
@@ -42574,7 +42580,7 @@
     {
       "month": "2026-11",
       "county": "Chittenden",
-      "gallons": 5740
+      "gallons": 6455
     },
     {
       "month": "2026-11",
@@ -42589,7 +42595,7 @@
     {
       "month": "2026-11",
       "county": "Lamoille",
-      "gallons": 1515
+      "gallons": 2240
     },
     {
       "month": "2026-11",
@@ -42614,7 +42620,7 @@
     {
       "month": "2026-11",
       "county": "Washington",
-      "gallons": 2329
+      "gallons": 2449
     },
     {
       "month": "2026-11",
@@ -42674,11 +42680,11 @@
     },
     {
       "year": 2026,
-      "gallons": 260741
+      "gallons": 262301
     }
   ],
-  "all_time_total": 2179508,
-  "current_year_total": 260741,
+  "all_time_total": 2181068,
+  "current_year_total": 262301,
   "customer_count": 810,
   "unmapped_total": 40915,
   "monthly_totals": [
@@ -43252,7 +43258,7 @@
     },
     {
       "month": "2026-11",
-      "gallons": 12773
+      "gallons": 14333
     }
   ],
   "monthly_by_region": [
@@ -54469,7 +54475,7 @@
     {
       "month": "2026-11",
       "region": "Burlington / South Burlington",
-      "gallons": 3840
+      "gallons": 4240
     },
     {
       "month": "2026-11",
@@ -54494,7 +54500,7 @@
     {
       "month": "2026-11",
       "region": "Outer Burlington",
-      "gallons": 1260
+      "gallons": 1560
     },
     {
       "month": "2026-11",
@@ -54504,12 +54510,12 @@
     {
       "month": "2026-11",
       "region": "Route 7",
-      "gallons": 966
+      "gallons": 981
     },
     {
       "month": "2026-11",
       "region": "Ski Slopes",
-      "gallons": 360
+      "gallons": 435
     },
     {
       "month": "2026-11",
@@ -54534,12 +54540,12 @@
     {
       "month": "2026-11",
       "region": "Waterbury / Stowe",
-      "gallons": 2095
+      "gallons": 2940
     },
     {
       "month": "2026-11",
       "region": "Winter / Summer Combined",
-      "gallons": 465
+      "gallons": 540
     }
   ],
   "yearly_by_region": [
@@ -55531,7 +55537,7 @@
     {
       "year": 2026,
       "region": "Burlington / South Burlington",
-      "gallons": 48806
+      "gallons": 49206
     },
     {
       "year": 2026,
@@ -55556,7 +55562,7 @@
     {
       "year": 2026,
       "region": "Outer Burlington",
-      "gallons": 24153
+      "gallons": 24453
     },
     {
       "year": 2026,
@@ -55576,12 +55582,12 @@
     {
       "year": 2026,
       "region": "Route 7",
-      "gallons": 12078
+      "gallons": 12093
     },
     {
       "year": 2026,
       "region": "Ski Slopes",
-      "gallons": 17120
+      "gallons": 17195
     },
     {
       "year": 2026,
@@ -55611,12 +55617,12 @@
     {
       "year": 2026,
       "region": "Waterbury / Stowe",
-      "gallons": 35590
+      "gallons": 36435
     },
     {
       "year": 2026,
       "region": "Winter / Summer Combined",
-      "gallons": 27915
+      "gallons": 27990
     }
   ],
   "region_names": [
@@ -55665,20 +55671,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 28075,
+  "collections_count": 28106,
   "out_of_state_total": 40915,
   "active_customer_count": 535,
   "projection": {
-    "latest_data_date": "2026-11-17",
+    "latest_data_date": "2026-11-19",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 260741,
+    "current_ytd": 262301,
     "previous_year_full": 269909,
     "previous_through_prior_month": 230827,
     "previous_same_month_total": 20207,
-    "previous_prorated_ytd": 242277.63,
-    "projected_current_year": 290478,
-    "percent_vs_previous_year": 0.076207
+    "previous_prorated_ytd": 243624.77,
+    "projected_current_year": 290600,
+    "percent_vs_previous_year": 0.07666
   },
   "region_stats": {
     "Burlington / South Burlington": {
