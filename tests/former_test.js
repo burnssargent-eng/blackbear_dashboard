@@ -99,7 +99,7 @@ ok(rt.includes(" to date") && rt.includes(" *"), "this year is marked to date, t
 
 console.log("\n7. Former lives on the Customers page");
 const custHtml = fs.readFileSync("customers.html", "utf8");
-ok(/<script src="former-list\.js"><\/script>/.test(custHtml) && /renderFormerSection\(/.test(custHtml), "customers.html loads and draws the list");
+ok(/<script src="former-list\.js(\?v=[0-9a-f]+)?"><\/script>/.test(custHtml) && /renderFormerSection\(/.test(custHtml), "customers.html loads and draws the list");
 ok(/href="#former">↓ View former customer analysis/.test(custHtml), "a jump button beside the lifecycle one");
 ok(!/former\.html/.test(former.navHtml("customers")) && !/>Former</.test(fs.readFileSync("index.html", "utf8")),
   "Former is out of the shared nav and the homepage's");

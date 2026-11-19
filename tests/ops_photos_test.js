@@ -49,7 +49,7 @@ ok(/is\("removed_at", null\)/.test(fs.readFileSync("ops-photos.js", "utf8")), "r
 // ── Pages: loaded after ops-db.js, and guarded for a page paired with an older script set ──
 ["ops-customer.html", "ops-myroute.html"].forEach(f => {
   const html = fs.readFileSync(f, "utf8");
-  const db = html.indexOf('<script src="ops-db.js">'), ph = html.indexOf('<script src="ops-photos.js">');
+  const db = html.search(/<script src="ops-db\.js(\?v=[0-9a-f]+)?">/), ph = html.search(/<script src="ops-photos\.js(\?v=[0-9a-f]+)?">/);
   ok(db > 0 && ph > db, `${f} loads ops-photos.js after ops-db.js`);
   ok(/const photosReady = typeof opsPhoto(StripHtml|Pick) === "function"/.test(html), `${f} keeps working without ops-photos.js`);
 });

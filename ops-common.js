@@ -521,13 +521,13 @@ function stopFiguresHtml(row, capacity) {
   const est = stopEstimate(row);
   if (est.kind !== "projected") {
     return `<span class="graytext">(${capText})</span>` +
-      (row ? ` <span class="ops-muted">${escapeHtml(row.status || row.section)}</span>` : "");
+      (row ? `<span class="ops-fig-more"> <span class="ops-muted">${escapeHtml(row.status || row.section)}</span></span>` : "");
   }
   // A will-call / limited-data estimate carries its section in grey.
   const label = projectionLabel(row);
   return `<span class="ops-proj ops-fill-${fillLevel(row)}">(~${formatWhole(est.gal)} gal / ${capText})</span>` +
     daysBracketHtml(daysPast75(row)) +
-    (label ? ` <span class="ops-muted">${escapeHtml(label)}</span>` : "");
+    (label ? `<span class="ops-fig-more"> <span class="ops-muted">${escapeHtml(label)}</span></span>` : "");
 }
 
 /**
