@@ -113,10 +113,11 @@ ok(ids(api.removeStop(five, 2)) === "1,2,4,5", "remove takes out only that stop"
 api.TRUCKS.push({ name: "Test truck", capacity: 400 });
 const t = { projected: 300, low: 250, high: 450 };
 ok(/75% of Test truck/.test(api.truckFillHtml(t, "Test truck")) &&
-   /could overflow at the high end/.test(api.truckFillHtml(t, "Test truck")),
-  "fill reads projected against the tank and warns when the high end overflows");
-ok(/over the tank/.test(api.truckFillHtml({ projected: 500, low: 400, high: 600 }, "Test truck")),
-  "a projected total over the tank says so");
+   !/overflow/.test(api.truckFillHtml(t, "Test truck")),
+  "fill reads projected against the tank, with no overflow warning (Sarge, 2026-11-19)");
+ok(/125% of Test truck/.test(api.truckFillHtml({ projected: 500, low: 400, high: 600 }, "Test truck")) &&
+   !/over the tank/.test(api.truckFillHtml({ projected: 500, low: 400, high: 600 }, "Test truck")),
+  "a total over the tank shows its % with no warning words");
 api.TRUCKS.pop();
 ok(api.TRUCKS.every(t => t.capacity > 0), "every truck has a tank capacity");
 

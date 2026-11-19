@@ -154,12 +154,11 @@ function addMatchesHtml(routeId) {
  * "Total ~1,010 gal · 51% of Mack Daddy's 2,000 gal", with the bar beneath.
  */
 function routeTotalHtml(totals, routeId) {
+  // No "over the tank" / "could overflow" words (Sarge, 2026-11-19): the % and the bar say it.
   const fill = truckFill(totals, store.trucks[routeId]);
-  const warn = !fill ? "" : fill.pct > 100 ? " — over the tank"
-    : fill.highPct > 100 ? " — could overflow at the high end" : "";
   return `<div class="ops-route-total${fill && fill.pct > 100 ? " text-danger" : ""}">
     <div><strong>Total ~${formatWhole(totals.projected)} gal</strong>${fill
-      ? ` · ${Math.round(fill.pct)}% of ${escapeHtml(fill.truck.name)}'s ${formatNumber(fill.truck.capacity)} gal${warn}` : ""}</div>
+      ? ` · ${Math.round(fill.pct)}% of ${escapeHtml(fill.truck.name)}'s ${formatNumber(fill.truck.capacity)} gal` : ""}</div>
     ${fill ? `<div class="progress"><div class="progress-bar ${
       fill.level === "full" ? "bg-danger" : fill.level === "due" ? "bg-warning" : "bg-success"}"
       style="width:${Math.min(100, fill.pct)}%"></div></div>` : ""}</div>`;
