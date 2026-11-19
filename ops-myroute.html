@@ -66,23 +66,27 @@ function stopLabelHtml(l, sharedWith = null) {
 }
 
 /**
- * The route's stops as cards, styled like the collecting page's lines: remove
- * on the left, the name over its figures, Page (the customer page) on the
- * right. Remove and Page sit at opposite ends so a slip cannot hit the other.
- * No stop numbers or arrows: a stop is moved by holding and dragging it.
+ * The route's stops, one line each in Assign Routes' format: number box | name
+ * (cut short when long) | figures | › (the customer page). A stop moves by
+ * holding and dragging it, or by typing a new place in its number box (25
+ * places is too far to drag: Jim, 2026-11-19). Swiping a stop left to right
+ * shows a red Remove strip under it; a swipe past 60% of the line removes it
+ * (Undo for a few seconds), a shorter one slides back.
  */
 function stopCardsHtml(routeId, lines) {
   const moved = lastMoved && lastMoved.route === routeId ? lastMoved.i : null;
   return lines.map((l, i) => `
-    <div class="ops-card${i === moved ? " ops-flash" : ""}" data-drag="${i}" data-route="${routeId}">
-      <button type="button" class="btn ops-plain-btn ops-card-x" data-act="remove" data-route="${routeId}"
-        data-i="${i}" aria-label="Remove ${escapeHtml(l.stop.name)}">✕</button>
-      <div class="ops-card-main">
-        <div class="ops-card-name${l.stop.must_get ? " hotlist" : ""}">${escapeHtml(l.stop.name)}</div>
-        <div class="ops-card-figs">${stopLabelHtml(l, l.dupOf !== null ? lines[l.dupOf].stop.name : null)}</div>
+    <div class="ops-swipe">
+      <div class="ops-swipe-bg" aria-hidden="true">Remove</div>
+      <div class="ops-card ops-stopA${i === moved ? " ops-flash" : ""}" data-drag="${i}" data-route="${routeId}">
+        <input class="ops-card-num" type="text" inputmode="numeric" pattern="[0-9]*" enterkeyhint="done"
+          autocomplete="off" maxlength="2" value="${i + 1}" data-seq="${i}" data-route="${routeId}"
+          aria-label="Stop number for ${escapeHtml(l.stop.name)}">
+        <span class="ops-pick-name${l.stop.must_get ? " hotlist" : ""}">${escapeHtml(l.stop.name)}</span>
+        <span class="ops-pick-figs">${stopLabelHtml(l, l.dupOf !== null ? lines[l.dupOf].stop.name : null)}</span>
+        <a class="btn ops-plain-btn ops-pick-page" href="ops-customer.html?id=${l.stop.customer_id}&from=myroute"
+          aria-label="Customer page for ${escapeHtml(l.stop.name)}">›</a>
       </div>
-      <a class="btn ops-plain-btn ops-card-page" href="ops-customer.html?id=${l.stop.customer_id}&from=myroute"
-        aria-label="Customer page for ${escapeHtml(l.stop.name)}">Page ›</a>
     </div>`).join("");
 }
 
@@ -188,7 +192,7 @@ function renderList() {
   const empty = routeList.filter(r => !storeStops(store, r.route_id).length);
   const html = `
     <h2>My Route</h2>
-    <div class="ops-muted mb-3">Open a route to see and change its stops; hold a stop to drag it; Set as My Route to start entering gallons.
+    <div class="ops-muted mb-3">Open a route to see and change its stops; hold a stop to drag it or type a new number in its box, swipe it right to remove it; Set as My Route to start entering gallons.
       Projections as of ${escapeHtml(formatDate(data.projections.as_of))}.</div>
     <div class="ops-route-list">${withStops.map(routeHtml).join("")}</div>
     ${empty.length ? `<div class="ops-muted mt-3 mb-1">Routes with no stops</div>
@@ -213,12 +217,14 @@ function renderList() {
 const HOLD_MS = 250, SLOP = 10, EDGE = 70;
 let press = null;
 
-function startPress(row, x, y) {
+function startPress(row, x, y, swipeOnly = false) {
   press = { row, route: Number(row.dataset.route), i: Number(row.dataset.drag),
     x0: x, y0: y, x, y, active: false };
+  press.fill = document.createElement("div");
+  // On the number box a press can only swipe: holding it is for typing, not dragging.
+  if (swipeOnly) return;
   // The fill sweeping across tells the finger to stay put.
   const b = row.getBoundingClientRect();
-  press.fill = document.createElement("div");
   press.fill.className = "ops-hold-fill";
   Object.assign(press.fill.style, { left: `${b.left + scrollX}px`, top: `${b.top + scrollY}px`,
     width: `${b.width}px`, height: `${b.height}px` });
@@ -241,7 +247,7 @@ function liftStop() {
   p.active = true;
   p.fill.remove();
   if (navigator.vibrate) navigator.vibrate(25);
-  p.rows = [...p.row.parentElement.querySelectorAll("[data-drag]")];
+  p.rows = [...p.row.closest(".ops-cards").querySelectorAll("[data-drag]")];
   // Each stop's slot: its height plus the gap to the next card.
   p.rects = p.rows.map((r, k) => {
     const b = r.getBoundingClientRect(), next = p.rows[k + 1];
@@ -282,6 +288,7 @@ function edgeScroll() {
 function dropStop() {
   const p = press;
   if (!p) return;
+  if (p.swipe) { endSwipe(); return; }
   cancelPress();
   if (!p.active) return;
   if (p.target !== p.i) {
@@ -292,22 +299,68 @@ function dropStop() {
   render();
 }
 
+/* ── Swipe right to remove ─────────────────────────────────
+ * A press that moves right before the hold is up (more across than down) is a
+ * swipe: the line follows the finger over a red Remove strip. Let go past 60%
+ * of its width and the stop is removed (Undo for a few seconds); short of
+ * that, it slides back. Up, down or left is a scroll, as before. */
+const SWIPE_REMOVE = 0.6;
+
+function startSwipe() {
+  const p = press, dx = p.x - p.x0, dy = p.y - p.y0;
+  if (dx <= 0 || dx < 2 * Math.abs(dy)) return false;
+  clearTimeout(p.timer);
+  p.fill.remove();
+  p.swipe = true;
+  p.width = p.row.getBoundingClientRect().width;
+  p.row.parentElement.classList.add("ops-swiping");
+  swipeTo();
+  return true;
+}
+
+function swipeTo() {
+  const p = press;
+  const dx = Math.max(0, p.x - p.x0);
+  p.row.style.transform = `translateX(${dx}px)`;
+  p.row.parentElement.classList.toggle("ops-swipe-armed", dx > p.width * SWIPE_REMOVE);
+}
+
+function endSwipe() {
+  const p = press;
+  press = null;
+  const row = p.row, wrap = row.parentElement;
+  row.style.transition = "transform 150ms ease-out";
+  if (Math.max(0, p.x - p.x0) > p.width * SWIPE_REMOVE) {
+    row.style.transform = `translateX(${p.width}px)`;
+    setTimeout(() => onAct({ dataset: { act: "remove", route: String(p.route), i: String(p.i) } }), 150);
+  } else {
+    row.style.transform = "";
+    setTimeout(() => { row.style.transition = ""; wrap.classList.remove("ops-swiping", "ops-swipe-armed"); }, 160);
+  }
+}
+
 function dragRow(e) {
-  if (store.my || e.target.closest("button, a, input, select")) return null;
+  if (store.my || (e.target.closest("button, a, input, select") && !numBox(e))) return null;
   return e.target.closest("[data-drag]");
+}
+
+/** A press on a stop's number box: it can start a swipe (the box is where a right swipe begins), never a drag. */
+function numBox(e) {
+  return !!e.target.closest(".ops-card-num");
 }
 
 function wireDrag(page) {
   page.addEventListener("touchstart", e => {
     if (e.touches.length !== 1) { cancelPress(); return; }
     const row = dragRow(e);
-    if (row) startPress(row, e.touches[0].clientX, e.touches[0].clientY);
+    if (row) startPress(row, e.touches[0].clientX, e.touches[0].clientY, numBox(e));
   }, { passive: true });
   document.addEventListener("touchmove", e => {
     if (!press) return;
     press.x = e.touches[0].clientX; press.y = e.touches[0].clientY;
+    if (press.swipe) { e.preventDefault(); swipeTo(); return; }
     if (!press.active) {
-      if (Math.hypot(press.x - press.x0, press.y - press.y0) > SLOP) cancelPress();   // a scroll
+      if (Math.hypot(press.x - press.x0, press.y - press.y0) > SLOP && !startSwipe()) cancelPress();   // a scroll
       return;
     }
     e.preventDefault();
@@ -319,13 +372,15 @@ function wireDrag(page) {
   page.addEventListener("mousedown", e => {
     if (e.button !== 0) return;
     const row = dragRow(e);
-    if (row) { e.preventDefault(); startPress(row, e.clientX, e.clientY); }
+    if (row && numBox(e)) startPress(row, e.clientX, e.clientY, true);   // the box still takes focus
+    else if (row) { e.preventDefault(); startPress(row, e.clientX, e.clientY); }
   });
   document.addEventListener("mousemove", e => {
     if (!press) return;
     press.x = e.clientX; press.y = e.clientY;
+    if (press.swipe) { swipeTo(); return; }
     if (!press.active) {
-      if (Math.hypot(press.x - press.x0, press.y - press.y0) > SLOP) cancelPress();
+      if (Math.hypot(press.x - press.x0, press.y - press.y0) > SLOP && !startSwipe()) cancelPress();
       return;
     }
     dragTo();
@@ -1211,13 +1266,34 @@ function wire() {
       render();
       return;
     }
+    if (t.dataset.seq !== undefined) {   // a stop's number typed: it moves there, the rest renumber
+      const route = Number(t.dataset.route), from = Number(t.dataset.seq);
+      const stops = storeStops(store, route);
+      const n = parseInt(t.value, 10);
+      const to = Number.isFinite(n) ? Math.max(1, Math.min(stops.length, n)) - 1 : from;
+      if (to === from) { t.value = from + 1; return; }
+      store.routes[route] = setStopNumber(stops, from, to + 1);
+      lastMoved = { route, i: to };
+      saveStore(store);
+      render();
+      return;
+    }
     if (t.dataset.truck !== undefined) {
       store.trucks[t.dataset.truck] = t.value;
     } else return;
     saveStore(store);
     render();
   });
+  // A stop's number box: the old number is selected, so typing replaces it; Enter moves the stop.
+  page.addEventListener("focusin", e => {
+    if (e.target.dataset && e.target.dataset.seq !== undefined) setTimeout(() => e.target.select(), 0);
+  });
   page.addEventListener("keydown", e => {
+    if (e.key === "Enter" && e.target.dataset && e.target.dataset.seq !== undefined) {
+      e.preventDefault();
+      e.target.blur();
+      return;
+    }
     if (e.key === "Enter" && taskAdd && e.target.dataset && (e.target.dataset.taskadd === "text" || e.target.dataset.taskadd === "note")) {
       e.preventDefault();
       onAct({ dataset: { act: "taskadd-save" } });
