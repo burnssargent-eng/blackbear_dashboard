@@ -1098,7 +1098,7 @@ def detected_closer(cid, pickups, asof):
     silent, so a real off-season call still ranks it -- the detector put
     2% of gallons in predicted-closed months on the 2024-25 holdout.
     """
-    closed = seasonal_open.closed_months(pickups, asof.year)
+    closed = seasonal_open.closed_months(pickups, asof.year, asof=asof)
     if not closed:
         return None
     spec = open_season_spec(closed)
@@ -2626,8 +2626,9 @@ precedence order:
    as *{STAGE_CLOSER_OFF}*: its open-season rate x the open-season days since
    the clock, so the closed months add no oil (`model_research_2026_10/reopening.md`).
    **{STATUS_DETECTED_CLOSER}** -- a customer NOT in the registry whose
-   last {seasonal_open.CLOSED_YEARS_BACK} complete years show a closed block
-   (`seasonal_open.closed_months`, `seasonal_closed.md`) is routed exactly like
+   last {seasonal_open.CLOSED_YEARS_BACK} complete years EACH show the same closed
+   block of {seasonal_open.CLOSED_MIN_MONTHS}+ months (`seasonal_open.closed_months`,
+   `seasonal_closed.md`; leaning steady since 2026-11-18) is routed exactly like
    a semi-closer, with the detected season. In season, every closer (registry
    or detected) is ranked on a pooled rate over its open-season gaps when it
    has {CLOSER_MIN_OPEN_GAPS}+, not the 50/50, which averages in the closed

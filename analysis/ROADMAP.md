@@ -9,6 +9,17 @@ finishes**, so a fresh session does not redo or skip it.
 
 ## In flight
 
+### Closer detector leans steady (2026-11-18)
+
+Every one of the last 2 complete years, 3+ months, plus the first January
+pickup once it arrives (`analysis/README.md`, 2026-11-18). Texas Roadhouse also
+has a year-round override (#125).
+
+- **Watch:** White Cottage (824) now reads Mar–Nov and projects through
+  November; Cravens Food Truck (1346) and Gondola's (1352) have one complete
+  year, so no detected season until January 2027. If they mislead routes, mark
+  them closed for the season on the customer page, or add registry seasons.
+
 ### Will-call and limited-data projections (2026-11-02)
 
 Merged #87 (sparsity weight, estimates) and then made the estimates these rows'

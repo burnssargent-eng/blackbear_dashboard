@@ -53,8 +53,9 @@ grey ("limited data", "will-call"), and they are still listed in their own
 section. A seasonal closer gets none while closed. **An override always wins over the detector**,
 and stale wins over will-call. Rows without their own WAPE get calibrated
 range factors (`RANGE_FACTORS`), never a flat ±20%. A customer NOT in the
-registry whose last 2 complete years show a closed block is a *detected
-closer* (`seasonal_open.closed_months`), routed like a semi-closer; every
+registry whose last 2 complete years EACH show the same closed block of 3+
+months is a *detected closer* (`seasonal_open.closed_months`; leans steady since
+2026-11-18: a false closure zeroes a real barrel, as Texas Roadhouse's did), routed like a semi-closer; every
 closer in season is ranked on its open-season gaps, and a closer ranked
 off-season on a recent call accrues on open-season days only (*closer
 off-season*, `model_research_2026_10/reopening.md`). **Monthly shapes keep
