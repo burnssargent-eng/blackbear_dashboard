@@ -7,7 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
-  <link rel="stylesheet" href="ops.css?v=37d071bc">
+  <link rel="stylesheet" href="ops.css?v=9dbb3813">
 </head>
 
 <body>
@@ -89,6 +89,43 @@ function stopCardsHtml(routeId, lines) {
       </div>
     </div>`).join("");
 }
+
+/**
+ * Each stop's name keeps at least its first 7 characters and "…" (Sarge, 2026-11-19): its
+ * min-width is those characters measured in its own font, since a fixed width fits "Namaste"
+ * but not "VFW Post" or "MJH Mass". Only where the line still cannot hold the name, the whole
+ * projection and the › (an original iPhone SE with its text enlarged) does it drop to 6, then
+ * 5 characters. Re-measured on resize (narrow screens use smaller type).
+ */
+const NAME_MIN_CHARS = [7, 6, 5];
+function fitStopNames() {
+  document.querySelectorAll(".ops-cards").forEach(list => {
+    const names = [...list.querySelectorAll(".ops-stopA .ops-pick-name")];
+    if (!names.length) return;
+    // Measured in a hidden copy of a name, so the font, kerning and "…" match exactly.
+    const probe = document.createElement("span");
+    probe.className = "ops-pick-name";
+    probe.style.cssText = "position:absolute;visibility:hidden;white-space:nowrap;min-width:0;width:auto";
+    list.appendChild(probe);
+    const widthFor = (t, chars) => {
+      probe.textContent = t.length > chars ? `${t.slice(0, chars)}…` : t;
+      return Math.ceil(probe.getBoundingClientRect().width) + 1;
+    };
+    names.forEach(n => { n.style.minWidth = `${widthFor(n.textContent, NAME_MIN_CHARS[0])}px`; });
+    // A line whose › is pushed out: fewer characters, one step at a time.
+    names.forEach(n => {
+      const line = n.closest(".ops-stopA"), arrow = line.querySelector(".ops-pick-page");
+      const cs = getComputedStyle(line);
+      const inner = () => line.getBoundingClientRect().right - parseFloat(cs.paddingRight) - parseFloat(cs.borderRightWidth);
+      for (const chars of NAME_MIN_CHARS.slice(1)) {
+        if (arrow.getBoundingClientRect().right <= inner() + 0.5) break;
+        n.style.minWidth = `${widthFor(n.textContent, chars)}px`;
+      }
+    });
+    probe.remove();
+  });
+}
+addEventListener("resize", () => fitStopNames());
 
 /** Up to 8 customers matching the route's Add stop box, not already on it. */
 function addMatchesHtml(routeId) {
@@ -201,6 +238,7 @@ function renderList() {
       <span class="ops-undo-text">Removed ${escapeHtml(removed.stop.name)}</span>
       <button type="button" class="btn ops-undo-btn" data-act="unremove">Undo</button></div>` : footBarHtml()}`;
   document.getElementById("page").innerHTML = html;
+  fitStopNames();
   lastMoved = null;
   const box = naming && document.querySelector(`[data-name="${naming.route}"]`);
   if (box) { box.focus(); box.select(); }

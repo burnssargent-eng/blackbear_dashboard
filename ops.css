@@ -162,7 +162,7 @@ details.ops-route[open] > summary .ops-row-chev { transform: rotate(90deg); }
 .ops-card.ops-stopA { position: relative; height: 40px; gap: 8px; padding: 3px 6px; margin-bottom: 0;
   touch-action: pan-y; }
 /* Squeezed for room (Sarge, 2026-11-19): the name keeps at least 7 characters and an ellipsis
-   (8ch); the projection "(~87 gal / 300) [28]" is never cut; the rest of the figures
+   (8ch here; fitStopNames in ops-myroute.html sets each name's exact width); the projection "(~87 gal / 300) [28]" is never cut; the rest of the figures
    (.ops-fig-more: "(shared w/ …)", "limited data", a stale status) is cut first, with "…". */
 .ops-stopA .ops-pick-name { flex: 1 1 auto; min-width: 8ch; }
 /* The figures' parts sit in the line itself (display: contents), so the extra text can
@@ -170,9 +170,42 @@ details.ops-route[open] > summary .ops-row-chev { transform: rotate(90deg); }
 .ops-stopA .ops-pick-figs { display: contents; }
 .ops-stopA .ops-pick-figs > * { flex: 0 0 auto; white-space: nowrap; }
 .ops-stopA .ops-pick-figs > .ops-days { margin-left: -4px; }   /* the line's 8px gap, halved */
-.ops-stopA .ops-pick-figs > .ops-fig-more { flex: 0 1 auto; min-width: 0; margin-left: -4px;
+/* Shrink share 10000 against the name's 1: the extras are cut to nothing first, then the name.
+   (Not a tiny share on the name: shares adding up to under 1 shrink only part of the way.) */
+.ops-stopA .ops-pick-figs > .ops-fig-more { flex: 0 10000 auto; min-width: 0; margin-left: -4px;
   overflow: hidden; text-overflow: ellipsis; }
 .ops-stopA .ops-pick-figs > .ops-fig-more.graytext { margin-left: 0; }   /* a shared stop's only figure */
+/* Narrow screens (320-399px, or a wider phone with its text enlarged): a long projection
+   "(~1,234 gal / 1,980) [-90]" left no room, and the › was pushed out of the line. Nothing in
+   the rule above may be cut, so the spacing and type tighten instead. Checked at 320-1920px. */
+@media (max-width: 399.98px) {
+  .ops-route-body { padding-left: 6px; padding-right: 6px; }
+  .ops-card.ops-stopA { gap: 5px; padding: 3px 4px; }
+  .ops-stopA .ops-pick-name { font-size: 15px; }
+  .ops-stopA .ops-pick-figs > *, .ops-stopA .ops-pick-figs .ops-proj, .ops-stopA .ops-pick-figs .ops-days,
+  .ops-stopA .ops-pick-figs .graytext, .ops-stopA .ops-pick-figs .ops-muted { font-size: 12px; }
+  .ops-stopA .ops-pick-figs > .ops-days, .ops-stopA .ops-pick-figs > .ops-fig-more { margin-left: -2px; }
+  .ops-stopA .ops-pick-page { width: 30px; }
+}
+/* Narrower still (an original iPhone SE, or a phone with its text enlarged a lot). */
+@media (max-width: 349.98px) {
+  .container { padding-left: 8px; padding-right: 8px; }
+  .ops-route-body { padding-left: 4px; padding-right: 4px; }
+  .ops-card.ops-stopA { gap: 4px; padding: 3px 3px; }
+  .ops-stopA .ops-pick-name { font-size: 14px; }
+  .ops-stopA .ops-pick-figs > *, .ops-stopA .ops-pick-figs .ops-proj, .ops-stopA .ops-pick-figs .ops-days,
+  .ops-stopA .ops-pick-figs .graytext, .ops-stopA .ops-pick-figs .ops-muted { font-size: 11px; }
+  .ops-stopA .ops-pick-page { width: 26px; }
+}
+/* Under 300px (an original iPhone SE with its text enlarged): names may also drop to 6 or 5
+   characters (fitStopNames), and the spacing tightens once more. */
+@media (max-width: 299.98px) {
+  .container { padding-left: 6px; padding-right: 6px; }
+  .ops-route-body { padding-left: 2px; padding-right: 2px; }
+  .ops-card.ops-stopA { gap: 3px; padding: 3px 2px; }
+  .ops-stopA .ops-pick-figs > .ops-days, .ops-stopA .ops-pick-figs > .ops-fig-more { margin-left: -1px; }
+  .ops-stopA .ops-pick-page { width: 24px; }
+}
 .ops-stopA .ops-pick-name.hotlist { color: #d00; }
 .ops-card-num { flex: 0 0 auto; width: 28px; height: 28px; padding: 0; text-align: center;
   font-size: 16px; line-height: 1; color: #495057; border: 1px solid #ced4da; border-radius: 4px;
