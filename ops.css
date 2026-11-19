@@ -197,6 +197,15 @@ details.ops-route[open] > summary .ops-row-chev { transform: rotate(90deg); }
   .ops-stopA .ops-pick-figs .graytext, .ops-stopA .ops-pick-figs .ops-muted { font-size: 11px; }
   .ops-stopA .ops-pick-page { width: 26px; }
 }
+/* Under 300px (an original iPhone SE with its text enlarged): names may also drop to 6 or 5
+   characters (fitStopNames), and the spacing tightens once more. */
+@media (max-width: 299.98px) {
+  .container { padding-left: 6px; padding-right: 6px; }
+  .ops-route-body { padding-left: 2px; padding-right: 2px; }
+  .ops-card.ops-stopA { gap: 3px; padding: 3px 2px; }
+  .ops-stopA .ops-pick-figs > .ops-days, .ops-stopA .ops-pick-figs > .ops-fig-more { margin-left: -1px; }
+  .ops-stopA .ops-pick-page { width: 24px; }
+}
 .ops-stopA .ops-pick-name.hotlist { color: #d00; }
 .ops-card-num { flex: 0 0 auto; width: 28px; height: 28px; padding: 0; text-align: center;
   font-size: 16px; line-height: 1; color: #495057; border: 1px solid #ced4da; border-radius: 4px;
