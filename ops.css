@@ -161,7 +161,18 @@ details.ops-route[open] > summary .ops-row-chev { transform: rotate(90deg); }
 .ops-swipe-armed > .ops-swipe-bg { background: #dc3545; }
 .ops-card.ops-stopA { position: relative; height: 40px; gap: 8px; padding: 3px 6px; margin-bottom: 0;
   touch-action: pan-y; }
-.ops-stopA .ops-pick-name { min-width: 0; }   /* the name gives way, so › always lines up */
+/* Squeezed for room (Sarge, 2026-11-19): the name keeps at least 7 characters and an ellipsis
+   (8ch); the projection "(~87 gal / 300) [28]" is never cut; the rest of the figures
+   (.ops-fig-more: "(shared w/ …)", "limited data", a stale status) is cut first, with "…". */
+.ops-stopA .ops-pick-name { flex: 1 1 auto; min-width: 8ch; }
+/* The figures' parts sit in the line itself (display: contents), so the extra text can
+   give way while the projection keeps its full width. */
+.ops-stopA .ops-pick-figs { display: contents; }
+.ops-stopA .ops-pick-figs > * { flex: 0 0 auto; white-space: nowrap; }
+.ops-stopA .ops-pick-figs > .ops-days { margin-left: -4px; }   /* the line's 8px gap, halved */
+.ops-stopA .ops-pick-figs > .ops-fig-more { flex: 0 1 auto; min-width: 0; margin-left: -4px;
+  overflow: hidden; text-overflow: ellipsis; }
+.ops-stopA .ops-pick-figs > .ops-fig-more.graytext { margin-left: 0; }   /* a shared stop's only figure */
 .ops-stopA .ops-pick-name.hotlist { color: #d00; }
 .ops-card-num { flex: 0 0 auto; width: 28px; height: 28px; padding: 0; text-align: center;
   font-size: 16px; line-height: 1; color: #495057; border: 1px solid #ced4da; border-radius: 4px;
@@ -171,13 +182,13 @@ details.ops-route[open] > summary .ops-row-chev { transform: rotate(90deg); }
 .ops-route-total { font-size: 14px; color: #495057; padding: 4px 2px 10px; }
 .ops-route-total .progress { height: 10px; margin-top: 4px; }
 
-/* Dragging a stop, as in the samples: while the finger holds for a quarter
+/* Dragging a stop, as in the samples: while the finger holds for a fifth
    of a second a light fill sweeps across the card (.ops-hold-fill, a box laid
    over it); then the card lights up (2px blue border, blue flash, shadow) so
    the driver knows it is ready, follows the finger, and the others slide. */
 .ops-hold-fill { position: absolute; z-index: 5; pointer-events: none; background: rgba(13, 110, 253, 0.12);
   border-radius: 6px; transform: scaleX(0); transform-origin: left; }
-.ops-hold-fill.ops-sweep { transform: scaleX(1); transition: transform 250ms linear; }
+.ops-hold-fill.ops-sweep { transform: scaleX(1); transition: transform 200ms linear; }
 .ops-card.ops-lifted { position: relative; z-index: 10; cursor: grabbing; border-color: #0d6efd;
   box-shadow: 0 0 0 1px #0d6efd, 0 8px 20px rgba(0, 0, 0, 0.25); animation: ops-ready 450ms ease-out; }
 @keyframes ops-ready { from { background-color: rgba(13, 110, 253, 0.3); } to { background-color: #fff; } }

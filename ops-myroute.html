@@ -7,7 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
-  <link rel="stylesheet" href="ops.css?v=cd13d451">
+  <link rel="stylesheet" href="ops.css?v=37d071bc">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="dashboard-utils.js?v=f5dcd574"></script>
 <script src="route-utils.js?v=343f24d5"></script>
-<script src="ops-common.js?v=c5d6b10c"></script>
+<script src="ops-common.js?v=f3ee25dc"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.js" integrity="sha384-rwykjmWNwVxboyFmvK9OXN0wj9hnMHA2aAHtits54DuACyCq0M2PrSNxhRb+hvXT" crossorigin="anonymous"></script>
 <script src="site-gate.js?v=330ca4fa"></script>
 <script src="ops-db.js?v=5a092839"></script>
@@ -29,7 +29,7 @@
 /*
  * My Route (shadow): the source site's "My Route" and "Today's Routes" in one
  * page. Every route is listed collapsed; opening one shows its stops, which
- * can be reordered (hold a stop a quarter of a second and drag it), opened on
+ * can be reordered (hold a stop a fifth of a second and drag it), opened on
  * their customer page, removed (with Undo), or added to straight from a search. A route made with
  * Assign Routes' "New Route…" arrives as ?new=<id>: it opens first, its name ready to type.
  * The driver view lists the route's tasks (not pickups) at the top, ticked as they are done.
@@ -54,13 +54,13 @@ const UNDO_MS = 6000;
 
 /**
  * "(~87 gal / 300) [28]" for a stop. A shared barrel's second stop names the
- * first in the route list ("(shared with Namaste)"); the collecting page just
- * says "(shared)".
+ * first in the route list ("(shared w/ Three Penny…)", cut to fit: .ops-fig-more);
+ * the collecting page just says "(shared)".
  */
 function stopLabelHtml(l, sharedWith = null) {
   if (l.dupOf !== null) {
-    return `<span class="graytext" title="Same barrel as an earlier stop">(shared${
-      sharedWith ? ` with ${escapeHtml(sharedWith)}` : ""})</span>`;
+    return `<span class="ops-fig-more graytext" title="Same barrel as an earlier stop">(shared${
+      sharedWith ? ` w/ ${escapeHtml(sharedWith)}` : ""})</span>`;
   }
   return stopFiguresHtml(l.row, l.capacity ?? l.stop.capacity);
 }
@@ -207,14 +207,15 @@ function renderList() {
 }
 
 /* ── Reordering stops by dragging ───────────────────────────
- * Hold a stop for a quarter of a second, then drag: the stop lifts and the
+ * Hold a stop for a fifth of a second, then drag: the stop lifts and the
  * others slide out of the way. A press that moves more than 10px before the
  * hold is up was a scroll, and nothing happens. Phone tests (2026-10-22):
- * 0.2 s occasionally caught a scroll, 0.3-0.4 s did not; Sarge chose 0.25 s.
+ * 0.2 s occasionally caught a scroll, 0.3-0.4 s did not; Sarge chose 0.25 s,
+ * then 0.2 s after testing 0.15/0.2/0.25 on the one-line stops (2026-11-19).
  * Platform long-press is longer (iOS 0.5 s). Once lifted, touchmove is cancelled
  * so the page stops scrolling; near the top or bottom edge it auto-scrolls.
  * Mouse works the same way. */
-const HOLD_MS = 250, SLOP = 10, EDGE = 70;
+const HOLD_MS = 200, SLOP = 10, EDGE = 70;
 let press = null;
 
 function startPress(row, x, y, swipeOnly = false) {
