@@ -187,10 +187,13 @@ const cycleAt = (c, d) => {
 ok(ranked.every(c => c.capacity === null || c.rate_gpd === null || c.periodicity_days === null ||
   Math.abs(cycleAt(c, c.periodicity_days) / (payload.target_fraction * c.capacity) - 1) < 0.02),
   "exported periodicity reaches the pickup point on the cycle-blend curve (gal/day is rounded)");
+// An Oil Left level sits outside the blend (level_outside_blend, #120): it is
+// in line_gal, so it comes off before blending and goes back on after.
 const blendOf = c => {
   if (!c.usual_gap_days || c.avg_collection === null) return c.line_gal;
+  const level = payload.level_outside_blend ? (c.oil_left_gallons || 0) : 0;
   const w = c.cycle_weight * Math.min(1, c.exposure_days / c.usual_gap_days);
-  return payload.cycle_factor * ((1 - w) * c.line_gal + w * c.avg_collection);
+  return level + payload.cycle_factor * ((1 - w) * (c.line_gal - level) + w * c.avg_collection);
 };
 const withLine = ranked.filter(c => c.projected_gal !== null && c.line_gal !== null);
 ok(withLine.length > 100 && withLine.every(c =>
