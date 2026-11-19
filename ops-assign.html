@@ -227,8 +227,7 @@ function routeLineHtml(stops) {
   const fill = truckFill(after, store.trucks[view.route]);
   const count = merged.length === current.length ? `${current.length}` : `${current.length} → ${merged.length}`;
   return `<div class="ops-assign-route${fill && fill.pct > 100 ? " text-danger" : ""}">${count} stop${merged.length === 1 ? "" : "s"}` +
-    ` · ~${formatWhole(after.projected)} gal${fill ? ` · ${Math.round(fill.pct)}% ${escapeHtml(fill.truck.abbr)}` +
-      (fill.pct > 100 ? " · over the tank" : "") : ""}
+    ` · ~${formatWhole(after.projected)} gal${fill ? ` · ${Math.round(fill.pct)}% ${escapeHtml(fill.truck.abbr)}` : ""}
     ${fill ? `<div class="progress"><div class="progress-bar ${
       fill.level === "full" ? "bg-danger" : fill.level === "due" ? "bg-warning" : "bg-success"}"
       style="width:${Math.min(100, fill.pct)}%"></div></div>` : ""}</div>`;

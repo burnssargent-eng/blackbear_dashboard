@@ -78,9 +78,7 @@ function truckFillHtml(totals, truckName) {
   return `<span class="rp-fill">` +
     `<span class="proj-bar rp-fill-bar"><span class="proj-bar-fill proj-${fill.level}" ` +
     `style="width:${Math.min(100, fill.pct)}%"></span></span>` +
-    `${Math.round(fill.pct)}% of ${escapeHtml(truck.name)}'s ${formatNumber(truck.capacity)} gal` +
-    (fill.highPct > 100 && fill.pct <= 100 ? " — could overflow at the high end" : "") +
-    (fill.pct > 100 ? " — over the tank" : "") + `</span>`;
+    `${Math.round(fill.pct)}% of ${escapeHtml(truck.name)}'s ${formatNumber(truck.capacity)} gal` + `</span>`;
 }
 
 /** A stop's own figure: projected gallons, a held-out stop's typical pickup, or a dash. */
