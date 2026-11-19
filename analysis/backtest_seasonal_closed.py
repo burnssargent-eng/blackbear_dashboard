@@ -296,7 +296,18 @@ def main():
             best = (k, t, m)
     w("")
     k, t, m = best
-    w(f"**Chosen on 2022–23: k = {k}, T = {t}, M = {m}.**\n")
+    w(f"Best F1 on 2022–23: k = {k}, T = {t}, M = {m}.\n")
+    # Production leans steady (Sarge, 2026-11-18): a false closure zeroes a
+    # real barrel (Texas Roadhouse, 0 gal projected, 70 collected), so it
+    # takes the setting with fewer false closers over the best F1.
+    k, t, m = so.CLOSED_YEARS_BACK, so.CLOSED_INDEX, so.CLOSED_MIN_MONTHS
+    w(f"**In production: k = {k}, T = {t}, M = {m}** (since 2026-11-18). It leans "
+      "steady: a block must be closed in EVERY one of the k years (each row above "
+      "uses that rule) and last 3 months, so a 2-month gap like a late pickup never "
+      "zeroes a year-round customer. Fewer false closers, more missed ones. These "
+      "rows judge each year as of 1 January, so they leave out the first January "
+      "pickup production reads once it has arrived (`closed_months(asof=)`); that "
+      "pickup only adds production, so it can only reopen a month.\n")
 
     # Speed: the best variant at each k, for newcomers.
     w("Best setting at each number of years, so the speed/accuracy trade is visible:\n")

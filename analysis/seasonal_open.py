@@ -13,11 +13,25 @@ PROFILE_YEARS_BACK complete years before the test year (SKIP_YEARS left out),
 at least MIN_GAL_PER_YEAR, AND a repeatability that beats the month-shuffled
 versions of the same customer (the noise test).
 
-Seasonal-closed (backtest_seasonal_closed.py, 2026-10-08) = over the
-CLOSED_YEARS_BACK complete years before the year, a cyclic block of at least
-CLOSED_MIN_MONTHS months below CLOSED_INDEX of an average month, for a
+Seasonal-closed (backtest_seasonal_closed.py, 2026-10-08; revised
+2026-11-18) = over the CLOSED_YEARS_BACK complete years before the year, a
+cyclic block of at least CLOSED_MIN_MONTHS months each below CLOSED_INDEX of
+an average month IN EVERY ONE of those years (not on their average), for a
 customer with at least MIN_GAL_PER_YEAR and a median gap of at most the
-60-day spread cap (longer gaps leave artificial empty months).
+60-day spread cap (longer gaps leave artificial empty months). The year of
+the first pickup is never one of them: the months before it read as closed.
+
+It leans steady (Sarge, 2026-11-18): calling a year-round customer closed
+zeroes a real barrel (Texas Roadhouse projected 0 gal on 2026-11-18, when 70
+gal were collected), so the block must repeat every year and last 3 months.
+The averaged 2-month rule had read its Nov-Dec 2024 and 2025 as closed.
+
+THE LAST DECEMBER NEEDS THE NEXT PICKUP. A pickup's gallons are spread back
+over its gap, so the oil made in December arrives with the first pickup of
+January, after the cutoff: without it the last year's Nov-Dec read as zero.
+With `asof`, that first pickup on or after Jan 1 is read once asof has
+reached it (never later knowledge). Adding a pickup only adds production, so
+it can only reopen months, never close one.
 
 THE SHAPE KEEPS ZEROS. cf.factor_from_years leaves a month with no production
 out of its average and sets an all-zero month to 1.0, which hid every closure:
@@ -44,7 +58,7 @@ SEASONAL_OPEN = "seasonal-open"
 
 CLOSED_YEARS_BACK = 2           # 1 year held out 15% of gallons; 3 added nothing
 CLOSED_INDEX = 0.10
-CLOSED_MIN_MONTHS = 2
+CLOSED_MIN_MONTHS = 3           # 2 until 2026-11-18: a 2-month gap is a late pickup
 CLOSED_MAX_MEDIAN_GAP = ss.SPREAD_CAP_DAYS
 CLOSED_MIN_PICKUPS = 4
 
@@ -97,23 +111,33 @@ def closer_eligible(pickups, years, profile):
 
 
 def closed_months(pickups, test_year, k=CLOSED_YEARS_BACK,
-                  threshold=CLOSED_INDEX, min_months=CLOSED_MIN_MONTHS):
+                  threshold=CLOSED_INDEX, min_months=CLOSED_MIN_MONTHS, asof=None):
     """
     Detected closed months (0 = Jan) for `test_year`, from the k complete
-    years before it; an empty set when open all year; None when undecidable.
+    years before it (after the year of the first pickup): months below
+    `threshold` in EVERY one of them, as a cyclic block of `min_months`+.
+    An empty set when open all year; None when undecidable. With `asof`, the
+    first pickup from Jan 1 to asof closes the last year's final gap.
     """
-    years = profile_years_back(test_year, k)
+    if not pickups:
+        return None
+    years = [y for y in profile_years_back(test_year, k)
+             if y > min(p["date"] for p in pickups).year]
     if len(years) < k:
         return None
-    prior = [p for p in pickups if p["date"] < date(test_year, 1, 1)]
+    cutoff = date(test_year, 1, 1)
+    prior = [p for p in pickups if p["date"] < cutoff]
     if len(prior) < 2:
         return None
-    daily = ss.daily_production(prior)
+    bridge = sorted((p for p in pickups if asof and cutoff <= p["date"] <= asof),
+                    key=lambda p: p["date"])[:1]
+    daily = ss.daily_production(prior + bridge)
     profile = {y: idx for y in years if (idx := cf.year_index(daily, y)) is not None}
     if not closer_eligible(prior, years, profile):
         return None
-    shape = zero_keeping_shape(profile, years)
-    return closed_block(shape, threshold, min_months) if shape else None
+    shut = [0.0 if all(profile[y][m] < threshold for y in years) else 1.0
+            for m in range(12)]
+    return closed_block(shut, 0.5, min_months)
 
 
 def profile_years(test_year):

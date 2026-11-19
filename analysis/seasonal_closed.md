@@ -8,54 +8,55 @@ Customer-years: a hit is a detected closer that is closed in Y. **Months right**
 
 | k years | T | M | Choose F1 | Confirm: precision | recall | F1 | months right | pickups held out | gallons held out |
 |---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| 1 | 0.1 | 2 | 0.29 | 42% | 62% | 0.50 | 33% | 95 | 16.4% |
-| 1 | 0.1 | 3 | 0.27 | 40% | 50% | 0.44 | 36% | 73 | 18.4% |
-| 1 | 0.2 | 2 | 0.37 | 42% | 58% | 0.49 | 35% | 104 | 17.6% |
-| 1 | 0.2 | 3 | 0.26 | 47% | 64% | 0.54 | 38% | 81 | 19.2% |
-| 2 | 0.1 | 2 | 0.69 | 88% | 50% | 0.64 | 82% | 6 | 2.2% |
-| 2 | 0.1 | 3 | 0.53 | 86% | 52% | 0.65 | 80% | 6 | 2.5% |
-| 2 | 0.2 | 2 | 0.67 | 90% | 50% | 0.64 | 83% | 9 | 4.1% |
-| 2 | 0.2 | 3 | 0.61 | 88% | 60% | 0.71 | 83% | 7 | 2.6% |
-| 3 | 0.1 | 2 | 0.67 | 86% | 46% | 0.60 | 85% | 4 | 1.9% |
-| 3 | 0.1 | 3 | 0.46 | 83% | 56% | 0.67 | 84% | 4 | 2.2% |
-| 3 | 0.2 | 2 | 0.60 | 85% | 52% | 0.64 | 85% | 11 | 3.9% |
-| 3 | 0.2 | 3 | 0.59 | 86% | 57% | 0.69 | 86% | 9 | 4.4% |
+| 1 | 0.1 | 2 | 0.53 | 56% | 63% | 0.59 | 46% | 41 | 10.9% |
+| 1 | 0.1 | 3 | 0.55 | 63% | 52% | 0.57 | 54% | 24 | 10.3% |
+| 1 | 0.2 | 2 | 0.56 | 55% | 58% | 0.57 | 47% | 49 | 12.7% |
+| 1 | 0.2 | 3 | 0.52 | 70% | 67% | 0.68 | 53% | 31 | 12.4% |
+| 2 | 0.1 | 2 | 0.70 | 88% | 54% | 0.67 | 82% | 4 | 1.6% |
+| 2 | 0.1 | 3 | 0.53 | 85% | 50% | 0.63 | 81% | 4 | 1.9% |
+| 2 | 0.2 | 2 | 0.67 | 89% | 49% | 0.63 | 83% | 8 | 4.0% |
+| 2 | 0.2 | 3 | 0.50 | 86% | 52% | 0.65 | 82% | 6 | 2.5% |
+| 3 | 0.1 | 2 | 0.71 | 83% | 45% | 0.59 | 84% | 3 | 1.9% |
+| 3 | 0.1 | 3 | 0.50 | 90% | 53% | 0.67 | 88% | 3 | 2.5% |
+| 3 | 0.2 | 2 | 0.67 | 92% | 43% | 0.59 | 92% | 4 | 2.1% |
+| 3 | 0.2 | 3 | 0.50 | 90% | 47% | 0.62 | 93% | 3 | 2.5% |
 
-**Chosen on 2022–23: k = 2, T = 0.1, M = 2.**
+Best F1 on 2022–23: k = 3, T = 0.1, M = 2.
+
+**In production: k = 2, T = 0.1, M = 3** (since 2026-11-18). It leans steady: a block must be closed in EVERY one of the k years (each row above uses that rule) and last 3 months, so a 2-month gap like a late pickup never zeroes a year-round customer. Fewer false closers, more missed ones. These rows judge each year as of 1 January, so they leave out the first January pickup production reads once it has arrived (`closed_months(asof=)`); that pickup only adds production, so it can only reopen a month.
 
 Best setting at each number of years, so the speed/accuracy trade is visible:
 
 | k years | Setting | Choose F1 | Confirm F1 | Confirm pickups held out |
 |---:|---|---:|---:|---:|
-| 1 | T 0.2, M 2 | 0.37 | 0.49 | 104 |
-| 2 | T 0.1, M 2 | 0.69 | 0.64 | 6 |
-| 3 | T 0.1, M 2 | 0.67 | 0.60 | 4 |
+| 1 | T 0.2, M 2 | 0.56 | 0.57 | 49 |
+| 2 | T 0.1, M 2 | 0.70 | 0.67 | 4 |
+| 3 | T 0.1, M 2 | 0.71 | 0.59 | 3 |
 
 ## 2. Against the registry, scored for 2026
 
-The registry holds 11 closers (true + semi). The chosen detector, scored from the years before 2026:
+The registry holds 14 closers (true + semi). The chosen detector, scored from the years before 2026:
 
 | Customer | In registry | Detected closed months | Registry season | Active |
 |---|---|---|---|---|
+| 1498 (1498) | yes, true closer | not decidable | May-Oct | yes |
 | Carinthia Lodge (Mt. Snow) (902) | yes, true closer | May–Sep | Oct-Apr | yes |
-| Cousins (Mt. Snow) (903) | yes, semi-closer / call-driven | May–Aug | Oct-Apr | yes |
-| Cravens Food Truck-Middlebury (1346) | no | Dec–Mar | – | yes |
-| Gondola’s Downtown Morrisville (1352) | no | Dec–Mar | – | yes |
+| Cousins (Mt. Snow) (903) | yes, semi-closer / call-driven | not detected | Oct-Apr | yes |
+| Enosburgh Falls Country Club (517) | yes, true closer | not decidable | Jun-Oct | yes |
 | Grand Summit Hotel (Mt. Snow) (900) | no | May–Jul | – | yes |
-| Jay Peak- Hotel Jay -OutsideNow (527) | yes, semi-closer / call-driven | Sep–Oct | Nov-Jun | yes |
-| Jay Peak-Stateside (loading dock) (529) | yes, true closer | Jun–Jul | Nov-Jun | yes |
-| Mad Taco-Middlebury (724) | no | Nov–Dec | – | yes |
-| Main Lodge (Mt. Snow) (901) | yes, true closer | May–Aug | Oct-Apr | yes |
+| Jay Peak- Hotel Jay -OutsideNow (527) | yes, semi-closer / call-driven | not detected | Nov-Jun | yes |
+| Jay Peak-Stateside (loading dock) (529) | yes, true closer | not detected | Nov-Jun | yes |
+| Main Lodge (Mt. Snow) (901) | yes, true closer | not detected | Oct-Apr | yes |
 | Mount Ellen (225) | yes, true closer | May–Oct | Nov-Apr | yes |
-| Okemo- Mountain Resort (1388) | yes, true closer | May–Sep | Dec-Apr | yes |
+| Okemo- Mountain Resort (1388) | yes, true closer | not decidable | Dec-Apr | yes |
 | Okemo-Jackson Gore Inn (934) | yes, semi-closer / call-driven | not detected | Dec-Apr | yes |
 | Quechee Gorge Snack Bar (1056) | yes, semi-closer / call-driven | Dec–Feb | Mar-Oct | yes |
+| Sugarbush Resort Golf Course (1059) | yes, true closer | not decidable | Jun-Oct | yes |
 | Suicide 6= Saskadena (817) | yes, true closer | not decidable | Nov-Apr | yes |
 | TCs (904) | no | May–Oct | – | yes |
-| Texas Roadhouse-# 1122-Mahoney (1130) | no | Nov–Dec | – | yes |
 | Thunder Road  4567 (119) | no | Nov–Mar | – | yes |
 | Toziers- (803) | yes, semi-closer / call-driven | Dec–Feb | Apr-Oct | yes |
-| White Cottage (824) | no | Nov–Mar | – | yes |
+| White Cottage (824) | no | Dec–Feb | – | yes |
 
 ## 3. In-season rate for detected closers
 
@@ -64,13 +65,13 @@ Pickups whose whole gap lies in predicted-open months (a gap across the closure 
 | Model | Pickups / customers | 50/50 WAPE | Model WAPE | Difference | 95% interval | Model bias |
 |---|---:|---:|---:|---:|---|---:|
 | **choose** | | | | | | |
-| Level × month index | 87 / 15 | 57.7% | 51.4% | **-6.3** | -12.5 to +0.9 | -22.0% |
-| Pooled, open-season gaps | 87 / 15 | 57.7% | 48.4% | **-9.3** | -18.3 to +0.4 | +4.9% |
+| Level × month index | 26 / 7 | 65.3% | 51.6% | **-13.7** | -25.4 to +1.1 | -24.9% |
+| Pooled, open-season gaps | 26 / 7 | 65.3% | 43.3% | **-22.0** | -35.1 to -6.6 | +1.2% |
 | **confirm** | | | | | | |
-| Level × month index | 229 / 20 | 55.4% | 32.5% | **-22.9** | -26.7 to -19.3 | -13.3% |
-| Pooled, open-season gaps | 229 / 20 | 55.4% | 33.9% | **-21.5** | -25.2 to -17.2 | -5.7% |
+| Level × month index | 176 / 12 | 51.8% | 30.7% | **-21.1** | -25.3 to -16.5 | -10.7% |
+| Pooled, open-season gaps | 176 / 12 | 51.8% | 33.8% | **-18.0** | -22.7 to -12.4 | -0.4% |
 
 **Likely range for the pooled, open-season gaps rate**: the 20th and 80th percentiles of actual ÷ projected on choose pickups, coverage on confirm.
 
-Factors × 0.62 – × 1.64; confirm: 73% inside (target 60%), 87% at or under the high end (target 80%), 229 pickups.
+Factors × 0.57 – × 1.68; confirm: 78% inside (target 60%), 91% at or under the high end (target 80%), 176 pickups.
 
