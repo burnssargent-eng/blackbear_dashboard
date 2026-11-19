@@ -277,6 +277,44 @@ ok([w[0] for w in mdb.writes if w[1] == "route_stops"] == ["upsert", "delete"],
    "the wanted stops are written before the rest are removed")
 again = ss.mirror_routes(mdb, now=read_at + timedelta(minutes=5))
 ok(again["differed_before"] == [] and again["removed"] == 0, "a second run changes nothing")
+# A route a person edited on the site since the last morning run is kept as the site has it
+# (Sarge, 2026-11-19); the others still follow the source site.
+z = lambda t: t.astimezone(ss.ZoneInfo("UTC")).strftime("%Y-%m-%dT%H:%M:%S.%fZ")
+run_at = read_at + timedelta(minutes=5)
+for r in mdb.t["sync_reports"]:
+    r["ran_at"] = (run_at - timedelta(days=1)).isoformat()          # yesterday's 7am run
+mdb.t["sync_reports"][-1]["ran_at"] = (run_at - timedelta(hours=20)).isoformat()
+s1 = sorted((s for s in mdb.t["route_stops"] if s["route_id"] == r1), key=lambda s: s["position"])
+jim_r1 = [x["customer_id"] for x in s1[1:]]                          # Jim took the first stop off r1
+mdb.t["route_stops"].remove(s1[0])
+s2 = [x for x in mdb.t["route_stops"] if x["route_id"] == r2]
+s2[0]["must_get"] = not s2[0]["must_get"]                            # r2 changed, but by nobody logged
+mdb.t["activity_log"] = [
+    {"table_name": "route_stops", "op": "delete", "old_row": {"route_id": r1, "customer_id": s1[0]["customer_id"]},
+     "new_row": None, "changed_at": z(run_at - timedelta(hours=2))},
+    {"table_name": "route_stops", "op": "update", "old_row": {"route_id": -3}, "new_row": {"route_id": -3},
+     "changed_at": z(run_at - timedelta(hours=2))},                   # a site route: never a source-site id
+    {"table_name": "collections", "op": "insert", "old_row": None, "new_row": {"route_id": r2},
+     "changed_at": z(run_at - timedelta(hours=2))},                   # a pickup is not a route edit
+    {"table_name": "route_stops", "op": "update", "old_row": {"route_id": r2}, "new_row": {"route_id": r2},
+     "changed_at": z(run_at - timedelta(days=2))},                    # before the last run: no longer counts
+]
+k = ss.mirror_routes(mdb, now=run_at)
+ok(by_route(mdb, r1) == jim_r1, "a route a person edited since the last morning run is left as the site has it")
+ok(all(by_route(mdb, rid) == ids for rid, ids in want.items() if rid != r1),
+   "the routes nobody edited are still set to the source site's")
+ok(next(x for x in mdb.t["route_stops"] if x["route_id"] == r2 and x["customer_id"] == s2[0]["customer_id"])["must_get"]
+   == next(bool(st["must_get"]) for r in snap["routes"] if r["route_id"] == r2 for st in r["stops"]
+           if st["customer_id"] == s2[0]["customer_id"]), "an unlogged change is reset (only a person's edit keeps a route)")
+ok([x["route_id"] for x in k["kept_site_edits"]] == [r1] and r1 not in {x["route_id"] for x in k["differed_before"]},
+   "the kept route is listed in the report as kept, not as overwritten")
+ok("kept" in mdb.t["sync_reports"][-1]["summary"], "the morning summary names the kept route")
+# The next morning, with no edits since this run, r1 follows the source site again.
+mdb.t["sync_reports"][-1]["ran_at"] = run_at.isoformat()
+k2 = ss.mirror_routes(mdb, now=run_at)   # same read time (the snapshot must be under an hour old)
+ok(by_route(mdb, r1) == want[r1] and k2["kept_site_edits"] == [], "a day later with no new edits, it follows the source site again")
+mdb.t["activity_log"] = []
+
 # A stop whose customer is new to the source site waits for the nightly.
 newcomer = want[r1][0]
 mdb.t["customers"] = [c for c in mdb.t["customers"] if c["id"] != newcomer]

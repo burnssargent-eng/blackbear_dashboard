@@ -28,9 +28,14 @@ Routes are the one exception, by --routes (below). The nightly:
 --routes sets the site's routes to the source site's Today's Routes
 (Sarge, 2026-10-26: during the trial the two must start each day the same).
 refresh-routes.yml runs it at 7am Vermont time, after a fresh read of the
-source site; edits made on the site after that stand until the next morning.
-Every route the source site has is set to its stops, in its order, with its
-Must Get; one with no stops there is emptied. Routes made on the site
+source site. Every route the source site has is set to its stops, in its
+order, with its Must Get; one with no stops there is emptied. EXCEPT a route
+a person edited on the site since the last morning run (Sarge, 2026-11-19:
+Jim builds routes on the site): any change to its stops in activity_log
+(add, remove, reorder, Must Get, a stop moved in or out) keeps the whole
+route as the site has it, listed in the report as kept. The run's own writes
+are not logged there (no person), so a route left untouched for a day follows
+the source site again the next morning. Routes made on the site
 (negative ids) are left alone. A stop whose customer the database does not
 have yet is skipped and listed: the nightly adds the customer, and the next
 morning's run the stop. What the site had that differed is kept in the
@@ -1055,6 +1060,25 @@ def sweep_details(db, path=SWEEP_FILE):
     return report
 
 
+def site_edited_routes(db, now):
+    """
+    Route ids whose stops a person changed on the site since the last morning run
+    (the latest 'routes' sync_reports row; with none, the last 24 hours). Read from
+    activity_log, which logs only signed-in people's writes, never this script's.
+    A stop moved between routes marks both.
+    """
+    runs = [r["ran_at"] for r in db.select("sync_reports", "select=ran_at&kind=eq.routes") if r.get("ran_at")]
+    since = max((datetime.fromisoformat(t) for t in runs), default=None) or (now - timedelta(hours=24))
+    stamp = since.astimezone(ZoneInfo("UTC")).strftime("%Y-%m-%dT%H:%M:%S.%fZ")
+    edits = db.select("activity_log", f"select=old_row,new_row&table_name=eq.route_stops&changed_at=gte.{stamp}")
+    ids = set()
+    for e in edits:
+        for row in (e.get("old_row"), e.get("new_row")):
+            if row and row.get("route_id") is not None and int(row["route_id"]) > 0:
+                ids.add(int(row["route_id"]))
+    return ids
+
+
 def mirror_routes(db, now=None):
     """
     --routes: the site's routes set to the source site's (module docstring).
@@ -1070,6 +1094,8 @@ def mirror_routes(db, now=None):
     wanted = stop_rows(snap)
     if not wanted:
         raise SyncError(f"{ROUTES_FILE} has no assigned stops at all: likely a bad read; routes left as they are")
+    # Routes a person edited on the site since the last morning run stay as the site has them.
+    kept = site_edited_routes(db, now)
     # A customer taken over on the site: its new account takes the stop.
     replaced = replaced_map(db)
     wanted = take_over_stops(wanted, replaced)
@@ -1086,7 +1112,11 @@ def mirror_routes(db, now=None):
     for r in snap.get("routes", []):
         for s in r["stops"]:
             names.setdefault(s.get("customer_id"), s["name"])
-    differed = route_differences(snap_taken_over(snap, replaced), before, names)
+    differed = [r for r in route_differences(snap_taken_over(snap, replaced), before, names)
+                if r["route_id"] not in kept]
+    wanted = [s for s in wanted if s["route_id"] not in kept]
+    waiting = [s for s in waiting if s["route_id"] not in kept]
+    before = [s for s in before if s["route_id"] not in kept]
     keep = {(s["route_id"], s["customer_id"]) for s in wanted}
     stale = sorted(s["id"] for s in before if (s["route_id"], s["customer_id"]) not in keep)
     if wanted:
@@ -1099,7 +1129,12 @@ def mirror_routes(db, now=None):
                f"{len(differed)} route(s) had differed, {len(stale)} stop(s) removed")
     if waiting:
         summary += f"; {len(waiting)} stop(s) wait for the nightly to add their customer"
+    route_names = {r["id"]: r["name"] for r in routes}
+    kept_list = [{"route_id": rid, "route": route_names.get(rid, f"#{rid}")} for rid in sorted(kept)]
+    if kept_list:
+        summary += f"; {len(kept_list)} route(s) edited on the site kept: " + ", ".join(k["route"] for k in kept_list)
     report = {"routes_read_at": snap.get("scraped_at"), "stops": len(wanted), "removed": len(stale),
+              "kept_site_edits": kept_list,
               "differed_before": differed,
               "waiting": [{"id": s["customer_id"], "name": names.get(s["customer_id"], f"#{s['customer_id']}"),
                            "route_id": s["route_id"]} for s in waiting]}
