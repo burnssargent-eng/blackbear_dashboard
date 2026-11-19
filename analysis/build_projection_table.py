@@ -434,6 +434,10 @@ MODEL_OVERRIDES = {
                   "summer 2026. Two years only. Season set from the pickup "
                   "months: the index shape (inferred Oct-Mar) spreads the first "
                   "December pickup back into autumn."),
+    900: Override(STATUS_SEMI_CLOSER, "Grand Summit Hotel (Mt. Snow)", "Aug-Apr",
+                  "Slow May-Jul rather than shut (Sarge, 2026-11-19): its summer gaps end "
+                  "with 35-63% of the oil its open rate makes (May 13 - Nov 11 2026: 140 "
+                  "gal over 182 days). Held out only while off-season AND silent."),
     903: Override(STATUS_SEMI_CLOSER, "Cousins (Mt. Snow)", "Oct-Apr",
                   "Quiet May-Aug with 2 isolated off-season months of production."),
     527: Override(STATUS_SEMI_CLOSER, "Jay Peak- Hotel Jay -OutsideNow", "Nov-Jun",
