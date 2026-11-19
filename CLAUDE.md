@@ -211,6 +211,11 @@ step must do one or the other (`tests/nightly_alerts_test.py` fails otherwise).
 
 ## Rules that are easy to break
 
+**Changed a .css or .js a page loads? Run `python3 asset_versions.py`** and commit the
+pages with it. Every page's own file link carries a content fingerprint (`ops.css?v=cd13d451`)
+because GitHub Pages lets browsers keep files 10 minutes or more: on 2026-11-19 Jim's phone drew
+the new My Route with the old ops.css. `tests/asset_versions_test.js` fails while one is stale.
+
 **Retention is counted in businesses, not accounts.** A source-site account is
 a barrel at a place; when a restaurant closes and the next tenant keeps the
 barrel, both run on one account. `customer_eras.csv` (committed; names, dates,
