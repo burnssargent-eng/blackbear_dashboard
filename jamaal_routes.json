@@ -1,5 +1,5 @@
 {
- "scraped_at": "2026-11-20T12:00:13+00:00",
+ "scraped_at": "2026-11-20T15:57:59+00:00",
  "source": "routes_assigned.php, assign_routes.php",
  "routes": [
   {
@@ -20,120 +20,8 @@
   {
    "route_id": 14,
    "name": "Central Vt 2",
-   "assigned_capacity": 3310,
+   "assigned_capacity": 1090,
    "stops": [
-    {
-     "assignment_id": 24640,
-     "customer_id": 151,
-     "name": "House of Tang",
-     "capacity": 200,
-     "days_over": 7,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24639,
-     "customer_id": 1489,
-     "name": "Barr Hill -OIL collection",
-     "capacity": 110,
-     "days_over": 17,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24646,
-     "customer_id": 140,
-     "name": "Positive Pie 2-Montpelier",
-     "capacity": 150,
-     "days_over": -7,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24645,
-     "customer_id": 169,
-     "name": "Oakes and Evelyn-33%",
-     "capacity": 150,
-     "days_over": -14,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24648,
-     "customer_id": 302,
-     "name": "Skinny Pancake-Montpelier",
-     "capacity": 150,
-     "days_over": 12,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24641,
-     "customer_id": 133,
-     "name": "JJ’s- Langdon Street Tavern",
-     "capacity": 150,
-     "days_over": -14,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24650,
-     "customer_id": 130,
-     "name": "Three Penny Taproom 67%",
-     "capacity": 300,
-     "days_over": -3,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24643,
-     "customer_id": 131,
-     "name": "Namaste ~ 33%",
-     "capacity": 300,
-     "days_over": -3,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24647,
-     "customer_id": 137,
-     "name": "Royal Orchid",
-     "capacity": 100,
-     "days_over": -8,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24642,
-     "customer_id": 1379,
-     "name": "JMorgans-100StateSt Hospitality",
-     "capacity": 110,
-     "days_over": 11,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24589,
-     "customer_id": 145,
-     "name": "Pho Capital",
-     "capacity": 65,
-     "days_over": 11,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24649,
-     "customer_id": 157,
-     "name": "State House",
-     "capacity": 50,
-     "days_over": -143,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24644,
-     "customer_id": 149,
-     "name": "National Life",
-     "capacity": 110,
-     "days_over": -9,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24656,
-     "customer_id": 1419,
-     "name": "THE STIC// old RUSTIC-Northfield",
-     "capacity": 275,
-     "days_over": 11,
-     "must_get": false
-    },
     {
      "assignment_id": 24654,
      "customer_id": 162,
@@ -1979,7 +1867,7 @@
    "customer_id": 1489,
    "name": "Barr Hill -OIL collection",
    "city": "Montpelier",
-   "days_over": 17
+   "days_over": -22
   },
   {
    "customer_id": 1552,
@@ -2021,7 +1909,7 @@
    "customer_id": 151,
    "name": "House of Tang",
    "city": "Montpelier",
-   "days_over": 7
+   "days_over": -45
   },
   {
    "customer_id": 1100,
@@ -2033,13 +1921,13 @@
    "customer_id": 133,
    "name": "JJ’s- Langdon Street Tavern",
    "city": "Montpelier",
-   "days_over": -14
+   "days_over": -28
   },
   {
    "customer_id": 1379,
    "name": "JMorgans-100StateSt Hospitality",
    "city": "Montpelier",
-   "days_over": 11
+   "days_over": -28
   },
   {
    "customer_id": 143,
@@ -2063,19 +1951,19 @@
    "customer_id": 131,
    "name": "Namaste ~ 33%",
    "city": "Montpelier",
-   "days_over": -3
+   "days_over": -17
   },
   {
    "customer_id": 149,
    "name": "National Life",
    "city": "Montpelier",
-   "days_over": -9
+   "days_over": -48
   },
   {
    "customer_id": 169,
    "name": "Oakes and Evelyn-33%",
    "city": "Montpelier",
-   "days_over": -14
+   "days_over": -28
   },
   {
    "customer_id": 1313,
@@ -2093,19 +1981,19 @@
    "customer_id": 145,
    "name": "Pho Capital",
    "city": "Montpelier",
-   "days_over": 11
+   "days_over": -28
   },
   {
    "customer_id": 140,
    "name": "Positive Pie 2-Montpelier",
    "city": "Montpelier",
-   "days_over": -7
+   "days_over": -21
   },
   {
    "customer_id": 137,
    "name": "Royal Orchid",
    "city": "Montpelier",
-   "days_over": -8
+   "days_over": -60
   },
   {
    "customer_id": 146,
@@ -2117,19 +2005,19 @@
    "customer_id": 302,
    "name": "Skinny Pancake-Montpelier",
    "city": "Montpelier",
-   "days_over": 12
+   "days_over": -40
   },
   {
    "customer_id": 157,
    "name": "State House",
    "city": "Montpelier",
-   "days_over": -143
+   "days_over": -182
   },
   {
    "customer_id": 130,
    "name": "Three Penny Taproom 67%",
    "city": "Montpelier",
-   "days_over": -3
+   "days_over": -17
   },
   {
    "customer_id": 152,
@@ -2363,7 +2251,7 @@
    "customer_id": 1419,
    "name": "THE STIC// old RUSTIC-Northfield",
    "city": "Northfield",
-   "days_over": 11
+   "days_over": -28
   },
   {
    "customer_id": 1511,

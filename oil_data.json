@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-19T18:18:57.329928",
+  "last_updated": "2026-11-20T15:57:52.814606",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -34588,7 +34588,7 @@
     {
       "month": "2026-11",
       "geo_town": "Montpelier",
-      "gallons": 605,
+      "gallons": 1100,
       "city": "Montpelier"
     },
     {
@@ -34618,7 +34618,7 @@
     {
       "month": "2026-11",
       "geo_town": "Northfield",
-      "gallons": 160,
+      "gallons": 190,
       "city": "Northfield"
     },
     {
@@ -34666,7 +34666,7 @@
     {
       "month": "2026-11",
       "geo_town": "Stowe",
-      "gallons": 2240,
+      "gallons": 2487,
       "city": "Stowe"
     },
     {
@@ -34684,7 +34684,7 @@
     {
       "month": "2026-11",
       "geo_town": "Waterbury",
-      "gallons": 700,
+      "gallons": 925,
       "city": "Waterbury"
     },
     {
@@ -42595,7 +42595,7 @@
     {
       "month": "2026-11",
       "county": "Lamoille",
-      "gallons": 2240
+      "gallons": 2487
     },
     {
       "month": "2026-11",
@@ -42620,7 +42620,7 @@
     {
       "month": "2026-11",
       "county": "Washington",
-      "gallons": 2449
+      "gallons": 3199
     },
     {
       "month": "2026-11",
@@ -42680,11 +42680,11 @@
     },
     {
       "year": 2026,
-      "gallons": 262301
+      "gallons": 263298
     }
   ],
-  "all_time_total": 2181068,
-  "current_year_total": 262301,
+  "all_time_total": 2182065,
+  "current_year_total": 263298,
   "customer_count": 810,
   "unmapped_total": 40915,
   "monthly_totals": [
@@ -43258,7 +43258,7 @@
     },
     {
       "month": "2026-11",
-      "gallons": 14333
+      "gallons": 15330
     }
   ],
   "monthly_by_region": [
@@ -54480,7 +54480,7 @@
     {
       "month": "2026-11",
       "region": "Central",
-      "gallons": 1724
+      "gallons": 2249
     },
     {
       "month": "2026-11",
@@ -54540,7 +54540,7 @@
     {
       "month": "2026-11",
       "region": "Waterbury / Stowe",
-      "gallons": 2940
+      "gallons": 3412
     },
     {
       "month": "2026-11",
@@ -55542,7 +55542,7 @@
     {
       "year": 2026,
       "region": "Central",
-      "gallons": 26314
+      "gallons": 26839
     },
     {
       "year": 2026,
@@ -55617,7 +55617,7 @@
     {
       "year": 2026,
       "region": "Waterbury / Stowe",
-      "gallons": 36435
+      "gallons": 36907
     },
     {
       "year": 2026,
@@ -55671,20 +55671,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 28106,
+  "collections_count": 28127,
   "out_of_state_total": 40915,
-  "active_customer_count": 535,
+  "active_customer_count": 534,
   "projection": {
-    "latest_data_date": "2026-11-19",
+    "latest_data_date": "2026-11-20",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 262301,
+    "current_ytd": 263298,
     "previous_year_full": 269909,
     "previous_through_prior_month": 230827,
     "previous_same_month_total": 20207,
-    "previous_prorated_ytd": 243624.77,
-    "projected_current_year": 290600,
-    "percent_vs_previous_year": 0.07666
+    "previous_prorated_ytd": 244298.33,
+    "projected_current_year": 290900,
+    "percent_vs_previous_year": 0.077772
   },
   "region_stats": {
     "Burlington / South Burlington": {
@@ -55757,7 +55757,7 @@
     },
     "Waterbury / Stowe": {
       "customers": 69,
-      "active": 49
+      "active": 48
     },
     "Winter / Summer Combined": {
       "customers": 49,
@@ -55846,8 +55846,8 @@
       "year": 2026,
       "places_serviced": 483,
       "gained": 48,
-      "lost": 9,
-      "net": 39
+      "lost": 10,
+      "net": 38
     }
   ],
   "dormant_cutoff": "2025-01-01",
@@ -57051,12 +57051,12 @@
       "closed": 0,
       "changed_hands": 2,
       "moved": 0,
-      "unknown": 9,
+      "unknown": 10,
       "moved_followed": 0,
       "gained": 54,
-      "ended": 11,
+      "ended": 12,
       "churn": 0.0,
-      "churn_high": 0.0191,
+      "churn_high": 0.0212,
       "history_start": false,
       "partial": true
     }
@@ -57069,8 +57069,8 @@
     "avg_churn": 0.0003,
     "avg_churn_high": 0.0994,
     "lost_total": 1,
-    "unknown_total": 286,
-    "ended_total": 315,
+    "unknown_total": 287,
+    "ended_total": 316,
     "site_retention": 0.9259,
     "site_handovers": 25,
     "site_closures": 27,
@@ -57078,6 +57078,6 @@
     "avg_gained_new": 62.1,
     "avg_gained_successor": 1.8,
     "median_years_served": 1.6,
-    "current_businesses": 514
+    "current_businesses": 513
   }
 }

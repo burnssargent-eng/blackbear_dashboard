@@ -10371,6 +10371,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1376,Arandas-Montpelier,Montpelier,Washington,2025-03-26,2025,2025-03,70,True,Montpelier
 1376,Arandas-Montpelier,Montpelier,Washington,2024-12-13,2024,2024-12,30,True,Montpelier
 1376,Arandas-Montpelier,Montpelier,Washington,2024-11-14,2024,2024-11,30,True,Montpelier
+1489,Barr Hill -OIL collection,Montpelier,Washington,2026-11-20,2026,2026-11,70,True,Montpelier
 1489,Barr Hill -OIL collection,Montpelier,Washington,2026-10-12,2026,2026-10,45,True,Montpelier
 1489,Barr Hill -OIL collection,Montpelier,Washington,2026-09-18,2026,2026-09,35,True,Montpelier
 1489,Barr Hill -OIL collection,Montpelier,Washington,2026-08-27,2026,2026-08,55,True,Montpelier
@@ -10507,6 +10508,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1191,GREENWAY INSTITUTE/Vermont College of Fine Arts,Montpelier,Washington,2023-12-06,2023,2023-12,35,True,Montpelier
 1191,GREENWAY INSTITUTE/Vermont College of Fine Arts,Montpelier,Washington,2023-03-02,2023,2023-03,50,True,Montpelier
 1191,GREENWAY INSTITUTE/Vermont College of Fine Arts,Montpelier,Washington,2022-10-28,2022,2022-10,110,True,Montpelier
+151,House of Tang,Montpelier,Washington,2026-11-20,2026,2026-11,50,True,Montpelier
 151,House of Tang,Montpelier,Washington,2026-09-29,2026,2026-09,40,True,Montpelier
 151,House of Tang,Montpelier,Washington,2026-08-27,2026,2026-08,30,True,Montpelier
 151,House of Tang,Montpelier,Washington,2026-05-01,2026,2026-05,50,True,Montpelier
@@ -10609,6 +10611,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1100,Hugo’s ~,Montpelier,Washington,2022-03-22,2022,2022-03,60,True,Montpelier
 1100,Hugo’s ~,Montpelier,Washington,2022-03-09,2022,2022-03,55,True,Montpelier
 1100,Hugo’s ~,Montpelier,Washington,2022-02-24,2022,2022-02,40,True,Montpelier
+133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2026-11-20,2026,2026-11,30,True,Montpelier
 133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2026-11-06,2026,2026-11,40,True,Montpelier
 133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2026-10-12,2026,2026-10,95,True,Montpelier
 133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2026-05-29,2026,2026-05,115,True,Montpelier
@@ -10730,6 +10733,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2015-12-17,2015,2015-12,25,True,Montpelier
 133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2015-11-30,2015,2015-11,45,True,Montpelier
 133,JJ’s- Langdon Street Tavern,Montpelier,Washington,2015-11-02,2015,2015-11,30,True,Montpelier
+1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2026-11-20,2026,2026-11,60,True,Montpelier
 1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2026-10-12,2026,2026-10,40,True,Montpelier
 1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2026-09-18,2026,2026-09,35,True,Montpelier
 1379,JMorgans-100StateSt Hospitality,Montpelier,Washington,2026-08-27,2026,2026-08,60,True,Montpelier
@@ -10841,6 +10845,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1209,MJH Massage,Montpelier,Washington,2024-09-24,2024,2024-09,10,True,Montpelier
 1209,MJH Massage,Montpelier,Washington,2023-08-09,2023,2023-08,10,True,Montpelier
 1209,MJH Massage,Montpelier,Washington,2023-01-18,2023,2023-01,7,True,Montpelier
+131,Namaste ~ 33%,Montpelier,Washington,2026-11-20,2026,2026-11,35,True,Montpelier
 131,Namaste ~ 33%,Montpelier,Washington,2026-11-06,2026,2026-11,15,True,Montpelier
 131,Namaste ~ 33%,Montpelier,Washington,2026-10-30,2026,2026-10,50,True,Montpelier
 131,Namaste ~ 33%,Montpelier,Washington,2026-10-12,2026,2026-10,40,True,Montpelier
@@ -10937,6 +10942,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 131,Namaste ~ 33%,Montpelier,Washington,2021-08-09,2021,2021-08,100,True,Montpelier
 131,Namaste ~ 33%,Montpelier,Washington,2021-07-07,2021,2021-07,75,True,Montpelier
 131,Namaste ~ 33%,Montpelier,Washington,2020-08-05,2020,2020-08,50,True,Montpelier
+149,National Life,Montpelier,Washington,2026-11-20,2026,2026-11,30,True,Montpelier
 149,National Life,Montpelier,Washington,2026-10-12,2026,2026-10,35,True,Montpelier
 149,National Life,Montpelier,Washington,2026-09-03,2026,2026-09,55,True,Montpelier
 149,National Life,Montpelier,Washington,2026-07-22,2026,2026-07,30,True,Montpelier
@@ -10963,6 +10969,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 149,National Life,Montpelier,Washington,2015-09-03,2015,2015-09,55,True,Montpelier
 149,National Life,Montpelier,Washington,2015-05-06,2015,2015-05,15,True,Montpelier
 149,National Life,Montpelier,Washington,2015-04-02,2015,2015-04,20,True,Montpelier
+169,Oakes and Evelyn-33%,Montpelier,Washington,2026-11-20,2026,2026-11,20,True,Montpelier
 169,Oakes and Evelyn-33%,Montpelier,Washington,2026-11-06,2026,2026-11,25,True,Montpelier
 169,Oakes and Evelyn-33%,Montpelier,Washington,2026-09-29,2026,2026-09,20,True,Montpelier
 169,Oakes and Evelyn-33%,Montpelier,Washington,2026-09-09,2026,2026-09,25,True,Montpelier
@@ -11024,6 +11031,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 153,Parkers Quick Stop,Montpelier,Washington,2022-09-08,2022,2022-09,45,True,Montpelier
 153,Parkers Quick Stop,Montpelier,Washington,2017-04-25,2017,2017-04,10,True,Montpelier
 153,Parkers Quick Stop,Montpelier,Washington,2017-04-06,2017,2017-04,5,True,Montpelier
+145,Pho Capital,Montpelier,Washington,2026-11-20,2026,2026-11,35,True,Montpelier
 145,Pho Capital,Montpelier,Washington,2026-10-12,2026,2026-10,20,True,Montpelier
 145,Pho Capital,Montpelier,Washington,2026-09-18,2026,2026-09,20,True,Montpelier
 145,Pho Capital,Montpelier,Washington,2026-08-27,2026,2026-08,35,True,Montpelier
@@ -11133,6 +11141,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 145,Pho Capital,Montpelier,Washington,2015-07-15,2015,2015-07,30,True,Montpelier
 145,Pho Capital,Montpelier,Washington,2015-05-06,2015,2015-05,25,True,Montpelier
 145,Pho Capital,Montpelier,Washington,2015-01-05,2015,2015-01,40,True,Montpelier
+140,Positive Pie 2-Montpelier,Montpelier,Washington,2026-11-20,2026,2026-11,50,True,Montpelier
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2026-11-06,2026,2026-11,65,True,Montpelier
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2026-10-12,2026,2026-10,35,True,Montpelier
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2026-09-29,2026,2026-09,75,True,Montpelier
@@ -11281,6 +11290,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2015-04-09,2015,2015-04,110,True,Montpelier
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2015-02-20,2015,2015-02,100,True,Montpelier
 140,Positive Pie 2-Montpelier,Montpelier,Washington,2015-01-16,2015,2015-01,70,True,Montpelier
+137,Royal Orchid,Montpelier,Washington,2026-11-20,2026,2026-11,20,True,Montpelier
 137,Royal Orchid,Montpelier,Washington,2026-09-29,2026,2026-09,25,True,Montpelier
 137,Royal Orchid,Montpelier,Washington,2026-07-22,2026,2026-07,40,True,Montpelier
 137,Royal Orchid,Montpelier,Washington,2026-05-12,2026,2026-05,50,True,Montpelier
@@ -11446,6 +11456,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 146,Sarduccis,Montpelier,Washington,2017-02-19,2017,2017-02,160,True,Montpelier
 146,Sarduccis,Montpelier,Washington,2017-01-14,2017,2017-01,150,True,Montpelier
 146,Sarduccis,Montpelier,Washington,2016-11-27,2016,2016-11,15,True,Montpelier
+302,Skinny Pancake-Montpelier,Montpelier,Washington,2026-11-20,2026,2026-11,25,True,Montpelier
 302,Skinny Pancake-Montpelier,Montpelier,Washington,2026-09-29,2026,2026-09,40,True,Montpelier
 302,Skinny Pancake-Montpelier,Montpelier,Washington,2026-08-14,2026,2026-08,45,True,Montpelier
 302,Skinny Pancake-Montpelier,Montpelier,Washington,2026-06-29,2026,2026-06,85,True,Montpelier
@@ -11577,6 +11588,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 157,State House,Montpelier,Washington,2023-05-18,2023,2023-05,45,True,Montpelier
 157,State House,Montpelier,Washington,2023-01-04,2023,2023-01,50,True,Montpelier
 157,State House,Montpelier,Washington,2020-04-29,2020,2020-04,50,True,Montpelier
+130,Three Penny Taproom 67%,Montpelier,Washington,2026-11-20,2026,2026-11,70,True,Montpelier
 130,Three Penny Taproom 67%,Montpelier,Washington,2026-11-06,2026,2026-11,35,True,Montpelier
 130,Three Penny Taproom 67%,Montpelier,Washington,2026-10-30,2026,2026-10,150,True,Montpelier
 130,Three Penny Taproom 67%,Montpelier,Washington,2026-10-12,2026,2026-10,80,True,Montpelier
@@ -13194,6 +13206,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 158,South Village Mobile (Convenience Plus),Northfield,Washington,2020-01-22,2020,2020-01,50,True,Northfield
 158,South Village Mobile (Convenience Plus),Northfield,Washington,2019-04-24,2019,2019-04,25,True,Northfield
 158,South Village Mobile (Convenience Plus),Northfield,Washington,2015-02-10,2015,2015-02,8,True,Northfield
+1419,THE STIC// old RUSTIC-Northfield,Northfield,Washington,2026-11-20,2026,2026-11,30,True,Northfield
 1419,THE STIC// old RUSTIC-Northfield,Northfield,Washington,2026-10-12,2026,2026-10,40,True,Northfield
 1419,THE STIC// old RUSTIC-Northfield,Northfield,Washington,2026-08-27,2026,2026-08,45,True,Northfield
 1419,THE STIC// old RUSTIC-Northfield,Northfield,Washington,2026-07-20,2026,2026-07,65,True,Northfield
@@ -15307,7 +15320,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1118,Aladdin,Stowe,Lamoille,2022-11-17,2022,2022-11,70,True,Stowe
 1118,Aladdin,Stowe,Lamoille,2022-09-12,2022,2022-09,60,True,Stowe
 1118,Aladdin,Stowe,Lamoille,2022-06-13,2022,2022-06,20,True,Stowe
-1075,Alfies Wild rides,Stowe,Lamoille,2026-11-19,2026,2026-11,50,True,Stowe
+1075,Alfies Wild rides,Stowe,Lamoille,2026-11-19,2026,2026-11,60,True,Stowe
 1075,Alfies Wild rides,Stowe,Lamoille,2026-09-15,2026,2026-09,15,True,Stowe
 1075,Alfies Wild rides,Stowe,Lamoille,2026-08-19,2026,2026-08,30,True,Stowe
 1075,Alfies Wild rides,Stowe,Lamoille,2026-06-22,2026,2026-06,10,True,Stowe
@@ -15353,6 +15366,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1075,Alfies Wild rides,Stowe,Lamoille,2022-10-21,2022,2022-10,15,True,Stowe
 1075,Alfies Wild rides,Stowe,Lamoille,2022-09-22,2022,2022-09,40,True,Stowe
 1075,Alfies Wild rides,Stowe,Lamoille,2022-06-29,2022,2022-06,40,True,Stowe
+1372,Arandas Mexican-Stowe,Stowe,Lamoille,2026-11-19,2026,2026-11,65,True,Stowe
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2026-09-30,2026,2026-09,40,True,Stowe
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2026-07-23,2026,2026-07,40,True,Stowe
 1372,Arandas Mexican-Stowe,Stowe,Lamoille,2026-06-22,2026,2026-06,30,True,Stowe
@@ -15661,6 +15675,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2016-07-11,2016,2016-07,30,True,Stowe
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2016-04-11,2016,2016-04,35,True,Stowe
 242,Cork Wine Bar-Stowe,Stowe,Lamoille,2015-12-04,2015,2015-12,20,True,Stowe
+247,Doc Ponds,Stowe,Lamoille,2026-11-19,2026,2026-11,100,True,Stowe
 247,Doc Ponds,Stowe,Lamoille,2026-11-04,2026,2026-11,170,True,Stowe
 247,Doc Ponds,Stowe,Lamoille,2026-10-14,2026,2026-10,160,True,Stowe
 247,Doc Ponds,Stowe,Lamoille,2026-09-30,2026,2026-09,120,True,Stowe
@@ -15982,6 +15997,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 263,Edson Hill Manor,Stowe,Lamoille,2019-02-17,2019,2019-02,50,True,Stowe
 263,Edson Hill Manor,Stowe,Lamoille,2018-10-21,2018,2018-10,25,True,Stowe
 263,Edson Hill Manor,Stowe,Lamoille,2018-02-21,2018,2018-02,50,True,Stowe
+1116,GreenGoddess,Stowe,Lamoille,2026-11-19,2026,2026-11,15,True,Stowe
 1116,GreenGoddess,Stowe,Lamoille,2026-10-27,2026,2026-10,40,True,Stowe
 1116,GreenGoddess,Stowe,Lamoille,2026-08-31,2026,2026-08,45,True,Stowe
 1116,GreenGoddess,Stowe,Lamoille,2026-06-09,2026,2026-06,50,True,Stowe
@@ -17662,52 +17678,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 252,The Bench,Stowe,Lamoille,2015-02-13,2015,2015-02,40,True,Stowe
 252,The Bench,Stowe,Lamoille,2015-01-28,2015,2015-01,40,True,Stowe
 252,The Bench,Stowe,Lamoille,2015-01-14,2015,2015-01,30,True,Stowe
-255,The Butchery,Stowe,Lamoille,2026-11-19,2026,2026-11,15,True,Stowe
-255,The Butchery,Stowe,Lamoille,2026-10-14,2026,2026-10,15,True,Stowe
-255,The Butchery,Stowe,Lamoille,2026-08-04,2026,2026-08,15,True,Stowe
-255,The Butchery,Stowe,Lamoille,2026-05-27,2026,2026-05,50,True,Stowe
-255,The Butchery,Stowe,Lamoille,2026-04-03,2026,2026-04,35,True,Stowe
-255,The Butchery,Stowe,Lamoille,2026-02-18,2026,2026-02,20,True,Stowe
-255,The Butchery,Stowe,Lamoille,2026-01-27,2026,2026-01,20,True,Stowe
-255,The Butchery,Stowe,Lamoille,2025-12-30,2025,2025-12,20,True,Stowe
-255,The Butchery,Stowe,Lamoille,2025-11-10,2025,2025-11,55,True,Stowe
-255,The Butchery,Stowe,Lamoille,2025-09-03,2025,2025-09,45,True,Stowe
-255,The Butchery,Stowe,Lamoille,2025-06-17,2025,2025-06,45,True,Stowe
-255,The Butchery,Stowe,Lamoille,2025-04-14,2025,2025-04,45,True,Stowe
-255,The Butchery,Stowe,Lamoille,2025-02-11,2025,2025-02,40,True,Stowe
-255,The Butchery,Stowe,Lamoille,2024-12-16,2024,2024-12,25,True,Stowe
-255,The Butchery,Stowe,Lamoille,2024-11-18,2024,2024-11,30,True,Stowe
-255,The Butchery,Stowe,Lamoille,2024-09-30,2024,2024-09,80,True,Stowe
-255,The Butchery,Stowe,Lamoille,2024-08-13,2024,2024-08,30,True,Stowe
-255,The Butchery,Stowe,Lamoille,2024-05-29,2024,2024-05,85,True,Stowe
-255,The Butchery,Stowe,Lamoille,2023-12-19,2023,2023-12,50,True,Stowe
-255,The Butchery,Stowe,Lamoille,2023-03-20,2023,2023-03,30,True,Stowe
-255,The Butchery,Stowe,Lamoille,2023-02-06,2023,2023-02,40,True,Stowe
-255,The Butchery,Stowe,Lamoille,2022-11-17,2022,2022-11,15,True,Stowe
-255,The Butchery,Stowe,Lamoille,2022-11-03,2022,2022-11,30,True,Stowe
-255,The Butchery,Stowe,Lamoille,2022-09-12,2022,2022-09,50,True,Stowe
-255,The Butchery,Stowe,Lamoille,2022-05-13,2022,2022-05,50,True,Stowe
-255,The Butchery,Stowe,Lamoille,2022-03-02,2022,2022-03,60,True,Stowe
-255,The Butchery,Stowe,Lamoille,2021-12-27,2021,2021-12,20,True,Stowe
-255,The Butchery,Stowe,Lamoille,2021-10-27,2021,2021-10,25,True,Stowe
-255,The Butchery,Stowe,Lamoille,2021-09-30,2021,2021-09,15,True,Stowe
-255,The Butchery,Stowe,Lamoille,2021-09-09,2021,2021-09,25,True,Stowe
-255,The Butchery,Stowe,Lamoille,2021-08-01,2021,2021-08,50,True,Stowe
-255,The Butchery,Stowe,Lamoille,2021-06-23,2021,2021-06,65,True,Stowe
-255,The Butchery,Stowe,Lamoille,2021-03-18,2021,2021-03,50,True,Stowe
-255,The Butchery,Stowe,Lamoille,2021-01-28,2021,2021-01,50,True,Stowe
-255,The Butchery,Stowe,Lamoille,2020-12-02,2020,2020-12,40,True,Stowe
-255,The Butchery,Stowe,Lamoille,2020-10-06,2020,2020-10,70,True,Stowe
-255,The Butchery,Stowe,Lamoille,2020-07-13,2020,2020-07,25,True,Stowe
-255,The Butchery,Stowe,Lamoille,2020-06-15,2020,2020-06,35,True,Stowe
-255,The Butchery,Stowe,Lamoille,2020-04-28,2020,2020-04,80,True,Stowe
-255,The Butchery,Stowe,Lamoille,2019-11-04,2019,2019-11,10,True,Stowe
-255,The Butchery,Stowe,Lamoille,2019-10-07,2019,2019-10,50,True,Stowe
-255,The Butchery,Stowe,Lamoille,2019-06-06,2019,2019-06,30,True,Stowe
-255,The Butchery,Stowe,Lamoille,2019-03-30,2019,2019-03,50,True,Stowe
-255,The Butchery,Stowe,Lamoille,2018-11-04,2018,2018-11,35,True,Stowe
-255,The Butchery,Stowe,Lamoille,2018-06-17,2018,2018-06,25,True,Stowe
-255,The Butchery,Stowe,Lamoille,2018-04-21,2018,2018-04,25,True,Stowe
 246,The Stowe Inn Tavern,Stowe,Lamoille,2026-09-30,2026,2026-09,5,True,Stowe
 246,The Stowe Inn Tavern,Stowe,Lamoille,2026-08-31,2026,2026-08,40,True,Stowe
 246,The Stowe Inn Tavern,Stowe,Lamoille,2026-07-23,2026,2026-07,15,True,Stowe
@@ -18181,6 +18151,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2015-02-25,2015,2015-02,40,True,Stowe
 267,Von Trapp Bierhall & Taproom,Stowe,Lamoille,2015-01-14,2015,2015-01,45,True,Stowe
 1518,Whereabouts,Stowe,Lamoille,2026-09-30,2026,2026-09,10,True,Stowe
+244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2026-11-19,2026,2026-11,50,True,Stowe
 244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2026-10-27,2026,2026-10,80,True,Stowe
 244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2026-09-30,2026,2026-09,80,True,Stowe
 244,Whip Bar & Grill at Green Mt Inn,Stowe,Lamoille,2026-08-31,2026,2026-08,100,True,Stowe
@@ -19939,6 +19910,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 232,Crossroads Deli,Waterbury,Washington,2015-10-14,2015,2015-10,20,True,Waterbury
 232,Crossroads Deli,Waterbury,Washington,2015-06-11,2015,2015-06,20,True,Waterbury
 232,Crossroads Deli,Waterbury,Washington,2015-04-15,2015,2015-04,50,True,Waterbury
+1345,Gallus-Waterbury,Waterbury,Washington,2026-11-19,2026,2026-11,65,True,Waterbury
 1345,Gallus-Waterbury,Waterbury,Washington,2026-11-04,2026,2026-11,110,True,Waterbury
 1345,Gallus-Waterbury,Waterbury,Washington,2026-10-14,2026,2026-10,135,True,Waterbury
 1345,Gallus-Waterbury,Waterbury,Washington,2026-09-25,2026,2026-09,75,True,Waterbury
@@ -19977,6 +19949,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1345,Gallus-Waterbury,Waterbury,Washington,2024-09-19,2024,2024-09,40,True,Waterbury
 1345,Gallus-Waterbury,Waterbury,Washington,2024-09-02,2024,2024-09,60,True,Waterbury
 1345,Gallus-Waterbury,Waterbury,Washington,2024-08-14,2024,2024-08,140,True,Waterbury
+234,Hen of the Wood-WATERBURY,Waterbury,Washington,2026-11-19,2026,2026-11,20,True,Waterbury
 234,Hen of the Wood-WATERBURY,Waterbury,Washington,2026-11-04,2026,2026-11,50,True,Waterbury
 234,Hen of the Wood-WATERBURY,Waterbury,Washington,2026-10-14,2026,2026-10,75,True,Waterbury
 234,Hen of the Wood-WATERBURY,Waterbury,Washington,2026-09-25,2026,2026-09,75,True,Waterbury
@@ -20628,6 +20601,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 229,Prohibition Pig,Waterbury,Washington,2015-02-25,2015,2015-02,40,True,Waterbury
 229,Prohibition Pig,Waterbury,Washington,2015-02-09,2015,2015-02,50,True,Waterbury
 229,Prohibition Pig,Waterbury,Washington,2015-01-14,2015,2015-01,50,True,Waterbury
+227,The Reservoir-Waterbury,Waterbury,Washington,2026-11-19,2026,2026-11,140,True,Waterbury
 227,The Reservoir-Waterbury,Waterbury,Washington,2026-11-03,2026,2026-11,180,True,Waterbury
 227,The Reservoir-Waterbury,Waterbury,Washington,2026-10-14,2026,2026-10,180,True,Waterbury
 227,The Reservoir-Waterbury,Waterbury,Washington,2026-09-25,2026,2026-09,100,True,Waterbury
@@ -27404,6 +27378,53 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 230,The Blue Stone-Waterbury,Waterbury,Washington,2015-03-18,2015,2015-03,50,False,Waterbury
 230,The Blue Stone-Waterbury,Waterbury,Washington,2015-01-28,2015,2015-01,50,False,Waterbury
 230,The Blue Stone-Waterbury,Waterbury,Washington,2015-01-09,2015,2015-01,40,False,Waterbury
+255,The Butchery,Stowe,Lamoille,2026-11-19,2026,2026-11,7,False,Stowe
+255,The Butchery,Stowe,Lamoille,2026-11-19,2026,2026-11,15,False,Stowe
+255,The Butchery,Stowe,Lamoille,2026-10-14,2026,2026-10,15,False,Stowe
+255,The Butchery,Stowe,Lamoille,2026-08-04,2026,2026-08,15,False,Stowe
+255,The Butchery,Stowe,Lamoille,2026-05-27,2026,2026-05,50,False,Stowe
+255,The Butchery,Stowe,Lamoille,2026-04-03,2026,2026-04,35,False,Stowe
+255,The Butchery,Stowe,Lamoille,2026-02-18,2026,2026-02,20,False,Stowe
+255,The Butchery,Stowe,Lamoille,2026-01-27,2026,2026-01,20,False,Stowe
+255,The Butchery,Stowe,Lamoille,2025-12-30,2025,2025-12,20,False,Stowe
+255,The Butchery,Stowe,Lamoille,2025-11-10,2025,2025-11,55,False,Stowe
+255,The Butchery,Stowe,Lamoille,2025-09-03,2025,2025-09,45,False,Stowe
+255,The Butchery,Stowe,Lamoille,2025-06-17,2025,2025-06,45,False,Stowe
+255,The Butchery,Stowe,Lamoille,2025-04-14,2025,2025-04,45,False,Stowe
+255,The Butchery,Stowe,Lamoille,2025-02-11,2025,2025-02,40,False,Stowe
+255,The Butchery,Stowe,Lamoille,2024-12-16,2024,2024-12,25,False,Stowe
+255,The Butchery,Stowe,Lamoille,2024-11-18,2024,2024-11,30,False,Stowe
+255,The Butchery,Stowe,Lamoille,2024-09-30,2024,2024-09,80,False,Stowe
+255,The Butchery,Stowe,Lamoille,2024-08-13,2024,2024-08,30,False,Stowe
+255,The Butchery,Stowe,Lamoille,2024-05-29,2024,2024-05,85,False,Stowe
+255,The Butchery,Stowe,Lamoille,2023-12-19,2023,2023-12,50,False,Stowe
+255,The Butchery,Stowe,Lamoille,2023-03-20,2023,2023-03,30,False,Stowe
+255,The Butchery,Stowe,Lamoille,2023-02-06,2023,2023-02,40,False,Stowe
+255,The Butchery,Stowe,Lamoille,2022-11-17,2022,2022-11,15,False,Stowe
+255,The Butchery,Stowe,Lamoille,2022-11-03,2022,2022-11,30,False,Stowe
+255,The Butchery,Stowe,Lamoille,2022-09-12,2022,2022-09,50,False,Stowe
+255,The Butchery,Stowe,Lamoille,2022-05-13,2022,2022-05,50,False,Stowe
+255,The Butchery,Stowe,Lamoille,2022-03-02,2022,2022-03,60,False,Stowe
+255,The Butchery,Stowe,Lamoille,2021-12-27,2021,2021-12,20,False,Stowe
+255,The Butchery,Stowe,Lamoille,2021-10-27,2021,2021-10,25,False,Stowe
+255,The Butchery,Stowe,Lamoille,2021-09-30,2021,2021-09,15,False,Stowe
+255,The Butchery,Stowe,Lamoille,2021-09-09,2021,2021-09,25,False,Stowe
+255,The Butchery,Stowe,Lamoille,2021-08-01,2021,2021-08,50,False,Stowe
+255,The Butchery,Stowe,Lamoille,2021-06-23,2021,2021-06,65,False,Stowe
+255,The Butchery,Stowe,Lamoille,2021-03-18,2021,2021-03,50,False,Stowe
+255,The Butchery,Stowe,Lamoille,2021-01-28,2021,2021-01,50,False,Stowe
+255,The Butchery,Stowe,Lamoille,2020-12-02,2020,2020-12,40,False,Stowe
+255,The Butchery,Stowe,Lamoille,2020-10-06,2020,2020-10,70,False,Stowe
+255,The Butchery,Stowe,Lamoille,2020-07-13,2020,2020-07,25,False,Stowe
+255,The Butchery,Stowe,Lamoille,2020-06-15,2020,2020-06,35,False,Stowe
+255,The Butchery,Stowe,Lamoille,2020-04-28,2020,2020-04,80,False,Stowe
+255,The Butchery,Stowe,Lamoille,2019-11-04,2019,2019-11,10,False,Stowe
+255,The Butchery,Stowe,Lamoille,2019-10-07,2019,2019-10,50,False,Stowe
+255,The Butchery,Stowe,Lamoille,2019-06-06,2019,2019-06,30,False,Stowe
+255,The Butchery,Stowe,Lamoille,2019-03-30,2019,2019-03,50,False,Stowe
+255,The Butchery,Stowe,Lamoille,2018-11-04,2018,2018-11,35,False,Stowe
+255,The Butchery,Stowe,Lamoille,2018-06-17,2018,2018-06,25,False,Stowe
+255,The Butchery,Stowe,Lamoille,2018-04-21,2018,2018-04,25,False,Stowe
 609,The Danville Inn,Burlington,Caledonia,2017-03-05,2017,2017-03,12,False,Danville
 609,The Danville Inn,Burlington,Caledonia,2017-01-04,2017,2017-01,8,False,Danville
 609,The Danville Inn,Burlington,Caledonia,2016-10-22,2016,2016-10,4,False,Danville
