@@ -121,7 +121,9 @@ former.html          ?b=<id>: one business's eras, months and site timeline (nav
 customer names       on Projections, Regions, Years, Customers (and Town) link to ops-customer.html?id=
                      (customerLink, dashboard-utils.js). A customer not on the source site's Assign list
                      (inactive there) opens VIEW-ONLY from the dashboard roster: history, region, photos,
-                     notes; no entry, Assign, edits or Add entry. Its status chip is how its business ended
+                     notes; no Home entry, Assign or edits. Its Collections tab still takes entries
+                     (Add entry, edit links), signed in (Sarge, 2026-11-20: Jamaal closes an account
+                     on its last pickup, so that pickup could not be entered here). Its status chip is how its business ended
                      (Lost, Closed, Changed hands, ..., Unclassified), from customer_history.json: the
                      former list's classification, so it follows customer_eras.csv.
 planner.html         route planner beta. UNLISTED (not in the nav). Reads the two JSONs above.
