@@ -26,7 +26,7 @@ const api = new Function("window", code + `
     recordOilLeft, todaysOilLeft, clearOilLeft, collectionLines, daysBracketHtml,
     resolveTownInput, VT_TOWNS, OUT_OF_STATE_TOWNS, TOWN_ALIASES, SPLIT_TOWNS, TOWN_CHOICES,
     stopFiguresHtml, projectionBadgeText, daysPast75,
-    typedEntry, codeText, entryText, todaysDrop, recordDrop, clearDrop, clearTodaysEntry,
+    typedEntry, codeText, entryText, isCodeQty, CLOSING_QTY, todaysDrop, recordDrop, clearDrop, clearTodaysEntry,
     routeTasks, addTask, setTaskDone, setTaskRemoved, taskCarriedLabel, taskTitle, todayIso, localDay };`)(window);
 
 let fails = 0;
@@ -178,7 +178,7 @@ ok(opts[0] === "2026-10" && opts[1] === "2026-09" && opts[12] === "2025-10" && o
 ok(cal.shiftMonth("2026-01", -1) === "2025-12" && cal.shiftMonth("2026-12", 1) === "2027-01",
   "month buttons cross year ends");
 const codes = cal.parseNonPickups(fs.readFileSync("oil_non_pickups.csv", "utf8"));
-ok([...codes.values()].flat().every(c => c.qty >= 0 && c.qty <= 3), "every listed code is 0-3");
+ok([...codes.values()].flat().every(c => (c.qty >= 0 && c.qty <= 3) || c.qty === 7), "every listed code is 0-3 or a closing 7");
 const cells = (cal.gridHtml("2026-02").match(/class="cal-day(?!s)/g) || []).length;
 ok(cells % 7 === 0 && cells >= 28, "a month grid fills whole weeks");
 
@@ -360,9 +360,16 @@ ok(api.daysBracketHtml(28.4).includes("[28]") && api.daysBracketHtml(90).include
 {
   ok([0, 1, 2, 3, 4, 52].map(api.typedEntry).join() === "1,1,2,3,4,52",
     "a typed 0 saves as Empty (1); 2 and 3 stay; 4 and up are gallons");
-  ok(api.codeText(1) === "Empty" && api.codeText(2) === "Sign-up call" && api.codeText(3) === "Barrel delivery"
+  ok(api.codeText(1) === "Empty" && api.codeText(2) === "Sign-up call" && api.codeText(3) === "Barrel delivery" && api.codeText(7) === "Closing"
      && !/\d/.test(api.codeText(3)), "codes show by name, never the number");
   ok(api.entryText(3) === "Barrel delivery" && api.entryText(52) === "52 gal", "an entry reads as a name or gallons");
+  ok(api.typedEntry(7) === api.CLOSING_QTY && api.entryText(7) === "Closing" && api.isCodeQty(7) && !api.isCodeQty(6)
+     && !api.isCodeQty(8) && !api.isCodeQty(4), "a typed 7 is Closing, a code; 4, 6 and 8 are gallons");
+  ok(api.collectionLines([], [{ date: "2026-11-19", gallons: 7, client_id: "x" }])[0].code === true,
+    "a site 7 is listed as a code");
+  ok(api.collectionLines([{ date: "2026-11-19", gallons: 15 }, { date: "2026-11-19", gallons: 7, code: true },
+    { date: "2026-11-18", gallons: 20 }], []).map(l => l.gallons).join() === "7,15,20",
+    "a closing 7 lists above the same day's pickup");
 
   const lines = api.collectionLines(
     [{ date: "2026-10-01", gallons: 0, code: true }, { date: "2026-10-02", gallons: 1, code: true },

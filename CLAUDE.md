@@ -242,6 +242,18 @@ nothing to do with fullness), 3 is a barrel delivery. **4 is NOT
 excluded**: it is a data-entry quirk that counts as exactly 4 gallons and is
 never rounded up. `validate_data.py` fails if either changes.
 
+**7 is a closing code from 2024-05-01** (Jim, 2026-11-20): the last entry he
+makes when an account closes or stops. `CLOSING_QTY`/`CLOSING_FROM` and
+`is_non_pickup()` (`oil_scraper.py`; copies in `supabase_sync.py` and
+`analysis/backtest_steady_rate.py`, the first asserted by
+`tests/export_collections_test.py`). It goes to `oil_non_pickups.csv` beside the
+0-3s, never a reset, shown as "Closing". A 7 before 2024-05-01 stays 7 gallons
+(a mix of real small pickups and possible closings). `EMPTY_QTYS` is unchanged.
+On the site a typed 7 saves as 7, shows as "Closing" and is in no total
+(`isCodeQty`, ops-common.js); a bar says it does not set the customer inactive
+(the customer page's status does), with Undo (Sarge, 2026-11-20). So a real
+7-gallon pickup cannot be entered as 7.
+
 **On the site the codes have names, never numbers** (Sarge, 2026-11-14): Empty,
 Sign-up call, Barrel delivery (`codeText`, ops-common.js); a source-site 0 is
 hidden. Underneath they are still the 0-3 in `collections.gallons`. A typed 0

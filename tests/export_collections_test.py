@@ -56,6 +56,8 @@ CUSTOMERS = [{"id": 1, "name": "Diner", "city": "Burlington", "active": True},
 
 print("The scraper's rules")
 ok(ss.EMPTY_QTYS == set(oil_scraper.EMPTY_QTYS), "EMPTY_QTYS matches oil_scraper.py")
+ok((ss.CLOSING_QTY, ss.CLOSING_FROM) == (oil_scraper.CLOSING_QTY, oil_scraper.CLOSING_FROM),
+   "the closing 7 and its start day match oil_scraper.py")
 ok(ss.RAW_FIELDS == ["customer_id", "name", "city", "county", "date", "year", "month", "gallons",
                      "is_active", "geo_town"], "raw columns as the scraper writes them")
 ok(ss.NON_PICKUP_FIELDS == oil_scraper.NON_PICKUP_FIELDS, "non-pickup columns match oil_scraper.py")
@@ -90,6 +92,12 @@ ok([r["date"] for r in out if r["customer_id"] == "1"] == ["2026-11-02", "2026-1
 print("Idempotent")
 out2, codes2, _ = ss.site_collection_files(SITE, CUSTOMERS, out, codes, SINCE)
 ok(out2 == out and codes2 == codes, "a second export over its own output changes nothing")
+
+print("Closing 7")
+out7, codes7, _ = ss.site_collection_files([site(1, "2026-11-12", 7), site(1, "2026-11-12", 15)], CUSTOMERS, RAW, CODES, SINCE)
+ok(("1", "2026-11-12", "15") in [key(r) for r in out7] and ("1", "2026-11-12", "7") not in [key(r) for r in out7],
+   "a site 7 is not a pickup; the 15 beside it is")
+ok(("1", "2026-11-12", "7") in [(r["customer_id"], r["date"], r["qty"]) for r in codes7], "the 7 goes to the codes")
 
 
 class FakeDb:
