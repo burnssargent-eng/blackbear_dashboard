@@ -104,12 +104,13 @@ function gridHtml(ym) {
 
 /**
  * A customer's name as a link to their customer page, as the source site's
- * day list does. Only a customer the page can open (on the Assign list or
- * added on the site) is linked; a former customer's name stays plain.
+ * day list does. Every customer the page can open is linked: one in the
+ * dashboard roster or on the Assign list (both in `names`; an inactive one
+ * opens view-only) or added on the site. Only an id with no page stays plain.
  */
 function nameHtml(id, name) {
   const shown = escapeHtml(name || `#${id}`);
-  const open = (snap.assign_list || []).some(a => a.customer_id === id) ||
+  const open = names.has(id) ||
     ((store && store.added) || []).some(c => c.customer_id === id);
   return open ? `<a href="ops-customer.html?id=${id}">${shown}</a>` : shown;
 }
