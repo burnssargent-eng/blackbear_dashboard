@@ -3,8 +3,8 @@ name: Refresh Assigned Routes
 # Reads the source site's Today's Routes (one page, GET only; never writes to
 # it), commits the snapshot, and sets the shared database's routes to match
 # (supabase_sync.py --routes: Sarge, 2026-10-26, so the site and the source
-# site start each day the same during the trial). Route edits made on the site
-# after that stand until the next run.
+# site start each day the same during the trial). A route a person edited on the
+# site since the last run is left as the site has it (Sarge, 2026-11-19).
 #
 # Started at 7am Vermont time by the shared database itself
 # (db/schema.sql, public.dispatch_morning_routes), not by a schedule here:
