@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-20T15:57:52.814606",
+  "last_updated": "2026-11-20T16:04:13.902401",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -24502,13 +24502,13 @@
     {
       "month": "2024-05",
       "geo_town": "Burlington",
-      "gallons": 3013,
+      "gallons": 3006,
       "city": "Burlington"
     },
     {
       "month": "2024-05",
       "geo_town": "Colchester",
-      "gallons": 252,
+      "gallons": 245,
       "city": "Colchester"
     },
     {
@@ -24538,7 +24538,7 @@
     {
       "month": "2024-05",
       "geo_town": "Essex",
-      "gallons": 62,
+      "gallons": 55,
       "city": "Essex"
     },
     {
@@ -24700,7 +24700,7 @@
     {
       "month": "2024-05",
       "geo_town": "South Burlington",
-      "gallons": 1034,
+      "gallons": 1027,
       "city": "South Burlington"
     },
     {
@@ -24712,7 +24712,7 @@
     {
       "month": "2024-05",
       "geo_town": "Stowe",
-      "gallons": 1812,
+      "gallons": 1805,
       "city": "Stowe"
     },
     {
@@ -25174,7 +25174,7 @@
     {
       "month": "2024-07",
       "geo_town": "Brighton",
-      "gallons": 97,
+      "gallons": 90,
       "city": "Brighton"
     },
     {
@@ -26902,7 +26902,7 @@
     {
       "month": "2024-12",
       "geo_town": "Brattleboro",
-      "gallons": 144,
+      "gallons": 130,
       "city": "Brattleboro"
     },
     {
@@ -27148,7 +27148,7 @@
     {
       "month": "2024-12",
       "geo_town": "Shelburne",
-      "gallons": 62,
+      "gallons": 55,
       "city": "Shelburne"
     },
     {
@@ -28336,7 +28336,7 @@
     {
       "month": "2025-04",
       "geo_town": "Richmond",
-      "gallons": 77,
+      "gallons": 70,
       "city": "Richmond"
     },
     {
@@ -28444,7 +28444,7 @@
     {
       "month": "2025-04",
       "geo_town": "Winooski",
-      "gallons": 1317,
+      "gallons": 1310,
       "city": "Winooski"
     },
     {
@@ -28698,12 +28698,6 @@
       "geo_town": "Randolph",
       "gallons": 120,
       "city": "Randolph"
-    },
-    {
-      "month": "2025-05",
-      "geo_town": "Richmond",
-      "gallons": 7,
-      "city": "Richmond"
     },
     {
       "month": "2025-05",
@@ -29746,7 +29740,7 @@
     {
       "month": "2025-08",
       "geo_town": "South Burlington",
-      "gallons": 897,
+      "gallons": 890,
       "city": "South Burlington"
     },
     {
@@ -30004,7 +29998,7 @@
     {
       "month": "2025-09",
       "geo_town": "Morristown",
-      "gallons": 535,
+      "gallons": 528,
       "city": "Morristown"
     },
     {
@@ -30238,7 +30232,7 @@
     {
       "month": "2025-10",
       "geo_town": "Burlington",
-      "gallons": 3545,
+      "gallons": 3538,
       "city": "Burlington"
     },
     {
@@ -30388,7 +30382,7 @@
     {
       "month": "2025-10",
       "geo_town": "Northfield",
-      "gallons": 227,
+      "gallons": 220,
       "city": "Northfield"
     },
     {
@@ -30412,7 +30406,7 @@
     {
       "month": "2025-10",
       "geo_town": "Saint Albans City",
-      "gallons": 695,
+      "gallons": 688,
       "city": "Saint Albans City"
     },
     {
@@ -30466,7 +30460,7 @@
     {
       "month": "2025-10",
       "geo_town": "Vergennes",
-      "gallons": 322,
+      "gallons": 315,
       "city": "Vergennes"
     },
     {
@@ -30508,7 +30502,7 @@
     {
       "month": "2025-10",
       "geo_town": "Woodstock",
-      "gallons": 372,
+      "gallons": 365,
       "city": "Woodstock"
     },
     {
@@ -30622,7 +30616,7 @@
     {
       "month": "2025-11",
       "geo_town": "Hartford",
-      "gallons": 307,
+      "gallons": 300,
       "city": "Hartford"
     },
     {
@@ -30669,12 +30663,6 @@
     },
     {
       "month": "2025-11",
-      "geo_town": "Middlesex",
-      "gallons": 7,
-      "city": "Middlesex"
-    },
-    {
-      "month": "2025-11",
       "geo_town": "Milton",
       "gallons": 530,
       "city": "Milton"
@@ -30682,7 +30670,7 @@
     {
       "month": "2025-11",
       "geo_town": "Montpelier",
-      "gallons": 1517,
+      "gallons": 1510,
       "city": "Montpelier"
     },
     {
@@ -31984,7 +31972,7 @@
     {
       "month": "2026-03",
       "geo_town": "Randolph",
-      "gallons": 187,
+      "gallons": 180,
       "city": "Randolph"
     },
     {
@@ -32608,7 +32596,7 @@
     {
       "month": "2026-05",
       "geo_town": "Johnson",
-      "gallons": 177,
+      "gallons": 170,
       "city": "Johnson"
     },
     {
@@ -32662,7 +32650,7 @@
     {
       "month": "2026-05",
       "geo_town": "Northfield",
-      "gallons": 402,
+      "gallons": 395,
       "city": "Northfield"
     },
     {
@@ -33255,12 +33243,6 @@
     },
     {
       "month": "2026-07",
-      "geo_town": "Lunenburg",
-      "gallons": 7,
-      "city": "Lunenburg"
-    },
-    {
-      "month": "2026-07",
       "geo_town": "Lyndon",
       "gallons": 50,
       "city": "Lyndon"
@@ -33448,7 +33430,7 @@
     {
       "month": "2026-08",
       "geo_town": "Barre City",
-      "gallons": 467,
+      "gallons": 460,
       "city": "Barre City"
     },
     {
@@ -33544,7 +33526,7 @@
     {
       "month": "2026-08",
       "geo_town": "Enosburgh",
-      "gallons": 247,
+      "gallons": 240,
       "city": "Enosburgh"
     },
     {
@@ -34516,7 +34498,7 @@
     {
       "month": "2026-11",
       "geo_town": "Burlington",
-      "gallons": 3565,
+      "gallons": 3558,
       "city": "Burlington"
     },
     {
@@ -34666,7 +34648,7 @@
     {
       "month": "2026-11",
       "geo_town": "Stowe",
-      "gallons": 2487,
+      "gallons": 2480,
       "city": "Stowe"
     },
     {
@@ -40490,7 +40472,7 @@
     {
       "month": "2024-05",
       "county": "Chittenden",
-      "gallons": 9162
+      "gallons": 9134
     },
     {
       "month": "2024-05",
@@ -40505,7 +40487,7 @@
     {
       "month": "2024-05",
       "county": "Lamoille",
-      "gallons": 1812
+      "gallons": 1805
     },
     {
       "month": "2024-05",
@@ -40650,7 +40632,7 @@
     {
       "month": "2024-07",
       "county": "Essex",
-      "gallons": 97
+      "gallons": 90
     },
     {
       "month": "2024-07",
@@ -41000,7 +40982,7 @@
     {
       "month": "2024-12",
       "county": "Chittenden",
-      "gallons": 7366
+      "gallons": 7359
     },
     {
       "month": "2024-12",
@@ -41055,7 +41037,7 @@
     {
       "month": "2024-12",
       "county": "Windham",
-      "gallons": 199
+      "gallons": 185
     },
     {
       "month": "2024-12",
@@ -41265,7 +41247,7 @@
     {
       "month": "2025-04",
       "county": "Chittenden",
-      "gallons": 10596
+      "gallons": 10582
     },
     {
       "month": "2025-04",
@@ -41340,7 +41322,7 @@
     {
       "month": "2025-05",
       "county": "Chittenden",
-      "gallons": 8086
+      "gallons": 8079
     },
     {
       "month": "2025-05",
@@ -41540,7 +41522,7 @@
     {
       "month": "2025-08",
       "county": "Chittenden",
-      "gallons": 8897
+      "gallons": 8890
     },
     {
       "month": "2025-08",
@@ -41630,7 +41612,7 @@
     {
       "month": "2025-09",
       "county": "Lamoille",
-      "gallons": 4495
+      "gallons": 4488
     },
     {
       "month": "2025-09",
@@ -41675,7 +41657,7 @@
     {
       "month": "2025-10",
       "county": "Addison",
-      "gallons": 853
+      "gallons": 846
     },
     {
       "month": "2025-10",
@@ -41690,12 +41672,12 @@
     {
       "month": "2025-10",
       "county": "Chittenden",
-      "gallons": 8603
+      "gallons": 8596
     },
     {
       "month": "2025-10",
       "county": "Franklin",
-      "gallons": 975
+      "gallons": 968
     },
     {
       "month": "2025-10",
@@ -41735,7 +41717,7 @@
     {
       "month": "2025-10",
       "county": "Washington",
-      "gallons": 3823
+      "gallons": 3816
     },
     {
       "month": "2025-10",
@@ -41745,7 +41727,7 @@
     {
       "month": "2025-10",
       "county": "Windsor",
-      "gallons": 1247
+      "gallons": 1240
     },
     {
       "month": "2025-11",
@@ -41800,12 +41782,12 @@
     {
       "month": "2025-11",
       "county": "Washington",
-      "gallons": 4975
+      "gallons": 4961
     },
     {
       "month": "2025-11",
       "county": "Windsor",
-      "gallons": 857
+      "gallons": 850
     },
     {
       "month": "2025-12",
@@ -42080,7 +42062,7 @@
     {
       "month": "2026-03",
       "county": "Windsor",
-      "gallons": 1647
+      "gallons": 1640
     },
     {
       "month": "2026-04",
@@ -42190,7 +42172,7 @@
     {
       "month": "2026-05",
       "county": "Lamoille",
-      "gallons": 3314
+      "gallons": 3307
     },
     {
       "month": "2026-05",
@@ -42215,7 +42197,7 @@
     {
       "month": "2026-05",
       "county": "Washington",
-      "gallons": 4754
+      "gallons": 4747
     },
     {
       "month": "2026-05",
@@ -42306,11 +42288,6 @@
       "month": "2026-07",
       "county": "Chittenden",
       "gallons": 12201
-    },
-    {
-      "month": "2026-07",
-      "county": "Essex",
-      "gallons": 7
     },
     {
       "month": "2026-07",
@@ -42410,7 +42387,7 @@
     {
       "month": "2026-08",
       "county": "Orleans",
-      "gallons": 2040
+      "gallons": 2033
     },
     {
       "month": "2026-08",
@@ -42425,7 +42402,7 @@
     {
       "month": "2026-08",
       "county": "Washington",
-      "gallons": 4112
+      "gallons": 4105
     },
     {
       "month": "2026-08",
@@ -42580,7 +42557,7 @@
     {
       "month": "2026-11",
       "county": "Chittenden",
-      "gallons": 6455
+      "gallons": 6448
     },
     {
       "month": "2026-11",
@@ -42595,7 +42572,7 @@
     {
       "month": "2026-11",
       "county": "Lamoille",
-      "gallons": 2487
+      "gallons": 2480
     },
     {
       "month": "2026-11",
@@ -42672,20 +42649,20 @@
     },
     {
       "year": 2024,
-      "gallons": 263257
+      "gallons": 263194
     },
     {
       "year": 2025,
-      "gallons": 269909
+      "gallons": 269818
     },
     {
       "year": 2026,
-      "gallons": 263298
+      "gallons": 263242
     }
   ],
-  "all_time_total": 2182065,
-  "current_year_total": 263298,
-  "customer_count": 810,
+  "all_time_total": 2181855,
+  "current_year_total": 263242,
+  "customer_count": 809,
   "unmapped_total": 40915,
   "monthly_totals": [
     {
@@ -43138,7 +43115,7 @@
     },
     {
       "month": "2024-05",
-      "gallons": 20427
+      "gallons": 20392
     },
     {
       "month": "2024-06",
@@ -43146,7 +43123,7 @@
     },
     {
       "month": "2024-07",
-      "gallons": 24230
+      "gallons": 24223
     },
     {
       "month": "2024-08",
@@ -43166,7 +43143,7 @@
     },
     {
       "month": "2024-12",
-      "gallons": 20380
+      "gallons": 20359
     },
     {
       "month": "2025-01",
@@ -43182,11 +43159,11 @@
     },
     {
       "month": "2025-04",
-      "gallons": 27145
+      "gallons": 27131
     },
     {
       "month": "2025-05",
-      "gallons": 20751
+      "gallons": 20744
     },
     {
       "month": "2025-06",
@@ -43198,19 +43175,19 @@
     },
     {
       "month": "2025-08",
-      "gallons": 25119
+      "gallons": 25112
     },
     {
       "month": "2025-09",
-      "gallons": 25498
+      "gallons": 25491
     },
     {
       "month": "2025-10",
-      "gallons": 21968
+      "gallons": 21933
     },
     {
       "month": "2025-11",
-      "gallons": 20207
+      "gallons": 20186
     },
     {
       "month": "2025-12",
@@ -43226,7 +43203,7 @@
     },
     {
       "month": "2026-03",
-      "gallons": 25965
+      "gallons": 25958
     },
     {
       "month": "2026-04",
@@ -43234,7 +43211,7 @@
     },
     {
       "month": "2026-05",
-      "gallons": 20331
+      "gallons": 20317
     },
     {
       "month": "2026-06",
@@ -43242,11 +43219,11 @@
     },
     {
       "month": "2026-07",
-      "gallons": 28907
+      "gallons": 28900
     },
     {
       "month": "2026-08",
-      "gallons": 21423
+      "gallons": 21409
     },
     {
       "month": "2026-09",
@@ -43258,7 +43235,7 @@
     },
     {
       "month": "2026-11",
-      "gallons": 15330
+      "gallons": 15316
     }
   ],
   "monthly_by_region": [
@@ -51905,7 +51882,7 @@
     {
       "month": "2024-05",
       "region": "Burlington / South Burlington",
-      "gallons": 4047
+      "gallons": 4033
     },
     {
       "month": "2024-05",
@@ -51925,12 +51902,12 @@
     {
       "month": "2024-05",
       "region": "Northwest",
-      "gallons": 1494
+      "gallons": 1487
     },
     {
       "month": "2024-05",
       "region": "Outer Burlington",
-      "gallons": 2093
+      "gallons": 2086
     },
     {
       "month": "2024-05",
@@ -51985,7 +51962,7 @@
     {
       "month": "2024-05",
       "region": "Waterbury / Stowe",
-      "gallons": 2422
+      "gallons": 2415
     },
     {
       "month": "2024-05",
@@ -52120,7 +52097,7 @@
     {
       "month": "2024-07",
       "region": "Route 2 East / Route 5",
-      "gallons": 207
+      "gallons": 200
     },
     {
       "month": "2024-07",
@@ -52550,7 +52527,7 @@
     {
       "month": "2024-12",
       "region": "Route 7",
-      "gallons": 1089
+      "gallons": 1082
     },
     {
       "month": "2024-12",
@@ -52560,12 +52537,12 @@
     {
       "month": "2024-12",
       "region": "South",
-      "gallons": 309
+      "gallons": 295
     },
     {
       "month": "2024-12",
       "region": "South / Ski Combined",
-      "gallons": 659
+      "gallons": 645
     },
     {
       "month": "2024-12",
@@ -52865,7 +52842,7 @@
     {
       "month": "2025-04",
       "region": "Outer Burlington",
-      "gallons": 2749
+      "gallons": 2735
     },
     {
       "month": "2025-04",
@@ -52950,7 +52927,7 @@
     {
       "month": "2025-05",
       "region": "Outer Burlington",
-      "gallons": 2009
+      "gallons": 2002
     },
     {
       "month": "2025-05",
@@ -53190,7 +53167,7 @@
     {
       "month": "2025-08",
       "region": "Burlington / South Burlington",
-      "gallons": 4881
+      "gallons": 4874
     },
     {
       "month": "2025-08",
@@ -53310,7 +53287,7 @@
     {
       "month": "2025-09",
       "region": "Route 15",
-      "gallons": 1120
+      "gallons": 1113
     },
     {
       "month": "2025-09",
@@ -53360,17 +53337,17 @@
     {
       "month": "2025-10",
       "region": "Burlington / South Burlington",
-      "gallons": 4517
+      "gallons": 4510
     },
     {
       "month": "2025-10",
       "region": "Central",
-      "gallons": 2752
+      "gallons": 2745
     },
     {
       "month": "2025-10",
       "region": "Central South",
-      "gallons": 1487
+      "gallons": 1480
     },
     {
       "month": "2025-10",
@@ -53380,7 +53357,7 @@
     {
       "month": "2025-10",
       "region": "Northwest",
-      "gallons": 2373
+      "gallons": 2366
     },
     {
       "month": "2025-10",
@@ -53405,7 +53382,7 @@
     {
       "month": "2025-10",
       "region": "Route 7",
-      "gallons": 1103
+      "gallons": 1096
     },
     {
       "month": "2025-10",
@@ -53430,7 +53407,7 @@
     {
       "month": "2025-10",
       "region": "Summer Snack Stops",
-      "gallons": 1732
+      "gallons": 1725
     },
     {
       "month": "2025-10",
@@ -53445,7 +53422,7 @@
     {
       "month": "2025-10",
       "region": "Winter / Summer Combined",
-      "gallons": 2077
+      "gallons": 2070
     },
     {
       "month": "2025-11",
@@ -53455,12 +53432,12 @@
     {
       "month": "2025-11",
       "region": "Central",
-      "gallons": 3090
+      "gallons": 3076
     },
     {
       "month": "2025-11",
       "region": "Central South",
-      "gallons": 1054
+      "gallons": 1047
     },
     {
       "month": "2025-11",
@@ -53790,7 +53767,7 @@
     {
       "month": "2026-03",
       "region": "Central South",
-      "gallons": 1193
+      "gallons": 1186
     },
     {
       "month": "2026-03",
@@ -53960,7 +53937,7 @@
     {
       "month": "2026-05",
       "region": "Central",
-      "gallons": 2794
+      "gallons": 2787
     },
     {
       "month": "2026-05",
@@ -53985,7 +53962,7 @@
     {
       "month": "2026-05",
       "region": "Route 15",
-      "gallons": 1744
+      "gallons": 1737
     },
     {
       "month": "2026-05",
@@ -54170,7 +54147,7 @@
     {
       "month": "2026-07",
       "region": "Route 2 East / Route 5",
-      "gallons": 1952
+      "gallons": 1945
     },
     {
       "month": "2026-07",
@@ -54225,7 +54202,7 @@
     {
       "month": "2026-08",
       "region": "Central",
-      "gallons": 2302
+      "gallons": 2295
     },
     {
       "month": "2026-08",
@@ -54240,7 +54217,7 @@
     {
       "month": "2026-08",
       "region": "Northwest",
-      "gallons": 777
+      "gallons": 770
     },
     {
       "month": "2026-08",
@@ -54475,7 +54452,7 @@
     {
       "month": "2026-11",
       "region": "Burlington / South Burlington",
-      "gallons": 4240
+      "gallons": 4233
     },
     {
       "month": "2026-11",
@@ -54540,7 +54517,7 @@
     {
       "month": "2026-11",
       "region": "Waterbury / Stowe",
-      "gallons": 3412
+      "gallons": 3405
     },
     {
       "month": "2026-11",
@@ -55352,7 +55329,7 @@
     {
       "year": 2024,
       "region": "Burlington / South Burlington",
-      "gallons": 55843
+      "gallons": 55829
     },
     {
       "year": 2024,
@@ -55372,12 +55349,12 @@
     {
       "year": 2024,
       "region": "Northwest",
-      "gallons": 14032
+      "gallons": 14025
     },
     {
       "year": 2024,
       "region": "Outer Burlington",
-      "gallons": 32710
+      "gallons": 32703
     },
     {
       "year": 2024,
@@ -55392,12 +55369,12 @@
     {
       "year": 2024,
       "region": "Route 2 East / Route 5",
-      "gallons": 8955
+      "gallons": 8948
     },
     {
       "year": 2024,
       "region": "Route 7",
-      "gallons": 14622
+      "gallons": 14615
     },
     {
       "year": 2024,
@@ -55407,12 +55384,12 @@
     {
       "year": 2024,
       "region": "South",
-      "gallons": 6949
+      "gallons": 6935
     },
     {
       "year": 2024,
       "region": "South / Ski Combined",
-      "gallons": 11099
+      "gallons": 11085
     },
     {
       "year": 2024,
@@ -55432,7 +55409,7 @@
     {
       "year": 2024,
       "region": "Waterbury / Stowe",
-      "gallons": 37462
+      "gallons": 37455
     },
     {
       "year": 2024,
@@ -55442,17 +55419,17 @@
     {
       "year": 2025,
       "region": "Burlington / South Burlington",
-      "gallons": 54183
+      "gallons": 54169
     },
     {
       "year": 2025,
       "region": "Central",
-      "gallons": 30314
+      "gallons": 30293
     },
     {
       "year": 2025,
       "region": "Central South",
-      "gallons": 15458
+      "gallons": 15444
     },
     {
       "year": 2025,
@@ -55462,7 +55439,7 @@
     {
       "year": 2025,
       "region": "Northwest",
-      "gallons": 17585
+      "gallons": 17578
     },
     {
       "year": 2025,
@@ -55472,7 +55449,7 @@
     {
       "year": 2025,
       "region": "Outer Burlington",
-      "gallons": 30149
+      "gallons": 30128
     },
     {
       "year": 2025,
@@ -55482,7 +55459,7 @@
     {
       "year": 2025,
       "region": "Route 15",
-      "gallons": 10787
+      "gallons": 10780
     },
     {
       "year": 2025,
@@ -55492,7 +55469,7 @@
     {
       "year": 2025,
       "region": "Route 7",
-      "gallons": 15652
+      "gallons": 15645
     },
     {
       "year": 2025,
@@ -55517,7 +55494,7 @@
     {
       "year": 2025,
       "region": "Summer Snack Stops",
-      "gallons": 10668
+      "gallons": 10661
     },
     {
       "year": 2025,
@@ -55532,22 +55509,22 @@
     {
       "year": 2025,
       "region": "Winter / Summer Combined",
-      "gallons": 29363
+      "gallons": 29356
     },
     {
       "year": 2026,
       "region": "Burlington / South Burlington",
-      "gallons": 49206
+      "gallons": 49199
     },
     {
       "year": 2026,
       "region": "Central",
-      "gallons": 26839
+      "gallons": 26825
     },
     {
       "year": 2026,
       "region": "Central South",
-      "gallons": 15057
+      "gallons": 15050
     },
     {
       "year": 2026,
@@ -55557,7 +55534,7 @@
     {
       "year": 2026,
       "region": "Northwest",
-      "gallons": 16375
+      "gallons": 16368
     },
     {
       "year": 2026,
@@ -55572,12 +55549,12 @@
     {
       "year": 2026,
       "region": "Route 15",
-      "gallons": 11715
+      "gallons": 11708
     },
     {
       "year": 2026,
       "region": "Route 2 East / Route 5",
-      "gallons": 11946
+      "gallons": 11939
     },
     {
       "year": 2026,
@@ -55617,7 +55594,7 @@
     {
       "year": 2026,
       "region": "Waterbury / Stowe",
-      "gallons": 36907
+      "gallons": 36900
     },
     {
       "year": 2026,
@@ -55671,24 +55648,24 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 28127,
+  "collections_count": 28097,
   "out_of_state_total": 40915,
   "active_customer_count": 534,
   "projection": {
     "latest_data_date": "2026-11-20",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 263298,
-    "previous_year_full": 269909,
-    "previous_through_prior_month": 230827,
-    "previous_same_month_total": 20207,
-    "previous_prorated_ytd": 244298.33,
-    "projected_current_year": 290900,
-    "percent_vs_previous_year": 0.077772
+    "current_ytd": 263242,
+    "previous_year_full": 269818,
+    "previous_through_prior_month": 230757,
+    "previous_same_month_total": 20186,
+    "previous_prorated_ytd": 244214.33,
+    "projected_current_year": 290841,
+    "percent_vs_previous_year": 0.077914
   },
   "region_stats": {
     "Burlington / South Burlington": {
-      "customers": 200,
+      "customers": 199,
       "active": 81
     },
     "Central": {
@@ -55797,8 +55774,8 @@
       "year": 2019,
       "places_serviced": 299,
       "gained": 56,
-      "lost": 30,
-      "net": 26
+      "lost": 32,
+      "net": 24
     },
     {
       "year": 2020,
@@ -55825,29 +55802,29 @@
       "year": 2023,
       "places_serviced": 431,
       "gained": 56,
-      "lost": 40,
-      "net": 16
+      "lost": 43,
+      "net": 13
     },
     {
       "year": 2024,
-      "places_serviced": 451,
-      "gained": 60,
-      "lost": 41,
-      "net": 19
+      "places_serviced": 448,
+      "gained": 59,
+      "lost": 39,
+      "net": 20
     },
     {
       "year": 2025,
-      "places_serviced": 476,
+      "places_serviced": 473,
       "gained": 60,
-      "lost": 19,
-      "net": 41
+      "lost": 17,
+      "net": 43
     },
     {
       "year": 2026,
-      "places_serviced": 483,
+      "places_serviced": 482,
       "gained": 48,
-      "lost": 10,
-      "net": 38
+      "lost": 9,
+      "net": 39
     }
   ],
   "dormant_cutoff": "2025-01-01",
@@ -56021,7 +55998,6 @@
       1287,
       1291,
       1306,
-      1323,
       1324,
       1336,
       1338,
@@ -56925,18 +56901,18 @@
       "closed": 0,
       "changed_hands": 0,
       "moved": 0,
-      "unknown": 30,
+      "unknown": 32,
       "moved_followed": 0,
       "gained": 56,
-      "ended": 30,
+      "ended": 32,
       "churn": 0.0,
-      "churn_high": 0.1083,
+      "churn_high": 0.1155,
       "history_start": false,
       "partial": false
     },
     {
       "year": 2020,
-      "active_jan1": 303,
+      "active_jan1": 301,
       "gained_new": 41,
       "gained_successor": 0,
       "lost": 0,
@@ -56948,13 +56924,13 @@
       "gained": 41,
       "ended": 31,
       "churn": 0.0,
-      "churn_high": 0.1023,
+      "churn_high": 0.103,
       "history_start": false,
       "partial": false
     },
     {
       "year": 2021,
-      "active_jan1": 313,
+      "active_jan1": 311,
       "gained_new": 54,
       "gained_successor": 0,
       "lost": 0,
@@ -56966,13 +56942,13 @@
       "gained": 54,
       "ended": 27,
       "churn": 0.0,
-      "churn_high": 0.0767,
+      "churn_high": 0.0772,
       "history_start": false,
       "partial": false
     },
     {
       "year": 2022,
-      "active_jan1": 340,
+      "active_jan1": 338,
       "gained_new": 84,
       "gained_successor": 0,
       "lost": 0,
@@ -56984,79 +56960,79 @@
       "gained": 84,
       "ended": 29,
       "churn": 0.0,
-      "churn_high": 0.0735,
+      "churn_high": 0.074,
       "history_start": false,
       "partial": false
     },
     {
       "year": 2023,
-      "active_jan1": 395,
+      "active_jan1": 393,
       "gained_new": 56,
       "gained_successor": 6,
       "lost": 1,
       "closed": 0,
       "changed_hands": 6,
       "moved": 0,
-      "unknown": 39,
+      "unknown": 42,
       "moved_followed": 1,
       "gained": 62,
-      "ended": 46,
+      "ended": 49,
       "churn": 0.0025,
-      "churn_high": 0.1013,
+      "churn_high": 0.1094,
       "history_start": false,
       "partial": false
     },
     {
       "year": 2024,
-      "active_jan1": 411,
-      "gained_new": 59,
+      "active_jan1": 406,
+      "gained_new": 58,
       "gained_successor": 3,
       "lost": 0,
       "closed": 1,
       "changed_hands": 2,
       "moved": 0,
-      "unknown": 40,
+      "unknown": 38,
       "moved_followed": 0,
-      "gained": 62,
-      "ended": 43,
+      "gained": 61,
+      "ended": 41,
       "churn": 0.0,
-      "churn_high": 0.0973,
+      "churn_high": 0.0936,
       "history_start": false,
       "partial": false
     },
     {
       "year": 2025,
-      "active_jan1": 430,
+      "active_jan1": 426,
       "gained_new": 59,
       "gained_successor": 7,
       "lost": 0,
       "closed": 1,
       "changed_hands": 6,
       "moved": 1,
-      "unknown": 17,
+      "unknown": 15,
       "moved_followed": 1,
       "gained": 66,
-      "ended": 25,
+      "ended": 23,
       "churn": 0.0,
-      "churn_high": 0.0419,
+      "churn_high": 0.0376,
       "history_start": false,
       "partial": false
     },
     {
       "year": 2026,
-      "active_jan1": 471,
+      "active_jan1": 469,
       "gained_new": 48,
       "gained_successor": 6,
       "lost": 0,
       "closed": 0,
       "changed_hands": 2,
       "moved": 0,
-      "unknown": 10,
+      "unknown": 9,
       "moved_followed": 0,
       "gained": 54,
-      "ended": 12,
+      "ended": 11,
       "churn": 0.0,
-      "churn_high": 0.0212,
+      "churn_high": 0.0192,
       "history_start": false,
       "partial": true
     }
@@ -57067,17 +57043,17 @@
       2025
     ],
     "avg_churn": 0.0003,
-    "avg_churn_high": 0.0994,
+    "avg_churn_high": 0.1003,
     "lost_total": 1,
     "unknown_total": 287,
     "ended_total": 316,
     "site_retention": 0.9259,
     "site_handovers": 25,
     "site_closures": 27,
-    "avg_gained": 63.9,
-    "avg_gained_new": 62.1,
+    "avg_gained": 63.8,
+    "avg_gained_new": 62.0,
     "avg_gained_successor": 1.8,
     "median_years_served": 1.6,
-    "current_businesses": 513
+    "current_businesses": 512
   }
 }

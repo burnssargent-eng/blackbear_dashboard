@@ -1890,7 +1890,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 317,Arts Riot,Burlington,Chittenden,2018-06-20,2018,2018-06,25,True,Burlington
 317,Arts Riot,Burlington,Chittenden,2018-06-12,2018,2018-06,25,True,Burlington
 317,Arts Riot,Burlington,Chittenden,2018-05-23,2018,2018-05,25,True,Burlington
-329,Asiana Noodle-6974,Burlington,Chittenden,2026-11-04,2026,2026-11,7,True,Burlington
 329,Asiana Noodle-6974,Burlington,Chittenden,2026-11-03,2026,2026-11,90,True,Burlington
 329,Asiana Noodle-6974,Burlington,Chittenden,2026-05-26,2026,2026-05,60,True,Burlington
 329,Asiana Noodle-6974,Burlington,Chittenden,2025-12-23,2025,2025-12,110,True,Burlington
@@ -12396,7 +12395,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 508,Pizza on Main -Morrisville,Morrisville,Lamoille,2015-06-02,2015,2015-06,25,True,Morristown
 508,Pizza on Main -Morrisville,Morrisville,Lamoille,2015-04-27,2015,2015-04,25,True,Morristown
 508,Pizza on Main -Morrisville,Morrisville,Lamoille,2015-03-30,2015,2015-03,45,True,Morristown
-513,The Manor,Morrisville,Lamoille,2025-09-12,2025,2025-09,7,True,Morristown
 513,The Manor,Morrisville,Lamoille,2019-04-23,2019,2019-04,50,True,Morristown
 1496,Tourterelle -just north of MIDDLEBURY,New Haven,Addison,2026-11-05,2026,2026-11,20,True,New Haven
 1496,Tourterelle -just north of MIDDLEBURY,New Haven,Addison,2026-09-14,2026,2026-09,15,True,New Haven
@@ -13529,7 +13527,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 829,Chef Brad Crazy Sides,Quechee,Windsor,2021-10-21,2021,2021-10,40,True,Hartford
 829,Chef Brad Crazy Sides,Quechee,Windsor,2021-08-24,2021,2021-08,50,True,Hartford
 829,Chef Brad Crazy Sides,Quechee,Windsor,2016-10-30,2016,2016-10,50,True,Hartford
-1463,Mobil Station,Quechee,Windsor,2025-11-14,2025,2025-11,7,True,Hartford
 1463,Mobil Station,Quechee,Windsor,2025-11-14,2025,2025-11,30,True,Hartford
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2026-10-26,2026,2026-10,60,True,Hartford
 1056,Quechee Gorge Snack Bar,Quechee,Windsor,2026-10-13,2026,2026-10,240,True,Hartford
@@ -13976,7 +13973,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 284,Big Spruce,Richmond,Chittenden,2026-02-17,2026,2026-02,50,True,Richmond
 284,Big Spruce,Richmond,Chittenden,2026-01-06,2026,2026-01,35,True,Richmond
 284,Big Spruce,Richmond,Chittenden,2025-11-20,2025,2025-11,80,True,Richmond
-284,Big Spruce,Richmond,Chittenden,2025-05-12,2025,2025-05,7,True,Richmond
 284,Big Spruce,Richmond,Chittenden,2024-10-22,2024,2024-10,90,True,Richmond
 284,Big Spruce,Richmond,Chittenden,2024-10-07,2024,2024-10,60,True,Richmond
 284,Big Spruce,Richmond,Chittenden,2024-09-13,2024,2024-09,75,True,Richmond
@@ -14034,7 +14030,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2026-08-03,2026,2026-08,40,True,Richmond
 282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2026-07-13,2026,2026-07,40,True,Richmond
 282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2026-06-26,2026,2026-06,75,True,Richmond
-282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2025-04-04,2025,2025-04,7,True,Richmond
 282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2025-04-02,2025,2025-04,70,True,Richmond
 282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2025-02-28,2025,2025-02,45,True,Richmond
 282,Schaffers/Hatchet Tap & Table,Richmond,Chittenden,2025-01-31,2025,2025-01,40,True,Richmond
@@ -15093,7 +15088,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 421,BLACK RADISH/14thStar-Saint Albans-14th Star,St. Albans City,Franklin,2025-12-15,2025,2025-12,65,True,Saint Albans City
 421,BLACK RADISH/14thStar-Saint Albans-14th Star,St. Albans City,Franklin,2025-12-02,2025,2025-12,70,True,Saint Albans City
 421,BLACK RADISH/14thStar-Saint Albans-14th Star,St. Albans City,Franklin,2025-11-20,2025,2025-11,120,True,Saint Albans City
-421,BLACK RADISH/14thStar-Saint Albans-14th Star,St. Albans City,Franklin,2025-10-28,2025,2025-10,7,True,Saint Albans City
 421,BLACK RADISH/14thStar-Saint Albans-14th Star,St. Albans City,Franklin,2025-10-28,2025,2025-10,90,True,Saint Albans City
 421,BLACK RADISH/14thStar-Saint Albans-14th Star,St. Albans City,Franklin,2025-10-15,2025,2025-10,30,True,Saint Albans City
 421,BLACK RADISH/14thStar-Saint Albans-14th Star,St. Albans City,Franklin,2025-10-09,2025,2025-10,50,True,Saint Albans City
@@ -18493,7 +18487,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1393,Northlands Job Corp,Vergennes,Addison,2025-04-02,2025,2025-04,90,True,Vergennes
 1441,Olsens Ice Cream,Vergennes,Addison,2026-09-14,2026,2026-09,20,True,Vergennes
 1441,Olsens Ice Cream,Vergennes,Addison,2026-07-17,2026,2026-07,25,True,Vergennes
-1441,Olsens Ice Cream,Vergennes,Addison,2025-10-23,2025,2025-10,7,True,Vergennes
 1441,Olsens Ice Cream,Vergennes,Addison,2025-10-23,2025,2025-10,20,True,Vergennes
 1441,Olsens Ice Cream,Vergennes,Addison,2025-08-12,2025,2025-08,20,True,Vergennes
 706,Park Squeeze,Vergennes,Addison,2026-11-05,2026,2026-11,40,True,Vergennes
@@ -23403,7 +23396,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 624,LBJ Country Store-Worcester,Worcester,Washington,2018-05-17,2018,2018-05,25,True,Worcester
 624,LBJ Country Store-Worcester,Worcester,Washington,2015-12-28,2015,2015-12,15,True,Worcester
 624,LBJ Country Store-Worcester,Worcester,Washington,2015-06-02,2015,2015-06,25,True,Worcester
-349,Cafe Saint Paul 30-36-6,Burlington,Chittenden,2025-10-01,2025,2025-10,7,False,Burlington
 349,Cafe Saint Paul 30-36-6,Burlington,Chittenden,2025-09-25,2025,2025-09,15,False,Burlington
 349,Cafe Saint Paul 30-36-6,Burlington,Chittenden,2025-06-13,2025,2025-06,40,False,Burlington
 349,Cafe Saint Paul 30-36-6,Burlington,Chittenden,2025-04-17,2025,2025-04,35,False,Burlington
@@ -23507,7 +23499,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1060,Alpenglow Bistro,Wilmington,Windham,2022-09-02,2022,2022-09,125,False,Wilmington
 1060,Alpenglow Bistro,Wilmington,Windham,2022-03-08,2022,2022-03,30,False,Wilmington
 1060,Alpenglow Bistro,Wilmington,Windham,2021-12-22,2021,2021-12,45,False,Wilmington
-1083,Als Pizza - Randolph,Randolph,Windsor,2026-03-18,2026,2026-03,7,False,Randolph
 1083,Als Pizza - Randolph,Randolph,Windsor,2023-01-31,2023,2023-01,30,False,Randolph
 1083,Als Pizza - Randolph,Randolph,Windsor,2022-11-28,2022,2022-11,15,False,Randolph
 1083,Als Pizza - Randolph,Randolph,Windsor,2022-09-19,2022,2022-09,45,False,Randolph
@@ -23728,7 +23719,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 602,Barre Country Club,Orange,Washington,2015-06-26,2015,2015-06,50,False,Orange
 1353,Basils pizzaria,Barre,Washington,2024-06-25,2024,2024-06,225,False,Barre City
 1087,Bea better Emily,Burlington,Chittenden,2022-02-06,2022,2022-02,15,False,Burlington
-201,BentNailRoadhouse///Chico’s// The Filling Station-,Middlesex,Washington,2025-11-07,2025,2025-11,7,False,Middlesex
 201,BentNailRoadhouse///Chico’s// The Filling Station-,Middlesex,Washington,2025-09-29,2025,2025-09,15,False,Middlesex
 201,BentNailRoadhouse///Chico’s// The Filling Station-,Middlesex,Washington,2025-08-05,2025,2025-08,20,False,Middlesex
 201,BentNailRoadhouse///Chico’s// The Filling Station-,Middlesex,Washington,2025-06-24,2025,2025-06,20,False,Middlesex
@@ -24026,7 +24016,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 376,Broccoli Bar,South Burlington,Chittenden,2022-07-07,2022,2022-07,20,False,South Burlington
 376,Broccoli Bar,South Burlington,Chittenden,2022-06-09,2022,2022-06,20,False,South Burlington
 376,Broccoli Bar,South Burlington,Chittenden,2021-11-10,2021,2021-11,55,False,South Burlington
-518,Bumble Bee/Parkside-Enosburgh,Enosburg Falls,Orleans,2026-08-07,2026,2026-08,7,False,Enosburgh
 518,Bumble Bee/Parkside-Enosburgh,Enosburg Falls,Orleans,2026-06-11,2026,2026-06,90,False,Enosburgh
 518,Bumble Bee/Parkside-Enosburgh,Enosburg Falls,Orleans,2026-04-21,2026,2026-04,150,False,Enosburgh
 518,Bumble Bee/Parkside-Enosburgh,Enosburg Falls,Orleans,2026-02-05,2026,2026-02,50,False,Enosburgh
@@ -24065,7 +24054,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 518,Bumble Bee/Parkside-Enosburgh,Enosburg Falls,Orleans,2018-12-14,2018,2018-12,100,False,Enosburgh
 518,Bumble Bee/Parkside-Enosburgh,Enosburg Falls,Orleans,2018-10-29,2018,2018-10,150,False,Enosburgh
 518,Bumble Bee/Parkside-Enosburgh,Enosburg Falls,Orleans,2018-08-08,2018,2018-08,275,False,Enosburgh
-1252,Burgers and Dogs,Brattleboro,Windham,2024-12-03,2024,2024-12,7,False,Brattleboro
 1252,Burgers and Dogs,Brattleboro,Windham,2024-08-15,2024,2024-08,50,False,Brattleboro
 1252,Burgers and Dogs,Brattleboro,Windham,2024-06-28,2024,2024-06,35,False,Brattleboro
 1252,Burgers and Dogs,Brattleboro,Windham,2024-06-03,2024,2024-06,35,False,Brattleboro
@@ -24469,7 +24457,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 141,de Mena's,Burlington,Chittenden,2015-11-02,2015,2015-11,50,False,Burlington
 141,de Mena's,Burlington,Chittenden,2015-09-16,2015,2015-09,30,False,Burlington
 141,de Mena's,Burlington,Chittenden,2015-08-15,2015,2015-08,30,False,Burlington
-1021,Dedalus Wine Bar,Stowe,Lamoille,2024-05-02,2024,2024-05,7,False,Stowe
 1021,Dedalus Wine Bar,Stowe,Lamoille,2019-07-24,2019,2019-07,600,False,Stowe
 1021,Dedalus Wine Bar,Stowe,Lamoille,2018-12-04,2018,2018-12,700,False,Stowe
 1021,Dedalus Wine Bar,Stowe,Lamoille,2016-05-24,2016,2016-05,640,False,Stowe
@@ -24832,7 +24819,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 109,George's Dawg House,Berlin,Washington,2019-05-09,2019,2019-05,50,False,Berlin
 1008,George...Milton,Burlington,Chittenden,2016-04-23,2016,2016-04,160,False,Milton
 348,Grandma's Spanish Kitchen,Burlington,Chittenden,2020-08-12,2020,2020-08,50,False,Burlington
-1105,Grazers-WINOOSKI 50pct,Winooski,Chittenden,2025-04-15,2025,2025-04,7,False,Winooski
 1105,Grazers-WINOOSKI 50pct,Winooski,Chittenden,2025-03-03,2025,2025-03,35,False,Winooski
 1105,Grazers-WINOOSKI 50pct,Winooski,Chittenden,2025-02-06,2025,2025-02,15,False,Winooski
 1105,Grazers-WINOOSKI 50pct,Winooski,Chittenden,2025-01-23,2025,2025-01,35,False,Winooski
@@ -24931,7 +24917,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1172,Guilty Plate Diner-Colchester - 50%,Colchester,Chittenden,2022-11-02,2022,2022-11,90,False,Colchester
 1172,Guilty Plate Diner-Colchester - 50%,Colchester,Chittenden,2022-10-14,2022,2022-10,50,False,Colchester
 1172,Guilty Plate Diner-Colchester - 50%,Colchester,Chittenden,2022-09-08,2022,2022-09,80,False,Colchester
-1323,GuiltyPlate 2,South Burlington,Chittenden,2024-05-08,2024,2024-05,7,False,South Burlington
 116,Gusto's,Barre,Washington,2018-03-07,2018,2018-03,25,False,Barre City
 116,Gusto's,Barre,Washington,2017-09-02,2017,2017-09,30,False,Barre City
 116,Gusto's,Barre,Washington,2017-04-04,2017,2017-04,30,False,Barre City
@@ -24971,7 +24956,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 138,Hippy Chickpea,Montpelier,Washington,2017-01-28,2017,2017-01,5,False,Montpelier
 138,Hippy Chickpea,Montpelier,Washington,2016-04-02,2016,2016-04,4,False,Montpelier
 138,Hippy Chickpea,Montpelier,Washington,2015-06-26,2015,2015-06,4,False,Montpelier
-1236,Hoagies - Colchester-25%,Colchester,Chittenden,2024-05-08,2024,2024-05,7,False,Colchester
 1236,Hoagies - Colchester-25%,Colchester,Chittenden,2024-04-29,2024,2024-04,25,False,Colchester
 1236,Hoagies - Colchester-25%,Colchester,Chittenden,2023-12-08,2023,2023-12,13,False,Colchester
 1236,Hoagies - Colchester-25%,Colchester,Chittenden,2023-11-08,2023,2023-11,50,False,Colchester
@@ -25141,7 +25125,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1264,Kingdom Crust-StJ,St. Johnsbury,Caledonia,2023-08-21,2023,2023-08,30,False,Saint Johnsbury
 1264,Kingdom Crust-StJ,St. Johnsbury,Caledonia,2023-07-25,2023,2023-07,55,False,Saint Johnsbury
 1264,Kingdom Crust-StJ,St. Johnsbury,Caledonia,2023-06-27,2023,2023-06,15,False,Saint Johnsbury
-549,Kingdom Grille,Island Pond,Essex,2024-07-21,2024,2024-07,7,False,Brighton
 549,Kingdom Grille,Island Pond,Essex,2023-06-27,2023,2023-06,7,False,Brighton
 549,Kingdom Grille,Island Pond,Essex,2023-05-11,2023,2023-05,75,False,Brighton
 549,Kingdom Grille,Island Pond,Essex,2023-04-03,2023,2023-04,65,False,Brighton
@@ -25364,7 +25347,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 410,Mediterranean Café,Essex Junction,Chittenden,2019-04-10,2019,2019-04,50,False,Essex Junction
 410,Mediterranean Café,Essex Junction,Chittenden,2018-09-25,2018,2018-09,20,False,Essex Junction
 1159,Meg Miller,Worcester,Washington,2022-11-10,2022,2022-11,35,False,Worcester
-821,MeLaza,Woodstock,Windsor,2025-10-10,2025,2025-10,7,False,Woodstock
 821,MeLaza,Woodstock,Windsor,2025-10-06,2025,2025-10,30,False,Woodstock
 821,MeLaza,Woodstock,Windsor,2025-08-25,2025,2025-08,30,False,Woodstock
 821,MeLaza,Woodstock,Windsor,2025-07-01,2025,2025-07,45,False,Woodstock
@@ -25531,7 +25513,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 363,Michaels German Food,Burlington,Chittenden,2016-03-26,2016,2016-03,30,False,Burlington
 363,Michaels German Food,Burlington,Chittenden,2015-11-03,2015,2015-11,20,False,Burlington
 363,Michaels German Food,Burlington,Chittenden,2015-09-30,2015,2015-09,20,False,Burlington
-1329,Mimmo’s,Essex,Chittenden,2024-05-11,2024,2024-05,7,False,Essex
 1329,Mimmo’s,Essex,Chittenden,2024-05-02,2024,2024-05,25,False,Essex
 607,Mo's BBQ,Marshfield,Caledonia,2018-09-20,2018,2018-09,50,False,Marshfield
 607,Mo's BBQ,Marshfield,Caledonia,2017-11-28,2017,2017-11,100,False,Marshfield
@@ -25561,7 +25542,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1057,Mobil- exit 5 Northfield,Northfield,Washington,2021-10-06,2021,2021-10,40,False,Northfield
 154,Montpelier Elks,Montpelier,Washington,2017-09-28,2017,2017-09,50,False,Montpelier
 154,Montpelier Elks,Montpelier,Washington,2017-08-09,2017,2017-08,100,False,Montpelier
-545,MoogsJoint -Johnson,Johnson,Lamoille,2026-05-05,2026,2026-05,7,False,Johnson
 545,MoogsJoint -Johnson,Johnson,Lamoille,2026-04-15,2026,2026-04,10,False,Johnson
 545,MoogsJoint -Johnson,Johnson,Lamoille,2026-02-05,2026,2026-02,50,False,Johnson
 545,MoogsJoint -Johnson,Johnson,Lamoille,2026-01-02,2026,2026-01,60,False,Johnson
@@ -25646,7 +25626,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 713,Mr. Up's,Middlebury,Addison,2018-04-24,2018,2018-04,75,False,Middlebury
 713,Mr. Up's,Middlebury,Addison,2018-03-28,2018,2018-03,75,False,Middlebury
 713,Mr. Up's,Middlebury,Addison,2018-03-05,2018,2018-03,225,False,Middlebury
-1378,Multitude Take Away-Gilman,Gilman,Essex,2026-07-21,2026,2026-07,7,False,Lunenburg
 1378,Multitude Take Away-Gilman,Gilman,Essex,2026-04-24,2026,2026-04,110,False,Lunenburg
 1378,Multitude Take Away-Gilman,Gilman,Essex,2025-08-18,2025,2025-08,10,False,Lunenburg
 1378,Multitude Take Away-Gilman,Gilman,Essex,2025-05-05,2025,2025-05,95,False,Lunenburg
@@ -26141,7 +26120,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 538,Parsons Corner,Barton,Orleans,2017-07-26,2017,2017-07,25,False,Barton
 538,Parsons Corner,Barton,Orleans,2017-07-05,2017,2017-07,15,False,Barton
 538,Parsons Corner,Barton,Orleans,2017-03-14,2017,2017-03,100,False,Barton
-701,Peg & Ter,Shelburne,Chittenden,2024-12-04,2024,2024-12,7,False,Shelburne
 701,Peg & Ter,Shelburne,Chittenden,2024-09-13,2024,2024-09,55,False,Shelburne
 701,Peg & Ter,Shelburne,Chittenden,2024-04-30,2024,2024-04,20,False,Shelburne
 701,Peg & Ter,Shelburne,Chittenden,2024-02-19,2024,2024-02,15,False,Shelburne
@@ -26178,7 +26156,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 701,Peg & Ter,Shelburne,Chittenden,2018-10-04,2018,2018-10,10,False,Shelburne
 701,Peg & Ter,Shelburne,Chittenden,2018-09-25,2018,2018-09,50,False,Shelburne
 701,Peg & Ter,Shelburne,Chittenden,2018-07-25,2018,2018-07,25,False,Shelburne
-1126,Penzo Pizza/The Social,Montpelier,Washington,2025-11-03,2025,2025-11,7,False,Montpelier
 1126,Penzo Pizza/The Social,Montpelier,Washington,2025-11-03,2025,2025-11,80,False,Montpelier
 1126,Penzo Pizza/The Social,Montpelier,Washington,2025-08-28,2025,2025-08,30,False,Montpelier
 1126,Penzo Pizza/The Social,Montpelier,Washington,2025-07-10,2025,2025-07,30,False,Montpelier
@@ -26334,7 +26311,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 726,Pub 42,Burlington,Chittenden,2021-05-11,2021,2021-05,50,False,Burlington
 726,Pub 42,Burlington,Chittenden,2021-02-03,2021,2021-02,120,False,Burlington
 726,Pub 42,Burlington,Chittenden,2016-10-19,2016,2016-10,4,False,Burlington
-368,Quarry Hill (Residence Inn),South Burlington,Chittenden,2025-08-19,2025,2025-08,7,False,South Burlington
 368,Quarry Hill (Residence Inn),South Burlington,Chittenden,2023-11-27,2023,2023-11,50,False,South Burlington
 368,Quarry Hill (Residence Inn),South Burlington,Chittenden,2023-06-19,2023,2023-06,140,False,South Burlington
 368,Quarry Hill (Residence Inn),South Burlington,Chittenden,2023-02-13,2023,2023-02,60,False,South Burlington
@@ -26404,7 +26380,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 312,Red Panda (Thia Dishes),Burlington,Chittenden,2015-02-19,2015,2015-02,10,False,Burlington
 312,Red Panda (Thia Dishes),Burlington,Chittenden,2015-01-26,2015,2015-01,10,False,Burlington
 312,Red Panda (Thia Dishes),Burlington,Chittenden,2015-01-02,2015,2015-01,4,False,Burlington
-1114,Red Wagon 20%,Northfield,Washington,2026-05-19,2026,2026-05,7,False,Northfield
 1114,Red Wagon 20%,Northfield,Washington,2026-04-29,2026,2026-04,20,False,Northfield
 1114,Red Wagon 20%,Northfield,Washington,2026-03-20,2026,2026-03,10,False,Northfield
 1114,Red Wagon 20%,Northfield,Washington,2026-02-26,2026,2026-02,12,False,Northfield
@@ -26457,7 +26432,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1175,RJ Salvage-DONUT OIL,Colchester,Chittenden,2023-07-26,2023,2023-07,1000,False,Colchester
 1175,RJ Salvage-DONUT OIL,Colchester,Chittenden,2023-07-21,2023,2023-07,670,False,Colchester
 1175,RJ Salvage-DONUT OIL,Colchester,Chittenden,2022-09-13,2022,2022-09,697,False,Colchester
-164,Rocket J's-Northfield,Northfield,Washington,2025-10-02,2025,2025-10,7,False,Northfield
 164,Rocket J's-Northfield,Northfield,Washington,2024-09-30,2024,2024-09,50,False,Northfield
 164,Rocket J's-Northfield,Northfield,Washington,2024-08-20,2024,2024-08,60,False,Northfield
 164,Rocket J's-Northfield,Northfield,Washington,2024-06-25,2024,2024-06,80,False,Northfield
@@ -26918,7 +26892,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 926,Speedway 51,Burlington,Out-of-State (NH),2015-12-02,2015,2015-12,70,False,
 926,Speedway 51,Burlington,Out-of-State (NH),2015-07-16,2015,2015-07,30,False,
 303,Splash,Burlington,Chittenden,2016-06-05,2016,2016-06,55,False,Burlington
-313,St Paul St Gastro Grub,Burlington,Chittenden,2024-05-23,2024,2024-05,7,False,Burlington
 313,St Paul St Gastro Grub,Burlington,Chittenden,2024-05-22,2024,2024-05,10,False,Burlington
 313,St Paul St Gastro Grub,Burlington,Chittenden,2021-07-18,2021,2021-07,25,False,Burlington
 313,St Paul St Gastro Grub,Burlington,Chittenden,2021-03-29,2021,2021-03,80,False,Burlington
@@ -27230,7 +27203,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 725,Table 24,Rutland,Rutland,2016-04-07,2016,2016-04,80,False,Rutland City
 725,Table 24,Rutland,Rutland,2016-03-11,2016,2016-03,75,False,Rutland City
 725,Table 24,Rutland,Rutland,2016-02-01,2016,2016-02,80,False,Rutland City
-1185,Tavern-580 Canal st.,Brattleboro,Windham,2024-12-03,2024,2024-12,7,False,Brattleboro
 1185,Tavern-580 Canal st.,Brattleboro,Windham,2024-09-26,2024,2024-09,60,False,Brattleboro
 1185,Tavern-580 Canal st.,Brattleboro,Windham,2024-08-15,2024,2024-08,220,False,Brattleboro
 1185,Tavern-580 Canal st.,Brattleboro,Windham,2024-06-28,2024,2024-06,75,False,Brattleboro
@@ -27378,7 +27350,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 230,The Blue Stone-Waterbury,Waterbury,Washington,2015-03-18,2015,2015-03,50,False,Waterbury
 230,The Blue Stone-Waterbury,Waterbury,Washington,2015-01-28,2015,2015-01,50,False,Waterbury
 230,The Blue Stone-Waterbury,Waterbury,Washington,2015-01-09,2015,2015-01,40,False,Waterbury
-255,The Butchery,Stowe,Lamoille,2026-11-19,2026,2026-11,7,False,Stowe
 255,The Butchery,Stowe,Lamoille,2026-11-19,2026,2026-11,15,False,Stowe
 255,The Butchery,Stowe,Lamoille,2026-10-14,2026,2026-10,15,False,Stowe
 255,The Butchery,Stowe,Lamoille,2026-08-04,2026,2026-08,15,False,Stowe
@@ -27692,7 +27663,6 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1088,The Nest @ Golden Eagle,Stowe,Lamoille,2022-03-16,2022,2022-03,45,False,Stowe
 1088,The Nest @ Golden Eagle,Stowe,Lamoille,2022-01-10,2022,2022-01,25,False,Stowe
 1088,The Nest @ Golden Eagle,Stowe,Lamoille,2021-11-29,2021,2021-11,50,False,Stowe
-125,The Quarry-Barre,Barre,Washington,2026-08-19,2026,2026-08,7,False,Barre City
 125,The Quarry-Barre,Barre,Washington,2026-08-18,2026,2026-08,20,False,Barre City
 125,The Quarry-Barre,Barre,Washington,2026-07-20,2026,2026-07,65,False,Barre City
 125,The Quarry-Barre,Barre,Washington,2026-06-25,2026,2026-06,45,False,Barre City

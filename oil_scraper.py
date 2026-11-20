@@ -65,6 +65,23 @@ EMPTY_QTYS = {0, 1, 2, 3}
 #          says nothing about fullness. Kept; not used by the projection.
 #   3    = barrel delivery    (kept; not a reset -- measured as partial)
 RESET_QTYS = {1}
+
+# 7 = closing: the last entry Jim makes when an account closes or stops (Jim
+# confirmed 2026-11-20; the Butchery, 255, got a 15 and a 7 on 2026-11-19).
+# A code, not gallons, from CLOSING_FROM on: of the 30 7s since then, 26 were
+# the account's last entry and the other 4 fell the same day as, or two days
+# after, a real pickup (a seasonal close). The 14 before it are a mix of real
+# small pickups (Elainchi's 6, 7, 5) and possible closings, so they stay
+# gallons. Kept in NON_PICKUP_FILE with the 0-3 codes; never a reset.
+CLOSING_QTY = 7
+CLOSING_FROM = "2024-05-01"
+
+
+def is_non_pickup(qty, day):
+    """True for an entry that is a code, not gallons: 0-3 any day, 7 from CLOSING_FROM on."""
+    return qty in EMPTY_QTYS or (qty == CLOSING_QTY and str(day)[:10] >= CLOSING_FROM)
+
+
 NON_PICKUP_FILE = "oil_non_pickups.csv"
 NON_PICKUP_FIELDS = ["customer_id", "date", "qty"]
 
@@ -540,7 +557,8 @@ def prepare_dataframe(df):
     if df.empty:
         return df
 
-    df = df[~df["gallons"].isin(EMPTY_QTYS)].copy()
+    closing = (df["gallons"] == CLOSING_QTY) & (pd.to_datetime(df["date"]) >= pd.Timestamp(CLOSING_FROM))
+    df = df[~(df["gallons"].isin(EMPTY_QTYS) | closing)].copy()
 
     df["geo_town"] = [
         normalize_geo_town(city, cid) or ""
@@ -1098,7 +1116,7 @@ def write_capacity_cache(fetched, scraped_date, path=CAPACITY_CACHE):
 
 def write_non_pickups(fetched, path=NON_PICKUP_FILE):
     """
-    Merge freshly read EMPTY_QTYS entries into NON_PICKUP_FILE and rewrite it.
+    Merge freshly read non-pickup entries (is_non_pickup) into NON_PICKUP_FILE and rewrite it.
 
     `fetched` maps customer_id -> list of entries for every customer whose
     page loaded this run (an empty list is a real "none"). Those customers'
@@ -1126,7 +1144,7 @@ def parse_collections(soup, customer, non_pickups=None):
     Parse both data formats on customer pages:
       NEW (2021+):    "10/24/2025 : 65"
       OLD (pre-2021): year-header "### 2019" then "Dec 22 : 80"
-    Quantities in EMPTY_QTYS are never returned as records. When a list is
+    Non-pickups (is_non_pickup: 0-3, and a 7 from CLOSING_FROM) are never returned as records. When a list is
     passed as `non_pickups`, each of them is appended to it as
     {"customer_id", "date", "qty"} instead of being discarded.
     """
@@ -1135,7 +1153,7 @@ def parse_collections(soup, customer, non_pickups=None):
     city = extract_city_from_page(soup, customer)
 
     def make_record(date, qty):
-        if qty in EMPTY_QTYS:
+        if is_non_pickup(qty, date.strftime("%Y-%m-%d")):
             if non_pickups is not None:
                 non_pickups.append({"customer_id": customer["customer_id"],
                                     "date": date.strftime("%Y-%m-%d"), "qty": qty})

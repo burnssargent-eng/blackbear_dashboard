@@ -594,7 +594,7 @@ def check_non_pickups(report, coll):
     """
     import csv
     import re
-    from oil_scraper import EMPTY_QTYS, NON_PICKUP_FILE, RESET_QTYS
+    from oil_scraper import EMPTY_QTYS, NON_PICKUP_FILE, RESET_QTYS, is_non_pickup
 
     if not set(RESET_QTYS) <= set(EMPTY_QTYS):
         report.fail(f"RESET_QTYS {sorted(RESET_QTYS)} is not inside EMPTY_QTYS.")
@@ -615,12 +615,20 @@ def check_non_pickups(report, coll):
         return
     with open(path, newline="") as f:
         rows = list(csv.DictReader(f))
-    bad = [r for r in rows if int(r["qty"]) not in EMPTY_QTYS]
+    bad = [r for r in rows if not is_non_pickup(int(r["qty"]), r["date"])]
     if bad:
-        report.fail(f"{len(bad)} row(s) in {NON_PICKUP_FILE} have a quantity outside "
-                    f"EMPTY_QTYS, e.g. {bad[0]}.")
+        report.fail(f"{len(bad)} row(s) in {NON_PICKUP_FILE} are not codes "
+                    f"(0-3, or a closing 7 from CLOSING_FROM), e.g. {bad[0]}.")
     else:
-        report.ok(f"{NON_PICKUP_FILE}: {len(rows):,} entries, all in EMPTY_QTYS.")
+        report.ok(f"{NON_PICKUP_FILE}: {len(rows):,} entries, all codes (0-3, closing 7).")
+
+    if coll:
+        closing = [r for r in coll if is_non_pickup(r.get("gallons"), r.get("date", ""))]
+        if closing:
+            report.fail(f"{len(closing)} closing 7(s) counted as a pickup, e.g. {closing[0].get('customer_id')} "
+                        f"on {str(closing[0].get('date'))[:10]}.")
+        else:
+            report.ok("No closing 7 (CLOSING_FROM on) is counted as a pickup.")
 
     if coll:
         pickup_days = {(r.get("customer_id"), str(r.get("date", ""))[:10]) for r in coll}

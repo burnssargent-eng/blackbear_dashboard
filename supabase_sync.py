@@ -597,6 +597,7 @@ RAW_FIELDS = ["customer_id", "name", "city", "county", "date", "year", "month", 
 NON_PICKUP_FILE = "oil_non_pickups.csv"
 NON_PICKUP_FIELDS = ["customer_id", "date", "qty"]
 EMPTY_QTYS = {0, 1, 2, 3}          # must match oil_scraper.EMPTY_QTYS (tests/export_collections_test.py)
+CLOSING_QTY, CLOSING_FROM = 7, "2024-05-01"   # must match oil_scraper.py's (the same test)
 EXPORT_MIN_SHARE = 0.5             # refuse when the database has under half the window's pickups
 
 
@@ -614,7 +615,7 @@ def site_collection_files(collections, customers, raw_rows, code_rows, since):
 
     Rows before `since` are kept as they are: that is the source site's
     history, and nothing after the switch can rebuild it. A pickup over 3
-    gallons goes to the raw file and a 0-3 code to the non-pickups file, as
+    gallons goes to the raw file and a code (0-3, or a closing 7) to the non-pickups file, as
     the scraper splits them. Each customer keeps its block in the raw file
     (newest first, as the scraper writes it) with the site's rows at the top;
     a customer new to the file goes at the end. name and is_active follow the
@@ -638,7 +639,7 @@ def site_collection_files(collections, customers, raw_rows, code_rows, since):
         day, gal, cid = row["picked_on"], int(row["gallons"]), int(row["customer_id"])
         if day < since:
             continue
-        if gal in EMPTY_QTYS:
+        if gal in EMPTY_QTYS or (gal == CLOSING_QTY and day >= CLOSING_FROM):
             codes.append({"customer_id": str(cid), "date": day, "qty": str(gal)})
             continue
         old = newest.get(cid) or {}

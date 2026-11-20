@@ -992,7 +992,7 @@ function opsFailedLabel(op) {
   };
   const day = iso => (iso ? `${Number(iso.slice(5, 7))}/${Number(iso.slice(8, 10))}` : "");   // "11/13"
   const r = op.row || op.values || {};
-  const gal = g => (g <= 3 && typeof codeText === "function" ? codeText(g) : `${g} gal`);   // "Barrel delivery", "52 gal"
+  const gal = g => (typeof isCodeQty === "function" ? isCodeQty(g) : g <= 3) && typeof codeText === "function" ? codeText(g) : `${g} gal`;   // "Barrel delivery", "52 gal"
   switch (op.t) {
     case "pickup-new": return `Pickup · ${who(r.customer_id)} · ${day(r.picked_on)} · ${gal(r.gallons)}`;
     case "pickup-edit": return `Pickup change · ${who(r.customer_id)} · ${day(r.picked_on)} · ${gal(r.gallons)}`;

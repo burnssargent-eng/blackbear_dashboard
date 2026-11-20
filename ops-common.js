@@ -686,7 +686,7 @@ function clearTodaysEntry(store, customerId, keep = () => false) {
 /**
  * What a typed number saves (Sarge, 2026-11-14): 0 and 1 are both Empty (the 1 code, the empty
  * check that restarts the oil clock; a 0 is the source site's own entry and never a person's),
- * 2 a sign-up call, 3 a barrel delivery; anything else is gallons.
+ * 2 a sign-up call, 3 a barrel delivery, 7 closing (CLOSING_QTY); anything else is gallons.
  */
 function typedEntry(gallons) {
   return gallons === 0 ? 1 : gallons;
@@ -908,23 +908,40 @@ function collectionLines(history, siteRows) {
   // 2026-10-29), not by a person: hidden (Sarge, 2026-11-14). It stays in the files.
   const lines = history.filter(h => !siteDays.has(h.date) && !(h.code && h.gallons === 0))
     .map(h => ({ ...h, site: false }))
-    .concat(siteRows.map(r => ({ date: r.date, gallons: r.gallons, code: r.gallons <= 3, site: true,
+    .concat(siteRows.map(r => ({ date: r.date, gallons: r.gallons, code: isCodeQty(r.gallons), site: true,
       client_id: r.client_id, theft: !!r.theft, theft_note: r.theft_note || "", extra: !!r.extra })));
-  return lines.sort((a, b) => b.date.localeCompare(a.date));
+  // A closing 7 is the day's last entry, so it lists above the day's others (Sarge, 2026-11-20).
+  const closing = l => (l.code && l.gallons === CLOSING_QTY ? 0 : 1);
+  return lines.sort((a, b) => b.date.localeCompare(a.date) || closing(a) - closing(b));
 }
 
 /**
- * A 0-3 code by its name, never its number (Sarge, 2026-11-14): "Empty", "Sign-up call", "Barrel
- * delivery". The numbers stay underneath (collections.gallons, oil_non_pickups.csv).
+ * A code by its name, never its number (Sarge, 2026-11-14): "Empty", "Sign-up call", "Barrel
+ * delivery", and "Closing" for a source-site 7 from 2024-05-01 (Jim, 2026-11-20; oil_scraper.py
+ * CLOSING_QTY), which reaches the pages only through oil_non_pickups.csv. The numbers stay
+ * underneath (collections.gallons, oil_non_pickups.csv).
  */
-const CODE_WORDS = { 0: "Empty", 1: "Empty", 2: "Sign-up call", 3: "Barrel delivery" };
+const CODE_WORDS = { 0: "Empty", 1: "Empty", 2: "Sign-up call", 3: "Barrel delivery", 7: "Closing" };
+
+/**
+ * A typed 7 is Jim's closing entry (2026-11-20), as in Jamaal: saved as 7, shown as "Closing",
+ * in no total. So a real 7-gallon pickup cannot be entered as 7. It does not set the customer
+ * inactive: that is the customer page's status (a bar says so, with Undo).
+ */
+const CLOSING_QTY = 7;
+const CLOSING_BAR = "7 = Closing. To take it off routes, set its status to Inactive on the customer page.";
+
+/** An entry that is a code, not gallons: 0-3 or a closing 7. */
+function isCodeQty(gallons) {
+  return gallons <= 3 || gallons === CLOSING_QTY;
+}
 function codeText(qty) {
   return CODE_WORDS[qty] || String(qty);
 }
 
 /** An entry's figure: "52 gal", or the code's name. */
 function entryText(gallons) {
-  return gallons <= 3 ? codeText(gallons) : `${formatNumber(gallons)} gal`;
+  return isCodeQty(gallons) ? codeText(gallons) : `${formatNumber(gallons)} gal`;
 }
 
 /**
@@ -947,7 +964,7 @@ function liveRouteTotals(lines, store) {
     const c = todaysCollection(store, l.stop.customer_id);
     if (!c) return;
     done++;
-    collected += c.gallons > 3 ? c.gallons : 0;
+    collected += isCodeQty(c.gallons) ? 0 : c.gallons;
     collectedKeys.add(key(l));
   });
   let remaining = 0, remainingHigh = 0;

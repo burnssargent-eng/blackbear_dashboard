@@ -362,9 +362,9 @@ ok(/Cycle blend vs the straight line it/.test(pairedHtml) && pairedHtml.includes
 // ── Dormant-gap restart ──
 const restarted = customers.filter(c => c.restart_from);
 ok(byId[282] && byId[282].restart_from === "2026-06-26" && byId[282].stage === "new" &&
-  byId[282].rate_gpd > 2, `Schaffers (282) restarts after its 448-day gap (${byId[282] && byId[282].rate_gpd} gal/day)`);
+  byId[282].rate_gpd > 2, `Schaffers (282) restarts after its 450-day gap (${byId[282] && byId[282].rate_gpd} gal/day)`);
 const schaffersNote = (api.rankedRowsHtml([byId[282]]).match(/proj-notes">([^<]*)/) || [])[1] || "";
-ok(/Rate from .* on \(back after a 448-day gap\)/.test(schaffersNote), `its note says so (${schaffersNote})`);
+ok(/Rate from .* on \(back after a 450-day gap\)/.test(schaffersNote), `its note says so (${schaffersNote})`);
 ok(restarted.length > 0 && restarted.every(c => c.stage === "new" && c.restart_gap_days > payload.stale_days),
   `${restarted.length} restarted rows: all stage new, every gap past the stale threshold`);
 ok(restarted.every(c => c.stage !== "closer in season"), "no restart is shown where the closer rate is used");

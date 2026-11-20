@@ -109,6 +109,7 @@ YEAR_DAYS = 365
 
 # Mirrors oil_scraper.py. Asserted against the input, never applied here.
 EMPTY_QTYS = {0, 1, 2, 3}
+CLOSING_QTY, CLOSING_FROM = 7, "2024-05-01"   # oil_scraper.is_non_pickup
 
 
 # ─────────────────────────────────────────────
@@ -126,7 +127,7 @@ def load_pickups(ids=SAMPLE):
                 continue
 
             gallons = int(row["gallons"])
-            if gallons in EMPTY_QTYS:
+            if gallons in EMPTY_QTYS or (gallons == CLOSING_QTY and row["date"][:10] >= CLOSING_FROM):
                 raise SystemExit(
                     f"customer {cid} has a {gallons}-gallon record on {row['date']}: "
                     "EMPTY_QTYS should already be stripped from the CSV. Refusing to "

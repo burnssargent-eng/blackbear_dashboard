@@ -20,10 +20,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="dashboard-utils.js?v=f5dcd574"></script>
 <script src="route-utils.js?v=343f24d5"></script>
-<script src="ops-common.js?v=f3ee25dc"></script>
+<script src="ops-common.js?v=adef959e"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.js" integrity="sha384-rwykjmWNwVxboyFmvK9OXN0wj9hnMHA2aAHtits54DuACyCq0M2PrSNxhRb+hvXT" crossorigin="anonymous"></script>
 <script src="site-gate.js?v=330ca4fa"></script>
-<script src="ops-db.js?v=5a092839"></script>
+<script src="ops-db.js?v=d2ed0858"></script>
 <script src="ops-photos.js?v=e6c91eef"></script>
 <script>
 /*
@@ -213,7 +213,7 @@ async function loadPhotos() {
   if (await opsPhotosLoad([customer.customer_id])) render();
 }
 
-const pickText = (date, gallons) => `${usDate(date)} · ${gallons <= 3 ? codeText(gallons) : `${formatNumber(gallons)} gal`}`;
+const pickText = (date, gallons) => `${usDate(date)} · ${isCodeQty(gallons) ? codeText(gallons) : `${formatNumber(gallons)} gal`}`;
 
 /**
  * Edit a site pickup: through the store when it holds it (the last
@@ -415,7 +415,7 @@ function homeHtml(row, today, onRoutes, capacity, left) {
     ${today && today.theft ? `<div class="alert alert-danger py-2">Today: ${theftGallonsText(today)} — ${opsWhere()}.
       <button type="button" class="btn btn-link btn-sm p-0 ms-2" data-undo>Undo</button>
       ${today.theft.note ? `<div style="overflow-wrap:anywhere">${escapeHtml(today.theft.note)}</div>` : ""}</div>`
-    : today ? `<div class="alert alert-success py-2">Today: ${today.gallons <= 3 ? codeText(today.gallons)
+    : today ? `<div class="alert alert-success py-2">Today: ${isCodeQty(today.gallons) ? codeText(today.gallons)
       : `${formatNumber(today.gallons)} gal`} — ${opsWhere()}.
       <button type="button" class="btn btn-link btn-sm p-0 ms-2" data-undo>Undo</button></div>` : ""}
     ${flash ? `<div class="text-success mb-2">${flash}</div>` : ""}
@@ -756,7 +756,7 @@ const statusReady = typeof opsSaveStatus === "function";
 /** The latest real pickup (over 3 gallons) on either site, ISO, or "". */
 function lastPickupIso() {
   const days = history.filter(h => !h.code && h.gallons > 3).map(h => h.date)
-    .concat(siteRows().filter(r => r.gallons > 3).map(r => r.date));
+    .concat(siteRows().filter(r => !isCodeQty(r.gallons)).map(r => r.date));
   return days.reduce((a, b) => (b > a ? b : a), "");
 }
 
@@ -1108,8 +1108,12 @@ async function init() {
       const gallons = parseInt(form.get("gallons"), 10);
       const date = String(form.get("date") || "");
       if (!Number.isFinite(gallons) || gallons < 0 || !/^\d{4}-\d{2}-\d{2}$/.test(date) || date > todayIso()) return;
-      addEntry(String(form.get("kind")), gallons, date, String(form.get("note") || "").trim());
+      const kind = String(form.get("kind")), had = new Set(store.collections);
+      addEntry(kind, gallons, date, String(form.get("note") || "").trim());
       adding = false;
+      const added = kind === "pickup" && gallons === CLOSING_QTY ? store.collections.find(c => !had.has(c)) : null;
+      if (added) undo = { text: CLOSING_BAR, wrap: true,
+        run: () => { store.collections = store.collections.filter(c => c !== added && !(added.client_id && c.client_id === added.client_id)); saveStore(store); } };
       render();
       return;
     }
@@ -1156,6 +1160,8 @@ async function init() {
     flash = "";
     if (typed === 2) undo = { text: "2 = sign-up call. Did you mean 1 (empty)?", label: "Make it Empty", wrap: true,
       run: () => { recordCollection(store, customer, 1); saveStore(store); } };
+    if (typed === CLOSING_QTY) undo = { text: CLOSING_BAR, wrap: true,
+      run: () => { clearTodaysEntry(store, customer.customer_id); saveStore(store); } };
     if (param("from") === "myroute") { window.location.href = "ops-myroute.html"; return; }
     render();
   });

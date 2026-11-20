@@ -20,10 +20,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="dashboard-utils.js?v=f5dcd574"></script>
 <script src="route-utils.js?v=343f24d5"></script>
-<script src="ops-common.js?v=f3ee25dc"></script>
+<script src="ops-common.js?v=adef959e"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.js" integrity="sha384-rwykjmWNwVxboyFmvK9OXN0wj9hnMHA2aAHtits54DuACyCq0M2PrSNxhRb+hvXT" crossorigin="anonymous"></script>
 <script src="site-gate.js?v=330ca4fa"></script>
-<script src="ops-db.js?v=5a092839"></script>
+<script src="ops-db.js?v=d2ed0858"></script>
 <script src="ops-photos.js?v=e6c91eef"></script>
 <script>
 /*
@@ -720,7 +720,7 @@ function stopHtml(l, k, c, showing) {
     </div>` : theftForm ? `<div class="ops-theft-form">
       <label for="theft-gal-${k}" class="ops-theft-label">Theft. Gallons collected:</label>
       <input type="number" inputmode="numeric" min="0" class="form-control" id="theft-gal-${k}" placeholder="gal"
-        value="${theft || (c && c.gallons > 3) ? c.gallons : ""}">
+        value="${theft || (c && !isCodeQty(c.gallons)) ? c.gallons : ""}">
       <label for="theft-note-${k}">Note <span class="text-muted">(optional)</span></label>
       <textarea class="form-control" id="theft-note-${k}" rows="2" placeholder="What happened?">${theft ? escapeHtml(theft.note) : ""}</textarea>
       <div class="d-flex gap-2">
@@ -967,6 +967,9 @@ function footBarHtml() {
   if (b.kind === "taskrm") return `<div class="ops-undo" role="status">
       <span class="ops-undo-text">Removed ${escapeHtml(taskTitle(b.task))}</span>
       <button type="button" class="btn ops-undo-btn" data-act="taskrm-undo">Undo</button></div>`;
+  if (b.kind === "closing") return `<div class="ops-undo ops-undo-wrap" role="status">
+      <span class="ops-undo-text">${escapeHtml(CLOSING_BAR)}</span>
+      <button type="button" class="btn ops-undo-btn" data-act="closing-undo">Undo</button></div>`;
   if (b.kind === "two") return `<div class="ops-undo ops-undo-wrap" role="status">
       <span class="ops-undo-text">2 = sign-up call. Did you mean 1 (empty)?</span>
       <button type="button" class="btn ops-undo-btn" data-act="two-empty">Make it Empty</button></div>`;
@@ -1074,6 +1077,7 @@ function onAct(b) {
       // 0 and 1 save as Empty, 2 as a sign-up call (with a check), 3 as a barrel delivery.
       recordCollection(store, stop, typedEntry(typed));
       if (typed === 2) footBar = { kind: "two", customerId: stop.customer_id };
+      if (typed === CLOSING_QTY) footBar = { kind: "closing", customerId: stop.customer_id };
       activeId = null;      // on to the next stop to collect
       openDetails = null;
       break;
@@ -1083,6 +1087,14 @@ function onAct(b) {
       const stop = id !== undefined && storeStops(store, store.my.routeId).find(s => s.customer_id === id);
       if (stop && todaysCollection(store, id)) recordCollection(store, stop, 1);
       footBar = null;
+      break;
+    }
+    case "closing-undo": {   // the typed 7 is taken back; the stop opens again for its entry
+      const id = footBar && footBar.customerId;
+      footBar = null;
+      if (id === undefined) return;
+      clearTodaysEntry(store, id);
+      activeId = id;
       break;
     }
     case "undo":
