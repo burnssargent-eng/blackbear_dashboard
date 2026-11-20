@@ -28,14 +28,21 @@ Routes are the one exception, by --routes (below). The nightly:
 --routes sets the site's routes to the source site's Today's Routes
 (Sarge, 2026-10-26: during the trial the two must start each day the same).
 refresh-routes.yml runs it at 7am Vermont time, after a fresh read of the
-source site. Every route the source site has is set to its stops, in its
-order, with its Must Get; one with no stops there is emptied. EXCEPT a route
-a person edited on the site since the last morning run (Sarge, 2026-11-19:
-Jim builds routes on the site): any change to its stops in activity_log
-(add, remove, reorder, Must Get, a stop moved in or out) keeps the whole
-route as the site has it, listed in the report as kept. The run's own writes
-are not logged there (no person), so a route left untouched for a day follows
-the source site again the next morning. Routes made on the site
+source site. Jamaal is the default and its changes win (Sarge, 2026-11-20:
+the drivers drive what Jamaal shows; a driver followed Jamaal's overnight
+reorder of Cent VT 2 on 2026-11-20, not the site's). Each route is compared
+with Jamaal's own version at the previous morning run (kept in that run's
+sync_reports row, "jamaal"), and the site's route is changed only where
+Jamaal changed (merge_route):
+  - a stop added in Jamaal is added, beside its Jamaal neighbours;
+  - a stop removed in Jamaal is removed;
+  - if Jamaal's order changed, the route takes Jamaal's order (stops added on
+    the site stay, after the stop they followed);
+  - a Must Get changed in Jamaal takes Jamaal's;
+  - anything Jamaal did not change stays as the site has it (Jim's edits).
+A route the site never edited therefore simply matches Jamaal. With no
+previous morning's copy (the first run), a route a person edited on the site
+since the last run (activity_log) is kept whole and the rest set to Jamaal's. Routes made on the site
 (negative ids) are left alone. A stop whose customer the database does not
 have yet is skipped and listed: the nightly adds the customer, and the next
 morning's run the stop. What the site had that differed is kept in the
@@ -1060,6 +1067,48 @@ def sweep_details(db, path=SWEEP_FILE):
     return report
 
 
+def merge_route(prev, jam, site):
+    """
+    One route's stops after the morning run: the site's, changed only where Jamaal changed
+    since its previous morning copy (module docstring). Each argument is a list of
+    (customer_id, must_get) in order: Jamaal's previous copy, Jamaal's today, the site's now.
+    Returns (stops as (customer_id, must_get) in order, what Jamaal changed).
+    """
+    p_ids, j_ids, s_ids = [c for c, _ in prev], [c for c, _ in jam], [c for c, _ in site]
+    p_mg, j_mg, s_mg = dict(prev), dict(jam), dict(site)
+    added = [c for c in j_ids if c not in p_mg]
+    removed = [c for c in p_ids if c not in j_mg]
+    common_p = [c for c in p_ids if c in j_mg]
+    order_changed = common_p != [c for c in j_ids if c in p_mg]
+    # The site's stops that stay: Jamaal's removals go; the site's own removals stand.
+    keep_site = [c for c in s_ids if c not in removed]
+    if order_changed:
+        # Jamaal's order, minus stops the site took off that Jamaal did not touch (still where
+        # they were and not newly added); then the site's own additions after their predecessor.
+        out = [c for c in j_ids if c in s_mg or c in added or c not in p_mg]
+        for k, c in enumerate(keep_site):
+            if c in out:
+                continue
+            before = next((x for x in reversed(keep_site[:k]) if x in out), None)
+            out.insert(out.index(before) + 1 if before is not None else 0, c)
+    else:
+        out = list(keep_site)
+        for c in added:
+            if c in out:
+                continue
+            k = j_ids.index(c)
+            before = next((x for x in reversed(j_ids[:k]) if x in out), None)
+            after = next((x for x in j_ids[k + 1:] if x in out), None)
+            out.insert(out.index(before) + 1 if before is not None else (out.index(after) if after is not None else len(out)), c)
+    def must_get(c):
+        if c in j_mg and (c not in p_mg or p_mg[c] != j_mg[c] or c not in s_mg):
+            return bool(j_mg[c])
+        return bool(s_mg.get(c, j_mg.get(c, False)))
+    changes = {"added": added, "removed": removed, "order_changed": order_changed,
+               "must_get_changed": [c for c in j_ids if c in p_mg and p_mg[c] != j_mg[c]]}
+    return [(c, must_get(c)) for c in out], changes
+
+
 def site_edited_routes(db, now):
     """
     Route ids whose stops a person changed on the site since the last morning run
@@ -1094,8 +1143,6 @@ def mirror_routes(db, now=None):
     wanted = stop_rows(snap)
     if not wanted:
         raise SyncError(f"{ROUTES_FILE} has no assigned stops at all: likely a bad read; routes left as they are")
-    # Routes a person edited on the site since the last morning run stay as the site has them.
-    kept = site_edited_routes(db, now)
     # A customer taken over on the site: its new account takes the stop.
     replaced = replaced_map(db)
     wanted = take_over_stops(wanted, replaced)
@@ -1103,6 +1150,7 @@ def mirror_routes(db, now=None):
     routes = route_rows(snap)
     db.upsert("routes", routes)
     jamaal_ids = {r["id"] for r in routes}
+    route_names = {r["id"]: r["name"] for r in routes}
     customers = {r["id"]: r["name"] for r in db.select("customers", "select=id,name")}
     waiting = [s for s in wanted if s["customer_id"] not in customers]
     wanted = [s for s in wanted if s["customer_id"] in customers]
@@ -1112,41 +1160,86 @@ def mirror_routes(db, now=None):
     for r in snap.get("routes", []):
         for s in r["stops"]:
             names.setdefault(s.get("customer_id"), s["name"])
-    differed = [r for r in route_differences(snap_taken_over(snap, replaced), before, names)
-                if r["route_id"] not in kept]
-    wanted = [s for s in wanted if s["route_id"] not in kept]
-    waiting = [s for s in waiting if s["route_id"] not in kept]
-    before = [s for s in before if s["route_id"] not in kept]
-    keep = {(s["route_id"], s["customer_id"]) for s in wanted}
+    differed = route_differences(snap_taken_over(snap, replaced), before, names)
+
+    # Jamaal's routes today, and its copy from the previous morning run (None before the first).
+    jam = {rid: [] for rid in jamaal_ids}
+    assignment = {}
+    for s in sorted(wanted, key=lambda s: (s["route_id"], s["position"])):
+        jam.setdefault(s["route_id"], []).append((s["customer_id"], bool(s["must_get"])))
+        assignment[(s["route_id"], s["customer_id"])] = s.get("jamaal_assignment_id")
+    site = {}
+    for s in sorted(before, key=lambda s: (s["route_id"], s["position"])):
+        site.setdefault(s["route_id"], []).append((s["customer_id"], bool(s["must_get"])))
+    prev = previous_jamaal(db)
+    kept = site_edited_routes(db, now) if prev is None else set()
+
+    result, changed, site_kept = {}, [], []
+    for rid in sorted(jamaal_ids):
+        if prev is None:
+            result[rid] = site.get(rid, []) if rid in kept else jam.get(rid, [])
+            continue
+        result[rid], ch = merge_route([tuple(x) for x in prev.get(str(rid), [])], jam.get(rid, []), site.get(rid, []))
+        if ch["added"] or ch["removed"] or ch["order_changed"] or ch["must_get_changed"]:
+            changed.append({"route_id": rid, "route": route_names.get(rid, f"#{rid}"), **ch})
+        if result[rid] != jam.get(rid, []):
+            site_kept.append({"route_id": rid, "route": route_names.get(rid, f"#{rid}")})
+    rows = [{"route_id": rid, "customer_id": c, "position": k + 1, "must_get": mg,
+             "jamaal_assignment_id": assignment.get((rid, c))}
+            for rid, stops in result.items() for k, (c, mg) in enumerate(stops) if c in customers]
+    keep = {(s["route_id"], s["customer_id"]) for s in rows}
     stale = sorted(s["id"] for s in before if (s["route_id"], s["customer_id"]) not in keep)
-    if wanted:
-        db.upsert("route_stops", wanted, on_conflict="route_id,customer_id")
+    if rows:
+        db.upsert("route_stops", rows, on_conflict="route_id,customer_id")
     if stale:
         db.delete("route_stops", "id", stale)
 
-    on_routes = len({s["route_id"] for s in wanted})
-    summary = (f"routes set to the source site's: {len(wanted)} stop(s) on {on_routes} route(s); "
-               f"{len(differed)} route(s) had differed, {len(stale)} stop(s) removed")
+    on_routes = len({s["route_id"] for s in rows})
+    if prev is None:
+        summary = (f"routes set to the source site's (no previous morning copy): {len(rows)} stop(s) on "
+                   f"{on_routes} route(s); {len(stale)} stop(s) removed")
+        kept_list = [{"route_id": rid, "route": route_names.get(rid, f"#{rid}")} for rid in sorted(kept)]
+        if kept_list:
+            summary += f"; {len(kept_list)} route(s) edited on the site kept: " + ", ".join(k["route"] for k in kept_list)
+    else:
+        kept_list = site_kept
+        summary = (f"routes merged with the source site's: {len(rows)} stop(s) on {on_routes} route(s); "
+                   f"{len(changed)} route(s) changed in the source site, {len(stale)} stop(s) removed")
+        if site_kept:
+            summary += f"; site edits kept on " + ", ".join(k["route"] for k in site_kept)
     if waiting:
         summary += f"; {len(waiting)} stop(s) wait for the nightly to add their customer"
-    route_names = {r["id"]: r["name"] for r in routes}
-    kept_list = [{"route_id": rid, "route": route_names.get(rid, f"#{rid}")} for rid in sorted(kept)]
-    if kept_list:
-        summary += f"; {len(kept_list)} route(s) edited on the site kept: " + ", ".join(k["route"] for k in kept_list)
-    report = {"routes_read_at": snap.get("scraped_at"), "stops": len(wanted), "removed": len(stale),
+    report = {"routes_read_at": snap.get("scraped_at"), "stops": len(rows), "removed": len(stale),
               "kept_site_edits": kept_list,
+              "jamaal_changed": [{**c, "added": [names.get(x, f"#{x}") for x in c["added"]],
+                                  "removed": [names.get(x, f"#{x}") for x in c["removed"]],
+                                  "must_get_changed": [names.get(x, f"#{x}") for x in c["must_get_changed"]]}
+                                 for c in changed],
               "differed_before": differed,
+              # Jamaal's routes as read this morning (ids only): tomorrow's run compares against it.
+              "jamaal": {str(rid): [[c, mg] for c, mg in stops] for rid, stops in sorted(jam.items())},
               "waiting": [{"id": s["customer_id"], "name": names.get(s["customer_id"], f"#{s['customer_id']}"),
                            "route_id": s["route_id"]} for s in waiting]}
     db.insert("sync_reports", [{"kind": "routes", "summary": summary, "report": report}])
     print(summary[0].upper() + summary[1:] + ".")
-    for r in differed:
-        print(f"  {r['route']}: {len(r['only_jamaal'])} added, {len(r['only_site'])} removed"
-              + (", order reset" if r["order_differs"] else "")
-              + (f", Must Get reset on {len(r['must_get_differs'])}" if r["must_get_differs"] else ""))
+    for c in changed:
+        print(f"  {c['route']} changed in the source site: {len(c['added'])} added, {len(c['removed'])} removed"
+              + (", order changed" if c["order_changed"] else "")
+              + (f", Must Get changed on {len(c['must_get_changed'])}" if c["must_get_changed"] else ""))
+    for k in kept_list:
+        print(f"  {k['route']}: site edits kept")
     for w in report["waiting"]:
         print(f"  waiting: {w['name']} ({w['id']}) on route {w['route_id']}")
     return report
+
+
+def previous_jamaal(db):
+    """Jamaal's routes at the previous morning run ({route id: [[customer, must_get], ...]}), or None."""
+    runs = [r for r in db.select("sync_reports", "select=ran_at,report&kind=eq.routes")
+            if isinstance(r.get("report"), dict) and "jamaal" in r["report"]]
+    if not runs:
+        return None
+    return max(enumerate(runs), key=lambda kr: (kr[1].get("ran_at") or "", kr[0]))[1]["report"]["jamaal"]
 
 
 def main():

@@ -42,8 +42,9 @@ supabase_sync.py ──> the shared database (Supabase; db/schema.sql). Nightly:
                      'site' rows record the SAME pickups: never add them together; the pages read only 'site'.
                      Never writes a site pickup. Stops: --routes (refresh-routes.yml, started at 7am Vermont
                      time by the database's pg_cron, since GitHub schedules ran hours late) sets every source-site
-                     route to Jamaal's Today's Routes, EXCEPT a route a person edited on the site since the last 7am run
-                     (activity_log; kept whole and listed in the report; Sarge, 2026-11-19). --seed
+                     route to Jamaal's Today's Routes as a MERGE (Sarge, 2026-11-20): Jamaal is the default and wins
+                     where it changed since the previous 7am copy (in that run's sync_reports "jamaal"):
+                     adds, removes, its order, Must Get; site edits Jamaal did not touch stand (merge_route). --seed
                      (supabase-seed.yml, by hand, once) also copies the assigned routes into an EMPTY route_stops, with the full notes from a fresh jamaal_customers.py --refresh.
                      --sweep (Sundays, after the sync; jamaal_customers.py --sweep reads every page first): address,
                      notes and phone edits made in Jamaal later follow into the database only while ours still matches

@@ -277,43 +277,64 @@ ok([w[0] for w in mdb.writes if w[1] == "route_stops"] == ["upsert", "delete"],
    "the wanted stops are written before the rest are removed")
 again = ss.mirror_routes(mdb, now=read_at + timedelta(minutes=5))
 ok(again["differed_before"] == [] and again["removed"] == 0, "a second run changes nothing")
-# A route a person edited on the site since the last morning run is kept as the site has it
-# (Sarge, 2026-11-19); the others still follow the source site.
-z = lambda t: t.astimezone(ss.ZoneInfo("UTC")).strftime("%Y-%m-%dT%H:%M:%S.%fZ")
+# ── Morning merge (Sarge, 2026-11-20): Jamaal is the default and its changes win; what
+# Jamaal did not change stays as the site has it ──
+M = lambda ids, mg=(): [(c, c in mg) for c in ids]
+ids = lambda out: [c for c, _ in out]
+out, ch = ss.merge_route(M([1, 2, 3, 4]), M([1, 2, 3, 4]), M([3, 1, 2, 4]))
+ok(ids(out) == [3, 1, 2, 4] and not ch["order_changed"], "Jamaal unchanged: the site's order stands")
+out, _ = ss.merge_route(M([1, 2, 3, 4]), M([1, 2, 3, 4]), M([1, 2, 4, 9]))
+ok(ids(out) == [1, 2, 4, 9], "Jamaal unchanged: a stop removed and one added on the site both stand")
+out, _ = ss.merge_route(M([1, 2, 3, 4]), M([1, 2, 5, 3, 4]), M([4, 3, 2, 1]))
+ok(ids(out) == [4, 3, 2, 5, 1], "a stop added in Jamaal goes in after its Jamaal neighbour, in the site's order")
+out, _ = ss.merge_route(M([1, 2, 3]), M([0, 1, 2, 3]), M([3, 2, 1]))
+ok(ids(out) == [3, 2, 0, 1], "a stop added first in Jamaal goes before its next neighbour")
+out, _ = ss.merge_route(M([1, 2, 3, 4]), M([1, 3, 4]), M([4, 2, 3, 1]))
+ok(ids(out) == [4, 3, 1], "a stop removed in Jamaal is removed from the site's route")
+out, ch = ss.merge_route(M([1, 2, 3, 4]), M([4, 1, 2, 3]), M([2, 1, 3, 4, 9]))
+ok(ids(out) == [4, 9, 1, 2, 3] and ch["order_changed"],
+   "Jamaal reordered: the route takes Jamaal's order; a site-added stop stays after the stop it followed")
+out, _ = ss.merge_route(M([1, 2, 3, 4]), M([4, 1, 2, 3]), M([1, 3, 4]))
+ok(ids(out) == [4, 1, 3], "Jamaal reordered: a stop the site removed (Jamaal did not touch it) stays off")
+out, _ = ss.merge_route(M([1, 2, 3]), M([1, 2, 3], {2}), M([1, 2, 3], {1}))
+ok(dict(out) == {1: True, 2: True, 3: False}, "Must Get: Jamaal's change wins, the site's own change stands")
+out, _ = ss.merge_route(M([1, 2]), M([]), M([2, 1, 9]))
+ok(ids(out) == [9], "a route Jamaal emptied keeps only the stops the site added")
+out, _ = ss.merge_route([], M([5, 6]), M([]))
+ok(ids(out) == [5, 6], "a route new in Jamaal (no previous copy) takes Jamaal's stops")
+
+# The whole morning run, against yesterday's report (its "jamaal" copy).
 run_at = read_at + timedelta(minutes=5)
-for r in mdb.t["sync_reports"]:
-    r["ran_at"] = (run_at - timedelta(days=1)).isoformat()          # yesterday's 7am run
-mdb.t["sync_reports"][-1]["ran_at"] = (run_at - timedelta(hours=20)).isoformat()
-s1 = sorted((s for s in mdb.t["route_stops"] if s["route_id"] == r1), key=lambda s: s["position"])
-jim_r1 = [x["customer_id"] for x in s1[1:]]                          # Jim took the first stop off r1
-mdb.t["route_stops"].remove(s1[0])
-s2 = [x for x in mdb.t["route_stops"] if x["route_id"] == r2]
-s2[0]["must_get"] = not s2[0]["must_get"]                            # r2 changed, but by nobody logged
-mdb.t["activity_log"] = [
-    {"table_name": "route_stops", "op": "delete", "old_row": {"route_id": r1, "customer_id": s1[0]["customer_id"]},
-     "new_row": None, "changed_at": z(run_at - timedelta(hours=2))},
-    {"table_name": "route_stops", "op": "update", "old_row": {"route_id": -3}, "new_row": {"route_id": -3},
-     "changed_at": z(run_at - timedelta(hours=2))},                   # a site route: never a source-site id
-    {"table_name": "collections", "op": "insert", "old_row": None, "new_row": {"route_id": r2},
-     "changed_at": z(run_at - timedelta(hours=2))},                   # a pickup is not a route edit
-    {"table_name": "route_stops", "op": "update", "old_row": {"route_id": r2}, "new_row": {"route_id": r2},
-     "changed_at": z(run_at - timedelta(days=2))},                    # before the last run: no longer counts
-]
-k = ss.mirror_routes(mdb, now=run_at)
-ok(by_route(mdb, r1) == jim_r1, "a route a person edited since the last morning run is left as the site has it")
-ok(all(by_route(mdb, rid) == ids for rid, ids in want.items() if rid != r1),
-   "the routes nobody edited are still set to the source site's")
-ok(next(x for x in mdb.t["route_stops"] if x["route_id"] == r2 and x["customer_id"] == s2[0]["customer_id"])["must_get"]
-   == next(bool(st["must_get"]) for r in snap["routes"] if r["route_id"] == r2 for st in r["stops"]
-           if st["customer_id"] == s2[0]["customer_id"]), "an unlogged change is reset (only a person's edit keeps a route)")
-ok([x["route_id"] for x in k["kept_site_edits"]] == [r1] and r1 not in {x["route_id"] for x in k["differed_before"]},
-   "the kept route is listed in the report as kept, not as overwritten")
-ok("kept" in mdb.t["sync_reports"][-1]["summary"], "the morning summary names the kept route")
-# The next morning, with no edits since this run, r1 follows the source site again.
-mdb.t["sync_reports"][-1]["ran_at"] = run_at.isoformat()
-k2 = ss.mirror_routes(mdb, now=run_at)   # same read time (the snapshot must be under an hour old)
-ok(by_route(mdb, r1) == want[r1] and k2["kept_site_edits"] == [], "a day later with no new edits, it follows the source site again")
 mdb.t["activity_log"] = []
+ss.mirror_routes(mdb, now=run_at)                                    # leaves today's copy in its report
+ok("jamaal" in mdb.t["sync_reports"][-1]["report"], "the morning run keeps Jamaal's routes in its report")
+ok(ss.previous_jamaal(mdb) == {str(k): [list(x) for x in v] for k, v in
+   {**{r["id"]: [] for r in ss.route_rows(snap)},
+    **{rid: [(c, bool(next(st["must_get"] for st in r["stops"] if st["customer_id"] == c))) for c in want[rid]]
+       for r in snap["routes"] for rid in [r["route_id"]]}}.items()}, "and the next run reads it back")
+s1 = sorted((x for x in mdb.t["route_stops"] if x["route_id"] == r1), key=lambda x: x["position"])
+for k, x in enumerate(reversed(s1)):                                  # Jim reverses r1 on the site
+    x["position"] = k + 1
+jim_r1 = [x["customer_id"] for x in reversed(s1)]
+k1 = ss.mirror_routes(mdb, now=run_at)                               # Jamaal unchanged overnight
+ok(by_route(mdb, r1) == jim_r1, "Jamaal unchanged overnight: Jim's order on the site stands")
+ok([x["route_id"] for x in k1["kept_site_edits"]] == [r1] and k1["jamaal_changed"] == [],
+   "the report lists r1 as kept and no route as changed in Jamaal")
+# Overnight Jamaal reorders r1 (its last stop first): Jamaal's order wins.
+saved_file = ss.ROUTES_FILE
+snap2 = json.loads(json.dumps(snap))
+r1_snap = next(r for r in snap2["routes"] if r["route_id"] == r1)
+r1_snap["stops"] = r1_snap["stops"][-1:] + r1_snap["stops"][:-1]
+ss.ROUTES_FILE = os.path.join(_tmp, "routes_reordered.json")
+json.dump(snap2, open(ss.ROUTES_FILE, "w"))
+k2 = ss.mirror_routes(mdb, now=run_at)
+want_r1 = [s["customer_id"] for s in r1_snap["stops"] if s["customer_id"] is not None]
+ok(by_route(mdb, r1) == want_r1, "Jamaal reordered overnight: the site's route takes Jamaal's order")
+ok([c["route_id"] for c in k2["jamaal_changed"]] == [r1] and k2["jamaal_changed"][0]["order_changed"],
+   "the report says r1 changed in Jamaal")
+ss.ROUTES_FILE = saved_file
+ss.mirror_routes(mdb, now=run_at)                                    # back to the original snapshot
+ok(by_route(mdb, r1) == want[r1], "and back again when Jamaal's order changes back")
 
 # A stop whose customer is new to the source site waits for the nightly.
 newcomer = want[r1][0]
