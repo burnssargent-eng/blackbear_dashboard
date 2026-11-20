@@ -272,7 +272,9 @@ ok(new Set(memberIds).size === memberIds.length, "no customer is in two barrels"
 const sharedRanked = shared.find(c => c.section === "ranked");
 ok(sharedRanked && /Shared barrel:/.test(api.rankedRowsHtml([sharedRanked])),
   "a ranked shared barrel renders its members");
-ok(byId[133] && byId[133].history_start && byId[133].section !== "ranked",
+// Not "never ranked": JJ's had its first pickup of the new history on 2026-11-20 and may rank on it.
+ok(byId[133] && byId[133].history_start &&
+   (byId[133].section !== "ranked" || byId[133].last_pickup >= byId[133].history_start),
   "JJ's (133) restarts its history and is not ranked on the old tavern's");
 ok(byId[208] && byId[208].history_start === "2026-01-01",
   "Mad Moose (208) restarts its history at the Blue Stone changeover");
