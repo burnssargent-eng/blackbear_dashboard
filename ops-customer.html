@@ -47,7 +47,10 @@
  *
  * A customer the source site lists as inactive (not on its Assign list) opens VIEW-ONLY
  * from the dashboard roster (Sarge, 2026-11-17: every customer name on the dashboard links
- * here): name, town, history, photos and notes, but no entry, Assign, edits or Add entry.
+ * here): name, town, history, photos and notes, but no Home entry, Assign or edits.
+ * Its Collections tab still takes entries, signed in (Sarge, 2026-11-20): Jamaal closes an
+ * account on its last pickup (the Butchery, 2026-11-19), and that pickup belongs on this
+ * site too. Add entry and the edit links work as for an active customer.
  */
 
 
@@ -102,6 +105,12 @@ function usDate(iso) {
 // A browser can pair this page with an older ops-db.js or no ops-photos.js for
 // a few minutes after a deploy: editing old pickups and photos then stay hidden.
 const editReady = typeof opsSitePickups === "function";
+
+/** Collections' Add entry: every customer, but an inactive (view-only) one only signed in, with its database row. */
+function entriesReady() {
+  if (!customer.viewOnly) return true;
+  return editReady && typeof opsCustomerDbRow === "function" && !!opsCustomerDbRow(customer.customer_id);
+}
 const leftEditReady = typeof opsSiteOilLeft === "function" && typeof recordOilLeft === "function";
 const photosReady = typeof opsPhotoPick === "function" && typeof opsRandomId === "function";
 
@@ -342,7 +351,7 @@ function collectionsHtml() {
   // Oil Left checks sit among the pickups by day (after a pickup the same day), in no total.
   const lines = picks.concat(leftRows().map(e => ({ date: e.date, gallons: e.gallons, left: true })))
     .sort((a, b) => b.date.localeCompare(a.date));
-  const add = customer.viewOnly ? "" : adding ? addFormHtml()
+  const add = !entriesReady() ? "" : adding ? addFormHtml()
     : `<button type="button" class="btn btn-outline-primary btn-sm mb-3" data-add-open>+ Add entry</button>`;
   if (!lines.length) return `${add}<div class="text-muted">No collections on record.</div>`;
   const total = picks.filter(h => !h.code).reduce((sum, h) => sum + h.gallons, 0);
@@ -767,7 +776,7 @@ function siteStatus() {
 
 /** The band under the name for a closed or inactive customer, with the one button that reverses it. */
 function statusBandHtml() {
-  if (customer.viewOnly) return `<div class="ops-cp-band ops-cp-band-inactive"><span>Inactive on Jamaal · view only</span></div>`;
+  if (customer.viewOnly) return `<div class="ops-cp-band ops-cp-band-inactive"><span>Inactive on Jamaal · view only${entriesReady() ? " · Collections takes entries" : ""}</span></div>`;
   const st = siteStatus();
   if (!st || st.status === "open") return "";
   const since = escapeHtml(formatDate(st.since));
