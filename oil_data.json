@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-20T16:04:13.902401",
+  "last_updated": "2026-11-21T15:07:38.137210",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -34600,7 +34600,7 @@
     {
       "month": "2026-11",
       "geo_town": "Northfield",
-      "gallons": 190,
+      "gallons": 380,
       "city": "Northfield"
     },
     {
@@ -34668,6 +34668,12 @@
       "geo_town": "Waterbury",
       "gallons": 925,
       "city": "Waterbury"
+    },
+    {
+      "month": "2026-11",
+      "geo_town": "Williamstown",
+      "gallons": 200,
+      "city": "Williamstown"
     },
     {
       "month": "2026-11",
@@ -42597,7 +42603,7 @@
     {
       "month": "2026-11",
       "county": "Washington",
-      "gallons": 3199
+      "gallons": 3589
     },
     {
       "month": "2026-11",
@@ -42657,11 +42663,11 @@
     },
     {
       "year": 2026,
-      "gallons": 263242
+      "gallons": 263632
     }
   ],
-  "all_time_total": 2181855,
-  "current_year_total": 263242,
+  "all_time_total": 2182245,
+  "current_year_total": 263632,
   "customer_count": 809,
   "unmapped_total": 40915,
   "monthly_totals": [
@@ -43235,7 +43241,7 @@
     },
     {
       "month": "2026-11",
-      "gallons": 15316
+      "gallons": 15706
     }
   ],
   "monthly_by_region": [
@@ -54457,7 +54463,7 @@
     {
       "month": "2026-11",
       "region": "Central",
-      "gallons": 2249
+      "gallons": 2639
     },
     {
       "month": "2026-11",
@@ -55519,7 +55525,7 @@
     {
       "year": 2026,
       "region": "Central",
-      "gallons": 26825
+      "gallons": 27215
     },
     {
       "year": 2026,
@@ -55648,20 +55654,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 28097,
+  "collections_count": 28105,
   "out_of_state_total": 40915,
   "active_customer_count": 534,
   "projection": {
     "latest_data_date": "2026-11-20",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 263242,
+    "current_ytd": 263632,
     "previous_year_full": 269818,
     "previous_through_prior_month": 230757,
     "previous_same_month_total": 20186,
     "previous_prorated_ytd": 244214.33,
-    "projected_current_year": 290841,
-    "percent_vs_previous_year": 0.077914
+    "projected_current_year": 291271,
+    "percent_vs_previous_year": 0.079511
   },
   "region_stats": {
     "Burlington / South Burlington": {
