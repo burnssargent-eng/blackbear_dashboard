@@ -1,5 +1,5 @@
 {
- "data_last_updated": "2026-11-21T15:07:38.137210",
+ "data_last_updated": "2026-11-22T15:06:11.451537",
  "latest_pickup": "2026-11-20",
  "summary": [
   {
@@ -24,39 +24,39 @@
   {
    "window": "Last 30 days",
    "from": "2026-10-22",
-   "scored": 292,
+   "scored": 291,
    "not_projected": 14,
-   "projected_total": 21556.6,
-   "actual_total": 20358,
-   "net_error": 1198.6,
-   "wape": 32.3,
-   "bias": 5.9,
+   "projected_total": 21457.6,
+   "actual_total": 20248,
+   "net_error": 1209.6,
+   "wape": 32.5,
+   "bias": 6.0,
    "median_miss": 14.1,
    "vs_line": {
-    "paired": 230,
-    "wape_new": 30.7,
-    "bias_new": 4.2,
-    "wape_line": 30.2,
-    "bias_line": -0.0
+    "paired": 229,
+    "wape_new": 30.8,
+    "bias_new": 4.3,
+    "wape_line": 30.3,
+    "bias_line": -0.1
    }
   },
   {
    "window": "All",
    "from": null,
-   "scored": 573,
+   "scored": 572,
    "not_projected": 48,
-   "projected_total": 42332.1,
-   "actual_total": 42163,
-   "net_error": 169.1,
-   "wape": 29.8,
+   "projected_total": 42233.1,
+   "actual_total": 42053,
+   "net_error": 180.1,
+   "wape": 29.9,
    "bias": 0.4,
-   "median_miss": 13.7,
+   "median_miss": 13.8,
    "vs_line": {
-    "paired": 230,
-    "wape_new": 30.7,
-    "bias_new": 4.2,
-    "wape_line": 30.2,
-    "bias_line": -0.0
+    "paired": 229,
+    "wape_new": 30.8,
+    "bias_new": 4.3,
+    "wape_line": 30.3,
+    "bias_line": -0.1
    }
   }
  ],
@@ -99,20 +99,20 @@
   },
   {
    "stage": "established",
-   "scored": 316,
+   "scored": 315,
    "not_projected": 0,
-   "projected_total": 24051.4,
-   "actual_total": 24044,
-   "net_error": 7.4,
+   "projected_total": 23952.4,
+   "actual_total": 23934,
+   "net_error": 18.4,
    "wape": 28.7,
-   "bias": 0.0,
-   "median_miss": 13.2,
+   "bias": 0.1,
+   "median_miss": 13.4,
    "vs_line": {
-    "paired": 183,
-    "wape_new": 29.1,
-    "bias_new": 3.0,
-    "wape_line": 28.3,
-    "bias_line": -0.7
+    "paired": 182,
+    "wape_new": 29.3,
+    "bias_new": 3.1,
+    "wape_line": 28.4,
+    "bias_line": -0.8
    }
   },
   {
@@ -2549,20 +2549,20 @@
   },
   {
    "date": "2026-11-05",
-   "scored": 17,
+   "scored": 16,
    "not_projected": 0,
-   "projected_total": 1040.3,
-   "actual_total": 966,
-   "net_error": 74.3,
-   "wape": 33.7,
-   "bias": 7.7,
-   "median_miss": 11.0,
+   "projected_total": 941.3,
+   "actual_total": 856,
+   "net_error": 85.3,
+   "wape": 36.8,
+   "bias": 10.0,
+   "median_miss": 9.9,
    "vs_line": {
-    "paired": 17,
-    "wape_new": 33.7,
-    "bias_new": 7.7,
-    "wape_line": 33.7,
-    "bias_line": 2.7
+    "paired": 16,
+    "wape_new": 36.8,
+    "bias_new": 10.0,
+    "wape_line": 37.1,
+    "bias_line": 2.1
    },
    "rows": [
     {
@@ -2774,21 +2774,6 @@
      "actual": 15,
      "error": 6.1,
      "pct_error": 40.7
-    },
-    {
-     "id": 705,
-     "name": "Three Squares",
-     "town": "Vergennes",
-     "stage": "established",
-     "section": "ranked",
-     "previous_pickup": "2026-09-14",
-     "predicted_as_of": "2026-11-05",
-     "projected": 99.0,
-     "range_low": 56.4,
-     "range_high": 141.5,
-     "actual": 110,
-     "error": -11.0,
-     "pct_error": -10.0
     },
     {
      "id": 1496,

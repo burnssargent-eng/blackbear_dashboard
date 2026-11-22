@@ -462,7 +462,7 @@ pickup_date,customer_id,member_ids,customer,town,stage,status,section,previous_p
 2026-11-04,1394,1394,The Wise Fool,Burlington,established,50/50 default,ranked,2026-10-07,2026-11-03,2026-11-03,154.1,115.5,200.0,144.5,170,-15.9,-9.4,-25.5
 2026-11-04,1445,1445,Trapp Family Lodge,Stowe,established,50/50 default,ranked,2026-09-30,2026-11-04,2026-11-04,50.5,37.9,73.2,55.4,75,-24.5,-32.7,-19.6
 2026-11-04,1464,1464,Friendly Toast #3251,Burlington,new,50/50 default,ranked,2026-09-16,2026-11-04,2026-11-04,141.3,98.9,165.0,112.1,180,-38.7,-21.5,-67.9
-2026-11-05,705,705,Three Squares,Vergennes,established,50/50 default,ranked,2026-09-14,2026-11-05,2026-11-05,99.0,56.4,141.5,117.7,110,-11.0,-10.0,7.7
+2026-11-05,705,705,Three Squares,Vergennes,established,50/50 default,ranked,2026-09-14,2026-11-05,2026-11-05,99.0,56.4,141.5,117.7,,,,
 2026-11-05,706,706,Park Squeeze,Vergennes,established,50/50 default,ranked,2026-09-14,2026-11-05,2026-11-05,45.5,34.1,65.9,54.3,40,5.5,13.8,14.3
 2026-11-05,710,710,Addison County Solid Waste Management District,Middlebury,established,50/50 default,ranked,2026-10-15,2026-11-05,2026-11-05,30.4,22.8,44.1,19.6,65,-34.6,-53.2,-45.4
 2026-11-05,714,714,Two Brothers Tavern,Middlebury,established,50/50 default,ranked,2026-10-15,2026-11-05,2026-11-05,136.5,114.1,159.0,127.0,150,-13.5,-9.0,-23.0
