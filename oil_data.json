@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-22T15:06:11.451537",
+  "last_updated": "2026-11-23T19:00:02.984498",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -6070,7 +6070,7 @@
     {
       "month": "2018-03",
       "geo_town": "Vergennes",
-      "gallons": 130,
+      "gallons": 200,
       "city": "Vergennes"
     },
     {
@@ -6310,7 +6310,7 @@
     {
       "month": "2018-04",
       "geo_town": "Vergennes",
-      "gallons": 45,
+      "gallons": 70,
       "city": "Vergennes"
     },
     {
@@ -6946,7 +6946,7 @@
     {
       "month": "2018-07",
       "geo_town": "Vergennes",
-      "gallons": 210,
+      "gallons": 245,
       "city": "Vergennes"
     },
     {
@@ -7180,7 +7180,7 @@
     {
       "month": "2018-08",
       "geo_town": "Vergennes",
-      "gallons": 100,
+      "gallons": 120,
       "city": "Vergennes"
     },
     {
@@ -7360,7 +7360,7 @@
     {
       "month": "2018-09",
       "geo_town": "Vergennes",
-      "gallons": 70,
+      "gallons": 120,
       "city": "Vergennes"
     },
     {
@@ -7648,7 +7648,7 @@
     {
       "month": "2018-10",
       "geo_town": "Vergennes",
-      "gallons": 175,
+      "gallons": 200,
       "city": "Vergennes"
     },
     {
@@ -7846,7 +7846,7 @@
     {
       "month": "2018-11",
       "geo_town": "Vergennes",
-      "gallons": 60,
+      "gallons": 100,
       "city": "Vergennes"
     },
     {
@@ -8074,7 +8074,7 @@
     {
       "month": "2018-12",
       "geo_town": "Vergennes",
-      "gallons": 50,
+      "gallons": 75,
       "city": "Vergennes"
     },
     {
@@ -8284,7 +8284,7 @@
     {
       "month": "2019-01",
       "geo_town": "Vergennes",
-      "gallons": 60,
+      "gallons": 100,
       "city": "Vergennes"
     },
     {
@@ -8518,7 +8518,7 @@
     {
       "month": "2019-02",
       "geo_town": "Vergennes",
-      "gallons": 100,
+      "gallons": 150,
       "city": "Vergennes"
     },
     {
@@ -8716,7 +8716,7 @@
     {
       "month": "2019-03",
       "geo_town": "Vergennes",
-      "gallons": 30,
+      "gallons": 50,
       "city": "Vergennes"
     },
     {
@@ -8968,7 +8968,7 @@
     {
       "month": "2019-04",
       "geo_town": "Vergennes",
-      "gallons": 60,
+      "gallons": 110,
       "city": "Vergennes"
     },
     {
@@ -9418,7 +9418,7 @@
     {
       "month": "2019-06",
       "geo_town": "Vergennes",
-      "gallons": 200,
+      "gallons": 260,
       "city": "Vergennes"
     },
     {
@@ -9688,7 +9688,7 @@
     {
       "month": "2019-07",
       "geo_town": "Vergennes",
-      "gallons": 155,
+      "gallons": 190,
       "city": "Vergennes"
     },
     {
@@ -9868,7 +9868,7 @@
     {
       "month": "2019-08",
       "geo_town": "Vergennes",
-      "gallons": 150,
+      "gallons": 205,
       "city": "Vergennes"
     },
     {
@@ -10072,7 +10072,7 @@
     {
       "month": "2019-09",
       "geo_town": "Vergennes",
-      "gallons": 150,
+      "gallons": 185,
       "city": "Vergennes"
     },
     {
@@ -10312,7 +10312,7 @@
     {
       "month": "2019-10",
       "geo_town": "Vergennes",
-      "gallons": 85,
+      "gallons": 135,
       "city": "Vergennes"
     },
     {
@@ -10930,7 +10930,7 @@
     {
       "month": "2020-01",
       "geo_town": "Vergennes",
-      "gallons": 320,
+      "gallons": 375,
       "city": "Vergennes"
     },
     {
@@ -11356,7 +11356,7 @@
     {
       "month": "2020-03",
       "geo_town": "Vergennes",
-      "gallons": 100,
+      "gallons": 150,
       "city": "Vergennes"
     },
     {
@@ -11578,7 +11578,7 @@
     {
       "month": "2020-04",
       "geo_town": "Vergennes",
-      "gallons": 40,
+      "gallons": 70,
       "city": "Vergennes"
     },
     {
@@ -11854,7 +11854,7 @@
     {
       "month": "2020-06",
       "geo_town": "Vergennes",
-      "gallons": 305,
+      "gallons": 330,
       "city": "Vergennes"
     },
     {
@@ -12094,7 +12094,7 @@
     {
       "month": "2020-07",
       "geo_town": "Vergennes",
-      "gallons": 235,
+      "gallons": 275,
       "city": "Vergennes"
     },
     {
@@ -12262,7 +12262,7 @@
     {
       "month": "2020-08",
       "geo_town": "Vergennes",
-      "gallons": 185,
+      "gallons": 210,
       "city": "Vergennes"
     },
     {
@@ -12448,7 +12448,7 @@
     {
       "month": "2020-09",
       "geo_town": "Vergennes",
-      "gallons": 160,
+      "gallons": 180,
       "city": "Vergennes"
     },
     {
@@ -12658,7 +12658,7 @@
     {
       "month": "2020-10",
       "geo_town": "Vergennes",
-      "gallons": 30,
+      "gallons": 85,
       "city": "Vergennes"
     },
     {
@@ -13126,7 +13126,7 @@
     {
       "month": "2020-12",
       "geo_town": "Vergennes",
-      "gallons": 125,
+      "gallons": 160,
       "city": "Vergennes"
     },
     {
@@ -13366,7 +13366,7 @@
     {
       "month": "2021-01",
       "geo_town": "Vergennes",
-      "gallons": 25,
+      "gallons": 100,
       "city": "Vergennes"
     },
     {
@@ -14146,7 +14146,7 @@
     {
       "month": "2021-05",
       "geo_town": "Vergennes",
-      "gallons": 100,
+      "gallons": 150,
       "city": "Vergennes"
     },
     {
@@ -14632,7 +14632,7 @@
     {
       "month": "2021-07",
       "geo_town": "Vergennes",
-      "gallons": 185,
+      "gallons": 310,
       "city": "Vergennes"
     },
     {
@@ -15142,7 +15142,7 @@
     {
       "month": "2021-09",
       "geo_town": "Vergennes",
-      "gallons": 130,
+      "gallons": 210,
       "city": "Vergennes"
     },
     {
@@ -15382,7 +15382,7 @@
     {
       "month": "2021-10",
       "geo_town": "Vergennes",
-      "gallons": 35,
+      "gallons": 85,
       "city": "Vergennes"
     },
     {
@@ -15946,7 +15946,7 @@
     {
       "month": "2021-12",
       "geo_town": "Vergennes",
-      "gallons": 40,
+      "gallons": 100,
       "city": "Vergennes"
     },
     {
@@ -16678,7 +16678,7 @@
     {
       "month": "2022-03",
       "geo_town": "Vergennes",
-      "gallons": 60,
+      "gallons": 160,
       "city": "Vergennes"
     },
     {
@@ -16972,7 +16972,7 @@
     {
       "month": "2022-04",
       "geo_town": "Vergennes",
-      "gallons": 80,
+      "gallons": 105,
       "city": "Vergennes"
     },
     {
@@ -17212,7 +17212,7 @@
     {
       "month": "2022-05",
       "geo_town": "Vergennes",
-      "gallons": 40,
+      "gallons": 65,
       "city": "Vergennes"
     },
     {
@@ -17536,7 +17536,7 @@
     {
       "month": "2022-06",
       "geo_town": "Vergennes",
-      "gallons": 165,
+      "gallons": 240,
       "city": "Vergennes"
     },
     {
@@ -17824,7 +17824,7 @@
     {
       "month": "2022-07",
       "geo_town": "Vergennes",
-      "gallons": 205,
+      "gallons": 305,
       "city": "Vergennes"
     },
     {
@@ -18130,7 +18130,7 @@
     {
       "month": "2022-08",
       "geo_town": "Vergennes",
-      "gallons": 480,
+      "gallons": 555,
       "city": "Vergennes"
     },
     {
@@ -18466,7 +18466,7 @@
     {
       "month": "2022-09",
       "geo_town": "Vergennes",
-      "gallons": 170,
+      "gallons": 235,
       "city": "Vergennes"
     },
     {
@@ -19054,7 +19054,7 @@
     {
       "month": "2022-11",
       "geo_town": "Vergennes",
-      "gallons": 185,
+      "gallons": 260,
       "city": "Vergennes"
     },
     {
@@ -19372,7 +19372,7 @@
     {
       "month": "2022-12",
       "geo_town": "Vergennes",
-      "gallons": 75,
+      "gallons": 95,
       "city": "Vergennes"
     },
     {
@@ -19636,7 +19636,7 @@
     {
       "month": "2023-01",
       "geo_town": "Vergennes",
-      "gallons": 100,
+      "gallons": 140,
       "city": "Vergennes"
     },
     {
@@ -20230,7 +20230,7 @@
     {
       "month": "2023-03",
       "geo_town": "Vergennes",
-      "gallons": 190,
+      "gallons": 230,
       "city": "Vergennes"
     },
     {
@@ -20884,7 +20884,7 @@
     {
       "month": "2023-05",
       "geo_town": "Vergennes",
-      "gallons": 270,
+      "gallons": 345,
       "city": "Vergennes"
     },
     {
@@ -21244,7 +21244,7 @@
     {
       "month": "2023-06",
       "geo_town": "Vergennes",
-      "gallons": 95,
+      "gallons": 115,
       "city": "Vergennes"
     },
     {
@@ -21862,7 +21862,7 @@
     {
       "month": "2023-08",
       "geo_town": "Vergennes",
-      "gallons": 965,
+      "gallons": 1055,
       "city": "Vergennes"
     },
     {
@@ -22150,7 +22150,7 @@
     {
       "month": "2023-09",
       "geo_town": "Vergennes",
-      "gallons": 235,
+      "gallons": 265,
       "city": "Vergennes"
     },
     {
@@ -22762,7 +22762,7 @@
     {
       "month": "2023-11",
       "geo_town": "Vergennes",
-      "gallons": 185,
+      "gallons": 255,
       "city": "Vergennes"
     },
     {
@@ -23380,7 +23380,7 @@
     {
       "month": "2024-01",
       "geo_town": "Vergennes",
-      "gallons": 110,
+      "gallons": 180,
       "city": "Vergennes"
     },
     {
@@ -24010,7 +24010,7 @@
     {
       "month": "2024-03",
       "geo_town": "Vergennes",
-      "gallons": 205,
+      "gallons": 270,
       "city": "Vergennes"
     },
     {
@@ -24382,7 +24382,7 @@
     {
       "month": "2024-04",
       "geo_town": "Vergennes",
-      "gallons": 175,
+      "gallons": 210,
       "city": "Vergennes"
     },
     {
@@ -25090,7 +25090,7 @@
     {
       "month": "2024-06",
       "geo_town": "Vergennes",
-      "gallons": 165,
+      "gallons": 205,
       "city": "Vergennes"
     },
     {
@@ -25408,7 +25408,7 @@
     {
       "month": "2024-07",
       "geo_town": "Vergennes",
-      "gallons": 2410,
+      "gallons": 2480,
       "city": "Vergennes"
     },
     {
@@ -25750,7 +25750,7 @@
     {
       "month": "2024-08",
       "geo_town": "Vergennes",
-      "gallons": 180,
+      "gallons": 205,
       "city": "Vergennes"
     },
     {
@@ -26128,7 +26128,7 @@
     {
       "month": "2024-09",
       "geo_town": "Vergennes",
-      "gallons": 270,
+      "gallons": 300,
       "city": "Vergennes"
     },
     {
@@ -26476,7 +26476,7 @@
     {
       "month": "2024-10",
       "geo_town": "Vergennes",
-      "gallons": 125,
+      "gallons": 145,
       "city": "Vergennes"
     },
     {
@@ -26800,7 +26800,7 @@
     {
       "month": "2024-11",
       "geo_town": "Vergennes",
-      "gallons": 116,
+      "gallons": 196,
       "city": "Vergennes"
     },
     {
@@ -27184,7 +27184,7 @@
     {
       "month": "2024-12",
       "geo_town": "Vergennes",
-      "gallons": 155,
+      "gallons": 190,
       "city": "Vergennes"
     },
     {
@@ -27436,7 +27436,7 @@
     {
       "month": "2025-01",
       "geo_town": "Vergennes",
-      "gallons": 198,
+      "gallons": 238,
       "city": "Vergennes"
     },
     {
@@ -28012,7 +28012,7 @@
     {
       "month": "2025-03",
       "geo_town": "Vergennes",
-      "gallons": 115,
+      "gallons": 140,
       "city": "Vergennes"
     },
     {
@@ -28402,7 +28402,7 @@
     {
       "month": "2025-04",
       "geo_town": "Vergennes",
-      "gallons": 315,
+      "gallons": 345,
       "city": "Vergennes"
     },
     {
@@ -28738,7 +28738,7 @@
     {
       "month": "2025-05",
       "geo_town": "Vergennes",
-      "gallons": 250,
+      "gallons": 390,
       "city": "Vergennes"
     },
     {
@@ -29104,7 +29104,7 @@
     {
       "month": "2025-06",
       "geo_town": "Vergennes",
-      "gallons": 760,
+      "gallons": 830,
       "city": "Vergennes"
     },
     {
@@ -29434,7 +29434,7 @@
     {
       "month": "2025-07",
       "geo_town": "Vergennes",
-      "gallons": 95,
+      "gallons": 140,
       "city": "Vergennes"
     },
     {
@@ -29770,7 +29770,7 @@
     {
       "month": "2025-08",
       "geo_town": "Vergennes",
-      "gallons": 150,
+      "gallons": 195,
       "city": "Vergennes"
     },
     {
@@ -30118,7 +30118,7 @@
     {
       "month": "2025-09",
       "geo_town": "Vergennes",
-      "gallons": 225,
+      "gallons": 420,
       "city": "Vergennes"
     },
     {
@@ -30460,7 +30460,7 @@
     {
       "month": "2025-10",
       "geo_town": "Vergennes",
-      "gallons": 235,
+      "gallons": 315,
       "city": "Vergennes"
     },
     {
@@ -30760,7 +30760,7 @@
     {
       "month": "2025-11",
       "geo_town": "Vergennes",
-      "gallons": 105,
+      "gallons": 205,
       "city": "Vergennes"
     },
     {
@@ -31036,7 +31036,7 @@
     {
       "month": "2025-12",
       "geo_town": "Vergennes",
-      "gallons": 55,
+      "gallons": 65,
       "city": "Vergennes"
     },
     {
@@ -31390,7 +31390,7 @@
     {
       "month": "2026-01",
       "geo_town": "Vergennes",
-      "gallons": 105,
+      "gallons": 155,
       "city": "Vergennes"
     },
     {
@@ -31720,7 +31720,7 @@
     {
       "month": "2026-02",
       "geo_town": "Vergennes",
-      "gallons": 125,
+      "gallons": 145,
       "city": "Vergennes"
     },
     {
@@ -32398,7 +32398,7 @@
     {
       "month": "2026-04",
       "geo_town": "Vergennes",
-      "gallons": 265,
+      "gallons": 430,
       "city": "Vergennes"
     },
     {
@@ -32734,7 +32734,7 @@
     {
       "month": "2026-05",
       "geo_town": "Vergennes",
-      "gallons": 90,
+      "gallons": 145,
       "city": "Vergennes"
     },
     {
@@ -33040,7 +33040,7 @@
     {
       "month": "2026-06",
       "geo_town": "Vergennes",
-      "gallons": 115,
+      "gallons": 190,
       "city": "Vergennes"
     },
     {
@@ -33376,7 +33376,7 @@
     {
       "month": "2026-07",
       "geo_town": "Vergennes",
-      "gallons": 405,
+      "gallons": 505,
       "city": "Vergennes"
     },
     {
@@ -33694,7 +33694,7 @@
     {
       "month": "2026-08",
       "geo_town": "Vergennes",
-      "gallons": 180,
+      "gallons": 270,
       "city": "Vergennes"
     },
     {
@@ -34036,7 +34036,7 @@
     {
       "month": "2026-09",
       "geo_town": "Vergennes",
-      "gallons": 245,
+      "gallons": 295,
       "city": "Vergennes"
     },
     {
@@ -34503,6 +34503,12 @@
     },
     {
       "month": "2026-11",
+      "geo_town": "Cambridge",
+      "gallons": 180,
+      "city": "Cambridge"
+    },
+    {
+      "month": "2026-11",
       "geo_town": "Colchester",
       "gallons": 255,
       "city": "Colchester"
@@ -34539,9 +34545,27 @@
     },
     {
       "month": "2026-11",
+      "geo_town": "Hardwick",
+      "gallons": 310,
+      "city": "Hardwick"
+    },
+    {
+      "month": "2026-11",
       "geo_town": "Hinesburg",
       "gallons": 200,
       "city": "Hinesburg"
+    },
+    {
+      "month": "2026-11",
+      "geo_town": "Hyde Park",
+      "gallons": 70,
+      "city": "Hyde Park"
+    },
+    {
+      "month": "2026-11",
+      "geo_town": "Johnson",
+      "gallons": 115,
+      "city": "Johnson"
     },
     {
       "month": "2026-11",
@@ -34572,6 +34596,12 @@
       "geo_town": "Montpelier",
       "gallons": 1100,
       "city": "Montpelier"
+    },
+    {
+      "month": "2026-11",
+      "geo_town": "Morristown",
+      "gallons": 265,
+      "city": "Morristown"
     },
     {
       "month": "2026-11",
@@ -34660,7 +34690,7 @@
     {
       "month": "2026-11",
       "geo_town": "Vergennes",
-      "gallons": 90,
+      "gallons": 200,
       "city": "Vergennes"
     },
     {
@@ -34692,6 +34722,12 @@
       "geo_town": "Winooski",
       "gallons": 550,
       "city": "Winooski"
+    },
+    {
+      "month": "2026-11",
+      "geo_town": "Wolcott",
+      "gallons": 40,
+      "city": "Wolcott"
     }
   ],
   "monthly_by_county": [
@@ -36308,7 +36344,7 @@
     {
       "month": "2018-03",
       "county": "Addison",
-      "gallons": 880
+      "gallons": 950
     },
     {
       "month": "2018-03",
@@ -36368,7 +36404,7 @@
     {
       "month": "2018-04",
       "county": "Addison",
-      "gallons": 475
+      "gallons": 500
     },
     {
       "month": "2018-04",
@@ -36533,7 +36569,7 @@
     {
       "month": "2018-07",
       "county": "Addison",
-      "gallons": 210
+      "gallons": 245
     },
     {
       "month": "2018-07",
@@ -36578,7 +36614,7 @@
     {
       "month": "2018-08",
       "county": "Addison",
-      "gallons": 510
+      "gallons": 530
     },
     {
       "month": "2018-08",
@@ -36633,7 +36669,7 @@
     {
       "month": "2018-09",
       "county": "Addison",
-      "gallons": 690
+      "gallons": 740
     },
     {
       "month": "2018-09",
@@ -36683,7 +36719,7 @@
     {
       "month": "2018-10",
       "county": "Addison",
-      "gallons": 825
+      "gallons": 850
     },
     {
       "month": "2018-10",
@@ -36738,7 +36774,7 @@
     {
       "month": "2018-11",
       "county": "Addison",
-      "gallons": 340
+      "gallons": 380
     },
     {
       "month": "2018-11",
@@ -36788,7 +36824,7 @@
     {
       "month": "2018-12",
       "county": "Addison",
-      "gallons": 710
+      "gallons": 735
     },
     {
       "month": "2018-12",
@@ -36848,7 +36884,7 @@
     {
       "month": "2019-01",
       "county": "Addison",
-      "gallons": 460
+      "gallons": 500
     },
     {
       "month": "2019-01",
@@ -36908,7 +36944,7 @@
     {
       "month": "2019-02",
       "county": "Addison",
-      "gallons": 855
+      "gallons": 905
     },
     {
       "month": "2019-02",
@@ -36958,7 +36994,7 @@
     {
       "month": "2019-03",
       "county": "Addison",
-      "gallons": 620
+      "gallons": 640
     },
     {
       "month": "2019-03",
@@ -37003,7 +37039,7 @@
     {
       "month": "2019-04",
       "county": "Addison",
-      "gallons": 955
+      "gallons": 1005
     },
     {
       "month": "2019-04",
@@ -37103,7 +37139,7 @@
     {
       "month": "2019-06",
       "county": "Addison",
-      "gallons": 865
+      "gallons": 925
     },
     {
       "month": "2019-06",
@@ -37148,7 +37184,7 @@
     {
       "month": "2019-07",
       "county": "Addison",
-      "gallons": 705
+      "gallons": 740
     },
     {
       "month": "2019-07",
@@ -37208,7 +37244,7 @@
     {
       "month": "2019-08",
       "county": "Addison",
-      "gallons": 560
+      "gallons": 615
     },
     {
       "month": "2019-08",
@@ -37248,7 +37284,7 @@
     {
       "month": "2019-09",
       "county": "Addison",
-      "gallons": 840
+      "gallons": 875
     },
     {
       "month": "2019-09",
@@ -37303,7 +37339,7 @@
     {
       "month": "2019-10",
       "county": "Addison",
-      "gallons": 750
+      "gallons": 800
     },
     {
       "month": "2019-10",
@@ -37448,7 +37484,7 @@
     {
       "month": "2020-01",
       "county": "Addison",
-      "gallons": 1085
+      "gallons": 1140
     },
     {
       "month": "2020-01",
@@ -37553,7 +37589,7 @@
     {
       "month": "2020-03",
       "county": "Addison",
-      "gallons": 795
+      "gallons": 845
     },
     {
       "month": "2020-03",
@@ -37613,7 +37649,7 @@
     {
       "month": "2020-04",
       "county": "Addison",
-      "gallons": 545
+      "gallons": 575
     },
     {
       "month": "2020-04",
@@ -37698,7 +37734,7 @@
     {
       "month": "2020-06",
       "county": "Addison",
-      "gallons": 630
+      "gallons": 655
     },
     {
       "month": "2020-06",
@@ -37748,7 +37784,7 @@
     {
       "month": "2020-07",
       "county": "Addison",
-      "gallons": 965
+      "gallons": 1005
     },
     {
       "month": "2020-07",
@@ -37803,7 +37839,7 @@
     {
       "month": "2020-08",
       "county": "Addison",
-      "gallons": 620
+      "gallons": 645
     },
     {
       "month": "2020-08",
@@ -37848,7 +37884,7 @@
     {
       "month": "2020-09",
       "county": "Addison",
-      "gallons": 605
+      "gallons": 625
     },
     {
       "month": "2020-09",
@@ -37893,7 +37929,7 @@
     {
       "month": "2020-10",
       "county": "Addison",
-      "gallons": 585
+      "gallons": 640
     },
     {
       "month": "2020-10",
@@ -37998,7 +38034,7 @@
     {
       "month": "2020-12",
       "county": "Addison",
-      "gallons": 610
+      "gallons": 645
     },
     {
       "month": "2020-12",
@@ -38058,7 +38094,7 @@
     {
       "month": "2021-01",
       "county": "Addison",
-      "gallons": 295
+      "gallons": 370
     },
     {
       "month": "2021-01",
@@ -38248,7 +38284,7 @@
     {
       "month": "2021-05",
       "county": "Addison",
-      "gallons": 575
+      "gallons": 625
     },
     {
       "month": "2021-05",
@@ -38353,7 +38389,7 @@
     {
       "month": "2021-07",
       "county": "Addison",
-      "gallons": 695
+      "gallons": 820
     },
     {
       "month": "2021-07",
@@ -38468,7 +38504,7 @@
     {
       "month": "2021-09",
       "county": "Addison",
-      "gallons": 515
+      "gallons": 595
     },
     {
       "month": "2021-09",
@@ -38518,7 +38554,7 @@
     {
       "month": "2021-10",
       "county": "Addison",
-      "gallons": 885
+      "gallons": 935
     },
     {
       "month": "2021-10",
@@ -38623,7 +38659,7 @@
     {
       "month": "2021-12",
       "county": "Addison",
-      "gallons": 415
+      "gallons": 475
     },
     {
       "month": "2021-12",
@@ -38788,7 +38824,7 @@
     {
       "month": "2022-03",
       "county": "Addison",
-      "gallons": 420
+      "gallons": 520
     },
     {
       "month": "2022-03",
@@ -38848,7 +38884,7 @@
     {
       "month": "2022-04",
       "county": "Addison",
-      "gallons": 635
+      "gallons": 660
     },
     {
       "month": "2022-04",
@@ -38903,7 +38939,7 @@
     {
       "month": "2022-05",
       "county": "Addison",
-      "gallons": 360
+      "gallons": 385
     },
     {
       "month": "2022-05",
@@ -38958,7 +38994,7 @@
     {
       "month": "2022-06",
       "county": "Addison",
-      "gallons": 900
+      "gallons": 975
     },
     {
       "month": "2022-06",
@@ -39018,7 +39054,7 @@
     {
       "month": "2022-07",
       "county": "Addison",
-      "gallons": 710
+      "gallons": 810
     },
     {
       "month": "2022-07",
@@ -39083,7 +39119,7 @@
     {
       "month": "2022-08",
       "county": "Addison",
-      "gallons": 1140
+      "gallons": 1215
     },
     {
       "month": "2022-08",
@@ -39138,7 +39174,7 @@
     {
       "month": "2022-09",
       "county": "Addison",
-      "gallons": 944
+      "gallons": 1009
     },
     {
       "month": "2022-09",
@@ -39283,7 +39319,7 @@
     {
       "month": "2022-11",
       "county": "Addison",
-      "gallons": 1166
+      "gallons": 1241
     },
     {
       "month": "2022-11",
@@ -39338,7 +39374,7 @@
     {
       "month": "2022-12",
       "county": "Addison",
-      "gallons": 488
+      "gallons": 508
     },
     {
       "month": "2022-12",
@@ -39403,7 +39439,7 @@
     {
       "month": "2023-01",
       "county": "Addison",
-      "gallons": 309
+      "gallons": 349
     },
     {
       "month": "2023-01",
@@ -39518,7 +39554,7 @@
     {
       "month": "2023-03",
       "county": "Addison",
-      "gallons": 1052
+      "gallons": 1092
     },
     {
       "month": "2023-03",
@@ -39643,7 +39679,7 @@
     {
       "month": "2023-05",
       "county": "Addison",
-      "gallons": 455
+      "gallons": 530
     },
     {
       "month": "2023-05",
@@ -39718,7 +39754,7 @@
     {
       "month": "2023-06",
       "county": "Addison",
-      "gallons": 628
+      "gallons": 648
     },
     {
       "month": "2023-06",
@@ -39843,7 +39879,7 @@
     {
       "month": "2023-08",
       "county": "Addison",
-      "gallons": 1697
+      "gallons": 1787
     },
     {
       "month": "2023-08",
@@ -39913,7 +39949,7 @@
     {
       "month": "2023-09",
       "county": "Addison",
-      "gallons": 445
+      "gallons": 475
     },
     {
       "month": "2023-09",
@@ -40048,7 +40084,7 @@
     {
       "month": "2023-11",
       "county": "Addison",
-      "gallons": 744
+      "gallons": 814
     },
     {
       "month": "2023-11",
@@ -40173,7 +40209,7 @@
     {
       "month": "2024-01",
       "county": "Addison",
-      "gallons": 632
+      "gallons": 702
     },
     {
       "month": "2024-01",
@@ -40328,7 +40364,7 @@
     {
       "month": "2024-03",
       "county": "Addison",
-      "gallons": 494
+      "gallons": 559
     },
     {
       "month": "2024-03",
@@ -40393,7 +40429,7 @@
     {
       "month": "2024-04",
       "county": "Addison",
-      "gallons": 845
+      "gallons": 880
     },
     {
       "month": "2024-04",
@@ -40538,7 +40574,7 @@
     {
       "month": "2024-06",
       "county": "Addison",
-      "gallons": 765
+      "gallons": 805
     },
     {
       "month": "2024-06",
@@ -40618,7 +40654,7 @@
     {
       "month": "2024-07",
       "county": "Addison",
-      "gallons": 3011
+      "gallons": 3081
     },
     {
       "month": "2024-07",
@@ -40678,7 +40714,7 @@
     {
       "month": "2024-08",
       "county": "Addison",
-      "gallons": 1147
+      "gallons": 1172
     },
     {
       "month": "2024-08",
@@ -40748,7 +40784,7 @@
     {
       "month": "2024-09",
       "county": "Addison",
-      "gallons": 680
+      "gallons": 710
     },
     {
       "month": "2024-09",
@@ -40823,7 +40859,7 @@
     {
       "month": "2024-10",
       "county": "Addison",
-      "gallons": 550
+      "gallons": 570
     },
     {
       "month": "2024-10",
@@ -40898,7 +40934,7 @@
     {
       "month": "2024-11",
       "county": "Addison",
-      "gallons": 527
+      "gallons": 607
     },
     {
       "month": "2024-11",
@@ -40973,7 +41009,7 @@
     {
       "month": "2024-12",
       "county": "Addison",
-      "gallons": 780
+      "gallons": 815
     },
     {
       "month": "2024-12",
@@ -41053,7 +41089,7 @@
     {
       "month": "2025-01",
       "county": "Addison",
-      "gallons": 713
+      "gallons": 753
     },
     {
       "month": "2025-01",
@@ -41168,7 +41204,7 @@
     {
       "month": "2025-03",
       "county": "Addison",
-      "gallons": 495
+      "gallons": 520
     },
     {
       "month": "2025-03",
@@ -41238,7 +41274,7 @@
     {
       "month": "2025-04",
       "county": "Addison",
-      "gallons": 3462
+      "gallons": 3492
     },
     {
       "month": "2025-04",
@@ -41313,7 +41349,7 @@
     {
       "month": "2025-05",
       "county": "Addison",
-      "gallons": 1626
+      "gallons": 1766
     },
     {
       "month": "2025-05",
@@ -41368,7 +41404,7 @@
     {
       "month": "2025-06",
       "county": "Addison",
-      "gallons": 1030
+      "gallons": 1100
     },
     {
       "month": "2025-06",
@@ -41443,7 +41479,7 @@
     {
       "month": "2025-07",
       "county": "Addison",
-      "gallons": 608
+      "gallons": 653
     },
     {
       "month": "2025-07",
@@ -41518,7 +41554,7 @@
     {
       "month": "2025-08",
       "county": "Addison",
-      "gallons": 1086
+      "gallons": 1131
     },
     {
       "month": "2025-08",
@@ -41588,7 +41624,7 @@
     {
       "month": "2025-09",
       "county": "Addison",
-      "gallons": 866
+      "gallons": 1061
     },
     {
       "month": "2025-09",
@@ -41663,7 +41699,7 @@
     {
       "month": "2025-10",
       "county": "Addison",
-      "gallons": 766
+      "gallons": 846
     },
     {
       "month": "2025-10",
@@ -41738,7 +41774,7 @@
     {
       "month": "2025-11",
       "county": "Addison",
-      "gallons": 595
+      "gallons": 695
     },
     {
       "month": "2025-11",
@@ -41798,7 +41834,7 @@
     {
       "month": "2025-12",
       "county": "Addison",
-      "gallons": 588
+      "gallons": 598
     },
     {
       "month": "2025-12",
@@ -41863,7 +41899,7 @@
     {
       "month": "2026-01",
       "county": "Addison",
-      "gallons": 622
+      "gallons": 672
     },
     {
       "month": "2026-01",
@@ -41933,7 +41969,7 @@
     {
       "month": "2026-02",
       "county": "Addison",
-      "gallons": 655
+      "gallons": 675
     },
     {
       "month": "2026-02",
@@ -42073,7 +42109,7 @@
     {
       "month": "2026-04",
       "county": "Addison",
-      "gallons": 1415
+      "gallons": 1580
     },
     {
       "month": "2026-04",
@@ -42148,7 +42184,7 @@
     {
       "month": "2026-05",
       "county": "Addison",
-      "gallons": 780
+      "gallons": 835
     },
     {
       "month": "2026-05",
@@ -42218,7 +42254,7 @@
     {
       "month": "2026-06",
       "county": "Addison",
-      "gallons": 485
+      "gallons": 560
     },
     {
       "month": "2026-06",
@@ -42278,7 +42314,7 @@
     {
       "month": "2026-07",
       "county": "Addison",
-      "gallons": 1415
+      "gallons": 1515
     },
     {
       "month": "2026-07",
@@ -42353,7 +42389,7 @@
     {
       "month": "2026-08",
       "county": "Addison",
-      "gallons": 670
+      "gallons": 760
     },
     {
       "month": "2026-08",
@@ -42418,7 +42454,7 @@
     {
       "month": "2026-09",
       "county": "Addison",
-      "gallons": 854
+      "gallons": 904
     },
     {
       "month": "2026-09",
@@ -42553,12 +42589,17 @@
     {
       "month": "2026-11",
       "county": "Addison",
-      "gallons": 656
+      "gallons": 766
     },
     {
       "month": "2026-11",
       "county": "Bennington",
       "gallons": 440
+    },
+    {
+      "month": "2026-11",
+      "county": "Caledonia",
+      "gallons": 310
     },
     {
       "month": "2026-11",
@@ -42578,7 +42619,7 @@
     {
       "month": "2026-11",
       "county": "Lamoille",
-      "gallons": 2480
+      "gallons": 3150
     },
     {
       "month": "2026-11",
@@ -42631,44 +42672,44 @@
     },
     {
       "year": 2018,
-      "gallons": 161043
+      "gallons": 161333
     },
     {
       "year": 2019,
-      "gallons": 175637
+      "gallons": 176032
     },
     {
       "year": 2020,
-      "gallons": 146226
+      "gallons": 146561
     },
     {
       "year": 2021,
-      "gallons": 167465
+      "gallons": 167905
     },
     {
       "year": 2022,
-      "gallons": 225829
+      "gallons": 226389
     },
     {
       "year": 2023,
-      "gallons": 243997
+      "gallons": 244362
     },
     {
       "year": 2024,
-      "gallons": 262724
+      "gallons": 263194
     },
     {
       "year": 2025,
-      "gallons": 269038
+      "gallons": 269818
     },
     {
       "year": 2026,
-      "gallons": 262917
+      "gallons": 264612
     }
   ],
-  "all_time_total": 2177895,
-  "current_year_total": 262917,
-  "customer_count": 808,
+  "all_time_total": 2183225,
+  "current_year_total": 264612,
+  "customer_count": 809,
   "unmapped_total": 40915,
   "monthly_totals": [
     {
@@ -42825,11 +42866,11 @@
     },
     {
       "month": "2018-03",
-      "gallons": 13685
+      "gallons": 13755
     },
     {
       "month": "2018-04",
-      "gallons": 15106
+      "gallons": 15131
     },
     {
       "month": "2018-05",
@@ -42841,43 +42882,43 @@
     },
     {
       "month": "2018-07",
-      "gallons": 17499
+      "gallons": 17534
     },
     {
       "month": "2018-08",
-      "gallons": 13364
+      "gallons": 13384
     },
     {
       "month": "2018-09",
-      "gallons": 12735
+      "gallons": 12785
     },
     {
       "month": "2018-10",
-      "gallons": 16291
+      "gallons": 16316
     },
     {
       "month": "2018-11",
-      "gallons": 12120
+      "gallons": 12160
     },
     {
       "month": "2018-12",
-      "gallons": 12958
+      "gallons": 12983
     },
     {
       "month": "2019-01",
-      "gallons": 11649
+      "gallons": 11689
     },
     {
       "month": "2019-02",
-      "gallons": 14514
+      "gallons": 14564
     },
     {
       "month": "2019-03",
-      "gallons": 15270
+      "gallons": 15290
     },
     {
       "month": "2019-04",
-      "gallons": 14710
+      "gallons": 14760
     },
     {
       "month": "2019-05",
@@ -42885,23 +42926,23 @@
     },
     {
       "month": "2019-06",
-      "gallons": 14940
+      "gallons": 15000
     },
     {
       "month": "2019-07",
-      "gallons": 16570
+      "gallons": 16605
     },
     {
       "month": "2019-08",
-      "gallons": 12202
+      "gallons": 12257
     },
     {
       "month": "2019-09",
-      "gallons": 13770
+      "gallons": 13805
     },
     {
       "month": "2019-10",
-      "gallons": 17075
+      "gallons": 17125
     },
     {
       "month": "2019-11",
@@ -42913,7 +42954,7 @@
     },
     {
       "month": "2020-01",
-      "gallons": 13651
+      "gallons": 13706
     },
     {
       "month": "2020-02",
@@ -42921,11 +42962,11 @@
     },
     {
       "month": "2020-03",
-      "gallons": 14295
+      "gallons": 14345
     },
     {
       "month": "2020-04",
-      "gallons": 15496
+      "gallons": 15526
     },
     {
       "month": "2020-05",
@@ -42933,23 +42974,23 @@
     },
     {
       "month": "2020-06",
-      "gallons": 11780
+      "gallons": 11805
     },
     {
       "month": "2020-07",
-      "gallons": 12135
+      "gallons": 12175
     },
     {
       "month": "2020-08",
-      "gallons": 9815
+      "gallons": 9840
     },
     {
       "month": "2020-09",
-      "gallons": 11993
+      "gallons": 12013
     },
     {
       "month": "2020-10",
-      "gallons": 12615
+      "gallons": 12670
     },
     {
       "month": "2020-11",
@@ -42957,11 +42998,11 @@
     },
     {
       "month": "2020-12",
-      "gallons": 13980
+      "gallons": 14015
     },
     {
       "month": "2021-01",
-      "gallons": 11485
+      "gallons": 11560
     },
     {
       "month": "2021-02",
@@ -42977,7 +43018,7 @@
     },
     {
       "month": "2021-05",
-      "gallons": 13860
+      "gallons": 13910
     },
     {
       "month": "2021-06",
@@ -42985,7 +43026,7 @@
     },
     {
       "month": "2021-07",
-      "gallons": 15152
+      "gallons": 15277
     },
     {
       "month": "2021-08",
@@ -42993,11 +43034,11 @@
     },
     {
       "month": "2021-09",
-      "gallons": 13498
+      "gallons": 13578
     },
     {
       "month": "2021-10",
-      "gallons": 15138
+      "gallons": 15188
     },
     {
       "month": "2021-11",
@@ -43005,7 +43046,7 @@
     },
     {
       "month": "2021-12",
-      "gallons": 17887
+      "gallons": 17947
     },
     {
       "month": "2022-01",
@@ -43017,31 +43058,31 @@
     },
     {
       "month": "2022-03",
-      "gallons": 22646
+      "gallons": 22746
     },
     {
       "month": "2022-04",
-      "gallons": 21025
+      "gallons": 21050
     },
     {
       "month": "2022-05",
-      "gallons": 17665
+      "gallons": 17690
     },
     {
       "month": "2022-06",
-      "gallons": 18770
+      "gallons": 18845
     },
     {
       "month": "2022-07",
-      "gallons": 18067
+      "gallons": 18167
     },
     {
       "month": "2022-08",
-      "gallons": 23184
+      "gallons": 23259
     },
     {
       "month": "2022-09",
-      "gallons": 23696
+      "gallons": 23761
     },
     {
       "month": "2022-10",
@@ -43049,15 +43090,15 @@
     },
     {
       "month": "2022-11",
-      "gallons": 20724
+      "gallons": 20799
     },
     {
       "month": "2022-12",
-      "gallons": 16556
+      "gallons": 16576
     },
     {
       "month": "2023-01",
-      "gallons": 16320
+      "gallons": 16360
     },
     {
       "month": "2023-02",
@@ -43065,7 +43106,7 @@
     },
     {
       "month": "2023-03",
-      "gallons": 20446
+      "gallons": 20486
     },
     {
       "month": "2023-04",
@@ -43073,11 +43114,11 @@
     },
     {
       "month": "2023-05",
-      "gallons": 21907
+      "gallons": 21982
     },
     {
       "month": "2023-06",
-      "gallons": 24940
+      "gallons": 24960
     },
     {
       "month": "2023-07",
@@ -43085,11 +43126,11 @@
     },
     {
       "month": "2023-08",
-      "gallons": 24411
+      "gallons": 24501
     },
     {
       "month": "2023-09",
-      "gallons": 17527
+      "gallons": 17557
     },
     {
       "month": "2023-10",
@@ -43097,7 +43138,7 @@
     },
     {
       "month": "2023-11",
-      "gallons": 18228
+      "gallons": 18298
     },
     {
       "month": "2023-12",
@@ -43105,7 +43146,7 @@
     },
     {
       "month": "2024-01",
-      "gallons": 19912
+      "gallons": 19982
     },
     {
       "month": "2024-02",
@@ -43113,11 +43154,11 @@
     },
     {
       "month": "2024-03",
-      "gallons": 20486
+      "gallons": 20551
     },
     {
       "month": "2024-04",
-      "gallons": 25948
+      "gallons": 25983
     },
     {
       "month": "2024-05",
@@ -43125,35 +43166,35 @@
     },
     {
       "month": "2024-06",
-      "gallons": 22250
+      "gallons": 22290
     },
     {
       "month": "2024-07",
-      "gallons": 24153
+      "gallons": 24223
     },
     {
       "month": "2024-08",
-      "gallons": 21650
+      "gallons": 21675
     },
     {
       "month": "2024-09",
-      "gallons": 23815
+      "gallons": 23845
     },
     {
       "month": "2024-10",
-      "gallons": 22573
+      "gallons": 22593
     },
     {
       "month": "2024-11",
-      "gallons": 20180
+      "gallons": 20260
     },
     {
       "month": "2024-12",
-      "gallons": 20324
+      "gallons": 20359
     },
     {
       "month": "2025-01",
-      "gallons": 19100
+      "gallons": 19140
     },
     {
       "month": "2025-02",
@@ -43161,51 +43202,51 @@
     },
     {
       "month": "2025-03",
-      "gallons": 26936
+      "gallons": 26961
     },
     {
       "month": "2025-04",
-      "gallons": 27101
+      "gallons": 27131
     },
     {
       "month": "2025-05",
-      "gallons": 20604
+      "gallons": 20744
     },
     {
       "month": "2025-06",
-      "gallons": 23363
+      "gallons": 23433
     },
     {
       "month": "2025-07",
-      "gallons": 22627
+      "gallons": 22672
     },
     {
       "month": "2025-08",
-      "gallons": 25067
+      "gallons": 25112
     },
     {
       "month": "2025-09",
-      "gallons": 25296
+      "gallons": 25491
     },
     {
       "month": "2025-10",
-      "gallons": 21853
+      "gallons": 21933
     },
     {
       "month": "2025-11",
-      "gallons": 20086
+      "gallons": 20186
     },
     {
       "month": "2025-12",
-      "gallons": 18865
+      "gallons": 18875
     },
     {
       "month": "2026-01",
-      "gallons": 21998
+      "gallons": 22048
     },
     {
       "month": "2026-02",
-      "gallons": 20675
+      "gallons": 20695
     },
     {
       "month": "2026-03",
@@ -43213,27 +43254,27 @@
     },
     {
       "month": "2026-04",
-      "gallons": 27658
+      "gallons": 27823
     },
     {
       "month": "2026-05",
-      "gallons": 20262
+      "gallons": 20317
     },
     {
       "month": "2026-06",
-      "gallons": 34072
+      "gallons": 34147
     },
     {
       "month": "2026-07",
-      "gallons": 28800
+      "gallons": 28900
     },
     {
       "month": "2026-08",
-      "gallons": 21319
+      "gallons": 21409
     },
     {
       "month": "2026-09",
-      "gallons": 23667
+      "gallons": 23717
     },
     {
       "month": "2026-10",
@@ -43241,7 +43282,7 @@
     },
     {
       "month": "2026-11",
-      "gallons": 15596
+      "gallons": 16686
     }
   ],
   "monthly_by_region": [
@@ -45808,7 +45849,7 @@
     {
       "month": "2018-03",
       "region": "Route 7",
-      "gallons": 1230
+      "gallons": 1300
     },
     {
       "month": "2018-03",
@@ -45888,7 +45929,7 @@
     {
       "month": "2018-04",
       "region": "Route 7",
-      "gallons": 725
+      "gallons": 750
     },
     {
       "month": "2018-04",
@@ -46133,7 +46174,7 @@
     {
       "month": "2018-07",
       "region": "Route 7",
-      "gallons": 510
+      "gallons": 545
     },
     {
       "month": "2018-07",
@@ -46213,7 +46254,7 @@
     {
       "month": "2018-08",
       "region": "Route 7",
-      "gallons": 585
+      "gallons": 605
     },
     {
       "month": "2018-08",
@@ -46283,7 +46324,7 @@
     {
       "month": "2018-09",
       "region": "Route 7",
-      "gallons": 1150
+      "gallons": 1200
     },
     {
       "month": "2018-09",
@@ -46373,7 +46414,7 @@
     {
       "month": "2018-10",
       "region": "Route 7",
-      "gallons": 2440
+      "gallons": 2465
     },
     {
       "month": "2018-10",
@@ -46458,7 +46499,7 @@
     {
       "month": "2018-11",
       "region": "Route 7",
-      "gallons": 775
+      "gallons": 815
     },
     {
       "month": "2018-11",
@@ -46538,7 +46579,7 @@
     {
       "month": "2018-12",
       "region": "Route 7",
-      "gallons": 955
+      "gallons": 980
     },
     {
       "month": "2018-12",
@@ -46628,7 +46669,7 @@
     {
       "month": "2019-01",
       "region": "Route 7",
-      "gallons": 635
+      "gallons": 675
     },
     {
       "month": "2019-01",
@@ -46718,7 +46759,7 @@
     {
       "month": "2019-02",
       "region": "Route 7",
-      "gallons": 980
+      "gallons": 1030
     },
     {
       "month": "2019-02",
@@ -46793,7 +46834,7 @@
     {
       "month": "2019-03",
       "region": "Route 7",
-      "gallons": 670
+      "gallons": 690
     },
     {
       "month": "2019-03",
@@ -46883,7 +46924,7 @@
     {
       "month": "2019-04",
       "region": "Route 7",
-      "gallons": 1545
+      "gallons": 1595
     },
     {
       "month": "2019-04",
@@ -47048,7 +47089,7 @@
     {
       "month": "2019-06",
       "region": "Route 7",
-      "gallons": 1200
+      "gallons": 1260
     },
     {
       "month": "2019-06",
@@ -47133,7 +47174,7 @@
     {
       "month": "2019-07",
       "region": "Route 7",
-      "gallons": 960
+      "gallons": 995
     },
     {
       "month": "2019-07",
@@ -47218,7 +47259,7 @@
     {
       "month": "2019-08",
       "region": "Route 7",
-      "gallons": 560
+      "gallons": 615
     },
     {
       "month": "2019-08",
@@ -47303,7 +47344,7 @@
     {
       "month": "2019-09",
       "region": "Route 7",
-      "gallons": 1150
+      "gallons": 1185
     },
     {
       "month": "2019-09",
@@ -47393,7 +47434,7 @@
     {
       "month": "2019-10",
       "region": "Route 7",
-      "gallons": 750
+      "gallons": 800
     },
     {
       "month": "2019-10",
@@ -47628,7 +47669,7 @@
     {
       "month": "2020-01",
       "region": "Route 7",
-      "gallons": 1320
+      "gallons": 1375
     },
     {
       "month": "2020-01",
@@ -47793,7 +47834,7 @@
     {
       "month": "2020-03",
       "region": "Route 7",
-      "gallons": 895
+      "gallons": 945
     },
     {
       "month": "2020-03",
@@ -47878,7 +47919,7 @@
     {
       "month": "2020-04",
       "region": "Route 7",
-      "gallons": 1165
+      "gallons": 1195
     },
     {
       "month": "2020-04",
@@ -48003,7 +48044,7 @@
     {
       "month": "2020-06",
       "region": "Route 7",
-      "gallons": 830
+      "gallons": 855
     },
     {
       "month": "2020-06",
@@ -48088,7 +48129,7 @@
     {
       "month": "2020-07",
       "region": "Route 7",
-      "gallons": 1215
+      "gallons": 1255
     },
     {
       "month": "2020-07",
@@ -48168,7 +48209,7 @@
     {
       "month": "2020-08",
       "region": "Route 7",
-      "gallons": 745
+      "gallons": 770
     },
     {
       "month": "2020-08",
@@ -48238,7 +48279,7 @@
     {
       "month": "2020-09",
       "region": "Route 7",
-      "gallons": 880
+      "gallons": 900
     },
     {
       "month": "2020-09",
@@ -48318,7 +48359,7 @@
     {
       "month": "2020-10",
       "region": "Route 7",
-      "gallons": 800
+      "gallons": 855
     },
     {
       "month": "2020-10",
@@ -48488,7 +48529,7 @@
     {
       "month": "2020-12",
       "region": "Route 7",
-      "gallons": 1050
+      "gallons": 1085
     },
     {
       "month": "2020-12",
@@ -48578,7 +48619,7 @@
     {
       "month": "2021-01",
       "region": "Route 7",
-      "gallons": 370
+      "gallons": 445
     },
     {
       "month": "2021-01",
@@ -48898,7 +48939,7 @@
     {
       "month": "2021-05",
       "region": "Route 7",
-      "gallons": 900
+      "gallons": 950
     },
     {
       "month": "2021-05",
@@ -49063,7 +49104,7 @@
     {
       "month": "2021-07",
       "region": "Route 7",
-      "gallons": 795
+      "gallons": 920
     },
     {
       "month": "2021-07",
@@ -49228,7 +49269,7 @@
     {
       "month": "2021-09",
       "region": "Route 7",
-      "gallons": 700
+      "gallons": 780
     },
     {
       "month": "2021-09",
@@ -49313,7 +49354,7 @@
     {
       "month": "2021-10",
       "region": "Route 7",
-      "gallons": 1075
+      "gallons": 1125
     },
     {
       "month": "2021-10",
@@ -49483,7 +49524,7 @@
     {
       "month": "2021-12",
       "region": "Route 7",
-      "gallons": 790
+      "gallons": 850
     },
     {
       "month": "2021-12",
@@ -49728,7 +49769,7 @@
     {
       "month": "2022-03",
       "region": "Route 7",
-      "gallons": 737
+      "gallons": 837
     },
     {
       "month": "2022-03",
@@ -49813,7 +49854,7 @@
     {
       "month": "2022-04",
       "region": "Route 7",
-      "gallons": 765
+      "gallons": 790
     },
     {
       "month": "2022-04",
@@ -49903,7 +49944,7 @@
     {
       "month": "2022-05",
       "region": "Route 7",
-      "gallons": 440
+      "gallons": 465
     },
     {
       "month": "2022-05",
@@ -49993,7 +50034,7 @@
     {
       "month": "2022-06",
       "region": "Route 7",
-      "gallons": 1190
+      "gallons": 1265
     },
     {
       "month": "2022-06",
@@ -50083,7 +50124,7 @@
     {
       "month": "2022-07",
       "region": "Route 7",
-      "gallons": 1100
+      "gallons": 1200
     },
     {
       "month": "2022-07",
@@ -50168,7 +50209,7 @@
     {
       "month": "2022-08",
       "region": "Route 7",
-      "gallons": 1220
+      "gallons": 1295
     },
     {
       "month": "2022-08",
@@ -50238,7 +50279,7 @@
     {
       "month": "2022-09",
       "region": "Route 7",
-      "gallons": 1535
+      "gallons": 1600
     },
     {
       "month": "2022-09",
@@ -50408,7 +50449,7 @@
     {
       "month": "2022-11",
       "region": "Route 7",
-      "gallons": 1573
+      "gallons": 1648
     },
     {
       "month": "2022-11",
@@ -50493,7 +50534,7 @@
     {
       "month": "2022-12",
       "region": "Route 7",
-      "gallons": 847
+      "gallons": 867
     },
     {
       "month": "2022-12",
@@ -50578,7 +50619,7 @@
     {
       "month": "2023-01",
       "region": "Route 7",
-      "gallons": 904
+      "gallons": 944
     },
     {
       "month": "2023-01",
@@ -50723,7 +50764,7 @@
     {
       "month": "2023-03",
       "region": "Route 7",
-      "gallons": 1917
+      "gallons": 1957
     },
     {
       "month": "2023-03",
@@ -50893,7 +50934,7 @@
     {
       "month": "2023-05",
       "region": "Route 7",
-      "gallons": 1220
+      "gallons": 1295
     },
     {
       "month": "2023-05",
@@ -50983,7 +51024,7 @@
     {
       "month": "2023-06",
       "region": "Route 7",
-      "gallons": 1085
+      "gallons": 1105
     },
     {
       "month": "2023-06",
@@ -51158,7 +51199,7 @@
     {
       "month": "2023-08",
       "region": "Route 7",
-      "gallons": 2173
+      "gallons": 2263
     },
     {
       "month": "2023-08",
@@ -51243,7 +51284,7 @@
     {
       "month": "2023-09",
       "region": "Route 7",
-      "gallons": 761
+      "gallons": 791
     },
     {
       "month": "2023-09",
@@ -51418,7 +51459,7 @@
     {
       "month": "2023-11",
       "region": "Route 7",
-      "gallons": 1218
+      "gallons": 1288
     },
     {
       "month": "2023-11",
@@ -51583,7 +51624,7 @@
     {
       "month": "2024-01",
       "region": "Route 7",
-      "gallons": 1031
+      "gallons": 1101
     },
     {
       "month": "2024-01",
@@ -51753,7 +51794,7 @@
     {
       "month": "2024-03",
       "region": "Route 7",
-      "gallons": 914
+      "gallons": 979
     },
     {
       "month": "2024-03",
@@ -51843,7 +51884,7 @@
     {
       "month": "2024-04",
       "region": "Route 7",
-      "gallons": 1155
+      "gallons": 1190
     },
     {
       "month": "2024-04",
@@ -52018,7 +52059,7 @@
     {
       "month": "2024-06",
       "region": "Route 7",
-      "gallons": 960
+      "gallons": 1000
     },
     {
       "month": "2024-06",
@@ -52108,7 +52149,7 @@
     {
       "month": "2024-07",
       "region": "Route 7",
-      "gallons": 3780
+      "gallons": 3850
     },
     {
       "month": "2024-07",
@@ -52188,7 +52229,7 @@
     {
       "month": "2024-08",
       "region": "Route 7",
-      "gallons": 1267
+      "gallons": 1292
     },
     {
       "month": "2024-08",
@@ -52268,7 +52309,7 @@
     {
       "month": "2024-09",
       "region": "Route 7",
-      "gallons": 815
+      "gallons": 845
     },
     {
       "month": "2024-09",
@@ -52358,7 +52399,7 @@
     {
       "month": "2024-10",
       "region": "Route 7",
-      "gallons": 846
+      "gallons": 866
     },
     {
       "month": "2024-10",
@@ -52448,7 +52489,7 @@
     {
       "month": "2024-11",
       "region": "Route 7",
-      "gallons": 620
+      "gallons": 700
     },
     {
       "month": "2024-11",
@@ -52533,7 +52574,7 @@
     {
       "month": "2024-12",
       "region": "Route 7",
-      "gallons": 1047
+      "gallons": 1082
     },
     {
       "month": "2024-12",
@@ -52613,7 +52654,7 @@
     {
       "month": "2025-01",
       "region": "Route 7",
-      "gallons": 1095
+      "gallons": 1135
     },
     {
       "month": "2025-01",
@@ -52778,7 +52819,7 @@
     {
       "month": "2025-03",
       "region": "Route 7",
-      "gallons": 625
+      "gallons": 650
     },
     {
       "month": "2025-03",
@@ -52868,7 +52909,7 @@
     {
       "month": "2025-04",
       "region": "Route 7",
-      "gallons": 3732
+      "gallons": 3762
     },
     {
       "month": "2025-04",
@@ -52953,7 +52994,7 @@
     {
       "month": "2025-05",
       "region": "Route 7",
-      "gallons": 1968
+      "gallons": 2108
     },
     {
       "month": "2025-05",
@@ -53043,7 +53084,7 @@
     {
       "month": "2025-06",
       "region": "Route 7",
-      "gallons": 1360
+      "gallons": 1430
     },
     {
       "month": "2025-06",
@@ -53128,7 +53169,7 @@
     {
       "month": "2025-07",
       "region": "Route 7",
-      "gallons": 783
+      "gallons": 828
     },
     {
       "month": "2025-07",
@@ -53213,7 +53254,7 @@
     {
       "month": "2025-08",
       "region": "Route 7",
-      "gallons": 1443
+      "gallons": 1488
     },
     {
       "month": "2025-08",
@@ -53303,7 +53344,7 @@
     {
       "month": "2025-09",
       "region": "Route 7",
-      "gallons": 1185
+      "gallons": 1380
     },
     {
       "month": "2025-09",
@@ -53388,7 +53429,7 @@
     {
       "month": "2025-10",
       "region": "Route 7",
-      "gallons": 1016
+      "gallons": 1096
     },
     {
       "month": "2025-10",
@@ -53478,7 +53519,7 @@
     {
       "month": "2025-11",
       "region": "Route 7",
-      "gallons": 720
+      "gallons": 820
     },
     {
       "month": "2025-11",
@@ -53548,7 +53589,7 @@
     {
       "month": "2025-12",
       "region": "Route 7",
-      "gallons": 938
+      "gallons": 948
     },
     {
       "month": "2025-12",
@@ -53633,7 +53674,7 @@
     {
       "month": "2026-01",
       "region": "Route 7",
-      "gallons": 802
+      "gallons": 852
     },
     {
       "month": "2026-01",
@@ -53718,7 +53759,7 @@
     {
       "month": "2026-02",
       "region": "Route 7",
-      "gallons": 999
+      "gallons": 1019
     },
     {
       "month": "2026-02",
@@ -53893,7 +53934,7 @@
     {
       "month": "2026-04",
       "region": "Route 7",
-      "gallons": 1780
+      "gallons": 1945
     },
     {
       "month": "2026-04",
@@ -53978,7 +54019,7 @@
     {
       "month": "2026-05",
       "region": "Route 7",
-      "gallons": 1100
+      "gallons": 1155
     },
     {
       "month": "2026-05",
@@ -54068,7 +54109,7 @@
     {
       "month": "2026-06",
       "region": "Route 7",
-      "gallons": 515
+      "gallons": 590
     },
     {
       "month": "2026-06",
@@ -54158,7 +54199,7 @@
     {
       "month": "2026-07",
       "region": "Route 7",
-      "gallons": 2025
+      "gallons": 2125
     },
     {
       "month": "2026-07",
@@ -54243,7 +54284,7 @@
     {
       "month": "2026-08",
       "region": "Route 7",
-      "gallons": 888
+      "gallons": 978
     },
     {
       "month": "2026-08",
@@ -54323,7 +54364,7 @@
     {
       "month": "2026-09",
       "region": "Route 7",
-      "gallons": 854
+      "gallons": 904
     },
     {
       "month": "2026-09",
@@ -54487,13 +54528,18 @@
     },
     {
       "month": "2026-11",
+      "region": "Route 15",
+      "gallons": 980
+    },
+    {
+      "month": "2026-11",
       "region": "Route 2 East / Route 5",
       "gallons": 170
     },
     {
       "month": "2026-11",
       "region": "Route 7",
-      "gallons": 871
+      "gallons": 981
     },
     {
       "month": "2026-11",
@@ -54835,7 +54881,7 @@
     {
       "year": 2018,
       "region": "Route 7",
-      "gallons": 10915
+      "gallons": 11205
     },
     {
       "year": 2018,
@@ -54925,7 +54971,7 @@
     {
       "year": 2019,
       "region": "Route 7",
-      "gallons": 10135
+      "gallons": 10530
     },
     {
       "year": 2019,
@@ -55015,7 +55061,7 @@
     {
       "year": 2020,
       "region": "Route 7",
-      "gallons": 9340
+      "gallons": 9675
     },
     {
       "year": 2020,
@@ -55110,7 +55156,7 @@
     {
       "year": 2021,
       "region": "Route 7",
-      "gallons": 6830
+      "gallons": 7270
     },
     {
       "year": 2021,
@@ -55200,7 +55246,7 @@
     {
       "year": 2022,
       "region": "Route 7",
-      "gallons": 10607
+      "gallons": 11167
     },
     {
       "year": 2022,
@@ -55290,7 +55336,7 @@
     {
       "year": 2023,
       "region": "Route 7",
-      "gallons": 13765
+      "gallons": 14130
     },
     {
       "year": 2023,
@@ -55380,7 +55426,7 @@
     {
       "year": 2024,
       "region": "Route 7",
-      "gallons": 14145
+      "gallons": 14615
     },
     {
       "year": 2024,
@@ -55475,7 +55521,7 @@
     {
       "year": 2025,
       "region": "Route 7",
-      "gallons": 14865
+      "gallons": 15645
     },
     {
       "year": 2025,
@@ -55555,7 +55601,7 @@
     {
       "year": 2026,
       "region": "Route 15",
-      "gallons": 11708
+      "gallons": 12688
     },
     {
       "year": 2026,
@@ -55565,7 +55611,7 @@
     {
       "year": 2026,
       "region": "Route 7",
-      "gallons": 11378
+      "gallons": 12093
     },
     {
       "year": 2026,
@@ -55617,9 +55663,9 @@
     "Northwest",
     "North-Northeast",
     "Central South",
-    "Route 2 East / Route 5",
     "Route 15",
     "Route 7",
+    "Route 2 East / Route 5",
     "Warren / Waitsfield",
     "Southern Ski Slopes",
     "South",
@@ -55654,20 +55700,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 28022,
+  "collections_count": 28123,
   "out_of_state_total": 40915,
-  "active_customer_count": 533,
+  "active_customer_count": 534,
   "projection": {
-    "latest_data_date": "2026-11-20",
+    "latest_data_date": "2026-11-23",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 262917,
-    "previous_year_full": 269038,
-    "previous_through_prior_month": 230087,
-    "previous_same_month_total": 20086,
-    "previous_prorated_ytd": 243477.67,
-    "projected_current_year": 290518,
-    "percent_vs_previous_year": 0.07984
+    "current_ytd": 264612,
+    "previous_year_full": 269818,
+    "previous_through_prior_month": 230757,
+    "previous_same_month_total": 20186,
+    "previous_prorated_ytd": 246232.93,
+    "projected_current_year": 289957,
+    "percent_vs_previous_year": 0.074641
   },
   "region_stats": {
     "Burlington / South Burlington": {
@@ -55711,8 +55757,8 @@
       "active": 40
     },
     "Route 7": {
-      "customers": 59,
-      "active": 42
+      "customers": 60,
+      "active": 43
     },
     "Ski Slopes": {
       "customers": 20,
@@ -55771,63 +55817,63 @@
     },
     {
       "year": 2018,
-      "places_serviced": 287,
-      "gained": 99,
+      "places_serviced": 288,
+      "gained": 100,
       "lost": 35,
-      "net": 64
+      "net": 65
     },
     {
       "year": 2019,
-      "places_serviced": 298,
+      "places_serviced": 299,
       "gained": 56,
       "lost": 32,
       "net": 24
     },
     {
       "year": 2020,
-      "places_serviced": 291,
+      "places_serviced": 292,
       "gained": 42,
       "lost": 32,
       "net": 10
     },
     {
       "year": 2021,
-      "places_serviced": 329,
+      "places_serviced": 330,
       "gained": 55,
       "lost": 28,
       "net": 27
     },
     {
       "year": 2022,
-      "places_serviced": 396,
+      "places_serviced": 397,
       "gained": 85,
       "lost": 25,
       "net": 60
     },
     {
       "year": 2023,
-      "places_serviced": 430,
+      "places_serviced": 431,
       "gained": 56,
       "lost": 43,
       "net": 13
     },
     {
       "year": 2024,
-      "places_serviced": 447,
+      "places_serviced": 448,
       "gained": 59,
       "lost": 39,
       "net": 20
     },
     {
       "year": 2025,
-      "places_serviced": 472,
+      "places_serviced": 473,
       "gained": 60,
       "lost": 17,
       "net": 43
     },
     {
       "year": 2026,
-      "places_serviced": 481,
+      "places_serviced": 482,
       "gained": 48,
       "lost": 9,
       "net": 39
@@ -56467,6 +56513,7 @@
       702,
       703,
       704,
+      705,
       706,
       707,
       708,
@@ -56882,7 +56929,7 @@
     {
       "year": 2018,
       "active_jan1": 211,
-      "gained_new": 99,
+      "gained_new": 100,
       "gained_successor": 2,
       "lost": 0,
       "closed": 0,
@@ -56890,7 +56937,7 @@
       "moved": 0,
       "unknown": 35,
       "moved_followed": 0,
-      "gained": 101,
+      "gained": 102,
       "ended": 36,
       "churn": 0.0,
       "churn_high": 0.1659,
@@ -56899,7 +56946,7 @@
     },
     {
       "year": 2019,
-      "active_jan1": 276,
+      "active_jan1": 277,
       "gained_new": 56,
       "gained_successor": 0,
       "lost": 0,
@@ -56911,13 +56958,13 @@
       "gained": 56,
       "ended": 32,
       "churn": 0.0,
-      "churn_high": 0.1159,
+      "churn_high": 0.1155,
       "history_start": false,
       "partial": false
     },
     {
       "year": 2020,
-      "active_jan1": 300,
+      "active_jan1": 301,
       "gained_new": 41,
       "gained_successor": 0,
       "lost": 0,
@@ -56929,13 +56976,13 @@
       "gained": 41,
       "ended": 31,
       "churn": 0.0,
-      "churn_high": 0.1033,
+      "churn_high": 0.103,
       "history_start": false,
       "partial": false
     },
     {
       "year": 2021,
-      "active_jan1": 310,
+      "active_jan1": 311,
       "gained_new": 54,
       "gained_successor": 0,
       "lost": 0,
@@ -56947,13 +56994,13 @@
       "gained": 54,
       "ended": 27,
       "churn": 0.0,
-      "churn_high": 0.0774,
+      "churn_high": 0.0772,
       "history_start": false,
       "partial": false
     },
     {
       "year": 2022,
-      "active_jan1": 337,
+      "active_jan1": 338,
       "gained_new": 84,
       "gained_successor": 0,
       "lost": 0,
@@ -56965,13 +57012,13 @@
       "gained": 84,
       "ended": 29,
       "churn": 0.0,
-      "churn_high": 0.0742,
+      "churn_high": 0.074,
       "history_start": false,
       "partial": false
     },
     {
       "year": 2023,
-      "active_jan1": 392,
+      "active_jan1": 393,
       "gained_new": 56,
       "gained_successor": 6,
       "lost": 1,
@@ -56982,14 +57029,14 @@
       "moved_followed": 1,
       "gained": 62,
       "ended": 49,
-      "churn": 0.0026,
-      "churn_high": 0.1097,
+      "churn": 0.0025,
+      "churn_high": 0.1094,
       "history_start": false,
       "partial": false
     },
     {
       "year": 2024,
-      "active_jan1": 405,
+      "active_jan1": 406,
       "gained_new": 58,
       "gained_successor": 3,
       "lost": 0,
@@ -57001,13 +57048,13 @@
       "gained": 61,
       "ended": 41,
       "churn": 0.0,
-      "churn_high": 0.0938,
+      "churn_high": 0.0936,
       "history_start": false,
       "partial": false
     },
     {
       "year": 2025,
-      "active_jan1": 425,
+      "active_jan1": 426,
       "gained_new": 59,
       "gained_successor": 7,
       "lost": 0,
@@ -57025,7 +57072,7 @@
     },
     {
       "year": 2026,
-      "active_jan1": 468,
+      "active_jan1": 469,
       "gained_new": 48,
       "gained_successor": 6,
       "lost": 0,
@@ -57048,17 +57095,17 @@
       2025
     ],
     "avg_churn": 0.0003,
-    "avg_churn_high": 0.1005,
+    "avg_churn_high": 0.1003,
     "lost_total": 1,
     "unknown_total": 287,
     "ended_total": 316,
     "site_retention": 0.9259,
     "site_handovers": 25,
     "site_closures": 27,
-    "avg_gained": 63.7,
-    "avg_gained_new": 61.9,
+    "avg_gained": 63.8,
+    "avg_gained_new": 62.0,
     "avg_gained_successor": 1.8,
     "median_years_served": 1.6,
-    "current_businesses": 511
+    "current_businesses": 512
   }
 }

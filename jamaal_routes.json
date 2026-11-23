@@ -1,12 +1,20 @@
 {
- "scraped_at": "2026-11-23T12:00:12+00:00",
+ "scraped_at": "2026-11-23T19:00:09+00:00",
  "source": "routes_assigned.php, assign_routes.php",
  "routes": [
   {
    "route_id": 10,
    "name": "Route 7",
-   "assigned_capacity": 200,
+   "assigned_capacity": 400,
    "stops": [
+    {
+     "assignment_id": 24690,
+     "customer_id": 710,
+     "name": "Addison County Solid Waste Management District",
+     "capacity": 200,
+     "days_over": -162,
+     "must_get": true
+    },
     {
      "assignment_id": 24525,
      "customer_id": 1490,
@@ -20,190 +28,14 @@
   {
    "route_id": 14,
    "name": "Central Vt 2",
-   "assigned_capacity": 3152,
+   "assigned_capacity": 165,
    "stops": [
-    {
-     "assignment_id": 24686,
-     "customer_id": 1447,
-     "name": "BBB- add METAL barrel",
-     "capacity": 1,
-     "days_over": 6,
-     "must_get": true
-    },
-    {
-     "assignment_id": 24669,
-     "customer_id": 515,
-     "name": "Two Sons Bakery/Fork and Gavel-HydePark",
-     "capacity": 150,
-     "days_over": -27,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24661,
-     "customer_id": 1554,
-     "name": "VFW -Hyde Park",
-     "capacity": 100,
-     "days_over": -43,
-     "must_get": true
-    },
-    {
-     "assignment_id": 24687,
-     "customer_id": 1533,
-     "name": "BBB-Drop Barrel(s)^^^^^^",
-     "capacity": 1,
-     "days_over": -317,
-     "must_get": true
-    },
-    {
-     "assignment_id": 24672,
-     "customer_id": 1430,
-     "name": "Johnson General Store",
-     "capacity": 100,
-     "days_over": -3,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24675,
-     "customer_id": 1515,
-     "name": "NVU-Johnson",
-     "capacity": 150,
-     "days_over": -23,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24673,
-     "customer_id": 544,
-     "name": "Johnsons Chinese Kitchen 90%",
-     "capacity": 150,
-     "days_over": -27,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24674,
-     "customer_id": 543,
-     "name": "Marsala Salsa/ Pizzeria -Johnson-10%",
-     "capacity": 150,
-     "days_over": -27,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24688,
-     "customer_id": 540,
-     "name": "Lot Six- Brewster River Pub & Brewery",
-     "capacity": 200,
-     "days_over": -7,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24662,
-     "customer_id": 1404,
-     "name": "ERICAS-Cambridge",
-     "capacity": 110,
-     "days_over": -10,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24682,
-     "customer_id": 1071,
-     "name": "Lost Nation Brewery",
-     "capacity": 120,
-     "days_over": -1,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24677,
-     "customer_id": 511,
-     "name": "Black Diamond BBQ",
-     "capacity": 260,
-     "days_over": -14,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24683,
-     "customer_id": 512,
-     "name": "North Country Donuts",
-     "capacity": 100,
-     "days_over": -8,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24684,
-     "customer_id": 508,
-     "name": "Pizza on Main -Morrisville",
-     "capacity": 165,
-     "days_over": 14,
-     "must_get": false
-    },
     {
      "assignment_id": 24678,
      "customer_id": 1352,
      "name": "Gondola’s Downtown Morrisville",
      "capacity": 165,
      "days_over": 6,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24679,
-     "customer_id": 509,
-     "name": "Moogs Place- Morrisville",
-     "capacity": 150,
-     "days_over": -8,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24676,
-     "customer_id": 510,
-     "name": "10 Railroad Street",
-     "capacity": 100,
-     "days_over": -8,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24685,
-     "customer_id": 500,
-     "name": "Wolcott General Store",
-     "capacity": 90,
-     "days_over": -4,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24664,
-     "customer_id": 503,
-     "name": "Hardwick House of Pizza",
-     "capacity": 90,
-     "days_over": 3,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24666,
-     "customer_id": 501,
-     "name": "Positive Pie 3 ~25%",
-     "capacity": 200,
-     "days_over": 3,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24668,
-     "customer_id": 502,
-     "name": "Village Restaurant-Hardwick~ 50%",
-     "capacity": 200,
-     "days_over": 3,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24663,
-     "customer_id": 504,
-     "name": "Cork & Fork/Scale House ~25%",
-     "capacity": 200,
-     "days_over": 3,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24667,
-     "customer_id": 1504,
-     "name": "Two Peas in A Pod-Hardwick",
-     "capacity": 200,
-     "days_over": 3,
      "must_get": false
     }
    ]
@@ -1139,7 +971,7 @@
    "customer_id": 1404,
    "name": "ERICAS-Cambridge",
    "city": "Cambridge",
-   "days_over": -10
+   "days_over": -37
   },
   {
    "customer_id": 1077,
@@ -1547,13 +1379,13 @@
    "customer_id": 504,
    "name": "Cork & Fork/Scale House ~25%",
    "city": "Hardwick",
-   "days_over": 3
+   "days_over": -28
   },
   {
    "customer_id": 503,
    "name": "Hardwick House of Pizza",
    "city": "Hardwick",
-   "days_over": 3
+   "days_over": -28
   },
   {
    "customer_id": 1085,
@@ -1571,19 +1403,19 @@
    "customer_id": 501,
    "name": "Positive Pie 3 ~25%",
    "city": "Hardwick",
-   "days_over": 3
+   "days_over": -28
   },
   {
    "customer_id": 1504,
    "name": "Two Peas in A Pod-Hardwick",
    "city": "Hardwick",
-   "days_over": 3
+   "days_over": -28
   },
   {
    "customer_id": 502,
    "name": "Village Restaurant-Hardwick~ 50%",
    "city": "Hardwick",
-   "days_over": 3
+   "days_over": -28
   },
   {
    "customer_id": 1480,
@@ -1619,13 +1451,13 @@
    "customer_id": 515,
    "name": "Two Sons Bakery/Fork and Gavel-HydePark",
    "city": "Hyde Park",
-   "days_over": -27
+   "days_over": -54
   },
   {
    "customer_id": 1554,
    "name": "VFW -Hyde Park",
    "city": "Hyde Park",
-   "days_over": -43
+   "days_over": -45
   },
   {
    "customer_id": 547,
@@ -1679,7 +1511,7 @@
    "customer_id": 540,
    "name": "Lot Six- Brewster River Pub & Brewery",
    "city": "Jeffersonville",
-   "days_over": -7
+   "days_over": -56
   },
   {
    "customer_id": 285,
@@ -1697,13 +1529,13 @@
    "customer_id": 1430,
    "name": "Johnson General Store",
    "city": "Johnson",
-   "days_over": -3
+   "days_over": -65
   },
   {
    "customer_id": 544,
    "name": "Johnsons Chinese Kitchen 90%",
    "city": "Johnson",
-   "days_over": -27
+   "days_over": -54
   },
   {
    "customer_id": 542,
@@ -1715,13 +1547,13 @@
    "customer_id": 543,
    "name": "Marsala Salsa/ Pizzeria -Johnson-10%",
    "city": "Johnson",
-   "days_over": -27
+   "days_over": -54
   },
   {
    "customer_id": 1515,
    "name": "NVU-Johnson",
    "city": "Johnson",
-   "days_over": -23
+   "days_over": -50
   },
   {
    "customer_id": 1541,
@@ -2159,13 +1991,13 @@
    "customer_id": 510,
    "name": "10 Railroad Street",
    "city": "Morristown",
-   "days_over": -8
+   "days_over": -35
   },
   {
    "customer_id": 511,
    "name": "Black Diamond BBQ",
    "city": "Morristown",
-   "days_over": -14
+   "days_over": -41
   },
   {
    "customer_id": 1352,
@@ -2177,7 +2009,7 @@
    "customer_id": 509,
    "name": "Moogs Place- Morrisville",
    "city": "Morristown",
-   "days_over": -8
+   "days_over": -35
   },
   {
    "customer_id": 1460,
@@ -2201,19 +2033,19 @@
    "customer_id": 1071,
    "name": "Lost Nation Brewery",
    "city": "Morrisville",
-   "days_over": -1
+   "days_over": -28
   },
   {
    "customer_id": 512,
    "name": "North Country Donuts",
    "city": "Morrisville",
-   "days_over": -8
+   "days_over": -35
   },
   {
    "customer_id": 508,
    "name": "Pizza on Main -Morrisville",
    "city": "Morrisville",
-   "days_over": 14
+   "days_over": -35
   },
   {
    "customer_id": 513,
@@ -2429,7 +2261,7 @@
    "customer_id": 1447,
    "name": "BBB- add METAL barrel",
    "city": "Plainfield",
-   "days_over": 6
+   "days_over": -28
   },
   {
    "customer_id": 1544,
@@ -2477,7 +2309,7 @@
    "customer_id": 1533,
    "name": "BBB-Drop Barrel(s)^^^^^^",
    "city": "Plainfield",
-   "days_over": -317
+   "days_over": -365
   },
   {
    "customer_id": 1327,
@@ -3851,7 +3683,7 @@
    "customer_id": 500,
    "name": "Wolcott General Store",
    "city": "Wolcott",
-   "days_over": -4
+   "days_over": -35
   },
   {
    "customer_id": 1455,
