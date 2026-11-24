@@ -1,12 +1,20 @@
 {
- "scraped_at": "2026-11-24T12:00:12+00:00",
+ "scraped_at": "2026-11-24T18:38:25+00:00",
  "source": "routes_assigned.php, assign_routes.php",
  "routes": [
   {
    "route_id": 10,
    "name": "Route 7",
-   "assigned_capacity": 400,
+   "assigned_capacity": 500,
    "stops": [
+    {
+     "assignment_id": 24708,
+     "customer_id": 1554,
+     "name": "VFW -Hyde Park",
+     "capacity": 100,
+     "days_over": -44,
+     "must_get": true
+    },
     {
      "assignment_id": 24690,
      "customer_id": 710,
@@ -28,16 +36,8 @@
   {
    "route_id": 14,
    "name": "Central Vt 2",
-   "assigned_capacity": 2526,
+   "assigned_capacity": 2525,
    "stops": [
-    {
-     "assignment_id": 24706,
-     "customer_id": 1204,
-     "name": "McLeods",
-     "capacity": 1,
-     "days_over": 67,
-     "must_get": false
-    },
     {
      "assignment_id": 24694,
      "customer_id": 837,
@@ -467,7 +467,7 @@
    "customer_id": 1204,
    "name": "McLeods",
    "city": "Barre",
-   "days_over": 67
+   "days_over": -30
   },
   {
    "customer_id": 112,
