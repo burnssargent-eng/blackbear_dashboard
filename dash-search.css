@@ -41,6 +41,11 @@ header .main-nav .nav-group-menu a.active { color: #3fb950; }
 /* ── The search button: top right on a phone, a box beside "Updated" on a computer ── */
 .dash-right { flex: 0 0 auto; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
 .dash-right .last-updated { margin-left: 0; }
+/* "Updated" under the title, centred on it (dash-search.js moves it into the brand block). */
+@media (min-width: 861px) {
+  header .brand-home > div { text-align: center; }
+  header .brand-home .last-updated { margin: 2px 0 0; }
+}
 .dash-search-btn { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 8px;
   height: 36px; width: 200px; padding: 0 12px; justify-content: flex-start;
   border: 1px solid #30363d; border-radius: 8px; background: #0d1117; color: #8b949e; font: inherit; font-size: 14px; cursor: pointer; }
@@ -55,8 +60,9 @@ header .main-nav .nav-group-menu a.active { color: #3fb950; }
   .dash-right { display: contents; }
   header .brand-home { display: contents; }
   header .brand-home img { grid-column: 1; grid-row: 1 / span 3; align-self: center; margin: 0; }
-  header .brand-home > div { grid-column: 2; grid-row: 1; text-align: center; margin: 0 10px; min-width: 0; }
-  header h1 { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  header .brand-home > div { display: contents; }
+  header h1 { grid-column: 2; grid-row: 1; text-align: center; margin: 0 10px; min-width: 0;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   header .header-center { grid-column: 2; grid-row: 2; position: static; transform: none; width: auto; margin: 0 10px; }
   header .header-center:not(:has(.page-name:not(:empty))) { display: none; }
   /* Centred on the title even when a few pixels wider than its column. */
