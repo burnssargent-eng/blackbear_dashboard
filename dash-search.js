@@ -40,13 +40,16 @@
     btn.className = "dash-search-btn";
     btn.setAttribute("aria-label", "Search");
     btn.innerHTML = `${ICON}<span class="dash-search-text">Search</span>`;
-    // One column at the right: search above "Updated", so the team photo keeps its place.
+    // Search in its own column at the right, where "Updated" was; "Updated" goes under the
+    // title, centred (Sarge, 2026-11-25), as it already sat on a phone.
     const updated = header.querySelector(".last-updated");
     const col = document.createElement("div");
     col.className = "dash-right";
     header.insertBefore(col, updated || null);
     col.appendChild(btn);
-    if (updated) col.appendChild(updated);
+    const brand = header.querySelector(".brand-home > div");
+    if (updated && brand) brand.appendChild(updated);
+    else if (updated) col.appendChild(updated);
     // Under 860px the nav moves into a menu (☰) beside search, as on the Ops pages.
     const menuBtn = document.createElement("button");
     menuBtn.type = "button";
