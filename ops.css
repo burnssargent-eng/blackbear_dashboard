@@ -287,6 +287,9 @@ details.ops-route[open] > summary .ops-row-chev { transform: rotate(90deg); }
    centred on one line, all 40px tall. */
 .cal-nav { display: flex; align-items: center; justify-content: center; gap: 8px; }
 .cal-nav .cal-month-pick { height: 40px; font-size: 16px; }
+/* Month totals: bold figures and a grey bar between, so "This month" and "Last year" no longer
+   run together (Sarge, 2026-11-25). */
+.cal-sep { color: #adb5bd; margin: 0 12px; }
 
 
 /* Map pins: numbered red dots, green once collected today. */
