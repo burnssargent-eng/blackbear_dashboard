@@ -686,7 +686,7 @@ body.ops-viewer-open { overflow: hidden; }
 .ops-hdr-tab { font-size: 16px; font-weight: 600; }
 .ops-hdr-link { font-size: 15px; }
 .ops-hdr-tab:hover, .ops-hdr-link:hover { color: #212529; }
-.ops-hdr-tab.active, .ops-hdr-link.active { color: #0d6efd; border-bottom-color: #0d6efd; }
+.ops-hdr-tab.active, .ops-hdr-link.active { color: #0d6efd; border-bottom-color: #0d6efd; font-weight: 600; }
 .ops-hdr-short { display: none; }
 .ops-hdr-wide { display: none; align-items: center; }
 .ops-hdr-sep { width: 1px; height: 24px; background: #ced4da; margin: 0 6px; }
@@ -730,6 +730,8 @@ body.ops-viewer-open { overflow: hidden; }
   .ops-hdr-bar { min-height: 68px; padding: 0 24px; }
   .ops-hdr-logo { height: 50px; width: 70px; margin-right: 12px; }
   .ops-hdr-tab { font-size: 15px; padding: 0 8px; }
+  /* Unselected tabs drawn like Outgoing–Schmutz; whichever page is selected is bold blue (Sarge, 2026-11-25). */
+  .ops-hdr-tab:not(.active) { font-weight: 400; }
   .ops-hdr-link { padding: 0 8px; }
   .ops-hdr-wide { display: inline-flex; }
   .ops-hdr-menu, .ops-menu { display: none !important; }
