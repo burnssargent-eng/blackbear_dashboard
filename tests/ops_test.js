@@ -149,6 +149,98 @@ const nav = api.opsNavHtml("assign");
 ok(nav.includes('href="ops-calendar.html"'), "Calendar is linked");
 ok(!/Lucy|Time ?clock/i.test(nav), "nav leaves out Ms. Lucy and Timeclock");
 ok(nav.includes('href="ops-outgoing.html"'), "Outgoing is linked");
+ok(nav.includes('href="ops-inactive.html"') && />Inactive</.test(nav), "Inactive is linked, named Inactive");
+ok(nav.includes("data-ops-search-open") && nav.includes("data-ops-menu"), "the header has search and the menu");
+ok(/ops-hdr-tab active" aria-current="page"><span class="ops-hdr-long">Assign Routes/.test(nav),
+  "Assign Routes and My Route are always in the bar, the current one marked");
+ok(/ops-calendar\.html[^]*ops-assign\.html[^]*ops-myroute\.html[^]*ops-hdr-wide/.test(nav),
+  "the bar's tabs: Calendar, Assign Routes, My Route");
+const menuHtml = nav.slice(nav.indexOf('id="ops-menu"'));
+ok(/Outgoing[^]*Inactive[^]*Dashboard[^]*Historical Totals[^]*Regions[^]*Schmutz/.test(menuHtml) &&
+  !menuHtml.includes("ops-calendar.html") && !/ops-menu-sec|ops-menu-line|>Ops<|>Analytics</.test(menuHtml),
+  "the menu: one plain list, no labels or lines");
+ok(/data-ops-menu-group="history" aria-expanded="false"[^]*▸[^]*class="ops-menu-group" hidden/.test(menuHtml),
+  "Historical Totals starts closed, with an arrow");
+ok(/logo-hdr\.png" width="210" height="150"/.test(nav), "the header logo is the small copy, its size fixed");
+
+// ── Search (ops-search.js) ──
+{
+  const doc = { getElementById: () => null, activeElement: null };
+  const searchCode = code + "\n" + fs.readFileSync("ops-search.js", "utf8");
+  const s = new Function("window", "document", searchCode + `
+    return { opsSearchResults, opsInactiveAccounts, opsMatchTier, opsNorm, opsSearchRouteOptions, opsSearchAssign,
+      opsSearchPick, opsRecentIds, state: () => opsSearch, freshStore, loadStore, saveStore, storeStops, buildIndex,
+      opsRouteList };`)(window, doc);
+  const hist = JSON.parse(fs.readFileSync("customer_history.json", "utf8"));
+  const proj = JSON.parse(fs.readFileSync("oil_projections.json", "utf8"));
+  const index = s.buildIndex(proj.customers);
+  const d = { snap, index, hist, urgency: new Map(proj.customers.filter(c => c.section === "ranked").map((c, i) => [c.id, i])) };
+  const store = s.freshStore(snap);
+  const assignIds = new Set(snap.assign_list.map(a => a.customer_id));
+  const roster = JSON.parse(fs.readFileSync("oil_collections.json", "utf8")).customers;
+  const inactive = s.opsInactiveAccounts(hist, assignIds, store);
+  const expected = roster.filter(c => !assignIds.has(c.customer_id)).length;
+  ok(inactive.length === expected, `Inactive lists every roster account off the Assign list (${inactive.length} of ${expected})`);
+  ok(inactive.every(r => r.name && "ended" in r), "each inactive account has a name and how it ended");
+
+  ok(s.opsNorm("Ken’s Pizza-Shelburne") === "kens pizza shelburne", "search ignores case, accents and punctuation");
+  ok(s.opsMatchTier("pizza", ["Pizza Hut Berlin"]) === 0 && s.opsMatchTier("hut", ["Pizza Hut Berlin"]) === 1 &&
+    s.opsMatchTier("zza", ["Pizza Hut Berlin"]) === 2 && s.opsMatchTier("berlin", ["Pho"], ["Berlin"]) === 3,
+    "tiers: name starts, a word starts, anywhere, the town");
+  ok(s.opsMatchTier("hardwik", ["Hardwick House of Pizza"]) === null &&
+    s.opsMatchTier("hardwik", ["Hardwick House of Pizza"], [], { typos: true }) === 4,
+    "one typo is forgiven only when asked for");
+  ok(s.opsMatchTier("hrd", ["Hardwick"], [], { typos: true }) === null, "no typos under 4 letters");
+
+  const first = snap.assign_list.find(a => a.name && d.index.get(a.customer_id));
+  const byId = s.opsSearchResults(String(first.customer_id), d, store);
+  ok(byId.customers[0] && byId.customers[0].id === first.customer_id, "a customer number finds that customer first");
+  const pizza = s.opsSearchResults("pizza", d, store);
+  ok(pizza.customers.length > 0 && !pizza.typos, "a plain search finds customers, no typos");
+  const east = s.opsSearchResults("east", d, store).customers;
+  const tierOf = c => s.opsMatchTier("east", [c.name], [c.town]);
+  ok(east.every((c, i) => i === 0 || tierOf(east[i - 1]) < tierOf(c) || east[i - 1].active >= c.active),
+    "within a tier, active customers come before inactive ones");
+  const cal = s.opsSearchResults("cal", d, store);
+  ok(cal.pages.map(p => p.label).join() === "Calendar", "pages match from a word's start (cal is not in historical)");
+  ok(s.opsSearchResults("calender", d, store).typos && s.opsSearchResults("calender", d, store).pages[0].label === "Calendar",
+    "a misspelt page is a close match");
+  ok(s.opsSearchResults("schmootz", d, store).pages[0].label === "Schmutz", "an alias finds its page");
+  const withPeople = { ...d, people: [{ name: "Jim", role: "Owner", phone: "+18025550100" },
+    { name: "Patrick", role: "Driver", phone: "+18025550102" }] };
+  ok(s.opsSearchResults("jim", withPeople, store).people.map(p => p.name).join() === "Jim", "people are found by name");
+  ok(s.opsSearchResults("driver", withPeople, store).people.length === 0, "not by role");
+  const someRoute = snap.route_names.find(r => r.name.length > 4);
+  ok(s.opsSearchResults(someRoute.name.slice(0, 4), d, store).routes.length > 0, "route names are found");
+
+  // + : the route set as My Route is offered first, and Assign puts the stop at the end.
+  const st = s.state();
+  st.data = d;
+  const target = snap.routes.find(r => r.stops.length > 1);
+  const saved = s.freshStore(snap);
+  saved.my = { routeId: target.route_id };
+  s.saveStore(saved);
+  const loose = snap.assign_list.find(a => a.name && !snap.routes.some(r => r.stops.some(x => x.customer_id === a.customer_id)));
+  s.opsSearchPick(loose.customer_id);
+  ok(st.route === String(target.route_id), "the bar starts on the route set as My Route");
+  const html = s.opsSearchRouteOptions(s.opsRouteList(snap, s.loadStore(snap)), s.loadStore(snap));
+  ok(html.indexOf('label="My Route"') > -1 && html.indexOf('label="My Route"') < html.indexOf('label="Other routes"') &&
+    html.indexOf("+ New Route") > html.indexOf('label="Other routes"') && html.includes("+ Task"),
+    "My Route first, then the other routes, then + New Route and + Task");
+  const before = s.storeStops(s.loadStore(snap), target.route_id).length;
+  st.must = true;
+  s.opsSearchAssign();
+  const after = s.storeStops(s.loadStore(snap), target.route_id);
+  ok(after.length === before + 1 && after[after.length - 1].customer_id === loose.customer_id && after[after.length - 1].must_get,
+    "Assign adds the customer at the end of the chosen route, with Must get");
+  ok(/Added .* \(stop \d+\)/.test(st.flash) && s.opsRecentIds()[0] === loose.customer_id, "it says so, and the customer is recent");
+  s.opsSearchPick(loose.customer_id);
+  s.opsSearchAssign();
+  ok(s.storeStops(s.loadStore(snap), target.route_id).length === before + 1 && /already on/.test(st.flash),
+    "adding it again changes nothing");
+  const onNow = s.opsSearchResults(loose.name, d, s.loadStore(snap)).customers.find(c => c.id === loose.customer_id);
+  ok(!!onNow, "it is still found");
+}
 
 // ── Calendar ──
 const calHtml = fs.readFileSync("ops-calendar.html", "utf8");

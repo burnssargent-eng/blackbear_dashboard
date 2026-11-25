@@ -132,6 +132,17 @@ ops-assign.html  ops-myroute.html  ops-calendar.html  ops-outgoing.html  ops-cus
                      ops.css. Linked from the dashboard nav as "Ops" (last; seven links since Former
                      left on 2026-11-17; the 10px-under-400px sizing from eight still stands).
                      Route maths for both betas: route-utils.js.
+ops header (ops-common.js opsNavHtml; Sarge, 2026-11-20): under 1200px logo, Assign Routes ("Assign"
+                     under 430px) and My Route always, then search and a menu (Calendar, Outgoing, Inactive |
+                     Dashboard, Projections, Historical Totals, Schmutz); from 1200px every link in one row.
+ops-search.js        the header's search on every Ops page: customers (id, name, town; inactive accounts too),
+                     then routes, places, pages (+ aliases), actions; one typo only when nothing matches.
+                     Each customer has + (Assign Routes' own bar: the route set as My Route first, Must get,
+                     + New Route, + Task; the stop goes at the END of the route) and ›. It changes the page's
+                     own `store` and redraws through opsDb.onRemote, never a second copy.
+ops-inactive.html    Inactive Accounts (nav: "Inactive"): every account off the source site's Assign list,
+                     from customer_history.json (name, town, last pickup, gallons, how it ended), plus Assign-list
+                     customers marked Inactive on the customer page.
 route tasks          checklist rows on a route that are not pickups (route_tasks, db/schema.sql; the 7am reset and
                      the nightly never touch it; Sarge, 2026-11-14): a Tasks block at the top of My Route, "+ Add
                      task" at its foot, "+ Task…" in Assign Routes' route list. Never in a route total. An unticked

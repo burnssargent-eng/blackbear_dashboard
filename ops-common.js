@@ -11,52 +11,106 @@
 
 const OPS_STORAGE_KEY = "bbb-ops-shadow-v1";
 
-// Header nav.
+// Header nav (Sarge, 2026-11-20: header C; Calendar joined the bar first, 2026-11-25). Under
+// 1200px: logo, Calendar, Assign Routes and My Route always, equally spaced, then search and a menu
+// holding the rest. From 1200px every link is in one row, with a search box at the
+// end. The dashboard pages keep their own nav.
 const OPS_NAV = [
-  { key: "assign", label: "Assign Routes", href: "ops-assign.html" },
-  { key: "myroute", label: "My Route", href: "ops-myroute.html" },
-  { key: "calendar", label: "Calendar", href: "ops-calendar.html" },
-  { key: "outgoing", label: "Outgoing", href: "ops-outgoing.html" },
-  { key: "dashboard", label: "Dashboard", href: "index.html" },
-  { key: "projections", label: "Projections", href: "projections.html" },
-  { key: "history", label: "Historical Totals", children: [
+  { key: "calendar", label: "Calendar", href: "ops-calendar.html", always: true },
+  { key: "assign", label: "Assign Routes", short: "Assign", href: "ops-assign.html", always: true },
+  { key: "myroute", label: "My Route", href: "ops-myroute.html", always: true },
+  { key: "outgoing", label: "Outgoing", href: "ops-outgoing.html", group: "Ops" },
+  { key: "inactive", label: "Inactive", href: "ops-inactive.html", group: "Ops" },
+  { key: "dashboard", label: "Dashboard", href: "index.html", group: "Analytics" },
+  { key: "projections", label: "Projections", href: "projections.html", group: "Analytics" },
+  { key: "history", label: "Historical Totals", group: "Analytics", children: [
     { label: "Regions", href: "region.html" },
     { label: "Years", href: "year.html" },
     { label: "Customers", href: "customers.html" },
   ] },
-  { key: "schmootz", label: "Schmutz", href: "schmootz.html" },
+  { key: "schmootz", label: "Schmutz", href: "schmootz.html", group: "Analytics" },
 ];
 
+const OPS_SEARCH_ICON = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+  stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 21 21"></path></svg>`;
+const OPS_MENU_ICON = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+  stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>`;
+
 function opsNavHtml(current) {
-  const items = OPS_NAV.map(item => {
-    if (item.children) {
-      return `<li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-           aria-expanded="false">${escapeHtml(item.label)}</a>
-        <ul class="dropdown-menu">${item.children.map(c =>
-          `<li><a class="dropdown-item" href="${c.href}">${escapeHtml(c.label)}</a></li>`).join("")}</ul>
-      </li>`;
+  const on = key => (key === current ? ' aria-current="page"' : "");
+  const cls = (base, key) => `${base}${key === current ? " active" : ""}`;
+  const tabs = OPS_NAV.filter(i => i.always).map(i =>
+    `<a href="${i.href}" class="${cls("ops-hdr-tab", i.key)}"${on(i.key)}>${i.short
+      ? `<span class="ops-hdr-long">${escapeHtml(i.label)}</span><span class="ops-hdr-short">${escapeHtml(i.short)}</span>`
+      : escapeHtml(i.label)}</a>`).join("");
+  // The rest, inline from 1200px: Ops links, a hairline, then the analytics.
+  const wide = OPS_NAV.filter(i => !i.always).map((i, k, all) => {
+    const sep = k > 0 && all[k - 1].group !== i.group ? `<span class="ops-hdr-sep" aria-hidden="true"></span>` : "";
+    if (i.children) {
+      return `${sep}<span class="dropdown"><a class="ops-hdr-link dropdown-toggle" href="#" role="button"
+        data-bs-toggle="dropdown" aria-expanded="false">${escapeHtml(i.label)}</a>
+        <ul class="dropdown-menu">${i.children.map(c =>
+          `<li><a class="dropdown-item" href="${c.href}">${escapeHtml(c.label)}</a></li>`).join("")}</ul></span>`;
     }
-    if (!item.href) {
-      return `<li class="nav-item"><span class="nav-link disabled" title="Not built yet">${escapeHtml(item.label)}</span></li>`;
-    }
-    const active = item.key === current;
-    return `<li class="nav-item"><a href="${item.href}" class="nav-link${active ? " active" : ""}"` +
-      `${active ? ' aria-current="page"' : ""}>${escapeHtml(item.label)}</a></li>`;
+    return `${sep}<a href="${i.href}" class="${cls("ops-hdr-link", i.key)}"${on(i.key)}>${escapeHtml(i.label)}</a>`;
+  }).join("");
+  // The menu under 1200px (Sarge, 2026-11-25): the rest of the links, one plain list, no
+  // labels or lines; Historical Totals (arrow beside it) opens its three pages.
+  const menu = OPS_NAV.filter(i => !i.always).map(i => {
+    if (!i.children) return `<a class="${cls("ops-menu-item", i.key)}" href="${i.href}"${on(i.key)}>${escapeHtml(i.label)}</a>`;
+    return `<button type="button" class="ops-menu-item ops-menu-head" data-ops-menu-group="${i.key}" aria-expanded="false"
+        aria-controls="ops-menu-${i.key}">${escapeHtml(i.label)}<span class="ops-menu-arrow" aria-hidden="true">▸</span></button>
+      <div id="ops-menu-${i.key}" class="ops-menu-group" hidden>${i.children.map(c =>
+        `<a class="ops-menu-item ops-menu-sub" href="${c.href}">${escapeHtml(c.label)}</a>`).join("")}</div>`;
   }).join("");
   return `
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <img src="logo.png" height="50" alt="Black Bear Biodiesel" onerror="this.style.display='none'">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#ops-nav-items"
-              aria-controls="ops-nav-items" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="ops-nav-items">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">${items}</ul>
-      </div>
+  <nav class="ops-hdr" aria-label="Main">
+    <div class="ops-hdr-bar">
+      <img class="ops-hdr-logo" src="logo-hdr.png" width="210" height="150" alt="Black Bear Biodiesel"
+        onerror="this.style.visibility='hidden'">
+      ${tabs}
+      <span class="ops-hdr-wide">${wide}</span>
+      <span class="ops-hdr-gap"></span>
+      <span class="ops-hdr-btns">
+        <button type="button" class="ops-hdr-btn ops-hdr-search" data-ops-search-open aria-label="Search">
+          ${OPS_SEARCH_ICON}<span class="ops-hdr-search-text">Search</span></button>
+        <button type="button" class="ops-hdr-btn ops-hdr-menu" data-ops-menu aria-expanded="false" aria-controls="ops-menu"
+          aria-label="Menu">${OPS_MENU_ICON}</button>
+      </span>
     </div>
+    <div class="ops-menu" id="ops-menu" hidden>${menu}</div>
   </nav>`;
+}
+
+/** The menu opens and closes from its button; a tap outside it or Escape closes it. */
+function opsMenuShow(open) {
+  const menu = document.getElementById("ops-menu");
+  const btn = document.querySelector("[data-ops-menu]");
+  if (!menu || !btn) return;
+  menu.hidden = !open;
+  btn.setAttribute("aria-expanded", String(open));
+  btn.classList.toggle("ops-hdr-open", open);
+}
+
+if (typeof document !== "undefined" && document.addEventListener) {
+  document.addEventListener("click", e => {
+    if (!e.target.closest) return;
+    if (e.target.closest("[data-ops-menu]")) {
+      opsMenuShow(document.getElementById("ops-menu").hidden);
+      return;
+    }
+    const group = e.target.closest("[data-ops-menu-group]");
+    if (group) {
+      const open = group.getAttribute("aria-expanded") !== "true";
+      group.setAttribute("aria-expanded", String(open));
+      group.querySelector(".ops-menu-arrow").textContent = open ? "▾" : "▸";
+      document.getElementById(group.getAttribute("aria-controls")).hidden = !open;
+      return;
+    }
+    if (!e.target.closest("#ops-menu")) opsMenuShow(false);
+    if (e.target.closest("[data-ops-search-open]") && typeof opsSearchOpen === "function") opsSearchOpen();
+  });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") opsMenuShow(false); });
 }
 
 /* ── Data ───────────────────────────────────────────────── */
@@ -602,25 +656,20 @@ function monthsBack(thisMonth, firstMonth) {
 }
 
 /**
- * The two green month buttons, centred, with the month picker and `extra` to
- * their right. Pages handle [data-anchor] clicks and #cal-month-pick changes.
+ * The month bar, centred: the earlier month's green button, the month picker, the later
+ * month's button (Sarge, 2026-11-25: the picker between them). Pages handle [data-anchor]
+ * clicks and #cal-month-pick changes.
  */
-function calendarNavHtml(anchor, months, extra) {
+function calendarNavHtml(anchor, months) {
   const prev = shiftAnchor(anchor, -1), next = shiftAnchor(anchor, 1);
   const month = anchor.slice(0, 7);
   return `<div class="cal-nav mb-2">
-      <div></div>
-      <div class="cal-nav-center">
-        <button type="button" class="btn btn-success btn-lg" data-anchor="${prev}">${anchorLabel(prev)}</button>
-        <button type="button" class="btn btn-success btn-lg" data-anchor="${next}">${anchorLabel(next)}</button>
-      </div>
-      <div class="cal-nav-right">
-        <select class="form-select form-select-sm w-auto" id="cal-month-pick" aria-label="Month">
-          ${months.map(ym => `<option value="${ym}"${ym === month ? " selected" : ""}>` +
-            `${ym.slice(5, 7)}/${ym.slice(2, 4)}</option>`).join("")}
-        </select>
-        ${extra || ""}
-      </div>
+      <button type="button" class="btn btn-success btn-lg" data-anchor="${prev}">${anchorLabel(prev)}</button>
+      <select class="form-select w-auto cal-month-pick" id="cal-month-pick" aria-label="Month">
+        ${months.map(ym => `<option value="${ym}"${ym === month ? " selected" : ""}>` +
+          `${ym.slice(5, 7)}/${ym.slice(2, 4)}</option>`).join("")}
+      </select>
+      <button type="button" class="btn btn-success btn-lg" data-anchor="${next}">${anchorLabel(next)}</button>
     </div>`;
 }
 
