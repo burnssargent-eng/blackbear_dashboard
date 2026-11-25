@@ -129,8 +129,14 @@ customer names       on Projections, Regions, Years, Customers (and Town) link t
 planner.html         route planner beta. UNLISTED (not in the nav). Reads the two JSONs above.
 ops-assign.html  ops-myroute.html  ops-calendar.html  ops-outgoing.html  ops-customer.html   SHADOW site: the source site's workflow on a copy of its
                      data, kept in each browser. Light Bootstrap look, own nav (ops-common.js),
-                     ops.css. Linked from the dashboard nav as "Ops" (last; seven links since Former
-                     left on 2026-11-17; the 10px-under-400px sizing from eight still stands).
+                     ops.css. Linked from the dashboard nav as "Ops" (last, in a green box).
+dashboard nav        (navHtml, dashboard-utils.js; inline copy in index.html) five items since 2026-11-25:
+                     Dashboard, Projections, Historical ▸ (opens Regions, Years, Customers), Schmutz, Ops.
+                     Its phone sizes and the team photo hidden under 860px live in dash-search.css.
+dash-search.js/.css  every dashboard page (index.html too): the Historical dropdown, and search (top right on a
+                     phone, a box above "Updated" on a computer) opening search-frame.html in a frame: the Ops
+                     search and + in dark colours. A frame because index.html's inline helpers and
+                     projections.html's own notesHtml/formatWhole clash with the Ops scripts.
                      Route maths for both betas: route-utils.js.
 ops header (ops-common.js opsNavHtml; Sarge, 2026-11-20): under 1200px logo, Assign Routes ("Assign"
                      under 430px) and My Route always, then search and a menu (Calendar, Outgoing, Inactive |

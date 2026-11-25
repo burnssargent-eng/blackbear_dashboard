@@ -1,0 +1,140 @@
+/*
+ * Dashboard header extras (dash-search.js; Sarge, 2026-11-25), linked by every
+ * dashboard page, index.html included (it keeps its own inline copy of the
+ * rest of the header styles), and the dark look of search-frame.html.
+ */
+
+/* ── Nav: Historical ▸ opens Regions, Years and Customers below it ── */
+.nav-group { position: relative; display: inline-flex; }
+header .main-nav .nav-group-btn { font: inherit; font-size: 15px; color: #a3adb8; background: none; border: 0;
+  border-bottom: 2px solid transparent; padding: 3px 0; cursor: pointer; white-space: nowrap; }
+header .main-nav .nav-group-btn:hover { color: #e6edf3; }
+header .main-nav .nav-group-btn.active { color: #3fb950; border-bottom-color: #3fb950; }
+.nav-arrow { font-size: 0.75em; margin-left: 4px; }
+.nav-group-menu { position: absolute; top: calc(100% + 6px); left: 50%; transform: translateX(-50%); z-index: 2500;
+  display: flex; flex-direction: column; min-width: 150px; padding: 4px 0; background: #161b22;
+  border: 1px solid #30363d; border-radius: 8px; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5); }
+.nav-group-menu[hidden] { display: none; }
+header .main-nav .nav-group-menu a { display: block; padding: 10px 16px; font-size: 15px; border-bottom: 0; text-align: left; }
+header .main-nav .nav-group-menu a.active { color: #3fb950; }
+
+/* Under 860px (Sarge, 2026-11-25): the nav moves into the menu (☰) beside search, and the
+   truck photo goes (it took a third of a phone's screen; a computer keeps both). */
+@media (max-width: 860px) {
+  header .main-nav { display: none; }
+  header .header-team { display: none; }
+}
+
+/* ── The menu (☰), under 860px: the nav's pages listed down, Historical opening its three ── */
+.dash-menu-btn { display: none; }
+.dash-menu { position: absolute; left: 0; right: 0; top: 100%; z-index: 2500; background: #161b22;
+  border-bottom: 1px solid #30363d; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5); max-height: calc(100vh - 60px); overflow-y: auto; }
+.dash-menu[hidden] { display: none; }
+.dash-menu-item { display: flex; align-items: center; width: 100%; min-height: 46px; padding: 0 16px; font: inherit; font-size: 16px;
+  color: #e6edf3; text-decoration: none; text-align: left; background: none; border: 0; border-bottom: 1px solid #21262d; }
+.dash-menu-item:hover { color: #fff; background: #1c2128; }
+.dash-menu-item.active { color: #3fb950; font-weight: 600; }
+.dash-menu-sub { min-height: 42px; padding-left: 32px; font-size: 15px; }
+.dash-menu-group[hidden] { display: none; }
+@media (min-width: 861px) { .dash-menu { display: none !important; } }
+
+/* ── The search button: top right on a phone, a box beside "Updated" on a computer ── */
+.dash-right { flex: 0 0 auto; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.dash-right .last-updated { margin-left: 0; }
+.dash-search-btn { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 8px;
+  height: 36px; width: 200px; padding: 0 12px; justify-content: flex-start;
+  border: 1px solid #30363d; border-radius: 8px; background: #0d1117; color: #8b949e; font: inherit; font-size: 14px; cursor: pointer; }
+.dash-search-btn:hover { border-color: #3fb950; color: #e6edf3; }
+@media (max-width: 860px) {
+  /* A phone's header as a grid (Sarge, 2026-11-25): the logo at the left, centred top to
+     bottom (as far from the top as from the cards below); the title, the page's name and
+     "Updated" centred between the logo and search; search and the menu at the right, 44px,
+     4px apart, as on the Ops pages. The brand link's two parts go in their own columns. */
+  header { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: center;
+    column-gap: 0; row-gap: 2px; padding: 12px 8px 12px 16px; }
+  .dash-right { display: contents; }
+  header .brand-home { display: contents; }
+  header .brand-home img { grid-column: 1; grid-row: 1 / span 3; align-self: center; margin: 0; }
+  header .brand-home > div { grid-column: 2; grid-row: 1; text-align: center; margin: 0 10px; min-width: 0; }
+  header h1 { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  header .header-center { grid-column: 2; grid-row: 2; position: static; transform: none; width: auto; margin: 0 10px; }
+  header .header-center:not(:has(.page-name:not(:empty))) { display: none; }
+  /* Centred on the title even when a few pixels wider than its column. */
+  header .last-updated { grid-column: 2; grid-row: 3; justify-self: center; width: max-content; margin: 0; text-align: center;
+    order: 0; white-space: nowrap; }
+  .dash-search-btn, .dash-menu-btn { position: static; grid-row: 1 / span 3; align-self: center; width: 44px; height: 44px; margin: 0; padding: 0;
+    display: inline-flex; align-items: center; justify-content: center; color: #e6edf3; background: #0d1117;
+    border: 1px solid #30363d; border-radius: 8px; cursor: pointer; }
+  .dash-search-btn { grid-column: 3; }
+  .dash-menu-btn { grid-column: 4; margin-left: 4px; }
+  .dash-menu-btn.dash-open { border-color: #3fb950; color: #3fb950; }
+  .dash-search-text { display: none; }
+}
+@media (max-width: 400px) {
+  header h1 { font-size: 17px; }
+}
+@media (max-width: 340px) {
+  header h1 { font-size: 15px; }
+  header .brand-home img { height: 34px; }
+  header .last-updated { font-size: 10px; }
+}
+
+/* ── The frame: drops from the top of a phone, a panel under the header on a computer; as
+   tall as what it shows (search-frame.html reports it), the page dimmed but in view below ── */
+.dash-search-dim { position: fixed; inset: 0; z-index: 2999; background: rgba(1, 4, 9, 0.45); }
+.dash-search-dim[hidden] { display: none; }
+.dash-search-frame { position: fixed; top: 0; left: 0; width: 100%; height: 120px; border: 0; z-index: 3000;
+  background: #0d1117; border-bottom: 1px solid #30363d; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55); }
+.dash-search-frame[hidden] { display: none; }
+body.dash-s-open { overflow: hidden; }
+@media (min-width: 861px) {
+  .dash-search-frame { top: 8px; left: auto; right: 24px; width: 460px; max-height: min(680px, calc(100vh - 16px));
+    border: 1px solid #30363d; border-radius: 10px; }
+  .dash-search-dim { background: transparent; }
+  body.dash-s-open { overflow: auto; }
+}
+
+/* ── search-frame.html: the Ops search in the dashboard's dark colours ── */
+body.dash-frame { background: #0d1117; color: #e6edf3; color-scheme: dark; }
+.dash-frame-wait { padding: 16px; color: #8b949e; font-size: 15px; }
+/* In the frame the search fills its box: the dashboard sizes the frame and dims its page. */
+.dash-frame .ops-search { background: #0d1117; }
+.dash-frame .ops-s-panel { height: 100%; max-height: none; background: #0d1117; border: 0; box-shadow: none; }
+.dash-frame .ops-s-panel > .ops-s-results { flex: 1 1 auto; }
+.dash-frame .ops-s-top { background: #161b22; border-bottom-color: #30363d; }
+.dash-frame .ops-s-back { color: #e6edf3; }
+.dash-frame .form-control, .dash-frame .form-select { background-color: #0d1117; color: #e6edf3; border-color: #30363d; }
+.dash-frame .form-control:focus, .dash-frame .form-select:focus { border-color: #3fb950; box-shadow: 0 0 0 3px rgba(63, 185, 80, 0.25); }
+.dash-frame .form-control::placeholder { color: #8b949e; }
+.dash-frame .ops-s-sec { background: #161b22; color: #8b949e; border-bottom-color: #30363d; }
+.dash-frame .ops-s-note { color: #8b949e; border-bottom-color: #21262d; }
+.dash-frame .ops-s-row, .dash-frame .ops-s-link { color: #e6edf3; border-bottom-color: #21262d; }
+.dash-frame .ops-s-link:hover { background: #161b22; color: #e6edf3; }
+.dash-frame .ops-s-off .ops-s-name { color: #8b949e; }
+.dash-frame .ops-s-sub { color: #8b949e; }
+.dash-frame .ops-fill-ok { color: #3fb950; }
+.dash-frame .ops-fill-due { color: #d29922; }
+.dash-frame .ops-fill-full { color: #f0883e; }
+.dash-frame .graytext, .dash-frame .ops-muted, .dash-frame .ops-fill-held { color: #8b949e; }
+/* On a route: the oval in light, so it still reads on the dark page. */
+.dash-frame .ops-s-rchip { background: #e6edf3; color: #0d1117; }
+.dash-frame .ops-s-chip { background: #30363d; color: #c9d1d9; }
+.dash-frame .ops-s-must { color: #ff7b72; }
+/* + in the dashboard's green (Sarge, 2026-11-25), › dark. */
+.dash-frame .ops-s-add { background: transparent; border-color: #3fb950; color: #3fb950; }
+.dash-frame .ops-s-add.ops-s-add-on { background: #3fb950; color: #0d1117; }
+.dash-frame .ops-s-row.ops-s-picked { background: #12261a; box-shadow: inset 0 0 0 2px #3fb950; }
+.dash-frame .ops-plain-btn { background: #21262d; border-color: #30363d; color: #e6edf3; }
+/* Assign Routes' bar, dark. */
+.dash-frame .ops-assign-bar { background: #161b22; border-top-color: #30363d; box-shadow: 0 -6px 16px rgba(0, 0, 0, 0.4); color: #e6edf3; }
+.dash-frame .ops-assign-route { color: #8b949e; }
+.dash-frame .text-success { color: #3fb950 !important; }
+.dash-frame .text-success a, .dash-frame a { color: #3fb950; }
+.dash-frame .btn-primary { background: #238636; border-color: #238636; color: #fff; }
+.dash-frame .btn-primary:disabled { background: #1a4d26; border-color: #1a4d26; color: #8b949e; }
+.dash-frame .btn-outline-primary { color: #3fb950; border-color: #3fb950; }
+.dash-frame .form-check-input { background-color: #0d1117; border-color: #8b949e; }
+.dash-frame .form-check-input:checked { background-color: #238636; border-color: #238636; }
+.dash-frame .progress { background: #30363d; }
+.dash-frame .ops-call-list { background: #161b22; border-color: #30363d; }
+.dash-frame .ops-s-call-num { color: #c9d1d9; }
