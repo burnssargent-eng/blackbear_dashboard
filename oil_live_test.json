@@ -1,62 +1,62 @@
 {
- "data_last_updated": "2026-11-24T18:38:17.684895",
- "latest_pickup": "2026-11-23",
+ "data_last_updated": "2026-11-25T17:50:32.237899",
+ "latest_pickup": "2026-11-25",
  "summary": [
   {
    "window": "Last 7 days",
-   "from": "2026-11-17",
-   "scored": 83,
+   "from": "2026-11-19",
+   "scored": 58,
    "not_projected": 0,
-   "projected_total": 5180.2,
-   "actual_total": 4589,
-   "net_error": 591.2,
-   "wape": 34.8,
-   "bias": 12.9,
-   "median_miss": 15.9,
+   "projected_total": 3758.9,
+   "actual_total": 3225,
+   "net_error": 533.9,
+   "wape": 33.2,
+   "bias": 16.6,
+   "median_miss": 16.1,
    "vs_line": {
-    "paired": 80,
-    "wape_new": 33.7,
-    "bias_new": 12.5,
-    "wape_line": 29.1,
-    "bias_line": 5.2
+    "paired": 56,
+    "wape_new": 33.0,
+    "bias_new": 17.6,
+    "wape_line": 27.6,
+    "bias_line": 10.0
    }
   },
   {
    "window": "Last 30 days",
-   "from": "2026-10-25",
-   "scored": 281,
-   "not_projected": 9,
-   "projected_total": 20614.8,
-   "actual_total": 19499,
-   "net_error": 1115.8,
-   "wape": 31.3,
-   "bias": 5.7,
+   "from": "2026-10-27",
+   "scored": 267,
+   "not_projected": 8,
+   "projected_total": 19708.9,
+   "actual_total": 18753,
+   "net_error": 955.9,
+   "wape": 30.5,
+   "bias": 5.1,
    "median_miss": 14.1,
    "vs_line": {
-    "paired": 245,
-    "wape_new": 30.3,
-    "bias_new": 4.5,
-    "wape_line": 29.4,
-    "bias_line": 0.1
+    "paired": 246,
+    "wape_new": 30.5,
+    "bias_new": 4.8,
+    "wape_line": 29.5,
+    "bias_line": 0.3
    }
   },
   {
    "window": "All",
    "from": null,
-   "scored": 588,
+   "scored": 589,
    "not_projected": 48,
-   "projected_total": 43405.9,
-   "actual_total": 43143,
-   "net_error": 262.9,
-   "wape": 29.7,
-   "bias": 0.6,
+   "projected_total": 43465.7,
+   "actual_total": 43163,
+   "net_error": 302.7,
+   "wape": 29.8,
+   "bias": 0.7,
    "median_miss": 13.9,
    "vs_line": {
-    "paired": 245,
-    "wape_new": 30.3,
-    "bias_new": 4.5,
-    "wape_line": 29.4,
-    "bias_line": 0.1
+    "paired": 246,
+    "wape_new": 30.5,
+    "bias_new": 4.8,
+    "wape_line": 29.5,
+    "bias_line": 0.3
    }
   }
  ],
@@ -99,20 +99,20 @@
   },
   {
    "stage": "established",
-   "scored": 328,
+   "scored": 329,
    "not_projected": 0,
-   "projected_total": 24862.5,
-   "actual_total": 24784,
-   "net_error": 78.5,
-   "wape": 28.5,
-   "bias": 0.3,
-   "median_miss": 13.4,
+   "projected_total": 24922.3,
+   "actual_total": 24804,
+   "net_error": 118.3,
+   "wape": 28.6,
+   "bias": 0.5,
+   "median_miss": 13.5,
    "vs_line": {
-    "paired": 195,
-    "wape_new": 28.8,
-    "bias_new": 3.3,
-    "wape_line": 27.6,
-    "bias_line": -0.6
+    "paired": 196,
+    "wape_new": 29.0,
+    "bias_new": 3.6,
+    "wape_line": 27.8,
+    "bias_line": -0.4
    }
   },
   {
@@ -197,6 +197,41 @@
   "will-call": 4
  },
  "days": [
+  {
+   "date": "2026-11-25",
+   "scored": 1,
+   "not_projected": 0,
+   "projected_total": 59.8,
+   "actual_total": 20,
+   "net_error": 39.8,
+   "wape": 199.0,
+   "bias": 199.0,
+   "median_miss": 39.8,
+   "vs_line": {
+    "paired": 1,
+    "wape_new": 199.0,
+    "bias_new": 199.0,
+    "wape_line": 135.0,
+    "bias_line": 135.0
+   },
+   "rows": [
+    {
+     "id": 1161,
+     "name": "The NEW Forge-Randolph",
+     "town": "Randolph",
+     "stage": "established",
+     "section": "ranked",
+     "previous_pickup": "2026-10-09",
+     "predicted_as_of": "2026-11-24",
+     "projected": 59.8,
+     "range_low": 44.9,
+     "range_high": 86.7,
+     "actual": 20,
+     "error": 39.8,
+     "pct_error": 199.0
+    }
+   ]
+  },
   {
    "date": "2026-11-23",
    "scored": 15,

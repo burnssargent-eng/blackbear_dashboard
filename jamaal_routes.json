@@ -1,5 +1,5 @@
 {
- "scraped_at": "2026-11-25T12:00:16+00:00",
+ "scraped_at": "2026-11-25T17:50:39+00:00",
  "source": "routes_assigned.php, assign_routes.php",
  "routes": [
   {
@@ -36,7 +36,7 @@
   {
    "route_id": 14,
    "name": "Central Vt 2",
-   "assigned_capacity": 2525,
+   "assigned_capacity": 2415,
    "stops": [
     {
      "assignment_id": 24694,
@@ -44,14 +44,6 @@
      "name": "Bent Hill Brewery",
      "capacity": 150,
      "days_over": -2,
-     "must_get": false
-    },
-    {
-     "assignment_id": 24700,
-     "customer_id": 1161,
-     "name": "The NEW Forge-Randolph",
-     "capacity": 110,
-     "days_over": -3,
      "must_get": false
     },
     {
@@ -2573,7 +2565,7 @@
    "customer_id": 1161,
    "name": "The NEW Forge-Randolph",
    "city": "Randolph",
-   "days_over": -3
+   "days_over": -50
   },
   {
    "customer_id": 834,

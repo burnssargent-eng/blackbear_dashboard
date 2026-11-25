@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-24T18:38:17.684895",
+  "last_updated": "2026-11-25T17:50:32.237899",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -34642,7 +34642,7 @@
     {
       "month": "2026-11",
       "geo_town": "Randolph",
-      "gallons": 50,
+      "gallons": 70,
       "city": "Randolph"
     },
     {
@@ -42654,7 +42654,7 @@
     {
       "month": "2026-11",
       "county": "Windsor",
-      "gallons": 50
+      "gallons": 70
     }
   ],
   "yearly_totals": [
@@ -42704,11 +42704,11 @@
     },
     {
       "year": 2026,
-      "gallons": 264612
+      "gallons": 264632
     }
   ],
-  "all_time_total": 2183225,
-  "current_year_total": 264612,
+  "all_time_total": 2183245,
+  "current_year_total": 264632,
   "customer_count": 809,
   "unmapped_total": 40915,
   "monthly_totals": [
@@ -43282,7 +43282,7 @@
     },
     {
       "month": "2026-11",
-      "gallons": 16686
+      "gallons": 16706
     }
   ],
   "monthly_by_region": [
@@ -54509,7 +54509,7 @@
     {
       "month": "2026-11",
       "region": "Central South",
-      "gallons": 50
+      "gallons": 70
     },
     {
       "month": "2026-11",
@@ -55576,7 +55576,7 @@
     {
       "year": 2026,
       "region": "Central South",
-      "gallons": 15050
+      "gallons": 15070
     },
     {
       "year": 2026,
@@ -55700,20 +55700,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 28123,
+  "collections_count": 28124,
   "out_of_state_total": 40915,
   "active_customer_count": 534,
   "projection": {
-    "latest_data_date": "2026-11-23",
+    "latest_data_date": "2026-11-25",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 264612,
+    "current_ytd": 264632,
     "previous_year_full": 269818,
     "previous_through_prior_month": 230757,
     "previous_same_month_total": 20186,
-    "previous_prorated_ytd": 246232.93,
-    "projected_current_year": 289957,
-    "percent_vs_previous_year": 0.074641
+    "previous_prorated_ytd": 247578.67,
+    "projected_current_year": 288403,
+    "percent_vs_previous_year": 0.06888
   },
   "region_stats": {
     "Burlington / South Burlington": {
