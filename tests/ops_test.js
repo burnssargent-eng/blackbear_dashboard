@@ -163,6 +163,15 @@ ok(/data-ops-menu-group="history" aria-expanded="false"[^]*▸[^]*class="ops-men
   "Historical Totals starts closed, with an arrow");
 ok(/logo-hdr\.png" width="210" height="150"/.test(nav), "the header logo is the small copy, its size fixed");
 
+// ── Dashboard nav (dashboard-utils.js navHtml) ──
+{
+  const dnav = new Function("window", code + "\nreturn navHtml;")(window)("region", 2026, "Central");
+  const top = dnav.replace(/<span\s+class="nav-group-menu"[^]*?<\/span><\/span>/, "");
+  ok((top.match(/<a /g) || []).length === 4 && /Historical/.test(top), "dashboard nav: four links and Historical");
+  ok(/nav-group-btn active[^]*class="nav-group-menu" hidden><a href="region\.html\?region=Central" class="active">Regions/.test(dnav),
+    "Historical holds Regions, Years and Customers, marked when one of them is open");
+}
+
 // ── Search (ops-search.js) ──
 {
   const doc = { getElementById: () => null, activeElement: null };

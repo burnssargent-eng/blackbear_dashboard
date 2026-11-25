@@ -608,19 +608,24 @@ function navHtml(current, latestYear, defaultRegion) {
   const year = latestYear || new Date().getFullYear();
   const region = defaultRegion || "Burlington / South Burlington";
 
-  const links = [
-    { key: "dashboard", href: "index.html", label: "Dashboard" },
-    { key: "projections", href: "projections.html", label: "Projections" },
+  // Regions, Years and Customers sit under "Historical ▸" (Sarge, 2026-11-25), which opens
+  // them below it; dash-search.js opens and closes it (and lists them in its phone menu).
+  const historical = [
     { key: "region", href: `region.html?region=${encodeURIComponent(region)}`, label: "Regions" },
     { key: "year", href: `year.html?year=${encodeURIComponent(year)}`, label: "Years" },
     { key: "customers", href: "customers.html", label: "Customers" },
-    { key: "schmootz", href: "schmootz.html", label: "Schmutz" },
-    { key: "ops", href: "ops-assign.html", label: "Ops" }
   ];
-
-  return links
-    .map(l => `<a href="${l.href}"${l.key === current ? ' class="active"' : ""}>${l.label}</a>`)
-    .join("");
+  const link = l => `<a href="${l.href}"${l.key === current ? ' class="active"' : ""}>${l.label}</a>`;
+  const histOn = historical.some(l => l.key === current);
+  return [
+    link({ key: "dashboard", href: "index.html", label: "Dashboard" }),
+    link({ key: "projections", href: "projections.html", label: "Projections" }),
+    `<span class="nav-group"><button type="button" class="nav-group-btn${histOn ? " active" : ""}" data-nav-group
+      aria-expanded="false">Historical<span class="nav-arrow" aria-hidden="true">▸</span></button><span
+      class="nav-group-menu" hidden>${historical.map(link).join("")}</span></span>`,
+    link({ key: "schmootz", href: "schmootz.html", label: "Schmutz" }),
+    `<a href="ops-assign.html" class="nav-ops${current === "ops" ? " active" : ""}">Ops</a>`,
+  ].join("");
 }
 
 /** Fill the #main-nav element on a detail page. */

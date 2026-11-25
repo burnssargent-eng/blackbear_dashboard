@@ -293,6 +293,11 @@ function opsSearchResults(query, d, store) {
   return { ...run(true), typos: true };
 }
 
+/** Go to a page; from the dashboard's search frame, in the dashboard's window. */
+function opsSearchGo(url) {
+  try { window.top.location.href = url; } catch (err) { window.location.href = url; }
+}
+
 /* ── People ─────────────────────────────────────────────── */
 
 /**
@@ -581,6 +586,8 @@ function opsSearchClose() {
   document.body.classList.remove("ops-s-open");
   opsSearch.picked = null;
   opsSearch.flash = "";
+  // In the dashboard's search frame (search-frame.html): the dashboard hides the frame.
+  if (window.parent && window.parent !== window) window.parent.postMessage({ type: "dash-search-close" }, window.location.origin);
 }
 
 function opsSearchPick(id) {
@@ -611,7 +618,7 @@ function opsSearchAssign() {
     assignToRoute(store, id, [stop], opsSearch.must);
     saveStore(store);
     opsRecentAdd(c.id);
-    window.location.href = `ops-myroute.html?new=${id}`;
+    opsSearchGo(`ops-myroute.html?new=${id}`);
     return;
   }
   if (route === OPS_SEARCH_NEW_TASK) {
@@ -666,11 +673,14 @@ function opsSearchWire(el) {
       if (act.dataset.sAct === "signout") {
         const btn = document.querySelector("[data-ops-signout]");
         if (btn) btn.click();
+        else if (typeof opsDbClient !== "undefined" && opsDbClient) {   // the dashboard's frame: no banner
+          opsDbClient.auth.signOut().then(() => { if (typeof gateRemember === "function") gateRemember(null); window.top.location.reload(); });
+        }
       } else if (act.dataset.sAct === "newroute") {
         const store = opsSearchStore();
         const id = createRoute(store);
         saveStore(store);
-        window.location.href = `ops-myroute.html?new=${id}`;
+        opsSearchGo(`ops-myroute.html?new=${id}`);
       }
       return;
     }
