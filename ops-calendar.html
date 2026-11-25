@@ -6,7 +6,7 @@
   <title>Calendar (shadow) — Black Bear Biodiesel</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-  <link rel="stylesheet" href="ops.css?v=f461f684">
+  <link rel="stylesheet" href="ops.css?v=250ba27a">
 </head>
 
 <body>
@@ -141,7 +141,7 @@ function render() {
   const month = anchor.slice(0, 7);
   document.getElementById("page").innerHTML = `
     ${calendarNavHtml(anchor, monthOptions(todayIso().slice(0, 7)))}
-    <div class="text-center mb-2">This month: ${formatNumber(monthTotal(month))} Last year: ${formatNumber(monthTotal(shiftMonth(month, -12)))}</div>
+    <div class="text-center mb-2">This month: <b>${formatNumber(monthTotal(month))}</b><span class="cal-sep">|</span>Last year: <b>${formatNumber(monthTotal(shiftMonth(month, -12)))}</b></div>
     <div class="cal-month">${escapeHtml(monthLabel(month))}</div>
     ${gridHtml(month)}
     ${dayHtml(day)}`;
