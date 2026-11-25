@@ -5,7 +5,7 @@
   <!-- Without this the page lays out at ~980px on a phone and overflows
        sideways, so none of the responsive rules below ever take effect. -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Black Bear Biodiesel — Oil Collection Analytics</title>
+  <title>Black Bear Analytics</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
@@ -484,6 +484,8 @@
   <!-- Sign-in card: the page stays hidden until a team member signs in (site-gate.js). -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.js" integrity="sha384-rwykjmWNwVxboyFmvK9OXN0wj9hnMHA2aAHtits54DuACyCq0M2PrSNxhRb+hvXT" crossorigin="anonymous"></script>
   <script src="site-gate.js?v=330ca4fa" data-protect></script>
+  <link rel="stylesheet" href="dash-search.css?v=c66c107c">
+  <script src="dash-search.js?v=9cb61d96" defer></script>
 </head>
 
 <body>
@@ -492,8 +494,7 @@
   <a class="brand-home" href="index.html" aria-label="Back to dashboard">
     <img src="logo.png" alt="Black Bear Biodiesel" onerror="this.style.display='none'">
     <div>
-      <div class="subtitle">Oil Collection Analytics</div>
-      <h1>Black Bear Biodiesel</h1>
+      <h1>Black Bear Analytics</h1>
     </div>
   </a>
   <div class="header-center">
@@ -501,11 +502,13 @@
     <nav class="main-nav" id="main-nav">
     <a href="index.html" class="active">Dashboard</a>
     <a href="projections.html">Projections</a>
-    <a href="region.html" id="nav-region">Regions</a>
-    <a href="year.html" id="nav-year">Years</a>
-    <a href="customers.html">Customers</a>
+    <span class="nav-group"><button type="button" class="nav-group-btn" data-nav-group aria-expanded="false">Historical<span
+      class="nav-arrow" aria-hidden="true">▸</span></button><span class="nav-group-menu" hidden>
+      <a href="region.html" id="nav-region">Regions</a>
+      <a href="year.html" id="nav-year">Years</a>
+      <a href="customers.html">Customers</a></span></span>
     <a href="schmootz.html">Schmutz</a>
-    <a href="ops-assign.html">Ops</a>
+    <a href="ops-assign.html" class="nav-ops">Ops</a>
     </nav>
   </div>
   <img class="header-team" src="team.png" alt="The Black Bear Biodiesel team"
@@ -987,10 +990,29 @@ function renderProjection(projection) {
 
   // The projected number is light grey, not the headline green, so it reads as
   // supporting detail. Only the percentage carries the up/down accent.
-  el.innerHTML =
-    `Projected: <span class="stat-sub-value">${formatNumber(projection.projected_current_year)}</span>` +
-    ` <span class="${cls}">(${arrow}${(pct * 100).toFixed(1)}% vs ` +
-    `${projection.previous_year})</span>`;
+  const line = (label, year) =>
+    `${label} <span class="stat-sub-value">${formatNumber(projection.projected_current_year)}</span>` +
+    ` <span class="${cls}">(${arrow}${(pct * 100).toFixed(1)}%${year ? ` vs ${year}` : ""})</span>`;
+  // One line always: a second one made the top two cards taller (Sarge, 2026-11-25). The first
+  // of these that fits: "vs 2025", "vs '25", "vs '25" a pixel smaller, "Proj." (a 320px phone),
+  // then no "vs" at all (four narrow cards across a tablet).
+  const short = `'${String(projection.previous_year).slice(-2)}`;
+  const tries = [["Projected:", projection.previous_year, ""], ["Projected:", short, ""],
+    ["Projected:", short, "11px"], ["Proj.", short, "11px"], ["Proj.", null, "11px"]];
+  const fit = () => {
+    el.style.whiteSpace = "nowrap";
+    for (const [label, year, size] of tries) {
+      el.style.fontSize = size;
+      el.innerHTML = line(label, year);
+      if (el.scrollWidth <= el.clientWidth) break;
+    }
+    el.style.whiteSpace = "";
+  };
+  fit();
+  if (!renderProjection.resizeWired) {
+    renderProjection.resizeWired = true;
+    window.addEventListener("resize", () => fit());
+  }
 }
 
 /**

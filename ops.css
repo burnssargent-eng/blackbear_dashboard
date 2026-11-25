@@ -738,10 +738,13 @@ body.ops-viewer-open { overflow: hidden; }
 }
 
 /* ── Search (ops-search.js) ─────────────────────────────────────────
-   Phone: its own screen, so the keyboard covers empty space. From 1200px: a panel
-   under the header's search box. */
-.ops-search { position: fixed; inset: 0; z-index: 1600; background: #fff; }
-.ops-s-panel { display: flex; flex-direction: column; height: 100%; }
+   Phone (Sarge, 2026-11-25): a panel dropping from the top, as tall as its results and at
+   most three quarters of the screen, the page dimmed but in view below it (a tap there
+   closes it). From 1200px: a panel under the header's search box. */
+.ops-search { position: fixed; inset: 0; z-index: 1600; background: rgba(33, 37, 41, 0.35); }
+.ops-s-panel { display: flex; flex-direction: column; max-height: 75vh; background: #fff;
+  border-bottom: 1px solid #dee2e6; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18); }
+.ops-s-panel > .ops-s-results { flex: 0 1 auto; min-height: 0; }
 .ops-s-top { display: flex; align-items: center; gap: 6px; min-height: 56px; padding: 0 8px; background: #f8f9fa;
   border-bottom: 1px solid #dee2e6; flex: 0 0 auto; }
 .ops-s-top .form-control { height: 44px; font-size: 16px; }
@@ -780,7 +783,7 @@ body.ops-viewer-open { overflow: hidden; }
 body.ops-s-open { overflow: hidden; }
 @media (min-width: 1200px) {
   .ops-search { inset: auto; top: 6px; right: 24px; width: 460px; max-height: calc(100vh - 12px); background: transparent; }
-  .ops-s-panel { height: auto; max-height: calc(100vh - 12px); background: #fff; border: 1px solid #ced4da; border-radius: 10px;
+  .ops-s-panel { max-height: calc(100vh - 12px); background: #fff; border: 1px solid #ced4da; border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18); overflow: hidden; }
   .ops-s-results { max-height: 60vh; }
   body.ops-s-open { overflow: auto; }
