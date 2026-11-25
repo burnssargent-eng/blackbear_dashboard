@@ -624,7 +624,7 @@ function navHtml(current, latestYear, defaultRegion) {
       aria-expanded="false">Historical<span class="nav-arrow" aria-hidden="true">▸</span></button><span
       class="nav-group-menu" hidden>${historical.map(link).join("")}</span></span>`,
     link({ key: "schmootz", href: "schmootz.html", label: "Schmutz" }),
-    `<a href="ops-assign.html" class="nav-ops${current === "ops" ? " active" : ""}">Ops</a>`,
+    `<a href="ops-myroute.html" class="nav-ops${current === "ops" ? " active" : ""}">Ops</a>`,
   ].join("");
 }
 

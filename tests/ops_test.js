@@ -170,6 +170,9 @@ ok(/logo-hdr\.png" width="210" height="150"/.test(nav), "the header logo is the 
   ok((top.match(/<a /g) || []).length === 4 && /Historical/.test(top), "dashboard nav: four links and Historical");
   ok(/nav-group-btn active[^]*class="nav-group-menu" hidden><a href="region\.html\?region=Central" class="active">Regions/.test(dnav),
     "Historical holds Regions, Years and Customers, marked when one of them is open");
+  ok(/<a href="ops-myroute\.html" class="nav-ops">Ops<\/a>/.test(dnav) &&
+    /<a href="ops-myroute\.html" class="nav-ops">Ops<\/a>/.test(fs.readFileSync("index.html", "utf8")),
+    "Ops opens My Route, from every dashboard page and the homepage");
 }
 
 // ── Search (ops-search.js) ──
