@@ -6,7 +6,7 @@
   <title>Calendar (shadow) — Black Bear Biodiesel</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-  <link rel="stylesheet" href="ops.css?v=9dbb3813">
+  <link rel="stylesheet" href="ops.css?v=a352836b">
 </head>
 
 <body>
@@ -18,15 +18,16 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
 <script src="dashboard-utils.js?v=f5dcd574"></script>
 <script src="route-utils.js?v=343f24d5"></script>
-<script src="ops-common.js?v=adef959e"></script>
+<script src="ops-common.js?v=ca4df450"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.js" integrity="sha384-rwykjmWNwVxboyFmvK9OXN0wj9hnMHA2aAHtits54DuACyCq0M2PrSNxhRb+hvXT" crossorigin="anonymous"></script>
 <script src="site-gate.js?v=330ca4fa"></script>
 <script src="ops-db.js?v=d2ed0858"></script>
+<script src="ops-search.js?v=05387cd3"></script>
 <script>
 /*
  * Calendar (shadow). The source site's month grid of gallons per day, with a
  * day's list of "Customer: gallons" under it, each name linking to its
- * customer page. The latest day is the source site's "Today's Totals".
+ * customer page.
  *
  * One deliberate difference: the source site adds the 0-3 codes into a day's
  * total as if they were gallons. Here a day's total is gallons collected only
@@ -139,10 +140,8 @@ function dayHtml(date) {
 function render() {
   const month = anchor.slice(0, 7);
   document.getElementById("page").innerHTML = `
-    ${calendarNavHtml(anchor, monthOptions(todayIso().slice(0, 7)),
-      `<button type="button" class="btn btn-outline-success btn-sm text-nowrap" data-today>Latest day</button>`)}
-    <div class="text-center mb-1">This month: ${formatNumber(monthTotal(month))} Last year: ${formatNumber(monthTotal(shiftMonth(month, -12)))}</div>
-    <div class="ops-muted text-center mb-2">Empty, sign-up call and barrel delivery entries are left out of the totals, so they read below Jamaal's.</div>
+    ${calendarNavHtml(anchor, monthOptions(todayIso().slice(0, 7)))}
+    <div class="text-center mb-2">This month: ${formatNumber(monthTotal(month))} Last year: ${formatNumber(monthTotal(shiftMonth(month, -12)))}</div>
     <div class="cal-month">${escapeHtml(monthLabel(month))}</div>
     ${gridHtml(month)}
     ${dayHtml(day)}`;
@@ -200,11 +199,10 @@ async function init() {
 
   const page = document.getElementById("page");
   page.addEventListener("click", e => {
-    const t = e.target.closest && e.target.closest("[data-anchor],[data-day],[data-today]");
+    const t = e.target.closest && e.target.closest("[data-anchor],[data-day]");
     if (!t) return;
     if (t.dataset.anchor) { anchor = t.dataset.anchor; day = ""; setUrl(); render(); }
-    else if (t.dataset.day) pick(t.dataset.day);
-    else pick(latestDay);
+    else pick(t.dataset.day);
   });
   page.addEventListener("change", e => {
     if (e.target.id !== "cal-month-pick") return;

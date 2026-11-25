@@ -251,7 +251,7 @@ details.ops-route[open] > summary .ops-row-chev { transform: rotate(90deg); }
 .cal-month { font-size: 20px; font-weight: bold; color: #636e73; padding: 10px 0; }
 /* Month buttons and Outgoing's truck buttons: 40px, the Assign row's size (Sarge, 2026-10-25;
    the source site's were about 120 x 48). */
-.cal-nav-center .btn-lg, .btn[data-truck] {
+.cal-nav .btn-lg, .btn[data-truck] {
   height: 40px; padding: 0 14px; font-size: 17px; display: inline-flex; align-items: center;
 }
 .cal-days { display: flex; flex-flow: wrap; }
@@ -283,15 +283,10 @@ details.ops-route[open] > summary .ops-row-chev { transform: rotate(90deg); }
   .cal-day { padding: 3px; }
 }
 
-/* Calendar header: the source site's two month buttons centred, the month picker to their right. */
-.cal-nav { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 8px; }
-.cal-nav-center { display: flex; gap: 8px; justify-content: center; }
-.cal-nav-right { display: flex; gap: 8px; align-items: center; justify-content: flex-start; }
-@media (max-width: 576px) {
-  .cal-nav { grid-template-columns: 1fr; }
-  .cal-nav > div:first-child { display: none; }
-  .cal-nav-right { justify-content: center; }
-}
+/* Calendar header (Sarge, 2026-11-25): the earlier month, the month picker, the later month,
+   centred on one line, all 40px tall. */
+.cal-nav { display: flex; align-items: center; justify-content: center; gap: 8px; }
+.cal-nav .cal-month-pick { height: 40px; font-size: 16px; }
 
 
 /* Map pins: numbered red dots, green once collected today. */
@@ -674,3 +669,167 @@ body.ops-viewer-open { overflow: hidden; }
 .ops-list-task .ops-card-main { min-width: 0; }
 /* The route list's control row: Truck…, Set as My Route and + Task on one line on a 375px phone. */
 .ops-route-body select[data-truck] { max-width: 126px; padding-right: 26px; background-position: right 6px center; }
+
+/* ── Header (Sarge, 2026-11-20: header C) ─────────────────────────────
+   Under 1200px: logo, Assign Routes and My Route, then search and the menu, all 44px
+   tall for gloved thumbs. From 1200px every link is in the row and the menu goes. */
+.ops-hdr { position: relative; z-index: 1500; background: #f8f9fa; border-bottom: 1px solid #dee2e6; }
+.ops-hdr-bar { display: flex; align-items: center; gap: 0; min-height: 56px; padding: 0 8px 0 10px; }
+/* A fixed box for the logo (logo-hdr.png, 210x150), so nothing shifts while it loads
+   (Sarge, 2026-11-25: the tabs jumped left and back on every page). */
+.ops-hdr-logo { height: 34px; width: 48px; object-fit: contain; margin-right: 4px; flex: 0 0 auto; }
+.ops-hdr-tab, .ops-hdr-link { display: inline-flex; align-items: center; height: 44px; padding: 0 10px;
+  color: #495057; text-decoration: none; white-space: nowrap; border-bottom: 3px solid transparent; }
+.ops-hdr-tab { font-size: 16px; font-weight: 600; }
+.ops-hdr-link { font-size: 15px; }
+.ops-hdr-tab:hover, .ops-hdr-link:hover { color: #212529; }
+.ops-hdr-tab.active, .ops-hdr-link.active { color: #0d6efd; border-bottom-color: #0d6efd; }
+.ops-hdr-short { display: none; }
+.ops-hdr-wide { display: none; align-items: center; }
+.ops-hdr-sep { width: 1px; height: 24px; background: #ced4da; margin: 0 6px; }
+.ops-hdr-gap { flex: 1 1 auto; }
+.ops-hdr-btns { display: inline-flex; gap: 4px; flex: 0 0 auto; }
+.ops-hdr-btn { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  width: 44px; height: 44px; padding: 0; border: 1px solid #ced4da; border-radius: 8px; background: #fff; color: #212529; }
+.ops-hdr-btn.ops-hdr-open { background: #e7f1ff; border-color: #0d6efd; color: #0d6efd; }
+.ops-hdr-search-text { display: none; }
+/* The menu: under the bar, full width, above Leaflet's maps (400/1000) and the Undo bar (1100). */
+.ops-menu { position: absolute; left: 0; right: 0; top: 100%; background: #fff; border-bottom: 1px solid #dee2e6;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12); max-height: calc(100vh - 56px); overflow-y: auto; }
+.ops-menu-item { display: flex; align-items: center; min-height: 46px; padding: 0 16px; font-size: 16px; color: #212529;
+  text-decoration: none; border-bottom: 1px solid #f1f3f5; }
+.ops-menu-item.active { color: #0d6efd; font-weight: 600; }
+/* Historical Totals: a button drawn exactly like the links, its small arrow beside the words. */
+.ops-menu-head { width: 100%; background: #fff; border: 0; border-bottom: 1px solid #f1f3f5; text-align: left;
+  font-family: inherit; line-height: inherit; }
+.ops-menu-arrow { font-size: 12px; color: #6c757d; margin-left: 8px; }
+.ops-menu-sub { min-height: 42px; padding-left: 32px; font-size: 15px; }
+/* Under 1200px (Sarge, 2026-11-25): logo, the three tabs and the search + menu pair spread
+   with four equal gaps; the buttons stay 44px. */
+@media (max-width: 1199.98px) {
+  .ops-hdr-bar { justify-content: space-between; padding: 0 8px; }
+  .ops-hdr-gap { display: none; }
+  .ops-hdr-tab { padding: 0; }
+  .ops-hdr-logo { margin-right: 0; }
+}
+/* A phone: "Assign" for "Assign Routes", so all of it fits a 375px phone. */
+@media (max-width: 459.98px) {
+  .ops-hdr-long { display: none; }
+  .ops-hdr-short { display: inline; }
+}
+/* Under 360px (an original iPhone SE): smaller tab text and logo, the buttons still 44px. */
+@media (max-width: 359.98px) {
+  .ops-hdr-bar { padding-left: 4px; padding-right: 4px; }
+  .ops-hdr-tab { font-size: 14px; }
+  .ops-hdr-logo { width: 36px; height: 26px; }
+}
+@media (min-width: 1200px) {
+  .ops-hdr-bar { min-height: 68px; padding: 0 24px; }
+  .ops-hdr-logo { height: 50px; width: 70px; margin-right: 12px; }
+  .ops-hdr-tab { font-size: 15px; padding: 0 8px; }
+  .ops-hdr-link { padding: 0 8px; }
+  .ops-hdr-wide { display: inline-flex; }
+  .ops-hdr-menu, .ops-menu { display: none !important; }
+  .ops-hdr-search { width: 200px; justify-content: flex-start; padding: 0 10px; color: #6c757d; height: 40px; }
+  .ops-hdr-search-text { display: inline; font-size: 15px; }
+}
+
+/* ── Search (ops-search.js) ─────────────────────────────────────────
+   Phone: its own screen, so the keyboard covers empty space. From 1200px: a panel
+   under the header's search box. */
+.ops-search { position: fixed; inset: 0; z-index: 1600; background: #fff; }
+.ops-s-panel { display: flex; flex-direction: column; height: 100%; }
+.ops-s-top { display: flex; align-items: center; gap: 6px; min-height: 56px; padding: 0 8px; background: #f8f9fa;
+  border-bottom: 1px solid #dee2e6; flex: 0 0 auto; }
+.ops-s-top .form-control { height: 44px; font-size: 16px; }
+.ops-s-back { width: 44px; height: 44px; flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center;
+  border: 0; background: transparent; color: #212529; padding: 0; }
+.ops-s-results { flex: 1 1 auto; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.ops-s-sec { padding: 10px 12px 4px; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+  color: #6c757d; background: #f8f9fa; border-bottom: 1px solid #e9ecef; }
+.ops-s-note { padding: 10px 12px; font-size: 14px; color: #6c757d; border-bottom: 1px solid #e9ecef; }
+.ops-s-row, .ops-s-link { display: flex; align-items: center; gap: 6px; min-height: 60px; padding: 6px 8px 6px 12px;
+  border-bottom: 1px solid #e9ecef; color: #212529; text-decoration: none; }
+.ops-s-link { min-height: 52px; }
+.ops-s-link:hover { background: #f8f9fa; color: #212529; }
+/* Ticked, as Assign Routes draws a picked line (on the cells: Safari paints no row border). */
+.ops-s-row.ops-s-picked { background: #eef4ff; box-shadow: inset 0 0 0 2px #0d6efd; }
+.ops-s-text { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.ops-s-name { font-size: 16px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ops-s-off .ops-s-name { color: #6c757d; }
+.ops-s-sub { font-size: 13px; color: #6c757d; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ops-s-sub .ops-proj, .ops-s-sub .ops-days, .ops-s-sub .graytext, .ops-s-sub .ops-muted { font-size: 13px; }
+.ops-s-name mark, .ops-s-sub mark { background: none; color: inherit; padding: 0; text-decoration: underline; text-underline-offset: 2px; }
+/* On a route: the route in a black oval (Sarge, 2026-11-20); a grey one for inactive. */
+.ops-s-rchip, .ops-s-chip { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.4; padding: 0 7px;
+  border-radius: 999px; white-space: nowrap; }
+.ops-s-rchip { background: #212529; color: #fff; }
+.ops-s-chip { background: #e9ecef; color: #495057; }
+.ops-s-must { color: #d00; font-weight: 600; }
+/* + then › (Sarge, 2026-11-20): + outlined blue on white, filled while its bar is open. */
+.ops-s-add, .ops-s-add-gap { flex: 0 0 auto; width: 44px; height: 40px; }
+.ops-s-add { display: inline-flex; align-items: center; justify-content: center; padding: 0; border: 1px solid #0d6efd;
+  border-radius: 6px; background: #fff; color: #0d6efd; font-size: 24px; line-height: 1; }
+.ops-s-add.ops-s-add-on { background: #0d6efd; color: #fff; }
+.ops-s-page { flex: 0 0 auto; width: 44px; height: 40px; padding: 0; font-size: 20px;
+  display: inline-flex; align-items: center; justify-content: center; }
+.ops-s-bar { position: static; flex: 0 0 auto; }
+body.ops-s-open { overflow: hidden; }
+@media (min-width: 1200px) {
+  .ops-search { inset: auto; top: 6px; right: 24px; width: 460px; max-height: calc(100vh - 12px); background: transparent; }
+  .ops-s-panel { height: auto; max-height: calc(100vh - 12px); background: #fff; border: 1px solid #ced4da; border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18); overflow: hidden; }
+  .ops-s-results { max-height: 60vh; }
+  body.ops-s-open { overflow: auto; }
+}
+
+/* ── Inactive Accounts (ops-inactive.html) ── phone: two lines a row; desktop: a table. */
+.ops-ina-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.ops-ina-title { font-size: 22px; font-weight: 700; margin: 0; }
+/* One line (Sarge, 2026-11-25): the dropdowns sized to the choice showing by fitControls(),
+   6px either side of the words; the search box takes the rest, up to the first dropdown.
+   16px text: iPhone zooms into anything smaller when it is tapped. A long ending ("Marked
+   inactive here") is cut short rather than pushing the line over. */
+.ops-ina-controls { display: flex; flex-wrap: nowrap; gap: 8px; margin: 8px 0 10px; }
+.ops-ina-controls .form-control, .ops-ina-controls .form-select { flex: 0 0 auto; min-width: 0; height: 44px; font-size: 16px; }
+.ops-ina-controls .form-control { flex: 1 1 auto; width: auto; }
+.ops-ina-controls #ina-ended { max-width: 46%; text-overflow: ellipsis; }
+.ops-ina-controls .form-control { padding: 0 6px; }
+.ops-ina-controls .form-select { padding: 0 26px 0 6px; background-position: right 6px center; }
+/* The built-in clear button holds room even when the box is empty: without it the hint fits. */
+.ops-ina-controls input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
+.ops-ina-year { display: flex; justify-content: space-between; padding: 6px 12px; font-size: 13px; font-weight: 600;
+  color: #495057; background: #f8f9fa; border-bottom: 1px solid #e9ecef; }
+.ops-ina-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "name end" "sub sub";
+  column-gap: 8px; row-gap: 2px; align-items: center; padding: 8px 12px; min-height: 56px;
+  border-bottom: 1px solid #e9ecef; color: #212529; text-decoration: none; }
+.ops-ina-row:hover { background: #f8f9fa; color: #212529; }
+.ops-ina-name { grid-area: name; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ops-ina-end { grid-area: end; }
+.ops-ina-end .ops-chip { font-size: 12px; padding: 1px 8px; }
+.ops-ina-sub { grid-area: sub; font-size: 13px; color: #6c757d; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ops-ina-id, .ops-ina-cols { display: none; }
+.ops-ina-sub .ops-ina-town:not(:empty) ~ .ops-ina-last::before, .ops-ina-sub .ops-ina-gal:not(:empty)::before { content: " · "; }
+@media (min-width: 768px) {
+  .ops-ina-cols, .ops-ina-row { display: grid; grid-template-areas: none;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 1.6fr) 64px 130px 110px 180px; column-gap: 12px; }
+  .ops-ina-cols { padding: 6px 12px; font-size: 13px; font-weight: 600; color: #495057; border-bottom: 2px solid #dee2e6; }
+  .ops-ina-row { min-height: 40px; padding: 0 12px; }
+  .ops-ina-name, .ops-ina-end { grid-area: auto; }
+  .ops-ina-sub { display: contents; font-size: 15px; color: #212529; }
+  .ops-ina-sub > span::before { content: none !important; }
+  .ops-ina-id { display: block; }
+  .ops-ina-row .ops-ina-id, .ops-ina-row .ops-ina-gal { text-align: right; color: #6c757d; font-size: 14px; }
+  .ops-ina-cols .ops-ina-id, .ops-ina-cols .ops-ina-gal { text-align: right; }
+  .ops-ina-controls .form-control { flex: 0 1 360px; }
+  .ops-ina-lbl { display: none; }
+}
+
+/* People in search (Sarge, 2026-11-25): name, role below, a call button where a customer has +
+   (green, as every call on the site), opening a menu with the number and Call. */
+.ops-s-callwrap { position: relative; flex: 0 0 auto; }
+/* My Route's Call ▾ (green, phone icon), as wide as + and › together. */
+.ops-s-call { width: 94px; height: 40px; display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+  padding: 0; font-size: 14px; font-weight: 600; white-space: nowrap; }
+.ops-s-call-list { right: 0; min-width: 210px; }
+.ops-s-call-num { font-size: 15px; color: #495057; padding: 0 4px; white-space: nowrap; }

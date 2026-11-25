@@ -6,7 +6,7 @@
   <title>Assign Routes (shadow) — Black Bear Biodiesel</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-  <link rel="stylesheet" href="ops.css?v=9dbb3813">
+  <link rel="stylesheet" href="ops.css?v=a352836b">
 </head>
 
 <body>
@@ -19,10 +19,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
 <script src="dashboard-utils.js?v=f5dcd574"></script>
 <script src="route-utils.js?v=343f24d5"></script>
-<script src="ops-common.js?v=adef959e"></script>
+<script src="ops-common.js?v=ca4df450"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.js" integrity="sha384-rwykjmWNwVxboyFmvK9OXN0wj9hnMHA2aAHtits54DuACyCq0M2PrSNxhRb+hvXT" crossorigin="anonymous"></script>
 <script src="site-gate.js?v=330ca4fa"></script>
 <script src="ops-db.js?v=d2ed0858"></script>
+<script src="ops-search.js?v=05387cd3"></script>
 <script>
 /*
  * Assign Routes (shadow). The source site's list of active customers, one
@@ -478,6 +479,8 @@ function buildShell() {
     if (open) document.getElementById("add-name").focus();
   };
   document.getElementById("add-open").addEventListener("click", () => openAdd(form.hidden));
+  // Search's "Add customer" action arrives as #add: the form opens.
+  if (window.location.hash === "#add") { openAdd(true); history.replaceState(null, "", "ops-assign.html"); }
   document.getElementById("add-cancel").addEventListener("click", () => {
     form.reset(); sharedSearch = ""; sharedWith = null; drawShared(); openAdd(false);
     takeSearch = ""; takeOver = null; drawTake();

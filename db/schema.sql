@@ -649,20 +649,24 @@ create policy "members only" on public.customer_contacts for all to authenticate
 revoke all on public.customer_contacts from anon;
 grant select, insert, update, delete on public.customer_contacts to authenticated;
 
--- The office's own numbers, for My Route's "Call ▾" (Jim, Stacey): one row per
+-- The office's own numbers, for My Route's "Call ▾" and the Ops search's People
+-- (Jim, Stacey, Sarge, Patrick): one row per
 -- person a driver may need to ring from the truck, in menu order. Added by hand
 -- in the SQL editor, never through the website or the repo (the site is public;
 -- these numbers live only here, behind the login). `name` is what the menu shows
 -- ("Call Jim"); a member signed in under the same name on `people` does not see
 -- their own. For example:
---   insert into public.office_phones (name, phone, position) values
---     ('Jim', '+18025550100', 1), ('Stacey', '+18025550101', 2)
---   on conflict (name) do update set phone = excluded.phone, position = excluded.position;
+--   insert into public.office_phones (name, phone, position, role) values
+--     ('Jim', '+18025550100', 1, 'Owner'), ('Stacey', '+18025550101', 2, 'Manager')
+--   on conflict (name) do update set phone = excluded.phone, position = excluded.position,
+--     role = excluded.role;
+-- `role` (Sarge, 2026-11-25) shows under the name in search: Owner, Manager, Ops & data, Driver.
 create table if not exists public.office_phones (
   name     text primary key check (char_length(name) between 1 and 40),
   phone    text not null check (phone ~ '^\+?[0-9]{7,15}$'),
   position integer not null default 0
 );
+alter table public.office_phones add column if not exists role text check (char_length(role) <= 40);
 alter table public.office_phones enable row level security;
 drop policy if exists "members read" on public.office_phones;
 create policy "members read" on public.office_phones for select to authenticated

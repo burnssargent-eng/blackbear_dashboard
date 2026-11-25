@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inactive Accounts (shadow) — Black Bear Biodiesel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="stylesheet" href="ops.css?v=9dbb3813">
+</head>
+
+<body>
+<div id="nav"></div>
+<div id="banner"></div>
+<div class="container py-3" id="page">Loading…</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+<script src="dashboard-utils.js?v=f5dcd574"></script>
+<script src="route-utils.js?v=343f24d5"></script>
+<script src="ops-common.js?v=adef959e"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.js" integrity="sha384-rwykjmWNwVxboyFmvK9OXN0wj9hnMHA2aAHtits54DuACyCq0M2PrSNxhRb+hvXT" crossorigin="anonymous"></script>
+<script src="site-gate.js?v=330ca4fa"></script>
+<script src="ops-db.js?v=d2ed0858"></script>
+<script src="ops-search.js?v=00000000"></script>
+<script>
+/*
+ * Inactive Accounts (Sarge, 2026-11-20): the source site's Inactive list. Every
+ * account not on its Assign list (from customer_history.json: name, town, last
+ * pickup, gallons and how its business ended, the customer page's chip), plus
+ * customers still on the Assign list but marked Inactive on the customer page.
+ * Each opens its customer page (view-only for a source-site inactive account).
+ * In the nav as "Inactive".
+ */
+
+let data = null, store = null, hist = null;
+let view = { q: "", sort: "last", ended: "" };
+
+const MARKED = "marked";
+const INACTIVE_LABELS = { ...END_REASON_LABELS, [MARKED]: "Marked inactive here" };
+
+/** Every inactive account, one row each. */
+function inactiveRows() {
+  const activeIds = new Set((data.snap.assign_list || []).map(a => a.customer_id));
+  const rows = opsInactiveAccounts(hist, activeIds, store).map(r => ({ ...r, kind: r.ended }));
+  (data.snap.assign_list || []).forEach(a => {
+    const row = data.index.get(a.customer_id) || null;
+    if (isReplaced(store, a.customer_id) || !opsSearchMarkedInactive(a.customer_id, row)) return;
+    rows.push({ id: a.customer_id, name: a.name || (row && row.name) || `#${a.customer_id}`,
+      town: townLabel((row && row.town) || a.city || ""), last: (row && row.last_pickup) || "",
+      gallons: null, kind: MARKED });
+  });
+  return rows;
+}
+
+function visible(rows) {
+  const q = view.q;
+  const out = rows.filter(r => (!view.ended || r.kind === view.ended) &&
+    (!opsNorm(q) || String(r.id) === q.replace("#", "").trim() || opsMatchTier(q, [r.name], [r.town]) !== null));
+  const by = {
+    last: (a, b) => (b.last || "").localeCompare(a.last || "") || a.name.localeCompare(b.name),
+    name: (a, b) => a.name.localeCompare(b.name),
+    town: (a, b) => (a.town || "~").localeCompare(b.town || "~") || a.name.localeCompare(b.name),
+    gallons: (a, b) => (b.gallons || 0) - (a.gallons || 0),
+  }[view.sort];
+  return out.sort(by);
+}
+
+function rowHtml(r) {
+  const chip = `<span class="ops-chip ops-chip-end-${r.kind === MARKED ? "marked" : r.kind}">${escapeHtml(INACTIVE_LABELS[r.kind] || r.kind)}</span>`;
+  const last = r.last ? opsShortDate(r.last) : "no pickups";
+  return `<a class="ops-ina-row" href="ops-customer.html?id=${r.id}">
+    <span class="ops-ina-name">${escapeHtml(r.name)}</span>
+    <span class="ops-ina-sub"><span class="ops-ina-town">${escapeHtml(r.town || "")}</span><span class="ops-ina-id">#${r.id}</span><span
+      class="ops-ina-last"><span class="ops-ina-lbl">last </span>${escapeHtml(last)}</span><span
+      class="ops-ina-gal">${r.gallons === null ? "" : `${formatNumber(r.gallons)}<span class="ops-ina-lbl"> gal</span>`}</span></span>
+    <span class="ops-ina-end">${chip}</span>
+  </a>`;
+}
+
+function render() {
+  const all = inactiveRows();
+  const rows = visible(all);
+  let body = "";
+  if (view.sort === "last") {
+    let year = null;
+    const counts = new Map();
+    rows.forEach(r => { const y = (r.last || "").slice(0, 4) || "No pickups"; counts.set(y, (counts.get(y) || 0) + 1); });
+    rows.forEach(r => {
+      const y = (r.last || "").slice(0, 4) || "No pickups";
+      if (y !== year) { year = y; body += `<div class="ops-ina-year"><span>${escapeHtml(y)}</span><span>${counts.get(y)}</span></div>`; }
+      body += rowHtml(r);
+    });
+  } else body = rows.map(rowHtml).join("");
+  const kinds = [...new Set(all.map(r => r.kind))].sort((a, b) =>
+    Object.keys(INACTIVE_LABELS).indexOf(a) - Object.keys(INACTIVE_LABELS).indexOf(b));
+  if (!document.getElementById("ina-list")) {
+    document.getElementById("page").innerHTML = `
+      <div class="ops-ina-head"><h1 class="ops-ina-title">Inactive Accounts</h1><span class="ops-muted" id="ina-count"></span></div>
+      <div class="ops-muted mb-2">Not on the source site's Assign list, or marked Inactive on the customer page. Each opens its customer page.</div>
+      <div class="ops-ina-controls">
+        <input type="search" id="ina-q" class="form-control" placeholder="Name, town or #" aria-label="Search inactive accounts">
+        <select id="ina-ended" class="form-select" aria-label="How it ended"></select>
+        <select id="ina-sort" class="form-select" aria-label="Sort">
+          <option value="last">Recent</option><option value="name">Name</option>
+          <option value="town">Town</option><option value="gallons">Gals</option>
+        </select>
+      </div>
+      <div class="ops-ina-cols" aria-hidden="true"><span>Name</span><span>Town</span><span class="ops-ina-id">No.</span>
+        <span>Last pickup</span><span class="ops-ina-gal">All-time gal</span><span>How it ended</span></div>
+      <div id="ina-list"></div>`;
+    const page = document.getElementById("page");
+    page.addEventListener("input", e => { if (e.target.id === "ina-q") { view.q = e.target.value; render(); } });
+    page.addEventListener("change", e => {
+      if (e.target.id === "ina-sort") { view.sort = e.target.value; render(); }
+      if (e.target.id === "ina-ended") { view.ended = e.target.value; render(); }
+      fitControls();
+    });
+  }
+  document.getElementById("ina-ended").innerHTML = `<option value="">All types</option>` + kinds.map(k =>
+    `<option value="${k}"${k === view.ended ? " selected" : ""}>${escapeHtml(INACTIVE_LABELS[k] || k)}</option>`).join("");
+  document.getElementById("ina-count").textContent = rows.length === all.length ? `${all.length}` : `${rows.length} of ${all.length}`;
+  document.getElementById("ina-list").innerHTML = rows.length ? body : `<div class="text-muted py-3">No accounts match.</div>`;
+  fitControls();
+}
+
+/**
+ * Each dropdown as wide as the choice showing (Sarge, 2026-11-25), 6px either side of its
+ * words; the search box takes the rest of the line.
+ */
+function fitControls() {
+  // A hidden copy of the words in the control's own font, measured as the page draws them.
+  const probe = fitControls.probe || (fitControls.probe = document.body.appendChild(Object.assign(
+    document.createElement("span"), { style: "position:absolute;visibility:hidden;white-space:pre;left:-9999px;top:0" })));
+  const fit = (el, text) => {
+    if (!el) return;
+    const cs = window.getComputedStyle(el);
+    probe.style.font = cs.font;
+    probe.style.letterSpacing = cs.letterSpacing;
+    probe.textContent = text;
+    const edges = ["paddingLeft", "paddingRight", "borderLeftWidth", "borderRightWidth"].reduce((t, k) => t + parseFloat(cs[k]), 0);
+    el.style.width = `${Math.ceil(probe.getBoundingClientRect().width + edges) + 1}px`;
+  };
+  ["ina-ended", "ina-sort"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.selectedIndex >= 0) fit(el, el.options[el.selectedIndex].text);
+  });
+}
+
+async function init() {
+  document.getElementById("nav").innerHTML = opsNavHtml("inactive");
+  try {
+    [data, hist] = await Promise.all([
+      loadOpsData(),
+      fetch(`customer_history.json?v=${Date.now()}`).then(r => {
+        if (!r.ok) throw new Error(`Could not load customer_history.json (HTTP ${r.status})`);
+        return r.json();
+      }),
+    ]);
+    store = await opsOpenStore(data.snap, { index: data.index, onRemote: s => { store = s; render(); } });
+  } catch (err) {
+    document.getElementById("page").innerHTML = `<div class="alert alert-danger">${escapeHtml(err.message)}</div>`;
+    return;
+  }
+  const banner = document.getElementById("banner");
+  banner.innerHTML = shadowBannerHtml(store, data.snap);
+  wireShadowReset(banner, data.snap, fresh => { store = fresh; banner.innerHTML = shadowBannerHtml(store, data.snap); render(); });
+  render();
+}
+
+init();
+</script>
+</body>
+</html>
