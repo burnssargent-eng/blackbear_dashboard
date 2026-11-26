@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-25T17:50:32.237899",
+  "last_updated": "2026-11-26T17:33:55.108451",
   "monthly_by_town": [
     {
       "month": "2015-01",
@@ -34545,6 +34545,12 @@
     },
     {
       "month": "2026-11",
+      "geo_town": "Glover",
+      "gallons": 220,
+      "city": "Glover"
+    },
+    {
+      "month": "2026-11",
       "geo_town": "Hardwick",
       "gallons": 310,
       "city": "Hardwick"
@@ -42629,7 +42635,7 @@
     {
       "month": "2026-11",
       "county": "Orleans",
-      "gallons": 442
+      "gallons": 662
     },
     {
       "month": "2026-11",
@@ -42704,11 +42710,11 @@
     },
     {
       "year": 2026,
-      "gallons": 264632
+      "gallons": 264852
     }
   ],
-  "all_time_total": 2183245,
-  "current_year_total": 264632,
+  "all_time_total": 2183465,
+  "current_year_total": 264852,
   "customer_count": 809,
   "unmapped_total": 40915,
   "monthly_totals": [
@@ -43282,7 +43288,7 @@
     },
     {
       "month": "2026-11",
-      "gallons": 16706
+      "gallons": 16926
     }
   ],
   "monthly_by_region": [
@@ -54514,7 +54520,7 @@
     {
       "month": "2026-11",
       "region": "North-Northeast",
-      "gallons": 280
+      "gallons": 500
     },
     {
       "month": "2026-11",
@@ -55581,7 +55587,7 @@
     {
       "year": 2026,
       "region": "North-Northeast",
-      "gallons": 15822
+      "gallons": 16042
     },
     {
       "year": 2026,
@@ -55700,20 +55706,20 @@
     "Other": "customers not assigned to a named region"
   },
   "collections_file": "oil_collections.json",
-  "collections_count": 28124,
+  "collections_count": 28125,
   "out_of_state_total": 40915,
   "active_customer_count": 534,
   "projection": {
     "latest_data_date": "2026-11-25",
     "current_year": 2026,
     "previous_year": 2025,
-    "current_ytd": 264632,
+    "current_ytd": 264852,
     "previous_year_full": 269818,
     "previous_through_prior_month": 230757,
     "previous_same_month_total": 20186,
     "previous_prorated_ytd": 247578.67,
-    "projected_current_year": 288403,
-    "percent_vs_previous_year": 0.06888
+    "projected_current_year": 288643,
+    "percent_vs_previous_year": 0.069769
   },
   "region_stats": {
     "Burlington / South Burlington": {

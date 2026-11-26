@@ -1,62 +1,62 @@
 {
- "data_last_updated": "2026-11-25T17:50:32.237899",
+ "data_last_updated": "2026-11-26T17:33:55.108451",
  "latest_pickup": "2026-11-25",
  "summary": [
   {
    "window": "Last 7 days",
    "from": "2026-11-19",
-   "scored": 58,
+   "scored": 59,
    "not_projected": 0,
-   "projected_total": 3758.9,
-   "actual_total": 3225,
-   "net_error": 533.9,
-   "wape": 33.2,
-   "bias": 16.6,
-   "median_miss": 16.1,
+   "projected_total": 3931.4,
+   "actual_total": 3445,
+   "net_error": 486.4,
+   "wape": 32.5,
+   "bias": 14.1,
+   "median_miss": 16.2,
    "vs_line": {
-    "paired": 56,
-    "wape_new": 33.0,
-    "bias_new": 17.6,
-    "wape_line": 27.6,
-    "bias_line": 10.0
+    "paired": 57,
+    "wape_new": 32.2,
+    "bias_new": 15.0,
+    "wape_line": 26.6,
+    "bias_line": 8.5
    }
   },
   {
    "window": "Last 30 days",
    "from": "2026-10-27",
-   "scored": 267,
+   "scored": 268,
    "not_projected": 8,
-   "projected_total": 19708.9,
-   "actual_total": 18753,
-   "net_error": 955.9,
-   "wape": 30.5,
-   "bias": 5.1,
+   "projected_total": 19881.4,
+   "actual_total": 18973,
+   "net_error": 908.4,
+   "wape": 30.4,
+   "bias": 4.8,
    "median_miss": 14.1,
    "vs_line": {
-    "paired": 246,
-    "wape_new": 30.5,
-    "bias_new": 4.8,
-    "wape_line": 29.5,
-    "bias_line": 0.3
+    "paired": 247,
+    "wape_new": 30.4,
+    "bias_new": 4.4,
+    "wape_line": 29.3,
+    "bias_line": 0.1
    }
   },
   {
    "window": "All",
    "from": null,
-   "scored": 589,
+   "scored": 590,
    "not_projected": 48,
-   "projected_total": 43465.7,
-   "actual_total": 43163,
-   "net_error": 302.7,
-   "wape": 29.8,
-   "bias": 0.7,
+   "projected_total": 43638.2,
+   "actual_total": 43383,
+   "net_error": 255.2,
+   "wape": 29.7,
+   "bias": 0.6,
    "median_miss": 13.9,
    "vs_line": {
-    "paired": 246,
-    "wape_new": 30.5,
-    "bias_new": 4.8,
-    "wape_line": 29.5,
-    "bias_line": 0.3
+    "paired": 247,
+    "wape_new": 30.4,
+    "bias_new": 4.4,
+    "wape_line": 29.3,
+    "bias_line": 0.1
    }
   }
  ],
@@ -99,20 +99,20 @@
   },
   {
    "stage": "established",
-   "scored": 329,
+   "scored": 330,
    "not_projected": 0,
-   "projected_total": 24922.3,
-   "actual_total": 24804,
-   "net_error": 118.3,
-   "wape": 28.6,
-   "bias": 0.5,
-   "median_miss": 13.5,
+   "projected_total": 25094.8,
+   "actual_total": 25024,
+   "net_error": 70.8,
+   "wape": 28.5,
+   "bias": 0.3,
+   "median_miss": 13.6,
    "vs_line": {
-    "paired": 196,
-    "wape_new": 29.0,
-    "bias_new": 3.6,
-    "wape_line": 27.8,
-    "bias_line": -0.4
+    "paired": 197,
+    "wape_new": 28.9,
+    "bias_new": 3.2,
+    "wape_line": 27.5,
+    "bias_line": -0.6
    }
   },
   {
@@ -199,22 +199,37 @@
  "days": [
   {
    "date": "2026-11-25",
-   "scored": 1,
+   "scored": 2,
    "not_projected": 0,
-   "projected_total": 59.8,
-   "actual_total": 20,
-   "net_error": 39.8,
-   "wape": 199.0,
-   "bias": 199.0,
-   "median_miss": 39.8,
+   "projected_total": 232.3,
+   "actual_total": 240,
+   "net_error": -7.7,
+   "wape": 36.4,
+   "bias": -3.2,
+   "median_miss": 43.6,
    "vs_line": {
-    "paired": 1,
-    "wape_new": 199.0,
-    "bias_new": 199.0,
-    "wape_line": 135.0,
-    "bias_line": 135.0
+    "paired": 2,
+    "wape_new": 36.4,
+    "bias_new": -3.2,
+    "wape_line": 22.2,
+    "bias_line": 0.3
    },
    "rows": [
+    {
+     "id": 537,
+     "name": "Parker Pie- West Glover",
+     "town": "Glover",
+     "stage": "established",
+     "section": "ranked",
+     "previous_pickup": "2026-09-15",
+     "predicted_as_of": "2026-11-25",
+     "projected": 172.5,
+     "range_low": 134.6,
+     "range_high": 210.3,
+     "actual": 220,
+     "error": -47.5,
+     "pct_error": -21.6
+    },
     {
      "id": 1161,
      "name": "The NEW Forge-Randolph",

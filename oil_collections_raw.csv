@@ -21085,6 +21085,7 @@ customer_id,name,city,county,date,year,month,gallons,is_active,geo_town
 1205,Sundance-(Mount Snow),West Dover,Windham,2025-02-20,2025,2025-02,100,True,Dover
 1205,Sundance-(Mount Snow),West Dover,Windham,2023-11-29,2023,2023-11,50,True,Dover
 1205,Sundance-(Mount Snow),West Dover,Windham,2023-01-30,2023,2023-01,30,True,Dover
+537,Parker Pie- West Glover,West Glover,Orleans,2026-11-25,2026,2026-11,220,True,Glover
 537,Parker Pie- West Glover,West Glover,Orleans,2026-09-15,2026,2026-09,150,True,Glover
 537,Parker Pie- West Glover,West Glover,Orleans,2026-07-24,2026,2026-07,230,True,Glover
 537,Parker Pie- West Glover,West Glover,Orleans,2026-04-29,2026,2026-04,250,True,Glover
